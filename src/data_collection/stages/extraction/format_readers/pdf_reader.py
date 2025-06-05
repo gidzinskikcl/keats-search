@@ -1,5 +1,5 @@
 import fitz  # PyMuPDF
-from data_collection.stages.parsing.format_readers import reader
+from data_collection.stages.extraction.format_readers import reader
 
 class PDFReader(reader.Reader):
     """
