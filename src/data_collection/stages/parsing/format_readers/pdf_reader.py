@@ -1,15 +1,14 @@
 import fitz  # PyMuPDF
 
-from data_collection.stages.parsing.format_parsers import parser
+from data_collection.stages.parsing.format_readers import reader
 
 
-class PDFParser(parser.Parser):
+class PDFReader(reader.Reader):
     """
-    Concrete parser for PDF files.
-    It implements text extraction using PyMuPDF.
+    Concrete content extractor for PDF files.
     """
 
-    def parse_text(self, file_path: str) -> str:
+    def get_text(self, file_path: str) -> str:
         """
         Extracts text from a PDF file using PyMuPDF.
         """
@@ -21,19 +20,19 @@ class PDFParser(parser.Parser):
                     text = page.get_text()
                     extracted_text.append(text)
         except Exception as e:
-            print(f"Error parsing PDF: {e}")
+            print(f"Error reading PDF: {e}")
             raise e
         
         result =  "\n".join(extracted_text)
         return result
 
-    def parse_images(self, file_path: str) -> list:
+    def get_images(self, file_path: str) -> list:
         """
         Image extraction is not implemented yet.
         """
         raise NotImplementedError("Image extraction is not implemented yet.")
 
-    def parse_vector_graphics(self, file_path: str) -> list:
+    def get_vector_graphics(self, file_path: str) -> list:
         """
         Vector graphics extraction is not implemented yet.
         """
