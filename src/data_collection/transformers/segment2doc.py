@@ -1,4 +1,4 @@
-from data_collection.stages.transformation.transformers import transformer
+from data_collection.transformers import transformer
 from data_structures.segment import Segment
 from data_structures.document import Document, FileType, ContentType
 

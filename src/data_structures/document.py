@@ -1,3 +1,4 @@
+from abc import ABC
 from dataclasses import dataclass
 import enum
 
@@ -16,7 +17,15 @@ class FileType(enum.Enum):
     UNKNOWN = "unknown"
 
 @dataclass
-class Document:
+class AbstractDocument(ABC):
+    """
+    Abstract base class for documents, defining common attributes and methods.
+    This class is not meant to be instantiated directly.
+    """
+    doc_id: str
+
+@dataclass
+class Document(AbstractDocument):
     """
     Represents a document (segment) of content from a course, including videos or slides.
 
