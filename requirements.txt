@@ -1,3 +1,5 @@
+mongomock
+pymongo
+PyMuPDF
 pytest
 python-pptx
-PyMuPDF

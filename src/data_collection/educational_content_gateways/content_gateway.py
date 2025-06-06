@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from data_structures import segment, content
+from entities import segment, content
 
 class EducationalContentGateway(ABC):
     """

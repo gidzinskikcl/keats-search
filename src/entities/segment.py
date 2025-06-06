@@ -1,4 +1,4 @@
-from data_structures import content
+from entities import content
 
 from dataclasses import dataclass
 

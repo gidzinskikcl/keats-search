@@ -1,6 +1,6 @@
 import pytest
 from data_collection.educational_content_gateways import pdf_gateway
-from data_structures import segment
+from entities import segment
 
 
 TEST_DATA_DIR = "tests/data/extraction"

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from data_structures import content, document
+from entities import content, document
 
 class Transformer(ABC):
     @abstractmethod

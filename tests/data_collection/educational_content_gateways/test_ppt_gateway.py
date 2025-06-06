@@ -1,6 +1,6 @@
 import pytest
 from data_collection.educational_content_gateways import ppt_gateway
-from data_structures import segment
+from entities import segment
 
 TEST_DATA_DIR = "tests/data/extraction"
 TEST_PPT_FILE = TEST_DATA_DIR + "/text_test.pptx"
