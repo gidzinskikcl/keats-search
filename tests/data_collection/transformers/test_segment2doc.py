@@ -1,7 +1,6 @@
 import pytest
 from data_collection.transformers import segment2doc
-from data_structures import segment
-from data_structures import document
+from entities import segment, document
 
 @pytest.fixture
 def transformer():

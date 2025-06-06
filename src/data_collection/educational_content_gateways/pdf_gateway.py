@@ -1,6 +1,6 @@
 import fitz  # PyMuPDF
 from data_collection.educational_content_gateways import content_gateway as gateway
-from data_structures import segment, content
+from entities import segment, content
 
 class PDFGateway(gateway.EducationalContentGateway):
     """

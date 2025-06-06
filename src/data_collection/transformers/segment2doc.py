@@ -1,9 +1,8 @@
 from data_collection.transformers import transformer
-from data_structures.segment import Segment
-from data_structures.document import Document, FileType, ContentType
+from entities import segment, document
 
 class Segment2DocumentTransformer(transformer.Transformer):
-    def transform(self, segment: Segment) -> Document:
+    def transform(self, segment: segment.Segment) -> document.Document:
         file_metadata = segment.file_metadata
         
         # Derive doc_id using a combination of course_id, segment number, or other logic
@@ -17,16 +16,16 @@ class Segment2DocumentTransformer(transformer.Transformer):
         # Determine file type (basic example)
         file_extension = file_metadata.get("file_extension", "").lower()
         if file_extension == "pdf":
-            file_type = FileType.PDF
+            file_type = document.FileType.PDF
         elif file_extension == "ppt":
-            file_type = FileType.PPT
+            file_type = document.FileType.PPT
         elif file_extension == "mp4":
-            file_type = FileType.MP4
+            file_type = document.FileType.MP4
         else:
-            file_type = FileType.UNKNOWN
+            file_type = document.FileType.UNKNOWN
 
         # Determine content type
-        content_type = ContentType.TEXT  # Defaulting to text here
+        content_type = document.ContentType.TEXT  # Defaulting to text here
 
         # Extract keywords from metadata
         keywords_str = file_metadata.get("keywords", "")
@@ -53,7 +52,7 @@ class Segment2DocumentTransformer(transformer.Transformer):
         end_time = file_metadata.get("end_time", "")
 
         # Compose Document
-        document = Document(
+        result = document.Document(
             doc_id=doc_id,
             segment_nr=segment.segment_nr,
             start_time=start_time,
@@ -77,4 +76,4 @@ class Segment2DocumentTransformer(transformer.Transformer):
             version=version
         )
 
-        return document
+        return result
