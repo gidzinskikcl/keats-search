@@ -1,5 +1,5 @@
 import pytest
-from data_collection.stages.extraction.format_readers import ppt_reader
+from data_collection.educational_content_gateways import ppt_gateway
 from data_structures import segment
 
 TEST_DATA_DIR = "tests/data/extraction"
@@ -8,7 +8,7 @@ EMPTY_PPT_FILE = TEST_DATA_DIR + "/empty.pptx"
 
 @pytest.fixture
 def reader():
-    return ppt_reader.PPTReader()
+    return ppt_gateway.PPTGateway()
 
 
 def test_get_text_with_real_ppt(reader):
@@ -40,11 +40,15 @@ def test_get_text_file_not_found(reader):
     with pytest.raises(Exception):
         reader.get_text(fake_path, 1)
 
-def test_load_segments(reader):
-    metadata = {"title": "Test Presentation"}
-    nr_segments = 2
+def test_get(reader):
+    metadata = {
+        "id": "120004213",
+        "title": "Test Presentation", 
+        "nr_segments": 2,
+    }
+    nr_segments = metadata.get("nr_segments", 0)
 
-    segments = reader.load_segments(TEST_PPT_FILE, metadata, nr_segments)
+    segments = reader.get(TEST_PPT_FILE, metadata)
 
     assert isinstance(segments, list)
     assert len(segments) == nr_segments
@@ -55,13 +59,3 @@ def test_load_segments(reader):
         assert isinstance(seg.text, str)
         assert seg.file_metadata == metadata
         assert seg.text.strip() != "", f"Slide {idx} text should not be empty."
-
-
-def test_get_images_raises(reader):
-    with pytest.raises(NotImplementedError):
-        reader.get_images("dummy.pptx", 1)
-
-
-def test_get_vector_graphics_raises(reader):
-    with pytest.raises(NotImplementedError):
-        reader.get_vector_graphics("dummy.pptx", 1)

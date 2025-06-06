@@ -1,5 +1,5 @@
 import pytest
-from data_collection.stages.transformation.transformers import segment2doc
+from data_collection.transformers import segment2doc
 from data_structures import segment
 from data_structures import document
 
@@ -8,14 +8,15 @@ def transformer():
     return segment2doc.Segment2DocumentTransformer()
 
 @pytest.mark.parametrize(
-    "segment_nr, text, file_metadata, expected_doc_id, expected_file_type, expected_content_type, expected_keywords, expected_length, expected_start_time, expected_end_time",
+    "text, file_metadata, expected_doc_id, expected_file_type, expected_content_type, expected_keywords, expected_length, expected_start_time, expected_end_time",
     [
         (
-            1,
             "This is some sample text for slide 1.",
             {
                 "doc_id": "7CCSMATAI_w1_seg_1",
                 "course_id": "7CCSMATAI",
+                "segment_id": "2599942",
+                "segment_nr": 1,
                 "file_extension": "pdf",
                 "doc_title": "Lecture 1",
                 "course_title": "Advanced Topics in AI",
@@ -39,11 +40,12 @@ def transformer():
             ""
         ),
         (
-            2,
             "This is a transcript for video segment 2.",
             {
                 "doc_id": "7CCSMATAI_v1_seg_2",
                 "course_id": "7CCSMATAI",
+                "segment_id": "2599943",
+                "segment_nr": 2,
                 "file_extension": "mp4",
                 "doc_title": "Lecture 2",
                 "course_title": "Advanced Topics in AI",
@@ -72,7 +74,6 @@ def transformer():
 )
 def test_transform_segment_to_document(
     transformer,
-    segment_nr,
     text,
     file_metadata,
     expected_doc_id,
@@ -84,7 +85,8 @@ def test_transform_segment_to_document(
     expected_end_time
 ):
     sgmnt = segment.Segment(
-        segment_nr=segment_nr,
+        id=file_metadata["segment_id"],
+        segment_nr=file_metadata["segment_nr"],
         text=text,
         file_metadata=file_metadata
     )
@@ -94,7 +96,7 @@ def test_transform_segment_to_document(
     # Assertions
     assert document.doc_id == expected_doc_id
     assert document.doc_title == file_metadata["doc_title"]
-    assert document.segment_nr == segment_nr
+    assert document.segment_nr == file_metadata["segment_nr"]
     assert document.text == text
     assert document.url == file_metadata["url"]
     assert document.start_time == expected_start_time
