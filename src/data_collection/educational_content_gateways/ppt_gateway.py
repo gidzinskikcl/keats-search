@@ -9,11 +9,15 @@ class PPTGateway(gateway.EducationalContentGateway):
     This reader supports extracting text from individual slides (segments).
     """
 
-    def get(
-        self,
-        file_path: str,
-        metadata: dict[str, str],
-    ) -> list[segment.Segment]:
+    def __init__(self):
+        """
+        Initializes the PPTGateway with an optional file path.
+        """
+        self._file_path = ""
+        self._metadata = {}
+
+
+    def get(self) -> list[segment.Segment]:
         """
         Extracts segments from the file by applying extraction methods.
 
@@ -27,26 +31,27 @@ class PPTGateway(gateway.EducationalContentGateway):
         """
         results = []
 
-        nr_segments = metadata.get("nr_segments", 0)
+        nr_segments = self._metadata.get("nr_segments", 0)
 
         for s in range(nr_segments):
-            combined_text = self.get_text(file_path, s + 1)
+            combined_text = self.get_text(self._file_path, s + 1)
             # In the future, you might also call:
             # images = self.get_images(file_path, s + 1)
             # vector_graphics = self.get_vector_graphics(file_path, s + 1)
             # Then aggregate them as needed.
 
             sgmnt = segment.Segment(
-                id=metadata.get("id", ""),
+                id=self._metadata.get("id", ""),
                 segment_nr=s + 1,
                 text=combined_text,
-                file_metadata=metadata
+                file_metadata=self._metadata
             )
             results.append(sgmnt)
 
         return results
 
-    def get_text(self, file_path: str, segment_nr: int) -> str:
+    @staticmethod
+    def get_text(file_path: str, segment_nr: int) -> str:
         """
         Extract text from a specific slide (segment) of a PowerPoint file.
 
@@ -81,41 +86,39 @@ class PPTGateway(gateway.EducationalContentGateway):
             raise e
 
         return result
+    
+    def set_file_path(self, file_path: str) -> None:
+        """
+        Sets the file path for the PowerPoint file to be processed.
 
-    # def get_images(self, file_path: str, segment_nr: int) -> list:
-    #     """
-    #     Extract images from a specific slide (segment) of a PowerPoint file.
+        Args:
+            file_path (str): The path to the PowerPoint file.
+        """
+        self._file_path = file_path
 
-    #     Note:
-    #         Currently, this method is not implemented.
+    def get_file_path(self) -> str:
+        """
+        Returns the current file path set for the PowerPoint file.
 
-    #     Args:
-    #         file_path (str): The path to the PowerPoint (.pptx) file.
-    #         segment_nr (int): The 1-based index of the slide to extract images from.
+        Returns:
+            str: The path to the PowerPoint file.
+        """
+        return self._file_path
+    
+    def set_metadata(self, metadata: dict) -> None:
+        """
+        Sets the metadata for the PowerPoint file.
 
-    #     Returns:
-    #         list: An empty list (always raises NotImplementedError).
+        Args:
+            metadata (dict): Metadata associated with the PowerPoint file.
+        """
+        self._metadata = metadata
 
-    #     Raises:
-    #         NotImplementedError: Always, since this method is not yet implemented.
-    #     """
-    #     raise NotImplementedError("Image extraction is not implemented yet.")
+    def get_metadata(self) -> dict:
+        """
+        Returns the current metadata set for the PowerPoint file.
 
-    # def get_vector_graphics(self, file_path: str, segment_nr: int) -> list:
-    #     """
-    #     Extract vector graphics from a specific slide (segment) of a PowerPoint file.
-
-    #     Note:
-    #         Currently, this method is not implemented.
-
-    #     Args:
-    #         file_path (str): The path to the PowerPoint (.pptx) file.
-    #         segment_nr (int): The 1-based index of the slide to extract vector graphics from.
-
-    #     Returns:
-    #         list: An empty list (always raises NotImplementedError).
-
-    #     Raises:
-    #         NotImplementedError: Always, since this method is not yet implemented.
-    #     """
-    #     raise NotImplementedError("Vector graphics extraction is not implemented yet.")
+        Returns:
+            dict: Metadata associated with the PowerPoint file.
+        """
+        return self._metadata

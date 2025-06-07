@@ -1,4 +1,5 @@
 mongomock
+pyyaml
 pymongo
 PyMuPDF
 pytest

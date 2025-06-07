@@ -1,6 +1,7 @@
 import fitz  # PyMuPDF
+
 from data_collection.educational_content_gateways import content_gateway as gateway
-from entities import segment, content
+from entities import segment
 
 class PDFGateway(gateway.EducationalContentGateway):
     """
@@ -9,11 +10,14 @@ class PDFGateway(gateway.EducationalContentGateway):
     Supports extracting text from individual pages (segments) of a PDF file.
     """
 
-    def get(
-        self,
-        file_path: str,
-        metadata: dict[str, str],
-    ) -> list[segment.Segment]:
+    def __init__(self):
+        """
+        Initializes the PDFGateway with an optional file path.
+        """
+        self._file_path = ""
+        self._metadata = {}
+
+    def get(self) -> list[segment.Segment]:
         """
         Extracts segments from the file by applying extraction methods.
 
@@ -26,27 +30,27 @@ class PDFGateway(gateway.EducationalContentGateway):
             list[Segment]: One Segment object per segment, with aggregated text and metadata.
         """
         results = []
-
-        nr_segments = metadata.get("nr_segments", 0)
+        nr_segments = int(self._metadata.get("length", 0))
 
         for s in range(nr_segments):
-            combined_text = self.get_text(file_path, s + 1)
+            combined_text = self.get_text(self._file_path, s + 1)
             # In the future, you might also call:
             # images = self.get_images(file_path, s + 1)
             # vector_graphics = self.get_vector_graphics(file_path, s + 1)
             # Then aggregate them as needed.
 
             sgmnt = segment.Segment(
-                id=metadata.get("id", ""),
+                id=self._metadata.get("id", ""),
                 segment_nr=s + 1,
                 text=combined_text,
-                file_metadata=metadata
+                file_metadata=self._metadata
             )
             results.append(sgmnt)
 
         return results
 
-    def get_text(self, file_path: str, segment_nr: int) -> str:
+    @staticmethod
+    def get_text(file_path: str, segment_nr: int) -> str:
         """
         Extract text from a specific page (segment) of a PDF file.
 
@@ -71,3 +75,39 @@ class PDFGateway(gateway.EducationalContentGateway):
             print(f"Error reading PDF: {e}")
             raise e
         return result
+    
+    def set_file_path(self, file_path: str) -> None:
+        """
+        Sets the file path for the PDF file to be processed.
+
+        Args:
+            file_path (str): The path to the PDF file.
+        """
+        self._file_path = file_path
+
+    def get_file_path(self) -> str:
+        """
+        Returns the current file path set for the PDF file.
+
+        Returns:
+            str: The path to the PDF file.
+        """
+        return self._file_path
+    
+    def set_metadata(self, metadata: dict) -> None:
+        """
+        Sets the metadata for the PDF file.
+
+        Args:
+            metadata (dict): Metadata associated with the PDF file.
+        """
+        self._metadata = metadata
+
+    def get_metadata(self) -> dict:
+        """
+        Returns the current metadata set for the PDF file.
+
+        Returns:
+            dict: Metadata associated with the PDF file.
+        """
+        return self._metadata
