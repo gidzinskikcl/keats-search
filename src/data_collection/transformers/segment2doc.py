@@ -2,18 +2,27 @@ from data_collection.transformers import transformer
 from entities import segment, document
 
 class Segment2DocumentTransformer(transformer.Transformer):
-    def transform(self, segment: segment.Segment) -> document.Document:
-        file_metadata = segment.file_metadata
+
+    def __init__(self):
+        """
+        This transformer converts a segment into documents based on their metadata.
+        """
+        self._content = None
+
+    def transform(self) -> document.Document:
         
-        # Derive doc_id using a combination of course_id, segment number, or other logic
+        if self._content is None:
+            raise ValueError("No segments to transform. Please set segments before calling transform().")
+        
+        file_metadata = self._content.file_metadata
+        
         course_id = file_metadata.get("course_id", "unknown_course")
-        # get doc_id from segment file metadata
         doc_id = file_metadata.get("doc_id")
         if doc_id is None:
             raise ValueError("Missing required 'doc_id' in segment file_metadata.")
 
 
-        # Determine file type (basic example)
+        # Determine file type
         file_extension = file_metadata.get("file_extension", "").lower()
         if file_extension == "pdf":
             file_type = document.FileType.PDF
@@ -23,9 +32,7 @@ class Segment2DocumentTransformer(transformer.Transformer):
             file_type = document.FileType.MP4
         else:
             file_type = document.FileType.UNKNOWN
-
-        # Determine content type
-        content_type = document.ContentType.TEXT  # Defaulting to text here
+        content_type = document.ContentType.TEXT 
 
         # Extract keywords from metadata
         keywords_str = file_metadata.get("keywords", "")
@@ -37,7 +44,7 @@ class Segment2DocumentTransformer(transformer.Transformer):
         # Optional fields
         doc_title = file_metadata.get("doc_title", "")
         course_title = file_metadata.get("course_title", "")
-        speaker = file_metadata.get("speaker", "")
+        speakers = file_metadata.get("speakers", "")
         date = file_metadata.get("date", "")
         length = int(file_metadata.get("length", "0"))
         url = file_metadata.get("url", "")
@@ -54,7 +61,7 @@ class Segment2DocumentTransformer(transformer.Transformer):
         # Compose Document
         result = document.Document(
             doc_id=doc_id,
-            segment_nr=segment.segment_nr,
+            segment_nr=self._content.segment_nr,
             start_time=start_time,
             end_time=end_time,
             file_type=file_type,
@@ -63,12 +70,12 @@ class Segment2DocumentTransformer(transformer.Transformer):
             is_segmented=is_segmented,
 
             doc_title=doc_title,
-            keywords=keywords,  # Could be extracted later
-            text=segment.text,
+            keywords=keywords,
+            text=self._content.text,
             url=url,
             course_id=course_id,
             course_title=course_title,
-            speaker=speaker,
+            speakers=speakers,
             date=date,
             description=description,
             notes=notes,
@@ -77,3 +84,25 @@ class Segment2DocumentTransformer(transformer.Transformer):
         )
 
         return result
+    
+    def set_content(self, content: segment.Segment):
+        """
+        Set the segments to be transformed into a document.
+        
+        :param segments: A Segment object containing the text and metadata.
+        """
+        if not isinstance(content, segment.Segment):
+            raise TypeError("Expected a Segment object.")
+        
+        self._content = content
+
+    def get_content(self) -> segment.Segment:
+        """
+        Get the segments that are set for transformation.
+        
+        :return: The Segment object containing the text and metadata.
+        """
+        if self._content is None:
+            raise ValueError("No segments have been set. Please set segments before calling get_segment().")
+        
+        return self._content

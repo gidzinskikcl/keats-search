@@ -19,7 +19,7 @@ def transformer():
                 "file_extension": "pdf",
                 "doc_title": "Lecture 1",
                 "course_title": "Advanced Topics in AI",
-                "speaker": "Prof. John Smith",
+                "speakers": ["Prof. John Smith"],
                 "date": "2025-06-06",
                 "length": "15",
                 "url": "https://example.com/slides/1.pdf",
@@ -48,7 +48,7 @@ def transformer():
                 "file_extension": "mp4",
                 "doc_title": "Lecture 2",
                 "course_title": "Advanced Topics in AI",
-                "speaker": "Prof. Jane Doe",
+                "speakers": ["Prof. Jane Doe"],
                 "date": "2025-06-07",
                 "length": "300",  # duration in seconds
                 "url": "https://example.com/videos/2.mp4",
@@ -89,8 +89,8 @@ def test_transform_segment_to_document(
         text=text,
         file_metadata=file_metadata
     )
-
-    document = transformer.transform(sgmnt)
+    transformer.set_content(sgmnt)
+    document = transformer.transform()
 
     # Assertions
     assert document.doc_id == expected_doc_id
@@ -102,7 +102,7 @@ def test_transform_segment_to_document(
     assert document.end_time == expected_end_time
     assert document.course_id == file_metadata["course_id"]
     assert document.course_title == file_metadata["course_title"]
-    assert document.speaker == file_metadata["speaker"]
+    assert document.speakers == file_metadata["speakers"]
     assert document.date == file_metadata["date"]
     assert document.file_type == expected_file_type
     assert document.content_type == expected_content_type
@@ -113,3 +113,14 @@ def test_transform_segment_to_document(
     assert document.source == file_metadata["source"]
     assert document.version == file_metadata["version"]
     assert document.keywords == expected_keywords
+
+
+def test_set_test_content(transformer):
+    """
+    Test setting segments in the transformer.
+    """
+    sgmnt = segment.Segment(id="seg_1", segment_nr=1, text="Text for segment 1", file_metadata={"doc_id": "seg_1"})
+    
+    transformer.set_content(sgmnt)
+
+    assert transformer.get_content() == sgmnt
