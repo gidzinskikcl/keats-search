@@ -1,6 +1,6 @@
 mongomock
 pyyaml
 pymongo
-PyMuPDF
+pymupdf
 pytest
 python-pptx
