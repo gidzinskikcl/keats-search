@@ -16,7 +16,7 @@ Task:
    - Intermediate — requires connecting multiple ideas or explaining examples
    - Advanced — requires analysis, synthesis, or critical thinking
 
-   c) Include a one-sentence explanation of why this question is relevant and answerable from the lecture.
+   c) Provide an answer to the question based on the lecture content.
 
 3. Present your output with the following structure:
    - question: The question text
