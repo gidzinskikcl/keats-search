@@ -23,7 +23,15 @@ OUTPUT_REPO = "data/queries"
 
 def main():
     """
-    Query generation was created based on a similar work in X et. al. and with help of prof. Linus Dietz
+    Generates a dataset of questions based on lecture content using a language model.
+
+    This script iterates over predefined courses and materials, generates question prompts, 
+    calls an LLM to generate questions. The output includes:
+    - Raw JSON files organised by course.
+    - A CSV summary file with all generated questions and answers.
+
+    This approach was inspired by the work on generating test suites using LLMs 
+    by Herdel et al. (2024) [https://doi.org/10.48550/arXiv.2407.12454]
     """
     start_time = datetime.datetime.now()
     timestamp = start_time.strftime("%Y-%m-%d_%H-%M-%S")
