@@ -42,4 +42,4 @@ __pycache__/
 *.py[cod
 
 # Local virtual environment
-keats-env/
+.env

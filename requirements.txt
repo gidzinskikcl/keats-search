@@ -1,6 +1,10 @@
 mongomock
+numpy
+openai
+pydantic
 pyyaml
 pymongo
 pymupdf
 pytest
+python-dotenv
 python-pptx
