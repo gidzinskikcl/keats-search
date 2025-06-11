@@ -9,96 +9,108 @@ from openai import OpenAI
 import caller
 from gateways import csv_gateway
 from prompts import query_prompt_builder
+from data_collection.extractors import batch_pdf_schema_extractor, pdf_schema_extractor
+from data_collection.parsers import pymupdf_parser
+from data_collection.segmenters import page_segmenter
+from data_collection import materials_collector, schemas
 
-
-# Load environment variables from .env
-load_dotenv()
-# Set your API key
-api_key = os.getenv("OPENAI_API_KEY")
-
-client = OpenAI(api_key=api_key)
-
+# Constants
 OUTPUT_REPO = "data/queries"
+COURSES_DIR = "...."
 
+def load_openai_client() -> OpenAI:
+    """Loads OpenAI client from environment variable."""
+    load_dotenv()
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise EnvironmentError("Missing OPENAI_API_KEY in .env file.")
+    return OpenAI(api_key=api_key)
+
+
+def initialize_extractors() -> batch_pdf_schema_extractor.BatchPdfSchemaExtractor:
+    """Initializes and returns the PDF extractor."""
+    parser = pymupdf_parser.PyMuPdfParser()
+    segmenter = page_segmenter.PageSegmenter()
+    extractor = pdf_schema_extractor.PdfSchemaExtractor(parser, segmenter)
+    return batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor)
+
+
+def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> list[dict]:
+    """Generates questions from lecture material using the LLM."""
+    prompt = query_prompt_builder.QueryPromptBuilder.build(
+        course_name=material.course_name,
+        lecture_content=material.content,
+        num_questions=material.page_count
+    )
+    # LLM call
+    questions_set = caller.call_openai(
+        client=client,
+        system_prompt=prompt.system_prompt.to_dict(),
+        user_prompt=prompt.user_prompt.to_dict()
+    )
+
+    # For demonstration purposes (mocked)
+    questions_set = json.dumps([
+        {
+            "question": f"What is a key characteristic of NoSQL databases from {material.title}?",
+            "label": "Basic",
+            "answer": "NoSQL databases allow scaling out by adding more nodes to commodity servers.",
+            "explanation": "This question checks understanding of the 'Volume' aspect discussed in the lecture."
+        }
+    ])
+
+    try:
+        return json.loads(questions_set)
+    except json.JSONDecodeError:
+        print(f"Warning: Could not decode JSON for {material.course_name} - {material.title}")
+        return []
+    
+def save_raw_json(questions_set: list[dict], output_dir_base: pathlib.Path, material: schemas.LectureMaterial) -> None:
+    """Saves generated questions to a raw JSON file."""
+    course_output_dir = output_dir_base / "raw_jsons" / material.course_name
+    course_output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = course_output_dir / f"{material.title}.json"
+    with open(output_path, "w") as file:
+        json.dump(questions_set, file, indent=2)
 
 def main():
-    """
-    Generates a dataset of questions based on lecture content using a language model.
-
-    This script iterates over predefined courses and materials, generates question prompts, 
-    calls an LLM to generate questions. The output includes:
-    - Raw JSON files organised by course.
-    - A CSV summary file with all generated questions and answers.
-
-    This approach was inspired by the work on generating test suites using LLMs 
-    by Herdel et al. (2024) [https://doi.org/10.48550/arXiv.2407.12454]
-    """
+    """Generates a dataset of questions based on lecture content using a language model."""
     start_time = datetime.datetime.now()
     timestamp = start_time.strftime("%Y-%m-%d_%H-%M-%S")
 
-    # Define base output directory for this run
+    # Output directory
     output_dir_base = pathlib.Path(f"{OUTPUT_REPO}/{timestamp}")
     output_dir_base.mkdir(parents=True, exist_ok=True)
 
-    courses = ...
+    # Initialize OpenAI client and extractors
+    client = load_openai_client()
+    pdf_extractor = initialize_extractors()
+    transcript_extractor = None  # For now
 
+    # Collect all materials
+    courses_dir = pathlib.Path(COURSES_DIR)
+    materials = materials_collector.collect(
+        courses_dir=courses_dir,
+        pdf_extractor=pdf_extractor,
+        transcript_extractor=transcript_extractor
+    )
+
+    # CSV gateway
     csv_output_path = output_dir_base / f"queries-{timestamp}.csv"
     gateway = csv_gateway.CSVGateway(filename=csv_output_path)
 
     total_queries = []
 
-    for course, materials in courses.items():
-        for m in materials:
+    for material in materials:
+        questions = generate_questions(material, client)
+        save_raw_json(questions, output_dir_base, material)
+        total_queries.extend(questions)
 
-            # Generate a prompt
-            prompt = query_prompt_builder.QueryPromptBuilder.build(
-                course_name=course, 
-                lecture_content=m["content"], 
-                num_questions=m["page_count"]
-            )
-
-            # Call LLM and generate questions
-            questions_set = caller.call_openai(
-                client=client,
-                system_prompt=prompt.system_prompt.to_dict(),
-                user_prompt=prompt.user_prompt.to_dict()
-            )
-
-            questions_set = json.dumps([
-                {
-                    "question": f"What is a key characteristic of NoSQL databases from {m['title']}?",
-                    "label": "Basic",
-                    "answer": "NoSQL databases allow scaling out by adding more nodes to commodity servers.",
-                    "explanation": "This question checks understanding of the 'Volume' aspect discussed in the lecture."
-                }
-            ])
-
-
-            # Write raw JSON output
-            course_output_dir = output_dir_base / "raw_jsons" / course
-            course_output_dir.mkdir(parents=True, exist_ok=True)
-
-            output_path = course_output_dir / f"{m['title']}.json"
-
-            with open(output_path, "w") as file:
-                file.write(questions_set)
-
-            # Load JSON from string
-            try:
-                loaded_questions = json.loads(questions_set)
-            except json.JSONDecodeError:
-                print(f"Warning: Could not decode JSON for {course} - {m['title']}")
-                loaded_questions = []
-
-            # Accumulate total questions
-            total_queries.extend(loaded_questions)
-
-    # Add all questions to the CSV
+    # Save all to CSV
     gateway.add(data=total_queries)
 
     # Print summary
-    time_difference = datetime.datetime.now() - start_time
-    elapsed_seconds = time_difference.total_seconds()
+    elapsed_seconds = (datetime.datetime.now() - start_time).total_seconds()
     print(f"Generated {len(total_queries)} questions in {elapsed_seconds:.2f} seconds.")
     print(f"All files saved in: {output_dir_base}")
 
