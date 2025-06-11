@@ -5,7 +5,7 @@ You have carefully read the lecture content provided below. To check your unders
 
 Task:
 
-1. Read the lecture content carefully.
+1. Read the lecture content carefully: "**[CONTENT]**"
 2. For each question out of **[Y]**:
 
    a) Write a clear and concise question that can be answered using the lecture content.
@@ -22,7 +22,3 @@ Task:
    - question: The question text
    - label: Difficulty level (Basic/Intermediate/Advanced)
    - answer: The answer based on the lecture content.
-
-Lecture Content:
-
-**[CONTENT]**

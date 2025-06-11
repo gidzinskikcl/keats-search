@@ -25,7 +25,7 @@ def expected(lecture_content):
             prompt_schema.Prompt(
                 role=prompt_schema.Role.USER,
                 content=textwrap.dedent(f"""
-                    1. Read the lecture content carefully.
+                    1. Read the lecture content carefully: "{lecture_content}"
                     2. For each question out of 5:
                         a) Write a clear and concise question that can be answered using the lecture content.
                         b) Assign a difficulty level to the question:
@@ -37,9 +37,6 @@ def expected(lecture_content):
                         - question: The question text
                         - label: Difficulty level (Basic/Intermediate/Advanced)
                         - answer: The answer based on the lecture content.
-
-                    Lecture Content:
-                    {lecture_content}
                 """).strip()
             )
     )
