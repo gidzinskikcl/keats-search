@@ -9,7 +9,7 @@ class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtracto
         self.parser = parser
 
     def get(self, file_path: pathlib.Path) -> schemas.PdfSchema:
-        parsed_data = self.parser.get(file_path)
+        parsed_data = self.parser.get(file_path=file_path)
         
         # Extract file name from metadata
         file_name = parsed_data["metadata"]["file_name"]

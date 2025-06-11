@@ -1,7 +1,5 @@
 import json
-import os
 import re
-
 import pathlib
 
 from typing import Union
@@ -82,18 +80,26 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
 
         return result
 
-    def _extract_text_from_srt(self, subtitle_file: str) -> str:
+    def _extract_text_from_srt(self, subtitle_file: pathlib.Path) -> list[dict[str, str]]:
         with open(subtitle_file, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
+            content = f.read()
 
-        text_lines = []
-        for line in lines:
-            line = line.strip()
-            # Skip empty lines and lines with sequence numbers or timestamps
-            if line.isdigit():
-                continue
-            if re.match(r'^\d{2}:\d{2}:\d{2},\d{3}', line):
-                continue
-            text_lines.append(line)
+        blocks = content.strip().split('\n\n')
+        subtitles = []
 
-        return ' '.join(text_lines)
+        for block in blocks:
+            lines = block.strip().split('\n')
+            if len(lines) >= 3:
+                index = lines[0].strip()
+                timestamp_line = lines[1].strip()
+                text_lines = lines[2:]
+                match = re.match(r'(?P<start>\d{2}:\d{2}:\d{2},\d{3}) --> (?P<end>\d{2}:\d{2}:\d{2},\d{3})', timestamp_line)
+                if match:
+                    subtitles.append({
+                        'index': index,
+                        'start': match.group('start'),
+                        'end': match.group('end'),
+                        'text': ' '.join(line.strip() for line in text_lines)
+                    })
+
+        return subtitles

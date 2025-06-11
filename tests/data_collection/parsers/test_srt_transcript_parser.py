@@ -35,7 +35,21 @@ def expected():
                 "end_time": "10.0"
             }
         ],
-        "transcript": "Hello, world!  This is a test subtitle."
+        "transcript": [
+            {
+                "index": "1",
+                "start": "00:00:00,000",
+                "end": "00:00:05,000",
+                "text":"Hello, world!" 
+            },
+            {
+                "index": "2",
+                "start": "00:00:05,000",
+                "end": "00:00:10,000",
+                "text": "This is a test subtitle." 
+            }
+
+        ]
     }
     return result
 
@@ -60,7 +74,22 @@ def expected_no_metadata():
         "webpage_url": "",
         "thumbnail": "",
         "chapters": [],
-        "transcript": "Hello, world!  This is a test subtitle."
+        "transcript": [
+            {
+                "index": "1",
+                "start": "00:00:00,000",
+                "end": "00:00:05,000",
+                "text":"Hello, world!" 
+            },
+            {
+                "index": "2",
+                "start": "00:00:05,000",
+                "end": "00:00:10,000",
+                "text": "This is a test subtitle." 
+            }
+
+        ]
+         
     }
     return result
 
