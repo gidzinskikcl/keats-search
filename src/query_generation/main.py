@@ -11,7 +11,6 @@ from gateways import csv_gateway
 from prompts import query_prompt_builder
 from data_collection.extractors import batch_pdf_schema_extractor, pdf_schema_extractor
 from data_collection.parsers import pymupdf_parser
-from data_collection.segmenters import page_segmenter
 from data_collection import materials_collector, schemas
 
 # Constants
@@ -30,9 +29,8 @@ def load_openai_client() -> OpenAI:
 def initialize_extractors() -> batch_pdf_schema_extractor.BatchPdfSchemaExtractor:
     """Initializes and returns the PDF extractor."""
     parser = pymupdf_parser.PyMuPdfParser()
-    segmenter = page_segmenter.PageSegmenter()
-    extractor = pdf_schema_extractor.PdfSchemaExtractor(parser, segmenter)
-    return batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor)
+    extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=parser)
+    return batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor=extractor)
 
 
 def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> list[dict]:
