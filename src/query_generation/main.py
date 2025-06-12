@@ -9,8 +9,8 @@ from openai import OpenAI
 import caller
 from gateways import csv_gateway
 from prompts import query_prompt_builder
-from data_collection.extractors import batch_pdf_schema_extractor, pdf_schema_extractor
-from data_collection.parsers import pymupdf_parser
+from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
+from data_collection.parsers import pymupdf_parser, srt_transcript_parser
 from data_collection import materials_collector, schemas
 
 # Constants
@@ -26,11 +26,18 @@ def load_openai_client() -> OpenAI:
     return OpenAI(api_key=api_key)
 
 
-def initialize_extractors() -> batch_pdf_schema_extractor.BatchPdfSchemaExtractor:
+def initialize_pdf_extractors() -> batch_pdf_schema_extractor.BatchPdfSchemaExtractor:
     """Initializes and returns the PDF extractor."""
     parser = pymupdf_parser.PyMuPdfParser()
     extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=parser)
     return batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor=extractor)
+
+
+def initialize_srt_extractors() -> batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor:
+    """Initializes and returns the Transcript extractor."""
+    parser = srt_transcript_parser.SRTTranscriptParser()
+    extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=parser)
+    return batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(extractor=extractor)
 
 
 def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> list[dict]:
@@ -82,8 +89,8 @@ def main():
 
     # Initialize OpenAI client and extractors
     client = load_openai_client()
-    pdf_extractor = initialize_extractors()
-    transcript_extractor = None  # For now
+    pdf_extractor = initialize_pdf_extractors()
+    transcript_extractor = initialize_srt_extractors()
 
     # Collect all materials
     courses_dir = pathlib.Path(COURSES_DIR)
