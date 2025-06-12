@@ -1,49 +1,68 @@
 import textwrap
-
 import pytest
 
 from query_generation.prompts import prompt_schema, query_prompt_builder
+from query_generation.prompts import templates
+
 
 @pytest.fixture
 def lecture_content():
-    result =  "This lecture covers the OSI model, including the application, transport, and network layers."
-    return result
+    return "This lecture covers the OSI model, including the application, transport, and network layers."
 
 
 @pytest.fixture
-def expected(lecture_content):
-    result = prompt_schema.PromptHistory(
-            prompt_schema.Prompt(
-                role=prompt_schema.Role.SYSTEM,
-                content=textwrap.dedent(f"""
-                    You are a computer science student at a university enrolled in a course on "Introduction to Computer Networks".
-                    You have carefully read the lecture content provided below.
-                    To check your understanding, you will generate questions that you might ask your lecturer.
-                    These questions should be answerable using only the lecture content.
-                """).strip()
-            ),
-            prompt_schema.Prompt(
-                role=prompt_schema.Role.USER,
-                content=textwrap.dedent(f"""
-                    1. Read the lecture content carefully: "{lecture_content}"
-                    2. For each question out of 5:
-                        a) Write a clear and concise question that can be answered using the lecture content.
-                        b) Assign a difficulty level to the question:
-                            - Basic — straightforward factual question (e.g. definitions, lists)
-                            - Intermediate — requires connecting multiple ideas or explaining examples
-                            - Advanced — requires analysis, synthesis, or critical thinking
-                        c) Provide an answer to the question based on the lecture content.
-                    3. Present your output with the following structure:
-                        - question: The question text
-                        - label: Difficulty level (Basic/Intermediate/Advanced)
-                        - answer: The answer based on the lecture content.
-                """).strip()
-            )
+def expected_prompt_history(lecture_content):
+    course_name = "Introduction to Computer Networks"
+    num_questions = 5
+    question_word = "question" if num_questions == 1 else "questions"
+
+    system_content = textwrap.dedent(
+        templates.V1.SYSTEM_PROMPT_TEMPLATE.format(course_name=course_name)
+    ).strip()
+
+    user_content = textwrap.dedent(
+        templates.V1.USER_PROMPT_TEMPLATE.format(
+            lecture_content=lecture_content,
+            num_questions=num_questions,
+            question_word=question_word
+        )
+    ).strip()
+
+    return prompt_schema.PromptHistory(
+        system_prompt=prompt_schema.Prompt(
+            role=prompt_schema.Role.SYSTEM,
+            content=system_content
+        ),
+        user_prompt=prompt_schema.Prompt(
+            role=prompt_schema.Role.USER,
+            content=user_content
+        )
     )
-    return result
 
 
-def test_prompt(expected, lecture_content):
-    print(expected)
-    observed = query_prompt_builder.QueryPromptBuilder.build(course_name="Introduction to Computer Networks", lecture_content=lecture_content, num_questions=5)
-    assert expected == observed
+def test_query_prompt_builder_with_prompt1(expected_prompt_history, lecture_content):
+    observed = query_prompt_builder.QueryPromptBuilder.build(
+        course_name="Introduction to Computer Networks",
+        lecture_content=lecture_content,
+        num_questions=5,
+        prompt_module=templates.V1
+    )
+
+    assert observed == expected_prompt_history
+
+
+def render_user_prompt(lecture_content: str, num_questions: int) -> str:
+    return textwrap.dedent(templates.V1.USER_PROMPT_TEMPLATE.format(
+        lecture_content=lecture_content,
+        num_questions=num_questions,
+        question_word="question" if num_questions == 1 else "questions"
+    )).strip()
+
+@pytest.mark.parametrize("num_questions,expected_word", [
+    (1, "1 question"),
+    (3, "3 questions"),
+])
+def test_question_word_singular_plural(num_questions, expected_word):
+    lecture_content = "Example lecture content."
+    result = render_user_prompt(lecture_content, num_questions)
+    assert f"Generate {expected_word}" in result
