@@ -44,6 +44,11 @@ class TranscriptSegment:
     timestamp: Timestamp
     text: str
 
+@dataclass
+class Chapter:
+    nr: int
+    title: str
+    timestamp: Timestamp
 
 @dataclass
 class LectureMaterial:
