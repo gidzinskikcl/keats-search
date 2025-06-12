@@ -9,9 +9,11 @@ from openai import OpenAI
 import caller
 from gateways import csv_gateway
 from prompts import query_prompt_builder
+from query_generation.prompts import templates
 from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
 from data_collection.parsers import pymupdf_parser, srt_transcript_parser
 from data_collection import materials_collector, schemas
+
 
 # Constants
 OUTPUT_REPO = "data/queries"
@@ -54,7 +56,7 @@ def determine_num_questions(material: schemas.LectureMaterial) -> int:
         raise ValueError(f"Unknown material type: {material.type}")
 
 
-def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> list[dict]:
+def generate_questions(material: schemas.LectureMaterial, client: OpenAI, prompt_module: templates.PromptTemplate) -> list[dict]:
     """Generates questions from lecture material using the LLM."""
 
     num_questions = determine_num_questions(material=material)
@@ -62,7 +64,8 @@ def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> lis
     prompt = query_prompt_builder.QueryPromptBuilder.build(
         course_name=material.course_name,
         lecture_content=material.content,
-        num_questions=num_questions
+        num_questions=num_questions,
+        prompt_module=prompt_module
     )
     # LLM call
     questions_set = caller.call_openai(
