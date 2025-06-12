@@ -46,9 +46,9 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
         """
         Load the metadata JSON file associated with the subtitle file.
         """
-        base_name = subtitle_file.stem[:-3]  # remove '.en' (3 chars)
+        base_name = subtitle_file.stem
         
-        metadata_file = subtitle_file.with_name(f"{base_name}.essential_metadata.json")
+        metadata_file = subtitle_file.with_name(f"{base_name}.json")
         
         if not metadata_file.exists():
             raise FileNotFoundError(f"Metadata file not found for subtitle file: {subtitle_file}")

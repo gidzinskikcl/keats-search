@@ -15,7 +15,7 @@ from data_collection import materials_collector, schemas
 
 # Constants
 OUTPUT_REPO = "data/queries"
-COURSES_DIR = "...."
+COURSES_DIR = "/Users/piotrgidzinski/KeatsSearch_workspace/data/courses/test"
 
 def load_openai_client() -> OpenAI:
     """Loads OpenAI client from environment variable."""
@@ -40,12 +40,29 @@ def initialize_srt_extractors() -> batch_transcript_schema_extractor.BatchTransc
     return batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(extractor=extractor)
 
 
+def determine_num_questions(material: schemas.LectureMaterial) -> int:
+    if material.type == schemas.MaterialType.TRANSCRIPT:
+        return 5
+    elif material.type == schemas.MaterialType.SLIDES:
+        if material.length <= 5:
+            return 1
+        elif material.length <= 9:
+            return 2
+        else:
+            return 5
+    else:
+        raise ValueError(f"Unknown material type: {material.type}")
+
+
 def generate_questions(material: schemas.LectureMaterial, client: OpenAI) -> list[dict]:
     """Generates questions from lecture material using the LLM."""
+
+    num_questions = determine_num_questions(material=material)
+
     prompt = query_prompt_builder.QueryPromptBuilder.build(
         course_name=material.course_name,
         lecture_content=material.content,
-        num_questions=material.page_count
+        num_questions=num_questions
     )
     # LLM call
     questions_set = caller.call_openai(
