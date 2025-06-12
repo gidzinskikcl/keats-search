@@ -8,3 +8,4 @@ pymupdf
 pytest
 python-dotenv
 python-pptx
+yt_dlp

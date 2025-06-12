@@ -1,3 +1,5 @@
+import enum
+
 from dataclasses import dataclass
 from typing import Optional
 
@@ -50,9 +52,14 @@ class Chapter:
     title: str
     timestamp: Timestamp
 
+class MaterialType(enum.Enum):
+    SLIDES = "slides"
+    TRANSCRIPT = "transcript"
+
 @dataclass
 class LectureMaterial:
     course_name: str
+    type: MaterialType
     title: str
     content: str
-    page_count: int
+    length: int # for slides: page count; for transcripts: duration in seconds
