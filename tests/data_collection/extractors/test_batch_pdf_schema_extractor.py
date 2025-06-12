@@ -1,42 +1,54 @@
+import pathlib
+
 import pytest
 
-from unittest.mock import MagicMock
+from unittest.mock import Mock
 
 from data_collection import schemas
 from data_collection.extractors import batch_pdf_schema_extractor
 
+
+@pytest.fixture
+def pdf_courses(tmp_path: pathlib.Path):
+    course1 = tmp_path / "course1"
+    course1.mkdir()
+    (course1 / "slide1.pdf").touch()
+    (course1 / "slide2.pdf").touch()
+
+    course2 = tmp_path / "course2"
+    course2.mkdir()
+    (course2 / "lecture1.pdf").touch()
+
+    return tmp_path
+
 @pytest.fixture
 def mock_extractor():
-    extractor = MagicMock()
-    def extractor_get(file_path):
-        # Return a PdfSchema with file name based on the file's stem
-        return schemas.PdfSchema(file_name=file_path.stem, pages=[])
-    extractor.get.side_effect = extractor_get
-    return extractor
+    result = Mock()
 
-def test_extract_all(tmp_path, mock_extractor):
-    # Create a fake directory structure
-    course1_dir = tmp_path / "course1"
-    course1_dir.mkdir()
-    pdf1 = course1_dir / "slide1.pdf"
-    pdf2 = course1_dir / "slide2.pdf"
-    pdf1.touch()
-    pdf2.touch()
+    def extractor_get(file_path: pathlib.Path) -> schemas.PdfSchema:
+        return schemas.PdfSchema(file_name=file_path.stem, pages=[], course_name=None)
+    
+    result.get.side_effect = extractor_get
+    return result
 
-    course2_dir = tmp_path / "course2"
-    course2_dir.mkdir()
-    pdf3 = course2_dir / "lecture1.pdf"
-    pdf3.touch()
 
-    # Expected results
-    expected_schemas = [
+@pytest.fixture
+def expected():
+    result = [
         schemas.PdfSchema(file_name="slide1", pages=[], course_name="course1"),
         schemas.PdfSchema(file_name="slide2", pages=[], course_name="course1"),
         schemas.PdfSchema(file_name="lecture1", pages=[], course_name="course2")
     ]
+    return result
+
+def test_extract_all(pdf_courses, mock_extractor, expected):
+
     batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(mock_extractor)
 
-    observed_schemas = batch_extractor.extract_all(tmp_path)
+    observed = batch_extractor.extract_all(pdf_courses)
 
-    assert sorted(observed_schemas, key=lambda x: x.file_name) == sorted(expected_schemas, key=lambda x: x.file_name)
+
+    assert sorted(observed, key=lambda x: (x.course_name, x.file_name)) == expected
+    assert mock_extractor.get.call_count == 3
+
 
