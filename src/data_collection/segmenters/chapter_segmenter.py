@@ -7,7 +7,7 @@ class ChapterSegmenter(transcript_segmenter.TranscriptSegmenter):
     def segment(transcript_schema: schemas.TranscriptSchema, chapters: list[schemas.Chapter]) -> list[schemas.TranscriptSegment]:
         results = []
 
-        for chapter in chapters:
+        for nr, chapter in enumerate(chapters, start=1):
             matching_subtitles = [
                 subtitle for subtitle in transcript_schema.subtitles
                 if subtitle.timestamp.start >= chapter.timestamp.start and subtitle.timestamp.end <= chapter.timestamp.end
@@ -17,6 +17,7 @@ class ChapterSegmenter(transcript_segmenter.TranscriptSegmenter):
 
 
             segment = schemas.TranscriptSegment(
+                nr=nr,
                 parent_file=transcript_schema.file_name,
                 timestamp=chapter.timestamp,
                 text=combined_text

@@ -42,6 +42,7 @@ class TranscriptSchema:
 
 @dataclass
 class TranscriptSegment:
+    nr: int
     parent_file: str
     timestamp: Timestamp
     text: str
@@ -53,8 +54,8 @@ class Chapter:
     timestamp: Timestamp
 
 class MaterialType(enum.Enum):
-    SLIDES = "slides"
-    TRANSCRIPT = "transcript"
+    SLIDES = "pdf"
+    TRANSCRIPT = "srt"
 
 @dataclass
 class LectureMaterial:

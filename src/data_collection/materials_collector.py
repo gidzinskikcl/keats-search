@@ -7,12 +7,15 @@ from data_collection.extractors import pdf_schema_extractor, transcript_schema_e
 def collect(
     courses_dir: pathlib.Path, 
     pdf_extractor: pdf_schema_extractor.PdfSchemaExtractor, 
-    transcript_extractor: transcript_schema_extractor.TranscriptSchemaExtractor
+    transcript_extractor: transcript_schema_extractor.TranscriptSchemaExtractor,
 ) -> list[schemas.LectureMaterial]:
     return collect_pdfs(courses_dir, pdf_extractor) + collect_transcripts(courses_dir, transcript_extractor)
 
 
-def collect_pdfs(courses_dir: pathlib.Path, extractor: pdf_schema_extractor.PdfSchemaExtractor) -> list[schemas.LectureMaterial]:
+def collect_pdfs(
+        courses_dir: pathlib.Path, 
+        extractor: pdf_schema_extractor.PdfSchemaExtractor,
+) -> list[schemas.LectureMaterial]:
     pdf_schemas = extractor.extract_all(courses_dir)
     return [
         schemas.LectureMaterial(
@@ -26,7 +29,10 @@ def collect_pdfs(courses_dir: pathlib.Path, extractor: pdf_schema_extractor.PdfS
     ]
 
 
-def collect_transcripts(courses_dir: pathlib.Path, extractor: transcript_schema_extractor.TranscriptSchemaExtractor) -> list[schemas.LectureMaterial]:
+def collect_transcripts(
+        courses_dir: pathlib.Path, 
+        extractor: transcript_schema_extractor.TranscriptSchemaExtractor,
+) -> list[schemas.LectureMaterial]:
     if extractor is None:
         return []   
 
