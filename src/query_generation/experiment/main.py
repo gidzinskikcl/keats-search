@@ -52,7 +52,7 @@ def main():
             questions = main.generate_questions(
                 material=material,
                 client=client,
-                prompt_module=prompt_module
+                prompt_module=prompt_module,
             )
 
         except Exception as e:

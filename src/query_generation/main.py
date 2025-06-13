@@ -6,13 +6,12 @@ import pathlib
 from dotenv import load_dotenv
 from openai import OpenAI
 
-import caller
 from gateways import csv_gateway
-from prompts import query_prompt_builder
-from query_generation.prompts import templates
 from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
 from data_collection.parsers import pymupdf_parser, srt_transcript_parser
 from data_collection import materials_collector, schemas
+
+from query_generation import utils
 
 
 # Constants
@@ -56,39 +55,7 @@ def determine_num_questions(material: schemas.LectureMaterial) -> int:
         raise ValueError(f"Unknown material type: {material.type}")
 
 
-def generate_questions(material: schemas.LectureMaterial, client: OpenAI, prompt_module: templates.PromptTemplate) -> list[dict]:
-    """Generates questions from lecture material using the LLM."""
 
-    num_questions = determine_num_questions(material=material)
-
-    prompt = query_prompt_builder.QueryPromptBuilder.build(
-        course_name=material.course_name,
-        lecture_content=material.content,
-        num_questions=num_questions,
-        prompt_module=prompt_module
-    )
-    # LLM call
-    questions_set = caller.call_openai(
-        client=client,
-        system_prompt=prompt.system_prompt.to_dict(),
-        user_prompt=prompt.user_prompt.to_dict()
-    )
-
-    # For demonstration purposes (mocked)
-    questions_set = json.dumps([
-        {
-            "question": f"What is a key characteristic of NoSQL databases from {material.title}?",
-            "label": "Basic",
-            "answer": "NoSQL databases allow scaling out by adding more nodes to commodity servers.",
-            "explanation": "This question checks understanding of the 'Volume' aspect discussed in the lecture."
-        }
-    ])
-
-    try:
-        return json.loads(questions_set)
-    except json.JSONDecodeError:
-        print(f"Warning: Could not decode JSON for {material.course_name} - {material.title}")
-        return []
     
 def save_raw_json(questions_set: list[dict], output_dir_base: pathlib.Path, material: schemas.LectureMaterial) -> None:
     """Saves generated questions to a raw JSON file."""
@@ -127,7 +94,8 @@ def main():
     total_queries = []
 
     for material in materials:
-        questions = generate_questions(material, client)
+        num_questions = determine_num_questions(material=material)
+        questions = utils.generate_questions(material=material, client=client, num_questions=num_questions)
         save_raw_json(questions, output_dir_base, material)
         total_queries.extend(questions)
 

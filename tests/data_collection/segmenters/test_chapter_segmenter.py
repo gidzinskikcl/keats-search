@@ -8,11 +8,13 @@ from data_collection.schemas import TranscriptSchema, Subtitle, Timestamp, Chapt
 def expected():
     result = [
         TranscriptSegment(
+            nr=1,
             parent_file="lecture1.srt",
             timestamp=Timestamp(start=timedelta(seconds=0), end=timedelta(seconds=15)),
             text="Welcome to the course. In this chapter, we will cover the basics."
         ),
         TranscriptSegment(
+            nr=2,
             parent_file="lecture1.srt",
             timestamp=Timestamp(start=timedelta(seconds=20), end=timedelta(seconds=35)),
             text="Chapter 2 begins now. Advanced concepts are covered here."
