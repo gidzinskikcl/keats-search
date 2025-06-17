@@ -1,5 +1,3 @@
-import json
-
 from openai import OpenAI
 
 from data_collection import schemas
@@ -20,27 +18,28 @@ def generate_questions(
         course_name=material.course_name,
         lecture_content=material.content,
         num_questions=num_questions,
-        prompt_module=prompt_module
+        prompt_module=prompt_module,
+        lecture_title=material.lecture_title
     )
-    # LLM call
-    questions_set = caller.call_openai(
-        client=client,
-        system_prompt=prompt.system_prompt.to_dict(),
-        user_prompt=prompt.user_prompt.to_dict()
-    )
-
-    # For demonstration purposes (mocked)
-    # questions_set = json.dumps([
-    #     {
-    #         "question": f"What is a key characteristic of NoSQL databases from {material.title}?",
-    #         "label": "Basic",
-    #         "answer": "NoSQL databases allow scaling out by adding more nodes to commodity servers.",
-    #         "explanation": "This question checks understanding of the 'Volume' aspect discussed in the lecture."
-    # }
-    # ])
-
     try:
-        return json.loads(questions_set)
-    except json.JSONDecodeError:
-        print(f"Warning: Could not decode JSON for {material.course_name} - {material.title}")
+        questions_set = caller.call_openai(
+            client=client,
+            system_prompt=prompt.system_prompt.to_dict(),
+            user_prompt=prompt.user_prompt.to_dict()
+        )
+
+        parsed = questions_set.choices[0].message.parsed
+
+    
+        return [
+            {
+                "question": q.question,
+                "label": q.label.name.title(), 
+                "answer": q.answer
+            }
+            for q in parsed.questions
+        ]
+
+    except Exception as e:
+        print(f"Warning: Could not parse questions for {material.course_name} - {material.title}: {e}")
         return []

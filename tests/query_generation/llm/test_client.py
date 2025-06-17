@@ -20,5 +20,5 @@ def test_load_openai_client_missing_key():
     with patch("os.getenv", return_value=None), \
          patch("query_generation.llm.client.load_dotenv"):
         
-        with pytest.raises(EnvironmentError, match="Missing OPENAI_API_KEY"):
+        with pytest.raises(EnvironmentError, match="Missing PROJ_OPENAI_API_KEY"):
             llm_client.load_openai_client()

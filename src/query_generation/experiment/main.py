@@ -10,10 +10,11 @@ from query_generation.llm import client as llm_client
 
 # Setup
 COURSE_NAME = "Theory of Computation"
+LECTURE_TITLE = "5. CF Pumping Lemma, Turing Machines"
 MODEL = "gpt-4o-2025-06-17" 
 SAMPLE_DIR = "2025-06-13_15-47-47"
 SAMPLE = "_3_pdf_7_srt_2025-06-13_15-47-47"
-PROMPT_VARIANT = templates.V1
+PROMPT_VARIANT = templates.V3
 
 # Generate timestamp
 now = datetime.now(timezone.utc)
@@ -47,7 +48,8 @@ def main():
             type=schemas.MaterialType(s["type"]),  #TODO 
             title=s["doc_id"],
             content=s["text"],
-            length=length
+            length=length,
+            lecture_title=LECTURE_TITLE
         )
 
         try:
@@ -55,7 +57,7 @@ def main():
                 material=material,
                 client=client,
                 prompt_module=PROMPT_VARIANT,
-                num_questions=3 if s["type"] == "pdf" else 6
+                num_questions=3 if s["type"] == "pdf" else 6,
             )
 
         except Exception as e:
