@@ -1,10 +1,7 @@
 import datetime
 import json
-import os
 import pathlib
 
-from dotenv import load_dotenv
-from openai import OpenAI
 
 from gateways import csv_gateway
 from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
@@ -12,19 +9,12 @@ from data_collection.parsers import pymupdf_parser, srt_transcript_parser
 from data_collection import materials_collector, schemas
 
 from query_generation import utils
+from query_generation.llm import client as llm_client
 
 
 # Constants
 OUTPUT_REPO = "data/queries"
 COURSES_DIR = "/Users/piotrgidzinski/KeatsSearch_workspace/data/courses/test"
-
-def load_openai_client() -> OpenAI:
-    """Loads OpenAI client from environment variable."""
-    load_dotenv()
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise EnvironmentError("Missing OPENAI_API_KEY in .env file.")
-    return OpenAI(api_key=api_key)
 
 
 def initialize_pdf_extractors() -> batch_pdf_schema_extractor.BatchPdfSchemaExtractor:
@@ -75,7 +65,7 @@ def main():
     output_dir_base.mkdir(parents=True, exist_ok=True)
 
     # Initialize OpenAI client and extractors
-    client = load_openai_client()
+    client = llm_client.load_openai_client()
     pdf_extractor = initialize_pdf_extractors()
     transcript_extractor = initialize_srt_extractors()
 

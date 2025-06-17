@@ -1,16 +1,19 @@
 from datetime import datetime, timezone
-from pathlib import Path
+import pathlib
 import json
 
 from data_collection import schemas
-from query_generation import main
+from query_generation.llm import question_generator
 from query_generation.prompts import templates
+from query_generation.llm import client as llm_client
+
 
 # Setup
-SAMPLE_ID = "exp2025_lect3_structured"
-LECTURE_NAME = "lecture03"
-COURSE_NAME = "Data Structures"
-MODEL = "gpt-4o-2025-06-12" # change before official run 
+COURSE_NAME = "Theory of Computation"
+MODEL = "gpt-4o-2025-06-17" 
+SAMPLE_DIR = "2025-06-13_15-47-47"
+SAMPLE = "_3_pdf_7_srt_2025-06-13_15-47-47"
+PROMPT_VARIANT = templates.V1
 
 # Generate timestamp
 now = datetime.now(timezone.utc)
@@ -18,18 +21,15 @@ timestamp = now.isoformat()
 readable_time = now.strftime("%Y-%m-%d_%H%M")
 
 # File and directory setup
-SAMPLE_FILE = f"data/queries/validation/samples/{LECTURE_NAME}_sample.json"
-OUTPUT_DIR = Path(f"data/queries/validation/results/{LECTURE_NAME}/{SAMPLE_ID}_{readable_time}")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+SAMPLE_FILE = pathlib.Path(f"data/queries/sample/{SAMPLE_DIR}/{SAMPLE}.json")
+OUTPUT_DIR = pathlib.Path(f"data/queries/validation/results/{readable_time}/sample_{SAMPLE_DIR}_variant_{PROMPT_VARIANT.__name__}_{readable_time}")
 
 
 def main():
 
     # Initialize OpenAI client, prompt version and timestamp
-    client = main.load_openai_client()
-    prompt_module = templates.V1
-    timestamp = datetime.now(timezone.utc).isoformat()
-    
+    client = llm_client.load_openai_client()
+    timestamp = datetime.now(timezone.utc).isoformat()    
 
     # Load samples
     with open(SAMPLE_FILE, "r", encoding="utf-8") as f:
@@ -40,19 +40,22 @@ def main():
     for s in sample:
         print(f"Generating for {s['doc_id']}...")
 
+        length = 10 if s["type"] == "pdf" else 4439
+
         material = schemas.LectureMaterial(
             course_name=COURSE_NAME,
             type=schemas.MaterialType(s["type"]),  #TODO 
             title=s["doc_id"],
             content=s["text"],
-            length=s["length"]
+            length=length
         )
 
         try:
-            questions = main.generate_questions(
+            questions = question_generator.generate_questions(
                 material=material,
                 client=client,
-                prompt_module=prompt_module,
+                prompt_module=PROMPT_VARIANT,
+                num_questions=3 if s["type"] == "pdf" else 6
             )
 
         except Exception as e:
@@ -64,15 +67,16 @@ def main():
             "questions": questions,
             "metadata": {
                 "model": MODEL,
-                "variant": prompt_module.VARIANT,
-                "sample_id": SAMPLE_ID,
+                "variant": PROMPT_VARIANT.VARIANT,
+                "sample": SAMPLE,
                 "timestamp": timestamp
             }
         }
         results.append(result)
 
     # Save results
-    output_file = OUTPUT_DIR / f"{SAMPLE_ID}_questions.json"
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_file = OUTPUT_DIR / f"{SAMPLE}_questions.json"
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
 

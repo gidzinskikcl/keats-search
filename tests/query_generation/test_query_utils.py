@@ -1,8 +1,11 @@
 import pytest
+
 from unittest.mock import patch
 from datetime import timedelta
+
 from data_collection import schemas
 from query_generation import utils
+
 
 
 def test_convert_to_chapters():
