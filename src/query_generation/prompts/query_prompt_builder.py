@@ -10,7 +10,8 @@ class QueryPromptBuilder(prompt_builder.PromptBuilder):
         course_name: str,
         num_questions: int,
         lecture_content: str,
-        prompt_module: templates.PromptTemplate
+        prompt_module: templates.PromptTemplate,
+        lecture_title: str = "N/A",
     ) -> prompt_schema.PromptHistory:
 
         system_content = textwrap.dedent(prompt_module.SYSTEM_PROMPT_TEMPLATE.format(
@@ -20,7 +21,8 @@ class QueryPromptBuilder(prompt_builder.PromptBuilder):
         user_content = textwrap.dedent(prompt_module.USER_PROMPT_TEMPLATE.format(
             lecture_content=lecture_content,
             num_questions=num_questions,
-            question_word="question" if num_questions == 1 else "questions"
+            lecture_title=lecture_title
+            
         )).strip()
 
         return prompt_schema.PromptHistory(

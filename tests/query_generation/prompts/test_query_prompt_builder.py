@@ -14,7 +14,6 @@ def lecture_content():
 def expected_prompt_history(lecture_content):
     course_name = "Introduction to Computer Networks"
     num_questions = 5
-    question_word = "question" if num_questions == 1 else "questions"
 
     system_content = textwrap.dedent(
         templates.V1.SYSTEM_PROMPT_TEMPLATE.format(course_name=course_name)
@@ -24,7 +23,6 @@ def expected_prompt_history(lecture_content):
         templates.V1.USER_PROMPT_TEMPLATE.format(
             lecture_content=lecture_content,
             num_questions=num_questions,
-            question_word=question_word
         )
     ).strip()
 

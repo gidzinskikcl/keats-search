@@ -1,10 +1,12 @@
 import json
 import pytest
 from unittest.mock import MagicMock, patch
+from types import SimpleNamespace
 
 from data_collection import schemas
 from query_generation.llm import question_generator  # Adjust the import path
 from query_generation.prompts import templates
+from query_generation import response_schema
 
 @pytest.fixture
 def sample_material():
@@ -22,32 +24,42 @@ def mock_prompt_module():
 
 @pytest.fixture
 def expected():
-    result = [
-        {
-            'answer': 'NoSQL databases scale horizontally.', 
-            'explanation': 'Checks understanding of scalability.', 
-            'label': 'Basic', 
-            'question': 'What is a key characteristic of NoSQL databases?'
-        }
-    ]
-    return result
+    return [{
+        'question': 'What is a key characteristic of NoSQL databases?',
+        'label': 'Basic', 
+        'answer': 'NoSQL databases scale horizontally.'
+    }]
+
 
 def test_generate_questions_success(sample_material, mock_prompt_module, expected):
     mock_prompt = MagicMock()
     mock_prompt.system_prompt.to_dict.return_value = {"role": "system", "content": "system prompt"}
     mock_prompt.user_prompt.to_dict.return_value = {"role": "user", "content": "user prompt"}
 
-    mocked_json_output = json.dumps([
-        {
-            "question": "What is a key characteristic of NoSQL databases?",
-            "label": "Basic",
-            "answer": "NoSQL databases scale horizontally.",
-            "explanation": "Checks understanding of scalability."
-        }
-    ])
+    # Create a mock parsed QuerySet
+    parsed_queryset = response_schema.QuerySet(
+        questions=[
+            response_schema.Query(
+                question="What is a key characteristic of NoSQL databases?",
+                label=response_schema.DifficultyLevel.BASIC,
+                answer="NoSQL databases scale horizontally."
+            )
+        ]
+    )
+
+    # Construct full mock structure matching OpenAI response
+    mock_response = SimpleNamespace(
+        choices=[
+            SimpleNamespace(
+                message=SimpleNamespace(
+                    parsed=parsed_queryset
+                )
+            )
+        ]
+    )
 
     with patch("query_generation.prompts.query_prompt_builder.QueryPromptBuilder.build", return_value=mock_prompt) as mock_builder, \
-         patch("query_generation.llm.caller.call_openai", return_value=mocked_json_output) as mock_call:
+         patch("query_generation.llm.caller.call_openai", return_value=mock_response) as mock_call:
 
         mock_client = MagicMock()
 
@@ -59,7 +71,6 @@ def test_generate_questions_success(sample_material, mock_prompt_module, expecte
         )
 
         assert expected == observed
-
         mock_builder.assert_called_once()
         mock_call.assert_called_once()
 

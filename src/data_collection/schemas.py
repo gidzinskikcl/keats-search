@@ -64,3 +64,4 @@ class LectureMaterial:
     title: str
     content: str
     length: int # for slides: page count; for transcripts: duration in seconds
+    lecture_title: str = "N/A"
