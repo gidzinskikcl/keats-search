@@ -4,7 +4,6 @@ from datetime import datetime, timezone
 import uuid
 
 
-
 class FolderValidationError(Exception):
     """Raised when a validation error occurs in folder structure."""
     pass
