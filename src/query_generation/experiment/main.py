@@ -1,6 +1,9 @@
 from datetime import datetime, timezone
 import pathlib
 import json
+import random
+from collections import defaultdict
+
 
 from data_collection import schemas
 from query_generation.llm import question_generator
@@ -14,7 +17,52 @@ LECTURE_TITLE = "5. CF Pumping Lemma, Turing Machines"
 MODEL = "gpt-4o-2025-06-17" 
 SAMPLE_DIR = "2025-06-13_15-47-47"
 SAMPLE = "_3_pdf_7_srt_2025-06-13_15-47-47"
-PROMPT_VARIANT = templates.V3
+# PROMPT_VARIANT = templates.V3
+PROMPT_VARIANT = templates.V4
+
+difficulty_levels = {
+    "Basic": {
+        "explanation": "Assign a basic difficulty level: direct factual question (e.g., definitions, lists)",
+        "example": """
+            [
+                (
+                    - question: "Shellcode address"
+                    - label: Basic
+                    - answer: "The address of the memory region that contains the shellcode."
+                )
+            ]
+        """
+    },
+    "Intermediate": {
+        "explanation": "Assign an intermediate difficulty level: involves understanding or explaining relationships between ideas.",
+        "example": """
+            [
+
+                (
+                    - question: "Why alter a code pointer in code injection?"
+                    - label: Intermediate
+                    - answer: "Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow."
+                )
+            ]
+        """
+    },
+    "Advanced": {
+        "explanation": "Assign an advanced difficulty level: requires connecting multiple ideas, reasoning through examples, or analyzing concepts.",
+        "example": """
+            [
+                (
+                    - question: "What are the steps for code injection?"
+                    - label: Advanced
+                    - answer: "1. Inject the code to be executed (shellcode) into a writable memory region (stack, data, heap, etc.). 2. Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow. The return address will be the address of the writable memory region that contains the shellcode."
+                )
+            ]
+        """
+    }
+}
+
+DIFFICULTY_LEVELS = ["Basic", "Intermediate", "Advanced"]
+TARGET_PER_LEVEL = None  # Will be set based on total segments
+difficulty_counts = defaultdict(int)
 
 # Generate timestamp
 now = datetime.now(timezone.utc)
@@ -24,6 +72,21 @@ readable_time = now.strftime("%Y-%m-%d_%H%M")
 # File and directory setup
 SAMPLE_FILE = pathlib.Path(f"data/queries/sample/{SAMPLE_DIR}/{SAMPLE}.json")
 OUTPUT_DIR = pathlib.Path(f"data/queries/validation/results/{readable_time}/sample_{SAMPLE_DIR}_variant_{PROMPT_VARIANT.__name__}_{readable_time}")
+
+def choose_balanced_difficulty():
+    # Try to balance across difficulties
+    remaining = {
+        lvl: TARGET_PER_LEVEL - difficulty_counts[lvl]
+        for lvl in DIFFICULTY_LEVELS
+    }
+    # Filter to levels that still need more
+    eligible = [lvl for lvl, rem in remaining.items() if rem > 0]
+
+    # If all full, pick randomly
+    if not eligible:
+        return random.choice(DIFFICULTY_LEVELS)
+    
+    return random.choice(eligible)
 
 
 def main():
@@ -35,6 +98,10 @@ def main():
     # Load samples
     with open(SAMPLE_FILE, "r", encoding="utf-8") as f:
         sample = json.load(f)
+
+    total_segments = len(sample)
+    global TARGET_PER_LEVEL
+    TARGET_PER_LEVEL = total_segments // len(DIFFICULTY_LEVELS)
 
     # Generate questions for each sample
     results = []
@@ -53,12 +120,20 @@ def main():
         )
 
         try:
+            difficulty_name = choose_balanced_difficulty()
+            difficulty_info = difficulty_levels[difficulty_name]
+
             questions = question_generator.generate_questions(
                 material=material,
                 client=client,
                 prompt_module=PROMPT_VARIANT,
-                num_questions=3 if s["type"] == "pdf" else 6,
+                num_questions=1,
+                difficulty_lvl=difficulty_name,
+                difficulty_level_instruction=difficulty_info["explanation"],
+                difficulty_level_example=difficulty_info["example"]
             )
+
+            difficulty_counts[difficulty_name] += 1
 
         except Exception as e:
             print(f"Error in {s['doc_id']}: {e}")

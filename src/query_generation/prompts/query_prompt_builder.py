@@ -12,6 +12,9 @@ class QueryPromptBuilder(prompt_builder.PromptBuilder):
         lecture_content: str,
         prompt_module: templates.PromptTemplate,
         lecture_title: str = "N/A",
+        difficulty_lvl: str = "",
+        difficulty_level_instruction: str = "",
+        difficulty_level_example: str = ""
     ) -> prompt_schema.PromptHistory:
 
         system_content = textwrap.dedent(prompt_module.SYSTEM_PROMPT_TEMPLATE.format(
@@ -21,7 +24,10 @@ class QueryPromptBuilder(prompt_builder.PromptBuilder):
         user_content = textwrap.dedent(prompt_module.USER_PROMPT_TEMPLATE.format(
             lecture_content=lecture_content,
             num_questions=num_questions,
-            lecture_title=lecture_title
+            lecture_title=lecture_title,
+            difficulty_level_instruction=difficulty_level_instruction,
+            difficulty_level_name=difficulty_lvl,
+            difficulty_level_example=difficulty_level_example
             
         )).strip()
 

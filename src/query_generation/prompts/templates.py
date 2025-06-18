@@ -258,3 +258,57 @@ class V3(PromptTemplate):
     ]
     <student response>
     """
+
+class V4(PromptTemplate):
+
+    VARIANT = "v4"
+
+    SYSTEM_PROMPT_TEMPLATE = """
+    You are a computer science student enrolled in the course "{course_name}".
+    You have carefully studied the lecture content provided below.
+    To check your understanding, generate a set of clear, relevant questions you might ask your lecturer.
+    Each question should be answerable using only the lecture content.
+    """
+
+    USER_PROMPT_TEMPLATE = """
+    Lecture title: "{lecture_title}"
+    1. Use the lecture content: "{lecture_content}"
+
+    2. Generate 1 question and answer:
+        - Write a clear and specific question.
+            - Avoid vague or overly general questions. Each question should focus on specific concepts or terms.
+            - Do NOT need to refer to the lecture or to the course.
+            - DO NOT use the following expressions: 
+                - in the lecture, in the course, or by the lecturer,
+                - according to the lecture, according to the course, according to the lecturer.
+            - Do NOT ask questions about course logistics, such as deadlines, assignments, or things the lecturer said.
+        - {difficulty_level_instruction}
+        - Provide a direct answer from the lecture content.
+
+    3. Present your output with the following structure:
+        - question: The question text
+        - label: Difficulty level {difficulty_level_name}
+        - answer: The answer based on the lecture content.
+
+    Here is an example:
+
+    <lecture content>
+
+    Anatomy of a code injection attack
+    Goal of code injection. To hijack the execution of the target application/program toward some code injected by the attacker.
+    Unlike overwriting the return address of a function with another return address that may result in the termination of the process by returning a segmentation fault, here we inject a malicious code (shellcode) into a writable memory region.
+    How can an attacker perform code injection?
+    1. Inject the code to be executed (shellcode) into a writable memory region (stack, data, heap, etc.).
+    2. Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow. The return address will be the address of the writable memory region that contains the shellcode.
+    To inject code, three elements (NOP sled, shellcode, and shellcode address) need to be present, which compose an injection vector.
+    So – an injection vector is composed of:
+    1. NOP sled (optional): a sequence of do-nothing instructions (NOP). It is used to ease the exploitation, such that the attacker can jump anywhere inside and will eventually reach the shellcode to execute it.
+    2. Shellcode: a sequence of machine instructions executed as a result of a code injection attack. Typically, a shellcode executes a shell (eg, execve(“/bin/sh”)). The shellcode is injected by the attacker into a writable and executable memory region. The address of the writable memory region is called the shellcode address.
+    3. Shellcode address: The address of the memory region that contains the shellcode.
+
+    </lecture content>
+
+    <student response>
+    {difficulty_level_example}
+    </student response>
+    """
