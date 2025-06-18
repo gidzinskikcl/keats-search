@@ -10,8 +10,10 @@ def generate_questions(
         client: OpenAI, 
         prompt_module: templates.PromptTemplate,
         num_questions: int,
+        difficulty_lvl: str = "",
+        difficulty_level_instruction: str = "",
+        difficulty_level_example: str = ""
 ) -> list[dict]:
-    # TODO write a test for this function
     """Generates questions from lecture material using the LLM."""
 
     prompt = query_prompt_builder.QueryPromptBuilder.build(
@@ -19,7 +21,10 @@ def generate_questions(
         lecture_content=material.content,
         num_questions=num_questions,
         prompt_module=prompt_module,
-        lecture_title=material.lecture_title
+        lecture_title=material.lecture_title,
+        difficulty_lvl=difficulty_lvl,
+        difficulty_level_instruction=difficulty_level_instruction,
+        difficulty_level_example=difficulty_level_example
     )
     try:
         questions_set = caller.call_openai(
