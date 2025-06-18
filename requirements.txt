@@ -2,6 +2,7 @@ mongomock
 numpy
 openai
 pydantic
+pytube
 pyyaml
 pymongo
 pymupdf
