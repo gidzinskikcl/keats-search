@@ -31,7 +31,7 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
             }
 
         # Add file name and extension
-        result["file_name"] = subtitle_file.stem[:-3]
+        result["file_name"] = subtitle_file.stem
         result["file_extension"] = subtitle_file.suffix.lstrip(".")
 
         # Parse transcript
@@ -41,18 +41,19 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
         result["transcript"] = transcript_text
 
         return result
+
     
     def _load_metadata(self, subtitle_file: pathlib.Path) -> dict[str, str]:
         """
         Load the metadata JSON file associated with the subtitle file.
         """
-        base_name = subtitle_file.stem
-        
-        metadata_file = subtitle_file.with_name(f"{base_name}.json")
-        
-        if not metadata_file.exists():
-            raise FileNotFoundError(f"Metadata file not found for subtitle file: {subtitle_file}")
+        metadata_file = subtitle_file.with_name(f"{subtitle_file.stem}.json")
 
+        if not metadata_file.exists():
+            metadata_file = subtitle_file.with_name(f"{subtitle_file.stem[:-3]}.json")
+            if not metadata_file.exists():
+                raise FileNotFoundError(f"Metadata file not found for subtitle file: {subtitle_file}")
+        
         with open(metadata_file, 'r', encoding='utf-8') as f:
             metadata = json.load(f)
 

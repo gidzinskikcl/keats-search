@@ -34,10 +34,7 @@ def main():
     pdf_segments = pdf_segmenter.segment(pdf_schema=pdf)
 
     srt_segmenter = chapter_segmenter.ChapterSegmenter()
-    with open(f"{TRANSCRIPT_FILE}.json", "r", encoding="utf-8") as f:
-        srt_metadata = json.load(f)
-    chapters = utils.convert_to_chapters(chapters_dict=srt_metadata["chapters"])
-    srt_segments = srt_segmenter.segment(transcript_schema=transcript, chapters=chapters)
+    srt_segments = srt_segmenter.segment(transcript_schema=transcript)
 
     slides_to_ignore = [1, 12, 13]
     transcripts_to_ignore = [1, 3, 4, 6, 8, 12, 13, 16]

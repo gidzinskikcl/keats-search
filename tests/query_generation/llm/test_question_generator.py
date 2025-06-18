@@ -12,7 +12,8 @@ from query_generation import response_schema
 def sample_material():
     return schemas.LectureMaterial(
         course_name="Database Systems",
-        title="Introduction to NoSQL",
+        doc_id="ABCS123",
+        lecture_title="Introduction to NoSQL",
         content="NoSQL databases are designed to scale horizontally...",
         type=schemas.MaterialType.TRANSCRIPT,
         length=1200

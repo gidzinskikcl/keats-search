@@ -25,6 +25,18 @@ def mock_parser():
                 "end": "00:00:07,000",
                 "text": "Welcome to the test."
             }
+        ],
+        "chapters": [
+            {
+                "title": "Introduction",
+                "start_time": "0.0",
+                "end_time": "10.0"
+            },
+            {
+                "title": "Summary",
+                "start_time": "10.0",
+                "end_time": "20.0"
+            }
         ]
     }
     return parser
@@ -49,6 +61,24 @@ def expected():
                 timestamp=schemas.Timestamp(
                     start=timedelta(seconds=5),
                     end=timedelta(seconds=7)
+                )
+            )
+        ],
+        chapters=[
+            schemas.Chapter(
+                nr=1,
+                title="Introduction",
+                timestamp=schemas.Timestamp(
+                    start=timedelta(seconds=0),
+                    end=timedelta(seconds=10)
+                )
+            ),
+            schemas.Chapter(
+                nr=2,
+                title="Summary",
+                timestamp=schemas.Timestamp(
+                    start=timedelta(seconds=10),
+                    end=timedelta(seconds=20)
                 )
             )
         ]

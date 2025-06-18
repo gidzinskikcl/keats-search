@@ -9,7 +9,7 @@ def generate_questions(
         material: schemas.LectureMaterial, 
         client: OpenAI, 
         prompt_module: templates.PromptTemplate,
-        num_questions: int,
+        num_questions: int = None,
         difficulty_lvl: str = "",
         difficulty_level_instruction: str = "",
         difficulty_level_example: str = ""
@@ -46,5 +46,5 @@ def generate_questions(
         ]
 
     except Exception as e:
-        print(f"Warning: Could not parse questions for {material.course_name} - {material.title}: {e}")
+        print(f"Warning: Could not parse questions for {material.course_name} - {material.doc_id}: {e}")
         return []

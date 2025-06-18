@@ -6,7 +6,7 @@ from gateways import query_gateway
 class CSVGateway(query_gateway.QueryGateway):
     def __init__(self, filename: pathlib.Path):
         self.filename = filename
-        self.headers = ["index", "question", "answer", "label"]
+        self.headers = ["index", "question", "answer", "label", "course_name", "lecture_title", "doc_id", "type", "url"]
         # Check if file exists and has headers
         if not self.filename.exists() or self.filename.stat().st_size == 0:
             with self.filename.open(mode='w', newline='', encoding='utf-8') as file:
@@ -25,7 +25,12 @@ class CSVGateway(query_gateway.QueryGateway):
                     "index": current_index,
                     "question": row_data["question"],
                     "answer": row_data["answer"],
-                    "label": row_data["label"]
+                    "label": row_data["label"],
+                    "course_name": row_data["course_name"],
+                    "lecture_title": row_data["lecture_title"],
+                    "doc_id": row_data["doc_id"],
+                    "type": row_data["type"],
+                    "url": row_data["url"]
                 }
                 writer.writerow(row)
                 current_index += 1

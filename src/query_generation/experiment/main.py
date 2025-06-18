@@ -112,8 +112,8 @@ def main():
 
         material = schemas.LectureMaterial(
             course_name=COURSE_NAME,
-            type=schemas.MaterialType(s["type"]),  #TODO 
-            title=s["doc_id"],
+            type=schemas.MaterialType(s["type"]),
+            doc_id=s["doc_id"],
             content=s["text"],
             length=length,
             lecture_title=LECTURE_TITLE

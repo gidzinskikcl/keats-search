@@ -11,12 +11,16 @@ from data_collection import schemas
 def course_dir(tmp_path: pathlib.Path):
     course1 = tmp_path / "course1"
     course1.mkdir()
-    (course1 / "lecture1.srt").touch()
-    (course1 / "lecture2.srt").touch()
+    lecture1 = course1 / "Lecture 1"
+    lecture1.mkdir()
+    (lecture1 / "lecture1.1.srt").touch()
+    (lecture1 / "lecture1.2.srt").touch()
 
     course2 = tmp_path / "course2"
     course2.mkdir()
-    (course2 / "lecture1.srt").touch()
+    lecture2 = course2 / "Lecture 2"
+    lecture2.mkdir()
+    (lecture2 / "lecture2.1.srt").touch()
 
     return tmp_path
 
@@ -34,22 +38,27 @@ def mock_extractor():
 def expected():
     result = [
         schemas.TranscriptSchema(
-            file_name="lecture1",
+            file_name="lecture1.1",
             duration=None,
             subtitles=[],
-            course_name="course1"
+            course_name="course1",
+            lecture_name="Lecture 1"
         ),
         schemas.TranscriptSchema(
-            file_name="lecture2",
+            file_name="lecture1.2",
             duration=None,
             subtitles=[],
-            course_name="course1"
+            course_name="course1",
+            lecture_name="Lecture 1"
+
         ),
         schemas.TranscriptSchema(
-            file_name="lecture1",
+            file_name="lecture2.1",
             duration=None,
             subtitles=[],
-            course_name="course2"
+            course_name="course2",
+            lecture_name="Lecture 2"
+
         )
     ]
     return result
@@ -58,7 +67,7 @@ def expected():
 def test_extract_all(course_dir, mock_extractor, expected):
     batch_extractor = BatchTranscriptSchemaExtractor(extractor=mock_extractor)
 
-    observed = batch_extractor.extract_all(course_dir)
+    observed = batch_extractor.extract_all(course_dir, ["course1", "course2"])
 
     print(observed)
 
