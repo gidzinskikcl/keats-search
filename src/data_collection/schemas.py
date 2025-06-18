@@ -15,12 +15,15 @@ class PdfSchema:
     file_name: str
     pages: list[PdfPage]
     course_name: Optional[str] = None
+    lecture_name: Optional[str] = None
 
 @dataclass
 class PdfSegment:
     parent_file: str
     nr: int
     text: str
+    course_name: Optional[str] = None
+    lecture_name: Optional[str] = None
 
 @dataclass
 class Timestamp:
@@ -34,11 +37,19 @@ class Subtitle:
     timestamp: Timestamp
 
 @dataclass
+class Chapter:
+    nr: int
+    title: str
+    timestamp: Timestamp
+
+@dataclass
 class TranscriptSchema:
     file_name: str
     duration: timedelta
     subtitles: list[Subtitle]
     course_name: Optional[str] = None
+    lecture_name: Optional[str] = None
+    chapters: Optional[list[Chapter]] = None
 
 @dataclass
 class TranscriptSegment:
@@ -46,12 +57,8 @@ class TranscriptSegment:
     parent_file: str
     timestamp: Timestamp
     text: str
-
-@dataclass
-class Chapter:
-    nr: int
-    title: str
-    timestamp: Timestamp
+    course_name: Optional[str] = None
+    lecture_name: Optional[str] = None
 
 class MaterialType(enum.Enum):
     SLIDES = "pdf"
@@ -61,7 +68,7 @@ class MaterialType(enum.Enum):
 class LectureMaterial:
     course_name: str
     type: MaterialType
-    title: str
+    doc_id: str
     content: str
-    length: int # for slides: page count; for transcripts: duration in seconds
+    length: Optional[int] = None # for slides: page count; for transcripts: duration in seconds
     lecture_title: str = "N/A"

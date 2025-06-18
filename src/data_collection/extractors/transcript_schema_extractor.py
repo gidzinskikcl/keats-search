@@ -27,11 +27,22 @@ class TranscriptSchemaExtractor(abstract_transcript_schema_extractor.AbstractTra
                 )
             ))
 
+        chapters = []
+        for i, chapter in enumerate(parsed_data.get("chapters", []), start=1):
+            chapters.append(schemas.Chapter(
+                nr=i,
+                title=chapter["title"],
+                timestamp=schemas.Timestamp(
+                    start=timedelta(seconds=float(chapter["start_time"])),
+                    end=timedelta(seconds=float(chapter["end_time"]))
+                )
+            ))
         # Create and return the TranscriptSchema
         result = schemas.TranscriptSchema(
             file_name=file_name,
             duration=timedelta(seconds=int(parsed_data["duration"])),
-            subtitles=subtitles
+            subtitles=subtitles,
+            chapters=chapters
         )
         return result
     

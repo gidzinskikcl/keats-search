@@ -8,9 +8,9 @@ class QueryPromptBuilder(prompt_builder.PromptBuilder):
     @staticmethod
     def build(
         course_name: str,
-        num_questions: int,
         lecture_content: str,
         prompt_module: templates.PromptTemplate,
+        num_questions: int = None,
         lecture_title: str = "N/A",
         difficulty_lvl: str = "",
         difficulty_level_instruction: str = "",
