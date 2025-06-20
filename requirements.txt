@@ -9,4 +9,5 @@ pymupdf
 pytest
 python-dotenv
 python-pptx
+scikit-learn
 yt_dlp

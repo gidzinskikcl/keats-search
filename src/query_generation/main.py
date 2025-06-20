@@ -69,6 +69,7 @@ COURSES = [
     "6.006",
     "6.172",
     "6.S897",
+    "6.0002"
     # add more course folder names here
 ]
 
@@ -145,7 +146,7 @@ def main():
         pdfs = by_course[course][schemas.MaterialType.SLIDES]
         srts = by_course[course][schemas.MaterialType.TRANSCRIPT]
 
-        pdf_samples = random.sample(pdfs, min(15, len(pdfs)))
+        pdf_samples = random.sample(pdfs, min(15, len(pdfs))) # select 15 samples
         srt_samples = random.sample(srts, min(15, len(srts)))
 
         selected_materials = pdf_samples + srt_samples
