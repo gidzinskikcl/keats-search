@@ -9,5 +9,7 @@ pymupdf
 pytest
 python-dotenv
 python-pptx
+requests
 scikit-learn
 yt_dlp
+wandb
