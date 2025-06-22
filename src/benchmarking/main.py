@@ -1,7 +1,7 @@
 
 from benchmarking.metrics import precision, reciprocal_rank, ndcg
-from benchmarking.utils import loader
-from evaluator.evaluator import Evaluator
+from benchmarking.utils import loader, wandb_logger
+from evaluator import evaluator
 
 def main():
     # Load data
@@ -23,14 +23,19 @@ def main():
     ]
 
     # Initialize evaluator
-    evaluator = Evaluator(metrics)
+    eval = evaluator.Evaluator(metrics)
+    logger = wandb_logger.WandbLogger(project="keats-search", run_name="baseline-eval")
 
     # Run evaluation for each model
     for model in models:
+        model_name = model.__class__.__name__
         print(f"\n🔍 Evaluating model: {model.__class__.__name__}")
-        results = evaluator.evaluate(model=model, queries=queries, ground_truth=ground_truth)
+        results = eval.evaluate(model=model, queries=queries, ground_truth=ground_truth)
         for metric_name, score in results["mean"].items():
             print(f"  {metric_name}: {score:.4f}")
+
+        # Log to wandb
+        logger.log_metrics(model_name, results["mean"])
 
 if __name__ == "__main__":
     main()
