@@ -1,0 +1,15 @@
+mongomock
+numpy
+openai
+pydantic
+pytube
+pyyaml
+pymongo
+pymupdf
+pytest
+python-dotenv
+python-pptx
+requests
+scikit-learn
+yt_dlp
+wandb

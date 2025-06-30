@@ -1,0 +1,32 @@
+[
+  {
+    "documentId": "slide_01",
+    "content": "Lucene is a powerful Java-based search library.",
+    "title": "Introduction to Lucene",
+    "timestamp": null,
+    "speaker": null,
+    "slideNumber": 1,
+    "keywords": ["lucene", "search", "java"],
+    "type": "SLIDE"
+  },
+  {
+    "documentId": "vid_01_seg_01",
+    "content": "In this lecture, we cover inverted indexes.",
+    "title": "Inverted Indexes",
+    "timestamp": "00:00:05",
+    "speaker": "Dr. Smith",
+    "slideNumber": null,
+    "keywords": ["indexing", "lecture", "video"],
+    "type": "VIDEO_TRANSCRIPT"
+  },
+  {
+    "documentId": "article_001",
+    "content": "This article explains the TF-IDF weighting scheme.",
+    "title": "Understanding TF-IDF",
+    "timestamp": null,
+    "speaker": null,
+    "slideNumber": null,
+    "keywords": ["tf-idf", "ranking", "information retrieval"],
+    "type": "ARTICLE"
+  }
+]
