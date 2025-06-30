@@ -51,7 +51,7 @@ def expected():
     return {
         "per_query": {
             "q1": {
-                "Precision": 0.5,           # top-2: doc1 + doc2 -> only doc1 is relevant
+                "Precision": 0.5,        # top-2: doc1 + doc2 -> only doc1 is relevant
                 "ReciprocalRank": 1.0    # doc1 is at rank 1
             }
         },
