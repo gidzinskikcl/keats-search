@@ -1,0 +1,45 @@
+import os
+import json
+import pandas as pd
+
+def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics, output_dir: str):
+    """
+    Saves evaluation results to a JSON file (mean metrics) and a CSV file (per-query metrics).
+    
+    Args:
+        model_name (str): The name of the evaluated model.
+        mean_metrics (dict): Dictionary of mean evaluation metrics.
+        per_query_metrics (dict or list): Per-query evaluation metrics either as:
+            - dict of metric_name → dict of query_id → value
+            - list of dicts with keys like 'query_id', 'Precision', etc.
+        output_dir (str): Directory to save results into.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Save mean metrics to JSON
+    json_path = os.path.join(output_dir, f"{model_name}_mean_metrics.json")
+    with open(json_path, "w") as f:
+        json.dump(mean_metrics, f, indent=4)
+
+    # Save per-query metrics to CSV
+    csv_path = os.path.join(output_dir, f"{model_name}_per_query_metrics.csv")
+
+    if isinstance(per_query_metrics, dict):
+        # If it's already metric → query → score
+        df = pd.DataFrame.from_dict(per_query_metrics, orient="index")
+        df.index.name = "metric"
+        df.reset_index(inplace=True)
+    else:
+        # Assume it's a list of query dicts
+        from collections import defaultdict
+        metric_rows = defaultdict(dict)
+        for query_result in per_query_metrics:
+            query_id = query_result.get("query_id")
+            for metric, value in query_result.items():
+                if metric != "query_id":
+                    metric_rows[metric][query_id] = value
+        df = pd.DataFrame.from_dict(metric_rows, orient="index")
+        df.index.name = "metric"
+        df.reset_index(inplace=True)
+
+    df.to_csv(csv_path, index=False)

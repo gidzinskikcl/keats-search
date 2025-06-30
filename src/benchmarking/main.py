@@ -1,16 +1,23 @@
 
+import logging
+from datetime import datetime
+import os
+
 from benchmarking.metrics import precision, reciprocal_rank, ndcg
 from benchmarking.models import random_search
 from benchmarking.models.lucene import bm25
-from benchmarking.utils import loader, wandb_logger
+from benchmarking.utils import loader, saver, wandb_logger
 from evaluator import evaluator
 
+from benchmarking.schemas import schemas
 
 BM25_JAR_PATH = "search_engines/lucene-search/target/keats-lucene-search-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
 DOC_PATH = "data/testing/documents/document-test.json"
 
-import logging
+# Create timestamped directory
+TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+OUTPUT_DIR = os.path.join("data", "evaluation", "results", TIMESTAMP)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -49,6 +56,7 @@ def main():
 
     # Run evaluation for each model
     print("Evaluation running...")
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     for model in models:
         model_name = model.__class__.__name__
         logger.info(f"Evaluating model: {model_name}")
@@ -63,7 +71,18 @@ def main():
         # Log per-query scores as a W&B table and charts
         wandb_log.log_per_query_metrics(model_name, results["per_query"])
 
+        saver.save_evaluation_results(
+            model_name=model_name, 
+            mean_metrics=results["mean"], 
+            per_query_metrics=results["per_query"],
+            output_dir=OUTPUT_DIR
+        )
+
+
+    logger.info(f"Saved per-query metrics to {OUTPUT_DIR}")
     logger.info("Evaluation complete.")
+
+
 
 
 if __name__ == "__main__":
