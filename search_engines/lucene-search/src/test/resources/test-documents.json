@@ -1,0 +1,4 @@
+[
+  { "documentId": "doc1", "content": "Lucene is awesome" },
+  { "documentId": "doc2", "content": "It supports indexing and searching" }
+]
