@@ -13,18 +13,19 @@ public class JsonFileDocumentProviderTest {
 
     @Test
     void loadDocuments_parsesJsonResourceCorrectly() throws Exception {
-        // Get InputStream from test resources
-        InputStream in = getClass().getClassLoader().getResourceAsStream("test-documents.json");
-        assertNotNull(in, "Test JSON file should exist in src/test/resources");
+        // Get file path from resources
+        var resourceUrl = getClass().getClassLoader().getResource("test-documents.json");
+        assertNotNull(resourceUrl, "Test JSON file should exist in src/test/resources");
 
-        DocumentProvider provider = new JsonFileDocumentProvider(in);
+        String path = resourceUrl.getPath();
+        DocumentProvider provider = new JsonFileDocumentProvider(path);
         List<Document> documents = provider.loadDocuments();
 
-        // Validate parsed documents
         assertEquals(2, documents.size());
         assertEquals("doc1", documents.get(0).documentId());
         assertEquals("Lucene is awesome", documents.get(0).content());
         assertEquals("doc2", documents.get(1).documentId());
         assertEquals("It supports indexing and searching", documents.get(1).content());
     }
+
 }

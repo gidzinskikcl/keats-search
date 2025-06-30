@@ -43,20 +43,37 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.17.0</version>
         </dependency>
-
-        <!-- SparkJava REST framework -->
-<!--        <dependency>-->
-<!--            <groupId>com.sparkjava</groupId>-->
-<!--            <artifactId>spark-core</artifactId>-->
-<!--            <version>2.9.4</version>-->
-<!--        </dependency>-->
-
-        <!-- JSON (Gson) -->
-<!--        <dependency>-->
-<!--            <groupId>com.google.code.gson</groupId>-->
-<!--            <artifactId>gson</artifactId>-->
-<!--            <version>2.10.1</version>-->
-<!--        </dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Create fat JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>uk.ac.kcl.inf.lucenesearch.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>keats-lucene-search-1.0-SNAPSHOT</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this ID is arbitrary -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

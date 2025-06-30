@@ -67,8 +67,8 @@ difficulty_counts = defaultdict(int)
 COURSES = [
     "18.404J",
     "6.006",
-    "6.172",
-    "6.S897",
+    # "6.172",
+    # "6.S897",
     "6.0002"
     # add more course folder names here
 ]
@@ -146,11 +146,11 @@ def main():
         pdfs = by_course[course][schemas.MaterialType.SLIDES]
         srts = by_course[course][schemas.MaterialType.TRANSCRIPT]
 
-        pdf_samples = random.sample(pdfs, min(15, len(pdfs))) # select 15 samples
-        srt_samples = random.sample(srts, min(15, len(srts)))
+        all_materials = pdfs + srts
+        num_samples = min(100, len(all_materials))
+        selected_materials = random.sample(all_materials, num_samples)
 
-        selected_materials = pdf_samples + srt_samples
-        random.shuffle(selected_materials)
+        random.shuffle(selected_materials) 
 
         # Update target difficulty counts per course
         global TARGET_PER_LEVEL
