@@ -2,12 +2,12 @@
 import json
 import pathlib
 
-from data_collection.transcript_collection import yt_transcript_gateway 
+from data_collection.transcript_installer import yt_transcript_gateway 
 
 
 import json
 import pathlib
-from data_collection.transcript_collection import yt_transcript_gateway 
+from data_collection.transcript_installer import yt_transcript_gateway 
 
 
 def main():

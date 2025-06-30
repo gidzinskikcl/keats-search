@@ -4,11 +4,12 @@ import pathlib
 import random
 from collections import defaultdict
 
+from data_collection.collector import materials_collector
 from gateways import csv_gateway
 from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
 from data_collection.parsers import pymupdf_parser, srt_transcript_parser
 from data_collection.segmenters import page_segmenter, chapter_segmenter
-from data_collection import materials_collector, schemas
+from data_collection import schemas
 
 from query_generation.llm import client as llm_client
 from query_generation.llm import question_generator

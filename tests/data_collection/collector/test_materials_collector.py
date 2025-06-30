@@ -1,7 +1,7 @@
 import pytest
 from datetime import timedelta
 from data_collection import schemas
-from data_collection import materials_collector
+from data_collection.collector import materials_collector
 
 
 class MockPdfExtractor:

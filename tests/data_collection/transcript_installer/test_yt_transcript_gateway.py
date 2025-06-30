@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 
-from data_collection.transcript_collection import yt_transcript_gateway
+from data_collection.transcript_installer import yt_transcript_gateway
 
 
 @pytest.fixture

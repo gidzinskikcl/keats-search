@@ -59,6 +59,7 @@ class TranscriptSegment:
     text: str
     course_name: Optional[str] = None
     lecture_name: Optional[str] = None
+    chapter_title: Optional[str] = None
 
 class MaterialType(enum.Enum):
     SLIDES = "pdf"
@@ -72,3 +73,15 @@ class LectureMaterial:
     content: str
     length: Optional[int] = None # for slides: page count; for transcripts: duration in seconds
     lecture_title: str = "N/A"
+
+@dataclass
+class DocumentSchema:
+    doc_id: str
+    content: str
+    title: str # lecture title
+    timestamp: Timestamp
+    pageNumber: int
+    keywords: list[str]
+    doc_type: MaterialType
+    speaker: str
+    course_name: str

@@ -48,7 +48,8 @@ public class LuceneIndexServiceTest {
                         null,                             // speaker
                         null,                             // slideNumber
                         List.of("lucene", "test"),        // keywords (or List.of())
-                        DocumentType.SLIDE // type
+                        DocumentType.SLIDE, // type,
+                        "Lucene Course" // courseName
                 );
 
         indexService.indexDocument(doc);
