@@ -20,7 +20,8 @@ public class SchemaValidatorTest {
                 null,
                 3,
                 List.of("search", "ranking"),
-                DocumentType.SLIDE
+                DocumentType.SLIDE,
+                "Computational Models"
         );
 
         assertDoesNotThrow(() -> SchemaValidator.validate(slide));
@@ -36,7 +37,8 @@ public class SchemaValidatorTest {
                 "Dr. Smith",
                 null,
                 List.of(),
-                DocumentType.VIDEO_TRANSCRIPT
+                DocumentType.VIDEO_TRANSCRIPT,
+                "Information Retrieval"
         );
 
         assertDoesNotThrow(() -> SchemaValidator.validate(transcript));
@@ -52,7 +54,8 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
-                DocumentType.VIDEO_TRANSCRIPT
+                DocumentType.VIDEO_TRANSCRIPT,
+                "Introduction to Algorithms"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -69,12 +72,32 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
-                DocumentType.VIDEO_TRANSCRIPT
+                DocumentType.VIDEO_TRANSCRIPT,
+                "Introduction to Some Content"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
         assertTrue(ex.getMessage().contains("title"));
     }
+
+    @Test
+    void validate_rejectsMissingCourseName() {
+        Document doc = new Document(
+                "doc1",
+                "Some content",
+                "Some title",
+                "00:00:00",
+                null,
+                null,
+                null,
+                DocumentType.VIDEO_TRANSCRIPT,
+                null
+        );
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
+        assertEquals("Missing mandatory field: courseName", ex.getMessage());
+    }
+
 
     @Test
     void validate_rejectsMissingSlideNumberForSlide() {
@@ -86,7 +109,8 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
-                DocumentType.SLIDE
+                DocumentType.SLIDE,
+                "Slide Course"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -103,7 +127,8 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
-                DocumentType.VIDEO_TRANSCRIPT
+                DocumentType.VIDEO_TRANSCRIPT,
+                "Transcript Course"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));

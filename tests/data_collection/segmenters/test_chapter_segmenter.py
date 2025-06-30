@@ -13,7 +13,8 @@ def expected():
             timestamp=Timestamp(start=timedelta(seconds=0), end=timedelta(seconds=15)),
             text="Welcome to the course. In this chapter, we will cover the basics.",
             course_name="Sample Course",
-            lecture_name="Lecture 1"
+            lecture_name="Lecture 1",
+            chapter_title="Introduction"
         ),
         TranscriptSegment(
             nr=2,
@@ -21,7 +22,8 @@ def expected():
             timestamp=Timestamp(start=timedelta(seconds=20), end=timedelta(seconds=35)),
             text="Chapter 2 begins now. Advanced concepts are covered here.",
             course_name="Sample Course",
-            lecture_name="Lecture 1"
+            lecture_name="Lecture 1",
+            chapter_title="Advanced"
         )
     ]
 

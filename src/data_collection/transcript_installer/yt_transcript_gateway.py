@@ -2,7 +2,7 @@ import pathlib
 
 import yt_dlp
 
-from data_collection.transcript_collection import transcript_gateway
+from data_collection.transcript_installer import transcript_gateway
 
 class YouTubeTranscriptGateway(transcript_gateway.TranscriptGateway):
     def __init__(self, output_dir):

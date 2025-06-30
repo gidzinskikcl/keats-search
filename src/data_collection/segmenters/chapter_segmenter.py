@@ -21,7 +21,8 @@ class ChapterSegmenter(transcript_segmenter.TranscriptSegmenter):
                 timestamp=chapter.timestamp,
                 text=combined_text,
                 course_name=transcript_schema.course_name,
-                lecture_name=transcript_schema.lecture_name
+                lecture_name=transcript_schema.lecture_name,
+                chapter_title=chapter.title or None
             )
             results.append(segment)
 

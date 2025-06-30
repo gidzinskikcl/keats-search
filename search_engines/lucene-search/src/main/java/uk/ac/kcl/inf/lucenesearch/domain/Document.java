@@ -10,7 +10,8 @@ public record Document(
         String speaker,
         Integer slideNumber,
         List<String> keywords,
-        DocumentType type
+        DocumentType type,
+        String courseName
 ) {
 
 }

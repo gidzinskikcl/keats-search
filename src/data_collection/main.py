@@ -1,122 +1,62 @@
-import yaml
-
-import logging
+import datetime
+import json
 import pathlib
-import sys
 
-# Add the parent of src (the project root)
-sys.path.append(str(pathlib.Path(__file__).resolve().parents[2]))
-# from data.testing.metadata import slides_metadata
-from data.slides.metadata import slides_metadata
-from data_collection import document_processor, utils
-from data_collection.content_gateways import pdf_gateway, ppt_gateway
-from data_collection.segments import slides_segmenter
-from documents import document, document_adapter
-from documents.pdf import pdf_document_builder
-from documents.ppt import ppt_document_builder
-from gateways import mongodb_gateway
+from data_collection.collector import document_collector
+from data_collection.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
+from data_collection.parsers import pymupdf_parser, srt_transcript_parser
+from data_collection.segmenters import page_segmenter, chapter_segmenter
+from data_collection.utils import utils
 
+OUTPUT_REPO = pathlib.Path("data/documents")
+COURSES_REPO = pathlib.Path("data")
 
-def configure_logging():
-    """
-    Configure logging for the entire application.
-    """
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
-    )
+COURSES = [
+    "18.404J",
+    "6.006",
+    # "6.172",
+    # "6.S897",
+    "6.0002"
+    # add more course folder names here
+]
 
-def load_config(config_file: str) -> dict:
-    with open(config_file, "r") as f:
-        return yaml.safe_load(f)
-
-
-COURSES = pathlib.Path("/Users/piotrgidzinski/KeatsSearch_workspace/data/courses/lecture_slides")
-# COURSES = pathlib.Path("/Users/piotrgidzinski/KeatsSearch_workspace/data/courses/test")
-METADATA = slides_metadata.METADATA
-
-# Define a mapping of file extensions to their gateways and document classes
-CONTENT_PROCESSORS = {
-    "pdf": (
-        pdf_gateway.PDFGateway, 
-        pdf_document_builder.PDFDocumentBuilder, 
-        slides_segmenter.SlidesSegmenter,
-        document_adapter.DocumentAdapter
-    ),
-    "pptx": (
-        ppt_gateway.PPTGateway, 
-        ppt_document_builder.PPTDocumentBuilder, 
-        slides_segmenter.SlidesSegmenter,
-        document_adapter.DocumentAdapter
-    ),
-}
 
 def main():
-    # STATS ARE WRONG
-    configure_logging()
-    logger = logging.getLogger(__name__)
-    logger.info("Starting data processing pipeline.")
-    
-    # For now the process work for slides only
-    processor = document_processor.DocumentProcessor()
+    """Generates a dataset of segmented documents from lecture materials"""
+    start_time = datetime.datetime.now()
+    timestamp = start_time.strftime("%Y-%m-%d_%H-%M-%S")
 
-    logger.info("Processing slides, this might take couple of seconds...")
-    # SLIDES
-    slides_documents, stats = document_processor.process_slides(
-        processor=processor,
-        courses=COURSES,
-        metadata=METADATA,
-        content_processors=CONTENT_PROCESSORS
+    # Initialize extractors
+    pdf_parser = pymupdf_parser.PyMuPdfParser()
+    pdf_extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=pdf_parser)
+    pdf_batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor=pdf_extractor)
+
+    srt_parser = srt_transcript_parser.SRTTranscriptParser()
+    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=srt_parser)
+    srt_batch_extractor = batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(extractor=srt_extractor)
+
+    # Collect all materials
+    print("Collecting all materials from files...")
+    documents = document_collector.collect(
+        pdf_courses_dir=COURSES_REPO / "slides",
+        srt_courses_dir=COURSES_REPO / "transcripts" / "lectures",
+        courses = COURSES,
+        pdf_extractor=pdf_batch_extractor,
+        transcript_extractor=srt_batch_extractor,
+        pdf_segmenter=page_segmenter.PageSegmenter(),
+        srt_segmenter=chapter_segmenter.ChapterSegmenter()
     )
+    print("Done")
+    # Output directory
+    output_dir_base = pathlib.Path(f"{OUTPUT_REPO}/{timestamp}")
+    output_dir_base.mkdir(parents=True, exist_ok=True)
 
-    logger.info("Data processing complete!")
-    logger.info(f"Processed {len(slides_documents)} documents.")
-    stats.log_summary(logger)
+    # Save all documents into a single JSON file
+    output_file = output_dir_base / "documents.json"
+    with open(output_file, "w") as f:
+        json.dump([utils.document_to_dict(doc) for doc in documents], f, indent=2)
 
-    # EXPORT
-    logger.info("Initialising Mongo Database...")
-
-    config = load_config("config.yaml")
-    export_gateway = mongodb_gateway.MongoDBGateway(
-        database_name=config["mongodbKeats"]["database"],
-        collection_name=config["mongodbKeats"]["collection"]["documents"],
-        uri=config["mongodbKeats"]["uri"]
-    )
-
-    logger.info("Exporting documents to storage...")
-
-    docs_dict = document.to_dict(docs=slides_documents)
-
-    try:
-        export_gateway.add(documents=docs_dict)
-        logger.info(f"Inserted {len(docs_dict)} documents into MongoDB.")
-    except Exception as e:
-        logger.error(f"Failed to export documents: {e}")
-
-    logger.info("Data processing complete!")
-
-
-    # STATS
-    logger.info("Exporting stats...")
-    stats_gateway = mongodb_gateway.MongoDBGateway(
-        database_name=config["mongodbKeats"]["database"],
-        collection_name=config["mongodbKeats"]["collection"]["stats"],
-        uri=config["mongodbKeats"]["uri"]
-    )
-
-    stats_doc = stats.summarize()
-    stats_doc["run_id"] = utils.generate_run_id()
-
-    try:
-        stats_gateway.add(documents=[stats_doc])
-        logger.info(f"Inserted stats document into the MongoDB.")
-    except Exception as e:
-        logger.error(f"Failed to export stats: {e}")
-
-    logger.info("Done!")
-
+    print(f"Saved {len(documents)} documents to {output_file}")
 
 if __name__ == "__main__":
     main()
-
-
