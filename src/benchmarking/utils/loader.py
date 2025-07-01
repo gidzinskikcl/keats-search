@@ -1,3 +1,4 @@
+import csv
 import json
 from benchmarking.schemas import schemas
 from collections import OrderedDict
@@ -22,5 +23,15 @@ def load_ground_truth(path: str) -> schemas.GroundTruth:
             query_id=entry["query_id"],
             relevance_scores=scores
         )
-
     return schemas.GroundTruth(entries=entries)
+
+def load_valid_queries_from_csv(path: str) -> list[schemas.Query]:
+    queries = []
+    with open(path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            if row["label"].strip().lower() == "valid":
+                query_id = row["index"].strip()
+                question = row["question"].strip()
+                queries.append(schemas.Query(id=query_id, question=question))
+    return queries

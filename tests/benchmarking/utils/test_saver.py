@@ -2,7 +2,10 @@ import os
 import json
 import pandas as pd
 import tempfile
+from textwrap import dedent
+
 from benchmarking.utils import saver
+from benchmarking.schemas import schemas
 
 def test_save_evaluation_results():
     model_name = "TestModel"
@@ -42,3 +45,43 @@ def test_save_evaluation_results():
         assert "MRR" in rows
         assert rows["MRR"]["q1"] == 1.0
         assert rows["MRR"]["q2"] == 0.5
+
+
+def test_save_predictions():
+    predictions = {
+        "q1": {
+            "question": "What is AI?",
+            "results": [
+                schemas.Document("doc1", "AI stands for..."),
+                schemas.Document("doc2", "Artificial Intelligence is..."),
+            ]
+        },
+        "q2": {
+            "question": "Explain recursion.",
+            "results": [
+                schemas.Document("doc3", "Recursion is when...")
+            ]
+        }
+    }
+
+    model_name = "DummyModel"
+
+    expected = dedent('''\
+    "query_id","question","answer","relevance","rank","model","doc_id"
+    "q1","What is AI?","AI stands for...","","1","DummyModel","doc1"
+    "q1","What is AI?","Artificial Intelligence is...","","2","DummyModel","doc2"
+    "q2","Explain recursion.","Recursion is when...","","1","DummyModel","doc3"
+''')
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        output_file = os.path.join(tmpdir, "output.csv")
+
+        saver.save_predictions(output_file, model_name, predictions)
+
+        with open(output_file, encoding="utf-8") as f:
+            actual = f.read().strip()
+
+        assert actual == expected.strip()
+
+
+
