@@ -5,15 +5,13 @@ import os
 
 from benchmarking.metrics import precision, reciprocal_rank, ndcg
 from benchmarking.models import random_search
-from benchmarking.models.lucene import bm25
+from benchmarking.models.lucene import bm25, tf_idf
 from benchmarking.utils import loader, saver, wandb_logger
 from evaluator import evaluator
 
-from benchmarking.schemas import schemas
-
 BM25_JAR_PATH = "search_engines/lucene-search/target/keats-lucene-search-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
-DOC_PATH = "data/testing/documents/document-test.json"
+DOC_PATH = "data/testing/documents/document-test.json""data/documents/2025-07-01_10-12-35/documents.json"
 
 # Create timestamped directory
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -33,15 +31,14 @@ def main():
     # Define models
     models = [
         random_search.RandomSearchEngine(doc_path=DOC_PATH),
-        bm25.BM25SearchEngine(jar_path=BM25_JAR_PATH, doc_path=DOC_PATH),
-        # TFIDFModel(),
-        # EmbeddingModel()
+        # bm25.BM25SearchEngine(jar_path=BM25_JAR_PATH, doc_path=DOC_PATH),
+        # tf_idf.TFIDFSearchEngine(jar_path=BM25_JAR_PATH, doc_path=DOC_PATH),
     ]
     model_names = [model.__class__.__name__ for model in models]
     logger.info(f"Initialized models: {', '.join(model_names)}")
 
     # Define metrics
-    K = 5
+    K = 10
     metrics = [
         precision.Precision(k=K),
         reciprocal_rank.ReciprocalRank(k=K),

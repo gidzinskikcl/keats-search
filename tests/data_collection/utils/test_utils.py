@@ -16,23 +16,21 @@ def test_document_to_dict_with_timestamp():
         course_name="CS101"
     )
 
-    result = utils.document_to_dict(doc)
+    observed = utils.document_to_dict(doc)
     expected = {
-        "doc_id": "doc123",
+        "documentId": "doc123",
         "content": "This is content.",
         "title": "Lecture 1",
-        "timestamp": {
-            "start": 10.0,
-            "end": 20.0
-        },
-        "pageNumber": 1,
+        "start": "00:00:10",
+        "end": "00:00:20",
+        "slideNumber": 1,
         "keywords": ["test", "lecture"],
-        "doc_type": "pdf",
+        "type": "SLIDE",
         "speaker": "Dr. Smith",
-        "course_name": "CS101"
+        "courseName": "CS101"
     }
 
-    assert result == expected
+    assert observed == expected
 
 
 def test_document_to_dict_without_timestamp():
@@ -48,17 +46,18 @@ def test_document_to_dict_without_timestamp():
         course_name="ML202"
     )
 
-    result = utils.document_to_dict(doc)
+    observed = utils.document_to_dict(doc)
     expected = {
-        "doc_id": "doc456",
+        "documentId": "doc456",
         "content": "Another document.",
         "title": "Lecture 2",
-        "timestamp": None,
-        "pageNumber": 2,
+        "start": None,
+        "end": None,
+        "slideNumber": 2,
         "keywords": [],
-        "doc_type": "srt",
+        "type": "VIDEO_TRANSCRIPT",
         "speaker": "N/A",
-        "course_name": "ML202"
+        "courseName": "ML202"
     }
 
-    assert result == expected
+    assert observed == expected

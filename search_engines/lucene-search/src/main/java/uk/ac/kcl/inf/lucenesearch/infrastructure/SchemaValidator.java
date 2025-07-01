@@ -26,8 +26,8 @@ public class SchemaValidator {
                 }
             }
             case DocumentType.VIDEO_TRANSCRIPT -> {
-                if (doc.timestamp() == null || doc.timestamp().isBlank()) {
-                    throw new IllegalArgumentException("Missing mandatory field: timestamp for VIDEO_TRANSCRIPT");
+                if (doc.start() == null || doc.end() == null) {
+                    throw new IllegalArgumentException("Missing mandatory start or end time for VIDEO_TRANSCRIPT");
                 }
             }
             default -> throw new IllegalArgumentException("Unknown document type: " + doc.type());

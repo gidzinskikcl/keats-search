@@ -3,7 +3,7 @@ import pytest
 from unittest.mock import patch
 
 from benchmarking.schemas import schemas
-from benchmarking.models.lucene import bm25
+from benchmarking.models.lucene import tf_idf
 
 
 @pytest.fixture
@@ -20,7 +20,7 @@ def sample_java_output():
 
 
 def test_search(sample_query, sample_java_output):
-    engine = bm25.BM25SearchEngine(jar_path="dummy/path/to/jar", doc_path="dummy/path/to/documents.json")
+    engine = tf_idf.TFIDFSearchEngine(jar_path="dummy/path/to/jar", doc_path="dummy/path/to/documents.json")
 
     # Patch subprocess.run to simulate Java execution
     with patch("subprocess.run") as mock_run:
@@ -35,7 +35,7 @@ def test_search(sample_query, sample_java_output):
                 "-jar", "dummy/path/to/jar",
                 "dummy/path/to/documents.json",
                 "search engine",
-                "bm25"
+                "classic"
             ],
             capture_output=True,
             text=True
