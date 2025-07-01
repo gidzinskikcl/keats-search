@@ -1,6 +1,10 @@
+import csv
 import os
 import json
+import logging
 import pandas as pd
+
+from benchmarking.schemas import schemas
 
 def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics, output_dir: str):
     """
@@ -43,3 +47,46 @@ def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metri
         df.reset_index(inplace=True)
 
     df.to_csv(csv_path, index=False)
+
+
+
+def save_predictions(
+    output_path: str,
+    model_name: str,
+    predictions: dict[str, dict[str, str | list[schemas.Document]]]
+):
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    with open(output_path, mode='w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(
+            csvfile,
+            quoting=csv.QUOTE_ALL,      # wrap all fields in quotes
+            escapechar='\\',            # allow escaping special characters
+            quotechar='"'   
+        )
+        writer.writerow([
+            "query_id", 
+            "question", 
+            "answer",
+            "relevance", 
+            "rank", 
+            "model", 
+            "doc_id"
+        ])
+
+        for qid, p in predictions.items():
+            for rank, doc in enumerate(p["results"], start=1):
+                try:
+                    writer.writerow([
+                        qid,
+                        p["question"],
+                        doc.content,
+                        "",
+                        rank,
+                        model_name,
+                        doc.doc_id
+                    ])
+                except Exception as e:
+                    logging.error(f"Failed to write row for query {qid}, doc: {doc.doc_id}. Error: {e}")
+                    raise

@@ -15,4 +15,4 @@ class RandomSearchEngine(search_model.SearchModel):
         return [schemas.Document(doc_id=doc["documentId"], content=doc["content"]) for doc in raw_docs]
 
     def search(self, query: schemas.Query) -> list[schemas.Document]:
-        return random.sample(self.documents, k=len(self.documents))
+        return random.sample(self.documents, k=10)

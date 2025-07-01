@@ -20,15 +20,16 @@ class RelevanceScore(enum.Enum):
     MODERATELY_RELEVANT = 2
     HIGHLY_RELEVANT = 3
 
+class Relevance(enum.Enum):
+    RELEVANT = "RELEVANT"
+    NOTRELEVANT = "NOT RELEVANT"
+    NOTLABELLED = "NOT LABELLED"
+
 @dataclass
 class GroundTruthEntry:
     query: str
     query_id: str
-    relevance_scores: OrderedDict[str, RelevanceScore] # doc_id : score)
-
-    def get_score(self, doc_id: str) -> RelevanceScore:
-        """Returns the relevance score for a given segment ID. Defaults to IRRELEVANT if not found."""
-        return self.relevance_scores.get(doc_id, RelevanceScore.IRRELEVANT)
+    relevance_scores: OrderedDict[str, Relevance] # doc_id : score)
 
 @dataclass
 class GroundTruth:

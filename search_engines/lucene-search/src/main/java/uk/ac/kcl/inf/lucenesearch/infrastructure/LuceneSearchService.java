@@ -36,7 +36,8 @@ public class LuceneSearchService implements SearchService {
             IndexSearcher searcher = new IndexSearcher(reader);
             searcher.setSimilarity(this.similarity);
 
-            Query query = new QueryParser("content", analyzer).parse(queryStr);
+            String escapedQuery = QueryParser.escape(queryStr);
+            Query query = new QueryParser("content", analyzer).parse(escapedQuery);
             TopDocs hits = searcher.search(query, this.top_k);
 
             List<SearchResult> results = new ArrayList<>();
