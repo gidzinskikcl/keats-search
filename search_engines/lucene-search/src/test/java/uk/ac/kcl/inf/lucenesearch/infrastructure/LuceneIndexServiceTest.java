@@ -44,7 +44,8 @@ public class LuceneIndexServiceTest {
                         "doc123",                          // documentId
                         "Testing Lucene indexing",        // content
                         "Lucene Test",                    // title
-                        null,                             // timestamp
+                        null,
+                        null,
                         null,                             // speaker
                         null,                             // slideNumber
                         List.of("lucene", "test"),        // keywords (or List.of())

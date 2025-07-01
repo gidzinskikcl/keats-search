@@ -4,7 +4,7 @@ import json
 from benchmarking.schemas import schemas
 from benchmarking.models import search_model
 
-class BM25SearchEngine(search_model.SearchModel):
+class TFIDFSearchEngine(search_model.SearchModel):
     def __init__(self, jar_path: str, doc_path: str):
         self.jar_path = jar_path
         self.doc_path = doc_path
@@ -16,7 +16,7 @@ class BM25SearchEngine(search_model.SearchModel):
                 "-jar", self.jar_path,
                 self.doc_path,
                 query.question,
-                "bm25"
+                "classic",
             ],
             capture_output=True,
             text=True

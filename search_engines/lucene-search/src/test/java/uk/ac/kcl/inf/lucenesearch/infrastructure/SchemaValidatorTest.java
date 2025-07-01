@@ -18,6 +18,7 @@ public class SchemaValidatorTest {
                 "Title of Slide",
                 null,
                 null,
+                null,
                 3,
                 List.of("search", "ranking"),
                 DocumentType.SLIDE,
@@ -34,6 +35,7 @@ public class SchemaValidatorTest {
                 "Transcript content",
                 "Segment Title",
                 "00:00:10",
+                "00:00:25",
                 "Dr. Smith",
                 null,
                 List.of(),
@@ -51,6 +53,7 @@ public class SchemaValidatorTest {
                 "Content",
                 "Title",
                 "00:00:00",
+                "00:00:12",
                 null,
                 null,
                 null,
@@ -69,6 +72,7 @@ public class SchemaValidatorTest {
                 "Some content",
                 null,
                 "00:00:00",
+                "00:00:11",
                 null,
                 null,
                 null,
@@ -87,6 +91,7 @@ public class SchemaValidatorTest {
                 "Some content",
                 "Some title",
                 "00:00:00",
+                "00:00:10",
                 null,
                 null,
                 null,
@@ -109,6 +114,7 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
+                null,
                 DocumentType.SLIDE,
                 "Slide Course"
         );
@@ -127,11 +133,13 @@ public class SchemaValidatorTest {
                 null,
                 null,
                 null,
+                null,
                 DocumentType.VIDEO_TRANSCRIPT,
                 "Transcript Course"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
-        assertTrue(ex.getMessage().contains("timestamp"));
+        assertTrue(ex.getMessage().contains("start"));
+        assertTrue(ex.getMessage().contains("end"));
     }
 }

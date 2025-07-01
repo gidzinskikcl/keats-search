@@ -4,6 +4,8 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.search.similarities.Similarity;
+import org.apache.lucene.search.similarities.BM25Similarity; // or any other
 import org.apache.lucene.store.ByteBuffersDirectory;
 import org.apache.lucene.store.Directory;
 import org.junit.jupiter.api.AfterEach;
@@ -24,16 +26,23 @@ public class LuceneSearchServiceTest {
     @BeforeEach
     void setup() throws Exception {
         directory = new ByteBuffersDirectory();
-        writer = new IndexWriter(directory, new IndexWriterConfig(new StandardAnalyzer()));
 
-        // Add a document with fields "documentId" and "content"
+        // Optional: set the same analyzer used in your app
+        StandardAnalyzer analyzer = new StandardAnalyzer();
+
+        // Optional: use same similarity you want to test (BM25, Classic, etc.)
+        Similarity similarity = new BM25Similarity();
+
+        writer = new IndexWriter(directory, new IndexWriterConfig(analyzer));
+
         Document doc = new Document();
         doc.add(new StringField("documentId", "doc001", Field.Store.YES));
         doc.add(new TextField("content", "Lucene is a powerful search library", Field.Store.YES));
         writer.addDocument(doc);
         writer.commit();
 
-        searchService = new LuceneSearchService(directory, new StandardAnalyzer(), 10);
+        // Updated constructor to include similarity
+        searchService = new LuceneSearchService(directory, analyzer, similarity, 10);
     }
 
     @AfterEach
