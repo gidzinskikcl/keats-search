@@ -13,9 +13,9 @@ def mocked_search_model():
     mock_model = Mock(spec=SearchModel)
     
     mock_model.search.return_value = [
-        schemas.Document(doc_id="doc1", content="Heap memory explained"),
-        schemas.Document(doc_id="doc2", content="What is stack memory"),
-        schemas.Document(doc_id="doc3", content="Heap vs stack differences"),
+        schemas.Document(doc_id="doc1", content="Heap memory explained", course="Algorithms", lecture="Lecture 1"),
+        schemas.Document(doc_id="doc2", content="What is stack memory", course="Algorithms", lecture="Lecture 1"),
+        schemas.Document(doc_id="doc3", content="Heap vs stack differences", course="Algorithms", lecture="Lecture 1"),
     ]
     
     return mock_model

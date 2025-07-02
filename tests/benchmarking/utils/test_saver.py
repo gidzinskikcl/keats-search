@@ -52,14 +52,14 @@ def test_save_predictions():
         "q1": {
             "question": "What is AI?",
             "results": [
-                schemas.Document("doc1", "AI stands for..."),
-                schemas.Document("doc2", "Artificial Intelligence is..."),
+                schemas.Document("doc1", "AI stands for...", "course1", "lecture1"),
+                schemas.Document("doc2", "Artificial Intelligence is...", "course1", "lecture1"),
             ]
         },
         "q2": {
             "question": "Explain recursion.",
             "results": [
-                schemas.Document("doc3", "Recursion is when...")
+                schemas.Document("doc3", "Recursion is when...", "course1", "lecture1")
             ]
         }
     }
@@ -67,10 +67,10 @@ def test_save_predictions():
     model_name = "DummyModel"
 
     expected = dedent('''\
-    "query_id","question","answer","relevance","rank","model","doc_id"
-    "q1","What is AI?","AI stands for...","","1","DummyModel","doc1"
-    "q1","What is AI?","Artificial Intelligence is...","","2","DummyModel","doc2"
-    "q2","Explain recursion.","Recursion is when...","","1","DummyModel","doc3"
+    "query_id","question","answer","relevance_score","rank","model","doc_id","course","lecture"
+    "q1","What is AI?","AI stands for...","","1","DummyModel","doc1","course1","lecture1"
+    "q1","What is AI?","Artificial Intelligence is...","","2","DummyModel","doc2","course1","lecture1"
+    "q2","Explain recursion.","Recursion is when...","","1","DummyModel","doc3","course1","lecture1"
 ''')
 
     with tempfile.TemporaryDirectory() as tmpdir:

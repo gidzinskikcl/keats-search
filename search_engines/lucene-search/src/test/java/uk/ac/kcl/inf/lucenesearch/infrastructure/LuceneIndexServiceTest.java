@@ -41,16 +41,16 @@ public class LuceneIndexServiceTest {
     void indexDocumentTest() throws Exception {
         uk.ac.kcl.inf.lucenesearch.domain.Document doc =
                 new uk.ac.kcl.inf.lucenesearch.domain.Document(
-                        "doc123",                          // documentId
+                        "doc123",               // documentId
                         "Testing Lucene indexing",        // content
                         "Lucene Test",                    // title
                         null,
                         null,
-                        null,                             // speaker
+                        null,                     // speaker
                         null,                             // slideNumber
                         List.of("lucene", "test"),        // keywords (or List.of())
-                        DocumentType.SLIDE, // type,
-                        "Lucene Course" // courseName
+                        DocumentType.SLIDE,               // type,
+                        "Lucene Course"                    // courseName
                 );
 
         indexService.indexDocument(doc);

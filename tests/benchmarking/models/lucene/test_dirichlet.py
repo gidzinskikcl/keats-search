@@ -14,8 +14,8 @@ def sample_query():
 @pytest.fixture
 def sample_java_output():
     return json.dumps([
-        {"documentId": "doc1", "content": "Lucene is a full-text search engine."},
-        {"documentId": "doc2", "content": "It supports ranking, indexing, and search queries."}
+        {"documentId": "doc1", "content": "Lucene is a full-text search engine.", "courseName": "Information Retrieval", "title": "Lecture 12"},
+        {"documentId": "doc2", "content": "It supports ranking, indexing, and search queries.", "courseName": "Information Retrieval", "title": "Lecture 12"}
     ])
 
 

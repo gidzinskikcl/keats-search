@@ -38,6 +38,9 @@ public class LuceneSearchServiceTest {
         Document doc = new Document();
         doc.add(new StringField("documentId", "doc001", Field.Store.YES));
         doc.add(new TextField("content", "Lucene is a powerful search library", Field.Store.YES));
+        doc.add(new TextField("courseName", "Information Retrieval", Field.Store.YES));
+        doc.add(new TextField("title", "Introduction to Lucene", Field.Store.YES));
+
         writer.addDocument(doc);
         writer.commit();
 
@@ -62,5 +65,8 @@ public class LuceneSearchServiceTest {
         assertEquals("lucene", observed.query(), "Search query should be tracked in result");
         assertEquals("Lucene is a powerful search library", observed.content(), "Search content should be tracked in result");
         assertTrue(observed.score() > 0.0f, "Search result should have a positive score");
+        assertEquals("Information Retrieval", observed.courseName(), "Search results should have a course name");
+        assertEquals("Introduction to Lucene", observed.title(), "Search results should have a lecture title");
+
     }
 }

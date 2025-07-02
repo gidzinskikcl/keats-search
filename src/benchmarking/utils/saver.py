@@ -6,27 +6,19 @@ import pandas as pd
 
 from benchmarking.schemas import schemas
 
-def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics, output_dir: str):
+def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics, output_dir: str, k: int):
     """
     Saves evaluation results to a JSON file (mean metrics) and a CSV file (per-query metrics).
-    
-    Args:
-        model_name (str): The name of the evaluated model.
-        mean_metrics (dict): Dictionary of mean evaluation metrics.
-        per_query_metrics (dict or list): Per-query evaluation metrics either as:
-            - dict of metric_name → dict of query_id → value
-            - list of dicts with keys like 'query_id', 'Precision', etc.
-        output_dir (str): Directory to save results into.
     """
     os.makedirs(output_dir, exist_ok=True)
 
     # Save mean metrics to JSON
-    json_path = os.path.join(output_dir, f"{model_name}_mean_metrics.json")
+    json_path = os.path.join(output_dir, f"{model_name}_mean_metrics@k={k}.json")
     with open(json_path, "w") as f:
         json.dump(mean_metrics, f, indent=4)
 
     # Save per-query metrics to CSV
-    csv_path = os.path.join(output_dir, f"{model_name}_per_query_metrics.csv")
+    csv_path = os.path.join(output_dir, f"{model_name}_per_query_metrics@k={k}.csv")
 
     if isinstance(per_query_metrics, dict):
         # If it's already metric → query → score
@@ -48,7 +40,10 @@ def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metri
 
     df.to_csv(csv_path, index=False)
 
-
+def _clean(value):
+    if isinstance(value, str):
+        return value.replace('\x00', '')  # remove null byte if present
+    return value
 
 def save_predictions(
     output_path: str,
@@ -69,23 +64,27 @@ def save_predictions(
             "query_id", 
             "question", 
             "answer",
-            "relevance", 
+            "relevance_score", 
             "rank", 
             "model", 
-            "doc_id"
+            "doc_id",
+            "course",
+            "lecture"
         ])
 
         for qid, p in predictions.items():
             for rank, doc in enumerate(p["results"], start=1):
                 try:
                     writer.writerow([
-                        qid,
-                        p["question"],
-                        doc.content,
-                        "",
+                        _clean(qid),
+                        _clean(p["question"]),
+                        _clean(doc.content),
+                        _clean(doc.score),
                         rank,
-                        model_name,
-                        doc.doc_id
+                        _clean(model_name),
+                        _clean(doc.doc_id),
+                        _clean(doc.course),
+                        _clean(doc.lecture)
                     ])
                 except Exception as e:
                     logging.error(f"Failed to write row for query {qid}, doc: {doc.doc_id}. Error: {e}")

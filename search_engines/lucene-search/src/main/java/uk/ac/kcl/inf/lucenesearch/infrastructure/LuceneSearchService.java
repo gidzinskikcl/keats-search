@@ -43,8 +43,16 @@ public class LuceneSearchService implements SearchService {
             List<SearchResult> results = new ArrayList<>();
             for (ScoreDoc sd : hits.scoreDocs) {
                 org.apache.lucene.document.Document doc = searcher.doc(sd.doc);
-                results.add(new SearchResult(queryStr, doc.get("documentId"), doc.get("content"), sd.score));
+                results.add(new SearchResult(
+                        queryStr,
+                        doc.get("documentId"),
+                        doc.get("content"),
+                        sd.score,
+                        doc.get("courseName"),
+                        doc.get("title")
+                ));
             }
+
             return results;
         } catch (IOException e) {
             throw new RuntimeException(e);
