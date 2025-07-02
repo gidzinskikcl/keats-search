@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from typing import Iterator, OrderedDict
+from typing import Iterator, OrderedDict, Optional
 
 import enum
 
@@ -8,6 +8,9 @@ import enum
 class Document:
     doc_id: str
     content: str
+    course: str
+    lecture: str
+    score: Optional[float] = None
 
 @dataclass
 class Query:

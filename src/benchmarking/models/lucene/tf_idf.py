@@ -27,4 +27,4 @@ class TFIDFSearchEngine(search_model.SearchModel):
             raise RuntimeError(f"Lucene search failed: {result.stderr.strip()}")
 
         ranked = json.loads(result.stdout)
-        return [schemas.Document(doc_id=d["documentId"], content=d["content"]) for d in ranked]
+        return [schemas.Document(doc_id=d["documentId"], content=d["content"], course=d["courseName"], lecture=d["title"], score=d.get("score")) for d in ranked]

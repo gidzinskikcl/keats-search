@@ -18,28 +18,30 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws Exception {
-        if (args.length != 3) {
-            System.err.println("Usage: java Application <path_to_documents.json> <query> <similarity>");
+        if (args.length < 3 || args.length > 4) {
+            System.err.println("Usage: java Application <path_to_documents.json> <query> <similarity> [param]");
             System.exit(1);
         }
 
         String docPath = args[0];
         String query = args[1];
         String similarityName = args[2];
+        String param = args.length == 4 ? args[3] : null;
 
         Directory directory = LuceneConfig.getDirectory();
-        List<SearchResult> results = getSearchResults(directory, docPath, query, similarityName);
+        List<SearchResult> results = getSearchResults(directory, docPath, query, similarityName, param);
+
 
         // Print results as JSON
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(results));
     }
 
-    private static List<SearchResult> getSearchResults(Directory directory, String docPath, String query, String similarityName) throws Exception {
+    private static List<SearchResult> getSearchResults(Directory directory, String docPath, String query, String similarityName, String similarityParams) throws Exception {
         Analyzer analyzer = LuceneConfig.getAnalyzer();
         IndexWriter writer = LuceneConfig.getWriter();
 
-        org.apache.lucene.search.similarities.Similarity similarity = getSimilarityByName(similarityName);
+        org.apache.lucene.search.similarities.Similarity similarity = getSimilarityByName(similarityName, similarityParams);
 
         IndexService indexService = new LuceneIndexService(writer);
         SearchService searchService = new LuceneSearchService(directory, analyzer, similarity, 10);
@@ -58,14 +60,53 @@ public class Application {
         return results;
     }
 
-    private static org.apache.lucene.search.similarities.Similarity getSimilarityByName(String name) {
-        return switch (name.toLowerCase()) {
-            case "bm25" -> new org.apache.lucene.search.similarities.BM25Similarity();
-            case "classic" -> new org.apache.lucene.search.similarities.ClassicSimilarity();
-            case "dirichlet" -> new org.apache.lucene.search.similarities.LMDirichletSimilarity(2000f);
-            case "jm" -> new org.apache.lucene.search.similarities.LMJelinekMercerSimilarity(0.7f);
-            case "boolean" -> new org.apache.lucene.search.similarities.BooleanSimilarity();
-            default -> throw new IllegalArgumentException("Unknown similarity: " + name);
-        };
+    private static org.apache.lucene.search.similarities.Similarity getSimilarityByName(String name, String param) {
+        name = name.toLowerCase();
+        float defaultMu = 2000f;
+        float defaultLambda = 0.7f;
+
+        switch (name) {
+            case "bm25":
+                return new org.apache.lucene.search.similarities.BM25Similarity();
+
+            case "classic":
+                return new org.apache.lucene.search.similarities.ClassicSimilarity();
+
+            case "boolean":
+                return new org.apache.lucene.search.similarities.BooleanSimilarity();
+
+            case "dirichlet":
+                float mu = defaultMu;
+                if (param != null) {
+                    try {
+                        String[] parts = param.split("=");
+                        if (parts.length == 2 && parts[0].equals("mu")) {
+                            mu = Float.parseFloat(parts[1]);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.err.println("Invalid mu parameter: " + param + ", using default " + defaultMu);
+                    }
+                }
+                return new org.apache.lucene.search.similarities.LMDirichletSimilarity(mu);
+
+            case "jm":
+                float lambda = defaultLambda;
+                if (param != null) {
+                    try {
+                        String[] parts = param.split("=");
+                        if (parts.length == 2 && parts[0].equals("lambda")) {
+                            lambda = Float.parseFloat(parts[1]);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.err.println("Invalid lambda parameter: " + param + ", using default " + defaultLambda);
+                    }
+                }
+                return new org.apache.lucene.search.similarities.LMJelinekMercerSimilarity(lambda);
+
+            default:
+                throw new IllegalArgumentException("Unknown similarity: " + name);
+        }
     }
+
+
 }

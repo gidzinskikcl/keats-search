@@ -19,6 +19,9 @@ public class LuceneIndexService implements IndexService {
         org.apache.lucene.document.Document luceneDoc = new org.apache.lucene.document.Document();
         luceneDoc.add(new StringField("documentId", doc.documentId(), Field.Store.YES));
         luceneDoc.add(new TextField("content", doc.content(), Field.Store.YES));
+        luceneDoc.add(new TextField("courseName", doc.courseName(), Field.Store.YES));
+        luceneDoc.add(new TextField("title", doc.title(), Field.Store.YES));
         writer.addDocument(luceneDoc);
     }
+
 }

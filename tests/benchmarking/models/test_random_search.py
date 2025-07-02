@@ -7,7 +7,7 @@ from benchmarking.models import random_search
 def test_random_search_engine_returns_ten_documents():
     # Create a temporary JSON document file with 15 docs
     test_docs = [
-        {"documentId": f"doc{i}", "content": f"Content {i}"} for i in range(15)
+        {"documentId": f"doc{i}", "content": f"Content {i}", "courseName": f"Course {i}", "title": f"Lecture {i}"} for i in range(15)
     ]
 
     with tempfile.NamedTemporaryFile(mode="w+", delete=False) as tmp_file:
