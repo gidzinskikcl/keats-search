@@ -1,11 +1,18 @@
 package uk.ac.kcl.inf.lucenesearch.domain;
 
+import java.util.List;
+
 public record SearchResult(
-        String query,
+        float score,
         String documentId,
         String content,
-        float score,
         String courseName,
-        String title
+        String title,
+        String start,
+        String end,
+        String speaker,
+        String slideNumber,
+        List<String> keywords,
+        String type
 ) {
 }

@@ -18,18 +18,35 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws Exception {
-        if (args.length < 3 || args.length > 4) {
-            System.err.println("Usage: java Application <path_to_documents.json> <query> <similarity> [param]");
+        if (args.length < 4 || args.length > 5) {
+            System.err.println("Usage: java Application <path_to_documents.json> <query> <similarity> <top_k> [param]");
             System.exit(1);
         }
 
         String docPath = args[0];
         String query = args[1];
         String similarityName = args[2];
-        String param = args.length == 4 ? args[3] : null;
+
+        // Required: top_k
+        int topK;
+        try {
+            topK = Integer.parseInt(args[3]);
+            if (topK <= 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid top_k value: " + args[3] + " (must be a positive integer)");
+            System.exit(1);
+            return; // Unreachable, but required for compilation
+        }
+
+        // Optional: param
+        String param = args.length == 5 ? args[4] : null;
+
+
 
         Directory directory = LuceneConfig.getDirectory();
-        List<SearchResult> results = getSearchResults(directory, docPath, query, similarityName, param);
+        List<SearchResult> results = getSearchResults(directory, docPath, query, similarityName, topK, param);
 
 
         // Print results as JSON
@@ -37,14 +54,14 @@ public class Application {
         System.out.println(mapper.writeValueAsString(results));
     }
 
-    private static List<SearchResult> getSearchResults(Directory directory, String docPath, String query, String similarityName, String similarityParams) throws Exception {
+    private static List<SearchResult> getSearchResults(Directory directory, String docPath, String query, String similarityName, Integer topK, String similarityParams) throws Exception {
         Analyzer analyzer = LuceneConfig.getAnalyzer();
         IndexWriter writer = LuceneConfig.getWriter();
 
         org.apache.lucene.search.similarities.Similarity similarity = getSimilarityByName(similarityName, similarityParams);
 
         IndexService indexService = new LuceneIndexService(writer);
-        SearchService searchService = new LuceneSearchService(directory, analyzer, similarity, 10);
+        SearchService searchService = new LuceneSearchService(directory, analyzer, similarity, topK);
 
         // Load documents from file path
         JsonFileDocumentProvider provider = new JsonFileDocumentProvider(docPath);
@@ -56,8 +73,7 @@ public class Application {
 
         writer.close();
 
-        List<SearchResult> results = searchService.search(query);
-        return results;
+        return searchService.search(query);
     }
 
     private static org.apache.lucene.search.similarities.Similarity getSimilarityByName(String name, String param) {
