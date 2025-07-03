@@ -43,14 +43,28 @@ public class LuceneSearchService implements SearchService {
             List<SearchResult> results = new ArrayList<>();
             for (ScoreDoc sd : hits.scoreDocs) {
                 org.apache.lucene.document.Document doc = searcher.doc(sd.doc);
+
+                List<String> keywords = null;
+                String rawKeywords = doc.get("keywords");
+                if (rawKeywords != null) {
+                    keywords = List.of(rawKeywords); // fallback if single string
+                } else {
+                    keywords = List.of(); // or throw an error/log
+                }
+
                 results.add(new SearchResult(
-                        queryStr,
+                        sd.score,
                         doc.get("documentId"),
                         doc.get("content"),
-                        sd.score,
                         doc.get("courseName"),
-                        doc.get("title")
-                ));
+                        doc.get("title"),
+                        doc.get("start"),
+                        doc.get("end"),
+                        doc.get("speaker"),
+                        doc.get("slideNumber"),
+                        keywords,
+                        doc.get("type"))
+                );
             }
 
             return results;

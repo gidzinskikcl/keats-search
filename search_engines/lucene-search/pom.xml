@@ -47,33 +47,106 @@
 
     <build>
         <plugins>
-            <!-- Create fat JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.7.1</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>uk.ac.kcl.inf.lucenesearch.Application</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <finalName>keats-lucene-search-1.0-SNAPSHOT</finalName>
-                </configuration>
                 <executions>
+
+                    <!-- BM25 -->
                     <execution>
-                        <id>make-assembly</id> <!-- this ID is arbitrary -->
+                        <id>bm25-jar</id>
                         <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.BM25App</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>bm25-search</finalName>
+                        </configuration>
                     </execution>
+
+                    <!-- TF-IDF -->
+                    <execution>
+                        <id>tfidf-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.TFIDFApp</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>tfidf-search</finalName>
+                        </configuration>
+                    </execution>
+
+                    <!-- Dirichlet -->
+                    <execution>
+                        <id>dirichlet-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.DirichletApp</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>dirichlet-search</finalName>
+                        </configuration>
+                    </execution>
+
+                    <!-- JM -->
+                    <execution>
+                        <id>jm-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.JMApp</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>jm-search</finalName>
+                        </configuration>
+                    </execution>
+
+                    <!-- Boolean -->
+                    <execution>
+                        <id>Boolean-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.BooleanApp</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>boolean-search</finalName>
+                        </configuration>
+                    </execution>
+
                 </executions>
             </plugin>
         </plugins>
     </build>
+
 
 </project>

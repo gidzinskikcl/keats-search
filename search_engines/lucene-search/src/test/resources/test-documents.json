@@ -1,4 +1,26 @@
 [
-  { "documentId": "doc1", "content": "Lucene is awesome" },
-  { "documentId": "doc2", "content": "It supports indexing and searching" }
+  {
+    "documentId": "doc1",
+    "content": "Lucene is awesome",
+    "title": "Intro to Lucene",
+    "start": "00:00:00",
+    "end": "00:01:00",
+    "speaker": "Dr. Smith",
+    "slideNumber": 1,
+    "keywords": ["lucene", "intro"],
+    "type": "SLIDE",
+    "courseName": "Information Retrieval"
+  },
+  {
+    "documentId": "doc2",
+    "content": "It supports indexing and searching",
+    "title": "Lucene Features",
+    "start": null,
+    "end": null,
+    "speaker": null,
+    "slideNumber": 2,
+    "keywords": [],
+    "type": "SLIDE",
+    "courseName": "Information Retrieval"
+  }
 ]
