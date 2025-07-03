@@ -25,28 +25,28 @@ def main():
     """
     OUTPUT_DIR = os.path.join("data", "evaluation", "pre-annotated", TIMESTAMP)
     # Load data
-    logger.info("Loading queries and ground truth...")
+    print("Loading queries and ground truth...")
     queries = loader.load_valid_queries_from_csv(path=GROUND_TRUTH)
-    logger.info("Done loading queries and ground truth.")
+    print("Done loading queries and ground truth.")
     
     # Define models
     models = [
-        # random_search.RandomSearchEngine(doc_path=DOC_PATH),
-        # bm25.BM25SearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
-        # tf_idf.TFIDFSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
-        # dirichlet.DirichletSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
-        # jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
-        # boolean.BooleanSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
+        random_search.RandomSearchEngine(doc_path=DOC_PATH),
+        bm25.BM25SearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
+        tf_idf.TFIDFSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
+        boolean.BooleanSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH),
         dirichlet.DirichletSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, mu_=500),
         dirichlet.DirichletSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, mu_=1000),
         dirichlet.DirichletSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, mu_=1500),
+        dirichlet.DirichletSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, mu_=2000),
         jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, lambda_=0.1),
         jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, lambda_=0.3),
         jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, lambda_=0.5),
+        jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, lambda_=0.7),
         jm.LMJelinekMercerSearchEngine(jar_path=LUCENE_ENGINE_JAR_PATH, doc_path=DOC_PATH, lambda_=0.9),
     ]
     model_names = [model.__class__.__name__ for model in models]
-    logger.info(f"Initialized models: {', '.join(model_names)}")
+    print(f"Initialized models: {', '.join(model_names)}")
 
     # Run evaluation for each model
     print("Evaluation running...")
@@ -58,8 +58,8 @@ def main():
             model_name = f"LMJelinekMercerSearchEngine_lambda_{model.lambda_}"
         else:
             model_name = model.__class__.__name__
-        logger.info(f"Evaluating model: {model_name}")
-        print(f"{model_name}")
+        print("Evaluating model:")
+        logger.info(f"{model_name}: ...")
 
         predictions = {}
         for query in queries:
