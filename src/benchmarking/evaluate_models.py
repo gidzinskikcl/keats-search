@@ -9,19 +9,24 @@ from benchmarking.utils import loader, saver, wandb_logger
 
 
 # PREDICTION_DIR = "data/evaluation/pre-annotated/2025-07-02_15-44-29" # original models: BM25, TFIDF, Dirichlet 2000, JM 0.7, Boolean
-PREDICTION_DIR = "data/evaluation/pre-annotated/2025-07-02_16-32-41" # dirichlet and jm with various params
+# PREDICTION_DIR = "data/evaluation/pre-annotated/2025-07-02_16-32-41" # dirichlet and jm with various params
+PREDICTION_DIR = "data/evaluation/pre-annotated/2025-07-02_21-51-47" # contains all models
 GROUND_TRUTH = "data/queries/validated/keats-search_queries_24-06-2025.csv"
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_DIR = os.path.join("data", "evaluation", "gt-annotated", "results", TIMESTAMP)
 DOC_PATH = "data/documents/2025-07-01_10-12-35/documents.json"
-# MODELS = ["BM25SearchEngine", "TFIDFSearchEngine", "DirichletSearchEngine", "LMJelinekMercerSearchEngine", "BooleanSearchEngine"]
 MODELS = [
+    "BM25SearchEngine", 
+    "TFIDFSearchEngine", 
+    "BooleanSearchEngine",
     "dirichletsearchengine_mu_500",
     "dirichletsearchengine_mu_1000",
     "dirichletsearchengine_mu_1500",
+    "dirichletsearchengine_mu_2000",
     "lmjelinekmercersearchengine_lambda_0.1",
     "lmjelinekmercersearchengine_lambda_0.3",
     "lmjelinekmercersearchengine_lambda_0.5",
+    "lmjelinekmercersearchengine_lambda_0.7",
     "lmjelinekmercersearchengine_lambda_0.9"
 ]
 K = [1, 5, 10]
