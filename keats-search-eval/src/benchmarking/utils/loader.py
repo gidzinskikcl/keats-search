@@ -2,14 +2,16 @@ import csv
 import json
 from schemas import schemas
 
+
 def load_queries(path: str) -> list[schemas.Query]:
     with open(path, "r") as f:
         data = json.load(f)
     return [schemas.Query(id=entry["id"], question=entry["question"]) for entry in data]
 
+
 def load_valid_queries_from_csv(path: str) -> list[schemas.Query]:
     queries = []
-    with open(path, newline='', encoding='utf-8') as csvfile:
+    with open(path, newline="", encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             if row["label"].strip().lower() == "valid":
@@ -18,9 +20,10 @@ def load_valid_queries_from_csv(path: str) -> list[schemas.Query]:
                 queries.append(schemas.Query(id=query_id, question=question))
     return queries
 
-def load_ground_truth_pairs(csv_path: str) -> set[tuple[str, str]]: #No test
+
+def load_ground_truth_pairs(csv_path: str) -> set[tuple[str, str]]:  # No test
     relevant_pairs = set()
-    with open(csv_path, newline='', encoding='utf-8') as f:
+    with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row["label"].strip().lower() == "valid":
@@ -29,13 +32,17 @@ def load_ground_truth_pairs(csv_path: str) -> set[tuple[str, str]]: #No test
                 relevant_pairs.add((qid, doc_id))
     return relevant_pairs
 
+
 class PredictedDocument:
     def __init__(self, doc_id):
         self.doc_id = doc_id
 
-def load_model_predictions(csv_path: str) -> dict[str, list[PredictedDocument]]: #No test
+
+def load_model_predictions(
+    csv_path: str,
+) -> dict[str, list[PredictedDocument]]:  # No test
     predictions = {}
-    with open(csv_path, newline='', encoding='utf-8') as f:
+    with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             query_id = row["query_id"].strip()

@@ -1,5 +1,6 @@
 from abc import ABC
 
+
 class PromptTemplate(ABC):
     pass
 
@@ -84,6 +85,7 @@ class V1(PromptTemplate):
     ]
     <student response>
     """
+
 
 class V2(PromptTemplate):
 
@@ -258,6 +260,7 @@ class V3(PromptTemplate):
     ]
     <student response>
     """
+
 
 class V4(PromptTemplate):
 

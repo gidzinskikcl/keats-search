@@ -1,4 +1,3 @@
-
 import json
 import logging
 from datetime import datetime
@@ -9,19 +8,21 @@ from benchmarking.utils import loader, saver, wandb_logger
 
 # Constants
 # PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # old prediction before updating
-PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45" # new prediction after updating gt
+PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45"  # new prediction after updating gt
 
 # GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv" # not updated
 GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"  # updated
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-OUTPUT_DIR = os.path.join("keats-search-eval/data", "evaluation", "gt-annotated", "results", TIMESTAMP)
+OUTPUT_DIR = os.path.join(
+    "keats-search-eval/data", "evaluation", "gt-annotated", "results", TIMESTAMP
+)
 # DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
-DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json" # without UA subtitles
+DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"  # without UA subtitles
 
 MODELS = [
     "RandomSearchEngine",
-    "BM25SearchEngine", 
-    "TFIDFSearchEngine", 
+    "BM25SearchEngine",
+    "TFIDFSearchEngine",
     "BooleanSearchEngine",
     "dirichletsearchengine_mu_500",
     "dirichletsearchengine_mu_1000",
@@ -31,40 +32,42 @@ MODELS = [
     "lmjelinekmercersearchengine_lambda_0.3",
     "lmjelinekmercersearchengine_lambda_0.5",
     "lmjelinekmercersearchengine_lambda_0.7",
-    "lmjelinekmercersearchengine_lambda_0.9"
+    "lmjelinekmercersearchengine_lambda_0.9",
 ]
 K = [1, 5, 10]
 
 
-
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+)
 logger = logging.getLogger(__name__)
+
 
 def main():
     # Load ground truth
     relevant_pairs = loader.load_ground_truth_pairs(csv_path=GROUND_TRUTH)
     logger.info("Loaded ground truth...")
 
-    wandb_log = wandb_logger.WandbLogger(project="keats-search", run_name="baseline-eval")
+    wandb_log = wandb_logger.WandbLogger(
+        project="keats-search", run_name="baseline-eval"
+    )
     results_by_k = {}
     for k in K:
         logger.info(f"Running evaluation with k={k}")
         print(f"\n=== EVALUATION @k={k} ===")
-        
-        # Initialize metrics
-        metrics = [
-            scikit_metrics.PrecisionAtK(k=k),
-            scikit_metrics.MRRAtK(k=k)
-        ]
-        print(f"Using metrics: {', '.join(m.name for m in metrics)}")
 
+        # Initialize metrics
+        metrics = [scikit_metrics.PrecisionAtK(k=k), scikit_metrics.MRRAtK(k=k)]
+        print(f"Using metrics: {', '.join(m.name for m in metrics)}")
 
         # Evaluation
         for model_name in MODELS:
             logger.info(f"Evaluating model: {model_name}")
             print(f"{model_name}")
 
-            model_predictions_path = os.path.join(PREDICTION_DIR, f"{model_name.lower()}_predictions.csv")
+            model_predictions_path = os.path.join(
+                PREDICTION_DIR, f"{model_name.lower()}_predictions.csv"
+            )
             predictions = loader.load_model_predictions(model_predictions_path)
 
             mean_scores = {metric.name: 0.0 for metric in metrics}
@@ -73,11 +76,14 @@ def main():
             for query_id, doc_list in predictions.items():
                 per_query_scores = {}
                 for metric in metrics:
-                    score = metric.compute(query_id=query_id, retrieved_docs=doc_list, relevant_pairs=relevant_pairs)
+                    score = metric.compute(
+                        query_id=query_id,
+                        retrieved_docs=doc_list,
+                        relevant_pairs=relevant_pairs,
+                    )
                     per_query_scores[metric.name] = score
                     mean_scores[metric.name] += score
                 per_query_metrics[query_id] = per_query_scores
-
 
             # Average
             total_queries = len(predictions)
@@ -98,11 +104,11 @@ def main():
             os.makedirs(model_output_dir, exist_ok=True)
 
             saver.save_evaluation_results(
-                model_name=model_name, 
-                mean_metrics=mean_scores, 
+                model_name=model_name,
+                mean_metrics=mean_scores,
                 per_query_metrics=per_query_metrics,
                 output_dir=model_output_dir,
-                k=k
+                k=k,
             )
     combined_json_path = os.path.join(OUTPUT_DIR, f"mean_metrics_all_k.json")
     with open(combined_json_path, "w") as f:

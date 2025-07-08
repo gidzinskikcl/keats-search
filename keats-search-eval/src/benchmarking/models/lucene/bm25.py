@@ -5,8 +5,11 @@ import json
 from schemas import schemas
 from benchmarking.models import search_model
 
+
 class BM25SearchEngine(search_model.SearchModel):
-    JAR_PATH = "search_engines/lucene-search/target/bm25-search-jar-with-dependencies.jar"
+    JAR_PATH = (
+        "search_engines/lucene-search/target/bm25-search-jar-with-dependencies.jar"
+    )
 
     def __init__(self, doc_path: str, k: int):
         self.doc_path = doc_path
@@ -22,13 +25,14 @@ class BM25SearchEngine(search_model.SearchModel):
         proc = subprocess.run(
             [
                 "java",
-                "-jar", self.JAR_PATH,
+                "-jar",
+                self.JAR_PATH,
                 self.doc_path,
                 query.question,
                 str(self.k),
             ],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if proc.returncode != 0:

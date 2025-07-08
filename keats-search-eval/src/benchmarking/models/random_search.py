@@ -21,13 +21,13 @@ class RandomSearchEngine(search_model.SearchModel):
                 title=doc.get("title", ""),
                 timestamp=schemas.Timestamp(
                     start=_parse_time(doc.get("start", "00:00:00")),
-                    end=_parse_time(doc.get("end", "00:01:00"))
+                    end=_parse_time(doc.get("end", "00:01:00")),
                 ),
                 pageNumber=doc.get("slideNumber", 0),
                 keywords=doc.get("keywords", []),
                 doc_type=self._get_type(doc["type"]),
                 speaker=doc.get("speaker", ""),
-                course_name=doc.get("courseName", "")
+                course_name=doc.get("courseName", ""),
             )
             for doc in raw_docs
         ]
@@ -38,11 +38,11 @@ class RandomSearchEngine(search_model.SearchModel):
         return [
             schemas.SearchResult(
                 document=doc,
-                score=random.uniform(0.0, 1.0)  # Random score between 0.0 and 1.0
+                score=random.uniform(0.0, 1.0),  # Random score between 0.0 and 1.0
             )
             for doc in sampled_docs
         ]
-    
+
     def _get_type(self, value: str) -> str:
         if value == "SLIDE":
             return schemas.MaterialType.SLIDES
@@ -50,7 +50,6 @@ class RandomSearchEngine(search_model.SearchModel):
             return schemas.MaterialType.TRANSCRIPT
         else:
             raise ValueError(f"Unknown document type: {value}")
-
 
 
 def _parse_time(hhmmss: str) -> timedelta:

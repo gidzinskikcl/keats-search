@@ -1,12 +1,13 @@
-
 import json
 import pathlib
 
-from services.gateways import yt_transcript_gateway 
+from services.gateways import yt_transcript_gateway
 
 
 def main():
-    output_dir = pathlib.Path("/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts")
+    output_dir = pathlib.Path(
+        "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts"
+    )
     urls_path = output_dir / "urls" / "urls.json"
 
     # Load URLs from JSON
@@ -14,7 +15,7 @@ def main():
         urls = json.load(f)
 
     # Define skipped indexes for module '6.006'
-    skip_indexes_6006 = {3, 6, 8, 11, 14, 17, 20, 22, 25, 29, 30} 
+    skip_indexes_6006 = {3, 6, 8, 11, 14, 17, 20, 22, 25, 29, 30}
 
     results = []
 

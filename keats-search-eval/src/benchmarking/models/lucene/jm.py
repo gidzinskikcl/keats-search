@@ -5,8 +5,10 @@ import json
 from schemas import schemas
 from benchmarking.models import search_model
 
+
 class LMJelinekMercerSearchEngine(search_model.SearchModel):
     JAR_PATH = "search_engines/lucene-search/target/jm-search-jar-with-dependencies.jar"
+
     def __init__(self, doc_path: str, k: int, lambda_: float = 0.7):
         self.doc_path = doc_path
         self.k = k
@@ -18,19 +20,19 @@ class LMJelinekMercerSearchEngine(search_model.SearchModel):
         h, m, s = map(int, ts.split(":"))
         return timedelta(hours=h, minutes=m, seconds=s)
 
-
     def search(self, query: schemas.Query) -> list[schemas.SearchResult]:
         proc = subprocess.run(
             [
                 "java",
-                "-jar", self.JAR_PATH,
+                "-jar",
+                self.JAR_PATH,
                 self.doc_path,
                 query.question,
                 str(self.k),
-                str(self.lambda_)
+                str(self.lambda_),
             ],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if proc.returncode != 0:
@@ -56,8 +58,8 @@ class LMJelinekMercerSearchEngine(search_model.SearchModel):
 
             doc = schemas.DocumentSchema(
                 doc_id=d["documentId"],
-                content=d["content"], 
-                course_name=d["courseName"], 
+                content=d["content"],
+                course_name=d["courseName"],
                 title=d["title"],
                 timestamp=timestamp,
                 pageNumber=d["slideNumber"],

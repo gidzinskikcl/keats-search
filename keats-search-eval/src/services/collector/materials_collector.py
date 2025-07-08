@@ -1,30 +1,35 @@
 import pathlib
 
 from schemas import schemas
-from services.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor
+from services.extractors import (
+    batch_pdf_schema_extractor,
+    batch_transcript_schema_extractor,
+)
 from services.segmenters import page_segmenter, chapter_segmenter
 
 
 def collect(
-    pdf_courses_dir: pathlib.Path, 
+    pdf_courses_dir: pathlib.Path,
     srt_courses_dir: pathlib.Path,
     courses: list[str],
-    pdf_extractor: batch_pdf_schema_extractor.BatchPdfSchemaExtractor, 
+    pdf_extractor: batch_pdf_schema_extractor.BatchPdfSchemaExtractor,
     transcript_extractor: batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor,
     pdf_segmenter: page_segmenter.PageSegmenter,
-    srt_segmenter: chapter_segmenter.ChapterSegmenter
+    srt_segmenter: chapter_segmenter.ChapterSegmenter,
 ) -> list[schemas.LectureMaterial]:
 
-    pdfs = collect_pdfs(pdf_courses_dir, courses, pdf_extractor, pdf_segmenter) 
-    transcripts = collect_transcripts(srt_courses_dir, courses, transcript_extractor, srt_segmenter)
+    pdfs = collect_pdfs(pdf_courses_dir, courses, pdf_extractor, pdf_segmenter)
+    transcripts = collect_transcripts(
+        srt_courses_dir, courses, transcript_extractor, srt_segmenter
+    )
     return pdfs + transcripts
 
 
 def collect_pdfs(
-        courses_dir: pathlib.Path, 
-        courses: list[str],
-        extractor: batch_pdf_schema_extractor.BatchPdfSchemaExtractor, 
-        segmenter: page_segmenter.PageSegmenter
+    courses_dir: pathlib.Path,
+    courses: list[str],
+    extractor: batch_pdf_schema_extractor.BatchPdfSchemaExtractor,
+    segmenter: page_segmenter.PageSegmenter,
 ) -> list[schemas.LectureMaterial]:
     pdf_schemas = extractor.extract_all(courses_root=courses_dir, courses=courses)
 
@@ -46,20 +51,22 @@ def collect_pdfs(
 
 
 def collect_transcripts(
-        courses_dir: pathlib.Path, 
-        courses: list[str],
-        extractor: batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor,
-        segmenter: chapter_segmenter.ChapterSegmenter
+    courses_dir: pathlib.Path,
+    courses: list[str],
+    extractor: batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor,
+    segmenter: chapter_segmenter.ChapterSegmenter,
 ) -> list[schemas.LectureMaterial]:
     if extractor is None:
         return []
-    transcript_schemas = extractor.extract_all(courses_root=courses_dir, courses=courses)
+    transcript_schemas = extractor.extract_all(
+        courses_root=courses_dir, courses=courses
+    )
 
     srt_segments = []
     for t in transcript_schemas:
         segments = segmenter.segment(transcript_schema=t)
         srt_segments.extend(segments)
-    
+
     return [
         schemas.LectureMaterial(
             course_name=segment.course_name,

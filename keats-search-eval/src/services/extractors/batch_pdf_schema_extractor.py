@@ -3,11 +3,14 @@ import pathlib
 from schemas import schemas
 from services.extractors import pdf_schema_extractor
 
+
 class BatchPdfSchemaExtractor:
     def __init__(self, extractor: pdf_schema_extractor.PdfSchemaExtractor):
         self.extractor = extractor
 
-    def extract_all(self, courses_root: pathlib.Path, courses: list[str]) -> list[schemas.PdfSchema]:
+    def extract_all(
+        self, courses_root: pathlib.Path, courses: list[str]
+    ) -> list[schemas.PdfSchema]:
         results = []
         for course_dir in courses_root.iterdir():
             if course_dir.is_dir() and course_dir.name in courses:

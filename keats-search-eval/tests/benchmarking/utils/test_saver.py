@@ -10,6 +10,7 @@ import csv
 from benchmarking.utils import saver
 from schemas import schemas
 
+
 @pytest.mark.skip(reason="Not implemented yet")
 def test_save_evaluation_results():
     model_name = "TestModel"
@@ -20,7 +21,9 @@ def test_save_evaluation_results():
     ]
 
     with tempfile.TemporaryDirectory() as tmpdir:
-        saver.save_evaluation_results(model_name, mean_metrics, per_query_metrics, tmpdir, 1)
+        saver.save_evaluation_results(
+            model_name, mean_metrics, per_query_metrics, tmpdir, 1
+        )
 
         # Check if files exist
         json_path = os.path.join(tmpdir, f"{model_name}_mean_metrics.json")
@@ -37,7 +40,9 @@ def test_save_evaluation_results():
         # Validate CSV structure and values
         df = pd.read_csv(csv_path)
         expected_columns = {"metric", "q1", "q2"}
-        assert set(df.columns) == expected_columns, f"CSV columns mismatch: {df.columns}"
+        assert (
+            set(df.columns) == expected_columns
+        ), f"CSV columns mismatch: {df.columns}"
 
         # Convert to dict for easier checking
         rows = {row["metric"]: row for _, row in df.iterrows()}
@@ -51,11 +56,11 @@ def test_save_evaluation_results():
         assert rows["MRR"]["q2"] == 0.5
 
 
-
-
 def test_save_predictions():
     # Create a temporary output file
-    with tempfile.NamedTemporaryFile(mode='r+', suffix=".csv", delete=False) as tmp_file:
+    with tempfile.NamedTemporaryFile(
+        mode="r+", suffix=".csv", delete=False
+    ) as tmp_file:
         output_path = tmp_file.name
 
     # Create a fake DocumentSchema and SearchResult
@@ -64,35 +69,41 @@ def test_save_predictions():
         content="Example content with null byte\x00 inside",
         course_name="CourseX",
         title="LectureY",
-        timestamp=schemas.Timestamp(start=timedelta(minutes=0), end=timedelta(minutes=1)),
+        timestamp=schemas.Timestamp(
+            start=timedelta(minutes=0), end=timedelta(minutes=1)
+        ),
         pageNumber=1,
         keywords=["test"],
         doc_type=schemas.MaterialType.SLIDES,
-        speaker="Dr. X"
+        speaker="Dr. X",
     )
     search_result = schemas.SearchResult(document=doc, score=0.987)
 
     # Sample predictions dict
-    predictions = {
-        "q1": {
-            "question": "What is Lucene?",
-            "results": [search_result]
-        }
-    }
+    predictions = {"q1": {"question": "What is Lucene?", "results": [search_result]}}
 
     try:
         # Call the function
-        saver.save_predictions(output_path=output_path, model_name="test_model", predictions=predictions)
+        saver.save_predictions(
+            output_path=output_path, model_name="test_model", predictions=predictions
+        )
 
         # Read the CSV back
-        with open(output_path, newline='', encoding='utf-8') as f:
-            reader = csv.reader(f, quoting=csv.QUOTE_ALL, escapechar='\\')
+        with open(output_path, newline="", encoding="utf-8") as f:
+            reader = csv.reader(f, quoting=csv.QUOTE_ALL, escapechar="\\")
             rows = list(reader)
 
         # Check headers and content
         assert rows[0] == [
-            "query_id", "question", "answer", "relevance_score",
-            "rank", "model", "doc_id", "course", "lecture"
+            "query_id",
+            "question",
+            "answer",
+            "relevance_score",
+            "rank",
+            "model",
+            "doc_id",
+            "course",
+            "lecture",
         ]
         assert rows[1] == [
             "q1",
@@ -103,10 +114,7 @@ def test_save_predictions():
             "test_model",
             "doc123",
             "CourseX",
-            "LectureY"
+            "LectureY",
         ]
     finally:
         os.remove(output_path)  # Clean up temp file
-
-
-

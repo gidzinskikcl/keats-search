@@ -1,11 +1,14 @@
 import json
 
+
 def load_json(path):
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         return json.load(f)
+
 
 def get_score(data, k, model, metric):
     return data.get(k, {}).get(model, {}).get(metric, None)
+
 
 def generate_markdown_tables(data, k_metrics):
     all_models = set()
@@ -33,15 +36,20 @@ def generate_markdown_tables(data, k_metrics):
             for i, (model, _, score_str) in enumerate(rows)
         ]
 
-        table = f"### Rankings for {metric} (k={k})\n\n{header}{separator}" + "\n".join(markdown_rows) + "\n"
+        table = (
+            f"### Rankings for {metric} (k={k})\n\n{header}{separator}"
+            + "\n".join(markdown_rows)
+            + "\n"
+        )
         tables.append(table)
 
     return "\n".join(tables)
 
+
 def main():
     # path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-05_19-16-50/mean_metrics_all_k.json"
     path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-06_13-51-09/mean_metrics_all_k.json"
-    
+
     readme_path = "keats-search-eval/README.md"
     data = load_json(path)
 
@@ -53,6 +61,7 @@ def main():
 
     with open(readme_path, "w") as f:
         f.write(markdown)
+
 
 if __name__ == "__main__":
     main()

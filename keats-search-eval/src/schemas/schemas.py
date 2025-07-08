@@ -5,10 +5,12 @@ from typing import Optional
 
 from datetime import timedelta
 
+
 @dataclass
 class PdfPage:
     nr: int
     text: str
+
 
 @dataclass
 class PdfSchema:
@@ -18,6 +20,7 @@ class PdfSchema:
     course_name: Optional[str] = None
     lecture_id: Optional[str] = None
     lecture_name: Optional[str] = None
+
 
 @dataclass
 class PdfSegment:
@@ -29,10 +32,12 @@ class PdfSegment:
     lecture_id: Optional[str] = None
     lecture_name: Optional[str] = None
 
+
 @dataclass
 class Timestamp:
     start: timedelta
     end: timedelta
+
 
 @dataclass
 class Subtitle:
@@ -40,11 +45,13 @@ class Subtitle:
     text: str
     timestamp: Timestamp
 
+
 @dataclass
 class Chapter:
     nr: int
     title: str
     timestamp: Timestamp
+
 
 @dataclass
 class TranscriptSchema:
@@ -56,6 +63,7 @@ class TranscriptSchema:
     lecture_id: Optional[str] = None
     lecture_name: Optional[str] = None
     chapters: Optional[list[Chapter]] = None
+
 
 @dataclass
 class TranscriptSegment:
@@ -69,9 +77,11 @@ class TranscriptSegment:
     lecture_name: Optional[str] = None
     chapter_title: Optional[str] = None
 
+
 class MaterialType(enum.Enum):
     SLIDES = "pdf"
     TRANSCRIPT = "srt"
+
 
 @dataclass
 class LectureMaterial:
@@ -79,14 +89,17 @@ class LectureMaterial:
     type: MaterialType
     doc_id: str
     content: str
-    length: Optional[int] = None # for slides: page count; for transcripts: duration in seconds
+    length: Optional[int] = (
+        None  # for slides: page count; for transcripts: duration in seconds
+    )
     lecture_title: str = "N/A"
+
 
 @dataclass
 class DocumentSchema:
     doc_id: str
     content: str
-    title: str # lecture title
+    title: str  # lecture title
     timestamp: Timestamp
     pageNumber: int
     keywords: list[str]
@@ -94,10 +107,12 @@ class DocumentSchema:
     speaker: str
     course_name: str
 
+
 @dataclass
 class Query:
     id: str
     question: str
+
 
 @dataclass
 class SearchResult:

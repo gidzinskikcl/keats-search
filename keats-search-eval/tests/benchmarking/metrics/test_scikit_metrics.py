@@ -1,9 +1,11 @@
 import unittest
 
+
 # Minimal mock Document class
 class Document:
     def __init__(self, doc_id):
         self.doc_id = doc_id
+
 
 # Your metric classes
 class PrecisionAtK:
@@ -11,13 +13,17 @@ class PrecisionAtK:
         self.k = k
         self.name = f"Precision@{k}"
 
-    def compute(self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]) -> float:
+    def compute(
+        self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]
+    ) -> float:
         if self.k == 0:
             return None
-        top_k_docs = retrieved_docs[:self.k]
+        top_k_docs = retrieved_docs[: self.k]
         if not top_k_docs:
             return 0.0
-        y_true = [1 if (query_id, doc.doc_id) in relevant_pairs else 0 for doc in top_k_docs]
+        y_true = [
+            1 if (query_id, doc.doc_id) in relevant_pairs else 0 for doc in top_k_docs
+        ]
         y_pred = [1] * len(y_true)
         if sum(y_true) == 0:
             return 0.0
@@ -29,28 +35,28 @@ class MRRAtK:
         self.k = k
         self.name = f"MRR@{k}"
 
-    def compute(self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]) -> float:
-        top_k_docs = retrieved_docs[:self.k]
+    def compute(
+        self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]
+    ) -> float:
+        top_k_docs = retrieved_docs[: self.k]
         for rank, doc in enumerate(top_k_docs, start=1):
             if (query_id, doc.doc_id) in relevant_pairs:
                 return 1.0 / rank
         return 0.0
+
 
 # Unit tests (manual expected values)
 class TestIRMetrics(unittest.TestCase):
 
     def setUp(self):
         self.query_id = "Q1"
-        self.relevant_pairs = {
-            ("Q1", "D1"),
-            ("Q1", "D3")
-        }
+        self.relevant_pairs = {("Q1", "D1"), ("Q1", "D3")}
         self.retrieved_docs = [
             Document("D1"),  # relevant
             Document("D2"),  # not relevant
             Document("D3"),  # relevant
             Document("D4"),
-            Document("D5")
+            Document("D5"),
         ]
 
     # ------------------ PrecisionAtK ------------------
@@ -106,7 +112,7 @@ class TestIRMetrics(unittest.TestCase):
             Document("D4"),  # not
             Document("D3"),  # relevant ← at rank 3
             Document("D5"),
-            Document("D1")   # relevant ← at rank 5 (ignored because D3 is earlier)
+            Document("D1"),  # relevant ← at rank 5 (ignored because D3 is earlier)
         ]
         metric = MRRAtK(k=5)
         result = metric.compute(self.query_id, reordered, self.relevant_pairs)

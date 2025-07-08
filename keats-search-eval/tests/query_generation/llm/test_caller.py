@@ -9,6 +9,7 @@ from query_generation.llm import caller
 def mock_client():
     return Mock()
 
+
 def test_call_openai(mock_client):
     mock_completion = Mock()
     mock_client.beta.chat.completions.parse.return_value = mock_completion
@@ -22,6 +23,6 @@ def test_call_openai(mock_client):
         model="gpt-4o",
         messages=[system_prompt, user_prompt],
         n=1,
-        response_format=response_schema.QuerySet
+        response_format=response_schema.QuerySet,
     )
     assert result == mock_completion

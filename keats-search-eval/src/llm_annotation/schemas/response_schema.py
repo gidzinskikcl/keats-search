@@ -3,9 +3,11 @@ from pydantic import BaseModel
 
 from typing import Optional
 
+
 class BinaryRelevance(enum.Enum):
     RELEVANT = "relevant"
     NOTRELEVANT = "notrelevant"
+
 
 class AnnotatedPair(BaseModel):
     question: str

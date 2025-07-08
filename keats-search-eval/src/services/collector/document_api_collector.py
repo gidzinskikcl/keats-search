@@ -11,6 +11,7 @@ from services.segmenters import page_segmenter, chapter_segmenter
 ########################## API ###########################
 # Change the schema whenever the api updated
 
+
 class Timestamp(BaseModel):
     start: timedelta
     end: timedelta
@@ -25,21 +26,23 @@ class Timestamp(BaseModel):
         seconds = total_seconds % 60
         return f"{hours:02}:{minutes:02}:{seconds:02}"
 
+
 class MaterialType(str, Enum):  # `str` ensures correct JSON serialization
     SLIDES = "pdf"
     TRANSCRIPT = "mp4"
 
+
 class ApiDocumentSchema(BaseModel):
-    id: str # unique id for this object
-    doc_id: str # id/file name of the paren file 
-    content: str # text, speech, content of the lecture segment
-    timestamp: Optional[Timestamp] = None # for transcripts only
-    page_number: str # for pdf (potentially the timestamp number in order)
-    lecture_id: str # id to differentiate between lecture in a corse
-    lecture_title: str # display title
-    course_id: str #e.g 7CCSMPRJ
-    course_name: str # e.g Software Measurement and Testing
-    doc_type: MaterialType # pdf or transcript
+    id: str  # unique id for this object
+    doc_id: str  # id/file name of the paren file
+    content: str  # text, speech, content of the lecture segment
+    timestamp: Optional[Timestamp] = None  # for transcripts only
+    page_number: str  # for pdf (potentially the timestamp number in order)
+    lecture_id: str  # id to differentiate between lecture in a corse
+    lecture_title: str  # display title
+    course_id: str  # e.g 7CCSMPRJ
+    course_name: str  # e.g Software Measurement and Testing
+    doc_type: MaterialType  # pdf or transcript
 
     def model_dump_flat(self):
         base = self.model_dump(exclude={"timestamp"})
@@ -61,8 +64,12 @@ def collect_api_documents(
     pdf_segmenter: page_segmenter.PageSegmenter,
     srt_segmenter: chapter_segmenter.ChapterSegmenter,
 ) -> List[ApiDocumentSchema]:
-    pdf_docs = collect_pdf_documents_api(pdf_courses_dir, courses, pdf_extractor, pdf_segmenter)
-    transcript_docs = collect_transcript_documents_api(srt_courses_dir, courses, transcript_extractor, srt_segmenter)
+    pdf_docs = collect_pdf_documents_api(
+        pdf_courses_dir, courses, pdf_extractor, pdf_segmenter
+    )
+    transcript_docs = collect_transcript_documents_api(
+        srt_courses_dir, courses, transcript_extractor, srt_segmenter
+    )
     return pdf_docs + transcript_docs
 
 
@@ -70,7 +77,7 @@ def collect_pdf_documents_api(
     courses_dir: pathlib.Path,
     courses: list[str],
     extractor: pdf_schema_extractor.PdfSchemaExtractor,
-    segmenter: page_segmenter.PageSegmenter
+    segmenter: page_segmenter.PageSegmenter,
 ) -> List[ApiDocumentSchema]:
     pdf_segments = []
 
@@ -100,11 +107,12 @@ def collect_pdf_documents_api(
         for seg in pdf_segments
     ]
 
+
 def collect_transcript_documents_api(
     courses_dir: pathlib.Path,
     courses: list[str],
     extractor: transcript_schema_extractor.TranscriptSchemaExtractor,
-    segmenter: chapter_segmenter.ChapterSegmenter
+    segmenter: chapter_segmenter.ChapterSegmenter,
 ) -> List[ApiDocumentSchema]:
     transcript_segments = []
 
@@ -122,10 +130,11 @@ def collect_transcript_documents_api(
             id=f"{seg.parent_file}_{seg.nr}_mp4",
             doc_id=seg.parent_file,
             content=seg.text,
-            timestamp=Timestamp(
-                start=seg.timestamp.start,
-                end=seg.timestamp.end
-            ) if seg.timestamp else None,
+            timestamp=(
+                Timestamp(start=seg.timestamp.start, end=seg.timestamp.end)
+                if seg.timestamp
+                else None
+            ),
             page_number=str(seg.nr),
             lecture_id=seg.lecture_id,
             lecture_title=seg.lecture_name,

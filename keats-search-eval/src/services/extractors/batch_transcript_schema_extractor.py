@@ -5,10 +5,14 @@ from services.extractors import transcript_schema_extractor
 
 
 class BatchTranscriptSchemaExtractor:
-    def __init__(self, extractor: transcript_schema_extractor.TranscriptSchemaExtractor):
+    def __init__(
+        self, extractor: transcript_schema_extractor.TranscriptSchemaExtractor
+    ):
         self.extractor = extractor
 
-    def extract_all(self, courses_root: pathlib.Path, courses: list[str]) -> list[schemas.TranscriptSchema]:
+    def extract_all(
+        self, courses_root: pathlib.Path, courses: list[str]
+    ) -> list[schemas.TranscriptSchema]:
         results = []
         for course_dir in courses_root.iterdir():
             if course_dir.is_dir() and course_dir.name in courses:

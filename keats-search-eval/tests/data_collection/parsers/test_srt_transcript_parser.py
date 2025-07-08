@@ -4,15 +4,20 @@ import pytest
 
 from services.parsers import srt_transcript_parser
 
-MAPPING_PATH = pathlib.Path("keats-search-eval/tests/data/file_to_metadata_mapping.json")
+MAPPING_PATH = pathlib.Path(
+    "keats-search-eval/tests/data/file_to_metadata_mapping.json"
+)
+
 
 @pytest.fixture
 def parser():
     return srt_transcript_parser.SRTTranscriptParser(mapping_path=MAPPING_PATH)
 
+
 @pytest.fixture
 def file_path():
     return pathlib.Path("keats-search-eval/data/testing/transcripts/sample.en.srt")
+
 
 @pytest.fixture
 def expected():
@@ -30,40 +35,34 @@ def expected():
         "webpage_url": "https://www.example.com",
         "thumbnail": "https://www.example.com/thumbnail.jpg",
         "chapters": [
-            {
-                "title": "Introduction",
-                "start_time": "0.0",
-                "end_time": "5.0"
-            },
-            {
-                "title": "Conclusion",
-                "start_time": "5.0",
-                "end_time": "10.0"
-            }
+            {"title": "Introduction", "start_time": "0.0", "end_time": "5.0"},
+            {"title": "Conclusion", "start_time": "5.0", "end_time": "10.0"},
         ],
         "transcript": [
             {
                 "index": "1",
                 "start": "00:00:00,000",
                 "end": "00:00:05,000",
-                "text": "Hello, world!"
+                "text": "Hello, world!",
             },
             {
                 "index": "2",
                 "start": "00:00:05,000",
                 "end": "00:00:10,000",
-                "text": "This is a test subtitle."
-            }
+                "text": "This is a test subtitle.",
+            },
         ],
         "course_id": None,
         "course_title": None,
         "lecture_id": None,
-        "lecture_title": None
+        "lecture_title": None,
     }
+
 
 def test_get(file_path, parser, expected):
     observed = parser.get(file_path, True)
     assert observed == expected
+
 
 @pytest.fixture
 def expected_no_metadata():
@@ -86,34 +85,38 @@ def expected_no_metadata():
                 "index": "1",
                 "start": "00:00:00,000",
                 "end": "00:00:05,000",
-                "text": "Hello, world!"
+                "text": "Hello, world!",
             },
             {
                 "index": "2",
                 "start": "00:00:05,000",
                 "end": "00:00:10,000",
-                "text": "This is a test subtitle."
-            }
+                "text": "This is a test subtitle.",
+            },
         ],
         "course_id": None,
         "course_title": None,
         "lecture_id": None,
-        "lecture_title": None
+        "lecture_title": None,
     }
+
 
 def test_get_no_metadata(file_path, parser, expected_no_metadata):
     observed = parser.get(file_path, False)
     assert observed == expected_no_metadata
+
 
 def test_get_nonexistent_file(parser):
     path = pathlib.Path("non/existent/path/to/file.srt")
     with pytest.raises(FileNotFoundError):
         parser.get(path)
 
+
 def test_get_nonexistent_file_no_metadata(parser):
     path = pathlib.Path("non/existent/path/to/file.srt")
     with pytest.raises(FileNotFoundError):
         parser.get(path, False)
+
 
 def test_filename_parsing_with_suffix(tmp_path):
     fake_srt = tmp_path / "IiD3YZkkCmE.en-j3PyPqV-e1s.srt"
@@ -127,33 +130,41 @@ def test_filename_parsing_with_suffix(tmp_path):
     )
 
     # Write test metadata
-    fake_json.write_text(json.dumps({
-        "id": "IiD3YZkkCmE",
-        "title": "Mock Lecture",
-        "description": "Mock desc",
-        "uploader": "MockUploader",
-        "upload_date": "20250618",
-        "duration": 10,
-        "view_count": 100,
-        "tags": [""],
-        "webpage_url": "",
-        "thumbnail": "",
-        "chapters": [
-            {"title": "Intro", "start_time": 0.0, "end_time": 5.0},
-            {"title": "End", "start_time": 5.0, "end_time": 10.0}
-        ]
-    }))
+    fake_json.write_text(
+        json.dumps(
+            {
+                "id": "IiD3YZkkCmE",
+                "title": "Mock Lecture",
+                "description": "Mock desc",
+                "uploader": "MockUploader",
+                "upload_date": "20250618",
+                "duration": 10,
+                "view_count": 100,
+                "tags": [""],
+                "webpage_url": "",
+                "thumbnail": "",
+                "chapters": [
+                    {"title": "Intro", "start_time": 0.0, "end_time": 5.0},
+                    {"title": "End", "start_time": 5.0, "end_time": 10.0},
+                ],
+            }
+        )
+    )
 
     # Write test mapping
-    fake_mapping.write_text(json.dumps([
-        {
-            "doc_id": fake_srt.name,
-            "course_id": "6.006",
-            "course_title": "Intro to Algorithms",
-            "lecture_id": "1",
-            "lecture_title": "Lecture 1"
-        }
-    ]))
+    fake_mapping.write_text(
+        json.dumps(
+            [
+                {
+                    "doc_id": fake_srt.name,
+                    "course_id": "6.006",
+                    "course_title": "Intro to Algorithms",
+                    "lecture_id": "1",
+                    "lecture_title": "Lecture 1",
+                }
+            ]
+        )
+    )
 
     parser = srt_transcript_parser.SRTTranscriptParser(mapping_path=fake_mapping)
     observed = parser.get(fake_srt)

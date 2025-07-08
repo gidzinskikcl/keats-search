@@ -4,10 +4,11 @@ import json
 from benchmarking.utils import loader
 from schemas import schemas
 
+
 def test_load_queries(tmp_path):
     data = [
         {"id": "q1", "question": "heap vs stack"},
-        {"id": "q2", "question": "process vs thread"}
+        {"id": "q2", "question": "process vs thread"},
     ]
     file_path = tmp_path / "queries.json"
     with open(file_path, "w") as f:
@@ -28,7 +29,6 @@ def test_load_valid_queries_from_csv(monkeypatch):
 2,What is Java?,Java is also a language.,invalid,medium,CS101,Intro to Java,D2
 3,What is AI?,AI is the field of study.,valid,hard,CS102,AI Basics,D3
 """
-
 
     mock_csv_file = io.StringIO(csv_content)
 

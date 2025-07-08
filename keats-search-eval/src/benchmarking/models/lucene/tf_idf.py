@@ -5,8 +5,12 @@ import json
 from schemas import schemas
 from benchmarking.models import search_model
 
+
 class TFIDFSearchEngine(search_model.SearchModel):
-    JAR_PATH = "search_engines/lucene-search/target/tfidf-search-jar-with-dependencies.jar"
+    JAR_PATH = (
+        "search_engines/lucene-search/target/tfidf-search-jar-with-dependencies.jar"
+    )
+
     def __init__(self, doc_path: str, k: int):
         self.doc_path = doc_path
         self.k = k
@@ -19,15 +23,9 @@ class TFIDFSearchEngine(search_model.SearchModel):
 
     def search(self, query: schemas.Query) -> list[schemas.SearchResult]:
         result = subprocess.run(
-            [
-                "java",
-                "-jar", self.JAR_PATH,
-                self.doc_path,
-                query.question,
-                str(self.k)
-            ],
+            ["java", "-jar", self.JAR_PATH, self.doc_path, query.question, str(self.k)],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if result.returncode != 0:
@@ -53,8 +51,8 @@ class TFIDFSearchEngine(search_model.SearchModel):
 
             doc = schemas.DocumentSchema(
                 doc_id=d["documentId"],
-                content=d["content"], 
-                course_name=d["courseName"], 
+                content=d["content"],
+                course_name=d["courseName"],
                 title=d["title"],
                 timestamp=timestamp,
                 pageNumber=d["slideNumber"],

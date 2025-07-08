@@ -10,12 +10,16 @@ from services.llm_based import client as llm_client
 from llm_annotation.llm import annotator
 
 # === Configuration ===
-CSV_INPUT = pathlib.Path("keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv")
+CSV_INPUT = pathlib.Path(
+    "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv"
+)
 PROMPT = templates.V2
 BATCH_SIZE = 100
 
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-OUTPUT_DIR = pathlib.Path(f"keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00")
+OUTPUT_DIR = pathlib.Path(
+    f"keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00"
+)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 CHECKPOINT_FILE = OUTPUT_DIR / "completed_batches.json"
@@ -38,6 +42,7 @@ else:
 # === Initialize Client ===
 client = llm_client.load_openai_client()
 
+
 # === Helpers ===
 def append_jsonl(path: pathlib.Path, entries: Union[dict, list[dict]]):
     if isinstance(entries, dict):
@@ -45,6 +50,7 @@ def append_jsonl(path: pathlib.Path, entries: Union[dict, list[dict]]):
     with open(path, "a", encoding="utf-8") as f:
         for entry in entries:
             f.write(json.dumps(entry) + "\n")
+
 
 def annotate_entry(entry: dict) -> Union[dict, None]:
     try:
@@ -54,7 +60,7 @@ def annotate_entry(entry: dict) -> Union[dict, None]:
             course_name=entry["course"],
             lecture_name=entry["lecture"],
             question=entry["question"],
-            answer=entry["answer"]
+            answer=entry["answer"],
         )
         if result:
             result["query_id"] = entry["query_id"]
@@ -63,7 +69,11 @@ def annotate_entry(entry: dict) -> Union[dict, None]:
             result["model"] = entry["model"]
             return result
     except Exception as e:
-        return {"error": str(e), "query_id": entry["query_id"], "doc_id": entry["doc_id"]}
+        return {
+            "error": str(e),
+            "query_id": entry["query_id"],
+            "doc_id": entry["doc_id"],
+        }
 
 
 print(f"=== LLM Annotation Run Started at {TIMESTAMP} ===")
@@ -112,7 +122,6 @@ for batch_id in range(num_batches):
                 except:
                     continue
 
-
     with open(inprogress_file, "a", encoding="utf-8") as progress_f:
         for entry in batch:
             entry_key = (entry["query_id"], entry["doc_id"])
@@ -128,7 +137,9 @@ for batch_id in range(num_batches):
             else:
                 batch_results.append(result)
                 total_annotated += 1
-                print(f"  ✓ Saved {len(batch_results)} results, {len(batch_failures)} failures.")
+                print(
+                    f"  ✓ Saved {len(batch_results)} results, {len(batch_failures)} failures."
+                )
                 progress_f.write(json.dumps(result) + "\n")
 
     # Once complete, merge in-progress to annotations file
@@ -148,4 +159,6 @@ for batch_id in range(num_batches):
 
 overall_end_time = time.time()
 total_duration = overall_end_time - overall_start_time
-print(f"\n=== LLM Annotation Run Completed in {total_duration:.2f} seconds ({total_duration / 60:.2f} minutes) ===")
+print(
+    f"\n=== LLM Annotation Run Completed in {total_duration:.2f} seconds ({total_duration / 60:.2f} minutes) ==="
+)

@@ -1,4 +1,3 @@
-
 import logging
 from datetime import datetime
 import os
@@ -8,16 +7,18 @@ from benchmarking.models.lucene import bm25, tf_idf, dirichlet, jm, boolean
 from benchmarking.utils import loader, saver
 
 # DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
-DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json" # without UA subtitles
+DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"  # without UA subtitles
 
 # GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv" # not updated
 GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"  # updated
-K=10
+K = 10
 
 # Create timestamped directory
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
+)
 logger = logging.getLogger(__name__)
 
 
@@ -25,12 +26,14 @@ def main():
     """
     This main is for running models and saving predictions only
     """
-    OUTPUT_DIR = os.path.join("keats-search-eval/data", "evaluation", "pre-annotated", TIMESTAMP)
+    OUTPUT_DIR = os.path.join(
+        "keats-search-eval/data", "evaluation", "pre-annotated", TIMESTAMP
+    )
     # Load data
     print("Loading queries and ground truth...")
     queries = loader.load_valid_queries_from_csv(path=GROUND_TRUTH)
     print("Done loading queries and ground truth.")
-    
+
     # Define models
     models = [
         random_search.RandomSearchEngine(doc_path=DOC_PATH),
@@ -66,14 +69,13 @@ def main():
         predictions = {}
         for query in queries:
             top_results = model.search(query=query)
-            query_result = {
-                "question": query.question,
-                "results": top_results
-            }
+            query_result = {"question": query.question, "results": top_results}
             predictions[query.id] = query_result
 
         output_path = os.path.join(OUTPUT_DIR, f"{model_name.lower()}_predictions.csv")
-        saver.save_predictions(output_path=output_path, model_name=model_name, predictions=predictions)
+        saver.save_predictions(
+            output_path=output_path, model_name=model_name, predictions=predictions
+        )
         logger.info(f"{model_name}: DONE")
     logger.info(f"Saved predictions in {OUTPUT_DIR}")
 

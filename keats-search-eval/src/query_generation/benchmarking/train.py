@@ -14,7 +14,7 @@ from services.llm_based import client as llm_client
 # Setup
 COURSE_NAME = "Theory of Computation"
 LECTURE_TITLE = "5. CF Pumping Lemma, Turing Machines"
-MODEL = "gpt-4o-2025-06-17" 
+MODEL = "gpt-4o-2025-06-17"
 SAMPLE_DIR = "2025-06-13_15-47-47"
 SAMPLE = "_3_pdf_7_srt_2025-06-13_15-47-47"
 # PROMPT_VARIANT = templates.V3
@@ -31,7 +31,7 @@ difficulty_levels = {
                     - answer: "The address of the memory region that contains the shellcode."
                 )
             ]
-        """
+        """,
     },
     "Intermediate": {
         "explanation": "Assign an intermediate difficulty level: involves understanding or explaining relationships between ideas.",
@@ -44,7 +44,7 @@ difficulty_levels = {
                     - answer: "Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow."
                 )
             ]
-        """
+        """,
     },
     "Advanced": {
         "explanation": "Assign an advanced difficulty level: requires connecting multiple ideas, reasoning through examples, or analyzing concepts.",
@@ -56,8 +56,8 @@ difficulty_levels = {
                     - answer: "1. Inject the code to be executed (shellcode) into a writable memory region (stack, data, heap, etc.). 2. Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow. The return address will be the address of the writable memory region that contains the shellcode."
                 )
             ]
-        """
-    }
+        """,
+    },
 }
 
 DIFFICULTY_LEVELS = ["Basic", "Intermediate", "Advanced"]
@@ -70,14 +70,18 @@ timestamp = now.isoformat()
 readable_time = now.strftime("%Y-%m-%d_%H%M")
 
 # File and directory setup
-SAMPLE_FILE = pathlib.Path(f"keats-search-eval/data/queries/sample/{SAMPLE_DIR}/{SAMPLE}.json")
-OUTPUT_DIR = pathlib.Path(f"keats-search-eval/data/queries/validation/results/{readable_time}/sample_{SAMPLE_DIR}_variant_{PROMPT_VARIANT.__name__}_{readable_time}")
+SAMPLE_FILE = pathlib.Path(
+    f"keats-search-eval/data/queries/sample/{SAMPLE_DIR}/{SAMPLE}.json"
+)
+OUTPUT_DIR = pathlib.Path(
+    f"keats-search-eval/data/queries/validation/results/{readable_time}/sample_{SAMPLE_DIR}_variant_{PROMPT_VARIANT.__name__}_{readable_time}"
+)
+
 
 def choose_balanced_difficulty():
     # Try to balance across difficulties
     remaining = {
-        lvl: TARGET_PER_LEVEL - difficulty_counts[lvl]
-        for lvl in DIFFICULTY_LEVELS
+        lvl: TARGET_PER_LEVEL - difficulty_counts[lvl] for lvl in DIFFICULTY_LEVELS
     }
     # Filter to levels that still need more
     eligible = [lvl for lvl, rem in remaining.items() if rem > 0]
@@ -85,7 +89,7 @@ def choose_balanced_difficulty():
     # If all full, pick randomly
     if not eligible:
         return random.choice(DIFFICULTY_LEVELS)
-    
+
     return random.choice(eligible)
 
 
@@ -93,7 +97,7 @@ def main():
 
     # Initialize OpenAI client, prompt version and timestamp
     client = llm_client.load_openai_client()
-    timestamp = datetime.now(timezone.utc).isoformat()    
+    timestamp = datetime.now(timezone.utc).isoformat()
 
     # Load samples
     with open(SAMPLE_FILE, "r", encoding="utf-8") as f:
@@ -116,7 +120,7 @@ def main():
             doc_id=s["doc_id"],
             content=s["text"],
             length=length,
-            lecture_title=LECTURE_TITLE
+            lecture_title=LECTURE_TITLE,
         )
 
         try:
@@ -130,7 +134,7 @@ def main():
                 num_questions=1,
                 difficulty_lvl=difficulty_name,
                 difficulty_level_instruction=difficulty_info["explanation"],
-                difficulty_level_example=difficulty_info["example"]
+                difficulty_level_example=difficulty_info["example"],
             )
 
             difficulty_counts[difficulty_name] += 1
@@ -146,8 +150,8 @@ def main():
                 "model": MODEL,
                 "variant": PROMPT_VARIANT.VARIANT,
                 "sample": SAMPLE,
-                "timestamp": timestamp
-            }
+                "timestamp": timestamp,
+            },
         }
         results.append(result)
 
@@ -159,6 +163,6 @@ def main():
 
     print(f"Saved structured results to {output_file}")
 
+
 if __name__ == "__main__":
     main()
-

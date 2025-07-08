@@ -3,13 +3,24 @@ import pathlib
 
 from services.gateways import query_gateway
 
+
 class CSVQueryGateway(query_gateway.QueryGateway):
     def __init__(self, filename: pathlib.Path):
         self.filename = filename
-        self.headers = ["index", "question", "answer", "label", "course_name", "lecture_title", "doc_id", "type", "url"]
+        self.headers = [
+            "index",
+            "question",
+            "answer",
+            "label",
+            "course_name",
+            "lecture_title",
+            "doc_id",
+            "type",
+            "url",
+        ]
         # Check if file exists and has headers
         if not self.filename.exists() or self.filename.stat().st_size == 0:
-            with self.filename.open(mode='w', newline='', encoding='utf-8') as file:
+            with self.filename.open(mode="w", newline="", encoding="utf-8") as file:
                 writer = csv.DictWriter(file, fieldnames=self.headers)
                 writer.writeheader()
 
@@ -18,7 +29,7 @@ class CSVQueryGateway(query_gateway.QueryGateway):
         data: list of dictionaries with keys 'question', label, 'answer'
         """
         current_index = self._get_next_index()
-        with self.filename.open(mode='a', newline='', encoding='utf-8') as file:
+        with self.filename.open(mode="a", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=self.headers)
             for row_data in data:
                 row = {
@@ -30,14 +41,14 @@ class CSVQueryGateway(query_gateway.QueryGateway):
                     "lecture_title": row_data["lecture_title"],
                     "doc_id": row_data["doc_id"],
                     "type": row_data["type"],
-                    "url": row_data["url"]
+                    "url": row_data["url"],
                 }
                 writer.writerow(row)
                 current_index += 1
 
     def get(self) -> list[dict[str, str]]:
         rows = []
-        with self.filename.open(mode='r', newline='', encoding='utf-8') as file:
+        with self.filename.open(mode="r", newline="", encoding="utf-8") as file:
             reader = csv.DictReader(file)
             for row in reader:
                 if not any(row.values()):

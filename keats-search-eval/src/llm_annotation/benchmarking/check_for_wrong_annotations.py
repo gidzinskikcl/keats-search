@@ -8,19 +8,20 @@ ANNOTATED_FILE = Path(
     # "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56/results/2025-07-06_15-30-51/minimum-v1/annotated.json"
     # "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56/results/2025-07-06_15-30-51/F2-v1/annotated.json"
     "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56/results/2025-07-06_15-30-51/F4-v1/annotated.json"
-
 )
+
 
 def is_wrong(entry: dict) -> bool:
     doc_type = entry.get("doc_type")
     relevance = entry.get("relevance")
-    
+
     # It's wrong if relevant when it shouldn't be, or not relevant when it should
     if doc_type in ("ground_truth", "top1_bm25") and relevance == "notrelevant":
         return True
     if doc_type == "random_doc" and relevance == "relevant":
         return True
     return False
+
 
 def main():
     if not ANNOTATED_FILE.exists():
@@ -33,11 +34,7 @@ def main():
     wrong_entries = [entry for entry in annotations if is_wrong(entry)]
 
     # Count wrong entries by doc_type
-    counts = {
-        "random_doc": 0,
-        "ground_truth": 0,
-        "top1_bm25": 0
-    }
+    counts = {"random_doc": 0, "ground_truth": 0, "top1_bm25": 0}
 
     for entry in wrong_entries:
         doc_type = entry["doc_type"]
@@ -49,13 +46,14 @@ def main():
     for dt, count in counts.items():
         print(f"  of which {dt}: {count}")
     print("")
-    
+
     for i, entry in enumerate(wrong_entries, 1):
-        print(f"{i}. Query ID: {entry['query_id']}, Doc Type: {entry['doc_type']}, Relevance: {entry['relevance']}")
+        print(
+            f"{i}. Query ID: {entry['query_id']}, Doc Type: {entry['doc_type']}, Relevance: {entry['relevance']}"
+        )
         print(f"   Question: {entry['question']}")
         print(f"   Answer: {entry['answer'][:200]}...")  # Print first 200 chars
         print("")
-
 
         # --- Find ground_truth documents incorrectly marked as not relevant ---
     not_relevant_gt_doc_ids = [
@@ -71,12 +69,18 @@ def main():
     else:
         print("✅ All ground truth documents were marked as relevant.")
 
-
     # Group by query_id to match GT and BM25 doc_ids
-    from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef
+    from sklearn.metrics import (
+        accuracy_score,
+        precision_score,
+        recall_score,
+        f1_score,
+        matthews_corrcoef,
+    )
+
     query_groups = defaultdict(list)
     for entry in annotations:
-        query_groups[entry['query_id']].append(entry)
+        query_groups[entry["query_id"]].append(entry)
 
     y_true = []
     y_pred = []
@@ -84,24 +88,24 @@ def main():
     skipped = 0
 
     for query_id, entries in query_groups.items():
-        gt_entry = next((e for e in entries if e['doc_type'] == 'ground_truth'), None)
-        bm25_entry = next((e for e in entries if e['doc_type'] == 'top1_bm25'), None)
-        random_entry = next((e for e in entries if e['doc_type'] == 'random_doc'), None)
+        gt_entry = next((e for e in entries if e["doc_type"] == "ground_truth"), None)
+        bm25_entry = next((e for e in entries if e["doc_type"] == "top1_bm25"), None)
+        random_entry = next((e for e in entries if e["doc_type"] == "random_doc"), None)
 
         # Evaluate GT (assumed relevant)
         if gt_entry:
             y_true.append(1)
-            y_pred.append(1 if gt_entry['relevance'] == 'relevant' else 0)
+            y_pred.append(1 if gt_entry["relevance"] == "relevant" else 0)
 
         # Evaluate random doc (assumed NOT relevant)
         if random_entry:
             y_true.append(0)
-            y_pred.append(1 if random_entry['relevance'] == 'relevant' else 0)
+            y_pred.append(1 if random_entry["relevance"] == "relevant" else 0)
 
         # Evaluate BM25 ONLY if same doc_id as GT
-        if gt_entry and bm25_entry and gt_entry['doc_id'] == bm25_entry['doc_id']:
+        if gt_entry and bm25_entry and gt_entry["doc_id"] == bm25_entry["doc_id"]:
             y_true.append(1)  # trusted as same as GT
-            y_pred.append(1 if bm25_entry['relevance'] == 'relevant' else 0)
+            y_pred.append(1 if bm25_entry["relevance"] == "relevant" else 0)
         else:
             skipped += 1
 
@@ -121,21 +125,20 @@ def main():
     print(f"F1 Score            : {f1:.3f}")
     print(f"Matthews Corr Coef  : {mcc:.3f}\n")
 
-
-        # === ESTIMATE FINAL ACCURACY ===
+    # === ESTIMATE FINAL ACCURACY ===
     print("\n=== Estimating Annotator Accuracy from All Sources ===")
 
     # --- 1. Trusted (GT and Random) ---
     trusted_total = 0
     trusted_correct = 0
     for entry in annotations:
-        if entry['doc_type'] == 'ground_truth':
+        if entry["doc_type"] == "ground_truth":
             trusted_total += 1
-            if entry['relevance'] == 'relevant':
+            if entry["relevance"] == "relevant":
                 trusted_correct += 1
-        elif entry['doc_type'] == 'random_doc':
+        elif entry["doc_type"] == "random_doc":
             trusted_total += 1
-            if entry['relevance'] == 'notrelevant':
+            if entry["relevance"] == "notrelevant":
                 trusted_correct += 1
 
     # --- 2. BM25 Auto-agreement ---
@@ -143,14 +146,14 @@ def main():
     bm25_auto_correct = 0
     query_groups = defaultdict(list)
     for entry in annotations:
-        query_groups[entry['query_id']].append(entry)
+        query_groups[entry["query_id"]].append(entry)
 
     for query_id, group in query_groups.items():
-        gt = next((e for e in group if e['doc_type'] == 'ground_truth'), None)
-        bm25 = next((e for e in group if e['doc_type'] == 'top1_bm25'), None)
-        if gt and bm25 and gt['relevance'] == bm25['relevance']:
+        gt = next((e for e in group if e["doc_type"] == "ground_truth"), None)
+        bm25 = next((e for e in group if e["doc_type"] == "top1_bm25"), None)
+        if gt and bm25 and gt["relevance"] == bm25["relevance"]:
             bm25_auto_total += 1
-            if gt['relevance'] == 'relevant':
+            if gt["relevance"] == "relevant":
                 bm25_auto_correct += 1  # only if both said relevant
 
     # --- 3. BM25 Manual Judgments (your 12 reviewed queries) ---
@@ -167,18 +170,18 @@ def main():
         244: 1,
         104: 0,
         335: 0,
-        210: 0
+        210: 0,
     }
 
     bm25_manual_total = len(bm25_manual_labels)
     bm25_manual_correct = 0
 
     for entry in annotations:
-        if entry['doc_type'] != 'top1_bm25':
+        if entry["doc_type"] != "top1_bm25":
             continue
-        qid = int(entry['query_id'])
+        qid = int(entry["query_id"])
         if qid in bm25_manual_labels:
-            annotator_label = 1 if entry['relevance'] == 'relevant' else 0
+            annotator_label = 1 if entry["relevance"] == "relevant" else 0
             if annotator_label == bm25_manual_labels[qid]:
                 bm25_manual_correct += 1
 
@@ -192,6 +195,7 @@ def main():
     print(f"BM25 Auto-agreement:        {bm25_auto_correct}/{bm25_auto_total}")
     print(f"BM25 Manual Judged:         {bm25_manual_correct}/{bm25_manual_total}")
     print(f"\n→ Estimated Annotator Accuracy: {final_accuracy:.3f}")
+
 
 if __name__ == "__main__":
     main()

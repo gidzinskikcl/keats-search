@@ -2,6 +2,7 @@ import json
 import pathlib
 from pytube import Playlist
 
+
 def main():
     input_path = pathlib.Path("keats-search-eval/data/transcripts/urls/playlists.json")
     output_path = pathlib.Path("keats-search-eval/data/transcripts/urls/urls.json")
@@ -29,6 +30,7 @@ def main():
         json.dump(data, f, indent=2)
 
     print(f"\nSaved playlist video URLs to: {output_path}")
+
 
 if __name__ == "__main__":
     main()

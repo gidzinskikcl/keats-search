@@ -8,13 +8,16 @@ from llm_annotation.benchmarking import run_annotation_benchmark
 
 
 # We'll patch OUTPUT_REPO to point to a temp dir
-@mock.patch("llm_annotation.benchmarking.run_annotation_benchmark.OUTPUT_REPO", new_callable=lambda: tempfile.mkdtemp())
+@mock.patch(
+    "llm_annotation.benchmarking.run_annotation_benchmark.OUTPUT_REPO",
+    new_callable=lambda: tempfile.mkdtemp(),
+)
 def test_record_token_usage(mock_output_repo):
 
     test_data = [
         {"prompt_tokens": 1000, "completion_tokens": 500, "total_tokens": 1500},
         {"prompt_tokens": 2000, "completion_tokens": 1000, "total_tokens": 3000},
-        {"prompt_tokens": 1500, "completion_tokens": 750, "total_tokens": 2250}
+        {"prompt_tokens": 1500, "completion_tokens": 750, "total_tokens": 2250},
     ]
 
     run_annotation_benchmark.record_token_usage(test_data, mock_output_repo)
@@ -35,19 +38,20 @@ def test_record_token_usage(mock_output_repo):
     prompt = [1000, 2000, 1500]
     completion = [500, 1000, 750]
     total = [1500, 3000, 2250]
-    costs = [round((p / 1000) * 0.005 + (c / 1000) * 0.02, 6) for p, c in zip(prompt, completion)]
+    costs = [
+        round((p / 1000) * 0.005 + (c / 1000) * 0.02, 6)
+        for p, c in zip(prompt, completion)
+    ]
 
     expected_summary = {
         "total_prompt_tokens": sum(prompt),
         "total_completion_tokens": sum(completion),
         "total_tokens": sum(total),
         "total_cost_usd": round(sum(costs), 6),
-
         "average_prompt_tokens": round(statistics.mean(prompt), 2),
         "average_completion_tokens": round(statistics.mean(completion), 2),
         "average_total_tokens": round(statistics.mean(total), 2),
         "average_cost_usd": round(statistics.mean(costs), 6),
-
         "median_prompt_tokens": round(statistics.median(prompt), 2),
         "median_completion_tokens": round(statistics.median(completion), 2),
         "median_total_tokens": round(statistics.median(total), 2),

@@ -1,7 +1,9 @@
 from abc import ABC
 
+
 class PromptTemplate(ABC):
     VARIANT = ""
+
 
 class V1(PromptTemplate):
     VARIANT = "minimum-v1"
@@ -122,11 +124,13 @@ class V4(PromptTemplate):
     Now, based on the above guidelines and examples, provide your own evaluation in the same format.
     """
 
+
 class V5(PromptTemplate):
     """
-    - modify how to decide relevance - it can be lengthy, hard but still it can be relevant 
+    - modify how to decide relevance - it can be lengthy, hard but still it can be relevant
     - added definition for relevance (def)
     """
+
     VARIANT = "def-F2-v1"
 
     SYSTEM_PROMPT_TEMPLATE = """
@@ -164,12 +168,14 @@ class V5(PromptTemplate):
     Now, provide your evaluation in the same format.
     """
 
+
 class V6(PromptTemplate):
     """
-    - modify how to decide relevance - it can be lengthy, hard but still it can be relevant 
+    - modify how to decide relevance - it can be lengthy, hard but still it can be relevant
     - added definition for relevance (def)
     - add partial relevance example (F3)
     """
+
     VARIANT = "def-F3-v1"
 
     SYSTEM_PROMPT_TEMPLATE = """
@@ -212,12 +218,14 @@ class V6(PromptTemplate):
     Now, provide your evaluation in the same format.
     """
 
+
 class V7(PromptTemplate):
     """
-    - modify how to decide relevance - it can be length, hard but still relevant 
+    - modify how to decide relevance - it can be length, hard but still relevant
     - added definition for relevance (def)
     - add reasoning (COT)
     """
+
     VARIANT = "def-F2-COT-v1"
 
     SYSTEM_PROMPT_TEMPLATE = """
@@ -258,13 +266,15 @@ class V7(PromptTemplate):
     Now, provide your evaluation in the same format.
     """
 
+
 class V8(PromptTemplate):
     """
-    - modify how to decide relevance - it can be length, hard but still relevant 
+    - modify how to decide relevance - it can be length, hard but still relevant
     - added definition for relevance (def)
     - add partial relevance example (F3)
     - add reasoning (COT)
     """
+
     VARIANT = "def-F3-COT-v1"
 
     SYSTEM_PROMPT_TEMPLATE = """
