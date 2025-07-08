@@ -7,27 +7,27 @@ class PrecisionAtK:
         self.name = f"Precision@{k}"
 
     def compute(
-        self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]
+        self,
+        query_id: str,
+        retrieved_docs: list,
+        relevant: dict[str, dict[str, int]],
     ) -> float:
-        """
-        Precision@k = (Number of relevant documents in top-k) / k
-        y_true - actual relevance of each returned doc
-        y_pred - model's predictions
-        """
         if self.k == 0:
             return None
 
         top_k_docs = retrieved_docs[: self.k]
         if not top_k_docs:
-            return 0.0  # No docs retrieved at all
+            return 0.0
+
+        query_relevance = relevant[int(query_id)]
 
         y_true = [
-            1 if (query_id, doc.doc_id) in relevant_pairs else 0 for doc in top_k_docs
+            1 if query_relevance.get(doc.doc_id, 0) > 0 else 0 for doc in top_k_docs
         ]
-        y_pred = [1] * len(y_true)  # all retrieved docs are predicted relevant
+        y_pred = [1] * len(y_true)
 
         if sum(y_true) == 0:
-            return 0.0  # No relevant docs found in top-k
+            return 0.0
 
         return precision_score(y_true, y_pred, zero_division=0)
 
@@ -38,12 +38,41 @@ class MRRAtK:
         self.name = f"MRR@{k}"
 
     def compute(
-        self, query_id: str, retrieved_docs: list, relevant_pairs: set[tuple[str, str]]
+        self,
+        query_id: str,
+        retrieved_docs: list,
+        relevant: dict[str, dict[str, int]],
     ) -> float:
         top_k_docs = retrieved_docs[: self.k]
 
-        for rank, doc in enumerate(top_k_docs, start=1):  # rank starts at 1
-            if (query_id, doc.doc_id) in relevant_pairs:
-                return 1.0 / rank  # first relevant doc found
+        query_relevance = relevant[int(query_id)]
 
-        return 0.0  # no relevant doc in top-k
+        for rank, doc in enumerate(top_k_docs, start=1):
+            if query_relevance.get(doc.doc_id, 0) > 0:
+                return 1.0 / rank
+
+        return 0.0
+
+
+class NDCGAtK:
+    def __init__(self, k: int):
+        self.k = k
+        self.name = f"NDCG@{k}"
+
+    def compute(
+        self,
+        query_id: str,
+        retrieved_docs: list,
+        relevant: dict[str, dict[str, int]],
+    ) -> float:
+        top_k_docs = retrieved_docs[: self.k]
+
+        if not top_k_docs:
+            return 0.0
+
+        query_relevance = relevant[int(query_id)]
+
+        y_true = [query_relevance.get(doc.doc_id, 0) for doc in top_k_docs]
+        y_score = [1.0] * len(y_true)
+
+        return ndcg_score([y_true], [y_score], k=self.k)

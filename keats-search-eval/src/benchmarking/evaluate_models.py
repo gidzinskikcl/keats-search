@@ -1,10 +1,10 @@
 import json
-import logging
+import csv
 from datetime import datetime
 import os
 
 from benchmarking.metrics import scikit_metrics
-from benchmarking.utils import loader, saver, wandb_logger
+from benchmarking.utils import loader, saver
 
 # Constants
 # PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # old prediction before updating
@@ -37,23 +37,25 @@ MODELS = [
 K = [1, 5, 10]
 
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s"
-)
-logger = logging.getLogger(__name__)
+def load_relevance_dict(csv_path: str) -> dict[str, dict[str, int]]:
+    relevance_dict = {}
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row["label"].strip().lower() == "valid":
+                query_id = int(row["index"].strip())
+                doc_id = row["doc_id"].strip()
+                relevance_dict.setdefault(query_id, {})[doc_id] = 1  # binary relevance
+
+    return relevance_dict
 
 
 def main():
     # Load ground truth
-    relevant_pairs = loader.load_ground_truth_pairs(csv_path=GROUND_TRUTH)
-    logger.info("Loaded ground truth...")
+    relevance_dict = load_relevance_dict(csv_path=GROUND_TRUTH)
 
-    wandb_log = wandb_logger.WandbLogger(
-        project="keats-search", run_name="baseline-eval"
-    )
     results_by_k = {}
     for k in K:
-        logger.info(f"Running evaluation with k={k}")
         print(f"\n=== EVALUATION @k={k} ===")
 
         # Initialize metrics
@@ -62,7 +64,7 @@ def main():
 
         # Evaluation
         for model_name in MODELS:
-            logger.info(f"Evaluating model: {model_name}")
+            print(f"Evaluating model: {model_name}")
             print(f"{model_name}")
 
             model_predictions_path = os.path.join(
@@ -79,7 +81,7 @@ def main():
                     score = metric.compute(
                         query_id=query_id,
                         retrieved_docs=doc_list,
-                        relevant_pairs=relevant_pairs,
+                        relevant=relevance_dict,  # new param name and structure
                     )
                     per_query_scores[metric.name] = score
                     mean_scores[metric.name] += score
@@ -97,9 +99,6 @@ def main():
             for name, score in mean_scores.items():
                 print(f"  {name}: {score:.4f}")
 
-            wandb_log.log_mean_metrics(f"{model_name}@k={k}", mean_scores)
-            wandb_log.log_per_query_metrics(f"{model_name}@k={k}", per_query_metrics)
-
             model_output_dir = os.path.join(OUTPUT_DIR, f"k={k}")
             os.makedirs(model_output_dir, exist_ok=True)
 
@@ -114,8 +113,8 @@ def main():
     with open(combined_json_path, "w") as f:
         json.dump(results_by_k, f, indent=4)
 
-    logger.info(f"Saved per-query metrics to {OUTPUT_DIR}")
-    logger.info("Evaluation complete.")
+    print()
+    print("Evaluation complete.")
 
 
 if __name__ == "__main__":

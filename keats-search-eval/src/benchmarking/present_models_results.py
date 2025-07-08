@@ -48,14 +48,34 @@ def generate_markdown_tables(data, k_metrics):
 
 def main():
     # path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-05_19-16-50/mean_metrics_all_k.json"
-    path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-06_13-51-09/mean_metrics_all_k.json"
+    path_gt = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-06_13-51-09/mean_metrics_all_k.json"
+    path_llm = "keats-search-eval/data/evaluation/llm-annotated/results/model_bm25_2025-07-06_12-52-45/mean_metrics_all_k.json"
 
     readme_path = "keats-search-eval/README.md"
-    data = load_json(path)
 
-    k_metrics = [("1", "Precision@1"), ("5", "MRR@5"), ("10", "MRR@10")]
+    data_gt = load_json(path_gt)
+    data_llm = load_json(path_llm)
 
-    markdown = generate_markdown_tables(data, k_metrics)
+    # Metrics to report
+    k_metrics_gt = [("1", "Precision@1"), ("5", "MRR@5"), ("10", "MRR@10")]
+    k_metrics_llm = [
+        ("5", "Precision@5"),
+        ("5", "MRR@5"),
+        ("5", "NDCG@5"),
+        ("10", "Precision@10"),
+        ("10", "MRR@10"),
+        ("10", "NDCG@10"),
+    ]
+
+    # Generate markdown for both
+    markdown_gt = "## Ground Truth Annotated Evaluation\n\n"
+    markdown_gt += generate_markdown_tables(data_gt, k_metrics_gt)
+
+    markdown_llm = "## LLM-Annotated Evaluation\n\n"
+    markdown_llm += generate_markdown_tables(data_llm, k_metrics_llm)
+
+    # Combine and save
+    markdown = "# Evaluation Summary\n\n" + markdown_gt + "\n---\n" + markdown_llm
 
     print(markdown)
 
