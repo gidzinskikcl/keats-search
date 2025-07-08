@@ -30,4 +30,4 @@ jobs:
 
       - name: Run API tests only
         run: |
-          pytest keats-search-api/tests
+          pytest tests
