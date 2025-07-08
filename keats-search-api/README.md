@@ -1,6 +1,6 @@
 # 📘 Keats Search API
 
-A FastAPI-powered service for querying, indexing, and retrieving metadata from educational content (lecture slides and transcripts), powered by a Lucene BM25 search engine.
+A FastAPI-based service for querying, indexing, and retrieving educational content (lecture slides and videos) using a Lucene BM25 search engine.
 
 ---
 
