@@ -22,6 +22,7 @@ jobs:
         run: |
           pip install -r keats-search-api/requirements.txt
           pip install pytest
+          pip install black
 
       - name: Check Black formatting
         run: |
