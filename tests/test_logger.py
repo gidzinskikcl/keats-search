@@ -24,3 +24,7 @@ def test_get_logger(caplog):
     assert any("Hello from logger test!" in record.message for record in caplog.records)
     assert any(record.levelname == "INFO" for record in caplog.records)
     assert any(record.name == logger_name for record in caplog.records)
+
+
+def test_github():
+    assert 1 == 0

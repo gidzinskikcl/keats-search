@@ -30,4 +30,6 @@ jobs:
 
       - name: Run API tests only
         run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
           pytest tests
+        
