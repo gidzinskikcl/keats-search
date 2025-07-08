@@ -2,9 +2,9 @@ name: Test keats-search-api
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   test-api:
@@ -16,13 +16,23 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10.2'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
           pip install -r keats-search-api/requirements.txt
           pip install pytest
+          pip install black
 
       - name: Run API tests only
         run: |
-          pytest keats-search-api/tests
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/keats-search-api
+          export LUCENE_JAR_PATH="/tmp/lucene.jar"
+          export INDEX_DIR="/tmp/index"
+          export DOC_PATH="/tmp/docs"
+          pytest tests
+      
+      - name: Check Black formatting
+        run: |
+          black --check .
+        
