@@ -24,12 +24,12 @@ jobs:
           pip install pytest
           pip install black
 
+      - name: Run API tests only
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/keats-search-api
+          pytest tests
+      
       - name: Check Black formatting
         run: |
           black --check .
-
-      - name: Run API tests only
-        run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
-          pytest tests
         
