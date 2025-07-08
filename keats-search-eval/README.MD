@@ -1,4 +1,4 @@
-# Lates Models in Evaluation
+# Latest Models in Evaluation
 
 ### Rankings for Precision@1 (k=1)
 
