@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import uk.ac.kcl.inf.lucenesearch.domain.SearchResult;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,19 +40,17 @@ public class LuceneSearchServiceTest {
         doc.add(new StringField("documentId", "doc001", Field.Store.YES));
         doc.add(new TextField("content", "Lucene is a powerful search library", Field.Store.YES));
         doc.add(new TextField("courseName", "Information Retrieval", Field.Store.YES));
-        doc.add(new TextField("title", "Introduction to Lucene", Field.Store.YES));
+        doc.add(new TextField("lectureTitle", "Introduction to Lucene", Field.Store.YES));
         doc.add(new StringField("start", "00:00:00", Field.Store.YES));
         doc.add(new StringField("end", "00:01:00", Field.Store.YES));
-        doc.add(new StringField("speaker", "N/A", Field.Store.YES));
         doc.add(new StringField("slideNumber", "1", Field.Store.YES));
-        doc.add(new StringField("keywords", "", Field.Store.YES)); // store as comma-separated string
         doc.add(new StringField("type", "SLIDES", Field.Store.YES));
 
         writer.addDocument(doc);
         writer.commit();
 
         // Updated constructor to include similarity
-        searchService = new LuceneSearchService(directory, analyzer, similarity, 10);
+        searchService = new LuceneSearchService(directory, analyzer, similarity);
     }
 
     @AfterEach
@@ -62,7 +61,7 @@ public class LuceneSearchServiceTest {
 
     @Test
     void testSearchReturnsExpectedDocument() throws Exception {
-        List<SearchResult> results = searchService.search("lucene");
+        List<SearchResult> results = searchService.search("lucene", 10, Map.of());
 
         assertEquals(1, results.size(), "Should return exactly one result");
 
@@ -71,12 +70,10 @@ public class LuceneSearchServiceTest {
         assertEquals("Lucene is a powerful search library", observed.content(), "Search content should be tracked in result");
         assertTrue(observed.score() > 0.0f, "Search result should have a positive score");
         assertEquals("Information Retrieval", observed.courseName(), "Search results should have a course name");
-        assertEquals("Introduction to Lucene", observed.title(), "Search results should have a lecture title");
+        assertEquals("Introduction to Lucene", observed.lectureTitle(), "Search results should have a lecture title");
         assertEquals("00:00:00", observed.start(), "Start time should match");
         assertEquals("00:01:00", observed.end(), "End time should match");
-        assertEquals("N/A", observed.speaker(), "Speaker should match (empty string)");
         assertEquals("1", observed.slideNumber(), "Slide number should match");
-        assertEquals(List.of(""), observed.keywords(), "Keywords list should contain one empty string");
         assertEquals("SLIDES", observed.type(), "Document type should match");
 
     }

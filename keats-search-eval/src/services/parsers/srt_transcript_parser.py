@@ -11,6 +11,15 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
     Concrete implementation that parses .srt subtitle files.
     """
 
+    def __init__(self, mapping_path: Union[str, pathlib.Path]):
+        self.mapping = self._load_mapping(mapping_path)
+
+    def _load_mapping(self, mapping_path: Union[str, pathlib.Path]) -> dict[str, dict]:
+        """Load mapping JSON and index by doc_id (filename)."""
+        with open(mapping_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {entry["doc_id"]: entry for entry in data}
+
     def get(self, subtitle_file: pathlib.Path, load_metadata: bool = True) -> dict[str, Union[str, list[str], list[dict[str, str]]]]:
         # Step 1: Load metadata
         if load_metadata:
@@ -35,10 +44,15 @@ class SRTTranscriptParser(transcript_parser.TranscriptParser):
         result["file_extension"] = subtitle_file.suffix.lstrip(".")
 
         # Parse transcript
-        transcript_text = self._extract_text_from_srt(subtitle_file)
+        result["transcript"] = self._extract_text_from_srt(subtitle_file)
 
-        # Step Combine
-        result["transcript"] = transcript_text
+        # Inject course + lecture metadata if found in mapping
+        doc_id = subtitle_file.name
+        mapping_info = self.mapping.get(doc_id, {})
+        result["course_id"] = mapping_info.get("course_id")
+        result["course_title"] = mapping_info.get("course_title")
+        result["lecture_id"] = mapping_info.get("lecture_id")
+        result["lecture_title"] = mapping_info.get("lecture_title")
 
         return result
 

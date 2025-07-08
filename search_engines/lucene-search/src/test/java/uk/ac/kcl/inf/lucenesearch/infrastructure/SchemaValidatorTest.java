@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import uk.ac.kcl.inf.lucenesearch.domain.Document;
 import uk.ac.kcl.inf.lucenesearch.domain.DocumentType;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SchemaValidatorTest {
@@ -13,15 +11,16 @@ public class SchemaValidatorTest {
     @Test
     void validate_acceptsValidSlide() {
         Document slide = new Document(
+                "id1",
                 "slide1",
                 "Slide content",
-                "Title of Slide",
-                null,
                 null,
                 null,
                 3,
-                List.of("search", "ranking"),
+                "lecture1",
+                "Title of Slide",
                 DocumentType.SLIDE,
+                "CS101",
                 "Computational Models"
         );
 
@@ -31,15 +30,16 @@ public class SchemaValidatorTest {
     @Test
     void validate_acceptsValidVideoTranscript() {
         Document transcript = new Document(
+                "id2",
                 "vid1_seg1",
                 "Transcript content",
-                "Segment Title",
                 "00:00:10",
                 "00:00:25",
-                "Dr. Smith",
                 null,
-                List.of(),
+                "lecture1",
+                "Segment Title",
                 DocumentType.VIDEO_TRANSCRIPT,
+                "CS102",
                 "Information Retrieval"
         );
 
@@ -47,18 +47,40 @@ public class SchemaValidatorTest {
     }
 
     @Test
-    void validate_rejectsMissingDocumentId() {
+    void validate_rejectsMissingId() {
         Document doc = new Document(
                 null,
-                "Content",
-                "Title",
+                "doc3",
+                "Some content",
                 "00:00:00",
                 "00:00:12",
                 null,
-                null,
-                null,
+                "lectureX",
+                "Some Title",
                 DocumentType.VIDEO_TRANSCRIPT,
-                "Introduction to Algorithms"
+                "CS107",
+                "Algorithms 101"
+        );
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
+        assertTrue(ex.getMessage().contains("iD"));
+    }
+
+
+    @Test
+    void validate_rejectsMissingDocumentId() {
+        Document doc = new Document(
+                "id3",
+                null,
+                "Content",
+                "00:00:00",
+                "00:00:12",
+                null,
+                "lecture2",
+                "Title",
+                DocumentType.VIDEO_TRANSCRIPT,
+                "CS103",
+                "Intro to Algorithms"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -66,75 +88,78 @@ public class SchemaValidatorTest {
     }
 
     @Test
-    void validate_rejectsMissingTitle() {
+    void validate_rejectsMissingLectureId() {
         Document doc = new Document(
-                "doc1",
-                "Some content",
-                null,
+                "id4",
+                "doc2",
+                "Content",
                 "00:00:00",
                 "00:00:11",
                 null,
                 null,
-                null,
+                "Some title",
                 DocumentType.VIDEO_TRANSCRIPT,
-                "Introduction to Some Content"
+                "CS104",
+                "Some Course"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
-        assertTrue(ex.getMessage().contains("title"));
+        assertTrue(ex.getMessage().contains("lectureId"));
     }
 
     @Test
-    void validate_rejectsMissingCourseName() {
+    void validate_rejectsMissingCourseId() {
         Document doc = new Document(
-                "doc1",
-                "Some content",
-                "Some title",
+                "id5",
+                "doc3",
+                "Content",
                 "00:00:00",
                 "00:00:10",
                 null,
-                null,
-                null,
+                "lecture3",
+                "Some title",
                 DocumentType.VIDEO_TRANSCRIPT,
-                null
+                null,
+                "Course Name"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
-        assertEquals("Missing mandatory field: courseName", ex.getMessage());
+        assertEquals("Missing mandatory field: courseId", ex.getMessage());
     }
 
-
     @Test
-    void validate_rejectsMissingSlideNumberForSlide() {
+    void validate_rejectsMissingPageNumberForSlide() {
         Document doc = new Document(
+                "id6",
                 "slide5",
                 "Slide content",
+                null,
+                null,
+                null,
+                "lecture4",
                 "Slide Title",
-                null,
-                null,
-                null,
-                null,
-                null,
                 DocumentType.SLIDE,
+                "CS105",
                 "Slide Course"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
-        assertTrue(ex.getMessage().contains("slideNumber"));
+        assertTrue(ex.getMessage().contains("pageNumber"));
     }
 
     @Test
     void validate_rejectsMissingTimestampForTranscript() {
         Document doc = new Document(
+                "id7",
                 "vid1_seg1",
                 "Transcript content",
+                null,
+                null,
+                null,
+                "lecture5",
                 "Segment Title",
-                null,
-                null,
-                null,
-                null,
-                null,
                 DocumentType.VIDEO_TRANSCRIPT,
+                "CS106",
                 "Transcript Course"
         );
 

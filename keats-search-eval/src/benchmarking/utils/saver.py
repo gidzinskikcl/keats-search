@@ -6,7 +6,7 @@ import pandas as pd
 
 from schemas import schemas
 
-def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics, output_dir: str, k: int):
+def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics: dict, output_dir: str, k: int):
     """
     Saves evaluation results to a JSON file (mean metrics) and a CSV file (per-query metrics).
     """

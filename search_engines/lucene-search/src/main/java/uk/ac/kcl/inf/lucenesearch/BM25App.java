@@ -2,32 +2,28 @@ package uk.ac.kcl.inf.lucenesearch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.lucene.search.similarities.BM25Similarity;
-import uk.ac.kcl.inf.lucenesearch.domain.Document;
+import org.apache.lucene.store.FSDirectory;
 import uk.ac.kcl.inf.lucenesearch.domain.SearchResult;
-import uk.ac.kcl.inf.lucenesearch.infrastructure.JsonFileDocumentProvider;
-import uk.ac.kcl.inf.lucenesearch.infrastructure.LuceneConfig;
-import uk.ac.kcl.inf.lucenesearch.infrastructure.LuceneIndexService;
-import uk.ac.kcl.inf.lucenesearch.infrastructure.LuceneSearchService;
-import uk.ac.kcl.inf.lucenesearch.usecase.IndexService;
+import uk.ac.kcl.inf.lucenesearch.infrastructure.LuceneSearchFilterService;
 import uk.ac.kcl.inf.lucenesearch.usecase.SearchService;
-
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 
-import java.util.List;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class BM25App {
     public static void main(String[] args) throws Exception {
         if (args.length < 3) {
-            System.err.println("Usage: java BM25App <path_to_documents.json> <query> <top_k>");
+            System.err.println("Usage: java BM25App <path_to_index_dir> <query> <filter_json>");
             System.exit(1);
         }
 
-        String docPath = args[0];
+        String indexPath = args[0];
         String query = args[1];
-
         int topK;
+
         try {
             topK = Integer.parseInt(args[2]);
             if (topK <= 0) {
@@ -36,23 +32,22 @@ public class BM25App {
         } catch (NumberFormatException e) {
             System.err.println("Invalid top_k value: " + args[2] + " (must be a positive integer)");
             System.exit(1);
-            return; // Unreachable, but required for compilation
+            return;
         }
 
-        Directory directory = LuceneConfig.getDirectory();
-        Analyzer analyzer = LuceneConfig.getAnalyzer();
-        IndexWriter writer = LuceneConfig.getWriter();
-
-        IndexService indexService = new LuceneIndexService(writer);
-        JsonFileDocumentProvider provider = new JsonFileDocumentProvider(docPath);
-        List<Document> documents = provider.loadDocuments();
-        for (Document doc : documents) indexService.indexDocument(doc);
-        writer.close();
-
-        SearchService searchService = new LuceneSearchService(directory, analyzer, new BM25Similarity(), topK);
-        List<SearchResult> results = searchService.search(query);
-
+        // Deserialize filter JSON (passed as 4th argument)
+        String filterJson = args[3];
         ObjectMapper mapper = new ObjectMapper();
+        Map<String, List<String>> filters = mapper.readValue(
+                filterJson,
+                mapper.getTypeFactory().constructMapType(Map.class, String.class, List.class)
+        );
+
+        Directory directory = FSDirectory.open(Paths.get(indexPath));
+        Analyzer analyzer = new StandardAnalyzer();
+        SearchService searchService = new LuceneSearchFilterService(directory, analyzer, new BM25Similarity());
+        List<SearchResult> results = searchService.search(query, topK, filters);
+
         System.out.println(mapper.writeValueAsString(results));
     }
 }

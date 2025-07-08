@@ -39,7 +39,9 @@ def generate_markdown_tables(data, k_metrics):
     return "\n".join(tables)
 
 def main():
-    path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-03_16-24-48/mean_metrics_all_k.json"
+    # path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-05_19-16-50/mean_metrics_all_k.json"
+    path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-06_13-51-09/mean_metrics_all_k.json"
+    
     readme_path = "keats-search-eval/README.md"
     data = load_json(path)
 

@@ -5,7 +5,6 @@ import uk.ac.kcl.inf.lucenesearch.domain.Document;
 import uk.ac.kcl.inf.lucenesearch.domain.DocumentType;
 import uk.ac.kcl.inf.lucenesearch.usecase.DocumentProvider;
 
-import java.io.InputStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +13,6 @@ public class JsonFileDocumentProviderTest {
 
     @Test
     void loadDocuments_parsesJsonResourceCorrectly() throws Exception {
-        // Get file path from resources
         var resourceUrl = getClass().getClassLoader().getResource("test-documents.json");
         assertNotNull(resourceUrl, "Test JSON file should exist in src/test/resources");
 
@@ -24,30 +22,37 @@ public class JsonFileDocumentProviderTest {
 
         assertEquals(2, documents.size());
 
-        Document doc1 = documents.get(0);
-        assertEquals("doc1", doc1.documentId());
-        assertEquals("Lucene is awesome", doc1.content());
-        assertEquals("Intro to Lucene", doc1.title());
-        assertEquals("00:00:00", doc1.start());
-        assertEquals("00:01:00", doc1.end());
-        assertEquals("Dr. Smith", doc1.speaker());
-        assertEquals(1, doc1.slideNumber());
-        assertEquals(List.of("lucene", "intro"), doc1.keywords());
-        assertEquals(DocumentType.SLIDE, doc1.type());
-        assertEquals("Information Retrieval", doc1.courseName());
+        Document expectedDoc1 = new Document(
+                "0",
+                "doc1",
+                "Lucene is awesome",
+                "00:00:00",
+                "00:01:00",
+                1,
+                "lecture1",
+                "Intro to Lucene",
+                DocumentType.SLIDE,
+                "CS101",
+                "Information Retrieval"
+        );
 
-        Document doc2 = documents.get(1);
-        assertEquals("doc2", doc2.documentId());
-        assertEquals("It supports indexing and searching", doc2.content());
-        assertEquals("Lucene Features", doc2.title());
-        assertNull(doc2.start());
-        assertNull(doc2.end());
-        assertNull(doc2.speaker());
-        assertEquals(2, doc2.slideNumber());
-        assertEquals(List.of(), doc2.keywords());
-        assertEquals(DocumentType.SLIDE, doc2.type());
-        assertEquals("Information Retrieval", doc2.courseName());
+        Document expectedDoc2 = new Document(
+                "1",
+                "doc2",
+                "It supports indexing and searching",
+                null,
+                null,
+                2,
+                "lecture1",
+                "Lucene Features",
+                DocumentType.SLIDE,
+                "CS101",
+                "Information Retrieval"
+        );
 
+        assertEquals(expectedDoc1, documents.get(0));
+        assertEquals(expectedDoc2, documents.get(1));
     }
+
 
 }

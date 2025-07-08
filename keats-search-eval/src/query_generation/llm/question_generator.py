@@ -34,7 +34,6 @@ def generate_questions(
         )
 
         parsed = questions_set.choices[0].message.parsed
-
     
         return [
             {

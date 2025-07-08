@@ -27,6 +27,7 @@ class TranscriptSchemaExtractor(abstract_transcript_schema_extractor.AbstractTra
                 )
             ))
 
+        # Chapters
         chapters = []
         for i, chapter in enumerate(parsed_data.get("chapters", []), start=1):
             chapters.append(schemas.Chapter(
@@ -37,14 +38,24 @@ class TranscriptSchemaExtractor(abstract_transcript_schema_extractor.AbstractTra
                     end=timedelta(seconds=float(chapter["end_time"]))
                 )
             ))
+
+        # Collect additional fields from parsed metadata
+        course_id = parsed_data.get("course_id")
+        course_name = parsed_data.get("course_title")
+        lecture_id = parsed_data.get("lecture_id")
+        lecture_name = parsed_data.get("lecture_title")
+
         # Create and return the TranscriptSchema
-        result = schemas.TranscriptSchema(
+        return schemas.TranscriptSchema(
             file_name=file_name,
             duration=timedelta(seconds=int(parsed_data["duration"])),
             subtitles=subtitles,
-            chapters=chapters
+            chapters=chapters,
+            course_id=course_id,
+            course_name=course_name,
+            lecture_id=lecture_id,
+            lecture_name=lecture_name
         )
-        return result
     
     @staticmethod
     def _parse_srt_time(time_str: str) -> timedelta:

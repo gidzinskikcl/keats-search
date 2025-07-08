@@ -16,53 +16,46 @@ import uk.ac.kcl.inf.lucenesearch.usecase.SearchService;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class LuceneSearchService implements SearchService {
     private final Directory directory;
     private final Analyzer analyzer;
     private final Similarity similarity;
-    private final int top_k;
 
-    public LuceneSearchService(Directory directory, Analyzer analyzer, Similarity similarity, int top_k) {
+    public LuceneSearchService(Directory directory, Analyzer analyzer, Similarity similarity) {
         this.directory = directory;
         this.analyzer = analyzer;
         this.similarity = similarity;
-        this.top_k = top_k;
     }
 
     @Override
-    public List<SearchResult> search(String queryStr) throws ParseException {
+    public List<SearchResult> search(String queryStr, int topK, Map<String, List<String>> filters) throws ParseException {
         try (DirectoryReader reader = DirectoryReader.open(directory)) {
             IndexSearcher searcher = new IndexSearcher(reader);
             searcher.setSimilarity(this.similarity);
 
             String escapedQuery = QueryParser.escape(queryStr);
             Query query = new QueryParser("content", analyzer).parse(escapedQuery);
-            TopDocs hits = searcher.search(query, this.top_k);
+            TopDocs hits = searcher.search(query, topK);
 
             List<SearchResult> results = new ArrayList<>();
             for (ScoreDoc sd : hits.scoreDocs) {
                 org.apache.lucene.document.Document doc = searcher.doc(sd.doc);
 
-                List<String> keywords = null;
-                String rawKeywords = doc.get("keywords");
-                if (rawKeywords != null) {
-                    keywords = List.of(rawKeywords); // fallback if single string
-                } else {
-                    keywords = List.of(); // or throw an error/log
-                }
 
                 results.add(new SearchResult(
                         sd.score,
+                        doc.get("iD"),
                         doc.get("documentId"),
                         doc.get("content"),
+                        doc.get("courseId"),
                         doc.get("courseName"),
-                        doc.get("title"),
+                        doc.get("lectureId"),
+                        doc.get("lectureTitle"),
                         doc.get("start"),
                         doc.get("end"),
-                        doc.get("speaker"),
                         doc.get("slideNumber"),
-                        keywords,
                         doc.get("type"))
                 );
             }

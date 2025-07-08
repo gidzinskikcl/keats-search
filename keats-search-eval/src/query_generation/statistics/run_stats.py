@@ -4,19 +4,21 @@ from scipy.stats import chisquare
 
 def main():
     # Load the dataset
-    file_path = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv"
+    # file_path = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv"
+    file_path = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"
+    
     df = pd.read_csv(file_path, sep=",")
 
     # Step 1: Count excluded queries
     excluded_pre_annotation = df[df['label'] == 'empty']
-    excluded_annotation = df[df['label'].isin(['invalid', 'administrative'])]
+    excluded_annotation = df[df['label'].isin(['invalid', 'administrative', 'extrapolated'])]
 
     # Step 2: Assess total and proportions
     total_queries = len(df)
     valid_queries = df[df['label'] == 'valid']
     n_valid = len(valid_queries)
     excluded_pre_annotation = df[df['label'] == 'empty']
-    excluded_annotation = df[df['label'].isin(['invalid', 'administrative'])]
+    excluded_annotation = df[df['label'].isin(['invalid', 'administrative', 'extrapolated'])]
     n_excluded_pre = len(excluded_pre_annotation)
     n_excluded_other = len(excluded_annotation)
     n_excluded_total = n_excluded_pre + n_excluded_other

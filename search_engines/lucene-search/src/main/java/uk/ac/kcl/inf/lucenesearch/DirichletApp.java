@@ -15,6 +15,7 @@ import uk.ac.kcl.inf.lucenesearch.usecase.IndexService;
 import uk.ac.kcl.inf.lucenesearch.usecase.SearchService;
 
 import java.util.List;
+import java.util.Map;
 
 public class DirichletApp {
     public static void main(String[] args) throws Exception {
@@ -61,8 +62,8 @@ public class DirichletApp {
         for (Document doc : documents) indexService.indexDocument(doc);
         writer.close();
 
-        SearchService searchService = new LuceneSearchService(directory, analyzer, new LMDirichletSimilarity(mu), topK);
-        List<SearchResult> results = searchService.search(query);
+        SearchService searchService = new LuceneSearchService(directory, analyzer, new LMDirichletSimilarity(mu));
+        List<SearchResult> results = searchService.search(query, topK, Map.of());
 
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(results));

@@ -1,26 +1,28 @@
 [
   {
-    "documentId": "doc1",
+    "id": "0",
+    "doc_id": "doc1",
     "content": "Lucene is awesome",
-    "title": "Intro to Lucene",
     "start": "00:00:00",
     "end": "00:01:00",
-    "speaker": "Dr. Smith",
-    "slideNumber": 1,
-    "keywords": ["lucene", "intro"],
-    "type": "SLIDE",
-    "courseName": "Information Retrieval"
+    "page_number": 1,
+    "lecture_id": "lecture1",
+    "lecture_title": "Intro to Lucene",
+    "doc_type": "pdf",
+    "course_id": "CS101",
+    "course_name": "Information Retrieval"
   },
   {
-    "documentId": "doc2",
+    "id": "1",
+    "doc_id": "doc2",
     "content": "It supports indexing and searching",
-    "title": "Lucene Features",
     "start": null,
     "end": null,
-    "speaker": null,
-    "slideNumber": 2,
-    "keywords": [],
-    "type": "SLIDE",
-    "courseName": "Information Retrieval"
+    "page_number": 2,
+    "lecture_id": "lecture1",
+    "lecture_title": "Lucene Features",
+    "doc_type": "pdf",
+    "course_id": "CS101",
+    "course_name": "Information Retrieval"
   }
 ]

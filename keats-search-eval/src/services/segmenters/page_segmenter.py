@@ -11,8 +11,10 @@ class PageSegmenter(pdf_segmenter.PdfSegmenter):
                 parent_file=pdf_schema.file_name, 
                 nr=idx, 
                 text=page.text,
+                course_id=pdf_schema.course_id,
                 course_name=pdf_schema.course_name,
-                lecture_name=pdf_schema.lecture_name
+                lecture_id=pdf_schema.lecture_id,
+                lecture_name=pdf_schema.lecture_name,
             )
         )
         return result

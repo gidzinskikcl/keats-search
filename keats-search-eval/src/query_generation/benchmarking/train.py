@@ -8,7 +8,7 @@ from collections import defaultdict
 from schemas import schemas
 from query_generation.llm import question_generator
 from query_generation.prompts import templates
-from query_generation.llm import client as llm_client
+from services.llm_based import client as llm_client
 
 
 # Setup
