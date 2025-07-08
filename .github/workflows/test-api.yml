@@ -23,6 +23,10 @@ jobs:
           pip install -r keats-search-api/requirements.txt
           pip install pytest
 
+      - name: Check Black formatting
+        run: |
+          black --check .
+
       - name: Run API tests only
         run: |
           pytest keats-search-api/tests
