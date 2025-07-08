@@ -1,5 +1,6 @@
 black
 fastapi
+httpx
 matplotlib
 mongomock
 numpy
