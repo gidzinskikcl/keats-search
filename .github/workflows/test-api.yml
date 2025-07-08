@@ -27,6 +27,9 @@ jobs:
       - name: Run API tests only
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)/keats-search-api
+          export LUCENE_JAR_PATH="/tmp/lucene.jar"
+          export INDEX_DIR="/tmp/index"
+          export DOC_PATH="/tmp/docs
           pytest tests
       
       - name: Check Black formatting
