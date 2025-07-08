@@ -1,7 +1,12 @@
+black
+fastapi
+matplotlib
 mongomock
 numpy
 openai
+pandas
 pydantic
+pydantic-settings
 pytube
 pyyaml
 pymongo
@@ -11,5 +16,8 @@ python-dotenv
 python-pptx
 requests
 scikit-learn
+seaborn
+tabulate
+uvicorn[standard]
 yt_dlp
 wandb

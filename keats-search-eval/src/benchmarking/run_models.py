@@ -7,8 +7,11 @@ from benchmarking.models import random_search
 from benchmarking.models.lucene import bm25, tf_idf, dirichlet, jm, boolean
 from benchmarking.utils import loader, saver
 
-DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json"
-GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv"
+# DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
+DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json" # without UA subtitles
+
+# GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv" # not updated
+GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"  # updated
 K=10
 
 # Create timestamped directory

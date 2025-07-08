@@ -20,7 +20,9 @@ class ChapterSegmenter(transcript_segmenter.TranscriptSegmenter):
                 parent_file=transcript_schema.file_name,
                 timestamp=chapter.timestamp,
                 text=combined_text,
+                course_id=transcript_schema.course_id,
                 course_name=transcript_schema.course_name,
+                lecture_id=transcript_schema.lecture_id,
                 lecture_name=transcript_schema.lecture_name,
                 chapter_title=chapter.title or None
             )

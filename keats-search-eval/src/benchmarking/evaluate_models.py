@@ -8,11 +8,16 @@ from benchmarking.metrics import scikit_metrics
 from benchmarking.utils import loader, saver, wandb_logger
 
 # Constants
-PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # contains all models
-GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv"
+# PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # old prediction before updating
+PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45" # new prediction after updating gt
+
+# GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv" # not updated
+GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"  # updated
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_DIR = os.path.join("keats-search-eval/data", "evaluation", "gt-annotated", "results", TIMESTAMP)
-DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json"
+# DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
+DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json" # without UA subtitles
+
 MODELS = [
     "RandomSearchEngine",
     "BM25SearchEngine", 

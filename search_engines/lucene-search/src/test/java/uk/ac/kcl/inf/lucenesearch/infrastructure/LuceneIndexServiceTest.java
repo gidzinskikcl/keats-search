@@ -41,16 +41,17 @@ public class LuceneIndexServiceTest {
     void indexDocumentTest() throws Exception {
         uk.ac.kcl.inf.lucenesearch.domain.Document doc =
                 new uk.ac.kcl.inf.lucenesearch.domain.Document(
-                        "doc123",               // documentId
-                        "Testing Lucene indexing",        // content
-                        "Lucene Test",                    // title
-                        "00:00:00",                       // start
-                        "00:01:00",                       // end
-                        "",                             // speaker
-                        1,                              // slideNumber
-                        List.of(),        // keywords
-                        DocumentType.SLIDE,               // type
-                        "Lucene Course"                // courseName
+                        "id123",                    // iD
+                        "doc123",                   // documentId
+                        "Testing Lucene indexing",  // content
+                        "00:00:00",                 // start
+                        "00:01:00",                 // end
+                        1,                          // pageNumber
+                        "lecture_01",               // lectureId
+                        "Lucene Test",              // lectureTitle
+                        DocumentType.SLIDE,         // type
+                        "CS101",                    // courseId
+                        "Lucene Course"             // courseName
                 );
 
         indexService.indexDocument(doc);
@@ -58,43 +59,44 @@ public class LuceneIndexServiceTest {
 
         try (DirectoryReader reader = DirectoryReader.open(directory)) {
             IndexSearcher searcher = new IndexSearcher(reader);
-            // Check by ID
             TermQuery idQuery = new TermQuery(new Term("documentId", "doc123"));
             var hits = searcher.search(idQuery, 1);
-            assertEquals(1, hits.totalHits.value, "Should find doc by ID");
+            assertEquals(1, hits.totalHits.value);
 
             var storedDoc = searcher.doc(hits.scoreDocs[0].doc);
-            assertEquals("doc123", storedDoc.get("documentId"), "Document ID should match");
-            assertEquals("Testing Lucene indexing", storedDoc.get("content"), "Stored content should match");
-            assertEquals("Lucene Test", storedDoc.get("title"), "Title should match");
-            assertEquals("00:00:00", storedDoc.get("start"), "Start timestamp should match");
-            assertEquals("00:01:00", storedDoc.get("end"), "End timestamp should match");
-            assertEquals("", storedDoc.get("speaker"), "Speaker should be an empty string");
-            assertEquals("1", storedDoc.get("slideNumber"), "Slide number should match");
-            assertEquals("SLIDE", storedDoc.get("type"), "Document type should match");
-            assertEquals("Lucene Course", storedDoc.get("courseName"), "Course name should match");
+            assertEquals("doc123", storedDoc.get("documentId"));
+            assertEquals("Testing Lucene indexing", storedDoc.get("content"));
+            assertEquals("Lucene Test", storedDoc.get("lectureTitle"));
+            assertEquals("00:00:00", storedDoc.get("start"));
+            assertEquals("00:01:00", storedDoc.get("end"));
+            assertEquals("lecture_01", storedDoc.get("lectureId"));
+            assertEquals("CS101", storedDoc.get("courseId"));
+            assertEquals("1", storedDoc.get("pageNumber"));
+            assertEquals("SLIDE", storedDoc.get("type"));
+            assertEquals("Lucene Course", storedDoc.get("courseName"));
 
-            // Keywords: empty list means no "keywords" field added
             String[] keywords = storedDoc.getValues("keywords");
-            assertEquals(0, keywords.length, "Keywords should be empty");
+            assertEquals(0, keywords.length);
         }
     }
+
 
 
     @Test
     void indexDocumentHandlesNullStartAndEnd() throws Exception {
         uk.ac.kcl.inf.lucenesearch.domain.Document doc =
                 new uk.ac.kcl.inf.lucenesearch.domain.Document(
-                        "doc456",                           // documentId
+                        "id456",                          // iD
+                        "doc456",                         // documentId
                         "Lucene supports flexible schemas", // content
-                        "Lucene Null Timestamps",           // title
-                        null,                               // start
-                        null,                               // end
-                        "Dr. Null",                         // speaker
-                        2,                                  // slideNumber
-                        List.of("lucene", "schema"),        // keywords
-                        DocumentType.SLIDE,                 // type
-                        "Lucene Course"                     // courseName
+                        null,                             // start
+                        null,                             // end
+                        2,                                // pageNumber
+                        "lecture_02",                     // lectureId
+                        "Null Timestamps",                // lectureTitle
+                        DocumentType.SLIDE,               // type
+                        "CS102",                          // courseId
+                        "Lucene Course"                   // courseName
                 );
 
         indexService.indexDocument(doc);
@@ -105,27 +107,26 @@ public class LuceneIndexServiceTest {
 
             TermQuery idQuery = new TermQuery(new Term("documentId", "doc456"));
             var hits = searcher.search(idQuery, 1);
-            assertEquals(1, hits.totalHits.value, "Should find doc by ID");
+            assertEquals(1, hits.totalHits.value);
 
             var storedDoc = searcher.doc(hits.scoreDocs[0].doc);
+            assertEquals("doc456", storedDoc.get("documentId"));
+            assertEquals("Lucene supports flexible schemas", storedDoc.get("content"));
+            assertEquals("Null Timestamps", storedDoc.get("lectureTitle"));
+            assertEquals("lecture_02", storedDoc.get("lectureId"));
+            assertEquals("CS102", storedDoc.get("courseId"));
+            assertEquals("2", storedDoc.get("pageNumber"));
+            assertEquals("Lucene Course", storedDoc.get("courseName"));
+            assertEquals("SLIDE", storedDoc.get("type"));
 
-            // Check all stored fields
-            assertEquals("doc456", storedDoc.get("documentId"), "Document ID should match");
-            assertEquals("Lucene supports flexible schemas", storedDoc.get("content"), "Content should match");
-            assertEquals("Lucene Null Timestamps", storedDoc.get("title"), "Title should match");
-            assertEquals("Dr. Null", storedDoc.get("speaker"), "Speaker should match");
-            assertEquals("2", storedDoc.get("slideNumber"), "Slide number should match");
-            assertEquals("Lucene Course", storedDoc.get("courseName"), "Course name should match");
-            assertEquals("SLIDE", storedDoc.get("type"), "Document type should match");
+            assertNull(storedDoc.get("start"));
+            assertNull(storedDoc.get("end"));
 
-            // These should be null because they were not stored
-            assertNull(storedDoc.get("start"), "Start timestamp should be null");
-            assertNull(storedDoc.get("end"), "End timestamp should be null");
-
-            // Keywords should contain the correct values
             String[] keywords = storedDoc.getValues("keywords");
-            assertArrayEquals(new String[] {"lucene", "schema"}, keywords, "Keywords should match");
+            // The keywords were not set, so expect empty array
+            assertEquals(0, keywords.length);
         }
     }
+
 
 }

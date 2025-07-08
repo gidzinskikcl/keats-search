@@ -16,6 +16,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
 
 import java.util.List;
+import java.util.Map;
 
 public class JMApp {
     public static void main(String[] args) throws Exception {
@@ -61,8 +62,8 @@ public class JMApp {
         for (Document doc : documents) indexService.indexDocument(doc);
         writer.close();
 
-        SearchService searchService = new LuceneSearchService(directory, analyzer, new LMJelinekMercerSimilarity(lambda), topK);
-        List<SearchResult> results = searchService.search(query);
+        SearchService searchService = new LuceneSearchService(directory, analyzer, new LMJelinekMercerSimilarity(lambda));
+        List<SearchResult> results = searchService.search(query, topK, Map.of());
 
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(results));

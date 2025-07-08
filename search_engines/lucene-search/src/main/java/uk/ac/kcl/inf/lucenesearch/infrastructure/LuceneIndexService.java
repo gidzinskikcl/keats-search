@@ -18,10 +18,18 @@ public class LuceneIndexService implements IndexService {
     public void indexDocument(Document doc) throws Exception {
         org.apache.lucene.document.Document luceneDoc = new org.apache.lucene.document.Document();
 
+        luceneDoc.add(new StringField("iD", doc.iD(), Field.Store.YES));
         luceneDoc.add(new StringField("documentId", doc.documentId(), Field.Store.YES));
         luceneDoc.add(new TextField("content", doc.content(), Field.Store.YES));
-        luceneDoc.add(new TextField("title", doc.title(), Field.Store.YES));
+
+        // Dual indexing for title
+        luceneDoc.add(new TextField("lectureTitle", doc.lectureTitle(), Field.Store.YES)); // for search
+        luceneDoc.add(new StringField("lectureId", doc.lectureId(), Field.Store.YES)); // for filtering
+
+        // Dual indexing for courseName
         luceneDoc.add(new TextField("courseName", doc.courseName(), Field.Store.YES));
+        luceneDoc.add(new StringField("courseId", doc.courseId(), Field.Store.YES));
+
         luceneDoc.add(new StringField("type", doc.type().name(), Field.Store.YES));
 
         if (doc.start() != null) {
@@ -32,19 +40,8 @@ public class LuceneIndexService implements IndexService {
             luceneDoc.add(new StringField("end", doc.end(), Field.Store.YES));
         }
 
-        if (doc.speaker() != null) {
-            luceneDoc.add(new StringField("speaker", doc.speaker(), Field.Store.YES));
-        }
-
-        if (doc.slideNumber() != null) {
-            luceneDoc.add(new StringField("slideNumber", String.valueOf(doc.slideNumber()), Field.Store.YES));
-        }
-        if (doc.keywords() != null) {
-            for (String keyword : doc.keywords()) {
-                if (keyword != null && !keyword.isEmpty()) {
-                    luceneDoc.add(new StringField("keywords", keyword, Field.Store.YES));
-                }
-            }
+        if (doc.pageNumber() != null) {
+            luceneDoc.add(new StringField("pageNumber", String.valueOf(doc.pageNumber()), Field.Store.YES));
         }
 
         writer.addDocument(luceneDoc);

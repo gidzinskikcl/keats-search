@@ -1,83 +1,59 @@
 import pytest
-from unittest.mock import MagicMock, patch
-from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
-from llm_annotation.prompts import templates
 from llm_annotation.llm import annotator
-
-# === Fixtures ===
-
-@pytest.fixture
-def sample_annotate_input():
-    return {
-        "course_name": "Computer Security",
-        "lecture_name": "Code Injection",
-        "question": "Why alter a code pointer in code injection?",
-        "answer": "To hijack the execution flow and run attacker code."
-    }
+from llm_annotation.schemas import response_schema
 
 @pytest.fixture
-def mock_prompt_module():
-    return MagicMock(spec=templates.PromptTemplate)
-
-@pytest.fixture
-def expected():
-    return {
-        "question": "Why alter a code pointer in code injection?",
-        "answer": "To hijack the execution flow and run attacker code.",
-        "relevance": "relevant"
-    }
-
-@pytest.mark.skip(reason="Not implemented yet")
-def test_annotate_success(sample_annotate_input, mock_prompt_module, expected):
-    mock_prompt = MagicMock()
-    mock_prompt.system_prompt.to_dict.return_value = {"role": "system", "content": "system prompt"}
-    mock_prompt.user_prompt.to_dict.return_value = {"role": "user", "content": "user prompt"}
-
-    # Mock parsed structure with relevance enum
-    parsed_result = SimpleNamespace(
-        question=sample_annotate_input["question"],
-        answer=sample_annotate_input["answer"],
-        relevance=SimpleNamespace(name="RELEVANT")
+def mock_prompt():
+    return Mock(
+        system_prompt=Mock(to_dict=Mock(return_value={"role": "system", "content": "system prompt"})),
+        user_prompt=Mock(to_dict=Mock(return_value={"role": "user", "content": "user prompt"}))
     )
 
-
-    mock_response = SimpleNamespace(
-        choices=[
-            SimpleNamespace(
-                message=SimpleNamespace(parsed=parsed_result)
-            )
-        ]
+@pytest.fixture
+def mock_parsed_response():
+    mock_choice = Mock()
+    mock_choice.message.parsed = Mock(
+        question="What is photosynthesis?",
+        answer="Photosynthesis is the process by which plants make food.",
+        relevance=response_schema.BinaryRelevance.RELEVANT
     )
 
-    with patch("annotation.prompts.prompt_builder.PromptBuilder.build", return_value=mock_prompt) as mock_builder, \
-         patch("annotation.llm.caller.call_openai", return_value=mock_response) as mock_call:
+    mock_response = Mock()
+    mock_response.choices = [mock_choice]
+    mock_response.usage.prompt_tokens = 10
+    mock_response.usage.completion_tokens = 20
+    mock_response.usage.total_tokens = 30
 
-        mock_client = MagicMock()
-        observed = annotator.annotate(
-            client=mock_client,
-            prompt_module=mock_prompt_module,
-            **sample_annotate_input
-        )
+    return mock_response
 
-        assert observed == expected
-        mock_builder.assert_called_once()
-        mock_call.assert_called_once()
+@patch("llm_annotation.llm.annotator.caller.call_openai")
+@patch("llm_annotation.llm.annotator.prompt_builder.PromptBuilder.build")
+def test_annotate_returns_expected_output(mock_build, mock_call_openai, mock_prompt, mock_parsed_response):
+    mock_build.return_value = mock_prompt
+    mock_call_openai.return_value = mock_parsed_response
 
-@pytest.mark.skip(reason="Not implemented yet")
-def test_annotate_fallback_on_error(sample_annotate_input, mock_prompt_module):
-    mock_prompt = MagicMock()
-    mock_prompt.system_prompt.to_dict.return_value = {"role": "system", "content": "system prompt"}
-    mock_prompt.user_prompt.to_dict.return_value = {"role": "user", "content": "user prompt"}
+    client = Mock()  # Dummy client
 
-    with patch("annotation.prompts.prompt_builder.PromptBuilder.build", return_value=mock_prompt), \
-         patch("annotation.llm.caller.call_openai", side_effect=Exception("mock error")):
+    result = annotator.annotate(
+        client=client,
+        prompt_module=Mock(),
+        course_name="Biology 101",
+        lecture_name="Photosynthesis",
+        question="What is photosynthesis?",
+        answer="Photosynthesis is the process by which plants make food."
+    )
 
-        mock_client = MagicMock()
-        result = annotator.annotate(
-            client=mock_client,
-            prompt_module=mock_prompt_module,
-            **sample_annotate_input
-        )
+    assert isinstance(result, dict)
+    assert result["question"] == "What is photosynthesis?"
+    assert result["answer"] == "Photosynthesis is the process by which plants make food."
+    assert result["relevance"] == "relevant"
+    assert result["tokens"] == {
+        "prompt_tokens": 10,
+        "completion_tokens": 20,
+        "total_tokens": 30
+    }
 
-        assert result == []
+    mock_build.assert_called_once()
+    mock_call_openai.assert_called_once()

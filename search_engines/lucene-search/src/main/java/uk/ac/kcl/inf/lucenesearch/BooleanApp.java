@@ -16,6 +16,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
 
 import java.util.List;
+import java.util.Map;
 
 public class BooleanApp {
     public static void main(String[] args) throws Exception {
@@ -49,8 +50,8 @@ public class BooleanApp {
         for (Document doc : documents) indexService.indexDocument(doc);
         writer.close();
 
-        SearchService searchService = new LuceneSearchService(directory, analyzer, new BooleanSimilarity(), topK);
-        List<SearchResult> results = searchService.search(query);
+        SearchService searchService = new LuceneSearchService(directory, analyzer, new BooleanSimilarity());
+        List<SearchResult> results = searchService.search(query, topK, Map.of());
 
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(results));

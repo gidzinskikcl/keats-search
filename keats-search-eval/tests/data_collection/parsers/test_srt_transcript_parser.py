@@ -4,14 +4,19 @@ import pytest
 
 from services.parsers import srt_transcript_parser
 
+MAPPING_PATH = pathlib.Path("keats-search-eval/tests/data/file_to_metadata_mapping.json")
+
+@pytest.fixture
+def parser():
+    return srt_transcript_parser.SRTTranscriptParser(mapping_path=MAPPING_PATH)
+
 @pytest.fixture
 def file_path():
-    result = pathlib.Path("keats-search-eval/data/testing/transcripts/sample.en.srt")
-    return result
+    return pathlib.Path("keats-search-eval/data/testing/transcripts/sample.en.srt")
 
 @pytest.fixture
 def expected():
-    result =  {
+    return {
         "file_name": "sample.en",
         "file_extension": "srt",
         "id": "sample",
@@ -41,27 +46,28 @@ def expected():
                 "index": "1",
                 "start": "00:00:00,000",
                 "end": "00:00:05,000",
-                "text":"Hello, world!" 
+                "text": "Hello, world!"
             },
             {
                 "index": "2",
                 "start": "00:00:05,000",
                 "end": "00:00:10,000",
-                "text": "This is a test subtitle." 
+                "text": "This is a test subtitle."
             }
-
-        ]
+        ],
+        "course_id": None,
+        "course_title": None,
+        "lecture_id": None,
+        "lecture_title": None
     }
-    return result
 
-def test_get(file_path, expected):
-    parser = srt_transcript_parser.SRTTranscriptParser()
+def test_get(file_path, parser, expected):
     observed = parser.get(file_path, True)
-    assert expected == observed
+    assert observed == expected
 
 @pytest.fixture
 def expected_no_metadata():
-    result =  {
+    return {
         "file_name": "sample.en",
         "file_extension": "srt",
         "id": "",
@@ -80,42 +86,39 @@ def expected_no_metadata():
                 "index": "1",
                 "start": "00:00:00,000",
                 "end": "00:00:05,000",
-                "text":"Hello, world!" 
+                "text": "Hello, world!"
             },
             {
                 "index": "2",
                 "start": "00:00:05,000",
                 "end": "00:00:10,000",
-                "text": "This is a test subtitle." 
+                "text": "This is a test subtitle."
             }
-
-        ]
-         
+        ],
+        "course_id": None,
+        "course_title": None,
+        "lecture_id": None,
+        "lecture_title": None
     }
-    return result
 
-
-def test_get_no_metadata(file_path, expected_no_metadata):
-    parser = srt_transcript_parser.SRTTranscriptParser()
+def test_get_no_metadata(file_path, parser, expected_no_metadata):
     observed = parser.get(file_path, False)
-    assert expected_no_metadata == observed
+    assert observed == expected_no_metadata
 
-def test_get_nonexistent_file():
+def test_get_nonexistent_file(parser):
     path = pathlib.Path("non/existent/path/to/file.srt")
-    parser = srt_transcript_parser.SRTTranscriptParser()
     with pytest.raises(FileNotFoundError):
         parser.get(path)
 
-def test_get_nonexistent_file_no_metadata():
+def test_get_nonexistent_file_no_metadata(parser):
     path = pathlib.Path("non/existent/path/to/file.srt")
-    parser = srt_transcript_parser.SRTTranscriptParser()
     with pytest.raises(FileNotFoundError):
         parser.get(path, False)
-
 
 def test_filename_parsing_with_suffix(tmp_path):
     fake_srt = tmp_path / "IiD3YZkkCmE.en-j3PyPqV-e1s.srt"
     fake_json = tmp_path / "IiD3YZkkCmE.en-j3PyPqV-e1s.json"
+    fake_mapping = tmp_path / "file_to_metadata_mapping.json"
 
     # Write test .srt content
     fake_srt.write_text(
@@ -141,9 +144,22 @@ def test_filename_parsing_with_suffix(tmp_path):
         ]
     }))
 
-    parser = srt_transcript_parser.SRTTranscriptParser()
+    # Write test mapping
+    fake_mapping.write_text(json.dumps([
+        {
+            "doc_id": fake_srt.name,
+            "course_id": "6.006",
+            "course_title": "Intro to Algorithms",
+            "lecture_id": "1",
+            "lecture_title": "Lecture 1"
+        }
+    ]))
+
+    parser = srt_transcript_parser.SRTTranscriptParser(mapping_path=fake_mapping)
     observed = parser.get(fake_srt)
 
     assert observed["file_name"] == "IiD3YZkkCmE.en-j3PyPqV-e1s"
     assert observed["title"] == "Mock Lecture"
     assert observed["transcript"][0]["text"] == "Mock line 1"
+    assert observed["course_id"] == "6.006"
+    assert observed["lecture_title"] == "Lecture 1"

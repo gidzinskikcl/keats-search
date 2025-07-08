@@ -15,6 +15,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
 
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     public static void main(String[] args) throws Exception {
@@ -61,7 +62,7 @@ public class Application {
         org.apache.lucene.search.similarities.Similarity similarity = getSimilarityByName(similarityName, similarityParams);
 
         IndexService indexService = new LuceneIndexService(writer);
-        SearchService searchService = new LuceneSearchService(directory, analyzer, similarity, topK);
+        SearchService searchService = new LuceneSearchService(directory, analyzer, similarity);
 
         // Load documents from file path
         JsonFileDocumentProvider provider = new JsonFileDocumentProvider(docPath);
@@ -73,7 +74,7 @@ public class Application {
 
         writer.close();
 
-        return searchService.search(query);
+        return searchService.search(query, topK, Map.of());
     }
 
     private static org.apache.lucene.search.similarities.Similarity getSimilarityByName(String name, String param) {
