@@ -9,12 +9,14 @@ from services.segmenters import page_segmenter, chapter_segmenter
 
 OUTPUT_REPO = pathlib.Path("keats-search-api/data")
 COURSES_REPO = pathlib.Path("keats-search-eval/data")
-MAPPING_FILE = pathlib.Path("keats-search-eval/data/metadata/file_to_metadata_mapping.json")
+MAPPING_FILE = pathlib.Path(
+    "keats-search-eval/data/metadata/file_to_metadata_mapping.json"
+)
 
 COURSES = [
     "18.404J",
     "6.006",
-    "6.0002"
+    "6.0002",
     # add more course folder names here
 ]
 
@@ -34,18 +36,20 @@ def main():
     pdf_parser = pymupdf_parser.PyMuPdfParser(mapping_path=MAPPING_FILE)
     pdf_extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=pdf_parser)
     srt_parser = srt_transcript_parser.SRTTranscriptParser(mapping_path=MAPPING_FILE)
-    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=srt_parser)
+    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(
+        parser=srt_parser
+    )
 
     # Collect all materials
     print("Collecting all materials from files...")
     documents = document_api_collector.collect_api_documents(
         pdf_courses_dir=COURSES_REPO / "slides",
         srt_courses_dir=COURSES_REPO / "transcripts" / "lectures",
-        courses = COURSES,
+        courses=COURSES,
         pdf_extractor=pdf_extractor,
         transcript_extractor=srt_extractor,
         pdf_segmenter=page_segmenter.PageSegmenter(),
-        srt_segmenter=chapter_segmenter.ChapterSegmenter()
+        srt_segmenter=chapter_segmenter.ChapterSegmenter(),
     )
     print("Done")
 
@@ -58,9 +62,8 @@ def main():
     with open(output_file, "w") as f:
         json.dump([doc.model_dump_flat() for doc in documents], f, indent=2)
 
-
-
     print(f"Saved {len(documents)} documents to {output_file}")
+
 
 if __name__ == "__main__":
     main()

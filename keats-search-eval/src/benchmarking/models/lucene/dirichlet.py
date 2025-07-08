@@ -5,8 +5,12 @@ import json
 from schemas import schemas
 from benchmarking.models import search_model
 
+
 class DirichletSearchEngine(search_model.SearchModel):
-    JAR_PATH = "search_engines/lucene-search/target/dirichlet-search-jar-with-dependencies.jar"
+    JAR_PATH = (
+        "search_engines/lucene-search/target/dirichlet-search-jar-with-dependencies.jar"
+    )
+
     def __init__(self, doc_path: str, k: int, mu_: float = 2000):
         self.doc_path = doc_path
         self.k = k
@@ -22,14 +26,15 @@ class DirichletSearchEngine(search_model.SearchModel):
         proc = subprocess.run(
             [
                 "java",
-                "-jar", self.JAR_PATH,
+                "-jar",
+                self.JAR_PATH,
                 self.doc_path,
                 query.question,
                 str(self.k),
-                str(self.mu_)
+                str(self.mu_),
             ],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if proc.returncode != 0:
@@ -54,8 +59,8 @@ class DirichletSearchEngine(search_model.SearchModel):
 
             doc = schemas.DocumentSchema(
                 doc_id=d["documentId"],
-                content=d["content"], 
-                course_name=d["courseName"], 
+                content=d["content"],
+                course_name=d["courseName"],
                 title=d["title"],
                 timestamp=timestamp,
                 pageNumber=d["slideNumber"],

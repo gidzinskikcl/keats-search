@@ -3,7 +3,9 @@ from unittest.mock import Mock
 
 import pytest
 
-from services.extractors.batch_transcript_schema_extractor import BatchTranscriptSchemaExtractor
+from services.extractors.batch_transcript_schema_extractor import (
+    BatchTranscriptSchemaExtractor,
+)
 from schemas import schemas
 
 
@@ -24,15 +26,19 @@ def course_dir(tmp_path: pathlib.Path):
 
     return tmp_path
 
+
 @pytest.fixture
 def mock_extractor():
     result = Mock()
 
     def extractor_get(file_path: pathlib.Path) -> schemas.PdfSchema:
-        return schemas.TranscriptSchema(file_name=file_path.stem, duration=None, subtitles=[], course_name=None)
-    
+        return schemas.TranscriptSchema(
+            file_name=file_path.stem, duration=None, subtitles=[], course_name=None
+        )
+
     result.get.side_effect = extractor_get
     return result
+
 
 @pytest.fixture
 def expected():
@@ -42,24 +48,22 @@ def expected():
             duration=None,
             subtitles=[],
             course_name="course1",
-            lecture_name="Lecture 1"
+            lecture_name="Lecture 1",
         ),
         schemas.TranscriptSchema(
             file_name="lecture1.2",
             duration=None,
             subtitles=[],
             course_name="course1",
-            lecture_name="Lecture 1"
-
+            lecture_name="Lecture 1",
         ),
         schemas.TranscriptSchema(
             file_name="lecture2.1",
             duration=None,
             subtitles=[],
             course_name="course2",
-            lecture_name="Lecture 2"
-
-        )
+            lecture_name="Lecture 2",
+        ),
     ]
     return result
 
@@ -74,4 +78,3 @@ def test_extract_all(course_dir, mock_extractor, expected):
     assert sorted(observed, key=lambda x: (x.course_name, x.file_name)) == expected
 
     assert mock_extractor.get.call_count == 3
-

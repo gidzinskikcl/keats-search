@@ -11,7 +11,9 @@ GROUND_TRUTH_PATH = "keats-search-eval/data/queries/validated/keats-search_queri
 # BM25_RESULTS_PATH = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44/bm25searchengine_predictions.csv"
 BM25_RESULTS_PATH = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv"
 
-DOCUMENTS_JSON_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"
+DOCUMENTS_JSON_PATH = (
+    "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"
+)
 
 
 OUTPUT_BASE = "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample"
@@ -21,35 +23,41 @@ SAMPLE = "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/20
 def load_ground_truth(path):
     data = []
 
-    with open(path, newline='', encoding='utf-8') as f:
+    with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row["label"] == "valid":
-                data.append({
-                    "query_id": row["index"],
-                    "question": row["question"],
-                    "doc_id": row["doc_id"],
-                    "answer": row.get("answer"),
-                    "course_name": row.get("course_name"),
-                    "lecture_title": row.get("lecture_title")
-                })
+                data.append(
+                    {
+                        "query_id": row["index"],
+                        "question": row["question"],
+                        "doc_id": row["doc_id"],
+                        "answer": row.get("answer"),
+                        "course_name": row.get("course_name"),
+                        "lecture_title": row.get("lecture_title"),
+                    }
+                )
 
     return data
+
 
 def load_bm25_top1(path):
     data = []
-    with open(path, newline='', encoding='utf-8') as f:
+    with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row["rank"] == "1":
-                data.append({
-                    "query_id": row["query_id"],
-                    "doc_id": row["doc_id"],
-                    "content": row["answer"],
-                    "course": row["course"],
-                    "lecture": row["lecture"]
-                })
+                data.append(
+                    {
+                        "query_id": row["query_id"],
+                        "doc_id": row["doc_id"],
+                        "content": row["answer"],
+                        "course": row["course"],
+                        "lecture": row["lecture"],
+                    }
+                )
     return data
+
 
 def load_all_documents(path):
     with open(path, encoding="utf-8") as f:
@@ -62,6 +70,7 @@ def load_sample_queries_ids(path):
         samples = json.load(f)
     return [s["query_id"] for s in samples]
 
+
 def load_sample_queries(path):
     with open(path, encoding="utf-8") as f:
         return json.load(f)
@@ -71,6 +80,7 @@ def load_random_doc_ids(path):
     with open(path, encoding="utf-8") as f:
         samples = json.load(f)
     return {s["query_id"]: s["random_doc"]["doc_id"] for s in samples}
+
 
 def build_samples(sample_items, gt, bm25_top1, all_docs):
     # Index ground truth and BM25 for fast lookup
@@ -89,39 +99,40 @@ def build_samples(sample_items, gt, bm25_top1, all_docs):
         bm25_doc_id = b["doc_id"]
         random_doc_id = sample["random_doc"]["doc_id"]
 
-
         gt_doc = all_docs.get(gt_doc_id)
         random_doc = all_docs.get(random_doc_id)
 
         if not gt_doc or not random_doc:
             continue  # Skip if any doc is missing
 
-        result.append({
-            "query_id": qid,
-            "question": g["question"],
-            "ground_truth": {
-                "doc_id": gt_doc_id,
-                "content": gt_doc["content"],
-                "course": gt_doc["courseName"],
-                "lecture": gt_doc["title"]
-            },
-            "top1_bm25": {
-                "doc_id": bm25_doc_id,
-                "content": b["content"],
-                "course": b["course"],
-                "lecture": b["lecture"]
-            },
-            "random_doc": {
-                "doc_id": random_doc_id,
-                "content": random_doc["content"],
-                "course": random_doc["courseName"],
-                "lecture": random_doc["title"]
+        result.append(
+            {
+                "query_id": qid,
+                "question": g["question"],
+                "ground_truth": {
+                    "doc_id": gt_doc_id,
+                    "content": gt_doc["content"],
+                    "course": gt_doc["courseName"],
+                    "lecture": gt_doc["title"],
+                },
+                "top1_bm25": {
+                    "doc_id": bm25_doc_id,
+                    "content": b["content"],
+                    "course": b["course"],
+                    "lecture": b["lecture"],
+                },
+                "random_doc": {
+                    "doc_id": random_doc_id,
+                    "content": random_doc["content"],
+                    "course": random_doc["courseName"],
+                    "lecture": random_doc["title"],
+                },
             }
-        })
+        )
 
     return result
-                
-    
+
+
 def main():
     ground_truth = load_ground_truth(GROUND_TRUTH_PATH)
     bm25_top1 = load_bm25_top1(BM25_RESULTS_PATH)
@@ -148,7 +159,8 @@ def main():
 
     # Select 3 valid, unused new samples
     candidates = [
-        g for g in ground_truth
+        g
+        for g in ground_truth
         if g["query_id"] not in used_query_ids
         and g["query_id"] in bm25_map
         and g["doc_id"] in all_docs
@@ -164,23 +176,25 @@ def main():
         gt_doc = all_docs[g["doc_id"]]
         bm25_doc = all_docs[bm25["doc_id"]]
 
-        replacements.append({
-            "query_id": qid,
-            "question": g["question"],
-            "ground_truth": {
-                "doc_id": g["doc_id"],
-                "content": gt_doc["content"],
-                "course": gt_doc["courseName"],
-                "lecture": gt_doc["title"]
-            },
-            "top1_bm25": {
-                "doc_id": bm25["doc_id"],
-                "content": bm25["content"],
-                "course": bm25["course"],
-                "lecture": bm25["lecture"]
-            },
-            "random_doc": random_doc
-        })
+        replacements.append(
+            {
+                "query_id": qid,
+                "question": g["question"],
+                "ground_truth": {
+                    "doc_id": g["doc_id"],
+                    "content": gt_doc["content"],
+                    "course": gt_doc["courseName"],
+                    "lecture": gt_doc["title"],
+                },
+                "top1_bm25": {
+                    "doc_id": bm25["doc_id"],
+                    "content": bm25["content"],
+                    "course": bm25["course"],
+                    "lecture": bm25["lecture"],
+                },
+                "random_doc": random_doc,
+            }
+        )
 
     built_samples = build_samples(old_samples, ground_truth, bm25_top1, all_docs)
     final_samples = []
@@ -196,7 +210,6 @@ def main():
             # Use the originally built sample
             built_sample = next(b for b in built_samples if b["query_id"] == qid)
             final_samples.append(built_sample)
-
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     output_dir = os.path.join(OUTPUT_BASE, timestamp)

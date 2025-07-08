@@ -10,7 +10,7 @@ SLIDES_DIR = os.path.join(BASE_DIR, "slides")
 COURSES = {
     "18.404J": "Theory of Computation",
     "6.006": "Introduction to Algorithms",
-    "6.0002": "Introduction to Computational Thinking and Data Science"
+    "6.0002": "Introduction to Computational Thinking and Data Science",
 }
 
 # Mapping from lecture_id to lecture_title per course
@@ -38,13 +38,15 @@ for course_id, course_title in COURSES.items():
 
             for file in os.listdir(lecture_path):
                 if file.endswith(".srt"):
-                    mapping.append({
-                        "doc_id": file,
-                        "course_id": course_id,
-                        "course_title": course_title,
-                        "lecture_id": lecture_id,
-                        "lecture_title": lecture_title
-                    })
+                    mapping.append(
+                        {
+                            "doc_id": file,
+                            "course_id": course_id,
+                            "course_title": course_title,
+                            "lecture_id": lecture_id,
+                            "lecture_title": lecture_title,
+                        }
+                    )
 
     # Now process slides using the lecture title from transcripts
     if os.path.isdir(slides_course_dir):
@@ -53,7 +55,9 @@ for course_id, course_title in COURSES.items():
             lecture_id = lecture_folder.split()[1]
 
             # Fall back to original folder name if no match
-            lecture_title = lecture_titles_by_course[course_id].get(lecture_id, lecture_folder)
+            lecture_title = lecture_titles_by_course[course_id].get(
+                lecture_id, lecture_folder
+            )
 
             lecture_path = os.path.join(slides_course_dir, lecture_folder)
             if not os.path.isdir(lecture_path):
@@ -61,13 +65,15 @@ for course_id, course_title in COURSES.items():
 
             for file in os.listdir(lecture_path):
                 if file.endswith(".pdf"):
-                    mapping.append({
-                        "doc_id": file,
-                        "course_id": course_id,
-                        "course_title": course_title,
-                        "lecture_id": lecture_id,
-                        "lecture_title": lecture_title
-                    })
+                    mapping.append(
+                        {
+                            "doc_id": file,
+                            "course_id": course_id,
+                            "course_title": course_title,
+                            "lecture_id": lecture_id,
+                            "lecture_title": lecture_title,
+                        }
+                    )
 
 # Write to JSON file
 output_path = "keats-search-eval/data/metadata/file_to_metadata_mapping.json"
@@ -115,7 +121,7 @@ print(f"Mapping written to {output_path}")
 #         for lecture_folder in lecture_folders:
 #             lecture_title = lecture_folder
 #             lecture_id = lecture_title.split()[0]
-            
+
 #             lecture_path = os.path.join(transcript_course_dir, lecture_folder)
 #             if not os.path.isdir(lecture_path):
 #                 continue

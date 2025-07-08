@@ -17,9 +17,10 @@ def mock_info():
         "tags": ["test", "video"],
         "webpage_url": "https://youtube.com/watch?v=abc123",
         "thumbnail": "https://thumbnail.url/image.jpg",
-        "chapters": [{"start_time": 0, "title": "Intro"}]
+        "chapters": [{"start_time": 0, "title": "Intro"}],
     }
     return result
+
 
 @pytest.fixture
 def expected(tmp_path):
@@ -35,7 +36,7 @@ def expected(tmp_path):
         "webpage_url": "https://youtube.com/watch?v=abc123",
         "thumbnail": "https://thumbnail.url/image.jpg",
         "chapters": [{"start_time": 0, "title": "Intro"}],
-        "transcript_file": str(tmp_path / "abc123.en.srt")
+        "transcript_file": str(tmp_path / "abc123.en.srt"),
     }
     return result
 
@@ -47,7 +48,9 @@ def test_get_youtube_transcript(tmp_path, mock_info, expected):
 
     # Add subtitles for preview (manual)
     mock_preview_info = dict(mock_info)
-    mock_preview_info["subtitles"] = {"en": [{"url": "https://example.com"}]}  # simulate manual presence
+    mock_preview_info["subtitles"] = {
+        "en": [{"url": "https://example.com"}]
+    }  # simulate manual presence
 
     def mock_extract_info(url, download):
         return mock_info if download else mock_preview_info
@@ -55,7 +58,6 @@ def test_get_youtube_transcript(tmp_path, mock_info, expected):
     with patch("yt_dlp.YoutubeDL.extract_info", side_effect=mock_extract_info):
         gateway = yt_transcript_gateway.YouTubeTranscriptGateway(output_dir=tmp_path)
         observed = gateway.get("https://youtube.com/watch?v=abc123")
-
 
     assert expected == observed
     assert srt_file.exists()

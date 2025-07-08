@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Union
 
+
 class PdfParser(ABC):
     @abstractmethod
     def get(self, file_path: str) -> dict[str, Union[str, list[str]]]:

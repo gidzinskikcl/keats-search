@@ -6,7 +6,12 @@ from collections import defaultdict
 
 from services.collector import materials_collector
 from services.gateways import csv_query_gateway
-from services.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
+from services.extractors import (
+    batch_pdf_schema_extractor,
+    batch_transcript_schema_extractor,
+    pdf_schema_extractor,
+    transcript_schema_extractor,
+)
 from services.parsers import pymupdf_parser, srt_transcript_parser
 from services.segmenters import page_segmenter, chapter_segmenter
 from schemas import schemas
@@ -32,7 +37,7 @@ difficulty_levels = {
                     - answer: "The address of the memory region that contains the shellcode."
                 )
             ]
-        """
+        """,
     },
     "Intermediate": {
         "explanation": "Assign an intermediate difficulty level: involves understanding or explaining relationships between ideas.",
@@ -45,7 +50,7 @@ difficulty_levels = {
                     - answer: "Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow."
                 )
             ]
-        """
+        """,
     },
     "Advanced": {
         "explanation": "Assign an advanced difficulty level: requires connecting multiple ideas, reasoning through examples, or analyzing concepts.",
@@ -57,8 +62,8 @@ difficulty_levels = {
                     - answer: "1. Inject the code to be executed (shellcode) into a writable memory region (stack, data, heap, etc.). 2. Alter a code pointer inside the VA (virtual address) of the process (eg, return address) to hijack the execution flow. The return address will be the address of the writable memory region that contains the shellcode."
                 )
             ]
-        """
-    }
+        """,
+    },
 }
 
 DIFFICULTY_LEVELS = ["Basic", "Intermediate", "Advanced"]
@@ -70,15 +75,15 @@ COURSES = [
     "6.006",
     # "6.172",
     # "6.S897",
-    "6.0002"
+    "6.0002",
     # add more course folder names here
 ]
+
 
 def choose_balanced_difficulty():
     # Try to balance across difficulties
     remaining = {
-        lvl: TARGET_PER_LEVEL - difficulty_counts[lvl]
-        for lvl in DIFFICULTY_LEVELS
+        lvl: TARGET_PER_LEVEL - difficulty_counts[lvl] for lvl in DIFFICULTY_LEVELS
     }
     # Filter to levels that still need more
     eligible = [lvl for lvl, rem in remaining.items() if rem > 0]
@@ -86,7 +91,7 @@ def choose_balanced_difficulty():
     # If all full, pick randomly
     if not eligible:
         return random.choice(DIFFICULTY_LEVELS)
-    
+
     return random.choice(eligible)
 
 
@@ -118,22 +123,30 @@ def main():
     client = llm_client.load_openai_client()
     pdf_parser = pymupdf_parser.PyMuPdfParser()
     pdf_extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=pdf_parser)
-    pdf_batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor=pdf_extractor)
+    pdf_batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(
+        extractor=pdf_extractor
+    )
 
     srt_parser = srt_transcript_parser.SRTTranscriptParser()
-    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=srt_parser)
-    srt_batch_extractor = batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(extractor=srt_extractor)
+    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(
+        parser=srt_parser
+    )
+    srt_batch_extractor = (
+        batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(
+            extractor=srt_extractor
+        )
+    )
 
     # Collect all materials
     print("Collecting all materials from files...")
     materials = materials_collector.collect(
         pdf_courses_dir=COURSES_DIR / "slides",
         srt_courses_dir=COURSES_DIR / "transcripts" / "lectures",
-        courses = COURSES,
+        courses=COURSES,
         pdf_extractor=pdf_batch_extractor,
         transcript_extractor=srt_batch_extractor,
         pdf_segmenter=page_segmenter.PageSegmenter(),
-        srt_segmenter=chapter_segmenter.ChapterSegmenter()
+        srt_segmenter=chapter_segmenter.ChapterSegmenter(),
     )
     total_queries = []
     questions_by_lecture = defaultdict(list)
@@ -151,7 +164,7 @@ def main():
         num_samples = min(100, len(all_materials))
         selected_materials = random.sample(all_materials, num_samples)
 
-        random.shuffle(selected_materials) 
+        random.shuffle(selected_materials)
 
         # Update target difficulty counts per course
         global TARGET_PER_LEVEL
@@ -162,14 +175,16 @@ def main():
                 difficulty_name = choose_balanced_difficulty()
                 difficulty_info = difficulty_levels[difficulty_name]
 
-                print(f"Generating for {material.course_name} / {material.doc_id} ({material.type.value})...")
+                print(
+                    f"Generating for {material.course_name} / {material.doc_id} ({material.type.value})..."
+                )
                 questions = question_generator.generate_questions(
-                    material=material, 
+                    material=material,
                     client=client,
                     prompt_module=PROMPT,
                     difficulty_lvl=difficulty_name,
                     difficulty_level_instruction=difficulty_info["explanation"],
-                    difficulty_level_example=difficulty_info["example"]
+                    difficulty_level_example=difficulty_info["example"],
                 )
                 difficulty_counts[difficulty_name] += 1
 
@@ -186,7 +201,10 @@ def main():
 
             except Exception as e:
                 import traceback
-                print(f"Error in {material.course_name}, {material.doc_id}, {material.lecture_title}: {e}")
+
+                print(
+                    f"Error in {material.course_name}, {material.doc_id}, {material.lecture_title}: {e}"
+                )
                 traceback.print_exc()
 
     # Save grouped questions to one JSON per lecture

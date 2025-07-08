@@ -3,6 +3,7 @@ from schemas import schemas
 from services.extractors import abstract_pdf_schema_extractor
 from services.parsers import pdf_parser
 
+
 class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtractor):
     def __init__(self, parser: pdf_parser.PdfParser):
         self.parser = parser
@@ -32,5 +33,5 @@ class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtracto
             lecture_id=lecture_id,
             lecture_name=lecture_name,
             course_id=course_id,
-            course_name=course_name
+            course_name=course_name,
         )

@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 import os
 
+
 def load_openai_client() -> OpenAI:
     """Loads OpenAI client from environment variable."""
     load_dotenv()

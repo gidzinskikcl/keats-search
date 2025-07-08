@@ -8,12 +8,14 @@ def test_document_to_dict_with_timestamp():
         doc_id="doc123",
         content="This is content.",
         title="Lecture 1",
-        timestamp=schemas.Timestamp(start=timedelta(seconds=10), end=timedelta(seconds=20)),
+        timestamp=schemas.Timestamp(
+            start=timedelta(seconds=10), end=timedelta(seconds=20)
+        ),
         pageNumber=1,
         keywords=["test", "lecture"],
         doc_type=schemas.MaterialType.SLIDES,
         speaker="Dr. Smith",
-        course_name="CS101"
+        course_name="CS101",
     )
 
     observed = collect_documents.document_to_dict(doc)
@@ -27,7 +29,7 @@ def test_document_to_dict_with_timestamp():
         "keywords": ["test", "lecture"],
         "type": "SLIDE",
         "speaker": "Dr. Smith",
-        "courseName": "CS101"
+        "courseName": "CS101",
     }
 
     assert observed == expected
@@ -43,7 +45,7 @@ def test_document_to_dict_without_timestamp():
         keywords=[],
         doc_type=schemas.MaterialType.TRANSCRIPT,
         speaker="N/A",
-        course_name="ML202"
+        course_name="ML202",
     )
 
     observed = collect_documents.document_to_dict(doc)
@@ -57,7 +59,7 @@ def test_document_to_dict_without_timestamp():
         "keywords": [],
         "type": "VIDEO_TRANSCRIPT",
         "speaker": "N/A",
-        "courseName": "ML202"
+        "courseName": "ML202",
     }
 
     assert observed == expected

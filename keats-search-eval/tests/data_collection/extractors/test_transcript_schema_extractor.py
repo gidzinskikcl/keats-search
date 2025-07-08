@@ -15,31 +15,20 @@ def mock_parser():
         "file_name": "sample.srt",
         "duration": "150",
         "transcript": [
-            {
-                "start": "00:00:01,000",
-                "end": "00:00:04,000",
-                "text": "Hello, world!"
-            },
+            {"start": "00:00:01,000", "end": "00:00:04,000", "text": "Hello, world!"},
             {
                 "start": "00:00:05,000",
                 "end": "00:00:07,000",
-                "text": "Welcome to the test."
-            }
+                "text": "Welcome to the test.",
+            },
         ],
         "chapters": [
-            {
-                "title": "Introduction",
-                "start_time": "0.0",
-                "end_time": "10.0"
-            },
-            {
-                "title": "Summary",
-                "start_time": "10.0",
-                "end_time": "20.0"
-            }
-        ]
+            {"title": "Introduction", "start_time": "0.0", "end_time": "10.0"},
+            {"title": "Summary", "start_time": "10.0", "end_time": "20.0"},
+        ],
     }
     return parser
+
 
 @pytest.fixture
 def expected():
@@ -51,37 +40,33 @@ def expected():
                 nr=1,
                 text="Hello, world!",
                 timestamp=schemas.Timestamp(
-                    start=timedelta(seconds=1),
-                    end=timedelta(seconds=4)
-                )
+                    start=timedelta(seconds=1), end=timedelta(seconds=4)
+                ),
             ),
             schemas.Subtitle(
                 nr=2,
                 text="Welcome to the test.",
                 timestamp=schemas.Timestamp(
-                    start=timedelta(seconds=5),
-                    end=timedelta(seconds=7)
-                )
-            )
+                    start=timedelta(seconds=5), end=timedelta(seconds=7)
+                ),
+            ),
         ],
         chapters=[
             schemas.Chapter(
                 nr=1,
                 title="Introduction",
                 timestamp=schemas.Timestamp(
-                    start=timedelta(seconds=0),
-                    end=timedelta(seconds=10)
-                )
+                    start=timedelta(seconds=0), end=timedelta(seconds=10)
+                ),
             ),
             schemas.Chapter(
                 nr=2,
                 title="Summary",
                 timestamp=schemas.Timestamp(
-                    start=timedelta(seconds=10),
-                    end=timedelta(seconds=20)
-                )
-            )
-        ]
+                    start=timedelta(seconds=10), end=timedelta(seconds=20)
+                ),
+            ),
+        ],
     )
     return result
 
@@ -89,7 +74,6 @@ def expected():
 def test_transcript_schema_extractor(mock_parser, expected):
     extractor = TranscriptSchemaExtractor(parser=mock_parser)
     dummy_path = pathlib.Path("/fake/path/sample.srt")
-    
+
     observed = extractor.get(dummy_path)
     assert expected == observed
-

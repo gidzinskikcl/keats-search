@@ -32,12 +32,12 @@ from dataclasses import dataclass
 
 
 def annotate(
-        client: OpenAI, 
-        prompt_module: templates.PromptTemplate,
-        course_name: str,
-        lecture_name: str,
-        question: str,
-        answer: str
+    client: OpenAI,
+    prompt_module: templates.PromptTemplate,
+    course_name: str,
+    lecture_name: str,
+    question: str,
+    answer: str,
 ) -> dict:
     """Generates questions from lecture material using the LLM."""
 
@@ -52,7 +52,7 @@ def annotate(
         annotations_set = caller.call_openai(
             client=client,
             system_prompt=prompt.system_prompt.to_dict(),
-            user_prompt=prompt.user_prompt.to_dict()
+            user_prompt=prompt.user_prompt.to_dict(),
         )
 
         parsed = annotations_set.choices[0].message.parsed
@@ -80,11 +80,10 @@ def annotate(
         # annotations_set.usage.total_tokens = (
         #     annotations_set.usage.prompt_tokens + annotations_set.usage.completion_tokens
         # )
-            
-        
+
         #  Access token usage from raw_response
         token_usage = _get_token_usage(annotations_set=annotations_set)
-    
+
         return {
             "question": parsed.question,
             "answer": parsed.answer,
@@ -96,18 +95,22 @@ def annotate(
     except Exception as e:
         print(f"Warning: Could not parse questions for {course_name} - {question}: {e}")
         return []
-    
 
-def _get_token_usage(annotations_set: ParsedChatCompletion[response_schema.AnnotatedPair]) -> dict[str, int]:
+
+def _get_token_usage(
+    annotations_set: ParsedChatCompletion[response_schema.AnnotatedPair],
+) -> dict[str, int]:
     prompt_tokens = 0
     completion_tokens = 0
     total_tokens = 0
 
     if hasattr(annotations_set, "usage"):
         usage = annotations_set.usage
-        prompt_tokens = usage.prompt_tokens if hasattr(usage, 'prompt_tokens') else 0
-        completion_tokens = usage.completion_tokens if hasattr(usage, 'completion_tokens') else 0
-        total_tokens = usage.total_tokens if hasattr(usage, 'total_tokens') else 0
+        prompt_tokens = usage.prompt_tokens if hasattr(usage, "prompt_tokens") else 0
+        completion_tokens = (
+            usage.completion_tokens if hasattr(usage, "completion_tokens") else 0
+        )
+        total_tokens = usage.total_tokens if hasattr(usage, "total_tokens") else 0
         # print(f"Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Total: {total_tokens}")
     else:
         print("Token usage information not available.")
@@ -115,6 +118,6 @@ def _get_token_usage(annotations_set: ParsedChatCompletion[response_schema.Annot
     result = {
         "prompt_tokens": prompt_tokens,
         "completion_tokens": completion_tokens,
-        "total_tokens": total_tokens
+        "total_tokens": total_tokens,
     }
     return result

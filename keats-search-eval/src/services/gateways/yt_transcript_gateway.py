@@ -4,9 +4,10 @@ import yt_dlp
 
 from services.gateways import transcript_gateway
 
+
 class YouTubeTranscriptGateway(transcript_gateway.TranscriptGateway):
     def __init__(self, output_dir):
-        
+
         self.output_dir = pathlib.Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -16,7 +17,7 @@ class YouTubeTranscriptGateway(transcript_gateway.TranscriptGateway):
             "skip_download": True,
             "subtitleslangs": [subtitle_id],
             "subtitlesformat": "srt",
-            "outtmpl": str(self.output_dir / '%(id)s.%(ext)s'),
+            "outtmpl": str(self.output_dir / "%(id)s.%(ext)s"),
             "writesubtitles": not use_auto,
             "writeautomaticsub": use_auto,
         }
@@ -28,13 +29,19 @@ class YouTubeTranscriptGateway(transcript_gateway.TranscriptGateway):
         """Extract transcript and metadata from a YouTube video URL."""
 
         # Step 1: Preview metadata to detect available manual subtitles
-        preview = yt_dlp.YoutubeDL({"quiet": True, "skip_download": True}).extract_info(url, download=False)
+        preview = yt_dlp.YoutubeDL({"quiet": True, "skip_download": True}).extract_info(
+            url, download=False
+        )
         subtitles = preview.get("subtitles") or {}
-        subtitle_id = next(iter(subtitles.keys()), None)  # Pick first available if exists
+        subtitle_id = next(
+            iter(subtitles.keys()), None
+        )  # Pick first available if exists
 
         # Step 2: Download manual if available, else fallback to auto
         if subtitle_id:
-            info = self._download_subtitles(url, subtitle_id=subtitle_id, use_auto=False)
+            info = self._download_subtitles(
+                url, subtitle_id=subtitle_id, use_auto=False
+            )
             srt_path = self.output_dir / f"{info['id']}.{subtitle_id}.srt"
         else:
             print("Manual subtitle not found, installing automatic...")
@@ -55,7 +62,7 @@ class YouTubeTranscriptGateway(transcript_gateway.TranscriptGateway):
             "webpage_url": info.get("webpage_url"),
             "thumbnail": info.get("thumbnail"),
             "chapters": info.get("chapters", []),
-            "transcript_file": transcript_file
+            "transcript_file": transcript_file,
         }
 
         return metadata

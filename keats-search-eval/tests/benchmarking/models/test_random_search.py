@@ -17,8 +17,9 @@ def test_random_search_engine_returns_ten_search_results():
             "slideNumber": i,
             "keywords": [],
             "type": "SLIDE",
-            "speaker": f"Speaker {i}"
-        } for i in range(15)
+            "speaker": f"Speaker {i}",
+        }
+        for i in range(15)
     ]
 
     with tempfile.NamedTemporaryFile(mode="w+", delete=False) as tmp_file:

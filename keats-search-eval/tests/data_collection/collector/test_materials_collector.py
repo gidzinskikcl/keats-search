@@ -11,10 +11,10 @@ class MockPdfExtractor:
                 file_name="slides1",
                 pages=[
                     schemas.PdfPage(nr=1, text="Page 1 text"),
-                    schemas.PdfPage(nr=2, text="Page 2 text")
+                    schemas.PdfPage(nr=2, text="Page 2 text"),
                 ],
                 course_name="TestCourse",
-                lecture_name="Lecture 1"
+                lecture_name="Lecture 1",
             )
         ]
 
@@ -29,16 +29,20 @@ class MockTranscriptExtractor:
                     schemas.Subtitle(
                         nr=1,
                         text="Hello",
-                        timestamp=schemas.Timestamp(start=timedelta(seconds=1), end=timedelta(seconds=2))
+                        timestamp=schemas.Timestamp(
+                            start=timedelta(seconds=1), end=timedelta(seconds=2)
+                        ),
                     ),
                     schemas.Subtitle(
                         nr=2,
                         text="World",
-                        timestamp=schemas.Timestamp(start=timedelta(seconds=3), end=timedelta(seconds=4))
-                    )
+                        timestamp=schemas.Timestamp(
+                            start=timedelta(seconds=3), end=timedelta(seconds=4)
+                        ),
+                    ),
                 ],
                 course_name="TestCourse",
-                lecture_name="Lecture 1"
+                lecture_name="Lecture 1",
             )
         ]
 
@@ -51,7 +55,7 @@ class MockPdfSegmenter:
                 parent_file=pdf_schema.file_name,
                 text="\n".join(page.text for page in pdf_schema.pages),
                 course_name=pdf_schema.course_name,
-                lecture_name=pdf_schema.lecture_name
+                lecture_name=pdf_schema.lecture_name,
             )
         ]
 
@@ -62,10 +66,12 @@ class MockTranscriptSegmenter:
             schemas.TranscriptSegment(
                 nr=1,
                 parent_file=transcript_schema.file_name,
-                timestamp=schemas.Timestamp(start=timedelta(seconds=0), end=timedelta(seconds=120)),
+                timestamp=schemas.Timestamp(
+                    start=timedelta(seconds=0), end=timedelta(seconds=120)
+                ),
                 text="\n".join(sub.text for sub in transcript_schema.subtitles),
                 course_name=transcript_schema.course_name,
-                lecture_name=transcript_schema.lecture_name
+                lecture_name=transcript_schema.lecture_name,
             )
         ]
 
@@ -79,7 +85,7 @@ def expected_pdf_material():
             content="Page 1 text\nPage 2 text",
             length=None,
             type=schemas.MaterialType.SLIDES,
-            lecture_title="Lecture 1"
+            lecture_title="Lecture 1",
         )
     ]
 
@@ -93,7 +99,7 @@ def expected_transcript_material():
             content="Hello\nWorld",
             length=None,
             type=schemas.MaterialType.TRANSCRIPT,
-            lecture_title="Lecture 1"
+            lecture_title="Lecture 1",
         )
     ]
 
@@ -101,14 +107,18 @@ def expected_transcript_material():
 def test_collect_pdfs(tmp_path, expected_pdf_material):
     extractor = MockPdfExtractor()
     segmenter = MockPdfSegmenter()
-    observed = materials_collector.collect_pdfs(tmp_path, ["TestCourse"], extractor, segmenter)
+    observed = materials_collector.collect_pdfs(
+        tmp_path, ["TestCourse"], extractor, segmenter
+    )
     assert observed == expected_pdf_material
 
 
 def test_collect_transcripts(tmp_path, expected_transcript_material):
     extractor = MockTranscriptExtractor()
     segmenter = MockTranscriptSegmenter()
-    observed = materials_collector.collect_transcripts(tmp_path, ["TestCourse"], extractor, segmenter)
+    observed = materials_collector.collect_transcripts(
+        tmp_path, ["TestCourse"], extractor, segmenter
+    )
     assert observed == expected_transcript_material
 
 
@@ -127,7 +137,7 @@ def test_collect(tmp_path, expected_pdf_material, expected_transcript_material):
         pdf_extractor,
         transcript_extractor,
         pdf_segmenter,
-        srt_segmenter
+        srt_segmenter,
     )
 
     expected = expected_pdf_material + expected_transcript_material

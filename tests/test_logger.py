@@ -1,6 +1,7 @@
 import logging
 import logger as logger_
 
+
 def test_get_logger(caplog):
     logger_name = "test_logger"
     logger = logger_.get_logger(logger_name)
@@ -10,7 +11,9 @@ def test_get_logger(caplog):
     assert logger.level == logging.INFO
 
     # Logger should have a StreamHandler
-    stream_handlers = [h for h in logger.handlers if isinstance(h, logging.StreamHandler)]
+    stream_handlers = [
+        h for h in logger.handlers if isinstance(h, logging.StreamHandler)
+    ]
     assert len(stream_handlers) == 1
 
     # Log a message

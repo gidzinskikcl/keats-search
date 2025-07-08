@@ -13,11 +13,15 @@ from services.segmenters import page_segmenter, chapter_segmenter
 # Constants
 OUTPUT_REPO = "keats-search-eval/data/queries/sample"
 COURSE = "18.404J"
-INPUT_DIR =  pathlib.Path("keats-search-eval/data")
+INPUT_DIR = pathlib.Path("keats-search-eval/data")
 TRANSCRIPT_FILE = INPUT_DIR / "transcripts" / COURSE / "IycOPFmEQk8.en-j3PyPqV-e1s"
-SLIDES_FILE = INPUT_DIR / "slides" / COURSE / "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5"
+SLIDES_FILE = (
+    INPUT_DIR / "slides" / COURSE / "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5"
+)
 
-slides_to_ignore = [1, ]
+slides_to_ignore = [
+    1,
+]
 
 
 def sample(
@@ -46,7 +50,6 @@ def sample(
     return result
 
 
-
 def main():
     start_time = datetime.datetime.now()
     timestamp = start_time.strftime("%Y-%m-%d_%H-%M-%S")
@@ -56,7 +59,9 @@ def main():
     pdf = pdf_extractor.get(file_path=pathlib.Path(f"{SLIDES_FILE}.pdf"))
 
     srt_parser = srt_transcript_parser.SRTTranscriptParser()
-    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=srt_parser)
+    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(
+        parser=srt_parser
+    )
     transcript = srt_extractor.get(file_path=pathlib.Path(f"{TRANSCRIPT_FILE}.srt"))
 
     pdf_segmenter = page_segmenter.PageSegmenter()
@@ -71,15 +76,14 @@ def main():
     pdf_segments = [seg for seg in pdf_segments if seg.nr not in slides_to_ignore]
     srt_segments = [seg for seg in srt_segments if seg.nr not in transcripts_to_ignore]
 
-
     pdf_count = 3
-    srt_count = 7 
+    srt_count = 7
 
     sample_data = sample(
         pdf_segments=pdf_segments,
         srt_segments=srt_segments,
         pdf_count=pdf_count,
-        srt_count=srt_count
+        srt_count=srt_count,
     )
 
     # Output directory
@@ -93,6 +97,7 @@ def main():
         json.dump(sample_data, f, indent=2)
 
     print(f"Saved sample to {sample_path}")
+
 
 if __name__ == "__main__":
     main()

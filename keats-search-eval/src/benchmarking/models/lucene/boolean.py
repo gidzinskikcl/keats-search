@@ -5,8 +5,12 @@ import json
 from schemas import schemas
 from benchmarking.models import search_model
 
+
 class BooleanSearchEngine(search_model.SearchModel):
-    JAR_PATH = "search_engines/lucene-search/target/boolean-search-jar-with-dependencies.jar"
+    JAR_PATH = (
+        "search_engines/lucene-search/target/boolean-search-jar-with-dependencies.jar"
+    )
+
     def __init__(self, doc_path: str, k: int):
         self.doc_path = doc_path
         self.k = k
@@ -19,15 +23,9 @@ class BooleanSearchEngine(search_model.SearchModel):
 
     def search(self, query: schemas.Query) -> list[schemas.SearchResult]:
         proc = subprocess.run(
-            [
-                "java",
-                "-jar", self.JAR_PATH,
-                self.doc_path,
-                query.question,
-                str(self.k)
-            ],
+            ["java", "-jar", self.JAR_PATH, self.doc_path, query.question, str(self.k)],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if proc.returncode != 0:
@@ -35,7 +33,7 @@ class BooleanSearchEngine(search_model.SearchModel):
             raise RuntimeError(f"Lucene search failed: {proc.stderr.strip()}")
 
         ranked = json.loads(proc.stdout)
-        results =[]
+        results = []
         for d in ranked:
 
             # Parse start and end timestamps (handle nulls)
@@ -52,8 +50,8 @@ class BooleanSearchEngine(search_model.SearchModel):
 
             doc = schemas.DocumentSchema(
                 doc_id=d["documentId"],
-                content=d["content"], 
-                course_name=d["courseName"], 
+                content=d["content"],
+                course_name=d["courseName"],
                 title=d["title"],
                 timestamp=timestamp,
                 pageNumber=d["slideNumber"],

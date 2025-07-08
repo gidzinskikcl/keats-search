@@ -70,7 +70,9 @@ Simulate what happens if all TFIDF (query_id, doc_id) pairs are annotated.
 """
 
 # Paths
-jsonl_path = Path("keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00/annotations.jsonl")
+jsonl_path = Path(
+    "keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00/annotations.jsonl"
+)
 csv_folder = Path("keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45")
 tfidf_file = "tfidfsearchengine_predictions.csv"  # Simulated as annotated
 
@@ -101,7 +103,9 @@ df_tfidf = pd.read_csv(tfidf_path)
 tfidf_pairs = set(zip(df_tfidf["query_id"], df_tfidf["doc_id"]))
 annotated_pairs |= tfidf_pairs  # simulate them as annotated
 
-print(f"✅ Total simulated annotated (query_id, doc_id) pairs (including TFIDF): {len(annotated_pairs)}\n")
+print(
+    f"✅ Total simulated annotated (query_id, doc_id) pairs (including TFIDF): {len(annotated_pairs)}\n"
+)
 
 # Step 3: Recalculate stats from all other included CSVs
 all_csv_pairs = set()
@@ -120,6 +124,10 @@ for csv_file in csv_folder.glob("*.csv"):
 annotated_pairs_in_csvs = all_csv_pairs & annotated_pairs
 unannotated_pairs_in_csvs = all_csv_pairs - annotated_pairs
 
-print(f"\n✅ Annotated pairs found in CSVs (after TFIDF): {len(annotated_pairs_in_csvs)}")
-print(f"🔍 Unannotated pairs found in CSVs (after TFIDF): {len(unannotated_pairs_in_csvs)}")
+print(
+    f"\n✅ Annotated pairs found in CSVs (after TFIDF): {len(annotated_pairs_in_csvs)}"
+)
+print(
+    f"🔍 Unannotated pairs found in CSVs (after TFIDF): {len(unannotated_pairs_in_csvs)}"
+)
 print(f"📊 Total distinct (query_id, doc_id) pairs from all CSVs: {len(all_csv_pairs)}")

@@ -6,7 +6,14 @@ import pandas as pd
 
 from schemas import schemas
 
-def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metrics: dict, output_dir: str, k: int):
+
+def save_evaluation_results(
+    model_name: str,
+    mean_metrics: dict,
+    per_query_metrics: dict,
+    output_dir: str,
+    k: int,
+):
     """
     Saves evaluation results to a JSON file (mean metrics) and a CSV file (per-query metrics).
     """
@@ -28,6 +35,7 @@ def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metri
     else:
         # Assume it's a list of query dicts
         from collections import defaultdict
+
         metric_rows = defaultdict(dict)
         for query_result in per_query_metrics:
             query_id = query_result.get("query_id")
@@ -40,54 +48,62 @@ def save_evaluation_results(model_name: str, mean_metrics: dict, per_query_metri
 
     df.to_csv(csv_path, index=False)
 
+
 def _clean(value):
     if isinstance(value, str):
-        return value.replace('\x00', '')  # remove null byte if present
+        return value.replace("\x00", "")  # remove null byte if present
     return value
+
 
 def save_predictions(
     output_path: str,
     model_name: str,
-    predictions: dict[str, dict[str, str | list[schemas.SearchResult]]]
+    predictions: dict[str, dict[str, str | list[schemas.SearchResult]]],
 ):
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    with open(output_path, mode='w', newline='', encoding='utf-8') as csvfile:
+    with open(output_path, mode="w", newline="", encoding="utf-8") as csvfile:
         writer = csv.writer(
             csvfile,
-            quoting=csv.QUOTE_ALL,      # wrap all fields in quotes
-            escapechar='\\',            # allow escaping special characters
-            quotechar='"'   
+            quoting=csv.QUOTE_ALL,  # wrap all fields in quotes
+            escapechar="\\",  # allow escaping special characters
+            quotechar='"',
         )
-        writer.writerow([
-            "query_id", 
-            "question", 
-            "answer",
-            "relevance_score", 
-            "rank", 
-            "model", 
-            "doc_id",
-            "course",
-            "lecture"
-        ])
+        writer.writerow(
+            [
+                "query_id",
+                "question",
+                "answer",
+                "relevance_score",
+                "rank",
+                "model",
+                "doc_id",
+                "course",
+                "lecture",
+            ]
+        )
 
         for qid, p in predictions.items():
             for rank, r in enumerate(p["results"], start=1):
-                score = r.score 
+                score = r.score
                 doc = r.document
                 try:
-                    writer.writerow([
-                        _clean(qid),
-                        _clean(p["question"]),
-                        _clean(doc.content),
-                        _clean(score),
-                        rank,
-                        _clean(model_name),
-                        _clean(doc.doc_id),
-                        _clean(doc.course_name),
-                        _clean(doc.title)
-                    ])
+                    writer.writerow(
+                        [
+                            _clean(qid),
+                            _clean(p["question"]),
+                            _clean(doc.content),
+                            _clean(score),
+                            rank,
+                            _clean(model_name),
+                            _clean(doc.doc_id),
+                            _clean(doc.course_name),
+                            _clean(doc.title),
+                        ]
+                    )
                 except Exception as e:
-                    logging.error(f"Failed to write row for query {qid}, doc: {doc.doc_id}. Error: {e}")
+                    logging.error(
+                        f"Failed to write row for query {qid}, doc: {doc.doc_id}. Error: {e}"
+                    )
                     raise

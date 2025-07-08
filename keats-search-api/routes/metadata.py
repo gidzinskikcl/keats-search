@@ -10,10 +10,18 @@ from core import schemas
 
 router = APIRouter()
 
-def _lucene_meta_query(mode: str, index_path: str, filters: dict[str, str] = {}) -> list[dict]:
+
+def _lucene_meta_query(
+    mode: str, index_path: str, filters: dict[str, str] = {}
+) -> list[dict]:
     args = [
-        "java", "-jar", config.settings.LUCENE_JAR_PATH,
-        "--mode", "meta", mode, index_path
+        "java",
+        "-jar",
+        config.settings.LUCENE_JAR_PATH,
+        "--mode",
+        "meta",
+        mode,
+        index_path,
     ]
     for k, v in filters.items():
         args.extend([f"--{k}", v])
@@ -34,7 +42,6 @@ def list_courses():
         raise HTTPException(status_code=500, detail=str(e))
 
 
-
 @router.get("/lectures", response_model=list[schemas.LectureInfo])
 def list_lectures(course: Optional[str] = Query(None)):
     """
@@ -51,11 +58,9 @@ def list_lectures(course: Optional[str] = Query(None)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-
 @router.get("/files", response_model=list[schemas.FileInfo])
 def list_files(
-    course: Optional[str] = Query(None),
-    lecture: Optional[int] = Query(None)
+    course: Optional[str] = Query(None), lecture: Optional[int] = Query(None)
 ):
     try:
         filters = {}
@@ -68,4 +73,3 @@ def list_files(
         return [schemas.FileInfo(**item) for item in data]
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-

@@ -39,29 +39,38 @@ class BM25SearchEngine(engine.SearchEngine):
 
         return json.dumps(payload)
 
-    def search(self, query: schemas.Query, top_k: int = config.settings.TOP_K, filters: schemas.Filter = None) -> List[schemas.SearchResult]:
+    def search(
+        self,
+        query: schemas.Query,
+        top_k: int = config.settings.TOP_K,
+        filters: schemas.Filter = None,
+    ) -> List[schemas.SearchResult]:
         serialized_filters = self._serialize_filters(filters)
 
-        self.logger.info(f"Running search: '{query.question}' with filters: {serialized_filters}")
+        self.logger.info(
+            f"Running search: '{query.question}' with filters: {serialized_filters}"
+        )
 
         proc = subprocess.run(
             [
                 "java",
-                "-jar", self.JAR_PATH,
-                "--mode", "search",
+                "-jar",
+                self.JAR_PATH,
+                "--mode",
+                "search",
                 self.index_dir,
                 query.question,
                 str(top_k),
                 serialized_filters,
             ],
             capture_output=True,
-            text=True
+            text=True,
         )
 
         if proc.returncode != 0:
             self.logger.error(f"Lucene search failed: {proc.stderr.strip()}")
             raise RuntimeError(f"Lucene search failed: {proc.stderr.strip()}")
-        
+
         ranked = json.loads(proc.stdout)
         results = []
 

@@ -4,7 +4,12 @@ import pathlib
 from datetime import timedelta
 
 from services.collector import document_collector
-from services.extractors import batch_pdf_schema_extractor, batch_transcript_schema_extractor, pdf_schema_extractor, transcript_schema_extractor
+from services.extractors import (
+    batch_pdf_schema_extractor,
+    batch_transcript_schema_extractor,
+    pdf_schema_extractor,
+    transcript_schema_extractor,
+)
 from services.parsers import pymupdf_parser, srt_transcript_parser
 from services.segmenters import page_segmenter, chapter_segmenter
 
@@ -18,9 +23,10 @@ COURSES = [
     "6.006",
     # "6.172",
     # "6.S897",
-    "6.0002"
+    "6.0002",
     # add more course folder names here
 ]
+
 
 def document_to_dict(doc: schemas.DocumentSchema) -> dict:
     return {
@@ -62,22 +68,30 @@ def main():
     # Initialize extractors
     pdf_parser = pymupdf_parser.PyMuPdfParser()
     pdf_extractor = pdf_schema_extractor.PdfSchemaExtractor(parser=pdf_parser)
-    pdf_batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(extractor=pdf_extractor)
+    pdf_batch_extractor = batch_pdf_schema_extractor.BatchPdfSchemaExtractor(
+        extractor=pdf_extractor
+    )
 
     srt_parser = srt_transcript_parser.SRTTranscriptParser()
-    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(parser=srt_parser)
-    srt_batch_extractor = batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(extractor=srt_extractor)
+    srt_extractor = transcript_schema_extractor.TranscriptSchemaExtractor(
+        parser=srt_parser
+    )
+    srt_batch_extractor = (
+        batch_transcript_schema_extractor.BatchTranscriptSchemaExtractor(
+            extractor=srt_extractor
+        )
+    )
 
     # Collect all materials
     print("Collecting all materials from files...")
     documents = document_collector.collect(
         pdf_courses_dir=COURSES_REPO / "slides",
         srt_courses_dir=COURSES_REPO / "transcripts" / "lectures",
-        courses = COURSES,
+        courses=COURSES,
         pdf_extractor=pdf_batch_extractor,
         transcript_extractor=srt_batch_extractor,
         pdf_segmenter=page_segmenter.PageSegmenter(),
-        srt_segmenter=chapter_segmenter.ChapterSegmenter()
+        srt_segmenter=chapter_segmenter.ChapterSegmenter(),
     )
     print("Done")
     # Output directory
@@ -90,6 +104,7 @@ def main():
         json.dump([document_to_dict(doc) for doc in documents], f, indent=2)
 
     print(f"Saved {len(documents)} documents to {output_file}")
+
 
 if __name__ == "__main__":
     main()

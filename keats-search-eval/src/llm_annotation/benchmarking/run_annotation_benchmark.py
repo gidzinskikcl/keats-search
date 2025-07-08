@@ -15,12 +15,16 @@ from sklearn.metrics import cohen_kappa_score, mean_absolute_error
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 # OUTPUT_REPO = pathlib.Path(f"keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-03_22-22-52/results/{TIMESTAMP}")
 # OUTPUT_REPO = pathlib.Path(f"keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-04_19-29-24/results/{TIMESTAMP}")
-OUTPUT_REPO = pathlib.Path(f"keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56/results/{TIMESTAMP}")
+OUTPUT_REPO = pathlib.Path(
+    f"keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56/results/{TIMESTAMP}"
+)
 
 
 # SAMPLE_DIR = pathlib.Path("keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-03_22-22-52")
 # SAMPLE_DIR = pathlib.Path("keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-04_19-29-24")
-SAMPLE_DIR = pathlib.Path("keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56")
+SAMPLE_DIR = pathlib.Path(
+    "keats-search-eval/data/evaluation/llm-annotated/benchmarking/sample/2025-07-06_14-54-56"
+)
 
 
 SAMPLE_FILE = SAMPLE_DIR / "benchmark_samples.json"
@@ -35,7 +39,10 @@ PROMPT_VARIANTS = [
     # templates.V8
 ]
 
-def record_token_usage(token_usage: list[dict[str, Union[str, int]]], output_repo: pathlib.Path) -> None:
+
+def record_token_usage(
+    token_usage: list[dict[str, Union[str, int]]], output_repo: pathlib.Path
+) -> None:
     prompt_tokens = []
     completion_tokens = []
     total_tokens = []
@@ -44,7 +51,11 @@ def record_token_usage(token_usage: list[dict[str, Union[str, int]]], output_rep
         prompt_tokens.append(tu["prompt_tokens"])
         completion_tokens.append(tu["completion_tokens"])
         total_tokens.append(tu["total_tokens"])
-        cost = round((tu["prompt_tokens"] / 1000) * 0.005 + (tu["completion_tokens"] / 1000) * 0.02, 6) # GPT-4o
+        cost = round(
+            (tu["prompt_tokens"] / 1000) * 0.005
+            + (tu["completion_tokens"] / 1000) * 0.02,
+            6,
+        )  # GPT-4o
         costs.append(cost)
 
     # Compute sums, averages, medians
@@ -53,12 +64,10 @@ def record_token_usage(token_usage: list[dict[str, Union[str, int]]], output_rep
         "total_completion_tokens": sum(completion_tokens),
         "total_tokens": sum(total_tokens),
         "total_cost_usd": round(sum(costs), 6),
-
         "average_prompt_tokens": round(statistics.mean(prompt_tokens), 2),
         "average_completion_tokens": round(statistics.mean(completion_tokens), 2),
         "average_total_tokens": round(statistics.mean(total_tokens), 2),
         "average_cost_usd": round(statistics.mean(costs), 6),
-
         "median_prompt_tokens": round(statistics.median(prompt_tokens), 2),
         "median_completion_tokens": round(statistics.median(completion_tokens), 2),
         "median_total_tokens": round(statistics.median(total_tokens), 2),
@@ -73,9 +82,10 @@ def record_token_usage(token_usage: list[dict[str, Union[str, int]]], output_rep
     summary_file = pathlib.Path(output_repo) / f"token_usage_summary.json"
     with open(summary_file, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
-    
+
     print(f"\nSaved token usage to {token_usage_file}")
     print(f"\nSaved token usage summary to {summary_file}")
+
 
 def _save_annotations(annotated: list[dict], output_repo: pathlib.Path) -> None:
     output_repo.mkdir(parents=True, exist_ok=True)
@@ -99,7 +109,9 @@ def annotate_for_variant(prompt_variant: templates.PromptTemplate) -> None:
     for idx, s in enumerate(sample, 1):
         query_id = s["query_id"]
         question = s["question"]
-        print(f"[{idx}/{len(sample)}] Annotating for query ID: {query_id} using prompt variant: {prompt_name}")
+        print(
+            f"[{idx}/{len(sample)}] Annotating for query ID: {query_id} using prompt variant: {prompt_name}"
+        )
 
         for doc_type in ["ground_truth", "top1_bm25", "random_doc"]:
             doc = s[doc_type]
@@ -110,7 +122,7 @@ def annotate_for_variant(prompt_variant: templates.PromptTemplate) -> None:
                     course_name=doc["course"],
                     lecture_name=doc["lecture"],
                     question=question,
-                    answer=doc["content"]
+                    answer=doc["content"],
                 )
 
                 if result:
@@ -124,19 +136,21 @@ def annotate_for_variant(prompt_variant: templates.PromptTemplate) -> None:
                         "doc_id": doc["doc_id"],
                         "prompt_tokens": result["tokens"]["prompt_tokens"],
                         "completion_tokens": result["tokens"]["completion_tokens"],
-                        "total_tokens": result["tokens"]["total_tokens"]
+                        "total_tokens": result["tokens"]["total_tokens"],
                     }
                     token_usage.append(token_usage_per_prompt)
 
             except Exception as e:
                 print(f"Failed annotation for query {query_id} - {doc_type}: {e}")
-    
+
     # Save results
     _save_annotations(annotated=annotated, output_repo=output_repo)
     record_token_usage(token_usage=token_usage, output_repo=output_repo)
 
 
-def evaluate_annotations(output_repo: pathlib.Path, prompt_variant: templates.PromptTemplate) -> None:
+def evaluate_annotations(
+    output_repo: pathlib.Path, prompt_variant: templates.PromptTemplate
+) -> None:
     prompt_name = prompt_variant.VARIANT
     result_file = output_repo / prompt_name / "annotated.json"
 
@@ -146,10 +160,9 @@ def evaluate_annotations(output_repo: pathlib.Path, prompt_variant: templates.Pr
     rand_rel_path = SAMPLE_DIR / "random_doc_relevance.json"
     with open(rand_rel_path, "r", encoding="utf-8") as f:
         random_doc_relevance = json.load(f)
-    
+
     relevance_map = {
-        f"{entry['query_id']}": entry["relevance"]
-        for entry in random_doc_relevance
+        f"{entry['query_id']}": entry["relevance"] for entry in random_doc_relevance
     }
 
     correct = 0
@@ -168,14 +181,18 @@ def evaluate_annotations(output_repo: pathlib.Path, prompt_variant: templates.Pr
             key = f"{query_id}"
             rel_value = relevance_map[key]
             if rel_value is None:
-                print(f"Missing relevance label for random_doc {key} — assuming not relevant")
+                print(
+                    f"Missing relevance label for random_doc {key} — assuming not relevant"
+                )
                 expected = 0
             elif rel_value == "relevant":
                 expected = 1
             elif rel_value == "notrelevant":
                 expected = 0
             else:
-                raise ValueError(f"Unexpected relevance value: {rel_value} for key {key}")
+                raise ValueError(
+                    f"Unexpected relevance value: {rel_value} for key {key}"
+                )
         else:
             raise ValueError(f"Unknown doc_type: {doc_type}")
 
@@ -184,7 +201,6 @@ def evaluate_annotations(output_repo: pathlib.Path, prompt_variant: templates.Pr
         if predicted == expected:
             correct += 1
         total += 1
-
 
     accuracy = correct / total if total > 0 else 0.0
     percentage = round(accuracy * 100, 2)
@@ -208,9 +224,11 @@ def evaluate_annotations(output_repo: pathlib.Path, prompt_variant: templates.Pr
         "correct": correct,
         "accuracy": round(accuracy, 4),
         "cohen_kappa": round(kappa, 4),
-        "mae": round(mae, 4)
+        "mae": round(mae, 4),
     }
-    with open(output_repo / prompt_name / "evaluation.json", "w", encoding="utf-8") as f:
+    with open(
+        output_repo / prompt_name / "evaluation.json", "w", encoding="utf-8"
+    ) as f:
         json.dump(eval_result, f, indent=2)
 
 
@@ -250,19 +268,32 @@ def write_readme_with_rankings(df: pd.DataFrame, output_repo: pathlib.Path):
         f.write("## Rankings\n\n")
 
         f.write("### Accuracy Ranking\n")
-        f.write("\n".join(f"{i+1}. {row['variant']} ({row['accuracy']:.4f})"
-                          for i, row in df_sorted_acc.iterrows()))
+        f.write(
+            "\n".join(
+                f"{i+1}. {row['variant']} ({row['accuracy']:.4f})"
+                for i, row in df_sorted_acc.iterrows()
+            )
+        )
         f.write("\n\n")
 
         f.write("### Cohen's Kappa Ranking\n")
-        f.write("\n".join(f"{i+1}. {row['variant']} ({row['cohen_kappa']:.4f})"
-                          for i, row in df_sorted_kappa.iterrows()))
+        f.write(
+            "\n".join(
+                f"{i+1}. {row['variant']} ({row['cohen_kappa']:.4f})"
+                for i, row in df_sorted_kappa.iterrows()
+            )
+        )
         f.write("\n\n")
 
         f.write("### Mean Absolute Error (MAE) Ranking\n")
-        f.write("\n".join(f"{i+1}. {row['variant']} ({row['mae']:.4f})"
-                          for i, row in df_sorted_mae.iterrows()))
+        f.write(
+            "\n".join(
+                f"{i+1}. {row['variant']} ({row['mae']:.4f})"
+                for i, row in df_sorted_mae.iterrows()
+            )
+        )
         f.write("\n")
+
 
 def summarize_token_usage(output_repo: pathlib.Path) -> pd.DataFrame:
     rows = []
@@ -297,7 +328,7 @@ def main():
     df_tokens.to_csv(OUTPUT_REPO / "token_usage_summary.csv", index=False)
 
     write_readme_with_rankings(df, OUTPUT_REPO)
-    
+
 
 if __name__ == "__main__":
     main()

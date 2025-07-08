@@ -14,7 +14,7 @@ class YouTubeTranscriptDownloader:
             "skip_download": True,
             "subtitleslangs": [subtitle_id],
             "subtitlesformat": "srt",
-            "outtmpl": str(self.output_dir / '%(id)s.%(ext)s'),
+            "outtmpl": str(self.output_dir / "%(id)s.%(ext)s"),
             "writesubtitles": not use_auto,
             "writeautomaticsub": use_auto,
         }
@@ -23,7 +23,9 @@ class YouTubeTranscriptDownloader:
 
     def download(self, url: str) -> dict:
         # Step 1: Get metadata without downloading
-        preview = yt_dlp.YoutubeDL({"quiet": True, "skip_download": True}).extract_info(url, download=False)
+        preview = yt_dlp.YoutubeDL({"quiet": True, "skip_download": True}).extract_info(
+            url, download=False
+        )
         subtitles = preview.get("subtitles") or {}
         automatic_captions = preview.get("automatic_captions") or {}
 
@@ -35,12 +37,16 @@ class YouTubeTranscriptDownloader:
             info = self._download_subtitles(url, subtitle_id="en", use_auto=False)
             srt_path = self.output_dir / f"{info['id']}.en.srt"
         elif auto_en_available:
-            print("Manual English subtitles not found. Using auto-generated English subtitles...")
+            print(
+                "Manual English subtitles not found. Using auto-generated English subtitles..."
+            )
             info = self._download_subtitles(url, subtitle_id="en", use_auto=True)
             srt_path = self.output_dir / f"{info['id']}.en-auto.srt"
         else:
             print("No English subtitles available.")
-            raise RuntimeError("No English subtitles (manual or auto) found for this video.")
+            raise RuntimeError(
+                "No English subtitles (manual or auto) found for this video."
+            )
 
         transcript_file = str(srt_path) if srt_path.exists() else None
 
@@ -56,7 +62,7 @@ class YouTubeTranscriptDownloader:
             "webpage_url": info.get("webpage_url"),
             "thumbnail": info.get("thumbnail"),
             "chapters": info.get("chapters", []),
-            "transcript_file": transcript_file
+            "transcript_file": transcript_file,
         }
 
         # Save metadata
@@ -73,11 +79,10 @@ class YouTubeTranscriptDownloader:
         return metadata
 
 
-
 def main():
     # url = "https://www.youtube.com/watch?v=76dhtgZt38A" # 6.006 6 Binary Trees Part 1
-    url = "https://www.youtube.com/watch?v=i9OAOk0CUQE" # 6.006 18 Dynamic Programming Part 4 Rods Subset Sum Pseudopolynomial
-    output_dir = pathlib.Path("downloaded_transcript") 
+    url = "https://www.youtube.com/watch?v=i9OAOk0CUQE"  # 6.006 18 Dynamic Programming Part 4 Rods Subset Sum Pseudopolynomial
+    output_dir = pathlib.Path("downloaded_transcript")
     downloader = YouTubeTranscriptDownloader(output_dir=output_dir)
 
     try:
