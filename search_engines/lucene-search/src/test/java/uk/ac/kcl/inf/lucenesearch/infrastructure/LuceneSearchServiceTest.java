@@ -43,7 +43,7 @@ public class LuceneSearchServiceTest {
         doc.add(new TextField("lectureTitle", "Introduction to Lucene", Field.Store.YES));
         doc.add(new StringField("start", "00:00:00", Field.Store.YES));
         doc.add(new StringField("end", "00:01:00", Field.Store.YES));
-        doc.add(new StringField("slideNumber", "1", Field.Store.YES));
+        doc.add(new StringField("pageNumber", "1", Field.Store.YES));
         doc.add(new StringField("type", "SLIDES", Field.Store.YES));
 
         writer.addDocument(doc);
@@ -73,7 +73,7 @@ public class LuceneSearchServiceTest {
         assertEquals("Introduction to Lucene", observed.lectureTitle(), "Search results should have a lecture title");
         assertEquals("00:00:00", observed.start(), "Start time should match");
         assertEquals("00:01:00", observed.end(), "End time should match");
-        assertEquals("1", observed.slideNumber(), "Slide number should match");
+        assertEquals("1", observed.pageNumber(), "Slide number should match");
         assertEquals("SLIDES", observed.type(), "Document type should match");
 
     }

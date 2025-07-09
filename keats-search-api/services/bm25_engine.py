@@ -90,7 +90,7 @@ class BM25SearchEngine(engine.SearchEngine):
                 lecture_id=d["lectureId"],
                 course_id=d["courseId"],
                 timestamp=timestamp,
-                page_number=d["slideNumber"],
+                page_number=d["pageNumber"],
                 doc_type=doc_type,
             )
             results.append(schemas.SearchResult(document=doc, score=d.get("score")))
