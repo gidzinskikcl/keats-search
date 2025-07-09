@@ -11,7 +11,7 @@ public record SearchResult(
         String lectureTitle,
         String start,
         String end,
-        String slideNumber,
+        String pageNumber,
         String type
 ) {
 }

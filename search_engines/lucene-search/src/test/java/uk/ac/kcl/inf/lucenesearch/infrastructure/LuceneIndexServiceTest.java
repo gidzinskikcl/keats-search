@@ -15,8 +15,6 @@ import org.junit.jupiter.api.Test;
 import uk.ac.kcl.inf.lucenesearch.domain.DocumentType;
 import uk.ac.kcl.inf.lucenesearch.usecase.IndexService;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LuceneIndexServiceTest {
@@ -127,6 +125,39 @@ public class LuceneIndexServiceTest {
             assertEquals(0, keywords.length);
         }
     }
+
+    @Test
+    void indexDocumentShouldAlsoStorePageNumberFromPageNumber() throws Exception {
+        uk.ac.kcl.inf.lucenesearch.domain.Document doc =
+                new uk.ac.kcl.inf.lucenesearch.domain.Document(
+                        "id789",                    // iD
+                        "doc789",                   // documentId
+                        "Slide content test",       // content
+                        null,                       // start
+                        null,                       // end
+                        5,                          // pageNumber
+                        "lecture_05",               // lectureId
+                        "Slide Bug Check",          // lectureTitle
+                        DocumentType.SLIDE,         // type
+                        "CS105",                    // courseId
+                        "Testing Course"            // courseName
+                );
+
+        indexService.indexDocument(doc);
+        writer.commit();
+
+        try (DirectoryReader reader = DirectoryReader.open(directory)) {
+            IndexSearcher searcher = new IndexSearcher(reader);
+            TermQuery query = new TermQuery(new Term("documentId", "doc789"));
+            var hits = searcher.search(query, 1);
+            assertEquals(1, hits.totalHits.value);
+
+            var storedDoc = searcher.doc(hits.scoreDocs[0].doc);
+            assertEquals("5", storedDoc.get("pageNumber"));
+
+        }
+    }
+
 
 
 }

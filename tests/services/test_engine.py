@@ -33,7 +33,7 @@ def dummy_java_output():
                 "lectureId": "lecture_1",
                 "start": "00:00:00",
                 "end": "00:02:00",
-                "slideNumber": 1,
+                "pageNumber": 1,
                 "type": "VIDEO_TRANSCRIPT",
                 "score": 0.95,
             }
