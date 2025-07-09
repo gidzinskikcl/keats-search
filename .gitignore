@@ -58,3 +58,4 @@ keats-env/
 wandb/
 /keats-search-eval/data/
 keats-search-eval/tests/data/
+keats-search-api/data/documents.json
