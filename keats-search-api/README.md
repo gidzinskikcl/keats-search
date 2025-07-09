@@ -19,8 +19,6 @@ A FastAPI-based service for querying, indexing, and retrieving educational conte
   - [`GET /version`](#get-version)
 - [Search Endpoint](#-search-endpoint)
   - [`POST /search`](#post-search)
-- [Indexing Endpoint](#️-indexing-endpoint)
-  - [`POST /index`](#post-index)
 - [Metadata Endpoints](#metadata-endpoints)
   - [`GET /courses`](#get-courses)
   - [`GET /lectures?course=<course_id>`](#get-lecturescoursecourse_id)
@@ -130,34 +128,6 @@ Returns a list of ranked documents:
     "score": 2.134
   }
 ]
-```
-
----
-
-## 🗂️ Indexing Endpoint
-
-### `POST /index`
-
-Index new documents from a JSON file.
-
-**Request Body**
-
-```json
-{
-  "document_path": "/path/to/documents.json",
-  "index_dir": "/path/to/index"
-}
-```
-
-Both fields are optional — defaults will be used if omitted.
-
-**Response**
-
-```json
-{
-  "message": "Indexing complete",
-  "index_dir": "/path/to/index"
-}
 ```
 
 ---
