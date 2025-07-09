@@ -27,13 +27,11 @@ A FastAPI-based service for querying, indexing, and retrieving educational conte
 - [Example API Usage](#examples-api-usage)
   - [`curl` Commands](#-example-curl-commands)
     - [Search](#-search-for-segments)
-    - [Index documents](#-index-documents)
     - [Get courses](#-get-list-of-courses)
     - [Get lectures](#-get-list-of-lectures-in-a-course)
     - [Get files](#️-get-files-for-a-lecture)
   - [Python Examples](#-example-python-api-usage)
     - [Search](#-search-1)
-    - [Indexing](#-indexing-documents)
     - [List Courses](#-list-courses)
     - [List Lectures](#-list-lectures)
     - [List Files](#-list-files-for-a-lecture)
@@ -243,19 +241,6 @@ curl -X POST http://<host>:<port>/search \
 
 ---
 
-### 📄 Index documents
-
-```bash
-curl -X POST http://<host>:<port>/index \
-  -H "Content-Type: application/json" \
-  -d '{
-    "document_path": "/absolute/path/to/documents.json",
-    "index_dir": "/absolute/path/to/index"
-  }'
-```
-
----
-
 ### 📚 Get list of courses
 
 ```bash
@@ -310,22 +295,6 @@ print(response.json())
 
 ---
 
-### 📄 Indexing Documents
-
-```python
-import requests
-
-url = "http://<host>:<port>/index"
-payload = {
-    "document_path": "/absolute/path/to/documents.json",
-    "index_dir": "/absolute/path/to/index"
-}
-
-response = requests.post(url, json=payload)
-print(response.json())
-```
-
----
 
 ### 📚 List Courses
 
