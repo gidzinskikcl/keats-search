@@ -56,4 +56,5 @@ config.yaml
 .idea/
 keats-env/
 wandb/
-data/
+/keats-search-eval/data/
+keats-search-eval/tests/data/
