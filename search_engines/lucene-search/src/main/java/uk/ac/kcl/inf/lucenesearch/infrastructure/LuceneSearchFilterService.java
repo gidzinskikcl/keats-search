@@ -69,7 +69,7 @@ public class LuceneSearchFilterService implements SearchService {
                         doc.get("lectureTitle"),
                         doc.get("start"),
                         doc.get("end"),
-                        doc.get("slideNumber"),
+                        doc.get("pageNumber"),
                         doc.get("type"))
                 );
             }
