@@ -31,7 +31,7 @@ class ChapterSegmenter(transcript_segmenter.TranscriptSegmenter):
                 lecture_name=transcript_schema.lecture_name,
                 chapter_title=chapter.title or None,
                 url=transcript_schema.url,
-                thumbnail_url=transcript_schema.thumbnail_url
+                thumbnail_url=transcript_schema.thumbnail_url,
             )
             results.append(segment)
 

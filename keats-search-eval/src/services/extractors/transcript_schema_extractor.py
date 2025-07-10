@@ -65,7 +65,7 @@ class TranscriptSchemaExtractor(
             lecture_id=lecture_id,
             lecture_name=lecture_name,
             url=url,
-            thumbnail_url=thumbnail_url
+            thumbnail_url=thumbnail_url,
         )
 
     @staticmethod
