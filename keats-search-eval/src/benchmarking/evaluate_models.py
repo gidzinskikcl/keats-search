@@ -6,7 +6,6 @@ import os
 from benchmarking.metrics import scikit_metrics
 from benchmarking.utils import loader, saver
 
-# Constants
 # PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # old prediction before updating
 PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45"  # new prediction after updating gt
 
@@ -19,21 +18,49 @@ OUTPUT_DIR = os.path.join(
 # DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
 DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"  # without UA subtitles
 
-MODELS = [
-    "RandomSearchEngine",
-    "BM25SearchEngine",
-    "TFIDFSearchEngine",
-    "BooleanSearchEngine",
-    "dirichletsearchengine_mu_500",
-    "dirichletsearchengine_mu_1000",
-    "dirichletsearchengine_mu_1500",
-    "dirichletsearchengine_mu_2000",
-    "lmjelinekmercersearchengine_lambda_0.1",
-    "lmjelinekmercersearchengine_lambda_0.3",
-    "lmjelinekmercersearchengine_lambda_0.5",
-    "lmjelinekmercersearchengine_lambda_0.7",
-    "lmjelinekmercersearchengine_lambda_0.9",
-]
+MODELS = {
+    "RandomSearchEngine": os.path.join(
+        PREDICTION_DIR, "randomsearchengine_predictions.csv"
+    ),
+    "SpladeSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-10_16-22-38/spladesearchengine_predictions.csv",
+    "BM25SearchEngine": os.path.join(
+        PREDICTION_DIR, "bm25searchengine_predictions.csv"
+    ),
+    "TFIDFSearchEngine": os.path.join(
+        PREDICTION_DIR, "tfidfsearchengine_predictions.csv"
+    ),
+    "BooleanSearchEngine": os.path.join(
+        PREDICTION_DIR, "booleansearchengine_predictions.csv"
+    ),
+    "dirichletsearchengine_mu_500": os.path.join(
+        PREDICTION_DIR, "dirichletsearchengine_mu_500_predictions.csv"
+    ),
+    "dirichletsearchengine_mu_1000": os.path.join(
+        PREDICTION_DIR, "dirichletsearchengine_mu_1000_predictions.csv"
+    ),
+    "dirichletsearchengine_mu_1500": os.path.join(
+        PREDICTION_DIR, "dirichletsearchengine_mu_1500_predictions.csv"
+    ),
+    "dirichletsearchengine_mu_2000": os.path.join(
+        PREDICTION_DIR, "dirichletsearchengine_mu_2000_predictions.csv"
+    ),
+    "lmjelinekmercersearchengine_lambda_0.1": os.path.join(
+        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.1_predictions.csv"
+    ),
+    "lmjelinekmercersearchengine_lambda_0.3": os.path.join(
+        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.3_predictions.csv"
+    ),
+    "lmjelinekmercersearchengine_lambda_0.5": os.path.join(
+        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.5_predictions.csv"
+    ),
+    "lmjelinekmercersearchengine_lambda_0.7": os.path.join(
+        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.7_predictions.csv"
+    ),
+    "lmjelinekmercersearchengine_lambda_0.9": os.path.join(
+        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.9_predictions.csv"
+    ),
+}
+
 K = [1, 5, 10]
 
 
@@ -63,13 +90,9 @@ def main():
         print(f"Using metrics: {', '.join(m.name for m in metrics)}")
 
         # Evaluation
-        for model_name in MODELS:
+        for model_name, model_predictions_path in MODELS.items():
             print(f"Evaluating model: {model_name}")
             print(f"{model_name}")
-
-            model_predictions_path = os.path.join(
-                PREDICTION_DIR, f"{model_name.lower()}_predictions.csv"
-            )
             predictions = loader.load_model_predictions(model_predictions_path)
 
             mean_scores = {metric.name: 0.0 for metric in metrics}
