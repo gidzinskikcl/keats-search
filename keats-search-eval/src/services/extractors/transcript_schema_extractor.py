@@ -51,6 +51,8 @@ class TranscriptSchemaExtractor(
         course_name = parsed_data.get("course_title")
         lecture_id = parsed_data.get("lecture_id")
         lecture_name = parsed_data.get("lecture_title")
+        url = parsed_data.get("webpage_url")
+        thumbnail_url = parsed_data.get("thumbnail")
 
         # Create and return the TranscriptSchema
         return schemas.TranscriptSchema(
@@ -62,6 +64,8 @@ class TranscriptSchemaExtractor(
             course_name=course_name,
             lecture_id=lecture_id,
             lecture_name=lecture_name,
+            url=url,
+            thumbnail_url=thumbnail_url
         )
 
     @staticmethod

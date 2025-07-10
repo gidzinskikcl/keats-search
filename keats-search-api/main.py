@@ -1,7 +1,12 @@
+import os
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from routes import search, index, metadata
 
 app = FastAPI(title="Keats Search Service")
+
+thumbnail_dir = os.path.join(os.path.dirname(__file__), "data", "thumbnails")
+app.mount("/thumbnails", StaticFiles(directory=thumbnail_dir), name="thumbnails")
 
 
 @app.get("/")

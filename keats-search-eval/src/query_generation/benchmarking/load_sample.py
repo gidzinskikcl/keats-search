@@ -16,7 +16,7 @@ COURSE = "18.404J"
 INPUT_DIR = pathlib.Path("keats-search-eval/data")
 TRANSCRIPT_FILE = INPUT_DIR / "transcripts" / COURSE / "IycOPFmEQk8.en-j3PyPqV-e1s"
 SLIDES_FILE = (
-    INPUT_DIR / "slides" / COURSE / "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5"
+    INPUT_DIR / "slides" / "lectures" / COURSE / "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5"
 )
 
 slides_to_ignore = [

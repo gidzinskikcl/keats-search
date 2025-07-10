@@ -22,6 +22,8 @@ def expected():
                 "timestamp": {"start": "00:00:00", "end": "00:02:00"},
                 "page_number": 1,
                 "doc_type": "mp4",
+                "url": "https://example.com/doc1",
+                "thumbnail_url": "https://example.com/thumbs/doc1.jpg",
             },
             "score": 0.95,
         }

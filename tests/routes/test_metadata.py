@@ -12,9 +12,30 @@ client = TestClient(app)
 @pytest.fixture
 def sample_docs(tmp_path):
     docs = [
-        {"course_id": "CS101", "lecture_id": "1", "doc_id": "doc1", "doc_type": "pdf"},
-        {"course_id": "CS101", "lecture_id": "1", "doc_id": "doc2", "doc_type": "srt"},
-        {"course_id": "CS102", "lecture_id": "2", "doc_id": "doc3", "doc_type": "pdf"},
+        {
+            "course_id": "CS101",
+            "lecture_id": "1",
+            "doc_id": "doc1",
+            "doc_type": "pdf",
+            "url": "https://example.com/doc1",
+            "thumnail_url": None,
+        },
+        {
+            "course_id": "CS101",
+            "lecture_id": "1",
+            "doc_id": "doc2",
+            "doc_type": "srt",
+            "url": "https://example.com/doc2",
+            "thumnail_url": "https://example.com/img2",
+        },
+        {
+            "course_id": "CS102",
+            "lecture_id": "2",
+            "doc_id": "doc3",
+            "doc_type": "pdf",
+            "url": "https://example.com/doc2",
+            "thumnail_url": "https://example.com/img3",
+        },
     ]
     doc_path = tmp_path / "documents.json"
     doc_path.write_text(json.dumps(docs))
@@ -30,11 +51,31 @@ def expected():
         {
             "lecture": "1",
             "files": [
-                {"doc_id": "doc1", "doc_type": "pdf"},
-                {"doc_id": "doc2", "doc_type": "srt"},
+                {
+                    "doc_id": "doc1",
+                    "doc_type": "pdf",
+                    "url": "https://example.com/doc1",
+                    "thumbnail_url": None,
+                },
+                {
+                    "doc_id": "doc2",
+                    "doc_type": "srt",
+                    "url": "https://example.com/doc2",
+                    "thumbnail_url": "https://example.com/img2",
+                },
             ],
         },
-        {"lecture": "2", "files": [{"doc_id": "doc3", "doc_type": "pdf"}]},
+        {
+            "lecture": "2",
+            "files": [
+                {
+                    "doc_id": "doc3",
+                    "doc_type": "pdf",
+                    "url": "https://example.com/doc22",
+                    "thumbnail_url": None,
+                }
+            ],
+        },
     ]
     return results
 
@@ -71,11 +112,22 @@ def test_list_files_filtered(mock_run, sample_docs):
         {
             "lecture": "1",
             "files": [
-                {"doc_id": "doc1", "doc_type": "pdf"},
-                {"doc_id": "doc2", "doc_type": "srt"},
+                {
+                    "doc_id": "doc1",
+                    "doc_type": "pdf",
+                    "url": "https://example.com/doc1",
+                    "thumbnail_url": None,
+                },
+                {
+                    "doc_id": "doc2",
+                    "doc_type": "srt",
+                    "url": "https://example.com/doc2",
+                    "thumbnail_url": "https://example.com/img2",
+                },
             ],
         }
     ]
+
     mock_run.return_value = MagicMock(returncode=0, stdout=json.dumps(expected))
 
     response = client.get("/files", params={"course": "CS101", "lecture": 1})

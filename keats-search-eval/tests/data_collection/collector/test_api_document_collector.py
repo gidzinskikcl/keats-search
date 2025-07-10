@@ -20,6 +20,8 @@ def expected_api_documents():
             course_id="18.404J",
             course_name="Theory of Computation",
             doc_type=document_api_collector.MaterialType.SLIDES,
+            url="https://testing/pdf/Lecture_1.pdf",
+            thumbnail_url="thumbnails/testing/thumbnail_url/doc.jpg",
         ),
         document_api_collector.ApiDocumentSchema(
             id="video_file_1_1_mp4",
@@ -35,6 +37,8 @@ def expected_api_documents():
             course_id="18.404J",
             course_name="Theory of Computation",
             doc_type=document_api_collector.MaterialType.TRANSCRIPT,
+            url="https://testing/url/doc1",
+            thumbnail_url="https://testing/thumbnail_url/doc.jpg",
         ),
     ]
 
@@ -49,6 +53,8 @@ def test_collect_api_documents(expected_api_documents):
     fake_pdf_segment.lecture_name = "Lecture 1 - Intro"
     fake_pdf_segment.course_id = "18.404J"
     fake_pdf_segment.course_name = "Theory of Computation"
+    fake_pdf_segment.url = "https://testing/pdf/Lecture_1.pdf"
+    fake_pdf_segment.thumbnail_image = "testing/thumbnail_url/doc.jpg"
 
     fake_transcript_segment = MagicMock()
     fake_transcript_segment.parent_file = "video_file_1"
@@ -60,6 +66,8 @@ def test_collect_api_documents(expected_api_documents):
     fake_transcript_segment.course_name = "Theory of Computation"
     fake_transcript_segment.timestamp.start = 0
     fake_transcript_segment.timestamp.end = 10
+    fake_transcript_segment.url = "https://testing/url/doc1"
+    fake_transcript_segment.thumbnail_url = "https://testing/thumbnail_url/doc.jpg"
 
     pdf_extractor = MagicMock()
     transcript_extractor = MagicMock()
