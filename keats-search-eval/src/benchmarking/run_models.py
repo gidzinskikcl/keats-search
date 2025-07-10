@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 import os
 
-from benchmarking.models import random_search
+from benchmarking.models import random_search, splade
 from benchmarking.models.lucene import bm25, tf_idf, dirichlet, jm, boolean
 from benchmarking.utils import loader, saver
 
@@ -37,6 +37,9 @@ def main():
     # Define models
     models = [
         random_search.RandomSearchEngine(doc_path=DOC_PATH),
+        splade.SpladeSearchEngine(
+            documents=loader.load_documents_from_json(path=DOC_PATH), k=K
+        ),
         bm25.BM25SearchEngine(doc_path=DOC_PATH, k=K),
         tf_idf.TFIDFSearchEngine(doc_path=DOC_PATH, k=K),
         boolean.BooleanSearchEngine(doc_path=DOC_PATH, k=K),
@@ -63,7 +66,7 @@ def main():
             model_name = f"LMJelinekMercerSearchEngine_lambda_{model.lambda_}"
         else:
             model_name = model.__class__.__name__
-        print("Evaluating model:")
+        print("Running model:")
         logger.info(f"{model_name}: ...")
 
         predictions = {}
