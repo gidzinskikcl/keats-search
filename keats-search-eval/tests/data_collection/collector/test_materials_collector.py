@@ -16,7 +16,7 @@ class MockPdfExtractor:
                 course_name="TestCourse",
                 lecture_name="Lecture 1",
                 url="https://testing/url/doc",
-                thumbnail_image="1234_thumbnail.jpg"
+                thumbnail_image="1234_thumbnail.jpg",
             )
         ]
 
