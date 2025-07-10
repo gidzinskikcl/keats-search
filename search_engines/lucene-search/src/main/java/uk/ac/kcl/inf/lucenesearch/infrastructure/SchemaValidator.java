@@ -21,6 +21,9 @@ public class SchemaValidator {
         if (doc.courseId() == null || doc.courseId().isBlank()) {
             throw new IllegalArgumentException("Missing mandatory field: courseId");
         }
+        if (doc.url() == null || doc.url().isBlank()) {
+            throw new IllegalArgumentException("Missing mandatory field: url");
+        }
 
         switch (doc.type()) {
             case DocumentType.SLIDE -> {

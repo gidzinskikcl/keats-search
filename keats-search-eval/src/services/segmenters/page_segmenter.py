@@ -17,6 +17,8 @@ class PageSegmenter(pdf_segmenter.PdfSegmenter):
                     course_name=pdf_schema.course_name,
                     lecture_id=pdf_schema.lecture_id,
                     lecture_name=pdf_schema.lecture_name,
+                    url=pdf_schema.url,
+                    thumbnail_image=pdf_schema.thumbnail_image,
                 )
             )
         return result

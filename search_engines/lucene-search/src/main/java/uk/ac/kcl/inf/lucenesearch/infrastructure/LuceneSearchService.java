@@ -56,8 +56,11 @@ public class LuceneSearchService implements SearchService {
                         doc.get("start"),
                         doc.get("end"),
                         doc.get("pageNumber"),
-                        doc.get("type"))
-                );
+                        doc.get("type"),
+                        doc.get("url"),
+                        doc.get("thumbnailUrl")
+
+                ));
             }
 
             return results;

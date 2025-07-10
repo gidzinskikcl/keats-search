@@ -43,6 +43,8 @@ class ApiDocumentSchema(BaseModel):
     course_id: str  # e.g 7CCSMPRJ
     course_name: str  # e.g Software Measurement and Testing
     doc_type: MaterialType  # pdf or transcript
+    url: str  # url link to the material
+    thumbnail_url: Optional[str] = None
 
     def model_dump_flat(self):
         base = self.model_dump(exclude={"timestamp"})
@@ -103,6 +105,8 @@ def collect_pdf_documents_api(
             course_id=seg.course_id,
             course_name=seg.course_name,
             doc_type=MaterialType.SLIDES,
+            url=seg.url,
+            thumbnail_url=f"thumbnails/{seg.thumbnail_image}",
         )
         for seg in pdf_segments
     ]
@@ -141,6 +145,8 @@ def collect_transcript_documents_api(
             course_id=seg.course_id,
             course_name=seg.course_name,
             doc_type=MaterialType.TRANSCRIPT,
+            url=seg.url,
+            thumbnail_url=seg.thumbnail_url,
         )
         for seg in transcript_segments
     ]

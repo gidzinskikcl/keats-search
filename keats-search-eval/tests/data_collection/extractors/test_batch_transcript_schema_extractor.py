@@ -33,7 +33,12 @@ def mock_extractor():
 
     def extractor_get(file_path: pathlib.Path) -> schemas.PdfSchema:
         return schemas.TranscriptSchema(
-            file_name=file_path.stem, duration=None, subtitles=[], course_name=None
+            file_name=file_path.stem,
+            duration=None,
+            subtitles=[],
+            course_name=None,
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         )
 
     result.get.side_effect = extractor_get
@@ -49,6 +54,8 @@ def expected():
             subtitles=[],
             course_name="course1",
             lecture_name="Lecture 1",
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         ),
         schemas.TranscriptSchema(
             file_name="lecture1.2",
@@ -56,6 +63,8 @@ def expected():
             subtitles=[],
             course_name="course1",
             lecture_name="Lecture 1",
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         ),
         schemas.TranscriptSchema(
             file_name="lecture2.1",
@@ -63,6 +72,8 @@ def expected():
             subtitles=[],
             course_name="course2",
             lecture_name="Lecture 2",
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         ),
     ]
     return result

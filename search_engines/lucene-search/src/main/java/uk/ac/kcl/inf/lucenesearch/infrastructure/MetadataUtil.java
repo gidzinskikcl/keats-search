@@ -39,7 +39,7 @@ public class MetadataUtil {
 
 
     public static void listFiles(DirectoryReader reader, Map<String, String> filters) throws Exception {
-        Map<String, Map<String, String>> grouped = new HashMap<>();
+        Map<String, Map<String, Map<String, String>>> grouped = new HashMap<>();
 
         for (int i = 0; i < reader.maxDoc(); i++) {
             Document doc = reader.document(i);
@@ -48,6 +48,8 @@ public class MetadataUtil {
             String lectureId = doc.get("lectureId");
             String docId = doc.get("documentId");
             String docType = doc.get("type");
+            String url = doc.get("url");
+            String thumbnailUrl = doc.get("thumbnailUrl");
 
             if (courseId == null || lectureId == null || docId == null || docType == null) continue;
             if (filters.containsKey("course") && !filters.get("course").equals(courseId)) continue;
@@ -60,9 +62,17 @@ public class MetadataUtil {
             };
 
             if (mappedType != null) {
-                // Composite key ensures uniqueness per course + lecture
                 String compositeKey = courseId + "::" + lectureId;
-                grouped.computeIfAbsent(compositeKey, k -> new HashMap<>()).put(docId, mappedType);
+
+                Map<String, String> docInfo = Map.of(
+                        "doc_type", mappedType,
+                        "url", url != null ? url : "",
+                        "thumbnail_url", thumbnailUrl != null ? thumbnailUrl : ""
+                );
+
+                grouped
+                        .computeIfAbsent(compositeKey, k -> new HashMap<>())
+                        .put(docId, docInfo);
             }
         }
 
@@ -73,7 +83,15 @@ public class MetadataUtil {
             String lectureId = splitKey[1];
 
             List<Map<String, String>> files = entry.getValue().entrySet().stream()
-                    .map(e -> Map.of("doc_id", e.getKey(), "doc_type", e.getValue()))
+                    .map(e -> {
+                        Map<String, String> info = e.getValue();
+                        return Map.of(
+                                "doc_id", e.getKey(),
+                                "doc_type", info.get("doc_type"),
+                                "url", info.get("url"),
+                                "thumbnail_url", info.get("thumbnail_url")
+                        );
+                    })
                     .sorted(Comparator.comparing(f -> f.get("doc_id")))
                     .toList();
 

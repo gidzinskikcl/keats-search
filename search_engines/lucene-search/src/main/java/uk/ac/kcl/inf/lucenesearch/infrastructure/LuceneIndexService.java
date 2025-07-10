@@ -21,6 +21,7 @@ public class LuceneIndexService implements IndexService {
         luceneDoc.add(new StringField("iD", doc.iD(), Field.Store.YES));
         luceneDoc.add(new StringField("documentId", doc.documentId(), Field.Store.YES));
         luceneDoc.add(new TextField("content", doc.content(), Field.Store.YES));
+        luceneDoc.add(new StringField("url", doc.url(), Field.Store.YES));
 
         // Dual indexing for title
         luceneDoc.add(new TextField("lectureTitle", doc.lectureTitle(), Field.Store.YES)); // for search
@@ -42,6 +43,9 @@ public class LuceneIndexService implements IndexService {
 
         if (doc.pageNumber() != null) {
             luceneDoc.add(new StringField("pageNumber", String.valueOf(doc.pageNumber()), Field.Store.YES));
+        }
+        if (doc.thumbnailUrl() != null) {
+            luceneDoc.add(new StringField("thumbnailUrl", doc.thumbnailUrl(), Field.Store.YES));
         }
 
         writer.addDocument(luceneDoc);
