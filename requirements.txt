@@ -18,6 +18,8 @@ requests
 scikit-learn
 seaborn
 tabulate
+torch
+transformers
 uvicorn[standard]
 yt_dlp
 wandb

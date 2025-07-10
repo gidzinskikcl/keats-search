@@ -2,6 +2,8 @@ import csv
 import json
 from schemas import schemas
 
+from datetime import timedelta
+
 
 def load_queries(path: str) -> list[schemas.Query]:
     with open(path, "r") as f:
@@ -53,3 +55,44 @@ def load_model_predictions(
                 predictions[query_id] = []
             predictions[query_id].append(doc)
     return predictions
+
+
+def parse_timestamp(ts: str | None) -> timedelta | None:
+    if ts is None:
+        return None
+    h, m, s = map(int, ts.split(":"))
+    return timedelta(hours=h, minutes=m, seconds=s)
+
+
+def load_documents_from_json(path: str) -> list[schemas.DocumentSchema]:
+    with open(path, "r", encoding="utf-8") as f:
+        raw_docs = json.load(f)
+
+    documents = []
+    for d in raw_docs:
+        start = parse_timestamp(d.get("start"))
+        end = parse_timestamp(d.get("end"))
+        timestamp = schemas.Timestamp(start=start, end=end)
+
+        doc_type_str = d.get("type", "").lower()
+        if doc_type_str == "slide":
+            doc_type = schemas.MaterialType.SLIDES
+        elif doc_type_str == "video_transcript":
+            doc_type = schemas.MaterialType.TRANSCRIPT
+        else:
+            raise ValueError(f"Unknown material type: {doc_type_str}")
+
+        doc = schemas.DocumentSchema(
+            doc_id=d["documentId"],
+            content=d["content"],
+            title=d["title"],
+            timestamp=timestamp,
+            pageNumber=d.get("slideNumber", -1),
+            keywords=d.get("keywords", []),
+            doc_type=doc_type,
+            speaker=d.get("speaker", ""),
+            course_name=d["courseName"],
+        )
+        documents.append(doc)
+
+    return documents
