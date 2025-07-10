@@ -60,7 +60,7 @@ class SpladeSearchEngine(search_model.SearchModel):
         ranked = sorted(scored, key=lambda x: x[1], reverse=True)
 
         results = []
-        for doc_id, score in ranked[:self.k]:
+        for doc_id, score in ranked[: self.k]:
             doc = next(d for d in self.documents if d.doc_id == doc_id)
             results.append(schemas.SearchResult(document=doc, score=score))
         return results
