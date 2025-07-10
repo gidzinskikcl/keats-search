@@ -140,7 +140,7 @@ def main():
     # Collect all materials
     print("Collecting all materials from files...")
     materials = materials_collector.collect(
-        pdf_courses_dir=COURSES_DIR / "slides",
+        pdf_courses_dir=COURSES_DIR / "slides" / "lectures",
         srt_courses_dir=COURSES_DIR / "transcripts" / "lectures",
         courses=COURSES,
         pdf_extractor=pdf_batch_extractor,

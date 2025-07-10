@@ -1,7 +1,10 @@
+import json
 import pathlib
 from schemas import schemas
 from services.extractors import abstract_pdf_schema_extractor
 from services.parsers import pdf_parser
+
+URLS = "keats-search-eval/data/slides/urls/urls.json"
 
 
 class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtractor):
@@ -26,6 +29,19 @@ class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtracto
         course_id = parsed_data.get("course_id")
         course_name = parsed_data.get("course_title")
 
+        # Get url for PDF
+        with open(URLS, "r", encoding="utf-8") as f:
+            courses = json.load(f)
+
+        url = self._get_url(
+            courses=courses,
+            course_id=course_id,
+            lecture_id=lecture_id,
+            file_name=file_name,
+        )
+        # Get name of thumbnail image file
+        thumbnail_image = file_name + "_thumbnail.jpg"
+
         # Create and return the PdfSchema
         return schemas.PdfSchema(
             file_name=file_name,
@@ -34,4 +50,22 @@ class PdfSchemaExtractor(abstract_pdf_schema_extractor.AbstractPdfSchemaExtracto
             lecture_name=lecture_name,
             course_id=course_id,
             course_name=course_name,
+            url=url,
+            thumbnail_image=thumbnail_image,
         )
+
+    def _get_url(
+        self,
+        courses: dict[str, list[str]],
+        course_id: str,
+        lecture_id: str,
+        file_name: str,
+    ) -> str:
+        lectures = courses[course_id]
+
+        for idx, url in enumerate(lectures):
+            is_lecture = lecture_id in url
+            is_file = file_name in url
+            if is_file and is_lecture:
+                return url
+        raise ValueError(f"URL not found for PDF: {file_name}")

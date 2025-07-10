@@ -36,6 +36,8 @@ def dummy_java_output():
                 "pageNumber": 1,
                 "type": "VIDEO_TRANSCRIPT",
                 "score": 0.95,
+                "url": "https://example.com/doc1",
+                "thumbnailUrl": "https://example.com/thumbs/doc1.jpg",
             }
         ]
     )
@@ -58,6 +60,8 @@ def expected():
                     start=timedelta(seconds=0), end=timedelta(minutes=2)
                 ),
                 page_number=1,
+                url="https://example.com/doc1",
+                thumbnail_url="https://example.com/thumbs/doc1.jpg",
             ),
             score=0.95,
         )

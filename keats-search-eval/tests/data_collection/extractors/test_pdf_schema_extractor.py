@@ -1,5 +1,5 @@
 from pathlib import Path
-
+from unittest.mock import Mock
 import pytest
 
 from schemas import schemas
@@ -24,6 +24,8 @@ class MockPdfParser(pdf_parser.PdfParser):
                 "modDate": "D:20250605162709+00'00'",
                 "trapped": "",
                 "encryption": "",
+                "course_id": "18.404J",
+                "lecture_id": "12",
             },
             "text_by_page": ["Page 1 text content.", "Page 2 text content."],
         }
@@ -31,7 +33,14 @@ class MockPdfParser(pdf_parser.PdfParser):
 
 @pytest.fixture
 def parser():
-    return MockPdfParser()
+    mock_parser = Mock()
+    mock_parser.get.return_value = {
+        "metadata": {"file_name": "b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1"},
+        "text_by_page": ["Page 1 text content.", "Page 2 text content."],
+        "lecture_id": "1",
+        "course_id": "18.404J",
+    }
+    return mock_parser
 
 
 @pytest.fixture
@@ -41,17 +50,23 @@ def extractor(parser):
 
 @pytest.fixture
 def test_pdf_path():
-    return Path("tests/data/extraction/sample_test.pdf")
+    return Path(
+        "tests/data/extraction/b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1.pdf"
+    )
 
 
 @pytest.fixture
 def expected():
     return schemas.PdfSchema(
-        file_name="sample_test",
+        file_name="b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1",
+        course_id="18.404J",
+        lecture_id="1",
         pages=[
             schemas.PdfPage(nr=1, text="Page 1 text content."),
             schemas.PdfPage(nr=2, text="Page 2 text content."),
         ],
+        url="https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1.pdf",
+        thumbnail_image="b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1_thumbnail.jpg",
     )
 
 

@@ -15,6 +15,8 @@ class MockPdfExtractor:
                 ],
                 course_name="TestCourse",
                 lecture_name="Lecture 1",
+                url="https://testing/url/doc",
+                thumbnail_image="1234_thumbnail.jpg"
             )
         ]
 
@@ -43,6 +45,8 @@ class MockTranscriptExtractor:
                 ],
                 course_name="TestCourse",
                 lecture_name="Lecture 1",
+                url="https://www.this.is.url/test",
+                thumbnail_url="https://www.this.is.thumbnail_url/test",
             )
         ]
 
@@ -56,6 +60,8 @@ class MockPdfSegmenter:
                 text="\n".join(page.text for page in pdf_schema.pages),
                 course_name=pdf_schema.course_name,
                 lecture_name=pdf_schema.lecture_name,
+                url="https://testing/url/doc",
+                thumbnail_image="1234_thumbnail.jpg",
             )
         ]
 
@@ -72,6 +78,8 @@ class MockTranscriptSegmenter:
                 text="\n".join(sub.text for sub in transcript_schema.subtitles),
                 course_name=transcript_schema.course_name,
                 lecture_name=transcript_schema.lecture_name,
+                url=transcript_schema.url,
+                thumbnail_url=transcript_schema.thumbnail_url,
             )
         ]
 
@@ -123,7 +131,7 @@ def test_collect_transcripts(tmp_path, expected_transcript_material):
 
 
 def test_collect(tmp_path, expected_pdf_material, expected_transcript_material):
-    pdf_path = tmp_path / "slides"
+    pdf_path = tmp_path / "slides" / "lectures"
     srt_path = tmp_path / "transcripts"
     pdf_extractor = MockPdfExtractor()
     transcript_extractor = MockTranscriptExtractor()

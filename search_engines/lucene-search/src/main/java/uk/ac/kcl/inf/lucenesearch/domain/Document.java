@@ -13,5 +13,7 @@ public record Document(
         @JsonProperty("lecture_title") String lectureTitle,
         @JsonProperty("doc_type") DocumentType type,
         @JsonProperty("course_id") String courseId,
-        @JsonProperty("course_name") String courseName
+        @JsonProperty("course_name") String courseName,
+        @JsonProperty("url") String url,
+        @JsonProperty("thumbnail_url") String thumbnailUrl
 ) {}

@@ -18,6 +18,8 @@ def expected():
             course_name="Sample Course",
             lecture_name="Lecture 1",
             chapter_title="Introduction",
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         ),
         schemas.TranscriptSegment(
             nr=2,
@@ -29,6 +31,8 @@ def expected():
             course_name="Sample Course",
             lecture_name="Lecture 1",
             chapter_title="Advanced",
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         ),
     ]
 
@@ -68,6 +72,8 @@ def schema():
                 ),
             ),
         ],
+        url="https://www.this.is.url/test",
+        thumbnail_url="https://www.this.is.thumbnail_url/test",
         course_name="Sample Course",
         lecture_name="Lecture 1",
         chapters=[
