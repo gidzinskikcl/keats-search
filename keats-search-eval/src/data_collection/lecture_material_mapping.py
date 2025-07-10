@@ -4,7 +4,7 @@ import json
 # Define the paths and course information
 BASE_DIR = "keats-search-eval/data"
 TRANSCRIPTS_DIR = os.path.join(BASE_DIR, "transcripts", "lectures")
-SLIDES_DIR = os.path.join(BASE_DIR, "slides")
+SLIDES_DIR = os.path.join(BASE_DIR, "slides/lectures")
 
 # Only include these course IDs
 COURSES = {
@@ -52,7 +52,7 @@ for course_id, course_title in COURSES.items():
     if os.path.isdir(slides_course_dir):
         lecture_folders = sorted(os.listdir(slides_course_dir))
         for lecture_folder in lecture_folders:
-            lecture_id = lecture_folder.split()[1]
+            lecture_id = lecture_folder.split()[1].rstrip(":")
 
             # Fall back to original folder name if no match
             lecture_title = lecture_titles_by_course[course_id].get(

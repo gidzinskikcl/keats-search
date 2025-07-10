@@ -28,12 +28,14 @@ public class JsonFileDocumentProviderTest {
                 "Lucene is awesome",
                 "00:00:00",
                 "00:01:00",
-                1,
+                null,
                 "lecture1",
                 "Intro to Lucene",
                 DocumentType.SLIDE,
                 "CS101",
-                "Information Retrieval"
+                "Information Retrieval",
+                "https://example.com/doc1",
+                null
         );
 
         Document expectedDoc2 = new Document(
@@ -47,7 +49,9 @@ public class JsonFileDocumentProviderTest {
                 "Lucene Features",
                 DocumentType.SLIDE,
                 "CS101",
-                "Information Retrieval"
+                "Information Retrieval",
+                "https://example.com/doc1",
+                "https://example.com/thumbs/doc1.jpg"
         );
 
         assertEquals(expectedDoc1, documents.get(0));

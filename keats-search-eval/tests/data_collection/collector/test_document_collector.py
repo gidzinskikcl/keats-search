@@ -14,6 +14,8 @@ def test_collect():
         text="PDF slide content",
         course_name="IR",
         lecture_name="Intro to IR",
+        url="https://testing/url/doc",
+        thumbnail_image="1234_thumbnail.jpg",
     )
 
     transcript_schema = Mock()
@@ -26,6 +28,8 @@ def test_collect():
         text="Transcript content",
         course_name="IR",
         lecture_name="Intro to IR",
+        url="https://www.this.is.url/test",
+        thumbnail_url="https://www.this.is.thumbnail_url/test",
     )
     transcript_segment.chapter_title = "Introduction"
 
@@ -89,6 +93,8 @@ def test_collect_pdf_documents():
         text="Content from PDF",
         course_name="ML",
         lecture_name="Neural Nets",
+        url="https://testing/url/doc",
+        thumbnail_image="1234_thumbnail.jpg",
     )
 
     extractor = Mock()
@@ -132,6 +138,8 @@ def test_collect_transcript_documents():
         text="Lecture segment content",
         course_name="AI",
         lecture_name="Search Algorithms",
+        url="https://www.this.is.url/test",
+        thumbnail_url="https://www.this.is.thumbnail_url/test",
     )
     transcript_segment.chapter_title = "Search Overview"
 

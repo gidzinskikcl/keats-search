@@ -5,12 +5,14 @@
     "content": "Lucene is awesome",
     "start": "00:00:00",
     "end": "00:01:00",
-    "page_number": 1,
+    "page_number": null,
     "lecture_id": "lecture1",
     "lecture_title": "Intro to Lucene",
     "doc_type": "pdf",
     "course_id": "CS101",
-    "course_name": "Information Retrieval"
+    "course_name": "Information Retrieval",
+    "url": "https://example.com/doc1",
+    "thumbnail_url": null
   },
   {
     "id": "1",
@@ -23,6 +25,8 @@
     "lecture_title": "Lucene Features",
     "doc_type": "pdf",
     "course_id": "CS101",
-    "course_name": "Information Retrieval"
+    "course_name": "Information Retrieval",
+    "url": "https://example.com/doc1",
+    "thumbnail_url": "https://example.com/thumbs/doc1.jpg"
   }
 ]

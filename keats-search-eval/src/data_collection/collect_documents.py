@@ -85,7 +85,7 @@ def main():
     # Collect all materials
     print("Collecting all materials from files...")
     documents = document_collector.collect(
-        pdf_courses_dir=COURSES_REPO / "slides",
+        pdf_courses_dir=COURSES_REPO / "slides" / "lectures",
         srt_courses_dir=COURSES_REPO / "transcripts" / "lectures",
         courses=COURSES,
         pdf_extractor=pdf_batch_extractor,

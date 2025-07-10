@@ -39,6 +39,8 @@ class DocumentSchema(BaseModel):
     course_id: str  # e.g 7CCSMPRJ
     course_name: str  # e.g Software Measurement and Testing
     doc_type: MaterialType  # pdf or mp4
+    url: str  # url link to the material
+    thumbnail_url: Optional[str] = None
 
 
 class Query(BaseModel):
@@ -59,6 +61,8 @@ class SearchResult(BaseModel):
 class FileEntry(BaseModel):
     doc_id: str
     doc_type: str
+    url: str
+    thumbnail_url: Optional[str] = None
 
 
 class FileInfo(BaseModel):

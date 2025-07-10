@@ -26,6 +26,8 @@ def mock_parser():
             {"title": "Introduction", "start_time": "0.0", "end_time": "10.0"},
             {"title": "Summary", "start_time": "10.0", "end_time": "20.0"},
         ],
+        "webpage_url": "https://www.this.is.url/test",
+        "thumbnail": "https://www.this.is.thumbnail_url/test",
     }
     return parser
 
@@ -67,6 +69,8 @@ def expected():
                 ),
             ),
         ],
+        url="https://www.this.is.url/test",
+        thumbnail_url="https://www.this.is.thumbnail_url/test",
     )
     return result
 
