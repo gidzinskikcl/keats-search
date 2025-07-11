@@ -92,6 +92,8 @@ class BM25SearchEngine(engine.SearchEngine):
                 timestamp=timestamp,
                 page_number=d["pageNumber"],
                 doc_type=doc_type,
+                url=d["url"],
+                thumbnail_url=d["thumbnailUrl"],
             )
             results.append(schemas.SearchResult(document=doc, score=d.get("score")))
 

@@ -48,7 +48,7 @@ def generate_markdown_tables(data, k_metrics):
 
 def main():
     # path = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-05_19-16-50/mean_metrics_all_k.json"
-    path_gt = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-06_13-51-09/mean_metrics_all_k.json"
+    path_gt = "keats-search-eval/data/evaluation/gt-annotated/results/2025-07-10_16-31-51/mean_metrics_all_k.json"  # includes SPLADE
     path_llm = "keats-search-eval/data/evaluation/llm-annotated/results/model_bm25_2025-07-06_12-52-45/mean_metrics_all_k.json"
 
     readme_path = "keats-search-eval/README.md"

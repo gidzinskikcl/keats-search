@@ -49,7 +49,9 @@ public class LuceneIndexServiceTest {
                         "Lucene Test",              // lectureTitle
                         DocumentType.SLIDE,         // type
                         "CS101",                    // courseId
-                        "Lucene Course"             // courseName
+                        "Lucene Course",            // courseName
+                        "https://example.com/doc1",
+                        "https://example.com/img"
                 );
 
         indexService.indexDocument(doc);
@@ -73,6 +75,9 @@ public class LuceneIndexServiceTest {
             assertEquals("SLIDE", storedDoc.get("type"));
             assertEquals("Lucene Course", storedDoc.get("courseName"));
 
+            assertEquals("https://example.com/doc1", storedDoc.get("url"));
+            assertEquals("https://example.com/img", storedDoc.get("thumbnailUrl"));
+
             String[] keywords = storedDoc.getValues("keywords");
             assertEquals(0, keywords.length);
         }
@@ -94,7 +99,9 @@ public class LuceneIndexServiceTest {
                         "Null Timestamps",                // lectureTitle
                         DocumentType.SLIDE,               // type
                         "CS102",                          // courseId
-                        "Lucene Course"                   // courseName
+                        "Lucene Course",                   // courseName
+                        "https://example.com/doc1",
+                        null
                 );
 
         indexService.indexDocument(doc);
@@ -116,9 +123,11 @@ public class LuceneIndexServiceTest {
             assertEquals("2", storedDoc.get("pageNumber"));
             assertEquals("Lucene Course", storedDoc.get("courseName"));
             assertEquals("SLIDE", storedDoc.get("type"));
+            assertEquals("https://example.com/doc1", storedDoc.get("url"));
 
             assertNull(storedDoc.get("start"));
             assertNull(storedDoc.get("end"));
+            assertNull(storedDoc.get("thumbnailUrl"));
 
             String[] keywords = storedDoc.getValues("keywords");
             // The keywords were not set, so expect empty array
@@ -140,7 +149,9 @@ public class LuceneIndexServiceTest {
                         "Slide Bug Check",          // lectureTitle
                         DocumentType.SLIDE,         // type
                         "CS105",                    // courseId
-                        "Testing Course"            // courseName
+                        "Testing Course",            // courseName
+                        "https://example.com/doc1",
+                        null
                 );
 
         indexService.indexDocument(doc);

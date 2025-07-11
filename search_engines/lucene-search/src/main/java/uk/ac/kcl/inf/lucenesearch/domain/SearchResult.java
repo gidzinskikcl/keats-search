@@ -12,6 +12,8 @@ public record SearchResult(
         String start,
         String end,
         String pageNumber,
-        String type
+        String type,
+        String url,
+        String thumbnailUrl
 ) {
 }

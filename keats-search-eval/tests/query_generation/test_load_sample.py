@@ -10,7 +10,13 @@ from query_generation.benchmarking import load_sample
 @pytest.fixture
 def pdf_segments():
     return [
-        schemas.PdfSegment(parent_file="slide_deck.pdf", nr=i, text=f"PDF Content {i}")
+        schemas.PdfSegment(
+            parent_file="slide_deck.pdf",
+            nr=i,
+            text=f"PDF Content {i}",
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
+        )
         for i in range(10)
     ]
 
@@ -25,6 +31,8 @@ def srt_segments():
             timestamp=schemas.Timestamp(
                 start=timedelta(seconds=i * 30), end=timedelta(seconds=(i + 1) * 30)
             ),
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         )
         for i in range(10)
     ]
@@ -51,13 +59,23 @@ def test_sample(pdf_segments, srt_segments, expected_output):
 
 
 def test_sample_too_few_inputs():
-    pdfs = [schemas.PdfSegment(parent_file="f.pdf", nr=0, text="only one pdf")]
+    pdfs = [
+        schemas.PdfSegment(
+            parent_file="f.pdf",
+            nr=0,
+            text="only one pdf",
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
+        )
+    ]
     srts = [
         schemas.TranscriptSegment(
             nr=0,
             parent_file="f.srt",
             text="only one srt",
             timestamp=schemas.Timestamp(start=timedelta(0), end=timedelta(seconds=30)),
+            url="https://www.this.is.url/test",
+            thumbnail_url="https://www.this.is.thumbnail_url/test",
         )
     ]
 

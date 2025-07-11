@@ -21,7 +21,9 @@ public class SchemaValidatorTest {
                 "Title of Slide",
                 DocumentType.SLIDE,
                 "CS101",
-                "Computational Models"
+                "Computational Models",
+                "https://example.com/doc1",
+                null
         );
 
         assertDoesNotThrow(() -> SchemaValidator.validate(slide));
@@ -40,7 +42,9 @@ public class SchemaValidatorTest {
                 "Segment Title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 "CS102",
-                "Information Retrieval"
+                "Information Retrieval",
+                "https://example.com/doc1",
+                null
         );
 
         assertDoesNotThrow(() -> SchemaValidator.validate(transcript));
@@ -59,7 +63,9 @@ public class SchemaValidatorTest {
                 "Some Title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 "CS107",
-                "Algorithms 101"
+                "Algorithms 101",
+                "https://example.com/doc1",
+                null
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -80,7 +86,9 @@ public class SchemaValidatorTest {
                 "Title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 "CS103",
-                "Intro to Algorithms"
+                "Intro to Algorithms",
+                "https://example.com/doc1",
+                null
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -100,7 +108,9 @@ public class SchemaValidatorTest {
                 "Some title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 "CS104",
-                "Some Course"
+                "Some Course",
+                "https://example.com/doc1",
+                "https://example.com/thumbs/doc1.jpg"
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -120,7 +130,9 @@ public class SchemaValidatorTest {
                 "Some title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 null,
-                "Course Name"
+                "Course Name",
+                "https://example.com/doc1",
+                null
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -140,7 +152,9 @@ public class SchemaValidatorTest {
                 "Slide Title",
                 DocumentType.SLIDE,
                 "CS105",
-                "Slide Course"
+                "Slide Course",
+                "https://example.com/doc1",
+                null
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
@@ -160,11 +174,35 @@ public class SchemaValidatorTest {
                 "Segment Title",
                 DocumentType.VIDEO_TRANSCRIPT,
                 "CS106",
-                "Transcript Course"
+                "Transcript Course",
+                "https://example.com/doc1",
+                null
         );
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
         assertTrue(ex.getMessage().contains("start"));
         assertTrue(ex.getMessage().contains("end"));
+    }
+
+    @Test
+    void validate_rejectsMissingUrl() {
+        Document doc = new Document(
+                "id7",
+                "vid1_seg1",
+                "Transcript content",
+                null,
+                null,
+                null,
+                "lecture5",
+                "Segment Title",
+                DocumentType.VIDEO_TRANSCRIPT,
+                "CS106",
+                "Transcript Course",
+                null,
+                null
+        );
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> SchemaValidator.validate(doc));
+        assertTrue(ex.getMessage().contains("url"));
     }
 }

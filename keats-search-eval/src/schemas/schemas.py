@@ -16,6 +16,8 @@ class PdfPage:
 class PdfSchema:
     file_name: str
     pages: list[PdfPage]
+    url: str
+    thumbnail_image: str
     course_id: Optional[str] = None
     course_name: Optional[str] = None
     lecture_id: Optional[str] = None
@@ -27,6 +29,8 @@ class PdfSegment:
     parent_file: str
     nr: int
     text: str
+    url: str
+    thumbnail_image: str
     course_id: Optional[str] = None
     course_name: Optional[str] = None
     lecture_id: Optional[str] = None
@@ -58,6 +62,8 @@ class TranscriptSchema:
     file_name: str
     duration: timedelta
     subtitles: list[Subtitle]
+    url: str
+    thumbnail_url: str
     course_id: Optional[str] = None
     course_name: Optional[str] = None
     lecture_id: Optional[str] = None
@@ -71,6 +77,8 @@ class TranscriptSegment:
     parent_file: str
     timestamp: Timestamp
     text: str
+    url: str
+    thumbnail_url: str
     course_id: Optional[str] = None
     course_name: Optional[str] = None
     lecture_id: Optional[str] = None

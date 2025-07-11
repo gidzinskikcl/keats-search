@@ -31,7 +31,13 @@ def mock_extractor():
     result = Mock()
 
     def extractor_get(file_path: pathlib.Path) -> schemas.PdfSchema:
-        return schemas.PdfSchema(file_name=file_path.stem, pages=[], course_name=None)
+        return schemas.PdfSchema(
+            file_name=file_path.stem,
+            pages=[],
+            course_name=None,
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
+        )
 
     result.get.side_effect = extractor_get
     return result
@@ -45,18 +51,24 @@ def expected():
             pages=[],
             course_name="course1",
             lecture_name="Lecture 1",
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
         ),
         schemas.PdfSchema(
             file_name="slide1.2",
             pages=[],
             course_name="course1",
             lecture_name="Lecture 1",
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
         ),
         schemas.PdfSchema(
             file_name="lecture2.1",
             pages=[],
             course_name="course2",
             lecture_name="Lecture 2",
+            url="https://testing/url/doc",
+            thumbnail_image="1234_thumbnail.jpg",
         ),
     ]
     return result
