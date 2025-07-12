@@ -54,7 +54,7 @@ def list_lectures(course: Optional[str] = Query(None)):
 
         lectures = _lucene_meta_query("lectures", config.settings.INDEX_DIR, filters)
         results = sorted(lectures, key=lambda x: int(x["lecture_id"]))
-        return results 
+        return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -73,7 +73,6 @@ def list_files(
         lectures = _lucene_meta_query("files", config.settings.INDEX_DIR, filters)
         data = sorted(lectures, key=lambda x: int(x["lecture_id"]))
         return [schemas.FileInfo(**d) for d in data]
-
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
