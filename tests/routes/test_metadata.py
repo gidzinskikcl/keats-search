@@ -18,7 +18,7 @@ def sample_docs(tmp_path):
             "doc_id": "doc1",
             "doc_type": "pdf",
             "url": "https://example.com/doc1",
-            "thumnail_url": None,
+            "thumbnail_url": None,
         },
         {
             "course_id": "CS101",
@@ -26,7 +26,7 @@ def sample_docs(tmp_path):
             "doc_id": "doc2",
             "doc_type": "srt",
             "url": "https://example.com/doc2",
-            "thumnail_url": "https://example.com/img2",
+            "thumbnail_url": "https://example.com/img2",
         },
         {
             "course_id": "CS102",
@@ -34,7 +34,7 @@ def sample_docs(tmp_path):
             "doc_id": "doc3",
             "doc_type": "pdf",
             "url": "https://example.com/doc2",
-            "thumnail_url": "https://example.com/img3",
+            "thumbnail_url": "https://example.com/img3",
         },
     ]
     doc_path = tmp_path / "documents.json"
@@ -49,7 +49,7 @@ def sample_docs(tmp_path):
 def expected():
     results = [
         {
-            "lecture": "1",
+            "lecture_id": "1",
             "files": [
                 {
                     "doc_id": "doc1",
@@ -66,7 +66,7 @@ def expected():
             ],
         },
         {
-            "lecture": "2",
+            "lecture_id": "2",
             "files": [
                 {
                     "doc_id": "doc3",
@@ -110,7 +110,7 @@ def test_list_files_all(mock_run, sample_docs, expected):
 def test_list_files_filtered(mock_run, sample_docs):
     expected = [
         {
-            "lecture": "1",
+            "lecture_id": "1",
             "files": [
                 {
                     "doc_id": "doc1",

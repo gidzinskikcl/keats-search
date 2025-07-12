@@ -52,8 +52,9 @@ def list_lectures(course: Optional[str] = Query(None)):
         if course:
             filters["course"] = course
 
-        data = _lucene_meta_query("lectures", config.settings.INDEX_DIR, filters)
-        return data  # no need to sort dicts; let frontend sort by title or ID
+        lectures = _lucene_meta_query("lectures", config.settings.INDEX_DIR, filters)
+        results = sorted(lectures, key=lambda x: int(x["lecture_id"]))
+        return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -69,7 +70,9 @@ def list_files(
         if lecture:
             filters["lecture"] = str(lecture)
 
-        data = _lucene_meta_query("files", config.settings.INDEX_DIR, filters)
-        return [schemas.FileInfo(**item) for item in data]
+        lectures = _lucene_meta_query("files", config.settings.INDEX_DIR, filters)
+        data = sorted(lectures, key=lambda x: int(x["lecture_id"]))
+        return [schemas.FileInfo(**d) for d in data]
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
