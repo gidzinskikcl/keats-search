@@ -66,7 +66,7 @@ class FileEntry(BaseModel):
 
 
 class FileInfo(BaseModel):
-    lecture: str
+    lecture_id: str
     files: list[FileEntry]
 
 

@@ -90,7 +90,7 @@ class MetadataUtilTest {
 
         assertEquals(1, result.size());
         Map<String, Object> lecture = (Map<String, Object>) result.get(0);
-        assertEquals("1", lecture.get("lecture"));
+        assertEquals("1", lecture.get("lecture_id"));
 
         List<Map<String, String>> files = (List<Map<String, String>>) lecture.get("files");
         assertEquals(2, files.size());
