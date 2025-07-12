@@ -97,7 +97,7 @@ public class MetadataUtil {
 
             result.add(Map.of(
                     "course_id", courseId,
-                    "lecture", lectureId,
+                    "lecture_id", lectureId,
                     "files", files
             ));
         }
