@@ -121,7 +121,9 @@ Returns a list of ranked documents:
       "lecture_title": "24 Probabilistic Computation cont",
       "course_id": "18.404J",
       "course_name": "Theory of Computation",
-      "doc_type": "pdf"
+      "doc_type": "pdf",
+      "url": "http://example/url.com",
+      "thumbnail_url": "http://example/thumbnail.jpg"
     },
     "score": 2.134
   }
@@ -188,11 +190,15 @@ List files (PDFs, transcripts) per lecture.
     "files": [
       {
         "doc_id": "cbfe4302bc8bfa4dca3c3bfcfd4661a8_MIT18_404f20_lec24",
-        "doc_type": "pdf"
+        "doc_type": "pdf",
+        "url": "http://example/url1.com",
+        "thumbnail_url": "http://example/thumbnail1.jpg"
       },
       {
         "doc_id": "...",
-        "doc_type": "mp4"
+        "doc_type": "mp4",
+        "url": "http://example/url2.com",
+        "thumbnail_url": "http://example/thumbnail2.jpg"
       }
     ]
   }
@@ -215,7 +221,9 @@ Each document in a ranked list of results should follow this schema:
   "lecture_title": "Lecture Title",
   "course_id": "18.404J",
   "course_name": "Theory of Computation",
-  "doc_type": "pdf"  // or "mp4"
+  "doc_type": "pdf",  // or "mp4"
+  "url": "http://example/url.com",
+  "thumbnail_url": "http://example/thumbnail.jpg"
 }
 ```
 
