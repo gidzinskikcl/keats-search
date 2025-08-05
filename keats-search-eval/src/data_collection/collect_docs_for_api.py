@@ -9,6 +9,7 @@ from services.segmenters import page_segmenter, chapter_segmenter
 
 OUTPUT_REPO = pathlib.Path("keats-search-api/data")
 # OUTPUT_REPO = pathlib.Path("keats-search-eval/data/documents/final") # for eval
+
 COURSES_REPO = pathlib.Path("keats-search-eval/data")
 MAPPING_FILE = pathlib.Path(
     "keats-search-eval/data/metadata/file_to_metadata_mapping.json"

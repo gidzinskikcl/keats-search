@@ -91,6 +91,7 @@ class MaterialType(enum.Enum):
     TRANSCRIPT = "VIDEO_TRANSCRIPT"
 
 
+
 @dataclass
 class LectureMaterial:
     course_name: str
@@ -111,7 +112,6 @@ class DocumentSchema:
     lecture_id: str  # id to differentiate between lecture in a corse
     course_id: str  # e.g 7CCSMPRJ
     doc_type: MaterialType  # pdf or mp4
-
 
 @dataclass
 class Query:

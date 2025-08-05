@@ -25,7 +25,6 @@ MODELS = {
     "DPRSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-08-02_14-38-09/dprsearchengine_predictions.csv",
 }
 
-
 K = [1, 5, 10]
 
 

@@ -1,4 +1,4 @@
-    black
+black
 faiss-cpu
 fastapi
 matplotlib
@@ -23,7 +23,9 @@ tabulate
 tensorflow_hub
 tensorflow_text
 transformers
+torch
 tqdm
 uvicorn[standard]
 yt_dlp
 wandb
+

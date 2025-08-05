@@ -10,7 +10,6 @@ from llm_annotation.schemas import response_schema
 
 from dataclasses import dataclass
 
-
 # For testing purposes
 # @dataclass
 # class ParsedTest:
@@ -19,14 +18,11 @@ from dataclasses import dataclass
 #     relevance: response_schema.BinaryRelevance
 #     # reasoning: Optional[str] = None
 
-
 # @dataclass
 # class UsageTest:
 #     prompt_tokens: int
 #     completion_tokens: int
 #     total_tokens: int
-
-
 # # Mimic the OpenAI response container
 # @dataclass
 # class AnnotationSetTest:
