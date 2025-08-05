@@ -135,7 +135,6 @@ def main():
     df_transposed = df.set_index("Course Code").T
     df_transposed.to_latex("course_stats_transposed.tex", escape=False)
 
-
     # Save as LaTeX table
     df.to_latex("course_stats.tex", index=False, escape=False)
     print("Saved to course_stats.tex")

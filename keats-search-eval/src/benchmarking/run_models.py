@@ -55,7 +55,9 @@ def main():
     queries = loader.load_valid_queries_from_csv(path=GROUND_TRUTH)
     print("Done loading queries and ground truth.")
 
-    print("\nInitializing models...\nNOTE: log messages may be printed by the models during initialization.")
+    print(
+        "\nInitializing models...\nNOTE: log messages may be printed by the models during initialization."
+    )
     print("======================================================")
     print("======================================================")
     print("\n\n")

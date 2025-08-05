@@ -38,7 +38,7 @@ if __name__ == "__main__":
     query = Query(query_id="q1", question="Machine Learning")
 
     search_engine = bm25_ce_engine.BM25CrossEncoderSearchEngine(k=10)
-    
+
     results = search_engine.search(query)
 
     print(f"\nQuery: {query.question}")
