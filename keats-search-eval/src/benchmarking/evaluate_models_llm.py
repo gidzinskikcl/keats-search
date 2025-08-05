@@ -3,11 +3,20 @@ import os
 from benchmarking.metrics import scikit_metrics
 from benchmarking.utils import loader, saver
 
-PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv"
-GROUND_TRUTH_PATH = "keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00/annotations.jsonl"
-OUTPUT_DIR = "keats-search-eval/data/evaluation/llm-annotated/results/model_bm25_2025-07-06_12-52-45"
+GROUND_TRUTH_PATH = "keats-search-eval/data/evaluation/llm-annotated/total_annotations/combined_annotations.jsonl"
+OUTPUT_DIR = (
+    "keats-search-eval/data/evaluation/llm-annotated/results/model_2025-07-23_02-14-00"
+)
 
-PREDICTIONS = {"bm25": PREDICTION_DIR}
+PREDICTIONS = {
+    "bm25": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25searchengine_predictions.csv",
+    "splade": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_18-13-02/spladesearchengine_predictions.csv",
+    "tfidf": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_03-03-14/tfidfsearchengine_predictions.csv",
+    "colbert": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_11-42-22/colbertsearchengine_predictions.csv",
+    "dpr": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_15-12-39/dprsearchengine_predictions.csv",
+    "bm25_ce": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25crossencodersearchengine_predictions.csv",
+    "ance": "keats-search-eval/data/evaluation/pre-annotated/2025-08-01_22-33-19/ancesearchengine_predictions.csv",
+}
 K = [5, 10]
 
 
@@ -17,7 +26,7 @@ def load_relevance_dict(path: str) -> dict[str, dict[str, int]]:
         for line in f:
             entry = json.loads(line)
             query_id = entry["query_id"]
-            doc_id = entry["doc_id"]
+            doc_id = entry["id"]
             relevance = 1 if entry["relevance"].lower() == "relevant" else 0
             relevance_dict.setdefault(query_id, {})[doc_id] = relevance
     return relevance_dict

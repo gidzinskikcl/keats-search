@@ -48,7 +48,8 @@ def load_model_predictions(
         reader = csv.DictReader(f)
         for row in reader:
             query_id = row["query_id"].strip()
-            doc_id = row["doc_id"].strip()
+
+            doc_id = row["id"].strip()
             doc = PredictedDocument(doc_id)
 
             if query_id not in predictions:

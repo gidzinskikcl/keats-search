@@ -71,7 +71,6 @@
                         </configuration>
                     </execution>
 
-
 <!--                    &lt;!&ndash; BM25 &ndash;&gt;-->
 <!--                    <execution>-->
 <!--                        <id>bm25-jar</id>-->
@@ -87,24 +86,6 @@
 <!--                                <descriptorRef>jar-with-dependencies</descriptorRef>-->
 <!--                            </descriptorRefs>-->
 <!--                            <finalName>bm25-search</finalName>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-
-<!--                    &lt;!&ndash; TF-IDF &ndash;&gt;-->
-<!--                    <execution>-->
-<!--                        <id>tfidf-jar</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals><goal>single</goal></goals>-->
-<!--                        <configuration>-->
-<!--                            <archive>-->
-<!--                                <manifest>-->
-<!--                                    <mainClass>uk.ac.kcl.inf.lucenesearch.TFIDFApp</mainClass>-->
-<!--                                </manifest>-->
-<!--                            </archive>-->
-<!--                            <descriptorRefs>-->
-<!--                                <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--                            </descriptorRefs>-->
-<!--                            <finalName>tfidf-search</finalName>-->
 <!--                        </configuration>-->
 <!--                    </execution>-->
 

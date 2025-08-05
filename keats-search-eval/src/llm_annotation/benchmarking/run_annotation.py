@@ -11,14 +11,23 @@ from llm_annotation.llm import annotator
 
 # === Configuration ===
 CSV_INPUT = pathlib.Path(
-    "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45/bm25searchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-10_16-22-38/spladesearchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_03-03-14/tfidfsearchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_11-42-22/colbertsearchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25crossencodersearchengine_predictions.csv"
+    # "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_15-12-39/dprsearchengine_predictions.csv"
+    "keats-search-eval/data/evaluation/pre-annotated/2025-08-01_22-33-19/ancesearchengine_predictions.csv"
 )
+# ALREADY_ANNOTATED = "keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00/annotations.jsonl"
+ALREADY_ANNOTATED = "keats-search-eval/data/evaluation/llm-annotated/total_annotations/combined_annotations.jsonl"
 PROMPT = templates.V2
 BATCH_SIZE = 100
 
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_DIR = pathlib.Path(
-    f"keats-search-eval/data/evaluation/llm-annotated/results/run-07-06-2025_12-30-00"
+
+    f"keats-search-eval/data/evaluation/llm-annotated/results/ance/run-08-02-2025_14-45-00"
 )
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -29,6 +38,17 @@ FAILED_FILE = OUTPUT_DIR / "failed_annotations.jsonl"
 # === Load Data ===
 df = pd.read_csv(CSV_INPUT)
 records = df.to_dict(orient="records")
+
+# === Skip already annotated ===
+already_annotated_pairs = set()
+with open(ALREADY_ANNOTATED, "r", encoding="utf-8") as f:
+    for line in f:
+        pair = json.loads(line)
+        already_annotated_pairs.add((pair["query_id"], pair["id"]))
+
+records = [
+    r for r in records if (r["query_id"], r["id"]) not in already_annotated_pairs
+]
 total = len(records)
 num_batches = (total + BATCH_SIZE - 1) // BATCH_SIZE
 
@@ -57,22 +77,23 @@ def annotate_entry(entry: dict) -> Union[dict, None]:
         result = annotator.annotate(
             client=client,
             prompt_module=PROMPT,
-            course_name=entry["course"],
-            lecture_name=entry["lecture"],
+            course_name=entry["course_id"],
+            lecture_name=entry["lecture_id"],
             question=entry["question"],
             answer=entry["answer"],
         )
         if result:
             result["query_id"] = entry["query_id"]
-            result["doc_id"] = entry["doc_id"]
+            result["id"] = entry["id"]
             result["rank"] = entry["rank"]
             result["model"] = entry["model"]
             return result
     except Exception as e:
+        print()
         return {
             "error": str(e),
             "query_id": entry["query_id"],
-            "doc_id": entry["doc_id"],
+            "id": entry["id"],
         }
 
 
@@ -117,14 +138,15 @@ for batch_id in range(num_batches):
             for line in f:
                 try:
                     item = json.loads(line)
-                    already_annotated_ids.add((item["query_id"], item["doc_id"]))
+                    already_annotated_ids.add((item["query_id"], item["id"]))
                     batch_results.append(item)  # ← this is missing!
                 except:
                     continue
 
     with open(inprogress_file, "a", encoding="utf-8") as progress_f:
         for entry in batch:
-            entry_key = (entry["query_id"], entry["doc_id"])
+            entry_key = (entry["query_id"], entry["id"])
+
             if entry_key in already_annotated_ids:
                 continue
 

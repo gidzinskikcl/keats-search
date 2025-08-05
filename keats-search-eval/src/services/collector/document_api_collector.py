@@ -72,7 +72,13 @@ def collect_api_documents(
     transcript_docs = collect_transcript_documents_api(
         srt_courses_dir, courses, transcript_extractor, srt_segmenter
     )
-    return pdf_docs + transcript_docs
+    print(f"How many srt docs are there: {len(transcript_docs)}")
+    print(f"Before: {len(pdf_docs)}")
+    result = pdf_docs + transcript_docs
+    print(f"After: {len(result)}")
+    print()
+    print(f"type: {transcript_docs[0].doc_type} | d {transcript_docs[0].id}")
+    return result
 
 
 def collect_pdf_documents_api(

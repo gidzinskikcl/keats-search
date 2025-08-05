@@ -78,9 +78,10 @@ def save_predictions(
                 "relevance_score",
                 "rank",
                 "model",
+                "id",
                 "doc_id",
-                "course",
-                "lecture",
+                "course_id",
+                "lecture_id",
             ]
         )
 
@@ -97,9 +98,10 @@ def save_predictions(
                             _clean(score),
                             rank,
                             _clean(model_name),
+                            _clean(doc.id),
                             _clean(doc.doc_id),
-                            _clean(doc.course_name),
-                            _clean(doc.title),
+                            _clean(doc.course_id),
+                            _clean(doc.lecture_id),
                         ]
                     )
                 except Exception as e:

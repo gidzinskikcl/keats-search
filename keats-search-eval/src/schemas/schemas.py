@@ -87,8 +87,9 @@ class TranscriptSegment:
 
 
 class MaterialType(enum.Enum):
-    SLIDES = "pdf"
-    TRANSCRIPT = "srt"
+    SLIDES = "SLIDE"
+    TRANSCRIPT = "VIDEO_TRANSCRIPT"
+
 
 
 @dataclass
@@ -105,16 +106,12 @@ class LectureMaterial:
 
 @dataclass
 class DocumentSchema:
-    doc_id: str
-    content: str
-    title: str  # lecture title
-    timestamp: Timestamp
-    pageNumber: int
-    keywords: list[str]
-    doc_type: MaterialType
-    speaker: str
-    course_name: str
-
+    id: str  # unique id for this object
+    doc_id: str  # id/file name of the paren file
+    content: str  # text, speech, content of the lecture segment
+    lecture_id: str  # id to differentiate between lecture in a corse
+    course_id: str  # e.g 7CCSMPRJ
+    doc_type: MaterialType  # pdf or mp4
 
 @dataclass
 class Query:

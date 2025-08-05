@@ -23,7 +23,6 @@ from dataclasses import dataclass
 #     prompt_tokens: int
 #     completion_tokens: int
 #     total_tokens: int
-
 # # Mimic the OpenAI response container
 # @dataclass
 # class AnnotationSetTest:
@@ -58,10 +57,12 @@ def annotate(
         parsed = annotations_set.choices[0].message.parsed
 
         # For testing purposes - randomly pick relevance
-        # relevance = random.choice([
-        #     response_schema.BinaryRelevance.RELEVANT,
-        #     response_schema.BinaryRelevance.NOTRELEVANT
-        # ])
+        # relevance = random.choice(
+        #     [
+        #         response_schema.BinaryRelevance.RELEVANT,
+        #         response_schema.BinaryRelevance.NOTRELEVANT,
+        #     ]
+        # )
 
         # parsed = ParsedTest(
         #     question=question,
@@ -73,12 +74,13 @@ def annotate(
         #     usage=UsageTest(
         #         prompt_tokens=random.randint(10, 50),
         #         completion_tokens=random.randint(10, 50),
-        #         total_tokens=0  # filled below
+        #         total_tokens=0,  # filled below
         #     ),
-        #     parsed=parsed
+        #     parsed=parsed,
         # )
         # annotations_set.usage.total_tokens = (
-        #     annotations_set.usage.prompt_tokens + annotations_set.usage.completion_tokens
+        #     annotations_set.usage.prompt_tokens
+        #     + annotations_set.usage.completion_tokens
         # )
 
         #  Access token usage from raw_response
@@ -89,7 +91,6 @@ def annotate(
             "answer": parsed.answer,
             "relevance": parsed.relevance.value,
             "tokens": token_usage,
-            # "reasoning": parsed.reasoning if parsed.reasoning else None
         }
 
     except Exception as e:
@@ -111,7 +112,6 @@ def _get_token_usage(
             usage.completion_tokens if hasattr(usage, "completion_tokens") else 0
         )
         total_tokens = usage.total_tokens if hasattr(usage, "total_tokens") else 0
-        # print(f"Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Total: {total_tokens}")
     else:
         print("Token usage information not available.")
 

@@ -6,59 +6,23 @@ import os
 from benchmarking.metrics import scikit_metrics
 from benchmarking.utils import loader, saver
 
-# PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-03_15-28-44" # old prediction before updating
-PREDICTION_DIR = "keats-search-eval/data/evaluation/pre-annotated/2025-07-06_12-52-45"  # new prediction after updating gt
+GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_21-07-2025.csv"
 
-# GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_24-06-2025.csv" # not updated
-GROUND_TRUTH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_24-06-2025.csv"  # updated
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_DIR = os.path.join(
     "keats-search-eval/data", "evaluation", "gt-annotated", "results", TIMESTAMP
 )
-# DOC_PATH = "keats-search-eval/data/documents/2025-07-03_12-22-08/documents.json" # with UA subtitles
-DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"  # without UA subtitles
+DOC_PATH = "keats-search-eval/data/documents/2025-07-05_16-26-20/documents.json"
 
 MODELS = {
-    "RandomSearchEngine": os.path.join(
-        PREDICTION_DIR, "randomsearchengine_predictions.csv"
-    ),
-    "SpladeSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-10_16-22-38/spladesearchengine_predictions.csv",
-    "BM25SearchEngine": os.path.join(
-        PREDICTION_DIR, "bm25searchengine_predictions.csv"
-    ),
-    "TFIDFSearchEngine": os.path.join(
-        PREDICTION_DIR, "tfidfsearchengine_predictions.csv"
-    ),
-    "BooleanSearchEngine": os.path.join(
-        PREDICTION_DIR, "booleansearchengine_predictions.csv"
-    ),
-    "dirichletsearchengine_mu_500": os.path.join(
-        PREDICTION_DIR, "dirichletsearchengine_mu_500_predictions.csv"
-    ),
-    "dirichletsearchengine_mu_1000": os.path.join(
-        PREDICTION_DIR, "dirichletsearchengine_mu_1000_predictions.csv"
-    ),
-    "dirichletsearchengine_mu_1500": os.path.join(
-        PREDICTION_DIR, "dirichletsearchengine_mu_1500_predictions.csv"
-    ),
-    "dirichletsearchengine_mu_2000": os.path.join(
-        PREDICTION_DIR, "dirichletsearchengine_mu_2000_predictions.csv"
-    ),
-    "lmjelinekmercersearchengine_lambda_0.1": os.path.join(
-        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.1_predictions.csv"
-    ),
-    "lmjelinekmercersearchengine_lambda_0.3": os.path.join(
-        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.3_predictions.csv"
-    ),
-    "lmjelinekmercersearchengine_lambda_0.5": os.path.join(
-        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.5_predictions.csv"
-    ),
-    "lmjelinekmercersearchengine_lambda_0.7": os.path.join(
-        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.7_predictions.csv"
-    ),
-    "lmjelinekmercersearchengine_lambda_0.9": os.path.join(
-        PREDICTION_DIR, "lmjelinekmercersearchengine_lambda_0.9_predictions.csv"
-    ),
+    "RandomSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/randomsearchengine_predictions.csv",
+    "BM25CrossEncoderSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25crossencodersearchengine_predictions.csv",
+    "SpladeSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_18-13-02/spladesearchengine_predictions.csv",
+    "ColBERTSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_11-42-22/colbertsearchengine_predictions.csv",
+    "BM25SearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25searchengine_predictions.csv",
+    "TFIDFSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_03-03-14/tfidfsearchengine_predictions.csv",
+    "ANCESearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-08-01_22-33-19/ancesearchengine_predictions.csv",
+    "DPRSearchEngine": "keats-search-eval/data/evaluation/pre-annotated/2025-08-02_14-38-09/dprsearchengine_predictions.csv",
 }
 
 K = [1, 5, 10]
