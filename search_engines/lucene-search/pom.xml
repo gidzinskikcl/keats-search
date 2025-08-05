@@ -71,6 +71,24 @@
                         </configuration>
                     </execution>
 
+                    <!-- TF-IDF -->
+                    <execution>
+                        <id>tfidf-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>single</goal></goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>uk.ac.kcl.inf.lucenesearch.TFIDFMain</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>tfidf-search</finalName>
+                        </configuration>
+                    </execution>
+
 
 <!--                    &lt;!&ndash; BM25 &ndash;&gt;-->
 <!--                    <execution>-->
@@ -90,23 +108,7 @@
 <!--                        </configuration>-->
 <!--                    </execution>-->
 
-<!--                    &lt;!&ndash; TF-IDF &ndash;&gt;-->
-<!--                    <execution>-->
-<!--                        <id>tfidf-jar</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals><goal>single</goal></goals>-->
-<!--                        <configuration>-->
-<!--                            <archive>-->
-<!--                                <manifest>-->
-<!--                                    <mainClass>uk.ac.kcl.inf.lucenesearch.TFIDFApp</mainClass>-->
-<!--                                </manifest>-->
-<!--                            </archive>-->
-<!--                            <descriptorRefs>-->
-<!--                                <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--                            </descriptorRefs>-->
-<!--                            <finalName>tfidf-search</finalName>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
+
 
 <!--                    &lt;!&ndash; Dirichlet &ndash;&gt;-->
 <!--                    <execution>-->
