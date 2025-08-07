@@ -1,0 +1,162 @@
+{
+  "id": "Z7r4aAZ9Vqo",
+  "title": "13. The Cilk Runtime System",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Tao B. Schardl\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nThis class is focused on the Cilk runtime system. It stresses the work-first principle: optimize for ordinary serial execution, at the expense of additional computation in steals. There in an emphasis on performance models and parallel runtime systems.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4906,
+  "view_count": 10325,
+  "tags": [
+    "cilk",
+    "worker deque",
+    "spawning",
+    "stealing computation",
+    "synchronizing computation",
+    "performance"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=Z7r4aAZ9Vqo",
+  "thumbnail": "https://i.ytimg.com/vi_webp/Z7r4aAZ9Vqo/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 108.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 108.0,
+      "title": "Recall: Cilk Programming",
+      "end_time": 157.0
+    },
+    {
+      "start_time": 157.0,
+      "title": "Recall: Cilk Scheduling",
+      "end_time": 208.0
+    },
+    {
+      "start_time": 208.0,
+      "title": "Recall: Cilk Platform",
+      "end_time": 336.0
+    },
+    {
+      "start_time": 336.0,
+      "title": "Outline",
+      "end_time": 376.0
+    },
+    {
+      "start_time": 376.0,
+      "title": "Recall: Execution Model",
+      "end_time": 569.0
+    },
+    {
+      "start_time": 569.0,
+      "title": "Serial Execution",
+      "end_time": 634.0
+    },
+    {
+      "start_time": 634.0,
+      "title": "Parallel Execution: Steals",
+      "end_time": 809.0
+    },
+    {
+      "start_time": 809.0,
+      "title": "Parallel Execution: Syncs",
+      "end_time": 1081.0
+    },
+    {
+      "start_time": 1081.0,
+      "title": "Recall: Cactus Stack",
+      "end_time": 1153.0
+    },
+    {
+      "start_time": 1153.0,
+      "title": "Recall: Work Stealing",
+      "end_time": 1277.0
+    },
+    {
+      "start_time": 1277.0,
+      "title": "Required Functionality",
+      "end_time": 1332.0
+    },
+    {
+      "start_time": 1332.0,
+      "title": "Recall: Work-Stealing Bounds",
+      "end_time": 1415.0
+    },
+    {
+      "start_time": 1415.0,
+      "title": "Parallel Speedup",
+      "end_time": 1477.0
+    },
+    {
+      "start_time": 1477.0,
+      "title": "Work Efficiency",
+      "end_time": 1520.0
+    },
+    {
+      "start_time": 1520.0,
+      "title": "The Work-First Principle",
+      "end_time": 1561.0
+    },
+    {
+      "start_time": 1561.0,
+      "title": "Division of Labor",
+      "end_time": 1639.0
+    },
+    {
+      "start_time": 1639.0,
+      "title": "Running Example",
+      "end_time": 1696.0
+    },
+    {
+      "start_time": 1696.0,
+      "title": "Requirements of Worker Deques",
+      "end_time": 1741.0
+    },
+    {
+      "start_time": 1741.0,
+      "title": "Basic Worker-Deque Design",
+      "end_time": 1835.0
+    },
+    {
+      "start_time": 1835.0,
+      "title": "Implementation Details",
+      "end_time": 1961.0
+    },
+    {
+      "start_time": 1961.0,
+      "title": "The Cilk Stack Frame (Simplified)",
+      "end_time": 2015.0
+    },
+    {
+      "start_time": 2015.0,
+      "title": "The Cilk Worker Structure (Simplified)",
+      "end_time": 2133.0
+    },
+    {
+      "start_time": 2133.0,
+      "title": "Code for a Spawning Function",
+      "end_time": 2245.0
+    },
+    {
+      "start_time": 2245.0,
+      "title": "Code for a Spawn Helper",
+      "end_time": 2521.0
+    },
+    {
+      "start_time": 2521.0,
+      "title": "Spawning a Function",
+      "end_time": 3275.0
+    },
+    {
+      "start_time": 3275.0,
+      "title": "Stealing a Frame A thief steals from the head of the victim worker's deque.",
+      "end_time": 3371.0
+    },
+    {
+      "start_time": 3371.0,
+      "title": "Synchronizing Deque Accesses",
+      "end_time": 4906
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/Z7r4aAZ9Vqo.en-j3PyPqV-e1s.srt"
+}

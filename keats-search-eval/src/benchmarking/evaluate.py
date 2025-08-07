@@ -1,43 +1,41 @@
 import pandas as pd
+
 import json
 import csv
 import os
-from datetime import datetime
+
 from benchmarking.metrics import scikit_metrics
 from benchmarking.utils import loader, saver
 
 # === CONFIGURATION ===
 K = [1, 5, 10]
-GROUND_TRUTH_PATH = "keats-search-eval/data/queries/validated/keats-search_queries_with_content_21-07-2025.csv"
-ANNOTATIONS = "keats-search-eval/data/evaluation/llm-annotated/total_annotations/combined_annotations.jsonl"
-OUTPUT_DIR = os.path.join(
-    "keats-search-eval/data",
-    "evaluation",
-    "results",
-    datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
-)
-README_PATH = "keats-search-eval/README.md"
-# PREDICTIONS = {
-#     "Random": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/randomsearchengine_predictions.csv",
-#     "BM25+CE": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25crossencodersearchengine_predictions.csv",
-#     "SPLADE": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_18-13-02/spladesearchengine_predictions.csv",
-#     "ColBERT": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_11-42-22/colbertsearchengine_predictions.csv",
-#     "BM25": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25searchengine_predictions.csv",
-#     "TFIDF": "keats-search-eval/data/evaluation/pre-annotated/2025-07-22_03-03-14/tfidfsearchengine_predictions.csv",
-#     "ANCE": "keats-search-eval/data/evaluation/pre-annotated/2025-08-01_22-33-19/ancesearchengine_predictions.csv",
-#     "DPR": "keats-search-eval/data/evaluation/pre-annotated/2025-08-02_14-38-09/dprsearchengine_predictions.csv",
-# }
 
-PREDICTIONS = {
-    "Random": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/randomsearchengine_predictions.csv",
-    "BM25+CE": "keats-search-eval/data/evaluation/pre-annotated/2025-07-21_13-47-43/bm25crossencodersearchengine_predictions.csv",
-    "SPLADE": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/spladesearchengine_predictions.csv",
-    "ColBERT": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/colbertsearchengine_predictions.csv",
-    "BM25": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/bm25searchengine_predictions.csv",
-    "TFIDF": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/tfidfsearchengine_predictions.csv",
-    "ANCE": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/ancesearchengine_predictions.csv",
-    "DPR": "keats-search-eval/data/evaluation/pre-annotated/2025-08-05_21-03-37/dprsearchengine_predictions.csv",
+GROUND_TRUTH_PATH = "fdata/ground_truth/queries.csv"
+ANNOTATIONS = "fdata/ground_truth/annotations.jsonl"
+
+OUTPUT_DIR = "fdata/workspace/results"
+
+
+PREDICTIONS_DIR = os.getenv("PREDICTIONS_DIR", "fdata/models_predictions")
+MODELS_TO_EVAL = os.getenv("EVAL_MODELS", "").split(",")
+
+all_predictions = {
+    "Random": f"{PREDICTIONS_DIR}/randomsearchengine_predictions.csv",
+    "BM25+CE": f"{PREDICTIONS_DIR}/bm25crossencodersearchengine_predictions.csv",
+    "SPLADE": f"{PREDICTIONS_DIR}/spladesearchengine_predictions.csv",
+    "ColBERT": f"{PREDICTIONS_DIR}/colbertsearchengine_predictions.csv",
+    "BM25": f"{PREDICTIONS_DIR}/bm25searchengine_predictions.csv",
+    "TFIDF": f"{PREDICTIONS_DIR}/tfidfsearchengine_predictions.csv",
+    "ANCE": f"{PREDICTIONS_DIR}/ancesearchengine_predictions.csv",
+    "DPR": f"{PREDICTIONS_DIR}/dprsearchengine_predictions.csv",
 }
+
+if MODELS_TO_EVAL and MODELS_TO_EVAL != [""]:
+    PREDICTIONS = {
+        name: path for name, path in all_predictions.items() if name in MODELS_TO_EVAL
+    }
+else:
+    PREDICTIONS = all_predictions
 
 
 # === HELPERS ===
@@ -178,7 +176,15 @@ def generate_latex_table(json_path, output_tex_path):
     df = df[[col for col in ordered_columns if col in df.columns]]
     df = df.drop(index="Random", errors="ignore")
 
-    desired_order = ["ColBERT", "SPLADE", "BM25+CE", "BM25", "TF-IDF", "ANCE", "DPR"]
+    desired_order = [
+        "ColBERT",
+        "SPLADE",
+        "BM25+CE",
+        "BM25",
+        "TF-IDF",
+        "ANCE",
+        "DPR",
+    ]
     df = df.loc[[model for model in desired_order if model in df.index]]
 
     formatted_df = pd.DataFrame(index=df.index, columns=df.columns)
@@ -221,39 +227,6 @@ def generate_latex_table(json_path, output_tex_path):
     print(df_clean)
 
 
-def generate_markdown_tables(data, k_metrics):
-    def get_score(data, k, model, metric):
-        return data.get(k, {}).get(model, {}).get(metric, None)
-
-    all_models = sorted({m for k, _ in k_metrics for m in data.get(k, {})})
-    tables = []
-
-    for k, metric in k_metrics:
-        header = "| Rank | Model Name | Score |\n"
-        separator = "|------|-------------|--------|\n"
-
-        rows = []
-        for model in all_models:
-            score = get_score(data, k, model, metric)
-            score_str = f"{score:.4f}" if score is not None else "-"
-            rows.append((model, score if score is not None else -1, score_str))
-
-        rows.sort(key=lambda x: x[1], reverse=True)
-        markdown_rows = [
-            f"| {i+1} | `{model}` | {score_str} |"
-            for i, (model, _, score_str) in enumerate(rows)
-        ]
-
-        table = (
-            f"### Rankings for {metric} (k={k})\n\n{header}{separator}"
-            + "\n".join(markdown_rows)
-            + "\n"
-        )
-        tables.append(table)
-
-    return "\n".join(tables)
-
-
 def main():
     print("Loading CSV-based GT relevance...")
     gt_relevance = load_csv_relevance_dict(GROUND_TRUTH_PATH)
@@ -271,29 +244,12 @@ def main():
     with open(out_path, "w") as f:
         json.dump(results_by_k, f, indent=4)
 
-    # ############################LATEX############################
-    # print("\nGenerating LaTeX table...")
-    # generate_latex_table(
-    #     out_path, os.path.join(OUTPUT_DIR, "search_engine_tabular.tex")
-    # )
-    # ############################LATEX############################
-
-    # ############################MARKDOWN#########################
-    # print("\nGenerating markdown rankings...")
-    # markdown = "# Evaluation Summary\n\n"
-    # k_metrics = [
-    #     ("1", "Precision@1"),
-    #     ("5", "NDCG@5"),
-    #     ("10", "NDCG@10"),
-    #     ("5", "MRR@5"),
-    #     ("10", "MRR@10"),
-    # ]
-    # markdown += generate_markdown_tables(results_by_k, k_metrics)
-
-    # with open(README_PATH, "w") as f:
-    #     f.write(markdown)
-    # print(markdown)
-    # ############################MARKDOWN#########################
+    ############################LATEX############################
+    print("\nGenerating LaTeX table...")
+    generate_latex_table(
+        out_path, os.path.join(OUTPUT_DIR, "search_engine_tabular.tex")
+    )
+    ############################LATEX############################
 
     print("\nEvaluation complete.")
 

@@ -1,0 +1,67 @@
+{
+  "id": "i9OAOk0CUQE",
+  "title": "18. Dynamic Programming, Part 4: Rods, Subset Sum, Pseudopolynomial",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the fourth and final lecture on dynamic programming. This class focusses on integer subproblems and pseudopolynomial time. Two worked examples are given: rod cutting and subset sum.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3825,
+  "view_count": 31622,
+  "tags": [
+    "dynamic programming, subproblems, rod cutting, subset sum, pseudopolynomial time, complexity"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=i9OAOk0CUQE",
+  "thumbnail": "https://i.ytimg.com/vi/i9OAOk0CUQE/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 250.0
+    },
+    {
+      "start_time": 250.0,
+      "title": "Rod Cutting",
+      "end_time": 840.0
+    },
+    {
+      "start_time": 840.0,
+      "title": "Recurrence",
+      "end_time": 1470.0
+    },
+    {
+      "start_time": 1470.0,
+      "title": "Decision Problem",
+      "end_time": 1680.0
+    },
+    {
+      "start_time": 1680.0,
+      "title": "Subset Sum",
+      "end_time": 2130.0
+    },
+    {
+      "start_time": 2130.0,
+      "title": "Topological Order",
+      "end_time": 2325.0
+    },
+    {
+      "start_time": 2325.0,
+      "title": "Example",
+      "end_time": 2685.0
+    },
+    {
+      "start_time": 2685.0,
+      "title": "Is it polynomial time",
+      "end_time": 2985.0
+    },
+    {
+      "start_time": 2985.0,
+      "title": "Is it pseudopolynomial",
+      "end_time": 3230.0
+    },
+    {
+      "start_time": 3230.0,
+      "title": "Characterization",
+      "end_time": 3825
+    }
+  ],
+  "transcript_file": null
+}

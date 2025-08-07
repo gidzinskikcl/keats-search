@@ -1,0 +1,104 @@
+{
+  "id": "uK5yvoXnkSk",
+  "title": "2. Optimization Problems",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag explains dynamic programming and shows some applications of the process.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2884,
+  "view_count": 238659,
+  "tags": [
+    "greedy algorithm",
+    "brute force algorithm",
+    "search tree",
+    "dynamic programming",
+    "recursion",
+    "overlapping subproblems",
+    "knapsack problem",
+    "exponential time"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=uK5yvoXnkSk",
+  "thumbnail": "https://i.ytimg.com/vi/uK5yvoXnkSk/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 139.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 139.0,
+      "title": "Brute Force Algorithm",
+      "end_time": 344.0
+    },
+    {
+      "start_time": 344.0,
+      "title": "A Search Tree Enumerates Possibilities",
+      "end_time": 987.0
+    },
+    {
+      "start_time": 987.0,
+      "title": "Header for Decision Tree Implementation",
+      "end_time": 1141.0
+    },
+    {
+      "start_time": 1141.0,
+      "title": "Search Tree Worked Great",
+      "end_time": 1171.0
+    },
+    {
+      "start_time": 1171.0,
+      "title": "Code to Try Larger Examples",
+      "end_time": 1483.0
+    },
+    {
+      "start_time": 1483.0,
+      "title": "Dynamic Programming?",
+      "end_time": 1545.0
+    },
+    {
+      "start_time": 1545.0,
+      "title": "Recursive Implementation of Fibonaci",
+      "end_time": 1700.0
+    },
+    {
+      "start_time": 1700.0,
+      "title": "Call Tree for Recursive Fibonaci(6) = 13",
+      "end_time": 1923.0
+    },
+    {
+      "start_time": 1923.0,
+      "title": "Using a Memo to Compute Fibonaci",
+      "end_time": 2062.0
+    },
+    {
+      "start_time": 2062.0,
+      "title": "When Does It Work?",
+      "end_time": 2331.0
+    },
+    {
+      "start_time": 2331.0,
+      "title": "A Different Menu",
+      "end_time": 2545.0
+    },
+    {
+      "start_time": 2545.0,
+      "title": "Overlapping Subproblems",
+      "end_time": 2658.0
+    },
+    {
+      "start_time": 2658.0,
+      "title": "Performance",
+      "end_time": 2826.0
+    },
+    {
+      "start_time": 2826.0,
+      "title": "Summary of Lectures 1-2",
+      "end_time": 2864.0
+    },
+    {
+      "start_time": 2864.0,
+      "title": "The \"Roll-over\" Optimization Problem",
+      "end_time": 2884
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/uK5yvoXnkSk.en-qlPKC2UN_YU.srt"
+}

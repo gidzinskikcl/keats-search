@@ -1,0 +1,86 @@
+{
+  "id": "9syvZr-9xwk",
+  "title": "1. Introduction, Finite Automata, Regular Expressions",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nIntroduction; course outline, mechanics, and expectations. Described finite automata, their formal definition, regular languages, regular operations, and regular expressions. Proved that the class of regular languages is closed under union. Started proving closure under concatenation.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 3634,
+  "view_count": 448781,
+  "tags": [
+    "finite automata",
+    "formal definition",
+    "regular languages",
+    "regular operations",
+    "regular expressions"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=9syvZr-9xwk",
+  "thumbnail": "https://i.ytimg.com/vi/9syvZr-9xwk/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 41.0
+    },
+    {
+      "start_time": 41.0,
+      "title": "Course Overview",
+      "end_time": 266.0
+    },
+    {
+      "start_time": 266.0,
+      "title": "Expectations",
+      "end_time": 554.0
+    },
+    {
+      "start_time": 554.0,
+      "title": "Subject Material",
+      "end_time": 678.0
+    },
+    {
+      "start_time": 678.0,
+      "title": "Finite Automata",
+      "end_time": 1120.0
+    },
+    {
+      "start_time": 1120.0,
+      "title": "Formal Definition",
+      "end_time": 1441.0
+    },
+    {
+      "start_time": 1441.0,
+      "title": "Strings and Languages",
+      "end_time": 1785.0
+    },
+    {
+      "start_time": 1785.0,
+      "title": "Examples",
+      "end_time": 2016.0
+    },
+    {
+      "start_time": 2016.0,
+      "title": "Regular Expressions",
+      "end_time": 2116.0
+    },
+    {
+      "start_time": 2116.0,
+      "title": "Star",
+      "end_time": 2608.0
+    },
+    {
+      "start_time": 2608.0,
+      "title": "Closure Properties",
+      "end_time": 2979.0
+    },
+    {
+      "start_time": 2979.0,
+      "title": "Building an Automata",
+      "end_time": 3364.0
+    },
+    {
+      "start_time": 3364.0,
+      "title": "Concatenation",
+      "end_time": 3634
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/9syvZr-9xwk.en-j3PyPqV-e1s.srt"
+}

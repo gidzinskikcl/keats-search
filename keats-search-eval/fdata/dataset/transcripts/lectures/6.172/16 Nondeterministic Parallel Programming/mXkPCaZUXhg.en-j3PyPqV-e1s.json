@@ -1,0 +1,79 @@
+{
+  "id": "mXkPCaZUXhg",
+  "title": "16. Nondeterministic Parallel Programming",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Charles Leiserson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Leiserson discusses nondeterministic parallel programming, atomicity implement through mutexes, determinacy races, and data races. Deadlock and the dining philosopher's problem are also discussed.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4932,
+  "view_count": 12680,
+  "tags": [
+    "mutual exclusion",
+    "atomicity",
+    "mutex",
+    "deadlock",
+    "transactional memory",
+    "convoying",
+    "contention",
+    "locks"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=mXkPCaZUXhg",
+  "thumbnail": "https://i.ytimg.com/vi_webp/mXkPCaZUXhg/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "MIT OpenCourseWare",
+      "end_time": 22.0
+    },
+    {
+      "start_time": 22.0,
+      "title": "Nondeterministic Parallel Programming",
+      "end_time": 271.0
+    },
+    {
+      "start_time": 271.0,
+      "title": "Golden Rule",
+      "end_time": 371.0
+    },
+    {
+      "start_time": 371.0,
+      "title": "Silver Rule",
+      "end_time": 645.0
+    },
+    {
+      "start_time": 645.0,
+      "title": "Encapsulation",
+      "end_time": 866.0
+    },
+    {
+      "start_time": 866.0,
+      "title": "Mutual Exclusion",
+      "end_time": 1041.0
+    },
+    {
+      "start_time": 1041.0,
+      "title": "Atomicity",
+      "end_time": 1854.0
+    },
+    {
+      "start_time": 1854.0,
+      "title": "Silks",
+      "end_time": 2149.0
+    },
+    {
+      "start_time": 2149.0,
+      "title": "Reentrant Nonreentrant",
+      "end_time": 2213.0
+    },
+    {
+      "start_time": 2213.0,
+      "title": "Fair or Unfair",
+      "end_time": 3567.0
+    },
+    {
+      "start_time": 3567.0,
+      "title": "What is deadlock",
+      "end_time": 4932
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/mXkPCaZUXhg.en-j3PyPqV-e1s.srt"
+}

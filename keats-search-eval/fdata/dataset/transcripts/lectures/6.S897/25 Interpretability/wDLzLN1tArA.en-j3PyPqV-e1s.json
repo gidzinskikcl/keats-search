@@ -1,0 +1,159 @@
+{
+  "id": "wDLzLN1tArA",
+  "title": "25. Interpretability",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits discusses interpretability because modern machine learning models are very difficult to understand. He discusses different methods that have been used to attempt to overcome inscrutable models. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4721,
+  "view_count": 5557,
+  "tags": [
+    "trust",
+    "LIME",
+    "desiderata",
+    "sampling",
+    "LEAFAGE",
+    "attention map",
+    "falling rule lists",
+    "interpretable models"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=wDLzLN1tArA",
+  "thumbnail": "https://i.ytimg.com/vi_webp/wDLzLN1tArA/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 18.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 18.0,
+      "title": "Interpretability",
+      "end_time": 278.0
+    },
+    {
+      "start_time": 278.0,
+      "title": "What Leads to Complex Models",
+      "end_time": 378.0
+    },
+    {
+      "start_time": 378.0,
+      "title": "Overfitting",
+      "end_time": 684.0
+    },
+    {
+      "start_time": 684.0,
+      "title": "Critique of Randomized Control Trials",
+      "end_time": 1050.0
+    },
+    {
+      "start_time": 1050.0,
+      "title": "Why Is It Important To Find Out a Locus of Infection",
+      "end_time": 1193.0
+    },
+    {
+      "start_time": 1193.0,
+      "title": "Approach to Explanation of Complex Models",
+      "end_time": 1202.0
+    },
+    {
+      "start_time": 1202.0,
+      "title": "Locally Interpretable Model Agnostic Explanations",
+      "end_time": 1295.0
+    },
+    {
+      "start_time": 1295.0,
+      "title": "Detect Data Leakage",
+      "end_time": 1394.0
+    },
+    {
+      "start_time": 1394.0,
+      "title": "David Koresh",
+      "end_time": 1569.0
+    },
+    {
+      "start_time": 1569.0,
+      "title": "It Must Be Model Agnostic",
+      "end_time": 1663.0
+    },
+    {
+      "start_time": 1663.0,
+      "title": "Interpretable Models",
+      "end_time": 1734.0
+    },
+    {
+      "start_time": 1734.0,
+      "title": "Proximity Measure",
+      "end_time": 1993.0
+    },
+    {
+      "start_time": 1993.0,
+      "title": "Text Classification",
+      "end_time": 2224.0
+    },
+    {
+      "start_time": 2224.0,
+      "title": "Image Interpretation",
+      "end_time": 2384.0
+    },
+    {
+      "start_time": 2384.0,
+      "title": "Explanation Matrix",
+      "end_time": 2648.0
+    },
+    {
+      "start_time": 2648.0,
+      "title": "Christianity versus Atheism Test",
+      "end_time": 2792.0
+    },
+    {
+      "start_time": 2792.0,
+      "title": "Images",
+      "end_time": 3147.0
+    },
+    {
+      "start_time": 3147.0,
+      "title": "Case Based Reasoning",
+      "end_time": 3159.0
+    },
+    {
+      "start_time": 3159.0,
+      "title": "Contrastive Justification",
+      "end_time": 3308.0
+    },
+    {
+      "start_time": 3308.0,
+      "title": "Prediction Models",
+      "end_time": 3508.0
+    },
+    {
+      "start_time": 3508.0,
+      "title": "Remote Annotation",
+      "end_time": 3842.0
+    },
+    {
+      "start_time": 3842.0,
+      "title": "Attention Is Not Explanation",
+      "end_time": 4009.0
+    },
+    {
+      "start_time": 4009.0,
+      "title": "Falling Rule List",
+      "end_time": 4135.0
+    },
+    {
+      "start_time": 4135.0,
+      "title": "Bayesian Approach",
+      "end_time": 4216.0
+    },
+    {
+      "start_time": 4216.0,
+      "title": "Frequent Itemsets Mining Algorithm",
+      "end_time": 4285.0
+    },
+    {
+      "start_time": 4285.0,
+      "title": "Gibbs Sampling",
+      "end_time": 4721
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/wDLzLN1tArA.en-j3PyPqV-e1s.srt"
+}

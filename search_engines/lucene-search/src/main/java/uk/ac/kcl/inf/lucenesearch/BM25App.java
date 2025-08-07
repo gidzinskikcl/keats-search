@@ -1,5 +1,6 @@
 package uk.ac.kcl.inf.lucenesearch;
 
+import org.apache.lucene.store.NIOFSDirectory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.store.FSDirectory;
@@ -43,7 +44,8 @@ public class BM25App {
                 mapper.getTypeFactory().constructMapType(Map.class, String.class, List.class)
         );
 
-        Directory directory = FSDirectory.open(Paths.get(indexPath));
+//        Directory directory = FSDirectory.open(Paths.get(indexPath));
+        Directory directory = new NIOFSDirectory(Paths.get(indexPath));
         Analyzer analyzer = new StandardAnalyzer();
         SearchService searchService = new LuceneSearchFilterService(directory, analyzer, new BM25Similarity());
         List<SearchResult> results = searchService.search(query, topK, filters);

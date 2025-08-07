@@ -1,0 +1,89 @@
+{
+  "id": "aJqgO8e37_g",
+  "title": "19. Disease Progression Modeling and Subtyping, Part 2",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag begins with a recap of the goal of disease progression modeling and then discusses staging from cross-sectional data and simultaneous staging and subtyping. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4349,
+  "view_count": 3506,
+  "tags": [
+    "staging",
+    "subtyping",
+    "COPD",
+    "generative model",
+    "markov model",
+    "inference",
+    "comorbidities",
+    "pseudo-time"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=aJqgO8e37_g",
+  "thumbnail": "https://i.ytimg.com/vi_webp/aJqgO8e37_g/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 591.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 591.0,
+      "title": "Outline of today's lecture",
+      "end_time": 784.0
+    },
+    {
+      "start_time": 784.0,
+      "title": "The big picture: generative model for patient data",
+      "end_time": 891.0
+    },
+    {
+      "start_time": 891.0,
+      "title": "Model for patient's disease progression across time",
+      "end_time": 1449.0
+    },
+    {
+      "start_time": 1449.0,
+      "title": "Model for data at single point in time: Noisy-OR network",
+      "end_time": 1720.0
+    },
+    {
+      "start_time": 1720.0,
+      "title": "Using anchors to ground the hidden variables",
+      "end_time": 2644.0
+    },
+    {
+      "start_time": 2644.0,
+      "title": "Experimental evaluation",
+      "end_time": 2675.0
+    },
+    {
+      "start_time": 2675.0,
+      "title": "Inference",
+      "end_time": 2786.0
+    },
+    {
+      "start_time": 2786.0,
+      "title": "Customizations for COPD",
+      "end_time": 2878.0
+    },
+    {
+      "start_time": 2878.0,
+      "title": "Edges learned for kidney disease",
+      "end_time": 2943.0
+    },
+    {
+      "start_time": 2943.0,
+      "title": "Edges learned for lung cancer",
+      "end_time": 3028.0
+    },
+    {
+      "start_time": 3028.0,
+      "title": "Progression of a single patient",
+      "end_time": 3257.0
+    },
+    {
+      "start_time": 3257.0,
+      "title": "Single-cell sequencing",
+      "end_time": 4349
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/aJqgO8e37_g.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "rUxP7TM8-wo",
+  "title": "7. Confidence Intervals",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag continues discussing Monte Carlo simulations.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3028,
+  "view_count": 186922,
+  "tags": [
+    "empirical rule",
+    "gaussian",
+    "normal distribution",
+    "probability density function",
+    "PDF",
+    "histogram",
+    "weights",
+    "integration",
+    "monte carlo simulation",
+    "central limit theorem",
+    "CLT",
+    "population sampling",
+    "Buffon-Laplace Method",
+    "law of large numbers",
+    "variance",
+    "confidence interval",
+    "standard deviation",
+    "finding Pi"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=rUxP7TM8-wo",
+  "thumbnail": "https://i.ytimg.com/vi_webp/rUxP7TM8-wo/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 56.0
+    },
+    {
+      "start_time": 56.0,
+      "title": "Assumptions Underlying Empirical Rule",
+      "end_time": 143.0
+    },
+    {
+      "start_time": 143.0,
+      "title": "Generating Normally Distributed Data",
+      "end_time": 531.0
+    },
+    {
+      "start_time": 531.0,
+      "title": "PDF for Normal Distribution",
+      "end_time": 972.0
+    },
+    {
+      "start_time": 972.0,
+      "title": "Checking the Empirical Rule",
+      "end_time": 1185.0
+    },
+    {
+      "start_time": 1185.0,
+      "title": "Everybody Likes Normal Distributions",
+      "end_time": 1383.0
+    },
+    {
+      "start_time": 1383.0,
+      "title": "The Central Limit Theorem (CLT)",
+      "end_time": 2032.0
+    },
+    {
+      "start_time": 2032.0,
+      "title": "Rhind Papyrus",
+      "end_time": 2386.0
+    },
+    {
+      "start_time": 2386.0,
+      "title": "Simulating Buffon-Laplace Method, cont.",
+      "end_time": 2805.0
+    },
+    {
+      "start_time": 2805.0,
+      "title": "Introduce a Bug",
+      "end_time": 3028
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/rUxP7TM8-wo.en-qlPKC2UN_YU.srt"
+}

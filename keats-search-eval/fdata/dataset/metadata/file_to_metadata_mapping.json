@@ -1,0 +1,849 @@
+[
+  {
+    "doc_id": "9syvZr-9xwk.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "1",
+    "lecture_title": "1 Introduction Finite Automata Regular Expressions"
+  },
+  {
+    "doc_id": "MGqoLm2aAgc.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "10",
+    "lecture_title": "10 Computation History Method"
+  },
+  {
+    "doc_id": "N-_XmLanPYg.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "11",
+    "lecture_title": "11 Recursion Theorem and Logic"
+  },
+  {
+    "doc_id": "asjAc90L8rE.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "12",
+    "lecture_title": "12 Time Complexity"
+  },
+  {
+    "doc_id": "1VhnDdQsELo.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "14",
+    "lecture_title": "14 P and NP SAT Poly-Time Reducibility"
+  },
+  {
+    "doc_id": "iZPzBHGDsWI.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "15",
+    "lecture_title": "15 NP-Completeness"
+  },
+  {
+    "doc_id": "6Az1gtDRaAU.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "16",
+    "lecture_title": "16 Cook-Levin Theorem"
+  },
+  {
+    "doc_id": "cT_qwkTigv4.en.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "17",
+    "lecture_title": "17 Space Complexity PSPACE Savitchs Theorem"
+  },
+  {
+    "doc_id": "aVv9WXwW95w.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "18",
+    "lecture_title": "18 PSPACE-Completeness"
+  },
+  {
+    "doc_id": "4dFPVJrNLDs.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "19",
+    "lecture_title": "19 Games Generalized Geography"
+  },
+  {
+    "doc_id": "oNsscmUwjMU.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "2",
+    "lecture_title": "2 Nondeterminism Closure Properties Conversion of Regular Expressions to FA"
+  },
+  {
+    "doc_id": "q3xvno_KgRY.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "20",
+    "lecture_title": "20 L and NL NL  coNL"
+  },
+  {
+    "doc_id": "vqFRAWeEcUs.en.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "21",
+    "lecture_title": "21 Hierarchy Theorems"
+  },
+  {
+    "doc_id": "N32bnUliSzo.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "22",
+    "lecture_title": "22 Provably Intractable Problems Oracles"
+  },
+  {
+    "doc_id": "Vp_AzDGQyrA.en.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "23",
+    "lecture_title": "23 Probabilistic Computation BPP"
+  },
+  {
+    "doc_id": "7J1HD9rqEB4.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "24",
+    "lecture_title": "24 Probabilistic Computation cont"
+  },
+  {
+    "doc_id": "TSI3LR5WZmo.en.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "25",
+    "lecture_title": "25 Interactive Proof Systems IP"
+  },
+  {
+    "doc_id": "eEXSv0jChO4.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "26",
+    "lecture_title": "26 coNP is a subset of IP"
+  },
+  {
+    "doc_id": "KAySmSEGc9U.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "3",
+    "lecture_title": "3 Regular Pumping Lemma Conversion of FA to Regular Expressions"
+  },
+  {
+    "doc_id": "m9eHViDPAJQ.en.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "4",
+    "lecture_title": "4 Pushdown Automata Conversion of CFG to PDA and Reverse Conversion"
+  },
+  {
+    "doc_id": "IycOPFmEQk8.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "5",
+    "lecture_title": "5 CF Pumping Lemma Turing Machines"
+  },
+  {
+    "doc_id": "TTArY7ojshU.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "6",
+    "lecture_title": "6 TM Variants Church-Turing Thesis"
+  },
+  {
+    "doc_id": "4MgN6uxd4i4.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "7",
+    "lecture_title": "7 Decision Problems for Automata and Grammars"
+  },
+  {
+    "doc_id": "3PzuSPQPEU4.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "8",
+    "lecture_title": "8 Undecidability"
+  },
+  {
+    "doc_id": "N28g_YBXY8Y.en-j3PyPqV-e1s.srt",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "9",
+    "lecture_title": "9 Reducibility"
+  },
+  {
+    "doc_id": "b4d9bf1573dccea21bee82cfba4224d4_MIT18_404f20_lec1.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "1",
+    "lecture_title": "1 Introduction Finite Automata Regular Expressions"
+  },
+  {
+    "doc_id": "a48f01c5374e72ee4f68a70bc0e38583_MIT18_404f20_lec10.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "10",
+    "lecture_title": "10 Computation History Method"
+  },
+  {
+    "doc_id": "779043ea724131d008eae652d703938f_MIT18_404f20_lec11.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "11",
+    "lecture_title": "11 Recursion Theorem and Logic"
+  },
+  {
+    "doc_id": "7278be637b3ba371d16c9dd574705e23_MIT18_404f20_lec12.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "12",
+    "lecture_title": "12 Time Complexity"
+  },
+  {
+    "doc_id": "45e2fd621349cfd7c9faf93a6ba134a3_MIT18_404f20_lec14.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "14",
+    "lecture_title": "14 P and NP SAT Poly-Time Reducibility"
+  },
+  {
+    "doc_id": "c1aca7046a69c913721e5eb910a5fb21_MIT18_404f20_lec15.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "15",
+    "lecture_title": "15 NP-Completeness"
+  },
+  {
+    "doc_id": "8212b19fc5a34f500ca6acf03a3a7d74_MIT18_404f20_lec16.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "16",
+    "lecture_title": "16 Cook-Levin Theorem"
+  },
+  {
+    "doc_id": "9b025394d997750b3cd765c7a074881f_MIT18_404f20_lec17.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "17",
+    "lecture_title": "17 Space Complexity PSPACE Savitchs Theorem"
+  },
+  {
+    "doc_id": "88f789664d3236a64481714fc911d119_MIT18_404f20_lec18.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "18",
+    "lecture_title": "18 PSPACE-Completeness"
+  },
+  {
+    "doc_id": "fd9c1b8656c7def498dcf662f6750d87_MIT18_404f20_lec19.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "19",
+    "lecture_title": "19 Games Generalized Geography"
+  },
+  {
+    "doc_id": "d741901d23b4522588e267177c77d10d_MIT18_404f20_lec2.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "2",
+    "lecture_title": "2 Nondeterminism Closure Properties Conversion of Regular Expressions to FA"
+  },
+  {
+    "doc_id": "c9b742bd624556b45ac75ea2fb133b32_MIT18_404f20_lec20.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "20",
+    "lecture_title": "20 L and NL NL  coNL"
+  },
+  {
+    "doc_id": "985c567f01d3ad47d737c3b33eb678ea_MIT18_404f20_lec21.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "21",
+    "lecture_title": "21 Hierarchy Theorems"
+  },
+  {
+    "doc_id": "50cb369d1be3c7fbe0886e318aea13c2_MIT18_404f20_lec22.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "22",
+    "lecture_title": "22 Provably Intractable Problems Oracles"
+  },
+  {
+    "doc_id": "44f3286933ae429ff3cd163e8181ee46_MIT18_404f20_lec23.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "23",
+    "lecture_title": "23 Probabilistic Computation BPP"
+  },
+  {
+    "doc_id": "cbfe4302bc8bfa4dca3c3bfcfd4661a8_MIT18_404f20_lec24.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "24",
+    "lecture_title": "24 Probabilistic Computation cont"
+  },
+  {
+    "doc_id": "fe9281999e2d720710e4b58de72aa7e0_MIT18_404f20_lec25.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "25",
+    "lecture_title": "25 Interactive Proof Systems IP"
+  },
+  {
+    "doc_id": "7ac944716e076209c3964e073929f42e_MIT18_404f20_lec26.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "26",
+    "lecture_title": "26 coNP is a subset of IP"
+  },
+  {
+    "doc_id": "a77711ed3d212bf472f3485883a121e0_MIT18_404f20_lec3.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "3",
+    "lecture_title": "3 Regular Pumping Lemma Conversion of FA to Regular Expressions"
+  },
+  {
+    "doc_id": "a22fce6f6824c53dbb79a0da786966a6_MIT18_404f20_lec4.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "4",
+    "lecture_title": "4 Pushdown Automata Conversion of CFG to PDA and Reverse Conversion"
+  },
+  {
+    "doc_id": "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "5",
+    "lecture_title": "5 CF Pumping Lemma Turing Machines"
+  },
+  {
+    "doc_id": "7405f6112c8ca7242e1edd9a021c1e63_MIT18_404f20_lec6.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "6",
+    "lecture_title": "6 TM Variants Church-Turing Thesis"
+  },
+  {
+    "doc_id": "78c0346bd81b6abcb2b1dde899adfc88_MIT18_404f20_lec7.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "7",
+    "lecture_title": "7 Decision Problems for Automata and Grammars"
+  },
+  {
+    "doc_id": "3ab8452b4b29eb28a1416e4a1575323c_MIT18_404f20_lec8.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "8",
+    "lecture_title": "8 Undecidability"
+  },
+  {
+    "doc_id": "dae35894f6f5d5d09bb9fc225c664fff_MIT18_404f20_lec9.pdf",
+    "course_id": "18.404J",
+    "course_title": "Theory of Computation",
+    "lecture_id": "9",
+    "lecture_title": "9 Reducibility"
+  },
+  {
+    "doc_id": "ZA-tUyM_y7s.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "1",
+    "lecture_title": "1 Algorithms and Computation"
+  },
+  {
+    "doc_id": "IBfWDYSffUU.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "10",
+    "lecture_title": "10 Depth-First Search"
+  },
+  {
+    "doc_id": "5cF5Bgv59Sc.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "11",
+    "lecture_title": "11 Weighted Shortest Paths"
+  },
+  {
+    "doc_id": "f9cVS_URPc0.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "12",
+    "lecture_title": "12 Bellman-Ford"
+  },
+  {
+    "doc_id": "NSHizBK9JD8.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "13",
+    "lecture_title": "13 Dijkstra"
+  },
+  {
+    "doc_id": "EmSmaW-ud6A.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "14",
+    "lecture_title": "14 APSP and Johnson"
+  },
+  {
+    "doc_id": "r4-cftqTcdI.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "15",
+    "lecture_title": "15 Dynamic Programming Part 1 SRTBOT Fib DAGs Bowling"
+  },
+  {
+    "doc_id": "KLBCUx1is2c.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "16",
+    "lecture_title": "16 Dynamic Programming Part 2 LCS LIS Coins"
+  },
+  {
+    "doc_id": "TDo3r5M1LNo.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "17",
+    "lecture_title": "17 Dynamic Programming Part 3 APSP Parens Piano"
+  },
+  {
+    "doc_id": "i9OAOk0CUQE.en.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "18",
+    "lecture_title": "18 Dynamic Programming Part 4 Rods Subset Sum Pseudopolynomial"
+  },
+  {
+    "doc_id": "JbafQJx1CIA.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "19",
+    "lecture_title": "19 Complexity"
+  },
+  {
+    "doc_id": "CHhwJjR0mZA.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "2",
+    "lecture_title": "2 Data Structures and Dynamic Arrays"
+  },
+  {
+    "doc_id": "2NMtS1ecb3o.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "20",
+    "lecture_title": "20 Course Review"
+  },
+  {
+    "doc_id": "4nXw-f6NJ9s.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "21",
+    "lecture_title": "21 AlgorithmsNext Steps"
+  },
+  {
+    "doc_id": "oS9aPzUNG-s.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "3",
+    "lecture_title": "3 Sets and Sorting"
+  },
+  {
+    "doc_id": "Nu8YGneFCWE.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "4",
+    "lecture_title": "4 Hashing"
+  },
+  {
+    "doc_id": "yndgIDO0zQQ.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "5",
+    "lecture_title": "5 Linear Sorting"
+  },
+  {
+    "doc_id": "76dhtgZt38A.en.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "6",
+    "lecture_title": "6 Binary Trees Part 1"
+  },
+  {
+    "doc_id": "U1JYwHcFfso.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "7",
+    "lecture_title": "7 Binary Trees Part 2 AVL"
+  },
+  {
+    "doc_id": "Xnpo1atN-Iw.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "8",
+    "lecture_title": "8 Binary Heaps"
+  },
+  {
+    "doc_id": "oFVYVzlvk9c.en-j3PyPqV-e1s.srt",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "9",
+    "lecture_title": "9 Breadth-First Search"
+  },
+  {
+    "doc_id": "477c78e0af2df61fa205bcc6cb613ceb_MIT6_006S20_lec1.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "1",
+    "lecture_title": "1 Algorithms and Computation"
+  },
+  {
+    "doc_id": "f3e349e0eb3288592289d2c81e0c4f4d_MIT6_006S20_lec10.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "10",
+    "lecture_title": "10 Depth-First Search"
+  },
+  {
+    "doc_id": "aa57a9785adf925bc85c1920f53755a0_MIT6_006S20_lec11.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "11",
+    "lecture_title": "11 Weighted Shortest Paths"
+  },
+  {
+    "doc_id": "2430d7903a5529451d80c17f89a41fe8_MIT6_006S20_lec12.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "12",
+    "lecture_title": "12 Bellman-Ford"
+  },
+  {
+    "doc_id": "d819e7f4568aced8d5b59e03db6c7b67_MIT6_006S20_lec13.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "13",
+    "lecture_title": "13 Dijkstra"
+  },
+  {
+    "doc_id": "7d7d5c35490f41b7b037cafbda7019ad_MIT6_006S20_lec14.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "14",
+    "lecture_title": "14 APSP and Johnson"
+  },
+  {
+    "doc_id": "9eb3e9a51a7b5b60b0f67c2277f8b0ee_MIT6_006S20_lec15.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "15",
+    "lecture_title": "15 Dynamic Programming Part 1 SRTBOT Fib DAGs Bowling"
+  },
+  {
+    "doc_id": "28461a74f81101874a13d9679a40584d_MIT6_006S20_lec16.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "16",
+    "lecture_title": "16 Dynamic Programming Part 2 LCS LIS Coins"
+  },
+  {
+    "doc_id": "665523227a175e9e9ce26ea8d3e5b51c_MIT6_006S20_lec17.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "17",
+    "lecture_title": "17 Dynamic Programming Part 3 APSP Parens Piano"
+  },
+  {
+    "doc_id": "mit6_006s20_lec18.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "18",
+    "lecture_title": "18 Dynamic Programming Part 4 Rods Subset Sum Pseudopolynomial"
+  },
+  {
+    "doc_id": "fda666a4db1dc65b3d71be08115502bd_MIT6_006S20_lec19.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "19",
+    "lecture_title": "19 Complexity"
+  },
+  {
+    "doc_id": "79a07dc1cb47d76dae2ffedc701e3d2b_MIT6_006S20_lec2.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "2",
+    "lecture_title": "2 Data Structures and Dynamic Arrays"
+  },
+  {
+    "doc_id": "aa4f264093faf990054cc4820553bb46_MIT6_006S20_lec20.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "20",
+    "lecture_title": "20 Course Review"
+  },
+  {
+    "doc_id": "6d1ae5278d02bbecb5c4428928b24194_MIT6_006S20_lec3.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "3",
+    "lecture_title": "3 Sets and Sorting"
+  },
+  {
+    "doc_id": "ce9e94705b914598ce78a00a70a1f734_MIT6_006S20_lec4.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "4",
+    "lecture_title": "4 Hashing"
+  },
+  {
+    "doc_id": "78a3c3444de1ff837f81e52991c24a86_MIT6_006S20_lec5.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "5",
+    "lecture_title": "5 Linear Sorting"
+  },
+  {
+    "doc_id": "376714cc85c6c784d90eec9c575ec027_MIT6_006S20_lec6.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "6",
+    "lecture_title": "6 Binary Trees Part 1"
+  },
+  {
+    "doc_id": "a2c80596cf4a2b5fbc854afdd2f23dcb_MIT6_006S20_lec7.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "7",
+    "lecture_title": "7 Binary Trees Part 2 AVL"
+  },
+  {
+    "doc_id": "40d4851e550507ca14dc778b9b2266cc_MIT6_006S20_lec8.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "8",
+    "lecture_title": "8 Binary Heaps"
+  },
+  {
+    "doc_id": "196a95604877d326c6586e60477b59d4_MIT6_006S20_lec9.pdf",
+    "course_id": "6.006",
+    "course_title": "Introduction to Algorithms",
+    "lecture_id": "9",
+    "lecture_title": "9 Breadth-First Search"
+  },
+  {
+    "doc_id": "C1lhuz6pZC0.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "1",
+    "lecture_title": "1 Introduction Optimization Problems MIT 60002 Intro to Computational Thinking and Data Science"
+  },
+  {
+    "doc_id": "fQvg-hh9dUw.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "10",
+    "lecture_title": "10 Understanding Experimental Data cont"
+  },
+  {
+    "doc_id": "h0e2HAPTGF4.en.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "11",
+    "lecture_title": "11 Introduction to Machine Learning"
+  },
+  {
+    "doc_id": "esmzYhuFnds.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "12",
+    "lecture_title": "12 Clustering"
+  },
+  {
+    "doc_id": "eg8DJYwdMyg.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "13",
+    "lecture_title": "13 Classification"
+  },
+  {
+    "doc_id": "K2SC-WPdT6k.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "14",
+    "lecture_title": "14 Classification and Statistical Sins"
+  },
+  {
+    "doc_id": "iOZVbILaIZc.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "15",
+    "lecture_title": "15 Statistical Sins and Wrap Up"
+  },
+  {
+    "doc_id": "uK5yvoXnkSk.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "2",
+    "lecture_title": "2 Optimization Problems"
+  },
+  {
+    "doc_id": "V_TulH374hw.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "3",
+    "lecture_title": "3 Graph-theoretic Models"
+  },
+  {
+    "doc_id": "-1BnXEwHUok.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "4",
+    "lecture_title": "4 Stochastic Thinking"
+  },
+  {
+    "doc_id": "6wUD_gp5WeE.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "5",
+    "lecture_title": "5 Random Walks"
+  },
+  {
+    "doc_id": "OgO1gpXSUzU.en-j3PyPqV-e1s.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "6",
+    "lecture_title": "6 Monte Carlo Simulation"
+  },
+  {
+    "doc_id": "rUxP7TM8-wo.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "7",
+    "lecture_title": "7 Confidence Intervals"
+  },
+  {
+    "doc_id": "soZv_KKax3E.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "8",
+    "lecture_title": "8 Sampling and Standard Error"
+  },
+  {
+    "doc_id": "vIFKGFl1Cn8.en-qlPKC2UN_YU.srt",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "9",
+    "lecture_title": "9 Understanding Experimental Data"
+  },
+  {
+    "doc_id": "aa05d858752700adcf734b7cdb7a699f_MIT6_0002F16_lec10.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "10",
+    "lecture_title": "10 Understanding Experimental Data cont"
+  },
+  {
+    "doc_id": "4c4fc506075a8502ccc5191583d22882_MIT6_0002F16_lec11.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "11",
+    "lecture_title": "11 Introduction to Machine Learning"
+  },
+  {
+    "doc_id": "367ebcbfde99ec18e14e87b69f564035_MIT6_0002F16_lec12.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "12",
+    "lecture_title": "12 Clustering"
+  },
+  {
+    "doc_id": "19a63b4aaa3fd9c75cd1b8e940654f53_MIT6_0002F16_lec13.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "13",
+    "lecture_title": "13 Classification"
+  },
+  {
+    "doc_id": "b9d60f4ecb325e4648f9cf0379419338_MIT6_0002F16_lec14.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "14",
+    "lecture_title": "14 Classification and Statistical Sins"
+  },
+  {
+    "doc_id": "77d2977095e184f22da9bb75faf39535_MIT6_0002F16_lec15.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "15",
+    "lecture_title": "15 Statistical Sins and Wrap Up"
+  },
+  {
+    "doc_id": "0a353b26f1c6bd161b28b3f249aa05d1_MIT6_0002F16_lec1.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "1",
+    "lecture_title": "1 Introduction Optimization Problems MIT 60002 Intro to Computational Thinking and Data Science"
+  },
+  {
+    "doc_id": "3edc8db04a770f3da51086320c8fe4da_MIT6_0002F16_lec2.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "2",
+    "lecture_title": "2 Optimization Problems"
+  },
+  {
+    "doc_id": "69b5b28067ecf1769a6143453d77eba1_MIT6_0002F16_lec3.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "3",
+    "lecture_title": "3 Graph-theoretic Models"
+  },
+  {
+    "doc_id": "5b4ec0ef29910b74e6a4bbd5ccf4dda5_MIT6_0002F16_lec4.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "4",
+    "lecture_title": "4 Stochastic Thinking"
+  },
+  {
+    "doc_id": "508a9076aebfc7d597dde836255182c7_MIT6_0002F16_lec5.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "5",
+    "lecture_title": "5 Random Walks"
+  },
+  {
+    "doc_id": "5af20311b02eaab959fcdb7ffb5694d3_MIT6_0002F16_lec6.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "6",
+    "lecture_title": "6 Monte Carlo Simulation"
+  },
+  {
+    "doc_id": "3d8b8210a6f919be25369d985b650abf_MIT6_0002F16_lec7.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "7",
+    "lecture_title": "7 Confidence Intervals"
+  },
+  {
+    "doc_id": "02f2ed5e44be5415b2cba8175c924092_MIT6_0002F16_lec8.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "8",
+    "lecture_title": "8 Sampling and Standard Error"
+  },
+  {
+    "doc_id": "20a7e184a1a2b3c34a5055dc1f1dc066_MIT6_0002F16_lec9.pdf",
+    "course_id": "6.0002",
+    "course_title": "Introduction to Computational Thinking and Data Science",
+    "lecture_id": "9",
+    "lecture_title": "9 Understanding Experimental Data"
+  }
+]

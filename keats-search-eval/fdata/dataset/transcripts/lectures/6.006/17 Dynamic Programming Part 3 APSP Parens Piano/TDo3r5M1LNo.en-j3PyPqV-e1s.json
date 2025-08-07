@@ -1,0 +1,92 @@
+{
+  "id": "TDo3r5M1LNo",
+  "title": "17. Dynamic Programming, Part 3: APSP, Parens, Piano",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the third of four lectures on dynamic programming. This focusses on applying subproblem constraints and expansions to example problems including, Bellman-Ford SSSP, Floyd-Warshall APSP, arithmetic parenthesization, and piano/guitar fingering.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3825,
+  "view_count": 30392,
+  "tags": [
+    "Floyd-Warshall, all pairs shortest path, arithmetic parenthesization, piano fingering, DAG"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=TDo3r5M1LNo",
+  "thumbnail": "https://i.ytimg.com/vi/TDo3r5M1LNo/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 86.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 86.0,
+      "title": "Why Did Bellman Call Dynamic Programming Dynamic Programming",
+      "end_time": 179.0
+    },
+    {
+      "start_time": 179.0,
+      "title": "Adding Constraints to Sub-Problems",
+      "end_time": 476.0
+    },
+    {
+      "start_time": 476.0,
+      "title": "Single Source Shortest Paths in General Graphs",
+      "end_time": 511.0
+    },
+    {
+      "start_time": 511.0,
+      "title": "Subproblem Constraint",
+      "end_time": 757.0
+    },
+    {
+      "start_time": 757.0,
+      "title": "All Pairs Shortest Paths",
+      "end_time": 826.0
+    },
+    {
+      "start_time": 826.0,
+      "title": "Floyd Warshall",
+      "end_time": 1248.0
+    },
+    {
+      "start_time": 1248.0,
+      "title": "Base Case",
+      "end_time": 1478.0
+    },
+    {
+      "start_time": 1478.0,
+      "title": "Sub Problem Expansion",
+      "end_time": 1523.0
+    },
+    {
+      "start_time": 1523.0,
+      "title": "Arithmetic Parenthesization",
+      "end_time": 1735.0
+    },
+    {
+      "start_time": 1735.0,
+      "title": "Sequence Problem",
+      "end_time": 2803.0
+    },
+    {
+      "start_time": 2803.0,
+      "title": "Piano Fingering",
+      "end_time": 2872.0
+    },
+    {
+      "start_time": 2872.0,
+      "title": "Fingers to Notes",
+      "end_time": 3181.0
+    },
+    {
+      "start_time": 3181.0,
+      "title": "Sub-Problem Expansion",
+      "end_time": 3227.0
+    },
+    {
+      "start_time": 3227.0,
+      "title": "Sub Problem Constraint",
+      "end_time": 3825
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/TDo3r5M1LNo.en-j3PyPqV-e1s.srt"
+}

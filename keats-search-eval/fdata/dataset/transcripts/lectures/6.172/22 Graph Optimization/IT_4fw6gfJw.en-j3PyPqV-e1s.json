@@ -1,0 +1,101 @@
+{
+  "id": "IT_4fw6gfJw",
+  "title": "22. Graph Optimization",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Shun discusses graph optimizations, algorithmic and by exploiting locality, and issues such how real-world graphs are large and sparse, irregular graph algorithms with many memory accesses, and optimizations working for some graphs, but not others.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4719,
+  "view_count": 14528,
+  "tags": [
+    "graph representations",
+    "breadth first search",
+    "parallelizing",
+    "direction optimizing",
+    "graph compression"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=IT_4fw6gfJw",
+  "thumbnail": "https://i.ytimg.com/vi_webp/IT_4fw6gfJw/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 47.0
+    },
+    {
+      "start_time": 47.0,
+      "title": "Outline",
+      "end_time": 78.0
+    },
+    {
+      "start_time": 78.0,
+      "title": "What is a graph?",
+      "end_time": 303.0
+    },
+    {
+      "start_time": 303.0,
+      "title": "Social network queries",
+      "end_time": 357.0
+    },
+    {
+      "start_time": 357.0,
+      "title": "Finding good clusters",
+      "end_time": 938.0
+    },
+    {
+      "start_time": 938.0,
+      "title": "Tradeoffs in Graph Representations . What is the cost of different operations?",
+      "end_time": 1342.0
+    },
+    {
+      "start_time": 1342.0,
+      "title": "Properties of real-world graphs",
+      "end_time": 1546.0
+    },
+    {
+      "start_time": 1546.0,
+      "title": "Breadth-First Search (BFS)",
+      "end_time": 1724.0
+    },
+    {
+      "start_time": 1724.0,
+      "title": "Serial BFS Algorithm",
+      "end_time": 2236.0
+    },
+    {
+      "start_time": 2236.0,
+      "title": "Analyzing the program",
+      "end_time": 2427.0
+    },
+    {
+      "start_time": 2427.0,
+      "title": "BFS with bitvector",
+      "end_time": 2539.0
+    },
+    {
+      "start_time": 2539.0,
+      "title": "Parallel BFS Algorithm",
+      "end_time": 2780.0
+    },
+    {
+      "start_time": 2780.0,
+      "title": "Parallel BFS Code",
+      "end_time": 3444.0
+    },
+    {
+      "start_time": 3444.0,
+      "title": "Golden Rule of Parallel Programming",
+      "end_time": 3491.0
+    },
+    {
+      "start_time": 3491.0,
+      "title": "Dealing with nondeterminism",
+      "end_time": 3504.0
+    },
+    {
+      "start_time": 3504.0,
+      "title": "Deterministic parallel BFS",
+      "end_time": 4719
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/IT_4fw6gfJw.en-j3PyPqV-e1s.srt"
+}

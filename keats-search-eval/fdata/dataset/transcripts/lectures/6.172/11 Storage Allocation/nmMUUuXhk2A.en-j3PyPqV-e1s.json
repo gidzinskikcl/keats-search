@@ -1,0 +1,141 @@
+{
+  "id": "nmMUUuXhk2A",
+  "title": "11. Storage Allocation",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nThis lecture discusses different means of storage allocation, including stacks, fixed-sized heaps, and variable-sized heaps. The lecture also discusses garbage collection, including by counting reference pointers, mark-and-sweep, and stop-and-copy.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 3925,
+  "view_count": 20228,
+  "tags": [
+    "heap allocation",
+    "variable-size heap",
+    "garbage collection",
+    "reference counting",
+    "storage allocation"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=nmMUUuXhk2A",
+  "thumbnail": "https://i.ytimg.com/vi_webp/nmMUUuXhk2A/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 80.0
+    },
+    {
+      "start_time": 80.0,
+      "title": "Stack Allocation",
+      "end_time": 177.0
+    },
+    {
+      "start_time": 177.0,
+      "title": "Stack Deallocation",
+      "end_time": 273.0
+    },
+    {
+      "start_time": 273.0,
+      "title": "Stack Storage",
+      "end_time": 361.0
+    },
+    {
+      "start_time": 361.0,
+      "title": "Stacks and Heaps",
+      "end_time": 409.0
+    },
+    {
+      "start_time": 409.0,
+      "title": "Heap Allocation",
+      "end_time": 669.0
+    },
+    {
+      "start_time": 669.0,
+      "title": "Fixed-Size Allocation",
+      "end_time": 1035.0
+    },
+    {
+      "start_time": 1035.0,
+      "title": "Mitigating External Fragmentation",
+      "end_time": 1192.0
+    },
+    {
+      "start_time": 1192.0,
+      "title": "Variable-Size Allocation",
+      "end_time": 1278.0
+    },
+    {
+      "start_time": 1278.0,
+      "title": "Allocation for Binned Free Lists",
+      "end_time": 1630.0
+    },
+    {
+      "start_time": 1630.0,
+      "title": "Storage Layout of a Program high address",
+      "end_time": 1845.0
+    },
+    {
+      "start_time": 1845.0,
+      "title": "How Virtual is Virtual Memory?",
+      "end_time": 1909.0
+    },
+    {
+      "start_time": 1909.0,
+      "title": "Analysis of Binned Free Lists",
+      "end_time": 2048.0
+    },
+    {
+      "start_time": 2048.0,
+      "title": "Coalescing",
+      "end_time": 2156.0
+    },
+    {
+      "start_time": 2156.0,
+      "title": "Garbage Collectors",
+      "end_time": 2257.0
+    },
+    {
+      "start_time": 2257.0,
+      "title": "Garbage Collection",
+      "end_time": 2521.0
+    },
+    {
+      "start_time": 2521.0,
+      "title": "Limitation of Reference Counting",
+      "end_time": 2673.0
+    },
+    {
+      "start_time": 2673.0,
+      "title": "Graph Abstraction",
+      "end_time": 2897.0
+    },
+    {
+      "start_time": 2897.0,
+      "title": "Mark-and-Sweep",
+      "end_time": 3030.0
+    },
+    {
+      "start_time": 3030.0,
+      "title": "Breadth-First Search",
+      "end_time": 3145.0
+    },
+    {
+      "start_time": 3145.0,
+      "title": "Copying Garbage Collector",
+      "end_time": 3240.0
+    },
+    {
+      "start_time": 3240.0,
+      "title": "Updating Pointers",
+      "end_time": 3270.0
+    },
+    {
+      "start_time": 3270.0,
+      "title": "Example",
+      "end_time": 3508.0
+    },
+    {
+      "start_time": 3508.0,
+      "title": "When is the FROM Space \"Full\"?",
+      "end_time": 3925
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/nmMUUuXhk2A.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "oNsscmUwjMU",
+  "title": "2. Nondeterminism, Closure Properties, Conversion of Regular Expressions to FA",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Introduced nondeterministic finite automata (NFA). Proved that NFA and DFA are equivalent in power. Proved that the class of regular languages is closed under concatenation and star. Showed conversion of regular expressions to NFAs.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 3807,
+  "view_count": 118410,
+  "tags": [
+    "nondeterministic finite automata, regular languages, regular expressions"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=oNsscmUwjMU",
+  "thumbnail": "https://i.ytimg.com/vi/oNsscmUwjMU/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 25.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 25.0,
+      "title": "18.404/6.840 Lecture 2",
+      "end_time": 172.0
+    },
+    {
+      "start_time": 172.0,
+      "title": "Closure Properties for Regular Languages",
+      "end_time": 407.0
+    },
+    {
+      "start_time": 407.0,
+      "title": "Nondeterministic Finite Automata",
+      "end_time": 1251.0
+    },
+    {
+      "start_time": 1251.0,
+      "title": "NFA - Formal Definition",
+      "end_time": 2148.0
+    },
+    {
+      "start_time": 2148.0,
+      "title": "Return to Closure Properties",
+      "end_time": 2438.0
+    },
+    {
+      "start_time": 2438.0,
+      "title": "Closure under o (concatenation)",
+      "end_time": 2666.0
+    },
+    {
+      "start_time": 2666.0,
+      "title": "Closure under* (star)",
+      "end_time": 3457.0
+    },
+    {
+      "start_time": 3457.0,
+      "title": "Regular Expressions \u2192 NFA",
+      "end_time": 3807
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/oNsscmUwjMU.en-j3PyPqV-e1s.srt"
+}

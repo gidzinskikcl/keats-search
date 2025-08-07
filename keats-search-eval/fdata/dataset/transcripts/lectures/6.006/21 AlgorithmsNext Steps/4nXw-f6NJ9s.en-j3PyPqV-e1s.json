@@ -1,0 +1,82 @@
+{
+  "id": "4nXw-f6NJ9s",
+  "title": "21. Algorithms\u2014Next Steps",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine, Jason Ku, Justin Solomon\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nIn this lecture, Erik Demaine, Jason Ku, and Justin Solomon talk about their own research in algorithms. This includes origami, folding designs, and applied geometry.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3565,
+  "view_count": 42853,
+  "tags": [
+    "algorithms, origami, folding design, applied geometry, data structures"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=4nXw-f6NJ9s",
+  "thumbnail": "https://i.ytimg.com/vi/4nXw-f6NJ9s/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGEgZShLMA8=&rs=AOn4CLA-DigQnudX5wtIuDHB4Uzykms1oQ",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 864.0
+    },
+    {
+      "start_time": 864.0,
+      "title": "SelfAssembly",
+      "end_time": 1033.0
+    },
+    {
+      "start_time": 1033.0,
+      "title": "Replicator",
+      "end_time": 1079.0
+    },
+    {
+      "start_time": 1079.0,
+      "title": "Data Structures",
+      "end_time": 1423.0
+    },
+    {
+      "start_time": 1423.0,
+      "title": "Graphs",
+      "end_time": 1737.0
+    },
+    {
+      "start_time": 1737.0,
+      "title": "Hardness",
+      "end_time": 1812.0
+    },
+    {
+      "start_time": 1812.0,
+      "title": "Picture Hanging",
+      "end_time": 2080.0
+    },
+    {
+      "start_time": 2080.0,
+      "title": "Computer Graphics",
+      "end_time": 2466.0
+    },
+    {
+      "start_time": 2466.0,
+      "title": "Research",
+      "end_time": 2636.0
+    },
+    {
+      "start_time": 2636.0,
+      "title": "Raycasting",
+      "end_time": 2728.0
+    },
+    {
+      "start_time": 2728.0,
+      "title": "The Stanford Bunny",
+      "end_time": 2817.0
+    },
+    {
+      "start_time": 2817.0,
+      "title": "Data Structures Algorithms",
+      "end_time": 3497.0
+    },
+    {
+      "start_time": 3497.0,
+      "title": "Outro",
+      "end_time": 3565
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/4nXw-f6NJ9s.en-j3PyPqV-e1s.srt"
+}

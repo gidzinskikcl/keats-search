@@ -1,0 +1,109 @@
+{
+  "id": "ZQu2B3GyI_k",
+  "title": "9. Translating Technology Into the Clinic",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits, Adam Wright\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits discusses the hype cycle as well as two examples of machine learning: Watson for Oncology and Computerized Physician Order Entry. Guest speaker Adam Wright speaks about the development of a medication related decision support system.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4966,
+  "view_count": 4235,
+  "tags": [
+    "hype cycle",
+    "Watson",
+    "CPOE",
+    "biomedical research",
+    "FDA",
+    "algorithms",
+    "medical technologies",
+    "pharmacology"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=ZQu2B3GyI_k",
+  "thumbnail": "https://i.ytimg.com/vi_webp/ZQu2B3GyI_k/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 80.0
+    },
+    {
+      "start_time": 80.0,
+      "title": "HIMSS",
+      "end_time": 600.0
+    },
+    {
+      "start_time": 600.0,
+      "title": "Watson Health",
+      "end_time": 992.0
+    },
+    {
+      "start_time": 992.0,
+      "title": "CPOE",
+      "end_time": 1744.0
+    },
+    {
+      "start_time": 1744.0,
+      "title": "Threshold",
+      "end_time": 1780.0
+    },
+    {
+      "start_time": 1780.0,
+      "title": "New England Journal",
+      "end_time": 1813.0
+    },
+    {
+      "start_time": 1813.0,
+      "title": "Replication",
+      "end_time": 1860.0
+    },
+    {
+      "start_time": 1860.0,
+      "title": "Evaluation",
+      "end_time": 2343.0
+    },
+    {
+      "start_time": 2343.0,
+      "title": "Vis",
+      "end_time": 2362.0
+    },
+    {
+      "start_time": 2362.0,
+      "title": "Duras",
+      "end_time": 2379.0
+    },
+    {
+      "start_time": 2379.0,
+      "title": "Book on the Left",
+      "end_time": 2463.0
+    },
+    {
+      "start_time": 2463.0,
+      "title": "Adam Wright",
+      "end_time": 2551.0
+    },
+    {
+      "start_time": 2551.0,
+      "title": "Decision Support Systems",
+      "end_time": 2912.0
+    },
+    {
+      "start_time": 2912.0,
+      "title": "Alarm Fatigue",
+      "end_time": 3020.0
+    },
+    {
+      "start_time": 3020.0,
+      "title": "Accuracy of Data",
+      "end_time": 3162.0
+    },
+    {
+      "start_time": 3162.0,
+      "title": "Inpatient vs Outpatient",
+      "end_time": 3313.0
+    },
+    {
+      "start_time": 3313.0,
+      "title": "Whats the right approach",
+      "end_time": 4966
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/ZQu2B3GyI_k.en-j3PyPqV-e1s.srt"
+}

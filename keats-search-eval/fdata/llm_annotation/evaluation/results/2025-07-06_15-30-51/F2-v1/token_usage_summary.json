@@ -1,0 +1,14 @@
+{
+  "total_prompt_tokens": 90235,
+  "total_completion_tokens": 55928,
+  "total_tokens": 146163,
+  "total_cost_usd": 1.569735,
+  "average_prompt_tokens": 1002.61,
+  "average_completion_tokens": 621.42,
+  "average_total_tokens": 1624.03,
+  "average_cost_usd": 0.017441,
+  "median_prompt_tokens": 823.0,
+  "median_completion_tokens": 456.0,
+  "median_total_tokens": 1260.5,
+  "median_cost_usd": 0.013137
+}

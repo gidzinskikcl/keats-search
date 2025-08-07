@@ -1,0 +1,97 @@
+{
+  "id": "wqI_z1yumzY",
+  "title": "5. Risk Stratification, Part 2",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag continues with the topic of risk stratification. He discusses the derivation of labels for data, evaluation of model performance, and the subtleties with machine learning-based risk stratification. The lecture finishes with survival modeling.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4808,
+  "view_count": 9351,
+  "tags": [
+    "risk stratification",
+    "survival modeling",
+    "ROC curve",
+    "evaluation",
+    "non-stationarity",
+    "survival model"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=wqI_z1yumzY",
+  "thumbnail": "https://i.ytimg.com/vi_webp/wqI_z1yumzY/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 128.0
+    },
+    {
+      "start_time": 128.0,
+      "title": "Where do labels come from",
+      "end_time": 386.0
+    },
+    {
+      "start_time": 386.0,
+      "title": "How do labels come from",
+      "end_time": 539.0
+    },
+    {
+      "start_time": 539.0,
+      "title": "How do you evaluate",
+      "end_time": 727.0
+    },
+    {
+      "start_time": 727.0,
+      "title": "Example",
+      "end_time": 1099.0
+    },
+    {
+      "start_time": 1099.0,
+      "title": "Receiver Operator Curve",
+      "end_time": 1221.0
+    },
+    {
+      "start_time": 1221.0,
+      "title": "Area Under the ROC Curve",
+      "end_time": 1303.0
+    },
+    {
+      "start_time": 1303.0,
+      "title": "Alternative Definition",
+      "end_time": 1642.0
+    },
+    {
+      "start_time": 1642.0,
+      "title": "Calibration",
+      "end_time": 2101.0
+    },
+    {
+      "start_time": 2101.0,
+      "title": "Summary",
+      "end_time": 2564.0
+    },
+    {
+      "start_time": 2564.0,
+      "title": "Example of excesses",
+      "end_time": 2646.0
+    },
+    {
+      "start_time": 2646.0,
+      "title": "Did we do anything wrong",
+      "end_time": 2831.0
+    },
+    {
+      "start_time": 2831.0,
+      "title": "Predicting antibiotic resistance",
+      "end_time": 3221.0
+    },
+    {
+      "start_time": 3221.0,
+      "title": "Intervention tainted outcomes",
+      "end_time": 3311.0
+    },
+    {
+      "start_time": 3311.0,
+      "title": "Risk stratification",
+      "end_time": 4808
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/wqI_z1yumzY.en-j3PyPqV-e1s.srt"
+}

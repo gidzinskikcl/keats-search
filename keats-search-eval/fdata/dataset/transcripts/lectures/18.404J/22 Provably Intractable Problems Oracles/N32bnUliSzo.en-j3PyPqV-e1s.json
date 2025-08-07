@@ -1,0 +1,62 @@
+{
+  "id": "N32bnUliSzo",
+  "title": "22. Provably Intractable Problems, Oracles",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Introduced exponential complexity classes and demonstrated a \u201cnatural\u201d provably intractable problem.  Introduced oracles and relativized computation to suggest that pure diagonalization-based methods cannot separate P and NP.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4970,
+  "view_count": 6933,
+  "tags": [
+    "exponential complexity classes, Oracles, polynomial time, diagonalization"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=N32bnUliSzo",
+  "thumbnail": "https://i.ytimg.com/vi/N32bnUliSzo/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 121.0
+    },
+    {
+      "start_time": 121.0,
+      "title": "TimeSpace Hierarchy Theorem",
+      "end_time": 511.0
+    },
+    {
+      "start_time": 511.0,
+      "title": "Provable Intractability",
+      "end_time": 642.0
+    },
+    {
+      "start_time": 642.0,
+      "title": "Exponential Complexity",
+      "end_time": 1125.0
+    },
+    {
+      "start_time": 1125.0,
+      "title": "Intractable Problem",
+      "end_time": 1964.0
+    },
+    {
+      "start_time": 1964.0,
+      "title": "Checkin",
+      "end_time": 2408.0
+    },
+    {
+      "start_time": 2408.0,
+      "title": "Bad Start",
+      "end_time": 2923.0
+    },
+    {
+      "start_time": 2923.0,
+      "title": "Bad Reject",
+      "end_time": 3453.0
+    },
+    {
+      "start_time": 3453.0,
+      "title": "Oracles",
+      "end_time": 4970
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/N32bnUliSzo.en-j3PyPqV-e1s.srt"
+}

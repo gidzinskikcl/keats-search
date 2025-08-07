@@ -1,0 +1,85 @@
+{
+  "id": "iOZVbILaIZc",
+  "title": "15. Statistical Sins and Wrap Up",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag continues the conversation about statistical fallacies and summarizes the take-aways of the course.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2683,
+  "view_count": 40650,
+  "tags": [
+    "correlation and causation",
+    "misleading statistics",
+    "cherry picking",
+    "lying with data",
+    "clusters",
+    "optimization",
+    "stochastic thinking",
+    "probabilitys",
+    "randomness",
+    "modeling the world",
+    "deterministic models",
+    "simulation models",
+    "sampling",
+    "data presentation"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=iOZVbILaIZc",
+  "thumbnail": "https://i.ytimg.com/vi/iOZVbILaIZc/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 57.0
+    },
+    {
+      "start_time": 57.0,
+      "title": "Global Warming, Fact or Fiction",
+      "end_time": 137.0
+    },
+    {
+      "start_time": 137.0,
+      "title": "Fever and the Flu",
+      "end_time": 209.0
+    },
+    {
+      "start_time": 209.0,
+      "title": "The Myth of Global Warming",
+      "end_time": 726.0
+    },
+    {
+      "start_time": 726.0,
+      "title": "Moral: Context Matters!",
+      "end_time": 928.0
+    },
+    {
+      "start_time": 928.0,
+      "title": "Cancer Clusters",
+      "end_time": 1034.0
+    },
+    {
+      "start_time": 1034.0,
+      "title": "A Hypothetical Example",
+      "end_time": 1683.0
+    },
+    {
+      "start_time": 1683.0,
+      "title": "The Texas Sharpshooter",
+      "end_time": 1755.0
+    },
+    {
+      "start_time": 1755.0,
+      "title": "The Bottom Line",
+      "end_time": 2141.0
+    },
+    {
+      "start_time": 2141.0,
+      "title": "Modeling the World",
+      "end_time": 2619.0
+    },
+    {
+      "start_time": 2619.0,
+      "title": "Famous Last Words, a General",
+      "end_time": 2683
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/iOZVbILaIZc.en-qlPKC2UN_YU.srt"
+}

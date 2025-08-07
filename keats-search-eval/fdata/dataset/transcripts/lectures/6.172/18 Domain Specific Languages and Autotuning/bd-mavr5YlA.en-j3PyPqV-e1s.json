@@ -1,0 +1,125 @@
+{
+  "id": "bd-mavr5YlA",
+  "title": "18. Domain Specific Languages and Autotuning",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Saman Amarasinghe\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Amarasinghe discusses domain specific languages, when they are applicable to be used, scheduling optimizations, and autotuning. The three languages discussed in particular are GraphIt, Halide, and OpenTuner.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4282,
+  "view_count": 10714,
+  "tags": [
+    "GraphIt",
+    "Halide",
+    "OpenTuner",
+    "autotuning",
+    "graphs",
+    "parallelism",
+    "locality",
+    "PageRank",
+    "domain specific"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=bd-mavr5YlA",
+  "thumbnail": "https://i.ytimg.com/vi_webp/bd-mavr5YlA/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 105.0
+    },
+    {
+      "start_time": 105.0,
+      "title": "Why is domainspecific language",
+      "end_time": 385.0
+    },
+    {
+      "start_time": 385.0,
+      "title": "Graphs",
+      "end_time": 631.0
+    },
+    {
+      "start_time": 631.0,
+      "title": "Performance",
+      "end_time": 696.0
+    },
+    {
+      "start_time": 696.0,
+      "title": "Graph Algorithms",
+      "end_time": 928.0
+    },
+    {
+      "start_time": 928.0,
+      "title": "Pull Schedule",
+      "end_time": 1246.0
+    },
+    {
+      "start_time": 1246.0,
+      "title": "Graph Properties",
+      "end_time": 1386.0
+    },
+    {
+      "start_time": 1386.0,
+      "title": "Tradeoff Space",
+      "end_time": 1541.0
+    },
+    {
+      "start_time": 1541.0,
+      "title": "Data Driven",
+      "end_time": 1677.0
+    },
+    {
+      "start_time": 1677.0,
+      "title": "Scheduling",
+      "end_time": 1789.0
+    },
+    {
+      "start_time": 1789.0,
+      "title": "Scheduling Performance",
+      "end_time": 1817.0
+    },
+    {
+      "start_time": 1817.0,
+      "title": "Optimizations",
+      "end_time": 1869.0
+    },
+    {
+      "start_time": 1869.0,
+      "title": "Results",
+      "end_time": 2035.0
+    },
+    {
+      "start_time": 2035.0,
+      "title": "Halide",
+      "end_time": 2091.0
+    },
+    {
+      "start_time": 2091.0,
+      "title": "Blur",
+      "end_time": 2316.0
+    },
+    {
+      "start_time": 2316.0,
+      "title": "Parallelization",
+      "end_time": 2402.0
+    },
+    {
+      "start_time": 2402.0,
+      "title": "Locality",
+      "end_time": 2539.0
+    },
+    {
+      "start_time": 2539.0,
+      "title": "Scheduling Framework",
+      "end_time": 2970.0
+    },
+    {
+      "start_time": 2970.0,
+      "title": "Google Glass",
+      "end_time": 3026.0
+    },
+    {
+      "start_time": 3026.0,
+      "title": "Photoshop",
+      "end_time": 4282
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/bd-mavr5YlA.en-j3PyPqV-e1s.srt"
+}

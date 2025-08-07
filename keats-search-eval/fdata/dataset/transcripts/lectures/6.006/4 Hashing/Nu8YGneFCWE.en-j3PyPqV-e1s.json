@@ -1,0 +1,67 @@
+{
+  "id": "Nu8YGneFCWE",
+  "title": "4. Hashing",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nHashing allows for faster search and dynamic operations on data structures, arrays, and sorted arrays. This lecture discusses comparison models, decision trees, and hash functions. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3174,
+  "view_count": 370126,
+  "tags": [
+    "decision tree, binary comparison, direct access array, hash table, chaining, hashing"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=Nu8YGneFCWE",
+  "thumbnail": "https://i.ytimg.com/vi/Nu8YGneFCWE/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 300.0
+    },
+    {
+      "start_time": 300.0,
+      "title": "Comparison Model",
+      "end_time": 380.0
+    },
+    {
+      "start_time": 380.0,
+      "title": "Comparison Operations",
+      "end_time": 570.0
+    },
+    {
+      "start_time": 570.0,
+      "title": "Outputs",
+      "end_time": 990.0
+    },
+    {
+      "start_time": 990.0,
+      "title": "Arrays",
+      "end_time": 1250.0
+    },
+    {
+      "start_time": 1250.0,
+      "title": "Integer Keys",
+      "end_time": 1475.0
+    },
+    {
+      "start_time": 1475.0,
+      "title": "Direct Access Array",
+      "end_time": 1525.0
+    },
+    {
+      "start_time": 1525.0,
+      "title": "Hash Functions",
+      "end_time": 2380.0
+    },
+    {
+      "start_time": 2380.0,
+      "title": "Universal Hash Function",
+      "end_time": 2730.0
+    },
+    {
+      "start_time": 2730.0,
+      "title": "Random Variable",
+      "end_time": 3174
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/Nu8YGneFCWE.en-j3PyPqV-e1s.srt"
+}

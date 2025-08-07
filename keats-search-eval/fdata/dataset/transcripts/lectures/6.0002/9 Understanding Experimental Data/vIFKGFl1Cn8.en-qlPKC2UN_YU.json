@@ -1,0 +1,123 @@
+{
+  "id": "vIFKGFl1Cn8",
+  "title": "9. Understanding Experimental Data",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: Eric Grimson\n\nProf. Grimson talks about how to model experimental data in a way that gives a sense of the underlying mechanism and to predict behavior in new settings.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2825,
+  "view_count": 64883,
+  "tags": [
+    "data models",
+    "computation",
+    "polls",
+    "linear regression",
+    "spring constant",
+    "Hooke's Law",
+    "arrays",
+    "variance",
+    "polyfit",
+    "mean squared error",
+    "coefficient of determination",
+    "well fits"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=vIFKGFl1Cn8",
+  "thumbnail": "https://i.ytimg.com/vi_webp/vIFKGFl1Cn8/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 547.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 547.0,
+      "title": "Hooke's Law",
+      "end_time": 646.0
+    },
+    {
+      "start_time": 646.0,
+      "title": "Finding k",
+      "end_time": 759.0
+    },
+    {
+      "start_time": 759.0,
+      "title": "Some Data",
+      "end_time": 815.0
+    },
+    {
+      "start_time": 815.0,
+      "title": "Taking a Look at the Data",
+      "end_time": 1042.0
+    },
+    {
+      "start_time": 1042.0,
+      "title": "Measuring Distance",
+      "end_time": 1205.0
+    },
+    {
+      "start_time": 1205.0,
+      "title": "Least Squares Objective Function",
+      "end_time": 1466.0
+    },
+    {
+      "start_time": 1466.0,
+      "title": "Solving for Least Squares",
+      "end_time": 1703.0
+    },
+    {
+      "start_time": 1703.0,
+      "title": "Using polyfit",
+      "end_time": 1840.0
+    },
+    {
+      "start_time": 1840.0,
+      "title": "Visualizing the Fit",
+      "end_time": 1865.0
+    },
+    {
+      "start_time": 1865.0,
+      "title": "Version Using polyval",
+      "end_time": 1923.0
+    },
+    {
+      "start_time": 1923.0,
+      "title": "Another Experiment",
+      "end_time": 2089.0
+    },
+    {
+      "start_time": 2089.0,
+      "title": "Quadratic Appears to be a Better Fit",
+      "end_time": 2193.0
+    },
+    {
+      "start_time": 2193.0,
+      "title": "Comparing Mean Squared Error",
+      "end_time": 2299.0
+    },
+    {
+      "start_time": 2299.0,
+      "title": "In an Absolute Sense",
+      "end_time": 2366.0
+    },
+    {
+      "start_time": 2366.0,
+      "title": "If You Prefer Code",
+      "end_time": 2554.0
+    },
+    {
+      "start_time": 2554.0,
+      "title": "Testing Goodness of Fits",
+      "end_time": 2649.0
+    },
+    {
+      "start_time": 2649.0,
+      "title": "How Well Fits Explain Variance",
+      "end_time": 2763.0
+    },
+    {
+      "start_time": 2763.0,
+      "title": "Can We Get a Tighter Fit?",
+      "end_time": 2825
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/vIFKGFl1Cn8.en-qlPKC2UN_YU.srt"
+}

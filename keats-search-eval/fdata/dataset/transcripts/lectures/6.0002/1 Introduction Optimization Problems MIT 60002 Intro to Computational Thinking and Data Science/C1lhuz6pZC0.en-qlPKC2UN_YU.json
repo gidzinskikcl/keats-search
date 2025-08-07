@@ -1,0 +1,55 @@
+{
+  "id": "C1lhuz6pZC0",
+  "title": "1. Introduction, Optimization Problems (MIT 6.0002 Intro to Computational Thinking and Data Science)",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag provides an overview of the course and discusses how we use computational models to understand the world in which we live, in particular he discusses the knapsack problem and greedy algoriths.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2456,
+  "view_count": 589699,
+  "tags": [
+    "optimization",
+    "python",
+    "knapsack problem",
+    "brute force algorithm",
+    "greedy algorithm",
+    "weights",
+    "models",
+    "computational thinking",
+    "data science"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=C1lhuz6pZC0",
+  "thumbnail": "https://i.ytimg.com/vi/C1lhuz6pZC0/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 347.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 347.0,
+      "title": "Computational Models",
+      "end_time": 1237.0
+    },
+    {
+      "start_time": 1237.0,
+      "title": "An Example",
+      "end_time": 1347.0
+    },
+    {
+      "start_time": 1347.0,
+      "title": "Build Menu of Foods",
+      "end_time": 1383.0
+    },
+    {
+      "start_time": 1383.0,
+      "title": "Implementation of Flexible Greedy",
+      "end_time": 2071.0
+    },
+    {
+      "start_time": 2071.0,
+      "title": "Using greedy",
+      "end_time": 2456
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/C1lhuz6pZC0.en-qlPKC2UN_YU.srt"
+}

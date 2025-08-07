@@ -1,0 +1,85 @@
+{
+  "id": "6JcMuFgnA6U",
+  "title": "23. High Performance in Dynamic Languages",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Steven Johnson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProfessor Steven Johnson talks about a new dynamic language called Julia as an alternative to the two-language approach for interactive math. Julia is then compared to Python and C. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 5144,
+  "view_count": 17225,
+  "tags": [
+    "julia programming language",
+    "dynamic language",
+    "vandermonde matrices",
+    "interactive math"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=6JcMuFgnA6U",
+  "thumbnail": "https://i.ytimg.com/vi_webp/6JcMuFgnA6U/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 22.0
+    },
+    {
+      "start_time": 22.0,
+      "title": "Welcome",
+      "end_time": 83.0
+    },
+    {
+      "start_time": 83.0,
+      "title": "Highlevel dynamic languages",
+      "end_time": 174.0
+    },
+    {
+      "start_time": 174.0,
+      "title": "Vectorize your code",
+      "end_time": 222.0
+    },
+    {
+      "start_time": 222.0,
+      "title": "Julia",
+      "end_time": 319.0
+    },
+    {
+      "start_time": 319.0,
+      "title": "Julia Example",
+      "end_time": 431.0
+    },
+    {
+      "start_time": 431.0,
+      "title": "Julia Implementation",
+      "end_time": 673.0
+    },
+    {
+      "start_time": 673.0,
+      "title": "Live Calculation",
+      "end_time": 1383.0
+    },
+    {
+      "start_time": 1383.0,
+      "title": "Numpy",
+      "end_time": 1813.0
+    },
+    {
+      "start_time": 1813.0,
+      "title": "Julia Some",
+      "end_time": 2786.0
+    },
+    {
+      "start_time": 2786.0,
+      "title": "Multiple Dispatch",
+      "end_time": 3086.0
+    },
+    {
+      "start_time": 3086.0,
+      "title": "Type Inference",
+      "end_time": 3446.0
+    },
+    {
+      "start_time": 3446.0,
+      "title": "Defining our own types",
+      "end_time": 5144
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/6JcMuFgnA6U.en-j3PyPqV-e1s.srt"
+}

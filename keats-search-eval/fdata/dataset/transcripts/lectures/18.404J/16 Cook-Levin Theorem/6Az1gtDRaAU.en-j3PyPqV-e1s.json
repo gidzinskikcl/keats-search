@@ -1,0 +1,72 @@
+{
+  "id": "6Az1gtDRaAU",
+  "title": "16. Cook-Levin Theorem",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Proved Cook-Levin Theorem: SAT is NP-complete. Also proved 3SAT is NP-complete.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4707,
+  "view_count": 25302,
+  "tags": [
+    "Cook-Levin Theorem, NP-complete, polynomial-time"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=6Az1gtDRaAU",
+  "thumbnail": "https://i.ytimg.com/vi/6Az1gtDRaAU/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 183.0
+    },
+    {
+      "start_time": 183.0,
+      "title": "Review",
+      "end_time": 495.0
+    },
+    {
+      "start_time": 495.0,
+      "title": "Proof",
+      "end_time": 832.0
+    },
+    {
+      "start_time": 832.0,
+      "title": "Computation History",
+      "end_time": 1032.0
+    },
+    {
+      "start_time": 1032.0,
+      "title": "Tableau",
+      "end_time": 1437.0
+    },
+    {
+      "start_time": 1437.0,
+      "title": "Fee Cell",
+      "end_time": 1464.0
+    },
+    {
+      "start_time": 1464.0,
+      "title": "IJ Cell",
+      "end_time": 1777.0
+    },
+    {
+      "start_time": 1777.0,
+      "title": "Boolean Formula",
+      "end_time": 2579.0
+    },
+    {
+      "start_time": 2579.0,
+      "title": "Questions",
+      "end_time": 3022.0
+    },
+    {
+      "start_time": 3022.0,
+      "title": "Illegal Neighborhood",
+      "end_time": 3145.0
+    },
+    {
+      "start_time": 3145.0,
+      "title": "Illegal Neighborhoods",
+      "end_time": 4707
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/6Az1gtDRaAU.en-j3PyPqV-e1s.srt"
+}

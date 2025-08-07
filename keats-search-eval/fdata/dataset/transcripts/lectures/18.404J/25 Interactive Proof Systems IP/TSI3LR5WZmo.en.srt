@@ -1,0 +1,8076 @@
+1
+00:00:25,039 --> 00:00:27,760
+hi everybody
+
+2
+00:00:26,560 --> 00:00:30,320
+um
+
+3
+00:00:27,760 --> 00:00:34,640
+glad to have you all back
+
+4
+00:00:30,320 --> 00:00:37,600
+for our next to last installment of
+
+5
+00:00:34,640 --> 00:00:42,079
+theory of computation
+
+6
+00:00:37,600 --> 00:00:44,640
+today um we are going to embark on the
+
+7
+00:00:42,079 --> 00:00:48,960
+very last
+
+8
+00:00:44,640 --> 00:00:51,360
+big topic for the semester
+
+9
+00:00:48,960 --> 00:00:54,079
+and that is in some ways going to be
+
+10
+00:00:51,360 --> 00:00:56,160
+following on what we
+
+11
+00:00:54,079 --> 00:00:58,480
+started
+
+12
+00:00:56,160 --> 00:01:00,000
+a couple of lectures back when we looked
+
+13
+00:00:58,480 --> 00:01:01,760
+at probabilistic
+
+14
+00:01:00,000 --> 00:01:04,239
+turing machines
+
+15
+00:01:01,760 --> 00:01:07,760
+and probabilistic computation
+
+16
+00:01:04,239 --> 00:01:09,680
+and its associated class bpp
+
+17
+00:01:07,760 --> 00:01:10,880
+now what we're going to
+
+18
+00:01:09,680 --> 00:01:12,560
+discuss
+
+19
+00:01:10,880 --> 00:01:17,200
+is in some sense
+
+20
+00:01:12,560 --> 00:01:18,720
+a probabilistic version of np
+
+21
+00:01:17,200 --> 00:01:20,560
+and that's going to be a complexity
+
+22
+00:01:18,720 --> 00:01:22,320
+class called ip
+
+23
+00:01:20,560 --> 00:01:24,799
+which stands for interactive proof
+
+24
+00:01:22,320 --> 00:01:24,799
+systems
+
+25
+00:01:25,200 --> 00:01:28,400
+um and so we're going to present that
+
+26
+00:01:27,200 --> 00:01:31,759
+model
+
+27
+00:01:28,400 --> 00:01:32,720
+and look at a couple of examples
+
+28
+00:01:31,759 --> 00:01:33,600
+uh
+
+29
+00:01:32,720 --> 00:01:35,040
+i would
+
+30
+00:01:33,600 --> 00:01:35,840
+just like to say at the beginning that
+
+31
+00:01:35,040 --> 00:01:38,720
+the
+
+32
+00:01:35,840 --> 00:01:41,600
+this model is a very important one it's
+
+33
+00:01:38,720 --> 00:01:43,439
+really uh has been the starting point
+
+34
+00:01:41,600 --> 00:01:45,439
+for a great deal of
+
+35
+00:01:43,439 --> 00:01:47,520
+research
+
+36
+00:01:45,439 --> 00:01:50,079
+in complexity theory so we're just
+
+37
+00:01:47,520 --> 00:01:53,200
+really going to be touching on it but
+
+38
+00:01:50,079 --> 00:01:55,759
+there's a lot more that people have
+
+39
+00:01:53,200 --> 00:01:59,680
+pursued with this model and it's also a
+
+40
+00:01:55,759 --> 00:02:02,960
+connection in to the cryptography field
+
+41
+00:01:59,680 --> 00:02:05,360
+which also makes use of the interactive
+
+42
+00:02:02,960 --> 00:02:07,680
+proof system model in fact
+
+43
+00:02:05,360 --> 00:02:09,759
+some of the
+
+44
+00:02:07,680 --> 00:02:11,840
+genesis of that model comes out of
+
+45
+00:02:09,759 --> 00:02:13,599
+cryptography
+
+46
+00:02:11,840 --> 00:02:17,680
+where you're having uh
+
+47
+00:02:13,599 --> 00:02:19,120
+multiple parties either communicating or
+
+48
+00:02:17,680 --> 00:02:20,480
+in some ways
+
+49
+00:02:19,120 --> 00:02:25,440
+interacting
+
+50
+00:02:20,480 --> 00:02:25,440
+uh to achieve certain uh goals of
+
+51
+00:02:25,520 --> 00:02:30,640
+communication or
+
+52
+00:02:27,440 --> 00:02:34,160
+signing or passwords or or or what have
+
+53
+00:02:30,640 --> 00:02:36,720
+you so uh this is a both a an applied
+
+54
+00:02:34,160 --> 00:02:39,680
+area and also one that has a lot of very
+
+55
+00:02:36,720 --> 00:02:40,400
+interesting theory uh um associated to
+
+56
+00:02:39,680 --> 00:02:42,160
+it
+
+57
+00:02:40,400 --> 00:02:45,599
+so with that one we we're going to jump
+
+58
+00:02:42,160 --> 00:02:47,680
+in um and uh
+
+59
+00:02:45,599 --> 00:02:50,080
+start out by uh
+
+60
+00:02:47,680 --> 00:02:51,599
+making myself smaller
+
+61
+00:02:50,080 --> 00:02:54,160
+and
+
+62
+00:02:51,599 --> 00:02:55,360
+just do a an introduction i'm going to
+
+63
+00:02:54,160 --> 00:02:58,159
+introduce
+
+64
+00:02:55,360 --> 00:03:00,239
+the model or the the concept of an
+
+65
+00:02:58,159 --> 00:03:02,000
+interactive proof
+
+66
+00:03:00,239 --> 00:03:04,480
+with an example
+
+67
+00:03:02,000 --> 00:03:07,440
+and that example involves the
+
+68
+00:03:04,480 --> 00:03:09,440
+graph isomorphism problem
+
+69
+00:03:07,440 --> 00:03:11,920
+that's the problem of testing whether
+
+70
+00:03:09,440 --> 00:03:13,519
+two graphs are isomorphic
+
+71
+00:03:11,920 --> 00:03:16,080
+what we mean by two graphs being
+
+72
+00:03:13,519 --> 00:03:18,800
+isomorphic is that they're really just
+
+73
+00:03:16,080 --> 00:03:21,200
+the same graph
+
+74
+00:03:18,800 --> 00:03:24,159
+with one of them perhaps being
+
+75
+00:03:21,200 --> 00:03:26,640
+re-labeled or permuted
+
+76
+00:03:24,159 --> 00:03:28,799
+so that
+
+77
+00:03:26,640 --> 00:03:30,480
+they may look superficially different
+
+78
+00:03:28,799 --> 00:03:32,720
+they may appear with a different
+
+79
+00:03:30,480 --> 00:03:34,640
+sequence of labels or the nodes are
+
+80
+00:03:32,720 --> 00:03:36,879
+appearing in a different order
+
+81
+00:03:34,640 --> 00:03:36,879
+but
+
+82
+00:03:37,519 --> 00:03:41,360
+except for that it's really just the
+
+83
+00:03:39,360 --> 00:03:43,360
+same graph so i'm kind of illustrating
+
+84
+00:03:41,360 --> 00:03:44,959
+that here if you can see those two
+
+85
+00:03:43,360 --> 00:03:48,000
+graphs here which look different from
+
+86
+00:03:44,959 --> 00:03:49,760
+each other both on eight notes they are
+
+87
+00:03:48,000 --> 00:03:51,519
+in fact the same graph
+
+88
+00:03:49,760 --> 00:03:53,840
+as i can illustrate by a little
+
+89
+00:03:51,519 --> 00:03:56,560
+animation which will convert this one
+
+90
+00:03:53,840 --> 00:03:56,560
+into that one
+
+91
+00:03:59,360 --> 00:04:02,159
+so uh
+
+92
+00:04:01,200 --> 00:04:02,690
+the
+
+93
+00:04:02,159 --> 00:04:04,480
+um
+
+94
+00:04:02,690 --> 00:04:07,280
+[Music]
+
+95
+00:04:04,480 --> 00:04:09,120
+so the
+
+96
+00:04:07,280 --> 00:04:12,319
+two graphs um
+
+97
+00:04:09,120 --> 00:04:14,480
+these graphs being the same um they're
+
+98
+00:04:12,319 --> 00:04:16,799
+we call that isomorphic
+
+99
+00:04:14,480 --> 00:04:19,840
+so these are graphs g and h and they're
+
+100
+00:04:16,799 --> 00:04:21,519
+really the same graph so we we um call
+
+101
+00:04:19,840 --> 00:04:22,639
+them isomorphic graphs
+
+102
+00:04:21,519 --> 00:04:23,440
+and we
+
+103
+00:04:22,639 --> 00:04:25,759
+are
+
+104
+00:04:23,440 --> 00:04:27,440
+have an associated computational problem
+
+105
+00:04:25,759 --> 00:04:28,639
+called iso
+
+106
+00:04:27,440 --> 00:04:30,960
+which is
+
+107
+00:04:28,639 --> 00:04:32,880
+given a pair of graphs we'd like to know
+
+108
+00:04:30,960 --> 00:04:34,479
+are they isomorphic or not so the iso is
+
+109
+00:04:32,880 --> 00:04:36,479
+the collection of pairs of graphs which
+
+110
+00:04:34,479 --> 00:04:38,800
+are isomorphic
+
+111
+00:04:36,479 --> 00:04:40,320
+and
+
+112
+00:04:38,800 --> 00:04:43,440
+it's easy
+
+113
+00:04:40,320 --> 00:04:44,479
+to see that this problem is an np
+
+114
+00:04:43,440 --> 00:04:46,080
+problem
+
+115
+00:04:44,479 --> 00:04:48,800
+because
+
+116
+00:04:46,080 --> 00:04:50,800
+all you need to do in order to see or to
+
+117
+00:04:48,800 --> 00:04:53,680
+give a certificate that the two graphs
+
+118
+00:04:50,800 --> 00:04:56,240
+are isomorphic to each other is tell you
+
+119
+00:04:53,680 --> 00:04:58,160
+it's just to say which nodes in the one
+
+120
+00:04:56,240 --> 00:04:59,680
+graph correspond to which other nodes in
+
+121
+00:04:58,160 --> 00:05:02,000
+the other graph
+
+122
+00:04:59,680 --> 00:05:04,479
+um and then you all you need to check is
+
+123
+00:05:02,000 --> 00:05:06,400
+that the edge relationships are
+
+124
+00:05:04,479 --> 00:05:08,240
+consistent with that
+
+125
+00:05:06,400 --> 00:05:09,120
+mapping or that isomorphism as it's
+
+126
+00:05:08,240 --> 00:05:11,120
+called
+
+127
+00:05:09,120 --> 00:05:13,759
+um
+
+128
+00:05:11,120 --> 00:05:15,520
+so it's easy to see that the iso problem
+
+129
+00:05:13,759 --> 00:05:16,800
+is an np
+
+130
+00:05:15,520 --> 00:05:20,240
+and if you're not getting that make sure
+
+131
+00:05:16,800 --> 00:05:21,759
+you uh understand because this is the
+
+132
+00:05:20,240 --> 00:05:23,600
+whole first part of the lecture will be
+
+133
+00:05:21,759 --> 00:05:25,440
+lost if you don't understand this iso
+
+134
+00:05:23,600 --> 00:05:28,639
+problem
+
+135
+00:05:25,440 --> 00:05:31,120
+now the question of whether
+
+136
+00:05:28,639 --> 00:05:35,680
+you can test two graphs
+
+137
+00:05:31,120 --> 00:05:35,680
+being isomorphic in polynomial time
+
+138
+00:05:36,479 --> 00:05:40,880
+is not clear and in fact that's an
+
+139
+00:05:38,400 --> 00:05:42,400
+unsolved problem to this day
+
+140
+00:05:40,880 --> 00:05:44,240
+uh
+
+141
+00:05:42,400 --> 00:05:48,080
+and it's a problem that has generated an
+
+142
+00:05:44,240 --> 00:05:50,080
+enormous literature uh
+
+143
+00:05:48,080 --> 00:05:52,400
+there are hundreds of papers
+
+144
+00:05:50,080 --> 00:05:56,240
+on the graph isomorphism problem as it's
+
+145
+00:05:52,400 --> 00:05:59,280
+called um to try to uh resolve
+
+146
+00:05:56,240 --> 00:06:01,120
+um you know uh to try to see if one can
+
+147
+00:05:59,280 --> 00:06:03,600
+find a polynomial time algorithm and in
+
+148
+00:06:01,120 --> 00:06:05,680
+fact it was a very big result
+
+149
+00:06:03,600 --> 00:06:08,000
+just in the last 10 years where there
+
+150
+00:06:05,680 --> 00:06:09,600
+was a sub-exponential algorithm given so
+
+151
+00:06:08,000 --> 00:06:12,160
+that was more
+
+152
+00:06:09,600 --> 00:06:14,160
+than faster than the brute force search
+
+153
+00:06:12,160 --> 00:06:16,639
+approach but didn't get it all the way
+
+154
+00:06:14,160 --> 00:06:18,080
+down to polynomial now why is there so
+
+155
+00:06:16,639 --> 00:06:21,199
+much attention just to this one
+
+156
+00:06:18,080 --> 00:06:23,039
+particular np problem it's because
+
+157
+00:06:21,199 --> 00:06:25,600
+it's not known whether the graph
+
+158
+00:06:23,039 --> 00:06:27,199
+isomorphism problem is np-complete iso
+
+159
+00:06:25,600 --> 00:06:29,600
+is not known to be an np-complete
+
+160
+00:06:27,199 --> 00:06:32,560
+problem and that puts it into a very
+
+161
+00:06:29,600 --> 00:06:35,680
+very small class of problems in np
+
+162
+00:06:32,560 --> 00:06:37,440
+which are no not known to be either in p
+
+163
+00:06:35,680 --> 00:06:40,000
+or np-complete
+
+164
+00:06:37,440 --> 00:06:41,039
+it's kind of a curiosity that for np
+
+165
+00:06:40,000 --> 00:06:42,960
+problems
+
+166
+00:06:41,039 --> 00:06:45,440
+almost all of them have ended up being
+
+167
+00:06:42,960 --> 00:06:46,840
+in one side or the other
+
+168
+00:06:45,440 --> 00:06:50,240
+and in fact
+
+169
+00:06:46,840 --> 00:06:51,840
+um it's a
+
+170
+00:06:50,240 --> 00:06:53,919
+uh
+
+171
+00:06:51,840 --> 00:06:56,400
+um
+
+172
+00:06:53,919 --> 00:06:58,560
+in fact the
+
+173
+00:06:56,400 --> 00:07:00,720
+the um
+
+174
+00:06:58,560 --> 00:07:02,800
+i i think it's the only problem that
+
+175
+00:07:00,720 --> 00:07:04,960
+just involves graphs
+
+176
+00:07:02,800 --> 00:07:06,160
+that's not known to be either in p or an
+
+177
+00:07:04,960 --> 00:07:06,960
+np
+
+178
+00:07:06,160 --> 00:07:09,840
+um
+
+179
+00:07:06,960 --> 00:07:11,440
+so so i got a question here
+
+180
+00:07:09,840 --> 00:07:13,919
+what would be in between exponential and
+
+181
+00:07:11,440 --> 00:07:15,840
+polynomial for example i don't remember
+
+182
+00:07:13,919 --> 00:07:17,199
+what the the bound is but it's it's
+
+183
+00:07:15,840 --> 00:07:20,720
+something in the uh
+
+184
+00:07:17,199 --> 00:07:22,720
+in the range of n to the log n
+
+185
+00:07:20,720 --> 00:07:24,479
+uh
+
+186
+00:07:22,720 --> 00:07:26,960
+time complexity for the graphite some
+
+187
+00:07:24,479 --> 00:07:29,039
+more i might be getting that wrong um i
+
+188
+00:07:26,960 --> 00:07:31,520
+don't remember exactly what the bound is
+
+189
+00:07:29,039 --> 00:07:33,280
+but um
+
+190
+00:07:31,520 --> 00:07:35,280
+that's significantly better than two to
+
+191
+00:07:33,280 --> 00:07:37,840
+the n or some
+
+192
+00:07:35,280 --> 00:07:40,160
+some exponential amount of time but it
+
+193
+00:07:37,840 --> 00:07:44,440
+it's more than enter any constant so
+
+194
+00:07:40,160 --> 00:07:44,440
+it's more than any polynomial time
+
+195
+00:07:44,960 --> 00:07:50,160
+so um
+
+196
+00:07:47,280 --> 00:07:52,080
+another question uh of the same sort is
+
+197
+00:07:50,160 --> 00:07:55,680
+whether the complementary problem is in
+
+198
+00:07:52,080 --> 00:07:57,120
+np or whether whether iso is in co-np or
+
+199
+00:07:55,680 --> 00:07:59,840
+let's let's talk about it in terms of
+
+200
+00:07:57,120 --> 00:08:02,000
+the complement whether the
+
+201
+00:07:59,840 --> 00:08:04,960
+complement of iso which i'll refer to as
+
+202
+00:08:02,000 --> 00:08:10,160
+the non-iso problem whether that's known
+
+203
+00:08:04,960 --> 00:08:10,160
+to be in np so that's also not known um
+
+204
+00:08:10,560 --> 00:08:15,599
+in other words if i give you two graphs
+
+205
+00:08:13,440 --> 00:08:17,360
+and i ask you to show that they're not
+
+206
+00:08:15,599 --> 00:08:18,879
+isomorphic suppose they aren't
+
+207
+00:08:17,360 --> 00:08:20,879
+isomorphic and you go through the effort
+
+208
+00:08:18,879 --> 00:08:22,960
+of you know determining that by a brute
+
+209
+00:08:20,879 --> 00:08:23,919
+force search and now you want to
+
+210
+00:08:22,960 --> 00:08:26,720
+prove
+
+211
+00:08:23,919 --> 00:08:27,440
+that they're not isomorphic well that's
+
+212
+00:08:26,720 --> 00:08:29,199
+not
+
+213
+00:08:27,440 --> 00:08:30,720
+it's not known to be an np either so
+
+214
+00:08:29,199 --> 00:08:34,080
+there's no known
+
+215
+00:08:30,720 --> 00:08:36,399
+short certificate certificate of
+
+216
+00:08:34,080 --> 00:08:38,240
+two graphs not being isomorphic
+
+217
+00:08:36,399 --> 00:08:39,440
+we don't know how to do that either
+
+218
+00:08:38,240 --> 00:08:41,440
+but there's something that's very
+
+219
+00:08:39,440 --> 00:08:42,560
+interesting nevertheless
+
+220
+00:08:41,440 --> 00:08:44,080
+um
+
+221
+00:08:42,560 --> 00:08:47,120
+and
+
+222
+00:08:44,080 --> 00:08:49,680
+it has to do with the ability to for one
+
+223
+00:08:47,120 --> 00:08:51,600
+party to prove to another
+
+224
+00:08:49,680 --> 00:08:52,800
+that graphs are either isomorphic or not
+
+225
+00:08:51,600 --> 00:08:55,200
+isomorphic
+
+226
+00:08:52,800 --> 00:08:57,120
+so if you're just having like a prover
+
+227
+00:08:55,200 --> 00:08:59,120
+we haven't really been necessarily
+
+228
+00:08:57,120 --> 00:09:00,880
+formulating that this way so much in
+
+229
+00:08:59,120 --> 00:09:02,720
+this class but this is a completely
+
+230
+00:09:00,880 --> 00:09:05,279
+equivalent way of formulating the notion
+
+231
+00:09:02,720 --> 00:09:07,680
+of np whether you have a polynomial time
+
+232
+00:09:05,279 --> 00:09:10,880
+verifier an approver who can produce
+
+233
+00:09:07,680 --> 00:09:14,800
+certificates say it's a powerful prover
+
+234
+00:09:10,880 --> 00:09:17,120
+so um if you have a problem that's in np
+
+235
+00:09:14,800 --> 00:09:18,320
+approver can convince a polynomial time
+
+236
+00:09:17,120 --> 00:09:20,399
+verifier
+
+237
+00:09:18,320 --> 00:09:23,680
+that uh strings are in the language if
+
+238
+00:09:20,399 --> 00:09:26,080
+in fact they are so in the case of the
+
+239
+00:09:23,680 --> 00:09:28,000
+iso problem a prover can convince a
+
+240
+00:09:26,080 --> 00:09:29,839
+polynomial time verifier the graphs are
+
+241
+00:09:28,000 --> 00:09:32,640
+isomorphic just by exhibiting the
+
+242
+00:09:29,839 --> 00:09:32,640
+isomorphism
+
+243
+00:09:32,800 --> 00:09:38,000
+now
+
+244
+00:09:34,720 --> 00:09:40,160
+for the non-isomorphism case
+
+245
+00:09:38,000 --> 00:09:42,480
+we don't know that that problem's in np
+
+246
+00:09:40,160 --> 00:09:45,519
+but it's still possible
+
+247
+00:09:42,480 --> 00:09:49,200
+for approver to convince a verifier that
+
+248
+00:09:45,519 --> 00:09:49,200
+graphs are not isomorphic
+
+249
+00:09:49,760 --> 00:09:53,120
+if you change the rules of the game
+
+250
+00:09:51,279 --> 00:09:54,000
+slightly
+
+251
+00:09:53,120 --> 00:09:57,279
+um
+
+252
+00:09:54,000 --> 00:09:59,279
+so even though the non-iso problem
+
+253
+00:09:57,279 --> 00:10:01,360
+is not known to be an np
+
+254
+00:09:59,279 --> 00:10:03,279
+approver can still convince a polynomial
+
+255
+00:10:01,360 --> 00:10:05,200
+time verifier that graphs are not
+
+256
+00:10:03,279 --> 00:10:09,360
+isomorphic assuming they they are in
+
+257
+00:10:05,200 --> 00:10:10,399
+fact not isomorphic um provided
+
+258
+00:10:09,360 --> 00:10:11,360
+that
+
+259
+00:10:10,399 --> 00:10:13,920
+um
+
+260
+00:10:11,360 --> 00:10:16,480
+the prover and the verifier can interact
+
+261
+00:10:13,920 --> 00:10:18,240
+with one another so the verifier can ask
+
+262
+00:10:16,480 --> 00:10:19,519
+questions of the prover
+
+263
+00:10:18,240 --> 00:10:21,839
+and the verifier gets to be
+
+264
+00:10:19,519 --> 00:10:23,920
+probabilistic
+
+265
+00:10:21,839 --> 00:10:26,399
+so that's in this
+
+266
+00:10:23,920 --> 00:10:28,640
+in that's in sense in which i mean
+
+267
+00:10:26,399 --> 00:10:33,480
+that this notion is a kind of a
+
+268
+00:10:28,640 --> 00:10:33,480
+probabilistic version of np
+
+269
+00:10:33,920 --> 00:10:37,200
+okay so um
+
+270
+00:10:37,519 --> 00:10:40,720
+let me
+
+271
+00:10:38,560 --> 00:10:42,959
+show you how that's done
+
+272
+00:10:40,720 --> 00:10:45,040
+so before we jump in to the
+
+273
+00:10:42,959 --> 00:10:48,399
+uh to the method for
+
+274
+00:10:45,040 --> 00:10:50,800
+approver to um show a verifier that
+
+275
+00:10:48,399 --> 00:10:53,040
+graphs are not isomorphic
+
+276
+00:10:50,800 --> 00:10:54,640
+um let me let let's try to get a little
+
+277
+00:10:53,040 --> 00:10:56,560
+clearer on the model so i'm going to
+
+278
+00:10:54,640 --> 00:11:00,000
+first show it to you informally and then
+
+279
+00:10:56,560 --> 00:11:01,040
+we'll look at it formally
+
+280
+00:11:00,000 --> 00:11:03,760
+okay so
+
+281
+00:11:01,040 --> 00:11:05,120
+in in interactive proofs there are two
+
+282
+00:11:03,760 --> 00:11:06,320
+parties
+
+283
+00:11:05,120 --> 00:11:08,880
+um
+
+284
+00:11:06,320 --> 00:11:12,079
+and i'm going to think about them as one
+
+285
+00:11:08,880 --> 00:11:14,959
+of them is going to be the professor
+
+286
+00:11:12,079 --> 00:11:17,680
+okay so the professor is going to play
+
+287
+00:11:14,959 --> 00:11:20,079
+the role of the verifier in a sense but
+
+288
+00:11:17,680 --> 00:11:21,279
+it's like that the one who checks
+
+289
+00:11:20,079 --> 00:11:24,640
+um
+
+290
+00:11:21,279 --> 00:11:26,959
+and uh the professor being kind of old
+
+291
+00:11:24,640 --> 00:11:28,640
+and tired he's been teaching too long
+
+292
+00:11:26,959 --> 00:11:31,680
+maybe
+
+293
+00:11:28,640 --> 00:11:34,720
+can only operate in
+
+294
+00:11:31,680 --> 00:11:36,880
+probabilistic polynomial time
+
+295
+00:11:34,720 --> 00:11:39,680
+so the professor if wants to tell
+
+296
+00:11:36,880 --> 00:11:41,279
+whether two graphs are isomorphic or not
+
+297
+00:11:39,680 --> 00:11:42,880
+probabilistic polynomial time doesn't
+
+298
+00:11:41,279 --> 00:11:44,800
+seem to be enough
+
+299
+00:11:42,880 --> 00:11:47,279
+to tell whether two graphs are
+
+300
+00:11:44,800 --> 00:11:50,320
+isomorphic or not because it seems to be
+
+301
+00:11:47,279 --> 00:11:51,600
+a more than polynomial problem
+
+302
+00:11:50,320 --> 00:11:53,279
+however
+
+303
+00:11:51,600 --> 00:11:54,839
+the professor
+
+304
+00:11:53,279 --> 00:11:56,720
+has
+
+305
+00:11:54,839 --> 00:11:58,320
+um
+
+306
+00:11:56,720 --> 00:11:59,360
+help
+
+307
+00:11:58,320 --> 00:12:01,440
+it has
+
+308
+00:11:59,360 --> 00:12:02,399
+an army
+
+309
+00:12:01,440 --> 00:12:05,200
+of
+
+310
+00:12:02,399 --> 00:12:07,200
+graduate students
+
+311
+00:12:05,200 --> 00:12:09,279
+and the graduate students
+
+312
+00:12:07,200 --> 00:12:11,279
+they're not limited uh in the same way
+
+313
+00:12:09,279 --> 00:12:12,560
+the professor is the graduate students
+
+314
+00:12:11,279 --> 00:12:14,800
+are young
+
+315
+00:12:12,560 --> 00:12:17,360
+they
+
+316
+00:12:14,800 --> 00:12:19,360
+are energetic they can stay up all night
+
+317
+00:12:17,360 --> 00:12:20,079
+they know how to code
+
+318
+00:12:19,360 --> 00:12:21,600
+so
+
+319
+00:12:20,079 --> 00:12:25,839
+the graduate students
+
+320
+00:12:21,600 --> 00:12:25,839
+have unlimited computational ability
+
+321
+00:12:26,399 --> 00:12:28,560
+so that we're going to think of the
+
+322
+00:12:27,360 --> 00:12:31,279
+graduate students playing the role of
+
+323
+00:12:28,560 --> 00:12:32,240
+the approver because they're not
+
+324
+00:12:31,279 --> 00:12:34,000
+they're not limited in their
+
+325
+00:12:32,240 --> 00:12:35,839
+capabilities we'll assume
+
+326
+00:12:34,000 --> 00:12:38,480
+the professor on the other hand is
+
+327
+00:12:35,839 --> 00:12:42,160
+limited so the professor wants to know
+
+328
+00:12:38,480 --> 00:12:44,399
+if the two graphs are isomorphic
+
+329
+00:12:42,160 --> 00:12:45,600
+let's say whatever they are
+
+330
+00:12:44,399 --> 00:12:48,399
+um
+
+331
+00:12:45,600 --> 00:12:50,079
+can't do it by himself so he's going to
+
+332
+00:12:48,399 --> 00:12:52,720
+ask his students to figure out the
+
+333
+00:12:50,079 --> 00:12:54,480
+answer
+
+334
+00:12:52,720 --> 00:12:56,320
+and report back
+
+335
+00:12:54,480 --> 00:12:59,040
+now there's only one problem
+
+336
+00:12:56,320 --> 00:13:00,160
+the professor knows that students
+
+337
+00:12:59,040 --> 00:13:01,360
+uh
+
+338
+00:13:00,160 --> 00:13:03,120
+well in the old days they'd like to
+
+339
+00:13:01,360 --> 00:13:04,880
+party i guess these days they like to
+
+340
+00:13:03,120 --> 00:13:06,880
+play on uh
+
+341
+00:13:04,880 --> 00:13:08,480
+play computer games a lot
+
+342
+00:13:06,880 --> 00:13:10,000
+and so they're not really that eager to
+
+343
+00:13:08,480 --> 00:13:11,279
+spend all their time
+
+344
+00:13:10,000 --> 00:13:12,800
+figuring out whether graphs are
+
+345
+00:13:11,279 --> 00:13:14,800
+isomorphic
+
+346
+00:13:12,800 --> 00:13:16,240
+so he's worried that the
+
+347
+00:13:14,800 --> 00:13:18,160
+the students will just come up with some
+
+348
+00:13:16,240 --> 00:13:21,440
+answer and figure that he won't be able
+
+349
+00:13:18,160 --> 00:13:24,399
+to tell the difference
+
+350
+00:13:21,440 --> 00:13:27,120
+so the professor does not trust the
+
+351
+00:13:24,399 --> 00:13:28,639
+students it's not enough to he for the
+
+352
+00:13:27,120 --> 00:13:30,480
+professor to give the problem to the
+
+353
+00:13:28,639 --> 00:13:32,000
+students and just take any answer that
+
+354
+00:13:30,480 --> 00:13:33,279
+they're going to give the professor
+
+355
+00:13:32,000 --> 00:13:36,480
+wants
+
+356
+00:13:33,279 --> 00:13:36,480
+wants to be convinced
+
+357
+00:13:37,440 --> 00:13:41,760
+okay so
+
+358
+00:13:39,360 --> 00:13:41,760
+um
+
+359
+00:13:42,560 --> 00:13:44,800
+now
+
+360
+00:13:45,360 --> 00:13:48,560
+how could the students convince the
+
+361
+00:13:46,880 --> 00:13:49,920
+professor of the answer that they've
+
+362
+00:13:48,560 --> 00:13:52,240
+really done the work and figured out
+
+363
+00:13:49,920 --> 00:13:54,800
+whether the graphs are isomorphic or not
+
+364
+00:13:52,240 --> 00:13:55,920
+well if the graphs are isomorphic if it
+
+365
+00:13:54,800 --> 00:13:57,440
+turns out that the graphs were
+
+366
+00:13:55,920 --> 00:13:59,040
+isomorphic and the students figure that
+
+367
+00:13:57,440 --> 00:14:00,839
+out
+
+368
+00:13:59,040 --> 00:14:03,279
+then life is good
+
+369
+00:14:00,839 --> 00:14:05,519
+because what are they going to do to
+
+370
+00:14:03,279 --> 00:14:06,480
+convince the professor
+
+371
+00:14:05,519 --> 00:14:09,040
+they're going to hand over the
+
+372
+00:14:06,480 --> 00:14:11,279
+isomorphism and show yeah i mean they
+
+373
+00:14:09,040 --> 00:14:11,279
+are
+
+374
+00:14:11,440 --> 00:14:14,160
+you know those graphs really are
+
+375
+00:14:12,880 --> 00:14:16,560
+isomorphic and here's how the
+
+376
+00:14:14,160 --> 00:14:20,560
+correspondence works professor can check
+
+377
+00:14:16,560 --> 00:14:22,399
+oh yeah i i now not now i'm convinced
+
+378
+00:14:20,560 --> 00:14:24,880
+but suppose the graphs were not
+
+379
+00:14:22,399 --> 00:14:27,680
+isomorphic
+
+380
+00:14:24,880 --> 00:14:30,560
+what are we going to do then
+
+381
+00:14:27,680 --> 00:14:32,720
+um the students have figured out where
+
+382
+00:14:30,560 --> 00:14:34,560
+after night else the professor wants
+
+383
+00:14:32,720 --> 00:14:35,519
+wants to be convinced oh no what are we
+
+384
+00:14:34,560 --> 00:14:38,160
+going to do
+
+385
+00:14:35,519 --> 00:14:39,680
+well in fact we're going to engage the
+
+386
+00:14:38,160 --> 00:14:43,040
+the professor and the students are going
+
+387
+00:14:39,680 --> 00:14:45,279
+to engage in the following protocol
+
+388
+00:14:43,040 --> 00:14:46,880
+dialogue
+
+389
+00:14:45,279 --> 00:14:48,959
+what's going to happen is
+
+390
+00:14:46,880 --> 00:14:50,959
+now you have to make sure you're you're
+
+391
+00:14:48,959 --> 00:14:52,320
+this is critical to follow to understand
+
+392
+00:14:50,959 --> 00:14:53,760
+this little
+
+393
+00:14:52,320 --> 00:14:55,360
+part of the story here because it's
+
+394
+00:14:53,760 --> 00:14:57,120
+really going to set the pattern for
+
+395
+00:14:55,360 --> 00:14:58,959
+everything in today's and tomorrow and
+
+396
+00:14:57,120 --> 00:15:00,240
+to today's lecture and the and the next
+
+397
+00:14:58,959 --> 00:15:02,480
+lecture
+
+398
+00:15:00,240 --> 00:15:04,959
+okay so
+
+399
+00:15:02,480 --> 00:15:07,600
+we're going to engage in a following
+
+400
+00:15:04,959 --> 00:15:10,240
+interaction between the students and the
+
+401
+00:15:07,600 --> 00:15:13,440
+professor which is going to enable the
+
+402
+00:15:10,240 --> 00:15:17,920
+students to convince the professor that
+
+403
+00:15:13,440 --> 00:15:20,959
+the two graphs really are not isomorphic
+
+404
+00:15:17,920 --> 00:15:23,440
+so how is that going to work
+
+405
+00:15:20,959 --> 00:15:24,720
+this is a beautiful little uh thing by
+
+406
+00:15:23,440 --> 00:15:27,040
+the way
+
+407
+00:15:24,720 --> 00:15:28,320
+so the professor is going to take the
+
+408
+00:15:27,040 --> 00:15:30,079
+two graphs
+
+409
+00:15:28,320 --> 00:15:31,680
+and pick one of them
+
+410
+00:15:30,079 --> 00:15:34,959
+at random
+
+411
+00:15:31,680 --> 00:15:37,600
+because the two graphs g and h
+
+412
+00:15:34,959 --> 00:15:39,120
+um let's say they're not they really are
+
+413
+00:15:37,600 --> 00:15:40,320
+not isomorphic the professor doesn't
+
+414
+00:15:39,120 --> 00:15:42,079
+know that for sure that's what the
+
+415
+00:15:40,320 --> 00:15:44,079
+students claim the professor really
+
+416
+00:15:42,079 --> 00:15:45,440
+wants to not be convinced that the
+
+417
+00:15:44,079 --> 00:15:47,120
+students are right
+
+418
+00:15:45,440 --> 00:15:48,639
+um so the professor's gonna pick one of
+
+419
+00:15:47,120 --> 00:15:50,880
+the two at random
+
+420
+00:15:48,639 --> 00:15:54,320
+randomly permute that
+
+421
+00:15:50,880 --> 00:15:56,639
+uh that choice the one that he picked
+
+422
+00:15:54,320 --> 00:15:58,160
+and hand it over to the students
+
+423
+00:15:56,639 --> 00:16:00,480
+say okay
+
+424
+00:15:58,160 --> 00:16:03,040
+here is one of those two graphs randomly
+
+425
+00:16:00,480 --> 00:16:03,040
+scrambled
+
+426
+00:16:03,279 --> 00:16:09,480
+then i'm going to ask the students
+
+427
+00:16:04,959 --> 00:16:09,480
+which one did i pick
+
+428
+00:16:12,880 --> 00:16:18,720
+okay now
+
+429
+00:16:14,079 --> 00:16:21,120
+if the graphs were really not isomorphic
+
+430
+00:16:18,720 --> 00:16:24,320
+the students can check
+
+431
+00:16:21,120 --> 00:16:26,720
+whether that randomly scrambled graph
+
+432
+00:16:24,320 --> 00:16:28,320
+is isomorphic to either g or to h it's
+
+433
+00:16:26,720 --> 00:16:29,920
+going to be isomorphic to one or the
+
+434
+00:16:28,320 --> 00:16:31,440
+other
+
+435
+00:16:29,920 --> 00:16:33,920
+and then they students can figure it out
+
+436
+00:16:31,440 --> 00:16:35,120
+and they say oh you picked g or no you
+
+437
+00:16:33,920 --> 00:16:36,959
+picked h
+
+438
+00:16:35,120 --> 00:16:38,560
+as the case may be the students can
+
+439
+00:16:36,959 --> 00:16:42,639
+figure that out
+
+440
+00:16:38,560 --> 00:16:43,680
+but if the graphs were isomorphic
+
+441
+00:16:42,639 --> 00:16:46,880
+then that
+
+442
+00:16:43,680 --> 00:16:48,880
+scrambled version of g or h could
+
+443
+00:16:46,880 --> 00:16:51,839
+equally well have come from either of
+
+444
+00:16:48,880 --> 00:16:51,839
+them
+
+445
+00:16:51,920 --> 00:16:55,600
+and the students would have no way of
+
+446
+00:16:53,279 --> 00:16:55,600
+knowing
+
+447
+00:16:56,399 --> 00:17:01,279
+which one the professor picked
+
+448
+00:16:58,959 --> 00:17:04,799
+so that there's nothing they could do
+
+449
+00:17:01,279 --> 00:17:06,480
+which would be better than guessing
+
+450
+00:17:04,799 --> 00:17:08,959
+so if we do that a bunch of times the
+
+451
+00:17:06,480 --> 00:17:12,400
+professor picks at random sometimes
+
+452
+00:17:08,959 --> 00:17:17,120
+secretly of course the picks the grip
+
+453
+00:17:12,400 --> 00:17:17,120
+picks either g or picks h
+
+454
+00:17:17,360 --> 00:17:23,120
+and the students get it right every time
+
+455
+00:17:21,280 --> 00:17:24,000
+either the students are really doing the
+
+456
+00:17:23,120 --> 00:17:26,400
+work
+
+457
+00:17:24,000 --> 00:17:27,439
+and the graphs are really not isomorphic
+
+458
+00:17:26,400 --> 00:17:30,320
+or
+
+459
+00:17:27,439 --> 00:17:32,320
+the students are just incredibly lucky
+
+460
+00:17:30,320 --> 00:17:35,360
+they're managing to guess right let's
+
+461
+00:17:32,320 --> 00:17:35,360
+say a hundred times
+
+462
+00:17:38,160 --> 00:17:42,320
+so how the
+
+463
+00:17:39,760 --> 00:17:46,160
+the the professor randomly and secretly
+
+464
+00:17:42,320 --> 00:17:47,760
+picks grh uses this uses its probabilism
+
+465
+00:17:46,160 --> 00:17:50,080
+flips a coin
+
+466
+00:17:47,760 --> 00:17:51,520
+just a two-sided coin and says okay
+
+467
+00:17:50,080 --> 00:17:53,280
+sometimes if we're going to do g
+
+468
+00:17:51,520 --> 00:17:55,039
+sometimes they're going to do h just
+
+469
+00:17:53,280 --> 00:17:56,720
+completely at random
+
+470
+00:17:55,039 --> 00:17:59,600
+picks one or the other
+
+471
+00:17:56,720 --> 00:18:01,919
+and then with some more randomness
+
+472
+00:17:59,600 --> 00:18:04,400
+gets finds a random permutation of the
+
+473
+00:18:01,919 --> 00:18:06,559
+one that he picked and then sends that
+
+474
+00:18:04,400 --> 00:18:09,440
+over to the students and say which one
+
+475
+00:18:06,559 --> 00:18:09,440
+did it come from
+
+476
+00:18:12,000 --> 00:18:15,000
+um
+
+477
+00:18:15,679 --> 00:18:20,320
+i'm not sure okay so let's pause here
+
+478
+00:18:18,400 --> 00:18:23,360
+let's let's make sure we all understand
+
+479
+00:18:20,320 --> 00:18:25,360
+this because this is really important um
+
+480
+00:18:23,360 --> 00:18:27,919
+so i'm getting a question here how do we
+
+481
+00:18:25,360 --> 00:18:29,760
+i'm not sure what your question is um
+
+482
+00:18:27,919 --> 00:18:31,120
+okay so let me just say yeah the
+
+483
+00:18:29,760 --> 00:18:32,640
+professor's going to play the role the
+
+484
+00:18:31,120 --> 00:18:34,080
+verifier the graduate students play
+
+485
+00:18:32,640 --> 00:18:35,600
+they're all approver that's coming but i
+
+486
+00:18:34,080 --> 00:18:38,080
+really want to understand this protocol
+
+487
+00:18:35,600 --> 00:18:40,480
+here okay so how is the professor
+
+488
+00:18:38,080 --> 00:18:42,080
+picking the graph skin if you're
+
+489
+00:18:40,480 --> 00:18:43,679
+okay i don't you know picking the graphs
+
+490
+00:18:42,080 --> 00:18:46,240
+at random you have just two graphs
+
+491
+00:18:43,679 --> 00:18:48,400
+they're in part of the input uh the both
+
+492
+00:18:46,240 --> 00:18:49,679
+the students and the professor can see
+
+493
+00:18:48,400 --> 00:18:50,960
+the graphs
+
+494
+00:18:49,679 --> 00:18:52,720
+and the professors are just picking one
+
+495
+00:18:50,960 --> 00:18:54,240
+of them at random using a coin so i'm
+
+496
+00:18:52,720 --> 00:18:56,080
+not sure i understand the question there
+
+497
+00:18:54,240 --> 00:18:57,600
+could p and v engage in a protocol where
+
+498
+00:18:56,080 --> 00:18:58,799
+the secretary is on the prover side
+
+499
+00:18:57,600 --> 00:19:00,000
+instead
+
+500
+00:18:58,799 --> 00:19:02,080
+the question of revealing the
+
+501
+00:19:00,000 --> 00:19:03,919
+isomorphism i there is no why so i'm not
+
+502
+00:19:02,080 --> 00:19:06,640
+sure i understand this question either
+
+503
+00:19:03,919 --> 00:19:07,760
+um maybe we'll make this clear
+
+504
+00:19:06,640 --> 00:19:08,880
+you know if
+
+505
+00:19:07,760 --> 00:19:11,120
+for
+
+506
+00:19:08,880 --> 00:19:13,200
+for this little illustration
+
+507
+00:19:11,120 --> 00:19:14,640
+the professor
+
+508
+00:19:13,200 --> 00:19:16,080
+doesn't know the graphs could be
+
+509
+00:19:14,640 --> 00:19:18,799
+isomorphic or they could be not
+
+510
+00:19:16,080 --> 00:19:20,960
+isomorphic
+
+511
+00:19:18,799 --> 00:19:22,480
+and so uh the professor wants to be
+
+512
+00:19:20,960 --> 00:19:24,160
+convinced either way whatever the
+
+513
+00:19:22,480 --> 00:19:26,640
+students whatever answer the students
+
+514
+00:19:24,160 --> 00:19:30,000
+come up with we're going to shift this
+
+515
+00:19:26,640 --> 00:19:31,039
+into a problem about a um deciding a
+
+516
+00:19:30,000 --> 00:19:32,559
+language
+
+517
+00:19:31,039 --> 00:19:35,039
+next but right now i'm just trying to
+
+518
+00:19:32,559 --> 00:19:36,960
+give a sense of the how the model works
+
+519
+00:19:35,039 --> 00:19:38,480
+i want to move from this informal model
+
+520
+00:19:36,960 --> 00:19:40,160
+and now i'm going to formalize that in
+
+521
+00:19:38,480 --> 00:19:43,760
+terms of
+
+522
+00:19:40,160 --> 00:19:46,000
+model which will be deciding a language
+
+523
+00:19:43,760 --> 00:19:47,840
+okay so
+
+524
+00:19:46,000 --> 00:19:49,440
+so the interactive proof
+
+525
+00:19:47,840 --> 00:19:50,480
+system
+
+526
+00:19:49,440 --> 00:19:52,960
+model
+
+527
+00:19:50,480 --> 00:19:54,640
+we have two interacting parties a
+
+528
+00:19:52,960 --> 00:19:56,640
+verifier which is probabilistic
+
+529
+00:19:54,640 --> 00:19:58,720
+polynomial time playing played by the
+
+530
+00:19:56,640 --> 00:20:00,720
+professor in the previous slide
+
+531
+00:19:58,720 --> 00:20:02,799
+and the prover which is unlimited
+
+532
+00:20:00,720 --> 00:20:07,320
+computational power played by the
+
+533
+00:20:02,799 --> 00:20:07,320
+students in the previous slide
+
+534
+00:20:08,159 --> 00:20:12,400
+both of them get to see the input
+
+535
+00:20:10,559 --> 00:20:13,120
+which in the previous case
+
+536
+00:20:12,400 --> 00:20:15,120
+well
+
+537
+00:20:13,120 --> 00:20:17,280
+it could be for example the pair of
+
+538
+00:20:15,120 --> 00:20:19,120
+graphs
+
+539
+00:20:17,280 --> 00:20:21,840
+they exchange a polynomial number of
+
+540
+00:20:19,120 --> 00:20:24,080
+polynomial size messages so the whole
+
+541
+00:20:21,840 --> 00:20:27,120
+exchange
+
+542
+00:20:24,080 --> 00:20:29,200
+including the verifier's own computation
+
+543
+00:20:27,120 --> 00:20:32,080
+is going to be polynomial the only thing
+
+544
+00:20:29,200 --> 00:20:34,640
+that's not not not included within the
+
+545
+00:20:32,080 --> 00:20:37,520
+computational cost is the prover's work
+
+546
+00:20:34,640 --> 00:20:37,520
+which is unlimited
+
+547
+00:20:38,000 --> 00:20:41,760
+um
+
+548
+00:20:40,000 --> 00:20:43,600
+after that the verifier after the
+
+549
+00:20:41,760 --> 00:20:45,200
+interaction the verifier will accept or
+
+550
+00:20:43,600 --> 00:20:46,840
+reject
+
+551
+00:20:45,200 --> 00:20:49,440
+and we're going to define the
+
+552
+00:20:46,840 --> 00:20:51,440
+probability that the verifier together
+
+553
+00:20:49,440 --> 00:20:52,960
+with a particular approver ends up
+
+554
+00:20:51,440 --> 00:20:54,400
+accepting
+
+555
+00:20:52,960 --> 00:20:55,600
+as
+
+556
+00:20:54,400 --> 00:20:57,760
+you
+
+557
+00:20:55,600 --> 00:20:59,280
+look over the different possible coin
+
+558
+00:20:57,760 --> 00:21:01,360
+tosses
+
+559
+00:20:59,280 --> 00:21:04,559
+of the verifier
+
+560
+00:21:01,360 --> 00:21:06,320
+which could lead to different
+
+561
+00:21:04,559 --> 00:21:07,919
+behavior on the part of the verifier and
+
+562
+00:21:06,320 --> 00:21:10,400
+therefore different behavior on the part
+
+563
+00:21:07,919 --> 00:21:12,240
+of the approver
+
+564
+00:21:10,400 --> 00:21:14,159
+so over all the different possibility
+
+565
+00:21:12,240 --> 00:21:15,440
+possibilities for the verifiers
+
+566
+00:21:14,159 --> 00:21:17,039
+computation
+
+567
+00:21:15,440 --> 00:21:18,720
+we're going to look at the probability
+
+568
+00:21:17,039 --> 00:21:20,880
+that the verifier with this particular
+
+569
+00:21:18,720 --> 00:21:22,159
+approver ends up accepting and i've
+
+570
+00:21:20,880 --> 00:21:24,720
+written it this way this is the
+
+571
+00:21:22,159 --> 00:21:27,600
+probability of the verifier interacting
+
+572
+00:21:24,720 --> 00:21:31,320
+with the prover accepts the input
+
+573
+00:21:27,600 --> 00:21:31,320
+is just simply that
+
+574
+00:21:31,600 --> 00:21:34,880
+um and so we're going to work through an
+
+575
+00:21:33,840 --> 00:21:35,919
+example
+
+576
+00:21:34,880 --> 00:21:38,240
+we're going to
+
+577
+00:21:35,919 --> 00:21:39,039
+work through the previous example
+
+578
+00:21:38,240 --> 00:21:42,480
+more
+
+579
+00:21:39,039 --> 00:21:42,480
+precisely in a second
+
+580
+00:21:42,960 --> 00:21:49,200
+the class ip for interactive proofs
+
+581
+00:21:45,840 --> 00:21:53,600
+stands for it's the class of languages
+
+582
+00:21:49,200 --> 00:21:54,400
+such that for some verifier and approver
+
+583
+00:21:53,600 --> 00:21:57,120
+um
+
+584
+00:21:54,400 --> 00:21:59,280
+for strings in the language
+
+585
+00:21:57,120 --> 00:22:01,679
+the prover makes the verifier accept
+
+586
+00:21:59,280 --> 00:22:03,600
+with high probability
+
+587
+00:22:01,679 --> 00:22:06,000
+and here's the interesting part
+
+588
+00:22:03,600 --> 00:22:07,760
+for strings not in the language the
+
+589
+00:22:06,000 --> 00:22:10,159
+prover makes it except with low
+
+590
+00:22:07,760 --> 00:22:11,360
+probability but every there's no prover
+
+591
+00:22:10,159 --> 00:22:12,400
+which can make it except with high
+
+592
+00:22:11,360 --> 00:22:15,600
+probability
+
+593
+00:22:12,400 --> 00:22:15,600
+so there's no way to cheat
+
+594
+00:22:16,000 --> 00:22:20,159
+if you think about it in the case of the
+
+595
+00:22:17,360 --> 00:22:21,919
+graphic non-isomorphism
+
+596
+00:22:20,159 --> 00:22:23,520
+there's nothing you know
+
+597
+00:22:21,919 --> 00:22:26,960
+if
+
+598
+00:22:23,520 --> 00:22:28,720
+if the graphs were really isomorphic
+
+599
+00:22:26,960 --> 00:22:30,799
+and the students were trying to in a
+
+600
+00:22:28,720 --> 00:22:32,240
+devious way
+
+601
+00:22:30,799 --> 00:22:34,320
+prove
+
+602
+00:22:32,240 --> 00:22:36,240
+through that protocol that they're not
+
+603
+00:22:34,320 --> 00:22:38,480
+isomorphic they would fail because
+
+604
+00:22:36,240 --> 00:22:40,480
+there's nothing they can do
+
+605
+00:22:38,480 --> 00:22:42,320
+if the graphs were isomorphic
+
+606
+00:22:40,480 --> 00:22:43,280
+then um
+
+607
+00:22:42,320 --> 00:22:45,919
+when the
+
+608
+00:22:43,280 --> 00:22:48,159
+verifier the the professor picks one or
+
+609
+00:22:45,919 --> 00:22:50,480
+the other at random
+
+610
+00:22:48,159 --> 00:22:51,919
+um and scrambles it the students would
+
+611
+00:22:50,480 --> 00:22:54,720
+have no way of telling which one the
+
+612
+00:22:51,919 --> 00:22:57,039
+professor did so no matter what kind of
+
+613
+00:22:54,720 --> 00:22:59,039
+scheme they try to come up with
+
+614
+00:22:57,039 --> 00:23:00,000
+they're going to be out of luck
+
+615
+00:22:59,039 --> 00:23:03,039
+so
+
+616
+00:23:00,000 --> 00:23:04,880
+it's no mat for any strategy
+
+617
+00:23:03,039 --> 00:23:08,400
+for strings that are not in the language
+
+618
+00:23:04,880 --> 00:23:11,120
+for any s any prover calling that p with
+
+619
+00:23:08,400 --> 00:23:12,159
+a tilde to stand for a devious or
+
+620
+00:23:11,120 --> 00:23:13,360
+crooked
+
+621
+00:23:12,159 --> 00:23:16,320
+prover
+
+622
+00:23:13,360 --> 00:23:18,559
+for any uh possibly crooked prover
+
+623
+00:23:16,320 --> 00:23:20,400
+even that with working with the verifier
+
+624
+00:23:18,559 --> 00:23:23,520
+is still going to end up accepting with
+
+625
+00:23:20,400 --> 00:23:25,440
+low probability
+
+626
+00:23:23,520 --> 00:23:27,280
+so strings in the language there's going
+
+627
+00:23:25,440 --> 00:23:28,559
+to be an honest prover who just follows
+
+628
+00:23:27,280 --> 00:23:30,000
+the protocol
+
+629
+00:23:28,559 --> 00:23:32,080
+in the correct way which makes the
+
+630
+00:23:30,000 --> 00:23:34,320
+verifier accept with high probability
+
+631
+00:23:32,080 --> 00:23:35,440
+for strings not in the language every
+
+632
+00:23:34,320 --> 00:23:36,960
+prover
+
+633
+00:23:35,440 --> 00:23:39,200
+is going to fail
+
+634
+00:23:36,960 --> 00:23:41,520
+to make it accept with high probability
+
+635
+00:23:39,200 --> 00:23:41,520
+um
+
+636
+00:23:42,240 --> 00:23:46,720
+okay so that i mean the way i like to
+
+637
+00:23:43,760 --> 00:23:49,279
+think about it is that p tilde is
+
+638
+00:23:46,720 --> 00:23:50,880
+a possibly crooked proverb which is
+
+639
+00:23:49,279 --> 00:23:52,559
+trying to make the verifier accept when
+
+640
+00:23:50,880 --> 00:23:54,320
+it shouldn't because the string is not
+
+641
+00:23:52,559 --> 00:23:55,600
+in the language
+
+642
+00:23:54,320 --> 00:23:57,600
+it's like you know
+
+643
+00:23:55,600 --> 00:24:00,640
+it's like even you can think of this in
+
+644
+00:23:57,600 --> 00:24:02,080
+the case of um satisfiability
+
+645
+00:24:00,640 --> 00:24:03,679
+um
+
+646
+00:24:02,080 --> 00:24:04,559
+you know
+
+647
+00:24:03,679 --> 00:24:06,559
+you
+
+648
+00:24:04,559 --> 00:24:08,799
+a crooked prover might try to convince
+
+649
+00:24:06,559 --> 00:24:11,600
+of the verifier that the formula is
+
+650
+00:24:08,799 --> 00:24:12,880
+satisfiable when it isn't by by somehow
+
+651
+00:24:11,600 --> 00:24:14,000
+trying to produce a satisfying
+
+652
+00:24:12,880 --> 00:24:16,320
+assignment but that's going to be
+
+653
+00:24:14,000 --> 00:24:18,559
+impossible there's nothing any strategy
+
+654
+00:24:16,320 --> 00:24:20,400
+can possibly work when the formula is
+
+655
+00:24:18,559 --> 00:24:21,840
+not satisfiable if that's what the
+
+656
+00:24:20,400 --> 00:24:23,200
+verifier is going to check it's going to
+
+657
+00:24:21,840 --> 00:24:24,480
+be looking for that satisfying
+
+658
+00:24:23,200 --> 00:24:25,440
+assignment
+
+659
+00:24:24,480 --> 00:24:27,200
+okay
+
+660
+00:24:25,440 --> 00:24:28,480
+and by the way this is we're not going
+
+661
+00:24:27,200 --> 00:24:30,799
+to prove this but it's really going to
+
+662
+00:24:28,480 --> 00:24:32,799
+be proved in the same way you can make
+
+663
+00:24:30,799 --> 00:24:34,000
+that one third error that could that
+
+664
+00:24:32,799 --> 00:24:35,679
+occurs here
+
+665
+00:24:34,000 --> 00:24:36,480
+something very tiny
+
+666
+00:24:35,679 --> 00:24:40,000
+by
+
+667
+00:24:36,480 --> 00:24:40,880
+the same kind of repetition argument
+
+668
+00:24:40,000 --> 00:24:44,400
+okay
+
+669
+00:24:40,880 --> 00:24:44,400
+so let's see um
+
+670
+00:24:44,880 --> 00:24:49,200
+so why can't the prover in the first
+
+671
+00:24:46,480 --> 00:24:50,960
+case be crooked um
+
+672
+00:24:49,200 --> 00:24:53,279
+the prover in the first case would could
+
+673
+00:24:50,960 --> 00:24:55,919
+be crooked but that's not going to serve
+
+674
+00:24:53,279 --> 00:24:58,720
+the purposes um
+
+675
+00:24:55,919 --> 00:24:59,600
+you know what what we want to show
+
+676
+00:24:58,720 --> 00:25:02,080
+um
+
+677
+00:24:59,600 --> 00:25:03,520
+you think about it like we think about
+
+678
+00:25:02,080 --> 00:25:05,360
+np
+
+679
+00:25:03,520 --> 00:25:07,520
+for strings in the language there exists
+
+680
+00:25:05,360 --> 00:25:09,440
+a certificate there is a proof
+
+681
+00:25:07,520 --> 00:25:12,480
+that you're in the language
+
+682
+00:25:09,440 --> 00:25:15,840
+so if somebody is going to
+
+683
+00:25:12,480 --> 00:25:15,840
+not produce the proof
+
+684
+00:25:17,039 --> 00:25:20,720
+that's irrelevant
+
+685
+00:25:18,480 --> 00:25:23,440
+the question is if you look at the best
+
+686
+00:25:20,720 --> 00:25:24,480
+possible case the best possible prover
+
+687
+00:25:23,440 --> 00:25:26,559
+um
+
+688
+00:25:24,480 --> 00:25:28,799
+you know who's going to be able
+
+689
+00:25:26,559 --> 00:25:34,080
+we're asking does there exist a way to
+
+690
+00:25:28,799 --> 00:25:35,840
+convince the verifier that the um
+
+691
+00:25:34,080 --> 00:25:37,279
+string is in the language
+
+692
+00:25:35,840 --> 00:25:39,120
+so it doesn't matter that there might be
+
+693
+00:25:37,279 --> 00:25:40,000
+some other
+
+694
+00:25:39,120 --> 00:25:41,600
+uh
+
+695
+00:25:40,000 --> 00:25:43,679
+silly way that doesn't work we're just
+
+696
+00:25:41,600 --> 00:25:45,120
+looking at the best possible way
+
+697
+00:25:43,679 --> 00:25:46,559
+so the best possible way when you're in
+
+698
+00:25:45,120 --> 00:25:49,039
+the language is going to end up with a
+
+699
+00:25:46,559 --> 00:25:50,400
+verifier having high probability
+
+700
+00:25:49,039 --> 00:25:51,919
+when you're not in the language the best
+
+701
+00:25:50,400 --> 00:25:53,520
+possible way is still going to end up
+
+702
+00:25:51,919 --> 00:25:55,600
+with low probability
+
+703
+00:25:53,520 --> 00:25:57,760
+when when i talk about best possible i'm
+
+704
+00:25:55,600 --> 00:25:59,039
+trying to maximize the probability that
+
+705
+00:25:57,760 --> 00:26:02,080
+the verifier is going to end up
+
+706
+00:25:59,039 --> 00:26:03,919
+accepting let's continue um not sure as
+
+707
+00:26:02,080 --> 00:26:05,679
+clear as i would like but
+
+708
+00:26:03,919 --> 00:26:07,200
+um
+
+709
+00:26:05,679 --> 00:26:08,880
+maybe again we're going to we're going
+
+710
+00:26:07,200 --> 00:26:12,159
+to stick with that example because this
+
+711
+00:26:08,880 --> 00:26:14,799
+is a very uh
+
+712
+00:26:12,159 --> 00:26:17,840
+helpful example and to try to
+
+713
+00:26:14,799 --> 00:26:21,039
+understand the setup
+
+714
+00:26:17,840 --> 00:26:22,880
+and uh so we're gonna i'm gonna revisit
+
+715
+00:26:21,039 --> 00:26:25,440
+that previous example about
+
+716
+00:26:22,880 --> 00:26:26,480
+non-isomorphism but now in the context
+
+717
+00:26:25,440 --> 00:26:28,559
+of this
+
+718
+00:26:26,480 --> 00:26:30,320
+thinking about as a language
+
+719
+00:26:28,559 --> 00:26:32,640
+so we're going to take this
+
+720
+00:26:30,320 --> 00:26:34,880
+non-isomorphism
+
+721
+00:26:32,640 --> 00:26:34,880
+um
+
+722
+00:26:37,120 --> 00:26:40,480
+uh yeah
+
+723
+00:26:38,720 --> 00:26:41,679
+we're going to take the non-isomorphism
+
+724
+00:26:40,480 --> 00:26:43,520
+problem
+
+725
+00:26:41,679 --> 00:26:45,360
+and show that it's an ip so there's
+
+726
+00:26:43,520 --> 00:26:47,039
+going to be a verifier together with
+
+727
+00:26:45,360 --> 00:26:49,919
+approver which are going to make the
+
+728
+00:26:47,039 --> 00:26:51,760
+verifier accept with high probability
+
+729
+00:26:49,919 --> 00:26:54,000
+for strings in the language namely
+
+730
+00:26:51,760 --> 00:26:55,200
+graphs not ice being isomorphic
+
+731
+00:26:54,000 --> 00:26:56,640
+and
+
+732
+00:26:55,200 --> 00:26:58,320
+nothing there's going to be no way to
+
+733
+00:26:56,640 --> 00:27:00,159
+make the verifier except with high
+
+734
+00:26:58,320 --> 00:27:01,760
+probability for strings out of the
+
+735
+00:27:00,159 --> 00:27:04,000
+language therefore that's when the
+
+736
+00:27:01,760 --> 00:27:07,200
+graphs are isomorphic
+
+737
+00:27:04,000 --> 00:27:08,480
+okay um so the protocol is just gonna
+
+738
+00:27:07,200 --> 00:27:09,360
+we're gonna repeat the following thing
+
+739
+00:27:08,480 --> 00:27:11,360
+twice
+
+740
+00:27:09,360 --> 00:27:13,360
+you know i said in the previous case do
+
+741
+00:27:11,360 --> 00:27:14,880
+it a hundred times just to
+
+742
+00:27:13,360 --> 00:27:16,240
+help us think about it but actually
+
+743
+00:27:14,880 --> 00:27:17,679
+twice is gonna be enough to get the
+
+744
+00:27:16,240 --> 00:27:19,840
+bound we need
+
+745
+00:27:17,679 --> 00:27:22,480
+so the verifier is going to operate like
+
+746
+00:27:19,840 --> 00:27:23,760
+this in terms of this is the verifiers
+
+747
+00:27:22,480 --> 00:27:25,520
+in first
+
+748
+00:27:23,760 --> 00:27:27,279
+communicating
+
+749
+00:27:25,520 --> 00:27:30,480
+sending messages to the approver it's
+
+750
+00:27:27,279 --> 00:27:32,000
+going to randomly choose grh
+
+751
+00:27:30,480 --> 00:27:33,279
+just like what the professor did last
+
+752
+00:27:32,000 --> 00:27:35,600
+time
+
+753
+00:27:33,279 --> 00:27:37,120
+randomly permute the result to get a new
+
+754
+00:27:35,600 --> 00:27:39,039
+graph k
+
+755
+00:27:37,120 --> 00:27:41,440
+which was going to be which was
+
+756
+00:27:39,039 --> 00:27:43,039
+which is isomorphic either to grh
+
+757
+00:27:41,440 --> 00:27:44,240
+depending upon the choice the verifier
+
+758
+00:27:43,039 --> 00:27:48,159
+made
+
+759
+00:27:44,240 --> 00:27:51,200
+and then send that graph k
+
+760
+00:27:48,159 --> 00:27:54,240
+now the provers turn is going to respond
+
+761
+00:27:51,200 --> 00:27:56,240
+by the proof is going to compare k with
+
+762
+00:27:54,240 --> 00:27:57,919
+the two one of the both of the original
+
+763
+00:27:56,240 --> 00:27:59,360
+graphs it's got to be isomorphic to one
+
+764
+00:27:57,919 --> 00:28:02,799
+or the other
+
+765
+00:27:59,360 --> 00:28:05,039
+and it's going to report back which one
+
+766
+00:28:02,799 --> 00:28:06,640
+just going to say well you pick g no or
+
+767
+00:28:05,039 --> 00:28:08,159
+you picked h
+
+768
+00:28:06,640 --> 00:28:11,520
+because the prover with its unlimited
+
+769
+00:28:08,159 --> 00:28:13,279
+capabilities can determine that
+
+770
+00:28:11,520 --> 00:28:15,279
+um
+
+771
+00:28:13,279 --> 00:28:17,600
+and then v accepts if the approval was
+
+772
+00:28:15,279 --> 00:28:19,279
+right both times
+
+773
+00:28:17,600 --> 00:28:21,679
+um
+
+774
+00:28:19,279 --> 00:28:23,440
+and if the approval was ever not right
+
+775
+00:28:21,679 --> 00:28:26,159
+the verify says oh something's fishy
+
+776
+00:28:23,440 --> 00:28:28,399
+here because we know that the prover has
+
+777
+00:28:26,159 --> 00:28:31,440
+unlimited capability so could get it
+
+778
+00:28:28,399 --> 00:28:35,120
+right if you know um if there was if
+
+779
+00:28:31,440 --> 00:28:36,799
+this was an honest approver um and so um
+
+780
+00:28:35,120 --> 00:28:38,960
+if uh
+
+781
+00:28:36,799 --> 00:28:42,080
+if it's not getting it right then the
+
+782
+00:28:38,960 --> 00:28:42,080
+verify is going to reject
+
+783
+00:28:43,200 --> 00:28:47,279
+so if the graphs are not isomorphic the
+
+784
+00:28:45,440 --> 00:28:50,559
+proofer can tell which one it picked
+
+785
+00:28:47,279 --> 00:28:50,559
+randomly so therefore
+
+786
+00:28:50,640 --> 00:28:55,120
+if the graphs are not isomorphic the
+
+787
+00:28:52,640 --> 00:28:58,720
+verifier with that that honest prover
+
+788
+00:28:55,120 --> 00:29:00,399
+will accept with probability one
+
+789
+00:28:58,720 --> 00:29:02,240
+because that honest proof is always
+
+790
+00:29:00,399 --> 00:29:03,679
+going to get the right answer
+
+791
+00:29:02,240 --> 00:29:06,320
+which is at least two-thirds is what the
+
+792
+00:29:03,679 --> 00:29:06,320
+bound we need
+
+793
+00:29:06,960 --> 00:29:10,840
+uh we don't care about the space used in
+
+794
+00:29:09,120 --> 00:29:13,919
+answer to a question
+
+795
+00:29:10,840 --> 00:29:16,480
+um if
+
+796
+00:29:13,919 --> 00:29:18,159
+we were not in the language so g and i h
+
+797
+00:29:16,480 --> 00:29:20,159
+are not isomorphic
+
+798
+00:29:18,159 --> 00:29:21,600
+then there's nothing any crooked pervert
+
+799
+00:29:20,159 --> 00:29:23,760
+could possibly do
+
+800
+00:29:21,600 --> 00:29:25,200
+because it gets a graph
+
+801
+00:29:23,760 --> 00:29:27,919
+can't tell there's no way to tell
+
+802
+00:29:25,200 --> 00:29:29,840
+whether it came from g or came from h
+
+803
+00:29:27,919 --> 00:29:32,080
+um
+
+804
+00:29:29,840 --> 00:29:33,600
+so that crooked proofer would have all
+
+805
+00:29:32,080 --> 00:29:36,159
+it could the best thing you could do is
+
+806
+00:29:33,600 --> 00:29:39,200
+guess sort of a 50 chance advancing
+
+807
+00:29:36,159 --> 00:29:41,760
+correctly each time and only a 25 chance
+
+808
+00:29:39,200 --> 00:29:43,679
+for doing it twice
+
+809
+00:29:41,760 --> 00:29:46,559
+and that's why i did it twice in order
+
+810
+00:29:43,679 --> 00:29:47,679
+to get that error um
+
+811
+00:29:46,559 --> 00:29:50,799
+uh
+
+812
+00:29:47,679 --> 00:29:52,320
+to be small so there's only a 25 chance
+
+813
+00:29:50,799 --> 00:29:53,279
+of the approver getting lucky so that
+
+814
+00:29:52,320 --> 00:29:54,480
+would be an
+
+815
+00:29:53,279 --> 00:29:56,720
+error case
+
+816
+00:29:54,480 --> 00:29:59,120
+if the proof of just by chance picked
+
+817
+00:29:56,720 --> 00:30:02,399
+the right answer twice even though the
+
+818
+00:29:59,120 --> 00:30:04,559
+graphs were isomorphic so therefore
+
+819
+00:30:02,399 --> 00:30:06,559
+for the isomorphic case
+
+820
+00:30:04,559 --> 00:30:09,279
+the verifier interacting with
+
+821
+00:30:06,559 --> 00:30:12,320
+any prover is going to accept that input
+
+822
+00:30:09,279 --> 00:30:14,320
+with at most one quarter 25 of the time
+
+823
+00:30:12,320 --> 00:30:16,720
+which is less than a third so those are
+
+824
+00:30:14,320 --> 00:30:17,679
+that's just to achieve that bound
+
+825
+00:30:16,720 --> 00:30:18,640
+okay
+
+826
+00:30:17,679 --> 00:30:20,880
+so
+
+827
+00:30:18,640 --> 00:30:24,080
+let's let's answer some questions first
+
+828
+00:30:20,880 --> 00:30:26,240
+and then i'll try to um
+
+829
+00:30:24,080 --> 00:30:26,240
+uh
+
+830
+00:30:27,919 --> 00:30:30,559
+i'll ask you
+
+831
+00:30:30,720 --> 00:30:34,799
+you understand this so this it's i think
+
+832
+00:30:33,039 --> 00:30:37,039
+it's worth trying to understand this
+
+833
+00:30:34,799 --> 00:30:39,440
+model um of this interactive proof
+
+834
+00:30:37,039 --> 00:30:39,440
+system
+
+835
+00:30:39,600 --> 00:30:43,520
+it's a little little slippery i i
+
+836
+00:30:41,279 --> 00:30:45,120
+realize but um
+
+837
+00:30:43,520 --> 00:30:47,360
+if you just hold your hold on to your
+
+838
+00:30:45,120 --> 00:30:48,480
+intuition of the prover trying to
+
+839
+00:30:47,360 --> 00:30:50,399
+convince
+
+840
+00:30:48,480 --> 00:30:51,919
+you know of uh
+
+841
+00:30:50,399 --> 00:30:55,520
+you know a powerful prover trying to
+
+842
+00:30:51,919 --> 00:30:56,720
+convince a limited verifier
+
+843
+00:30:55,520 --> 00:30:57,919
+um
+
+844
+00:30:56,720 --> 00:30:58,880
+of
+
+845
+00:30:57,919 --> 00:31:01,519
+some
+
+846
+00:30:58,880 --> 00:31:03,200
+string being in a language
+
+847
+00:31:01,519 --> 00:31:04,559
+uh
+
+848
+00:31:03,200 --> 00:31:06,399
+you want the proven to be able to
+
+849
+00:31:04,559 --> 00:31:08,240
+succeed when the string is in the
+
+850
+00:31:06,399 --> 00:31:10,880
+language but fail when the string is not
+
+851
+00:31:08,240 --> 00:31:10,880
+in the language
+
+852
+00:31:11,600 --> 00:31:16,399
+yes we are going to somebody's asking if
+
+853
+00:31:14,000 --> 00:31:18,799
+the prover is identifying grh by brute
+
+854
+00:31:16,399 --> 00:31:21,679
+force yes the prover is going to use its
+
+855
+00:31:18,799 --> 00:31:22,799
+unlimited capabilities to determine
+
+856
+00:31:21,679 --> 00:31:26,320
+given k
+
+857
+00:31:22,799 --> 00:31:26,320
+whether it came from g or h
+
+858
+00:31:28,399 --> 00:31:32,000
+the um
+
+859
+00:31:30,240 --> 00:31:33,679
+the computational
+
+860
+00:31:32,000 --> 00:31:35,600
+cost of the approver is irrelevant for
+
+861
+00:31:33,679 --> 00:31:36,880
+this it's just like when we think about
+
+862
+00:31:35,600 --> 00:31:39,279
+a certificate
+
+863
+00:31:36,880 --> 00:31:40,720
+um you know for satisfiability we don't
+
+864
+00:31:39,279 --> 00:31:41,840
+talk about the cost of finding that
+
+865
+00:31:40,720 --> 00:31:43,279
+certificate
+
+866
+00:31:41,840 --> 00:31:45,519
+uh for np
+
+867
+00:31:43,279 --> 00:31:47,760
+for ip again we don't talk about the
+
+868
+00:31:45,519 --> 00:31:49,440
+cost of the prover running
+
+869
+00:31:47,760 --> 00:31:51,919
+so somebody's asking does the crooked
+
+870
+00:31:49,440 --> 00:31:53,760
+per prover answer just randomly or does
+
+871
+00:31:51,919 --> 00:31:55,600
+uh can the cr quick approver has have a
+
+872
+00:31:53,760 --> 00:31:57,440
+strategy the crooked perimeter can have
+
+873
+00:31:55,600 --> 00:31:58,960
+a strategy
+
+874
+00:31:57,440 --> 00:32:00,960
+now we're not we're assuming the crooked
+
+875
+00:31:58,960 --> 00:32:02,880
+approver is devious
+
+876
+00:32:00,960 --> 00:32:06,960
+but it's still going to fail
+
+877
+00:32:02,880 --> 00:32:06,960
+okay um let's do the check-in
+
+878
+00:32:07,279 --> 00:32:10,640
+suppose we change the model
+
+879
+00:32:09,200 --> 00:32:14,480
+so that the prover can watch the
+
+880
+00:32:10,640 --> 00:32:17,600
+verifier picking its random choices
+
+881
+00:32:14,480 --> 00:32:20,480
+so uh the verifier cannot act in secret
+
+882
+00:32:17,600 --> 00:32:22,399
+anymore but the the prover can watch the
+
+883
+00:32:20,480 --> 00:32:24,080
+verifier
+
+884
+00:32:22,399 --> 00:32:26,320
+now let's suppose we had the same
+
+885
+00:32:24,080 --> 00:32:28,480
+protocol that i just described
+
+886
+00:32:26,320 --> 00:32:30,240
+what language do we end up with is it
+
+887
+00:32:28,480 --> 00:32:32,559
+the same language different language and
+
+888
+00:32:30,240 --> 00:32:34,080
+what is that language
+
+889
+00:32:32,559 --> 00:32:35,919
+okay so
+
+890
+00:32:34,080 --> 00:32:37,200
+i want to hopefully
+
+891
+00:32:35,919 --> 00:32:39,039
+um
+
+892
+00:32:37,200 --> 00:32:39,840
+let's let's
+
+893
+00:32:39,039 --> 00:32:41,279
+it'll
+
+894
+00:32:39,840 --> 00:32:43,600
+give me some sense of how well you're
+
+895
+00:32:41,279 --> 00:32:44,480
+following me by how well this uh this
+
+896
+00:32:43,600 --> 00:32:46,159
+goes
+
+897
+00:32:44,480 --> 00:32:48,480
+yeah someone's asking about how this
+
+898
+00:32:46,159 --> 00:32:49,760
+connects up for example with np so we're
+
+899
+00:32:48,480 --> 00:32:53,320
+going to look at that
+
+900
+00:32:49,760 --> 00:32:53,320
+also in a second
+
+901
+00:32:57,360 --> 00:33:00,480
+okay so this is reassuring that most of
+
+902
+00:32:59,200 --> 00:33:02,880
+you i think are on the right track at
+
+903
+00:33:00,480 --> 00:33:05,760
+least for this check-in uh do we assume
+
+904
+00:33:02,880 --> 00:33:08,159
+p uses this access to guess right
+
+905
+00:33:05,760 --> 00:33:10,720
+what access p is not really guessing the
+
+906
+00:33:08,159 --> 00:33:12,240
+p is tr is actually i don't think a p is
+
+907
+00:33:10,720 --> 00:33:13,679
+non-deterministic or anything like that
+
+908
+00:33:12,240 --> 00:33:14,640
+p is actually trying to get the right
+
+909
+00:33:13,679 --> 00:33:16,880
+answer
+
+910
+00:33:14,640 --> 00:33:19,279
+and using its
+
+911
+00:33:16,880 --> 00:33:20,480
+computational ability to do that if it's
+
+912
+00:33:19,279 --> 00:33:22,080
+possible
+
+913
+00:33:20,480 --> 00:33:23,600
+may not be possible then there's nothing
+
+914
+00:33:22,080 --> 00:33:27,919
+you can do
+
+915
+00:33:23,600 --> 00:33:27,919
+okay so let's uh end this are you all in
+
+916
+00:33:28,159 --> 00:33:32,080
+two seconds left
+
+917
+00:33:30,159 --> 00:33:33,760
+please vote
+
+918
+00:33:32,080 --> 00:33:35,679
+vote now or never
+
+919
+00:33:33,760 --> 00:33:36,880
+okay ending
+
+920
+00:33:35,679 --> 00:33:41,120
+um
+
+921
+00:33:36,880 --> 00:33:41,120
+yeah so c is the correct answer here
+
+922
+00:33:41,519 --> 00:33:46,080
+if the prover can watch what the verify
+
+923
+00:33:43,519 --> 00:33:48,159
+is doing the prover can see
+
+924
+00:33:46,080 --> 00:33:49,760
+what graph the verifier picked right
+
+925
+00:33:48,159 --> 00:33:51,360
+from the beginning
+
+926
+00:33:49,760 --> 00:33:52,559
+and so the prover without having to do
+
+927
+00:33:51,360 --> 00:33:54,559
+any work
+
+928
+00:33:52,559 --> 00:33:56,720
+can say you know it proves looks over
+
+929
+00:33:54,559 --> 00:33:58,000
+the verifier's shoulder and says oh you
+
+930
+00:33:56,720 --> 00:33:59,600
+picked g
+
+931
+00:33:58,000 --> 00:34:01,120
+and now you're randomly permitting it
+
+932
+00:33:59,600 --> 00:34:02,559
+but i don't care about that i just i
+
+933
+00:34:01,120 --> 00:34:05,519
+know you pick g
+
+934
+00:34:02,559 --> 00:34:08,639
+uh so uh the
+
+935
+00:34:05,519 --> 00:34:10,560
+proof is going to respond back uh g even
+
+936
+00:34:08,639 --> 00:34:11,599
+if the graphs were isomorphic the proof
+
+937
+00:34:10,560 --> 00:34:12,879
+is going to be able to get the right
+
+938
+00:34:11,599 --> 00:34:15,520
+answer
+
+939
+00:34:12,879 --> 00:34:17,520
+kind of interestingly um
+
+940
+00:34:15,520 --> 00:34:19,839
+uh
+
+941
+00:34:17,520 --> 00:34:23,679
+you can make a you can change the
+
+942
+00:34:19,839 --> 00:34:24,720
+protocol somewhat um to make it uh that
+
+943
+00:34:23,679 --> 00:34:25,679
+even if the
+
+944
+00:34:24,720 --> 00:34:28,000
+prover
+
+945
+00:34:25,679 --> 00:34:29,520
+has access to the verifier's randomness
+
+946
+00:34:28,000 --> 00:34:31,280
+you can still achieve this but not with
+
+947
+00:34:29,520 --> 00:34:32,480
+the same protocol
+
+948
+00:34:31,280 --> 00:34:35,839
+um
+
+949
+00:34:32,480 --> 00:34:38,720
+so that's uh that's a separate question
+
+950
+00:34:35,839 --> 00:34:40,800
+um okay so let's move on here i want to
+
+951
+00:34:38,720 --> 00:34:43,679
+get too bogged down
+
+952
+00:34:40,800 --> 00:34:46,000
+okay here's another check-in um
+
+953
+00:34:43,679 --> 00:34:46,000
+uh
+
+954
+00:34:46,480 --> 00:34:49,839
+okay so
+
+955
+00:34:51,119 --> 00:34:53,520
+you have to tell me which of the
+
+956
+00:34:52,480 --> 00:34:56,480
+following
+
+957
+00:34:53,520 --> 00:34:56,480
+statements are true
+
+958
+00:34:56,879 --> 00:34:59,680
+as far as you know
+
+959
+00:35:01,359 --> 00:35:04,400
+now you have to think about a little bit
+
+960
+00:35:03,280 --> 00:35:05,680
+how this
+
+961
+00:35:04,400 --> 00:35:06,800
+these uh
+
+962
+00:35:05,680 --> 00:35:11,200
+relate
+
+963
+00:35:06,800 --> 00:35:13,200
+to um how np and ip or bpp
+
+964
+00:35:11,200 --> 00:35:14,560
+and ip relate to one another
+
+965
+00:35:13,200 --> 00:35:17,839
+okay
+
+966
+00:35:14,560 --> 00:35:17,839
+how are we doing on this
+
+967
+00:35:24,079 --> 00:35:28,079
+okay so we're gonna have to close this
+
+968
+00:35:25,680 --> 00:35:29,440
+pretty soon too
+
+969
+00:35:28,079 --> 00:35:31,200
+do the best you can
+
+970
+00:35:29,440 --> 00:35:34,000
+interesting okay
+
+971
+00:35:31,200 --> 00:35:34,000
+closing up shop
+
+972
+00:35:34,400 --> 00:35:39,920
+last last vote
+
+973
+00:35:37,599 --> 00:35:41,119
+okay one two three
+
+974
+00:35:39,920 --> 00:35:44,000
+there's one more person out there who
+
+975
+00:35:41,119 --> 00:35:46,400
+hasn't voted who voted last time oh well
+
+976
+00:35:44,000 --> 00:35:46,400
+uh
+
+977
+00:35:46,960 --> 00:35:50,800
+all right
+
+978
+00:35:48,560 --> 00:35:53,200
+in fact they're all true
+
+979
+00:35:50,800 --> 00:35:53,200
+um
+
+980
+00:35:53,440 --> 00:35:58,880
+let's see why is np contained with ip
+
+981
+00:35:56,000 --> 00:36:00,560
+contained in ip uh well many of you have
+
+982
+00:35:58,880 --> 00:36:02,000
+seen this already so let's just quickly
+
+983
+00:36:00,560 --> 00:36:04,800
+go through it um
+
+984
+00:36:02,000 --> 00:36:07,760
+[Music]
+
+985
+00:36:04,800 --> 00:36:09,839
+if we just had a deterministic v
+
+986
+00:36:07,760 --> 00:36:12,720
+um
+
+987
+00:36:09,839 --> 00:36:14,800
+you know the uh
+
+988
+00:36:12,720 --> 00:36:15,760
+you can
+
+989
+00:36:14,800 --> 00:36:16,880
+uh
+
+990
+00:36:15,760 --> 00:36:18,960
+maybe it's just
+
+991
+00:36:16,880 --> 00:36:20,079
+that that can be enough of deterministic
+
+992
+00:36:18,960 --> 00:36:21,599
+v
+
+993
+00:36:20,079 --> 00:36:25,040
+i think it's just going to be equivalent
+
+994
+00:36:21,599 --> 00:36:26,640
+but actually just to be doubly sure the
+
+995
+00:36:25,040 --> 00:36:28,560
+deterministic v and the approver just
+
+996
+00:36:26,640 --> 00:36:29,599
+sends a message to the verifier and then
+
+997
+00:36:28,560 --> 00:36:31,200
+checks it
+
+998
+00:36:29,599 --> 00:36:33,119
+that's the way we normally think about a
+
+999
+00:36:31,200 --> 00:36:34,480
+certificate for np
+
+1000
+00:36:33,119 --> 00:36:35,920
+uh i don't think it's going to change
+
+1001
+00:36:34,480 --> 00:36:38,160
+anything but should double check that if
+
+1002
+00:36:35,920 --> 00:36:39,599
+the verifier can still ask questions but
+
+1003
+00:36:38,160 --> 00:36:41,119
+i think as long as the verifier is
+
+1004
+00:36:39,599 --> 00:36:42,800
+deterministic you're going to get
+
+1005
+00:36:41,119 --> 00:36:44,000
+exactly np
+
+1006
+00:36:42,800 --> 00:36:46,320
+here
+
+1007
+00:36:44,000 --> 00:36:46,320
+um
+
+1008
+00:36:46,560 --> 00:36:50,400
+and um
+
+1009
+00:36:48,320 --> 00:36:51,119
+now how about bpp
+
+1010
+00:36:50,400 --> 00:36:52,800
+well
+
+1011
+00:36:51,119 --> 00:36:54,000
+there you don't even need approver
+
+1012
+00:36:52,800 --> 00:36:55,440
+because the verifier is already
+
+1013
+00:36:54,000 --> 00:36:56,320
+probabilistic
+
+1014
+00:36:55,440 --> 00:36:59,359
+so
+
+1015
+00:36:56,320 --> 00:37:02,480
+verifier can ignore the approver
+
+1016
+00:36:59,359 --> 00:37:03,839
+and this one is a little tricky uh i p
+
+1017
+00:37:02,480 --> 00:37:05,520
+containing p space because we haven't
+
+1018
+00:37:03,839 --> 00:37:06,800
+covered that so there's no way for you
+
+1019
+00:37:05,520 --> 00:37:09,920
+to know that unless you happen to read
+
+1020
+00:37:06,800 --> 00:37:13,359
+ahead in the book but it's in fact true
+
+1021
+00:37:09,920 --> 00:37:15,599
+um in some ways it's a little bit like
+
+1022
+00:37:13,359 --> 00:37:17,119
+the proof that
+
+1023
+00:37:15,599 --> 00:37:18,640
+uh
+
+1024
+00:37:17,119 --> 00:37:21,119
+np
+
+1025
+00:37:18,640 --> 00:37:23,119
+is contained in p space ip is sort of an
+
+1026
+00:37:21,119 --> 00:37:25,520
+enhanced version of np
+
+1027
+00:37:23,119 --> 00:37:28,079
+and you and there's just a basically a
+
+1028
+00:37:25,520 --> 00:37:29,599
+uh a piece based brute force algorithm
+
+1029
+00:37:28,079 --> 00:37:32,400
+that goes through the entire tree of
+
+1030
+00:37:29,599 --> 00:37:33,760
+possibilities um of the verifier
+
+1031
+00:37:32,400 --> 00:37:36,480
+exchange
+
+1032
+00:37:33,760 --> 00:37:40,480
+verifier with exchanges with approver
+
+1033
+00:37:36,480 --> 00:37:42,480
+and can uh determine that um the
+
+1034
+00:37:40,480 --> 00:37:44,000
+verifier is either going to accept for
+
+1035
+00:37:42,480 --> 00:37:46,720
+some approver or is going to end up
+
+1036
+00:37:44,000 --> 00:37:47,760
+projecting for every approver um
+
+1037
+00:37:46,720 --> 00:37:49,440
+so we're not going to prove this
+
+1038
+00:37:47,760 --> 00:37:52,480
+statement but something good for you to
+
+1039
+00:37:49,440 --> 00:37:54,320
+know anyway they're just a fact
+
+1040
+00:37:52,480 --> 00:37:56,240
+uh but we're going to do what the
+
+1041
+00:37:54,320 --> 00:37:58,480
+surprising thing
+
+1042
+00:37:56,240 --> 00:38:00,640
+in reference to part c
+
+1043
+00:37:58,480 --> 00:38:02,839
+is that the containment also goes the
+
+1044
+00:38:00,640 --> 00:38:06,160
+other way this is the amazing
+
+1045
+00:38:02,839 --> 00:38:06,160
+um uh
+
+1046
+00:38:06,720 --> 00:38:10,400
+was is an amazing result
+
+1047
+00:38:09,599 --> 00:38:13,359
+that
+
+1048
+00:38:10,400 --> 00:38:15,760
+everything in p space
+
+1049
+00:38:13,359 --> 00:38:18,079
+you can do with in ip
+
+1050
+00:38:15,760 --> 00:38:19,680
+so this is ip is actually turns out to
+
+1051
+00:38:18,079 --> 00:38:22,079
+be incredibly powerful gives you
+
+1052
+00:38:19,680 --> 00:38:23,839
+everything up in p space you get i p
+
+1053
+00:38:22,079 --> 00:38:25,440
+equals p space
+
+1054
+00:38:23,839 --> 00:38:27,599
+so that says that any problem that you
+
+1055
+00:38:25,440 --> 00:38:29,599
+can solve in p space like any of the a
+
+1056
+00:38:27,599 --> 00:38:31,599
+game for example
+
+1057
+00:38:29,599 --> 00:38:34,400
+um if you can imagine you know
+
+1058
+00:38:31,599 --> 00:38:35,280
+formulating you know checkers or
+
+1059
+00:38:34,400 --> 00:38:37,280
+chess
+
+1060
+00:38:35,280 --> 00:38:39,440
+as a piece based problem which you know
+
+1061
+00:38:37,280 --> 00:38:41,440
+depending upon some details of the rules
+
+1062
+00:38:39,440 --> 00:38:42,960
+you can do because you know you have to
+
+1063
+00:38:41,440 --> 00:38:45,200
+generalize it to an end by end board but
+
+1064
+00:38:42,960 --> 00:38:45,200
+okay
+
+1065
+00:38:45,680 --> 00:38:50,560
+let's not quibble um
+
+1066
+00:38:48,079 --> 00:38:52,240
+uh then
+
+1067
+00:38:50,560 --> 00:38:52,570
+uh
+
+1068
+00:38:52,240 --> 00:38:55,599
+um
+
+1069
+00:38:52,570 --> 00:38:57,359
+[Music]
+
+1070
+00:38:55,599 --> 00:38:58,960
+we don't know which side has a forced
+
+1071
+00:38:57,359 --> 00:39:01,359
+win in chess
+
+1072
+00:38:58,960 --> 00:39:04,160
+um and even if somebody goes through the
+
+1073
+00:39:01,359 --> 00:39:06,160
+effort of going through the game tree
+
+1074
+00:39:04,160 --> 00:39:07,680
+um and determines that let's say white
+
+1075
+00:39:06,160 --> 00:39:10,640
+has a forced win
+
+1076
+00:39:07,680 --> 00:39:12,240
+uh there's no way for them to there's no
+
+1077
+00:39:10,640 --> 00:39:14,400
+short certificate we don't know that
+
+1078
+00:39:12,240 --> 00:39:15,359
+that problem is not an np
+
+1079
+00:39:14,400 --> 00:39:16,560
+but
+
+1080
+00:39:15,359 --> 00:39:18,720
+by
+
+1081
+00:39:16,560 --> 00:39:20,720
+going through an interactive proof
+
+1082
+00:39:18,720 --> 00:39:22,880
+an all-powerful prover
+
+1083
+00:39:20,720 --> 00:39:24,160
+could still convince somebody that white
+
+1084
+00:39:22,880 --> 00:39:26,000
+had a force
+
+1085
+00:39:24,160 --> 00:39:27,760
+you know convince somebody in polynomial
+
+1086
+00:39:26,000 --> 00:39:31,520
+time that a
+
+1087
+00:39:27,760 --> 00:39:32,880
+white has a forced wind let's say in um
+
+1088
+00:39:31,520 --> 00:39:34,240
+in chess
+
+1089
+00:39:32,880 --> 00:39:37,440
+again little
+
+1090
+00:39:34,240 --> 00:39:38,720
+uh stretching things because this is
+
+1091
+00:39:37,440 --> 00:39:40,960
+you know you really need to talk about
+
+1092
+00:39:38,720 --> 00:39:43,839
+this as an n by n not an eight by eight
+
+1093
+00:39:40,960 --> 00:39:46,000
+but i think in this the spirit is is uh
+
+1094
+00:39:43,839 --> 00:39:48,720
+fair
+
+1095
+00:39:46,000 --> 00:39:51,760
+so um
+
+1096
+00:39:48,720 --> 00:39:52,800
+okay uh so let's continue
+
+1097
+00:39:51,760 --> 00:39:54,560
+so wha
+
+1098
+00:39:52,800 --> 00:39:55,920
+when we're not going to quite prove that
+
+1099
+00:39:54,560 --> 00:39:57,520
+that p base
+
+1100
+00:39:55,920 --> 00:39:58,960
+is contained in ip we're going to prove
+
+1101
+00:39:57,520 --> 00:40:00,000
+a somewhat weaker statement but very
+
+1102
+00:39:58,960 --> 00:40:01,040
+similar
+
+1103
+00:40:00,000 --> 00:40:04,240
+um
+
+1104
+00:40:01,040 --> 00:40:07,359
+is that uh and historically came first
+
+1105
+00:40:04,240 --> 00:40:09,680
+that co-np is contained in ip
+
+1106
+00:40:07,359 --> 00:40:11,200
+so not only is np contained in ip but
+
+1107
+00:40:09,680 --> 00:40:13,920
+we're going to prove that co np is
+
+1108
+00:40:11,200 --> 00:40:16,400
+contained in ip and this actually has
+
+1109
+00:40:13,920 --> 00:40:18,880
+most of the i most of the idea for the p
+
+1110
+00:40:16,400 --> 00:40:20,640
+space being contained in ip and itself
+
+1111
+00:40:18,880 --> 00:40:22,720
+it's just an amazing proof
+
+1112
+00:40:20,640 --> 00:40:25,720
+a little easier
+
+1113
+00:40:22,720 --> 00:40:25,720
+um
+
+1114
+00:40:27,280 --> 00:40:30,240
+okay
+
+1115
+00:40:28,160 --> 00:40:32,000
+and th this was done
+
+1116
+00:40:30,240 --> 00:40:34,240
+if i'm remembering somebody's asking me
+
+1117
+00:40:32,000 --> 00:40:36,880
+when how old is this it's something in
+
+1118
+00:40:34,240 --> 00:40:39,040
+the 19 i think late 90s but i'm not i
+
+1119
+00:40:36,880 --> 00:40:40,800
+don't remember but maybe early 90s i
+
+1120
+00:40:39,040 --> 00:40:42,560
+think it's late 90s
+
+1121
+00:40:40,800 --> 00:40:44,720
+when this was shown
+
+1122
+00:40:42,560 --> 00:40:46,640
+so it's been a while now
+
+1123
+00:40:44,720 --> 00:40:47,839
+um
+
+1124
+00:40:46,640 --> 00:40:48,720
+okay
+
+1125
+00:40:47,839 --> 00:40:51,720
+so
+
+1126
+00:40:48,720 --> 00:40:51,720
+um
+
+1127
+00:40:52,000 --> 00:40:56,160
+yeah so in terms of the relationship
+
+1128
+00:40:53,680 --> 00:40:58,480
+with cryptography there were two
+
+1129
+00:40:56,160 --> 00:41:00,960
+parallel threads
+
+1130
+00:40:58,480 --> 00:41:02,319
+um that both independently came up with
+
+1131
+00:41:00,960 --> 00:41:04,240
+the notion of an interactive purge
+
+1132
+00:41:02,319 --> 00:41:06,720
+system
+
+1133
+00:41:04,240 --> 00:41:08,319
+uh i was a little bit personally
+
+1134
+00:41:06,720 --> 00:41:11,280
+involved with this
+
+1135
+00:41:08,319 --> 00:41:13,200
+in in a way as well but but mainly that
+
+1136
+00:41:11,280 --> 00:41:14,640
+the the there was one group in
+
+1137
+00:41:13,200 --> 00:41:16,880
+cryptography
+
+1138
+00:41:14,640 --> 00:41:18,800
+um working on this and there was another
+
+1139
+00:41:16,880 --> 00:41:21,200
+group who was actually coming out of the
+
+1140
+00:41:18,800 --> 00:41:25,440
+graph isomorphism world
+
+1141
+00:41:21,200 --> 00:41:28,000
+working on it and they they came up with
+
+1142
+00:41:25,440 --> 00:41:29,680
+two separate models one involving the
+
+1143
+00:41:28,000 --> 00:41:32,240
+private randomness and one involving the
+
+1144
+00:41:29,680 --> 00:41:33,280
+public randomness um and it was turned
+
+1145
+00:41:32,240 --> 00:41:35,359
+out that was
+
+1146
+00:41:33,280 --> 00:41:36,640
+that they're actually equivalent
+
+1147
+00:41:35,359 --> 00:41:38,400
+um
+
+1148
+00:41:36,640 --> 00:41:41,040
+and uh
+
+1149
+00:41:38,400 --> 00:41:43,119
+it's an interesting story but
+
+1150
+00:41:41,040 --> 00:41:44,160
+unfortunately we don't have time for it
+
+1151
+00:41:43,119 --> 00:41:46,960
+uh so
+
+1152
+00:41:44,160 --> 00:41:50,880
+why don't we move on and i'm gonna start
+
+1153
+00:41:46,960 --> 00:41:52,560
+showing you how the proof that
+
+1154
+00:41:50,880 --> 00:41:54,960
+co-np
+
+1155
+00:41:52,560 --> 00:41:57,200
+is contained in ip
+
+1156
+00:41:54,960 --> 00:41:59,280
+goes and what we're going to do is work
+
+1157
+00:41:57,200 --> 00:42:02,880
+with a problem that's
+
+1158
+00:41:59,280 --> 00:42:04,480
+almost like co p complete but um
+
+1159
+00:42:02,880 --> 00:42:06,319
+going to be uh well it's going to be
+
+1160
+00:42:04,480 --> 00:42:09,119
+this number sat problem we'll see the
+
+1161
+00:42:06,319 --> 00:42:10,960
+connection with co-np in a second
+
+1162
+00:42:09,119 --> 00:42:13,200
+uh
+
+1163
+00:42:10,960 --> 00:42:15,200
+so cohen p
+
+1164
+00:42:13,200 --> 00:42:17,040
+so it's supposed to be exactly k
+
+1165
+00:42:15,200 --> 00:42:18,880
+satisfying assignments
+
+1166
+00:42:17,040 --> 00:42:20,160
+fee comma k
+
+1167
+00:42:18,880 --> 00:42:23,119
+is the set of
+
+1168
+00:42:20,160 --> 00:42:24,640
+pairs where the formula fee has exactly
+
+1169
+00:42:23,119 --> 00:42:26,000
+k satisfying assignments so really
+
+1170
+00:42:24,640 --> 00:42:27,359
+that's a problem of counting how many
+
+1171
+00:42:26,000 --> 00:42:29,119
+satisfying assignments you have in a
+
+1172
+00:42:27,359 --> 00:42:30,720
+formula
+
+1173
+00:42:29,119 --> 00:42:32,079
+um
+
+1174
+00:42:30,720 --> 00:42:34,319
+so you know for
+
+1175
+00:42:32,079 --> 00:42:36,880
+np you have at least one
+
+1176
+00:42:34,319 --> 00:42:38,800
+um but i'm i want to know exactly how
+
+1177
+00:42:36,880 --> 00:42:40,480
+many
+
+1178
+00:42:38,800 --> 00:42:45,119
+uh so the numbers that problem is the
+
+1179
+00:42:40,480 --> 00:42:45,920
+pairs formula and the count
+
+1180
+00:42:45,119 --> 00:42:48,160
+so
+
+1181
+00:42:45,920 --> 00:42:48,160
+um
+
+1182
+00:42:48,240 --> 00:42:54,800
+and uh so if we define the count
+
+1183
+00:42:52,240 --> 00:42:57,599
+number fee is the number of satisfying
+
+1184
+00:42:54,800 --> 00:43:00,079
+assignments of a fee
+
+1185
+00:42:57,599 --> 00:43:01,760
+then another way of writing this uh
+
+1186
+00:43:00,079 --> 00:43:02,800
+number stat problem
+
+1187
+00:43:01,760 --> 00:43:04,800
+is
+
+1188
+00:43:02,800 --> 00:43:07,200
+uh
+
+1189
+00:43:04,800 --> 00:43:09,359
+the pairs phi k where k is the number of
+
+1190
+00:43:07,200 --> 00:43:10,960
+satisfying assignments of fee
+
+1191
+00:43:09,359 --> 00:43:13,599
+so we're going to be using this notation
+
+1192
+00:43:10,960 --> 00:43:15,520
+number fee a lot so just make sure you
+
+1193
+00:43:13,599 --> 00:43:18,160
+get you got that notation this is the
+
+1194
+00:43:15,520 --> 00:43:20,640
+number of satisfying assignments of that
+
+1195
+00:43:18,160 --> 00:43:20,640
+formula
+
+1196
+00:43:22,000 --> 00:43:25,280
+okay
+
+1197
+00:43:23,839 --> 00:43:26,480
+and here's a definition i probably
+
+1198
+00:43:25,280 --> 00:43:29,200
+should have given you earlier in the
+
+1199
+00:43:26,480 --> 00:43:32,240
+term but better late than never um
+
+1200
+00:43:29,200 --> 00:43:34,640
+uh so the notion that a language is np
+
+1201
+00:43:32,240 --> 00:43:35,599
+hard
+
+1202
+00:43:34,640 --> 00:43:37,119
+it's like
+
+1203
+00:43:35,599 --> 00:43:39,520
+np complete
+
+1204
+00:43:37,119 --> 00:43:42,720
+except without being
+
+1205
+00:43:39,520 --> 00:43:44,560
+necessarily being in np
+
+1206
+00:43:42,720 --> 00:43:47,359
+so this is just the reduction part a
+
+1207
+00:43:44,560 --> 00:43:49,359
+language is np-hard or co-np-hard or
+
+1208
+00:43:47,359 --> 00:43:51,760
+p-space hard or any of those other
+
+1209
+00:43:49,359 --> 00:43:53,520
+classes that we looked at
+
+1210
+00:43:51,760 --> 00:43:56,480
+if every problem in the class is
+
+1211
+00:43:53,520 --> 00:43:58,240
+reducible to that language
+
+1212
+00:43:56,480 --> 00:44:00,640
+but you don't know whether this that
+
+1213
+00:43:58,240 --> 00:44:02,640
+that language is in the class
+
+1214
+00:44:00,640 --> 00:44:05,040
+so we just call it np hard instead of mp
+
+1215
+00:44:02,640 --> 00:44:05,040
+complete
+
+1216
+00:44:05,200 --> 00:44:08,880
+so you could say
+
+1217
+00:44:06,720 --> 00:44:11,680
+the language is np complete if it's hard
+
+1218
+00:44:08,880 --> 00:44:11,680
+and it's in np
+
+1219
+00:44:12,880 --> 00:44:19,040
+okay and so we're going to show that
+
+1220
+00:44:15,119 --> 00:44:21,680
+this number set problem is co np hard
+
+1221
+00:44:19,040 --> 00:44:26,160
+so everything in cohen p is polynomial
+
+1222
+00:44:21,680 --> 00:44:26,160
+time reducible to number set that's easy
+
+1223
+00:44:26,319 --> 00:44:31,040
+because what we're going to do is take a
+
+1224
+00:44:27,680 --> 00:44:31,040
+co np complete problem
+
+1225
+00:44:31,680 --> 00:44:36,079
+which is the
+
+1226
+00:44:33,560 --> 00:44:38,720
+unsatisfiability problem the complement
+
+1227
+00:44:36,079 --> 00:44:40,640
+of satisfiability and sure that reduces
+
+1228
+00:44:38,720 --> 00:44:42,640
+to the numbers that problem
+
+1229
+00:44:40,640 --> 00:44:45,040
+and that's easy because
+
+1230
+00:44:42,640 --> 00:44:49,119
+a formula is unsatisfiable exactly when
+
+1231
+00:44:45,040 --> 00:44:49,119
+it has zero satisfying assignments
+
+1232
+00:44:49,200 --> 00:44:52,160
+so if you can tell
+
+1233
+00:44:50,720 --> 00:44:55,119
+how many satisfying assignments
+
+1234
+00:44:52,160 --> 00:44:57,040
+something has exactly
+
+1235
+00:44:55,119 --> 00:45:00,560
+or you can answer the question you know
+
+1236
+00:44:57,040 --> 00:45:01,760
+does a formula have exactly
+
+1237
+00:45:00,560 --> 00:45:03,680
+a thousand
+
+1238
+00:45:01,760 --> 00:45:06,560
+satisfying assignments if you can do
+
+1239
+00:45:03,680 --> 00:45:08,319
+that in general then you can solve co
+
+1240
+00:45:06,560 --> 00:45:10,079
+and p uh you can solve the
+
+1241
+00:45:08,319 --> 00:45:12,319
+unsatisfiability problem by asking with
+
+1242
+00:45:10,079 --> 00:45:13,760
+zero satisfying assignments
+
+1243
+00:45:12,319 --> 00:45:16,000
+and that allows you to solve anything in
+
+1244
+00:45:13,760 --> 00:45:17,040
+cohen p
+
+1245
+00:45:16,000 --> 00:45:18,720
+okay
+
+1246
+00:45:17,040 --> 00:45:20,880
+so we're gonna just work with this one
+
+1247
+00:45:18,720 --> 00:45:23,839
+problem the number set problem and show
+
+1248
+00:45:20,880 --> 00:45:25,280
+that that problem's in ip
+
+1249
+00:45:23,839 --> 00:45:27,920
+okay
+
+1250
+00:45:25,280 --> 00:45:30,920
+let's take a quick break
+
+1251
+00:45:27,920 --> 00:45:30,920
+um
+
+1252
+00:45:32,960 --> 00:45:36,240
+okay feel free to send me let me see if
+
+1253
+00:45:35,119 --> 00:45:37,599
+i can catch up with some of the
+
+1254
+00:45:36,240 --> 00:45:40,000
+questions that have been
+
+1255
+00:45:37,599 --> 00:45:42,160
+cropping up here so if the approver
+
+1256
+00:45:40,000 --> 00:45:44,000
+knows the random choices of the verifier
+
+1257
+00:45:42,160 --> 00:45:47,280
+can it can flip the answer to make the
+
+1258
+00:45:44,000 --> 00:45:48,400
+verifier reject
+
+1259
+00:45:47,280 --> 00:45:50,319
+not sure what that you mean in the
+
+1260
+00:45:48,400 --> 00:45:51,599
+context just of the graph isomorphism
+
+1261
+00:45:50,319 --> 00:45:55,760
+problem or
+
+1262
+00:45:51,599 --> 00:45:55,760
+um something in general i'm not sure
+
+1263
+00:45:57,040 --> 00:46:00,720
+you'll have to explain sorry i'll
+
+1264
+00:45:58,560 --> 00:46:02,720
+respond with a question mark what else
+
+1265
+00:46:00,720 --> 00:46:04,079
+can i answer for you guys so i got a
+
+1266
+00:46:02,720 --> 00:46:05,119
+question
+
+1267
+00:46:04,079 --> 00:46:07,040
+might
+
+1268
+00:46:05,119 --> 00:46:11,520
+if i p equals p space does that mean
+
+1269
+00:46:07,040 --> 00:46:15,680
+that iso or the or non-iso might be um
+
+1270
+00:46:11,520 --> 00:46:17,599
+in might be p space complete but no
+
+1271
+00:46:15,680 --> 00:46:21,640
+that's not known
+
+1272
+00:46:17,599 --> 00:46:21,640
+so we're about out of time
+
+1273
+00:46:33,200 --> 00:46:37,030
+okay
+
+1274
+00:46:34,640 --> 00:46:40,099
+let's continue here
+
+1275
+00:46:37,030 --> 00:46:40,099
+[Music]
+
+1276
+00:46:40,880 --> 00:46:44,240
+okay so this this is where we're kind of
+
+1277
+00:46:43,200 --> 00:46:45,680
+getting
+
+1278
+00:46:44,240 --> 00:46:47,030
+going to start to get into the meat of
+
+1279
+00:46:45,680 --> 00:46:49,680
+things um
+
+1280
+00:46:47,030 --> 00:46:50,880
+[Music]
+
+1281
+00:46:49,680 --> 00:46:52,960
+and if you didn't quite understand
+
+1282
+00:46:50,880 --> 00:46:54,480
+everything up till now maybe just try to
+
+1283
+00:46:52,960 --> 00:46:56,960
+keep your intuition
+
+1284
+00:46:54,480 --> 00:47:00,319
+about how do i
+
+1285
+00:46:56,960 --> 00:47:02,079
+you know how does a powerful party
+
+1286
+00:47:00,319 --> 00:47:04,560
+convince a
+
+1287
+00:47:02,079 --> 00:47:06,319
+um a polynomial probabilistic polynomial
+
+1288
+00:47:04,560 --> 00:47:09,760
+time party
+
+1289
+00:47:06,319 --> 00:47:12,079
+of the number of satisfying assignments
+
+1290
+00:47:09,760 --> 00:47:14,240
+exact number not
+
+1291
+00:47:12,079 --> 00:47:17,359
+not at least but you won't know exactly
+
+1292
+00:47:14,240 --> 00:47:19,839
+the number um of satisfying assignments
+
+1293
+00:47:17,359 --> 00:47:23,440
+um so it could be zero for example how
+
+1294
+00:47:19,839 --> 00:47:25,839
+do you convince that how do you convince
+
+1295
+00:47:23,440 --> 00:47:27,839
+someone that there were zero assignments
+
+1296
+00:47:25,839 --> 00:47:29,440
+and and and you know you can have an
+
+1297
+00:47:27,839 --> 00:47:31,680
+interaction which does that and that's
+
+1298
+00:47:29,440 --> 00:47:33,440
+not obvious at all
+
+1299
+00:47:31,680 --> 00:47:35,760
+how you're gonna do that
+
+1300
+00:47:33,440 --> 00:47:35,760
+um
+
+1301
+00:47:36,319 --> 00:47:41,520
+uh all right
+
+1302
+00:47:38,559 --> 00:47:41,520
+so um
+
+1303
+00:47:42,400 --> 00:47:45,599
+okay so we're gonna have to introduce
+
+1304
+00:47:43,599 --> 00:47:48,240
+some notation which i
+
+1305
+00:47:45,599 --> 00:47:50,000
+don't hope this doesn't
+
+1306
+00:47:48,240 --> 00:47:50,839
+cause heartburn here
+
+1307
+00:47:50,000 --> 00:47:52,480
+uh
+
+1308
+00:47:50,839 --> 00:47:53,920
+so
+
+1309
+00:47:52,480 --> 00:47:55,839
+let's say
+
+1310
+00:47:53,920 --> 00:47:57,680
+again here is the the
+
+1311
+00:47:55,839 --> 00:47:59,440
+computational the language we're working
+
+1312
+00:47:57,680 --> 00:48:01,200
+with number set
+
+1313
+00:47:59,440 --> 00:48:04,720
+and we have
+
+1314
+00:48:01,200 --> 00:48:06,960
+a fee where that has m variables
+
+1315
+00:48:04,720 --> 00:48:07,839
+x1 to xm
+
+1316
+00:48:06,960 --> 00:48:09,839
+now
+
+1317
+00:48:07,839 --> 00:48:11,920
+here's our notation i'm going to if i
+
+1318
+00:48:09,839 --> 00:48:14,400
+write phi with this
+
+1319
+00:48:11,920 --> 00:48:17,200
+free phi of 0
+
+1320
+00:48:14,400 --> 00:48:18,079
+that just means the formula that i get
+
+1321
+00:48:17,200 --> 00:48:20,880
+by
+
+1322
+00:48:18,079 --> 00:48:22,400
+plugging in 0 for x one
+
+1323
+00:48:20,880 --> 00:48:25,920
+and leaving all the rest of the
+
+1324
+00:48:22,400 --> 00:48:25,920
+variables uh alone
+
+1325
+00:48:26,160 --> 00:48:30,160
+okay so i substitute zero for x one
+
+1326
+00:48:28,640 --> 00:48:32,800
+where zero means false and one means
+
+1327
+00:48:30,160 --> 00:48:34,160
+true as usual
+
+1328
+00:48:32,800 --> 00:48:35,599
+and but that's it's going it's still
+
+1329
+00:48:34,160 --> 00:48:38,240
+going to be some other formula but just
+
+1330
+00:48:35,599 --> 00:48:42,319
+with that substitution
+
+1331
+00:48:38,240 --> 00:48:45,760
+if i write fee 0 1 that means i preset
+
+1332
+00:48:42,319 --> 00:48:46,880
+the first two variables to 0 and 1.
+
+1333
+00:48:45,760 --> 00:48:49,599
+um
+
+1334
+00:48:46,880 --> 00:48:50,720
+if i write fee with
+
+1335
+00:48:49,599 --> 00:48:53,119
+a bunch of
+
+1336
+00:48:50,720 --> 00:48:58,480
+preset values i'm just setting the first
+
+1337
+00:48:53,119 --> 00:48:58,480
+i variables x1 to xi to some values
+
+1338
+00:48:59,280 --> 00:49:03,200
+and leaving the other variables
+
+1339
+00:49:01,359 --> 00:49:05,119
+as unset
+
+1340
+00:49:03,200 --> 00:49:06,800
+so i'm calling the ones that i'm
+
+1341
+00:49:05,119 --> 00:49:09,599
+nailing in there as i'm already saying
+
+1342
+00:49:06,800 --> 00:49:12,160
+these are the presets
+
+1343
+00:49:09,599 --> 00:49:14,160
+okay so this is just converting some
+
+1344
+00:49:12,160 --> 00:49:16,960
+formulas into other formulas that have
+
+1345
+00:49:14,160 --> 00:49:18,640
+somewhat fewer variables
+
+1346
+00:49:16,960 --> 00:49:21,680
+all right
+
+1347
+00:49:18,640 --> 00:49:24,240
+now let's recall that number notation
+
+1348
+00:49:21,680 --> 00:49:26,400
+the number sign notation number fee is
+
+1349
+00:49:24,240 --> 00:49:29,200
+the number of satisfying assignments
+
+1350
+00:49:26,400 --> 00:49:30,480
+now if i say number fee of 0
+
+1351
+00:49:29,200 --> 00:49:31,920
+that's the number of satisfying
+
+1352
+00:49:30,480 --> 00:49:36,000
+assignments
+
+1353
+00:49:31,920 --> 00:49:36,000
+when i've preset x1 to 0.
+
+1354
+00:49:37,280 --> 00:49:40,480
+similarly if i preset the first i
+
+1355
+00:49:39,359 --> 00:49:41,520
+variables
+
+1356
+00:49:40,480 --> 00:49:42,960
+to some
+
+1357
+00:49:41,520 --> 00:49:46,079
+values
+
+1358
+00:49:42,960 --> 00:49:48,319
+and then i take i want to think how many
+
+1359
+00:49:46,079 --> 00:49:50,720
+how many satisfying assignments subject
+
+1360
+00:49:48,319 --> 00:49:51,599
+to those prefix presets i write it this
+
+1361
+00:49:50,720 --> 00:49:53,920
+way
+
+1362
+00:49:51,599 --> 00:49:55,680
+so i'm going to use this notation a lot
+
+1363
+00:49:53,920 --> 00:49:58,160
+you have to understand this notation ask
+
+1364
+00:49:55,680 --> 00:49:59,520
+if you don't none if you don't get it so
+
+1365
+00:49:58,160 --> 00:50:00,960
+another way of writing it i don't know
+
+1366
+00:49:59,520 --> 00:50:04,800
+if this is helpful but another way of
+
+1367
+00:50:00,960 --> 00:50:06,240
+writing number fee of a1 to a i
+
+1368
+00:50:04,800 --> 00:50:08,640
+remember we have m variables all
+
+1369
+00:50:06,240 --> 00:50:08,640
+together
+
+1370
+00:50:08,720 --> 00:50:14,880
+that means i take the
+
+1371
+00:50:11,520 --> 00:50:16,960
+variables which i have not yet preset
+
+1372
+00:50:14,880 --> 00:50:18,559
+um
+
+1373
+00:50:16,960 --> 00:50:22,160
+and i allow them to range over all
+
+1374
+00:50:18,559 --> 00:50:22,880
+possible zeros and ones and i add up
+
+1375
+00:50:22,160 --> 00:50:27,119
+the
+
+1376
+00:50:22,880 --> 00:50:29,440
+the formulas values for all of those so
+
+1377
+00:50:27,119 --> 00:50:31,760
+there's a one every time i satisfy and a
+
+1378
+00:50:29,440 --> 00:50:34,079
+zero every time i don't satisfy so i'm
+
+1379
+00:50:31,760 --> 00:50:38,240
+adding up all the satisfying assignments
+
+1380
+00:50:34,079 --> 00:50:38,240
+subject to these i presets
+
+1381
+00:50:39,520 --> 00:50:43,280
+okay
+
+1382
+00:50:40,720 --> 00:50:44,880
+so here are two critical facts about
+
+1383
+00:50:43,280 --> 00:50:47,599
+this
+
+1384
+00:50:44,880 --> 00:50:49,119
+number sign notation
+
+1385
+00:50:47,599 --> 00:50:51,359
+first of all
+
+1386
+00:50:49,119 --> 00:50:53,520
+if i preset the first i values to
+
+1387
+00:50:51,359 --> 00:50:54,880
+something
+
+1388
+00:50:53,520 --> 00:50:56,319
+now i can
+
+1389
+00:50:54,880 --> 00:50:59,280
+in addition
+
+1390
+00:50:56,319 --> 00:51:01,119
+set the next variable either to zero or
+
+1391
+00:50:59,280 --> 00:51:02,640
+to one
+
+1392
+00:51:01,119 --> 00:51:04,559
+and i get this
+
+1393
+00:51:02,640 --> 00:51:06,640
+relationship
+
+1394
+00:51:04,559 --> 00:51:08,559
+which is just simply a generalization of
+
+1395
+00:51:06,640 --> 00:51:10,000
+the fact that
+
+1396
+00:51:08,559 --> 00:51:11,920
+the total number of satisfying
+
+1397
+00:51:10,000 --> 00:51:13,440
+assignments of the formula
+
+1398
+00:51:11,920 --> 00:51:16,960
+is equal to the number of satisfying
+
+1399
+00:51:13,440 --> 00:51:20,960
+assignments when x1 is 0 plus the number
+
+1400
+00:51:16,960 --> 00:51:22,400
+of satisfying assignments when x1 is 1.
+
+1401
+00:51:20,960 --> 00:51:24,160
+right they together have to add up to
+
+1402
+00:51:22,400 --> 00:51:26,480
+the total number because x1 is going to
+
+1403
+00:51:24,160 --> 00:51:28,480
+be the either zero or one
+
+1404
+00:51:26,480 --> 00:51:31,359
+so that's fact number one
+
+1405
+00:51:28,480 --> 00:51:33,119
+fact number two is that if i preset
+
+1406
+00:51:31,359 --> 00:51:34,480
+everything
+
+1407
+00:51:33,119 --> 00:51:36,960
+all of the variables so there are no
+
+1408
+00:51:34,480 --> 00:51:39,119
+variables left then the number of
+
+1409
+00:51:36,960 --> 00:51:41,359
+satisfying assignments
+
+1410
+00:51:39,119 --> 00:51:43,599
+subject to that preset
+
+1411
+00:51:41,359 --> 00:51:45,520
+of everything is just whether or not
+
+1412
+00:51:43,599 --> 00:51:47,280
+i've satisfied the formula which is the
+
+1413
+00:51:45,520 --> 00:51:49,119
+value of the formula on that those
+
+1414
+00:51:47,280 --> 00:51:50,400
+presets
+
+1415
+00:51:49,119 --> 00:51:52,400
+okay
+
+1416
+00:51:50,400 --> 00:51:54,480
+both two simple facts but it's going to
+
+1417
+00:51:52,400 --> 00:51:56,960
+be critical in the protocol i'm about to
+
+1418
+00:51:54,480 --> 00:51:56,960
+describe
+
+1419
+00:51:58,319 --> 00:52:00,960
+questions on this
+
+1420
+00:52:01,119 --> 00:52:05,200
+i think actually i do have a question
+
+1421
+00:52:02,480 --> 00:52:07,920
+for you
+
+1422
+00:52:05,200 --> 00:52:07,920
+so let's just see
+
+1423
+00:52:09,280 --> 00:52:11,839
+what do you think
+
+1424
+00:52:12,319 --> 00:52:17,200
+just to check your understanding
+
+1425
+00:52:15,280 --> 00:52:19,839
+okay
+
+1426
+00:52:17,200 --> 00:52:21,280
+got about 80
+
+1427
+00:52:19,839 --> 00:52:22,640
+getting this
+
+1428
+00:52:21,280 --> 00:52:26,800
+um
+
+1429
+00:52:22,640 --> 00:52:26,800
+i'm not sure that's good but uh
+
+1430
+00:52:28,240 --> 00:52:31,040
+all right almost done
+
+1431
+00:52:31,680 --> 00:52:34,079
+closing
+
+1432
+00:52:35,280 --> 00:52:37,599
+okay
+
+1433
+00:52:38,240 --> 00:52:44,160
+okay so uh yes a is the correct answer
+
+1434
+00:52:41,920 --> 00:52:46,400
+you know if if there are nine satisfying
+
+1435
+00:52:44,160 --> 00:52:48,480
+assignments all together and there are
+
+1436
+00:52:46,400 --> 00:52:51,599
+six satisfying assignments where the
+
+1437
+00:52:48,480 --> 00:52:53,040
+first variable is set to zero
+
+1438
+00:52:51,599 --> 00:52:54,559
+then there's only three satisfying
+
+1439
+00:52:53,040 --> 00:52:55,920
+assignments with the first variable set
+
+1440
+00:52:54,559 --> 00:52:57,440
+to one because
+
+1441
+00:52:55,920 --> 00:52:58,400
+nine has got to be equal to six plus
+
+1442
+00:52:57,440 --> 00:53:02,160
+three
+
+1443
+00:52:58,400 --> 00:53:04,640
+that's actually this fact number one
+
+1444
+00:53:02,160 --> 00:53:06,240
+it's not going to be 15
+
+1445
+00:53:04,640 --> 00:53:07,119
+this is not true either
+
+1446
+00:53:06,240 --> 00:53:09,920
+so
+
+1447
+00:53:07,119 --> 00:53:09,920
+it's just a
+
+1448
+00:53:10,720 --> 00:53:13,040
+good
+
+1449
+00:53:11,520 --> 00:53:14,960
+okay
+
+1450
+00:53:13,040 --> 00:53:17,119
+okay so let's try to
+
+1451
+00:53:14,960 --> 00:53:18,720
+with with that knowledge let's try to
+
+1452
+00:53:17,119 --> 00:53:20,480
+see how we can put
+
+1453
+00:53:18,720 --> 00:53:22,880
+number sat in ip
+
+1454
+00:53:20,480 --> 00:53:25,280
+so this is not going to quite work
+
+1455
+00:53:22,880 --> 00:53:28,240
+but it's really going to set us up to do
+
+1456
+00:53:25,280 --> 00:53:29,119
+this to finish this next time
+
+1457
+00:53:28,240 --> 00:53:31,200
+um
+
+1458
+00:53:29,119 --> 00:53:32,880
+so
+
+1459
+00:53:31,200 --> 00:53:36,160
+you might immediately see where this is
+
+1460
+00:53:32,880 --> 00:53:38,400
+going wrong but you'll
+
+1461
+00:53:36,160 --> 00:53:39,839
+you'll have to put up with it
+
+1462
+00:53:38,400 --> 00:53:42,400
+because um
+
+1463
+00:53:39,839 --> 00:53:43,680
+the setup is what's important
+
+1464
+00:53:42,400 --> 00:53:44,800
+um
+
+1465
+00:53:43,680 --> 00:53:46,559
+okay
+
+1466
+00:53:44,800 --> 00:53:48,880
+so understand now here's the
+
+1467
+00:53:46,559 --> 00:53:50,160
+here's the the setup we have
+
+1468
+00:53:48,880 --> 00:53:52,960
+um
+
+1469
+00:53:50,160 --> 00:53:53,839
+the input is a formula
+
+1470
+00:53:52,960 --> 00:53:55,520
+and
+
+1471
+00:53:53,839 --> 00:53:57,359
+a number
+
+1472
+00:53:55,520 --> 00:54:00,720
+where that number is supposed to be the
+
+1473
+00:53:57,359 --> 00:54:02,720
+number of satisfying assignments
+
+1474
+00:54:00,720 --> 00:54:05,680
+you know it could be wrong and in which
+
+1475
+00:54:02,720 --> 00:54:07,200
+case we're not in the language
+
+1476
+00:54:05,680 --> 00:54:08,839
+um but if it's right you're in the
+
+1477
+00:54:07,200 --> 00:54:11,440
+language
+
+1478
+00:54:08,839 --> 00:54:12,880
+so the approver is supposed to convince
+
+1479
+00:54:11,440 --> 00:54:16,000
+the verifier
+
+1480
+00:54:12,880 --> 00:54:17,599
+that it's correct if it is correct
+
+1481
+00:54:16,000 --> 00:54:19,440
+and it's not gonna it's gonna fail no
+
+1482
+00:54:17,599 --> 00:54:20,240
+matter what it tries to do
+
+1483
+00:54:19,440 --> 00:54:22,839
+if
+
+1484
+00:54:20,240 --> 00:54:25,119
+it's uh not
+
+1485
+00:54:22,839 --> 00:54:27,920
+correct so this is the approver is going
+
+1486
+00:54:25,119 --> 00:54:28,960
+to send first of all
+
+1487
+00:54:27,920 --> 00:54:30,079
+um
+
+1488
+00:54:28,960 --> 00:54:33,359
+so
+
+1489
+00:54:30,079 --> 00:54:35,119
+so the proof is going to send a claim
+
+1490
+00:54:33,359 --> 00:54:37,119
+about the number of satisfying
+
+1491
+00:54:35,119 --> 00:54:40,559
+assignments
+
+1492
+00:54:37,119 --> 00:54:43,119
+going to send when i say this value here
+
+1493
+00:54:40,559 --> 00:54:44,559
+this is what the prover
+
+1494
+00:54:43,119 --> 00:54:46,640
+if it's honest is going to send the
+
+1495
+00:54:44,559 --> 00:54:50,319
+right value of course the verifier does
+
+1496
+00:54:46,640 --> 00:54:50,319
+not know if the approver is honest
+
+1497
+00:54:50,400 --> 00:54:53,440
+but i'm describing how the honest
+
+1498
+00:54:51,839 --> 00:54:54,799
+approver is going to operate and we'll
+
+1499
+00:54:53,440 --> 00:54:57,920
+have to understand what happens if the
+
+1500
+00:54:54,799 --> 00:54:57,920
+prover tries to cheat
+
+1501
+00:54:58,240 --> 00:55:01,119
+so the proof is going to send the honest
+
+1502
+00:54:59,680 --> 00:55:02,880
+proof is going to send the number of
+
+1503
+00:55:01,119 --> 00:55:04,880
+satisfying assignments all together and
+
+1504
+00:55:02,880 --> 00:55:07,440
+the prover verifier just makes sure that
+
+1505
+00:55:04,880 --> 00:55:08,799
+that matches up with the input
+
+1506
+00:55:07,440 --> 00:55:10,319
+if it doesn't match up with the input uh
+
+1507
+00:55:08,799 --> 00:55:12,559
+the verifier is just gonna
+
+1508
+00:55:10,319 --> 00:55:15,040
+you know you know the the verifier is
+
+1509
+00:55:12,559 --> 00:55:16,880
+gonna not be convinced that the input is
+
+1510
+00:55:15,040 --> 00:55:19,040
+um in the language
+
+1511
+00:55:16,880 --> 00:55:21,839
+so it's gonna just uh reject at that
+
+1512
+00:55:19,040 --> 00:55:21,839
+point
+
+1513
+00:55:21,920 --> 00:55:25,599
+um
+
+1514
+00:55:23,680 --> 00:55:27,440
+okay uh
+
+1515
+00:55:25,599 --> 00:55:29,440
+then now the verifier says okay that was
+
+1516
+00:55:27,440 --> 00:55:31,440
+very good that you sent me this how do i
+
+1517
+00:55:29,440 --> 00:55:33,599
+know that's right
+
+1518
+00:55:31,440 --> 00:55:35,200
+so what the verif prover is going to do
+
+1519
+00:55:33,599 --> 00:55:38,640
+to try to convince the verifier that
+
+1520
+00:55:35,200 --> 00:55:38,640
+this value was correct
+
+1521
+00:55:38,799 --> 00:55:40,880
+is
+
+1522
+00:55:39,599 --> 00:55:43,680
+uh
+
+1523
+00:55:40,880 --> 00:55:45,440
+unravel that by one level by say well
+
+1524
+00:55:43,680 --> 00:55:48,880
+you know there were nine satisfying
+
+1525
+00:55:45,440 --> 00:55:51,839
+assignments all together uh six of them
+
+1526
+00:55:48,880 --> 00:55:55,760
+were when the when x one is zero and
+
+1527
+00:55:51,839 --> 00:55:55,760
+three of them were when x one is one
+
+1528
+00:55:55,920 --> 00:55:58,640
+to verify what does the verify have to
+
+1529
+00:55:57,760 --> 00:55:59,839
+check
+
+1530
+00:55:58,640 --> 00:56:03,839
+that
+
+1531
+00:55:59,839 --> 00:56:05,520
+these add up correctly when i preset x1
+
+1532
+00:56:03,839 --> 00:56:07,920
+to zero and to one
+
+1533
+00:56:05,520 --> 00:56:10,160
+it had better add up to the total number
+
+1534
+00:56:07,920 --> 00:56:12,000
+of satisfying assignments
+
+1535
+00:56:10,160 --> 00:56:14,799
+if that works out the verifier is happy
+
+1536
+00:56:12,000 --> 00:56:17,440
+is still being it's still consistent
+
+1537
+00:56:14,799 --> 00:56:19,520
+with being convinced that this k was the
+
+1538
+00:56:17,440 --> 00:56:21,839
+right value
+
+1539
+00:56:19,520 --> 00:56:21,839
+um
+
+1540
+00:56:22,559 --> 00:56:26,079
+so um
+
+1541
+00:56:24,000 --> 00:56:27,440
+the next step is
+
+1542
+00:56:26,079 --> 00:56:30,240
+well the verifier says well how do i
+
+1543
+00:56:27,440 --> 00:56:32,559
+know those two values are correct the
+
+1544
+00:56:30,240 --> 00:56:33,760
+prover says okay well i'm going to prove
+
+1545
+00:56:32,559 --> 00:56:37,520
+send
+
+1546
+00:56:33,760 --> 00:56:37,520
+un unravel them one level further
+
+1547
+00:56:37,599 --> 00:56:41,119
+then here's a number of satisfying
+
+1548
+00:56:39,040 --> 00:56:43,359
+assignments when the next variable is
+
+1549
+00:56:41,119 --> 00:56:47,119
+set to both possibilities for each of
+
+1550
+00:56:43,359 --> 00:56:47,119
+the possibilities of the first variable
+
+1551
+00:56:47,200 --> 00:56:50,559
+now if you're
+
+1552
+00:56:49,119 --> 00:56:52,000
+understanding me
+
+1553
+00:56:50,559 --> 00:56:53,359
+about what the prover is sending you
+
+1554
+00:56:52,000 --> 00:56:55,520
+should start to be getting a little
+
+1555
+00:56:53,359 --> 00:56:57,040
+nervous
+
+1556
+00:56:55,520 --> 00:56:59,040
+because
+
+1557
+00:56:57,040 --> 00:57:00,480
+something is i mean this is going to be
+
+1558
+00:56:59,040 --> 00:57:02,000
+correct
+
+1559
+00:57:00,480 --> 00:57:03,920
+but it's going to start it looks like
+
+1560
+00:57:02,000 --> 00:57:05,119
+it's starting to blow up in terms of the
+
+1561
+00:57:03,920 --> 00:57:06,799
+number of
+
+1562
+00:57:05,119 --> 00:57:08,640
+amount of work that's involved and
+
+1563
+00:57:06,799 --> 00:57:10,559
+that's actually a problem
+
+1564
+00:57:08,640 --> 00:57:12,640
+but let's bear with that for the moment
+
+1565
+00:57:10,559 --> 00:57:16,720
+let's just worry about correctness not
+
+1566
+00:57:12,640 --> 00:57:16,720
+about complexity for the moment
+
+1567
+00:57:17,200 --> 00:57:20,000
+so
+
+1568
+00:57:18,319 --> 00:57:22,000
+the proof is going to now send the
+
+1569
+00:57:20,000 --> 00:57:23,839
+number of satisfying assignments for
+
+1570
+00:57:22,000 --> 00:57:26,480
+each of those four possible ways of
+
+1571
+00:57:23,839 --> 00:57:28,079
+presetting the first two variables
+
+1572
+00:57:26,480 --> 00:57:30,079
+and the verifier is going to check that
+
+1573
+00:57:28,079 --> 00:57:34,079
+that was consistent with the information
+
+1574
+00:57:30,079 --> 00:57:34,079
+the prover sent in the previous round
+
+1575
+00:57:34,799 --> 00:57:37,920
+right by again checking this identity
+
+1576
+00:57:36,640 --> 00:57:40,960
+here so then the proof is going to
+
+1577
+00:57:37,920 --> 00:57:42,720
+continue on doing that until it's got
+
+1578
+00:57:40,960 --> 00:57:44,640
+it's done that
+
+1579
+00:57:42,720 --> 00:57:46,240
+through m rounds where m is the number
+
+1580
+00:57:44,640 --> 00:57:47,920
+of variables
+
+1581
+00:57:46,240 --> 00:57:51,200
+so at this point
+
+1582
+00:57:47,920 --> 00:57:51,200
+the proof is going to send
+
+1583
+00:57:52,000 --> 00:57:57,119
+all possible ways of presetting all of
+
+1584
+00:57:54,799 --> 00:58:00,000
+the variables so that now there's two to
+
+1585
+00:57:57,119 --> 00:58:02,240
+the m possibilities here
+
+1586
+00:58:00,000 --> 00:58:06,079
+again this is hopelessly
+
+1587
+00:58:02,240 --> 00:58:08,000
+not allowed but okay ignoring that
+
+1588
+00:58:06,079 --> 00:58:09,760
+the proofer's got to use this at the nth
+
+1589
+00:58:08,000 --> 00:58:12,240
+round to check what happens at the at
+
+1590
+00:58:09,760 --> 00:58:16,079
+the previous round so that's when they
+
+1591
+00:58:12,240 --> 00:58:18,319
+were m minus one values sent because
+
+1592
+00:58:16,079 --> 00:58:19,280
+each one has one more
+
+1593
+00:58:18,319 --> 00:58:21,680
+uh
+
+1594
+00:58:19,280 --> 00:58:24,400
+uh you're extending the presets by one
+
+1595
+00:58:21,680 --> 00:58:26,400
+so which using this to check that the
+
+1596
+00:58:24,400 --> 00:58:29,040
+previous round was the values were
+
+1597
+00:58:26,400 --> 00:58:30,160
+correct so it's looking for
+
+1598
+00:58:29,040 --> 00:58:33,040
+um
+
+1599
+00:58:30,160 --> 00:58:34,240
+you know the m minus one
+
+1600
+00:58:33,040 --> 00:58:37,680
+presets
+
+1601
+00:58:34,240 --> 00:58:40,000
+have to add up correctly um you know in
+
+1602
+00:58:37,680 --> 00:58:41,280
+terms of the m the presets of m uh
+
+1603
+00:58:40,000 --> 00:58:43,760
+values
+
+1604
+00:58:41,280 --> 00:58:46,160
+uh for each of those ways of uh doing
+
+1605
+00:58:43,760 --> 00:58:48,799
+those uh m minus one presets
+
+1606
+00:58:46,160 --> 00:58:51,680
+and so now the provers send all of those
+
+1607
+00:58:48,799 --> 00:58:53,920
+two to the m
+
+1608
+00:58:51,680 --> 00:58:56,559
+counts which are by the way ones and
+
+1609
+00:58:53,920 --> 00:58:58,880
+zeros because at this point we have
+
+1610
+00:58:56,559 --> 00:59:00,960
+preset all of the
+
+1611
+00:58:58,880 --> 00:59:04,079
+values of the variables and so there's
+
+1612
+00:59:00,960 --> 00:59:06,880
+only one possible assignment at most
+
+1613
+00:59:04,079 --> 00:59:06,880
+that there can be
+
+1614
+00:59:07,760 --> 00:59:10,640
+and now
+
+1615
+00:59:09,119 --> 00:59:12,319
+the verifier
+
+1616
+00:59:10,640 --> 00:59:13,839
+the approver is done the verifier is
+
+1617
+00:59:12,319 --> 00:59:15,760
+going to check
+
+1618
+00:59:13,839 --> 00:59:18,640
+by itself
+
+1619
+00:59:15,760 --> 00:59:20,960
+that these values make sense that these
+
+1620
+00:59:18,640 --> 00:59:23,440
+values are correct
+
+1621
+00:59:20,960 --> 00:59:24,799
+so it's going to do that by looking back
+
+1622
+00:59:23,440 --> 00:59:26,880
+at the formula
+
+1623
+00:59:24,799 --> 00:59:28,880
+so far up at this point the verifier has
+
+1624
+00:59:26,880 --> 00:59:30,319
+not been looking at the formula it's
+
+1625
+00:59:28,880 --> 00:59:33,040
+just been checking the internal
+
+1626
+00:59:30,319 --> 00:59:34,000
+consistency of the provers messages with
+
+1627
+00:59:33,040 --> 00:59:36,319
+each other
+
+1628
+00:59:34,000 --> 00:59:38,880
+but now at the end the verifier is going
+
+1629
+00:59:36,319 --> 00:59:40,640
+to take the messages these these values
+
+1630
+00:59:38,880 --> 00:59:42,799
+that the approver sent for each of the
+
+1631
+00:59:40,640 --> 00:59:44,640
+two to the m presets and see if it
+
+1632
+00:59:42,799 --> 00:59:45,760
+matches up with what the formula would
+
+1633
+00:59:44,640 --> 00:59:47,920
+do
+
+1634
+00:59:45,760 --> 00:59:49,280
+remember that was the other sort of the
+
+1635
+00:59:47,920 --> 00:59:52,160
+base case
+
+1636
+00:59:49,280 --> 00:59:55,760
+of the the end the fact number two
+
+1637
+00:59:52,160 --> 00:59:58,880
+um from the uh slider to ago
+
+1638
+00:59:55,760 --> 00:59:58,880
+make sure that these agree
+
+1639
+00:59:59,680 --> 01:00:05,119
+okay and now the verifier says well okay
+
+1640
+01:00:02,880 --> 01:00:06,319
+if everything has checked out and all of
+
+1641
+01:00:05,119 --> 01:00:07,839
+these are
+
+1642
+01:00:06,319 --> 01:00:10,240
+are in agreement
+
+1643
+01:00:07,839 --> 01:00:12,319
+then the verifier is
+
+1644
+01:00:10,240 --> 01:00:14,799
+going to be convinced
+
+1645
+01:00:12,319 --> 01:00:19,599
+that um
+
+1646
+01:00:14,799 --> 01:00:21,680
+that uh fee had k satisfying assignments
+
+1647
+01:00:19,599 --> 01:00:23,200
+but if anywhere along the way one of
+
+1648
+01:00:21,680 --> 01:00:24,799
+these checks fails
+
+1649
+01:00:23,200 --> 01:00:26,319
+the approver is not the verifier is not
+
+1650
+01:00:24,799 --> 01:00:29,319
+going to be convinced and is going to
+
+1651
+01:00:26,319 --> 01:00:29,319
+reject
+
+1652
+01:00:31,280 --> 01:00:35,040
+okay so in a sense this is kind of dopey
+
+1653
+01:00:33,440 --> 01:00:36,720
+you know you know we've just
+
+1654
+01:00:35,040 --> 01:00:39,839
+i'm just kind of giving you a
+
+1655
+01:00:36,720 --> 01:00:42,000
+complicated way of just counting up one
+
+1656
+01:00:39,839 --> 01:00:44,640
+by one each of the satisfying
+
+1657
+01:00:42,000 --> 01:00:47,359
+assignments of the formula and seeing if
+
+1658
+01:00:44,640 --> 01:00:47,359
+that matches k
+
+1659
+01:00:51,680 --> 01:00:57,119
+but nevertheless
+
+1660
+01:00:53,280 --> 01:00:58,160
+this way of looking at it is gonna be
+
+1661
+01:00:57,119 --> 01:01:00,000
+uh
+
+1662
+01:00:58,160 --> 01:01:03,520
+help us to understand
+
+1663
+01:01:00,000 --> 01:01:05,440
+um the way to fix this so
+
+1664
+01:01:03,520 --> 01:01:06,480
+so bear with me for another minute on
+
+1665
+01:01:05,440 --> 01:01:07,440
+this one
+
+1666
+01:01:06,480 --> 01:01:09,440
+so
+
+1667
+01:01:07,440 --> 01:01:12,160
+another way of looking at this which i
+
+1668
+01:01:09,440 --> 01:01:14,960
+think is is particularly useful
+
+1669
+01:01:12,160 --> 01:01:14,960
+is to think of
+
+1670
+01:01:15,200 --> 01:01:17,920
+what happens
+
+1671
+01:01:18,400 --> 01:01:21,440
+well okay
+
+1672
+01:01:19,599 --> 01:01:23,680
+we'll get there in a second i want to
+
+1673
+01:01:21,440 --> 01:01:25,760
+look at what happens if k was wrong but
+
+1674
+01:01:23,680 --> 01:01:28,400
+before i do that let's look at the
+
+1675
+01:01:25,760 --> 01:01:29,520
+i'm going to give a kind of a graphic a
+
+1676
+01:01:28,400 --> 01:01:30,559
+graphical
+
+1677
+01:01:29,520 --> 01:01:32,160
+view
+
+1678
+01:01:30,559 --> 01:01:34,480
+of um
+
+1679
+01:01:32,160 --> 01:01:36,720
+the information that the prover sends
+
+1680
+01:01:34,480 --> 01:01:39,760
+and the and the verifiers actions in
+
+1681
+01:01:36,720 --> 01:01:42,960
+this protocol so the the values that the
+
+1682
+01:01:39,760 --> 01:01:44,240
+prover sending are going to be in yellow
+
+1683
+01:01:42,960 --> 01:01:46,000
+so the
+
+1684
+01:01:44,240 --> 01:01:48,720
+and the information that the verifier
+
+1685
+01:01:46,000 --> 01:01:53,040
+has or checks is going to be in white
+
+1686
+01:01:48,720 --> 01:01:55,280
+so the the verifier has the k the the
+
+1687
+01:01:53,040 --> 01:01:57,440
+input value which is supposed to be the
+
+1688
+01:01:55,280 --> 01:01:58,960
+number of satisfying assignments
+
+1689
+01:01:57,440 --> 01:02:03,520
+and the prover
+
+1690
+01:01:58,960 --> 01:02:05,359
+sends some value and the verifier checks
+
+1691
+01:02:03,520 --> 01:02:07,039
+that this value which is supposed to be
+
+1692
+01:02:05,359 --> 01:02:08,720
+the number of satisfying assignments
+
+1693
+01:02:07,039 --> 01:02:10,799
+corresponds with k
+
+1694
+01:02:08,720 --> 01:02:12,720
+so that's one of the checks it does
+
+1695
+01:02:10,799 --> 01:02:15,280
+then the approver is going to send kind
+
+1696
+01:02:12,720 --> 01:02:16,000
+of take to justify this value
+
+1697
+01:02:15,280 --> 01:02:17,760
+it
+
+1698
+01:02:16,000 --> 01:02:20,160
+um sends
+
+1699
+01:02:17,760 --> 01:02:21,280
+the number of satisfying assignments
+
+1700
+01:02:20,160 --> 01:02:23,039
+when you have
+
+1701
+01:02:21,280 --> 01:02:24,720
+x1 set to zero
+
+1702
+01:02:23,039 --> 01:02:28,079
+or set to one
+
+1703
+01:02:24,720 --> 01:02:29,839
+the verify adds those up to give you
+
+1704
+01:02:28,079 --> 01:02:32,000
+and it's supposed to equal the total
+
+1705
+01:02:29,839 --> 01:02:33,760
+number of satisfying assignments and so
+
+1706
+01:02:32,000 --> 01:02:36,400
+this is if you understood this protocol
+
+1707
+01:02:33,760 --> 01:02:40,000
+this is just i'm writing it out in a
+
+1708
+01:02:36,400 --> 01:02:41,119
+sort of a simplified way perhaps
+
+1709
+01:02:40,000 --> 01:02:43,200
+okay
+
+1710
+01:02:41,119 --> 01:02:44,880
+and so um
+
+1711
+01:02:43,200 --> 01:02:48,000
+keeps checking that these things add up
+
+1712
+01:02:44,880 --> 01:02:50,960
+correctly until you get down to
+
+1713
+01:02:48,000 --> 01:02:53,440
+setting all m values in all two to the
+
+1714
+01:02:50,960 --> 01:02:55,680
+impossible ways and now the verifier is
+
+1715
+01:02:53,440 --> 01:02:57,599
+going to then check to make sure that
+
+1716
+01:02:55,680 --> 01:03:00,880
+that equals
+
+1717
+01:02:57,599 --> 01:03:02,400
+the what the formula would say
+
+1718
+01:03:00,880 --> 01:03:03,599
+um
+
+1719
+01:03:02,400 --> 01:03:05,440
+okay
+
+1720
+01:03:03,599 --> 01:03:08,799
+okay so now
+
+1721
+01:03:05,440 --> 01:03:09,680
+let's what happens
+
+1722
+01:03:08,799 --> 01:03:13,280
+if
+
+1723
+01:03:09,680 --> 01:03:13,280
+k was the wrong value
+
+1724
+01:03:14,000 --> 01:03:18,880
+it did not agree with the number of
+
+1725
+01:03:15,839 --> 01:03:18,880
+satisfying assignments
+
+1726
+01:03:19,200 --> 01:03:21,520
+um
+
+1727
+01:03:21,920 --> 01:03:29,000
+and
+
+1728
+01:03:23,200 --> 01:03:29,000
+what does what happens now um
+
+1729
+01:03:30,799 --> 01:03:34,160
+could the prover
+
+1730
+01:03:32,480 --> 01:03:37,440
+what happens if the approver tries to
+
+1731
+01:03:34,160 --> 01:03:38,640
+make the verifier accept anyway
+
+1732
+01:03:37,440 --> 01:03:40,640
+so
+
+1733
+01:03:38,640 --> 01:03:42,400
+um
+
+1734
+01:03:40,640 --> 01:03:46,319
+so the only thing the prover can do at
+
+1735
+01:03:42,400 --> 01:03:48,240
+the very first step would be to lie
+
+1736
+01:03:46,319 --> 01:03:50,400
+um about
+
+1737
+01:03:48,240 --> 01:03:51,520
+you know if the approver sends the if k
+
+1738
+01:03:50,400 --> 01:03:53,359
+is wrong
+
+1739
+01:03:51,520 --> 01:03:54,400
+and the proof approver sends the correct
+
+1740
+01:03:53,359 --> 01:03:55,280
+value
+
+1741
+01:03:54,400 --> 01:03:57,920
+for
+
+1742
+01:03:55,280 --> 01:04:01,200
+the the the total count the verifier is
+
+1743
+01:03:57,920 --> 01:04:03,520
+going to reject so i'm trying to see
+
+1744
+01:04:01,200 --> 01:04:06,559
+is it could the approver try to make the
+
+1745
+01:04:03,520 --> 01:04:08,880
+verifier accept what what happens
+
+1746
+01:04:06,559 --> 01:04:11,039
+so the prover has to lie here and i'm
+
+1747
+01:04:08,880 --> 01:04:12,880
+going to indicate that by
+
+1748
+01:04:11,039 --> 01:04:15,599
+saying the approver is sending in
+
+1749
+01:04:12,880 --> 01:04:18,480
+the wrong value
+
+1750
+01:04:15,599 --> 01:04:21,119
+for um
+
+1751
+01:04:18,480 --> 01:04:24,400
+uh the the total count
+
+1752
+01:04:21,119 --> 01:04:25,599
+well if the proof is going to lie here
+
+1753
+01:04:24,400 --> 01:04:27,359
+um
+
+1754
+01:04:25,599 --> 01:04:29,599
+then
+
+1755
+01:04:27,359 --> 01:04:31,440
+just like you know if you
+
+1756
+01:04:29,599 --> 01:04:33,440
+you know you have a child
+
+1757
+01:04:31,440 --> 01:04:34,720
+who um
+
+1758
+01:04:33,440 --> 01:04:35,839
+tells a lie
+
+1759
+01:04:34,720 --> 01:04:37,680
+and then you start you know as the
+
+1760
+01:04:35,839 --> 01:04:38,480
+parent you start asking questions to try
+
+1761
+01:04:37,680 --> 01:04:40,720
+to
+
+1762
+01:04:38,480 --> 01:04:43,920
+see if the story is consistent
+
+1763
+01:04:40,720 --> 01:04:46,079
+one lie is going to lead to another lie
+
+1764
+01:04:43,920 --> 01:04:48,799
+um and that's what happens here
+
+1765
+01:04:46,079 --> 01:04:51,119
+if the uh
+
+1766
+01:04:48,799 --> 01:04:53,680
+in order to justify this lie
+
+1767
+01:04:51,119 --> 01:04:56,160
+um the proof is going to have to a lie
+
+1768
+01:04:53,680 --> 01:04:58,400
+in one or perhaps both but at least one
+
+1769
+01:04:56,160 --> 01:05:00,720
+of these two values because you can't
+
+1770
+01:04:58,400 --> 01:05:03,760
+have the two correct values adding up to
+
+1771
+01:05:00,720 --> 01:05:03,760
+the incorrect value
+
+1772
+01:05:04,799 --> 01:05:07,039
+because you have to think about what's
+
+1773
+01:05:05,839 --> 01:05:09,119
+going on here
+
+1774
+01:05:07,039 --> 01:05:10,319
+so if this is a lie that's going to
+
+1775
+01:05:09,119 --> 01:05:12,559
+force a lie
+
+1776
+01:05:10,319 --> 01:05:14,480
+at one of one side of the other one
+
+1777
+01:05:12,559 --> 01:05:15,359
+level down which is then going to force
+
+1778
+01:05:14,480 --> 01:05:18,240
+a lie
+
+1779
+01:05:15,359 --> 01:05:20,079
+to propagate down and so there's a lie
+
+1780
+01:05:18,240 --> 01:05:21,440
+at every stage is going to force a lie
+
+1781
+01:05:20,079 --> 01:05:23,760
+at least in one
+
+1782
+01:05:21,440 --> 01:05:26,160
+one place or another to propagate all
+
+1783
+01:05:23,760 --> 01:05:30,319
+the way down to the bottom
+
+1784
+01:05:26,160 --> 01:05:31,200
+and then at the bottom the verifier will
+
+1785
+01:05:30,319 --> 01:05:33,760
+see
+
+1786
+01:05:31,200 --> 01:05:35,200
+that the check doesn't work
+
+1787
+01:05:33,760 --> 01:05:37,119
+as when it turns when it tries to
+
+1788
+01:05:35,200 --> 01:05:41,119
+connect it up with the formula itself
+
+1789
+01:05:37,119 --> 01:05:41,119
+and the form verifier will reject
+
+1790
+01:05:41,599 --> 01:05:48,000
+okay so just a way of looking at this
+
+1791
+01:05:45,119 --> 01:05:51,839
+um if the form if the value
+
+1792
+01:05:48,000 --> 01:05:51,839
+if the input was not in the language
+
+1793
+01:05:52,079 --> 01:05:56,480
+um so uh
+
+1794
+01:05:54,880 --> 01:05:58,640
+but the problem is
+
+1795
+01:05:56,480 --> 01:06:00,640
+that as i said that this is exponential
+
+1796
+01:05:58,640 --> 01:06:02,079
+so how are we going to fix that so
+
+1797
+01:06:00,640 --> 01:06:05,359
+just looking ahead to what we're going
+
+1798
+01:06:02,079 --> 01:06:05,359
+to do on tuesday
+
+1799
+01:06:05,440 --> 01:06:10,400
+okay let's see if there's any questions
+
+1800
+01:06:07,599 --> 01:06:10,400
+here first of all
+
+1801
+01:06:13,599 --> 01:06:19,200
+uh
+
+1802
+01:06:15,200 --> 01:06:21,440
+okay yes i got a question should this be
+
+1803
+01:06:19,200 --> 01:06:21,440
+uh
+
+1804
+01:06:24,960 --> 01:06:29,839
+should this be a minus i i purposely
+
+1805
+01:06:27,200 --> 01:06:31,520
+made this bracket only go
+
+1806
+01:06:29,839 --> 01:06:33,280
+not include the very last zero yeah
+
+1807
+01:06:31,520 --> 01:06:34,720
+there's a total of m zeroes here all
+
+1808
+01:06:33,280 --> 01:06:36,319
+together but the
+
+1809
+01:06:34,720 --> 01:06:38,000
+i left out the last zero that's why i
+
+1810
+01:06:36,319 --> 01:06:41,799
+said n minus one maybe it would have
+
+1811
+01:06:38,000 --> 01:06:41,799
+been better to say m
+
+1812
+01:06:46,640 --> 01:06:50,319
+okay so and you got another interesting
+
+1813
+01:06:48,319 --> 01:06:52,240
+question here why can't we reject right
+
+1814
+01:06:50,319 --> 01:06:54,000
+away if k is wrong
+
+1815
+01:06:52,240 --> 01:06:55,920
+um
+
+1816
+01:06:54,000 --> 01:06:56,960
+uh
+
+1817
+01:06:55,920 --> 01:06:58,880
+well
+
+1818
+01:06:56,960 --> 01:07:01,359
+the verifier is probabilistic polynomial
+
+1819
+01:06:58,880 --> 01:07:03,599
+time how does the verifier know if k is
+
+1820
+01:07:01,359 --> 01:07:03,599
+wrong
+
+1821
+01:07:05,200 --> 01:07:09,200
+um
+
+1822
+01:07:06,400 --> 01:07:10,079
+so it means or or or right
+
+1823
+01:07:09,200 --> 01:07:11,680
+so
+
+1824
+01:07:10,079 --> 01:07:14,000
+what we're trying to do is something
+
+1825
+01:07:11,680 --> 01:07:15,920
+like you know like np where we have a
+
+1826
+01:07:14,000 --> 01:07:17,520
+certificate but now we have this kind of
+
+1827
+01:07:15,920 --> 01:07:19,119
+interactive certificate in the form of
+
+1828
+01:07:17,520 --> 01:07:20,319
+disprover maybe that's another way to
+
+1829
+01:07:19,119 --> 01:07:22,640
+look at it
+
+1830
+01:07:20,319 --> 01:07:24,240
+um
+
+1831
+01:07:22,640 --> 01:07:25,760
+where if you're in the language there
+
+1832
+01:07:24,240 --> 01:07:28,079
+should be some way for the prover to
+
+1833
+01:07:25,760 --> 01:07:29,200
+convince to get make you accept but if
+
+1834
+01:07:28,079 --> 01:07:30,559
+you're not not in the language there
+
+1835
+01:07:29,200 --> 01:07:32,799
+should be no way
+
+1836
+01:07:30,559 --> 01:07:34,640
+for the proverb to make you accept
+
+1837
+01:07:32,799 --> 01:07:36,559
+um
+
+1838
+01:07:34,640 --> 01:07:38,319
+uh
+
+1839
+01:07:36,559 --> 01:07:39,680
+so the verifier just can't
+
+1840
+01:07:38,319 --> 01:07:41,280
+reject right away because there's no way
+
+1841
+01:07:39,680 --> 01:07:42,559
+to tell how does the verifier know it's
+
+1842
+01:07:41,280 --> 01:07:43,839
+going to start rejecting things when it
+
+1843
+01:07:42,559 --> 01:07:45,680
+shouldn't if it's just going to be
+
+1844
+01:07:43,839 --> 01:07:47,119
+rejecting willy-nilly here
+
+1845
+01:07:45,680 --> 01:07:48,799
+um
+
+1846
+01:07:47,119 --> 01:07:50,880
+okay how does the verifier need to
+
+1847
+01:07:48,799 --> 01:07:52,640
+determine if the prover is
+
+1848
+01:07:50,880 --> 01:07:55,640
+internally consistent instead of just
+
+1849
+01:07:52,640 --> 01:07:55,640
+asking
+
+1850
+01:07:57,520 --> 01:08:00,799
+so why does the verifier need to
+
+1851
+01:07:59,119 --> 01:08:02,799
+determine if the approver is internally
+
+1852
+01:08:00,799 --> 01:08:06,480
+consistent instead of just asking the
+
+1853
+01:08:02,799 --> 01:08:06,480
+questions in step n plus one
+
+1854
+01:08:07,119 --> 01:08:11,359
+yeah so maybe that's
+
+1855
+01:08:08,960 --> 01:08:13,200
+because it looks like all of the work is
+
+1856
+01:08:11,359 --> 01:08:14,400
+happening at the very end
+
+1857
+01:08:13,200 --> 01:08:17,359
+um
+
+1858
+01:08:14,400 --> 01:08:20,319
+but i'm really presenting this to you
+
+1859
+01:08:17,359 --> 01:08:22,880
+as a preparation
+
+1860
+01:08:20,319 --> 01:08:25,600
+for what we're going to do on tuesday
+
+1861
+01:08:22,880 --> 01:08:28,239
+um so it's important to think about the
+
+1862
+01:08:25,600 --> 01:08:30,719
+connection from each step to the next
+
+1863
+01:08:28,239 --> 01:08:32,560
+each step is going to be justified by
+
+1864
+01:08:30,719 --> 01:08:35,040
+what happens at the next step
+
+1865
+01:08:32,560 --> 01:08:36,560
+until we get to the very end
+
+1866
+01:08:35,040 --> 01:08:38,960
+so you have to just understand it for
+
+1867
+01:08:36,560 --> 01:08:40,560
+what it is don't try to make it more
+
+1868
+01:08:38,960 --> 01:08:42,400
+efficient yeah i realize this is kind of
+
+1869
+01:08:40,560 --> 01:08:43,440
+dumb
+
+1870
+01:08:42,400 --> 01:08:44,880
+um
+
+1871
+01:08:43,440 --> 01:08:46,719
+good point we're not using the
+
+1872
+01:08:44,880 --> 01:08:47,679
+probabilism here
+
+1873
+01:08:46,719 --> 01:08:48,799
+um
+
+1874
+01:08:47,679 --> 01:08:50,319
+and
+
+1875
+01:08:48,799 --> 01:08:52,239
+moreover we're not really even using the
+
+1876
+01:08:50,319 --> 01:08:54,319
+interaction here the prover is doing all
+
+1877
+01:08:52,239 --> 01:08:56,080
+the sending the verifier is just
+
+1878
+01:08:54,319 --> 01:08:56,880
+accepting at the end
+
+1879
+01:08:56,080 --> 01:08:58,799
+yeah
+
+1880
+01:08:56,880 --> 01:09:00,080
+this is we're not using the power and
+
+1881
+01:08:58,799 --> 01:09:02,640
+we're getting a weaker result so let's
+
+1882
+01:09:00,080 --> 01:09:05,440
+move on before we run out of time here
+
+1883
+01:09:02,640 --> 01:09:07,759
+so how do we gonna fix this
+
+1884
+01:09:05,440 --> 01:09:11,440
+so the problem is is blowing up
+
+1885
+01:09:07,759 --> 01:09:12,799
+each to justify each stage where
+
+1886
+01:09:11,440 --> 01:09:13,600
+each value
+
+1887
+01:09:12,799 --> 01:09:15,520
+we're
+
+1888
+01:09:13,600 --> 01:09:17,839
+um
+
+1889
+01:09:15,520 --> 01:09:20,400
+needing to present two values which add
+
+1890
+01:09:17,839 --> 01:09:21,359
+up to it
+
+1891
+01:09:20,400 --> 01:09:25,679
+um
+
+1892
+01:09:21,359 --> 01:09:27,279
+and that's uh good leading to a blow up
+
+1893
+01:09:25,679 --> 01:09:30,400
+now it would be nice if we can do
+
+1894
+01:09:27,279 --> 01:09:33,199
+something where each value was
+
+1895
+01:09:30,400 --> 01:09:35,839
+supported by just a single value
+
+1896
+01:09:33,199 --> 01:09:35,839
+at the next level
+
+1897
+01:09:36,960 --> 01:09:42,000
+so we know here's an idea well you know
+
+1898
+01:09:39,199 --> 01:09:44,640
+in order to understand to see that
+
+1899
+01:09:42,000 --> 01:09:46,400
+uh that that this total count is correct
+
+1900
+01:09:44,640 --> 01:09:48,480
+why don't we just pick at random either
+
+1901
+01:09:46,400 --> 01:09:50,319
+zero or one and only follow that one
+
+1902
+01:09:48,480 --> 01:09:52,319
+down
+
+1903
+01:09:50,319 --> 01:09:54,239
+well the problem with doing that
+
+1904
+01:09:52,319 --> 01:09:55,679
+is because
+
+1905
+01:09:54,239 --> 01:09:58,080
+the the
+
+1906
+01:09:55,679 --> 01:10:01,360
+the sequence of lies is could be just a
+
+1907
+01:09:58,080 --> 01:10:02,560
+single path through this uh tree
+
+1908
+01:10:01,360 --> 01:10:03,840
+and the chances you're going to find
+
+1909
+01:10:02,560 --> 01:10:05,920
+that path
+
+1910
+01:10:03,840 --> 01:10:07,440
+down to a contradiction at the bottom is
+
+1911
+01:10:05,920 --> 01:10:09,840
+very low if you're just doing it at
+
+1912
+01:10:07,440 --> 01:10:09,840
+random
+
+1913
+01:10:11,040 --> 01:10:16,400
+um so just randomly picking zeros and
+
+1914
+01:10:13,600 --> 01:10:18,800
+ones as as the as the one you're going
+
+1915
+01:10:16,400 --> 01:10:21,360
+to justify used to justify the previous
+
+1916
+01:10:18,800 --> 01:10:22,320
+value is not going to be good enough
+
+1917
+01:10:21,360 --> 01:10:24,159
+so what
+
+1918
+01:10:22,320 --> 01:10:26,800
+but this is what we're going to do
+
+1919
+01:10:24,159 --> 01:10:27,679
+however the values that we're going to
+
+1920
+01:10:26,800 --> 01:10:29,120
+pick
+
+1921
+01:10:27,679 --> 01:10:30,560
+for um
+
+1922
+01:10:29,120 --> 01:10:31,520
+for these random
+
+1923
+01:10:30,560 --> 01:10:32,560
+um
+
+1924
+01:10:31,520 --> 01:10:35,199
+inputs
+
+1925
+01:10:32,560 --> 01:10:36,480
+are not going to be boolean values
+
+1926
+01:10:35,199 --> 01:10:40,560
+we're going to pick
+
+1927
+01:10:36,480 --> 01:10:42,480
+non-boolean assignments to the variables
+
+1928
+01:10:40,560 --> 01:10:45,920
+which again just as with the branching
+
+1929
+01:10:42,480 --> 01:10:47,760
+program case didn't make any sense
+
+1930
+01:10:45,920 --> 01:10:50,560
+on the surface of it we're going to have
+
+1931
+01:10:47,760 --> 01:10:51,360
+to make it make sense
+
+1932
+01:10:50,560 --> 01:10:53,120
+and
+
+1933
+01:10:51,360 --> 01:10:56,000
+we'll have to see how to do that on tues
+
+1934
+01:10:53,120 --> 01:10:56,000
+in tuesday's lecture
+
+1935
+01:10:57,199 --> 01:11:01,040
+okay so that's kind of the setup
+
+1936
+01:11:01,840 --> 01:11:06,080
+okay
+
+1937
+01:11:03,840 --> 01:11:06,080
+um
+
+1938
+01:11:08,880 --> 01:11:13,360
+yeah so in a similar question why is
+
+1939
+01:11:10,560 --> 01:11:14,719
+this any different from just
+
+1940
+01:11:13,360 --> 01:11:16,719
+non-deterministically guessing the
+
+1941
+01:11:14,719 --> 01:11:19,840
+assignments it's because of this we're
+
+1942
+01:11:16,719 --> 01:11:21,840
+really setting the stage
+
+1943
+01:11:19,840 --> 01:11:24,080
+okay so what we did today was we
+
+1944
+01:11:21,840 --> 01:11:26,400
+introduced them the the model and
+
+1945
+01:11:24,080 --> 01:11:29,679
+defined the complexity class
+
+1946
+01:11:26,400 --> 01:11:32,080
+we can we did show this one in its
+
+1947
+01:11:29,679 --> 01:11:33,440
+full glory we showed that non-iso is an
+
+1948
+01:11:32,080 --> 01:11:35,679
+ip
+
+1949
+01:11:33,440 --> 01:11:38,719
+really worth understanding this
+
+1950
+01:11:35,679 --> 01:11:41,199
+uh protocol here making sure you
+
+1951
+01:11:38,719 --> 01:11:44,239
+you're comfortable with that
+
+1952
+01:11:41,199 --> 01:11:46,400
+and and also the the model itself
+
+1953
+01:11:44,239 --> 01:11:48,640
+and so for tuesday's lecture we're going
+
+1954
+01:11:46,400 --> 01:11:50,320
+to finish this up uh well we started
+
+1955
+01:11:48,640 --> 01:11:53,440
+showing that number set as an ip which
+
+1956
+01:11:50,320 --> 01:11:54,800
+is what we need to to do to prove co-np
+
+1957
+01:11:53,440 --> 01:11:56,960
+is an ip
+
+1958
+01:11:54,800 --> 01:11:57,920
+and we'll finish that
+
+1959
+01:11:56,960 --> 01:12:00,800
+next time
+
+1960
+01:11:57,920 --> 01:12:03,199
+which will be our last time
+
+1961
+01:12:00,800 --> 01:12:06,560
+okay so that's it for today
+
+1962
+01:12:03,199 --> 01:12:07,280
+i'll stick around for questions
+
+1963
+01:12:06,560 --> 01:12:10,080
+so
+
+1964
+01:12:07,280 --> 01:12:12,239
+a good question here why can't um
+
+1965
+01:12:10,080 --> 01:12:14,159
+v just
+
+1966
+01:12:12,239 --> 01:12:16,800
+reject if some of the checks are
+
+1967
+01:12:14,159 --> 01:12:18,719
+incorrect yes v could as soon as
+
+1968
+01:12:16,800 --> 01:12:20,880
+there's a check that fails we can just
+
+1969
+01:12:18,719 --> 01:12:23,040
+reject at that stage
+
+1970
+01:12:20,880 --> 01:12:25,440
+i'm just trying to argue that at some
+
+1971
+01:12:23,040 --> 01:12:27,120
+point along the way if the input is not
+
+1972
+01:12:25,440 --> 01:12:29,760
+in the language
+
+1973
+01:12:27,120 --> 01:12:31,600
+there's going to be a check that fails
+
+1974
+01:12:29,760 --> 01:12:33,520
+so i mean i said reject at the end but
+
+1975
+01:12:31,600 --> 01:12:36,000
+yeah i mean
+
+1976
+01:12:33,520 --> 01:12:38,560
+you could have rejected at any point
+
+1977
+01:12:36,000 --> 01:12:38,560
+along the way
+
+1978
+01:12:38,880 --> 01:12:41,280
+um
+
+1979
+01:12:42,880 --> 01:12:45,199
+okay
+
+1980
+01:12:48,840 --> 01:12:54,480
+um someone's asking for what what role
+
+1981
+01:12:51,600 --> 01:12:56,880
+did i play uh so i did
+
+1982
+01:12:54,480 --> 01:12:59,440
+my my own personal role in this i were
+
+1983
+01:12:56,880 --> 01:13:01,120
+to which was twofold first of all i i
+
+1984
+01:12:59,440 --> 01:13:02,400
+came up with the idea
+
+1985
+01:13:01,120 --> 01:13:03,760
+uh of
+
+1986
+01:13:02,400 --> 01:13:04,400
+well not the idea i came up with the
+
+1987
+01:13:03,760 --> 01:13:06,719
+name
+
+1988
+01:13:04,400 --> 01:13:08,640
+interactive proof uh
+
+1989
+01:13:06,719 --> 01:13:10,880
+i remember when sylvia mccauley was
+
+1990
+01:13:08,640 --> 01:13:15,679
+explaining this to me in my apartment
+
+1991
+01:13:10,880 --> 01:13:15,679
+many many years ago he had a kind of a
+
+1992
+01:13:16,640 --> 01:13:20,000
+little bit complicated and i don't even
+
+1993
+01:13:18,719 --> 01:13:21,360
+remember what the protocol was for it
+
+1994
+01:13:20,000 --> 01:13:23,840
+was not for something simple was
+
+1995
+01:13:21,360 --> 01:13:25,120
+something involving uh prime numbers
+
+1996
+01:13:23,840 --> 01:13:27,280
+and i said oh
+
+1997
+01:13:25,120 --> 01:13:29,360
+that's a kind of an interactive proof
+
+1998
+01:13:27,280 --> 01:13:30,840
+and it's and it it stuck from that point
+
+1999
+01:13:29,360 --> 01:13:33,120
+on so
+
+2000
+01:13:30,840 --> 01:13:35,679
+um that was one thing but the other
+
+2001
+01:13:33,120 --> 01:13:38,480
+thing in terms of more mathematically
+
+2002
+01:13:35,679 --> 01:13:40,400
+i my role was so uh
+
+2003
+01:13:38,480 --> 01:13:42,880
+shafi goldwater and i approved the
+
+2004
+01:13:40,400 --> 01:13:45,440
+equivalence of the two models the public
+
+2005
+01:13:42,880 --> 01:13:48,960
+coin and the private coin version
+
+2006
+01:13:45,440 --> 01:13:50,320
+um so that that was uh
+
+2007
+01:13:48,960 --> 01:13:52,400
+my uh
+
+2008
+01:13:50,320 --> 01:13:54,880
+my role in this back and when this was
+
+2009
+01:13:52,400 --> 01:13:56,719
+all first coming out
+
+2010
+01:13:54,880 --> 01:13:59,840
+approved it approved it on an airplane
+
+2011
+01:13:56,719 --> 01:14:01,600
+on the way to a conference somewhere
+
+2012
+01:13:59,840 --> 01:14:03,520
+so i think we're going to
+
+2013
+01:14:01,600 --> 01:14:05,280
+notice any other questions
+
+2014
+01:14:03,520 --> 01:14:06,320
+i think we'll head out take care
+
+2015
+01:14:05,280 --> 01:14:07,520
+everybody
+
+2016
+01:14:06,320 --> 01:14:09,600
+see one
+
+2017
+01:14:07,520 --> 01:14:12,840
+see you on tuesday
+
+2018
+01:14:09,600 --> 01:14:12,840
+bye bye
+
+2019
+01:14:29,600 --> 01:14:31,679
+you
+

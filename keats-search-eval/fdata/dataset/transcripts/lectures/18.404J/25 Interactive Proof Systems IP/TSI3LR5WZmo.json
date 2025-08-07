@@ -1,0 +1,52 @@
+{
+  "id": "TSI3LR5WZmo",
+  "title": "25. Interactive Proof Systems, IP",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Introduced the interactive proof system model. Defined the class IP. Started showing that #SAT is in IP to prove that coNP is a subset of IP.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4470,
+  "view_count": 8807,
+  "tags": [
+    "isomorphic, graph isomorphism testing, prover, verifier"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=TSI3LR5WZmo",
+  "thumbnail": "https://i.ytimg.com/vi/TSI3LR5WZmo/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 659.0
+    },
+    {
+      "start_time": 659.0,
+      "title": "Two Parties",
+      "end_time": 1637.0
+    },
+    {
+      "start_time": 1637.0,
+      "title": "Verifier",
+      "end_time": 2079.0
+    },
+    {
+      "start_time": 2079.0,
+      "title": "Checkin",
+      "end_time": 2502.0
+    },
+    {
+      "start_time": 2502.0,
+      "title": "IP Proof",
+      "end_time": 2800.0
+    },
+    {
+      "start_time": 2800.0,
+      "title": "Number Notation",
+      "end_time": 3192.0
+    },
+    {
+      "start_time": 3192.0,
+      "title": "IP Example",
+      "end_time": 4470
+    }
+  ],
+  "transcript_file": null
+}

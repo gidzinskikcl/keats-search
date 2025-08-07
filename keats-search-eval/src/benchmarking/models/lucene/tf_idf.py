@@ -1,19 +1,24 @@
 from datetime import timedelta
 import subprocess
 import json
+import os
 
 from schemas import schemas
 from benchmarking.models import search_model
 
 
 class TFIDFSearchEngine(search_model.SearchModel):
-    JAR_PATH = (
-        "search_engines/lucene-search/target/tfidf-search-jar-with-dependencies.jar"
-    )
+    JAR_PATH = "/app/keats-search-eval/src/benchmarking/models/lucene/tfidf-search-api-jar-with-dependencies.jar"
 
-    def __init__(self, doc_path: str, k: int):
+    def __init__(
+        self,
+        doc_path: str,
+        k: int,
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/lucene/index",
+    ):
         self.doc_path = doc_path
         self.k = k
+        self.index_dir = index_dir
 
     def _parse_timestamp(self, ts: str | None) -> timedelta | None:
         if ts is None:
@@ -31,7 +36,7 @@ class TFIDFSearchEngine(search_model.SearchModel):
                 self.JAR_PATH,
                 "--mode",
                 "search",
-                "keats-search-api/data/index",
+                self.index_dir,
                 query.question,
                 str(self.k),
                 filters_json,

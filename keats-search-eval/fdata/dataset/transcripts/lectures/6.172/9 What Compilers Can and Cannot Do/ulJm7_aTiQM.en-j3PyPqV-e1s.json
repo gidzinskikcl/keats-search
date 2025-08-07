@@ -1,0 +1,114 @@
+{
+  "id": "ulJm7_aTiQM",
+  "title": "9. What Compilers Can and Cannot Do",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Tao B. Schardl\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nT.B. Schardl discusses the Clang/LLVM compilation pipeline as well as reasons to study compiler optimizations, how to use compiler reports, and compiler optimization. Three case studies on diagnosing failures are examined.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4726,
+  "view_count": 82126,
+  "tags": [
+    "compiler optimizations",
+    "scalar",
+    "structure",
+    "function call",
+    "loop",
+    "memory aliasing",
+    "normalize",
+    "overflow"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=ulJm7_aTiQM",
+  "thumbnail": "https://i.ytimg.com/vi_webp/ulJm7_aTiQM/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 516.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 516.0,
+      "title": "Simple Model of the Compiler",
+      "end_time": 577.0
+    },
+    {
+      "start_time": 577.0,
+      "title": "Compiler Reports",
+      "end_time": 647.0
+    },
+    {
+      "start_time": 647.0,
+      "title": "An Example Compiler Report",
+      "end_time": 740.0
+    },
+    {
+      "start_time": 740.0,
+      "title": "Outline",
+      "end_time": 1091.0
+    },
+    {
+      "start_time": 1091.0,
+      "title": "Arithmetic Opt's: C vs. LLVM IR",
+      "end_time": 1538.0
+    },
+    {
+      "start_time": 1538.0,
+      "title": "Arithmetic Opt's: C vs. Assembly",
+      "end_time": 1602.0
+    },
+    {
+      "start_time": 1602.0,
+      "title": "N-Body Simulation Code",
+      "end_time": 1644.0
+    },
+    {
+      "start_time": 1644.0,
+      "title": "Key Routine in N-Body Simulation",
+      "end_time": 1674.0
+    },
+    {
+      "start_time": 1674.0,
+      "title": "Basic Routines for 2D Vectors",
+      "end_time": 1734.0
+    },
+    {
+      "start_time": 1734.0,
+      "title": "Compiling with No Optimizations",
+      "end_time": 2596.0
+    },
+    {
+      "start_time": 2596.0,
+      "title": "Example: Updating Positions",
+      "end_time": 2788.0
+    },
+    {
+      "start_time": 2788.0,
+      "title": "Further Optimization",
+      "end_time": 2853.0
+    },
+    {
+      "start_time": 2853.0,
+      "title": "Sequences of Function Calls",
+      "end_time": 2937.0
+    },
+    {
+      "start_time": 2937.0,
+      "title": "Equivalent C Code",
+      "end_time": 3253.0
+    },
+    {
+      "start_time": 3253.0,
+      "title": "Controlling Function Inlining",
+      "end_time": 3425.0
+    },
+    {
+      "start_time": 3425.0,
+      "title": "Loop Optimizations",
+      "end_time": 3573.0
+    },
+    {
+      "start_time": 3573.0,
+      "title": "Example: Calculating Forces",
+      "end_time": 4726
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/ulJm7_aTiQM.en-j3PyPqV-e1s.srt"
+}

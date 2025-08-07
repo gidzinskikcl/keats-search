@@ -1,0 +1,112 @@
+{
+  "id": "N28g_YBXY8Y",
+  "title": "9. Reducibility",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Discussed the reducibility method to prove undecidability and T-unrecognizability. Defined mapping reducibility as a type of reducibility. Showed that emptiness problem for TMs is undecidable and T-unrecognizable.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4596,
+  "view_count": 54082,
+  "tags": [
+    "reducibility method, general reducibility, mapping reducibility, undecidability, T-unrecognizability"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=N28g_YBXY8Y",
+  "thumbnail": "https://i.ytimg.com/vi/N28g_YBXY8Y/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 108.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 108.0,
+      "title": "Reducibility Method",
+      "end_time": 530.0
+    },
+    {
+      "start_time": 530.0,
+      "title": "Concept of Reducibility",
+      "end_time": 712.0
+    },
+    {
+      "start_time": 712.0,
+      "title": "Pusher Problem",
+      "end_time": 1143.0
+    },
+    {
+      "start_time": 1143.0,
+      "title": "Reducibility",
+      "end_time": 1200.0
+    },
+    {
+      "start_time": 1200.0,
+      "title": "Is Biology Reducible to Physics",
+      "end_time": 1329.0
+    },
+    {
+      "start_time": 1329.0,
+      "title": "The Emptiness Problem",
+      "end_time": 1374.0
+    },
+    {
+      "start_time": 1374.0,
+      "title": "Proof by Contradiction",
+      "end_time": 1585.0
+    },
+    {
+      "start_time": 1585.0,
+      "title": "Emptiness Tester",
+      "end_time": 1928.0
+    },
+    {
+      "start_time": 1928.0,
+      "title": "How Do We Know that Mw Halts",
+      "end_time": 2045.0
+    },
+    {
+      "start_time": 2045.0,
+      "title": "How Do You Determine if a Language Is Decidable",
+      "end_time": 2411.0
+    },
+    {
+      "start_time": 2411.0,
+      "title": "Is There any Restriction on the Alphabet",
+      "end_time": 2653.0
+    },
+    {
+      "start_time": 2653.0,
+      "title": "Proof",
+      "end_time": 2699.0
+    },
+    {
+      "start_time": 2699.0,
+      "title": "Corollary",
+      "end_time": 2799.0
+    },
+    {
+      "start_time": 2799.0,
+      "title": "Properties of Mapping Reducibility",
+      "end_time": 3193.0
+    },
+    {
+      "start_time": 3193.0,
+      "title": "Mapping versus General Reducibility",
+      "end_time": 3288.0
+    },
+    {
+      "start_time": 3288.0,
+      "title": "General Reducibility",
+      "end_time": 4187.0
+    },
+    {
+      "start_time": 4187.0,
+      "title": "Output of the Reduction Function",
+      "end_time": 4409.0
+    },
+    {
+      "start_time": 4409.0,
+      "title": "The Case for the Complement of Eqtm",
+      "end_time": 4596
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/N28g_YBXY8Y.en-j3PyPqV-e1s.srt"
+}

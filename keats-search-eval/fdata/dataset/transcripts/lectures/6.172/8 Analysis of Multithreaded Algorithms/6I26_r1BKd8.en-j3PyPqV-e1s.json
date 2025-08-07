@@ -1,0 +1,102 @@
+{
+  "id": "6I26_r1BKd8",
+  "title": "8. Analysis of Multithreaded Algorithms",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Charles Leiserson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProfessor Leiserson explains divide-and-conquer recurrences, cilk loops, matrix multiplication, merge sort, and tableau construction.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4654,
+  "view_count": 29353,
+  "tags": [
+    "recursion tree",
+    "cilk loops",
+    "matrix multiplication",
+    "merge sort",
+    "tableau construction",
+    "software system"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=6I26_r1BKd8",
+  "thumbnail": "https://i.ytimg.com/vi_webp/6I26_r1BKd8/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 63.0
+    },
+    {
+      "start_time": 63.0,
+      "title": "The Master Method",
+      "end_time": 142.0
+    },
+    {
+      "start_time": 142.0,
+      "title": "Recursion Tree: T(n) = a Tin/b + f(n)",
+      "end_time": 436.0
+    },
+    {
+      "start_time": 436.0,
+      "title": "Master Method - CASE 2",
+      "end_time": 551.0
+    },
+    {
+      "start_time": 551.0,
+      "title": "Master Method - CASE 3",
+      "end_time": 640.0
+    },
+    {
+      "start_time": 640.0,
+      "title": "Master-Method Cheat Sheet",
+      "end_time": 846.0
+    },
+    {
+      "start_time": 846.0,
+      "title": "Master Method Quiz",
+      "end_time": 969.0
+    },
+    {
+      "start_time": 969.0,
+      "title": "Loop Parallelism in Cilk",
+      "end_time": 1251.0
+    },
+    {
+      "start_time": 1251.0,
+      "title": "Implementation of Parallel Loops",
+      "end_time": 1272.0
+    },
+    {
+      "start_time": 1272.0,
+      "title": "Execution of Parallel Loops",
+      "end_time": 1370.0
+    },
+    {
+      "start_time": 1370.0,
+      "title": "Analysis of Parallel Loops",
+      "end_time": 1777.0
+    },
+    {
+      "start_time": 1777.0,
+      "title": "Analysis of Nested Parallel Loops",
+      "end_time": 2353.0
+    },
+    {
+      "start_time": 2353.0,
+      "title": "A Closer Look at Parallel Loops",
+      "end_time": 2501.0
+    },
+    {
+      "start_time": 2501.0,
+      "title": "Coarsening Parallel Loops",
+      "end_time": 2593.0
+    },
+    {
+      "start_time": 2593.0,
+      "title": "Loop Grain Size",
+      "end_time": 3302.0
+    },
+    {
+      "start_time": 3302.0,
+      "title": "Another Implementation",
+      "end_time": 4654
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/6I26_r1BKd8.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "K2SC-WPdT6k",
+  "title": "14. Classification and Statistical Sins",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag finishes discussing classification and introduces common statistical fallacies and pitfalls.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2965,
+  "view_count": 59275,
+  "tags": [
+    "machine learning",
+    "model study",
+    "weights",
+    "logistic regression",
+    "statistical fallacy",
+    "receiver operating characteristic",
+    "ROC",
+    "systematic errors",
+    "correlation and causation",
+    "misleading statistics",
+    "garbage in garbage out",
+    "GIGO",
+    "axis truncating"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=K2SC-WPdT6k",
+  "thumbnail": "https://i.ytimg.com/vi/K2SC-WPdT6k/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 29.0
+    },
+    {
+      "start_time": 29.0,
+      "title": "Announcements",
+      "end_time": 170.0
+    },
+    {
+      "start_time": 170.0,
+      "title": "Logistic Regression",
+      "end_time": 1342.0
+    },
+    {
+      "start_time": 1342.0,
+      "title": "Statistical significance",
+      "end_time": 1592.0
+    },
+    {
+      "start_time": 1592.0,
+      "title": "Three kinds of lies",
+      "end_time": 1698.0
+    },
+    {
+      "start_time": 1698.0,
+      "title": "Statistics and the human mind",
+      "end_time": 1966.0
+    },
+    {
+      "start_time": 1966.0,
+      "title": "Fox News chart",
+      "end_time": 2138.0
+    },
+    {
+      "start_time": 2138.0,
+      "title": "GuyGo",
+      "end_time": 2316.0
+    },
+    {
+      "start_time": 2316.0,
+      "title": "Garbage",
+      "end_time": 2494.0
+    },
+    {
+      "start_time": 2494.0,
+      "title": "Survivor Bias",
+      "end_time": 2965
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/K2SC-WPdT6k.en-qlPKC2UN_YU.srt"
+}

@@ -15,20 +15,35 @@ class ColBERTSearchEngine(search_model.SearchModel):
     def __init__(self, doc_path: str, k: int):
         self.k = k
 
-        self.searcher = Searcher(
-            index="/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/keats-search-eval/src/benchmarking/models/colbert/experiments_maxlen512/maxlen512/keats_indexes/maxlen512",
-            checkpoint="/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/keats-search-eval/src/benchmarking/models/colbert/colbertv2.0",
-        )
-        self.searcher.collection = Collection(
-            "keats-search-eval/src/benchmarking/models/colbert/collection.tsv"
-        )
+        with Run().context(
+            RunConfig(
+                nranks=1,
+                experiment="default",
+                root="/app/keats-search-eval/src/benchmarking/models/colbert/experiments_maxlen512/maxlen512",
+            )
+        ):
+            config = ColBERTConfig(
+                root="keats-search-eval/src/benchmarking/models/colbert/experiments_maxlen512/maxlen512",
+                experiment=".",
+                index_name="keats_indexes/maxlen512",
+            )
 
-        # Load documents.json into a list
+            self.searcher = Searcher(
+                index="keats_indexes/maxlen512",
+                checkpoint="colbert-ir/colbertv2.0",
+                config=config,
+            )
+
+            self.searcher.collection = Collection(
+                "/app/keats-search-eval/src/benchmarking/models/colbert/collection.tsv"
+            )
+
+        # outside the context: still okay
         with open(doc_path, "r", encoding="utf-8") as f:
             self.documents = json.load(f)
 
         with open(
-            "keats-search-eval/src/benchmarking/models/colbert/pid2docid.json",
+            "/app/keats-search-eval/src/benchmarking/models/colbert/pid2docid.json",
             "r",
             encoding="utf-8",
         ) as f:

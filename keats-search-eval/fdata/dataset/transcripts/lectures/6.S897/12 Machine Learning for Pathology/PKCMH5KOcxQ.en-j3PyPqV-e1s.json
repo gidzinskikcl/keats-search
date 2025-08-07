@@ -1,0 +1,43 @@
+{
+  "id": "PKCMH5KOcxQ",
+  "title": "12. Machine Learning for Pathology",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Andy Beck\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\n0\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 3333,
+  "view_count": 16795,
+  "tags": [
+    "Machine Learning",
+    "Pathology"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=PKCMH5KOcxQ",
+  "thumbnail": "https://i.ytimg.com/vi_webp/PKCMH5KOcxQ/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 1750.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 1750.0,
+      "title": "Deep learning model outperforms human pathologists in the diagnosis of metastatic cancer",
+      "end_time": 2136.0
+    },
+    {
+      "start_time": 2136.0,
+      "title": "A predictive example: Precision immunotherapy",
+      "end_time": 2270.0
+    },
+    {
+      "start_time": 2270.0,
+      "title": "Board-certified training data",
+      "end_time": 2713.0
+    },
+    {
+      "start_time": 2713.0,
+      "title": "Exhaustive analysis of cellular features in TCGA to enable data-driven identification of pathological predictors of survival in malignant melanoma",
+      "end_time": 3333
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/PKCMH5KOcxQ.en-j3PyPqV-e1s.srt"
+}

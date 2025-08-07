@@ -26,7 +26,6 @@ BATCH_SIZE = 100
 
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 OUTPUT_DIR = pathlib.Path(
-
     f"keats-search-eval/data/evaluation/llm-annotated/results/ance/run-08-02-2025_14-45-00"
 )
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

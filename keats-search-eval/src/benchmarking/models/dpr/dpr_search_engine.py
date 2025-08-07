@@ -23,7 +23,7 @@ class DPRSearchEngine(search_model.SearchModel):
         self,
         doc_path: str,
         k: int,
-        index_dir: str = "keats-search-eval/src/benchmarking/models/dpr/index",
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/dpr/dpr_index",
         force_reindex: bool = False,
     ):
         self.doc_path = doc_path
@@ -34,8 +34,10 @@ class DPRSearchEngine(search_model.SearchModel):
         self._load_models()
 
         if force_reindex or not self._check_index_exists():
+            print("DPR: Index does not exist or force reindexing is enabled.")
             self._index_documents()
         else:
+            print("DPR: Index exists, loading...")
             self._load_documents_and_index()
 
     def _check_index_exists(self):

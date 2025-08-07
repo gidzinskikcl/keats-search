@@ -1,0 +1,87 @@
+{
+  "id": "_shuV1tJbTU",
+  "title": "4. Risk Stratification, Part 1",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag, Leonard D'Avolio\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag discusses risk stratification and works through a case study of early detection of type 2 diabetes. The second portion of the class is an interview with Leonard D\u2019Avolio, Assistant Professor at Harvard Medical School and founder of Cyft. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4364,
+  "view_count": 16451,
+  "tags": [
+    "risk stratification",
+    "case study",
+    "algorithms",
+    "supervised learning",
+    "interventions",
+    "L1 regularization"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=_shuV1tJbTU",
+  "thumbnail": "https://i.ytimg.com/vi_webp/_shuV1tJbTU/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 22.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 22.0,
+      "title": "Outline for today's class",
+      "end_time": 142.0
+    },
+    {
+      "start_time": 142.0,
+      "title": "What is risk stratification?",
+      "end_time": 393.0
+    },
+    {
+      "start_time": 393.0,
+      "title": "Examples of risk stratification",
+      "end_time": 928.0
+    },
+    {
+      "start_time": 928.0,
+      "title": "Type 2 Diabetes: A Major public health challenge",
+      "end_time": 1079.0
+    },
+    {
+      "start_time": 1079.0,
+      "title": "Health stakeholders",
+      "end_time": 1089.0
+    },
+    {
+      "start_time": 1089.0,
+      "title": "Administrative & Clinical Data",
+      "end_time": 1207.0
+    },
+    {
+      "start_time": 1207.0,
+      "title": "Top diagnosis codes Disease",
+      "end_time": 1313.0
+    },
+    {
+      "start_time": 1313.0,
+      "title": "Framing for supervised machine learning",
+      "end_time": 1659.0
+    },
+    {
+      "start_time": 1659.0,
+      "title": "L1 regularization",
+      "end_time": 1984.0
+    },
+    {
+      "start_time": 1984.0,
+      "title": "Features used in models",
+      "end_time": 2272.0
+    },
+    {
+      "start_time": 2272.0,
+      "title": "What are the Discovered Risk Factors?",
+      "end_time": 2389.0
+    },
+    {
+      "start_time": 2389.0,
+      "title": "Positive predictive value (PPV)",
+      "end_time": 4364
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/_shuV1tJbTU.en-j3PyPqV-e1s.srt"
+}

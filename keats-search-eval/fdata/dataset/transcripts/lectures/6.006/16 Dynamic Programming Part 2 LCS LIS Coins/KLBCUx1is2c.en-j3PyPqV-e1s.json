@@ -1,0 +1,72 @@
+{
+  "id": "KLBCUx1is2c",
+  "title": "16. Dynamic Programming, Part 2: LCS, LIS, Coins",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the second of four lectures on dynamic programming. This introduces multiple sequence, substring subproblems, and parent pointers. Three examples of subproblem constraints and expansion are given.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3523,
+  "view_count": 64993,
+  "tags": [
+    "dynamic programming, subsequence,  longest common, LCS, longest increasing, LIS, alternating coin"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=KLBCUx1is2c",
+  "thumbnail": "https://i.ytimg.com/vi/KLBCUx1is2c/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGAgYChgMA8=&rs=AOn4CLBRUNNGN1m7qPv9MTmhIuP-aKqbdg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 258.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 258.0,
+      "title": "Edit Distance",
+      "end_time": 417.0
+    },
+    {
+      "start_time": 417.0,
+      "title": "Sub Problems for Multiple Inputs",
+      "end_time": 842.0
+    },
+    {
+      "start_time": 842.0,
+      "title": "Topological Order",
+      "end_time": 1130.0
+    },
+    {
+      "start_time": 1130.0,
+      "title": "Parent Pointers",
+      "end_time": 1164.0
+    },
+    {
+      "start_time": 1164.0,
+      "title": "Diagonal Edges",
+      "end_time": 1325.0
+    },
+    {
+      "start_time": 1325.0,
+      "title": "Longest Increasing Subsequence",
+      "end_time": 2405.0
+    },
+    {
+      "start_time": 2405.0,
+      "title": "Longest Path",
+      "end_time": 2463.0
+    },
+    {
+      "start_time": 2463.0,
+      "title": "Shortest Paths",
+      "end_time": 2581.0
+    },
+    {
+      "start_time": 2581.0,
+      "title": "Alternating Coin Game",
+      "end_time": 3424.0
+    },
+    {
+      "start_time": 3424.0,
+      "title": "Sub Problem Expansion",
+      "end_time": 3523
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/KLBCUx1is2c.en-j3PyPqV-e1s.srt"
+}

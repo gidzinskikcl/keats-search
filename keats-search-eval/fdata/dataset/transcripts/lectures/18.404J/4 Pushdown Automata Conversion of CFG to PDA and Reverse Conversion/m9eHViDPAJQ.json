@@ -1,0 +1,82 @@
+{
+  "id": "m9eHViDPAJQ",
+  "title": "4. Pushdown Automata, Conversion of CFG to PDA and Reverse Conversion",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Defined context free grammars (CFGs) and context free languages (CFLs). Defined pushdown automata (PDA). Gave conversion of CFGs to PDAs.  Stated the reverse conversion without proof.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4162,
+  "view_count": 93362,
+  "tags": [
+    "context free grammars, context free languages, regular languages, regular expressions"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=m9eHViDPAJQ",
+  "thumbnail": "https://i.ytimg.com/vi/m9eHViDPAJQ/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 188.0
+    },
+    {
+      "start_time": 188.0,
+      "title": "Contextfree grammars",
+      "end_time": 453.0
+    },
+    {
+      "start_time": 453.0,
+      "title": "Formal definition",
+      "end_time": 869.0
+    },
+    {
+      "start_time": 869.0,
+      "title": "Contextfree grammar",
+      "end_time": 957.0
+    },
+    {
+      "start_time": 957.0,
+      "title": "Examples",
+      "end_time": 1381.0
+    },
+    {
+      "start_time": 1381.0,
+      "title": "Ambiguity",
+      "end_time": 1644.0
+    },
+    {
+      "start_time": 1644.0,
+      "title": "Input Tape",
+      "end_time": 1724.0
+    },
+    {
+      "start_time": 1724.0,
+      "title": "Pushdown Stack",
+      "end_time": 1839.0
+    },
+    {
+      "start_time": 1839.0,
+      "title": "Pushdown Automata",
+      "end_time": 2562.0
+    },
+    {
+      "start_time": 2562.0,
+      "title": "Nondeterminism",
+      "end_time": 2650.0
+    },
+    {
+      "start_time": 2650.0,
+      "title": "Reverse Conversion",
+      "end_time": 3078.0
+    },
+    {
+      "start_time": 3078.0,
+      "title": "Proof",
+      "end_time": 3335.0
+    },
+    {
+      "start_time": 3335.0,
+      "title": "Demonstration",
+      "end_time": 4162
+    }
+  ],
+  "transcript_file": null
+}

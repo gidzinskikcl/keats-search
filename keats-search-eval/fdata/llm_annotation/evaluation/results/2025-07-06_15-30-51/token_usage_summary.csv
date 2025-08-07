@@ -1,0 +1,5 @@
+variant,total_prompt_tokens,total_completion_tokens,total_tokens,total_cost_usd,average_prompt_tokens,average_completion_tokens,average_total_tokens,average_cost_usd,median_prompt_tokens,median_completion_tokens,median_total_tokens,median_cost_usd
+minimum-v1,74067,57025,131092,1.510835,822.97,633.61,1456.58,0.016787,646.0,459.0,1105.0,0.012398
+basic-v1,78337,56375,134712,1.519185,870.41,626.39,1496.8,0.01688,694.0,459.0,1148.0,0.01269
+F2-v1,90235,55928,146163,1.569735,1002.61,621.42,1624.03,0.017441,823.0,456.0,1260.5,0.013137
+F4-v1,99631,53419,153050,1.566535,1107.01,593.54,1700.56,0.017406,925.0,455.0,1379.0,0.013735

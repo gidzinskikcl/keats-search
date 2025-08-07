@@ -1,0 +1,132 @@
+{
+  "id": "fQvg-hh9dUw",
+  "title": "10. Understanding Experimental Data (cont.)",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: Eric Grimson\n\nProf. Grimson continues on the topic of modeling experimental data.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3033,
+  "view_count": 43230,
+  "tags": [
+    "noisy data",
+    "linear regression",
+    "polynomials",
+    "pylab",
+    "polyfit",
+    "polyval",
+    "data fitting",
+    "quadratic models",
+    "overfitting",
+    "Hooke's Law",
+    "cross-validation"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=fQvg-hh9dUw",
+  "thumbnail": "https://i.ytimg.com/vi/fQvg-hh9dUw/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 188.0
+    },
+    {
+      "start_time": 188.0,
+      "title": "Solving for Least Squares (Recap)",
+      "end_time": 319.0
+    },
+    {
+      "start_time": 319.0,
+      "title": "Finding the best curve (simplest case)",
+      "end_time": 402.0
+    },
+    {
+      "start_time": 402.0,
+      "title": "Another Experiment (Recap)",
+      "end_time": 657.0
+    },
+    {
+      "start_time": 657.0,
+      "title": "Can We Get a Tighter Fit?",
+      "end_time": 817.0
+    },
+    {
+      "start_time": 817.0,
+      "title": "Motivation for Mystery Data - Parabola",
+      "end_time": 853.0
+    },
+    {
+      "start_time": 853.0,
+      "title": "How Mystery Data Was Generated",
+      "end_time": 973.0
+    },
+    {
+      "start_time": 973.0,
+      "title": "Let's Look at Two Data Sets",
+      "end_time": 1055.0
+    },
+    {
+      "start_time": 1055.0,
+      "title": "Fits for Dataset 1",
+      "end_time": 1225.0
+    },
+    {
+      "start_time": 1225.0,
+      "title": "Cross Validate",
+      "end_time": 1273.0
+    },
+    {
+      "start_time": 1273.0,
+      "title": "Test Code",
+      "end_time": 1337.0
+    },
+    {
+      "start_time": 1337.0,
+      "title": "Train on Dataset 1, Test on Dataset 2",
+      "end_time": 1526.0
+    },
+    {
+      "start_time": 1526.0,
+      "title": "Training and Testing Errors",
+      "end_time": 1662.0
+    },
+    {
+      "start_time": 1662.0,
+      "title": "Fitting a Quadratic to a Perfect Line",
+      "end_time": 1843.0
+    },
+    {
+      "start_time": 1843.0,
+      "title": "Simulate a Small Measurement Error",
+      "end_time": 1890.0
+    },
+    {
+      "start_time": 1890.0,
+      "title": "Predict Another Point Using Same Model",
+      "end_time": 1996.0
+    },
+    {
+      "start_time": 1996.0,
+      "title": "Comparing first and second degree fits",
+      "end_time": 2320.0
+    },
+    {
+      "start_time": 2320.0,
+      "title": "Leave-one-out Cross Validation",
+      "end_time": 2409.0
+    },
+    {
+      "start_time": 2409.0,
+      "title": "Repeated Random Sampling",
+      "end_time": 2681.0
+    },
+    {
+      "start_time": 2681.0,
+      "title": "Initialize Things",
+      "end_time": 2770.0
+    },
+    {
+      "start_time": 2770.0,
+      "title": "Train, Test, and Report",
+      "end_time": 3033
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/fQvg-hh9dUw.en-qlPKC2UN_YU.srt"
+}

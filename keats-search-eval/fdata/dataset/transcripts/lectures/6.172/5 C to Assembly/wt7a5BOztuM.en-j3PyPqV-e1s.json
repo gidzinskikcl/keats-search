@@ -1,0 +1,135 @@
+{
+  "id": "wt7a5BOztuM",
+  "title": "5. C to Assembly",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Tao B. Schardl\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nThis lecture focuses on how C code is implemented in x86-64 assembly. Dr. Schardl reasons through the mapping from C code to assembly in two steps: C to LLVM IR and then LLVM IR to Assembly.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4890,
+  "view_count": 329014,
+  "tags": [
+    "LLVM",
+    "assembly",
+    "c code",
+    "instructions",
+    "conditionals",
+    "c loops",
+    "LLVM IR",
+    "stack allocation",
+    "memory read"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=wt7a5BOztuM",
+  "thumbnail": "https://i.ytimg.com/vi_webp/wt7a5BOztuM/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "MIT OpenCourseWare",
+      "end_time": 22.0
+    },
+    {
+      "start_time": 22.0,
+      "title": "Introduction",
+      "end_time": 150.0
+    },
+    {
+      "start_time": 150.0,
+      "title": "Review",
+      "end_time": 555.0
+    },
+    {
+      "start_time": 555.0,
+      "title": "Outline",
+      "end_time": 625.0
+    },
+    {
+      "start_time": 625.0,
+      "title": "LLVM IR",
+      "end_time": 685.0
+    },
+    {
+      "start_time": 685.0,
+      "title": "LLVM IR vs Assembly",
+      "end_time": 789.0
+    },
+    {
+      "start_time": 789.0,
+      "title": "LLVM registers",
+      "end_time": 895.0
+    },
+    {
+      "start_time": 895.0,
+      "title": "LVM instructions",
+      "end_time": 1026.0
+    },
+    {
+      "start_time": 1026.0,
+      "title": "LVM types",
+      "end_time": 1115.0
+    },
+    {
+      "start_time": 1115.0,
+      "title": "Vector notation",
+      "end_time": 1320.0
+    },
+    {
+      "start_time": 1320.0,
+      "title": "Aggregate types",
+      "end_time": 1447.0
+    },
+    {
+      "start_time": 1447.0,
+      "title": "C functions",
+      "end_time": 1607.0
+    },
+    {
+      "start_time": 1607.0,
+      "title": "Basic blocks",
+      "end_time": 1960.0
+    },
+    {
+      "start_time": 1960.0,
+      "title": "Conditionals",
+      "end_time": 2091.0
+    },
+    {
+      "start_time": 2091.0,
+      "title": "Loops",
+      "end_time": 2287.0
+    },
+    {
+      "start_time": 2287.0,
+      "title": "Loop Control",
+      "end_time": 2485.0
+    },
+    {
+      "start_time": 2485.0,
+      "title": "Induction Variables",
+      "end_time": 2537.0
+    },
+    {
+      "start_time": 2537.0,
+      "title": "Fie Instruction",
+      "end_time": 2667.0
+    },
+    {
+      "start_time": 2667.0,
+      "title": "Attributes",
+      "end_time": 2986.0
+    },
+    {
+      "start_time": 2986.0,
+      "title": "Linux X8664 Calling Convention",
+      "end_time": 3003.0
+    },
+    {
+      "start_time": 3003.0,
+      "title": "Program Layout",
+      "end_time": 3443.0
+    },
+    {
+      "start_time": 3443.0,
+      "title": "Calling Convention",
+      "end_time": 4890
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/wt7a5BOztuM.en-j3PyPqV-e1s.srt"
+}

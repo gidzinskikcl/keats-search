@@ -1,0 +1,62 @@
+{
+  "id": "Vp_AzDGQyrA",
+  "title": "23. Probabilistic Computation, BPP",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Defined probabilistic Turing machines and the class BPP. Sketched the amplification lemma. Introduced branching programs and read-once branching programs. Started the proof that EQ for ROBP is in BPP. Introduced the arithmetization method.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 5021,
+  "view_count": 9513,
+  "tags": [
+    "probabilistic Turing machine, amplification lemma, branching program, arithmetization method"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=Vp_AzDGQyrA",
+  "thumbnail": "https://i.ytimg.com/vi/Vp_AzDGQyrA/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 177.0
+    },
+    {
+      "start_time": 177.0,
+      "title": "Probabilisticturing Machine",
+      "end_time": 688.0
+    },
+    {
+      "start_time": 688.0,
+      "title": "BPP",
+      "end_time": 1168.0
+    },
+    {
+      "start_time": 1168.0,
+      "title": "NP vs BPP",
+      "end_time": 1583.0
+    },
+    {
+      "start_time": 1583.0,
+      "title": "BPP Example",
+      "end_time": 1703.0
+    },
+    {
+      "start_time": 1703.0,
+      "title": "Branching Program",
+      "end_time": 2213.0
+    },
+    {
+      "start_time": 2213.0,
+      "title": "Read Once Branching Programs",
+      "end_time": 2522.0
+    },
+    {
+      "start_time": 2522.0,
+      "title": "Intuition",
+      "end_time": 2887.0
+    },
+    {
+      "start_time": 2887.0,
+      "title": "Break",
+      "end_time": 5021
+    }
+  ],
+  "transcript_file": null
+}

@@ -1,0 +1,72 @@
+{
+  "id": "Xnpo1atN-Iw",
+  "title": "8. Binary Heaps",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nProf. Demaine discusses priority queue interfaces and sorting algorithms. Algorithms include, AVL sort for set AVL trees, selection sort for arrays, insertion sort for sorted arrays, and heap sort for binary heaps.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3051,
+  "view_count": 64505,
+  "tags": [
+    "priority queue, AVL tree, array, binary heap, heap insert, heap delete max, heap sort"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=Xnpo1atN-Iw",
+  "thumbnail": "https://i.ytimg.com/vi/Xnpo1atN-Iw/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 40.0
+    },
+    {
+      "start_time": 40.0,
+      "title": "Priority Queue Interface",
+      "end_time": 178.0
+    },
+    {
+      "start_time": 178.0,
+      "title": "SetAVL",
+      "end_time": 295.0
+    },
+    {
+      "start_time": 295.0,
+      "title": "Data Structures",
+      "end_time": 760.0
+    },
+    {
+      "start_time": 760.0,
+      "title": "Objective",
+      "end_time": 870.0
+    },
+    {
+      "start_time": 870.0,
+      "title": "Inplace",
+      "end_time": 920.0
+    },
+    {
+      "start_time": 920.0,
+      "title": "Tree",
+      "end_time": 1010.0
+    },
+    {
+      "start_time": 1010.0,
+      "title": "Complete Binary Tree",
+      "end_time": 1220.0
+    },
+    {
+      "start_time": 1220.0,
+      "title": "implicit data structure",
+      "end_time": 1500.0
+    },
+    {
+      "start_time": 1500.0,
+      "title": "binary heap",
+      "end_time": 2220.0
+    },
+    {
+      "start_time": 2220.0,
+      "title": "min heap",
+      "end_time": 3051
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/Xnpo1atN-Iw.en-j3PyPqV-e1s.srt"
+}

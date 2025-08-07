@@ -1,0 +1,53 @@
+{
+  "id": "zYgkr0KfWM0",
+  "title": "23. Fairness",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nIn this lecture, Prof. Szolovits talks about algorithmic fairness and fairness in the way we build machine learning models. He raises the question 'What do we mean by fairness in society?' and discusses how that affects prediction models.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4675,
+  "view_count": 6039,
+  "tags": [
+    "bail algorithms",
+    "discrimination",
+    "bias",
+    "regulated domains",
+    "independence",
+    "separation",
+    "mistrust"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=zYgkr0KfWM0",
+  "thumbnail": "https://i.ytimg.com/vi_webp/zYgkr0KfWM0/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 383.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 383.0,
+      "title": "Algorithms and Justice",
+      "end_time": 546.0
+    },
+    {
+      "start_time": 546.0,
+      "title": "Critique of Bail Algorithms",
+      "end_time": 1225.0
+    },
+    {
+      "start_time": 1225.0,
+      "title": "Bias, Technically",
+      "end_time": 1833.0
+    },
+    {
+      "start_time": 1833.0,
+      "title": "Two Doctrines of Discrimination Law",
+      "end_time": 2371.0
+    },
+    {
+      "start_time": 2371.0,
+      "title": "Problems with Independence",
+      "end_time": 4675
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/zYgkr0KfWM0.en-j3PyPqV-e1s.srt"
+}

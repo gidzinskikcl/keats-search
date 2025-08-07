@@ -1,0 +1,87 @@
+{
+  "id": "oFVYVzlvk9c",
+  "title": "9. Breadth-First Search",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Justin Solomon\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis class covers graph definitions, neighbor sets and adjacencies, graph representations in data structures, and paths. It also discusses shortest paths trees and breadth-first search.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3172,
+  "view_count": 62581,
+  "tags": [
+    "graph aplications, neighbor set, path, shortest-path tree, breadth-first search"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=oFVYVzlvk9c",
+  "thumbnail": "https://i.ytimg.com/vi/oFVYVzlvk9c/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLAvaxs6Iuplpwp_K_0v1biw9x-J9w",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 60.0
+    },
+    {
+      "start_time": 60.0,
+      "title": "Course Outline",
+      "end_time": 120.0
+    },
+    {
+      "start_time": 120.0,
+      "title": "Notation",
+      "end_time": 315.0
+    },
+    {
+      "start_time": 315.0,
+      "title": "Graphs",
+      "end_time": 460.0
+    },
+    {
+      "start_time": 460.0,
+      "title": "Graph Theory",
+      "end_time": 590.0
+    },
+    {
+      "start_time": 590.0,
+      "title": "Simple Graphs",
+      "end_time": 940.0
+    },
+    {
+      "start_time": 940.0,
+      "title": "Neighbors",
+      "end_time": 1257.0
+    },
+    {
+      "start_time": 1257.0,
+      "title": "Data Structures",
+      "end_time": 1595.0
+    },
+    {
+      "start_time": 1595.0,
+      "title": "Paths",
+      "end_time": 1775.0
+    },
+    {
+      "start_time": 1775.0,
+      "title": "Models",
+      "end_time": 1967.0
+    },
+    {
+      "start_time": 1967.0,
+      "title": "Graph",
+      "end_time": 2510.0
+    },
+    {
+      "start_time": 2510.0,
+      "title": "Level Sets",
+      "end_time": 2615.0
+    },
+    {
+      "start_time": 2615.0,
+      "title": "BreadthFirst Search",
+      "end_time": 2715.0
+    },
+    {
+      "start_time": 2715.0,
+      "title": "While Loop",
+      "end_time": 3172
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/oFVYVzlvk9c.en-j3PyPqV-e1s.srt"
+}

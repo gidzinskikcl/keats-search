@@ -1,0 +1,57 @@
+{
+  "id": "NSHizBK9JD8",
+  "title": "13. Dijkstra",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\n*NOTE: Problem Session 6 is unavailable.*\n\nThis class discusses a fourth weighted single-source shortest path algorithm: Dijkstra's algorithms. Non-negative edge weights are introduced. There is a worked example of applying Dijkstra's algorithm.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3441,
+  "view_count": 34846,
+  "tags": [
+    "edge weights, Dijkstra's Algorithm, Edsger Dijkstra, cross-linking, weighted shortest path"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=NSHizBK9JD8",
+  "thumbnail": "https://i.ytimg.com/vi/NSHizBK9JD8/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 1379.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 1379.0,
+      "title": "Basic Idea behind Dijkstra",
+      "end_time": 1594.0
+    },
+    {
+      "start_time": 1594.0,
+      "title": "Implement a Changeable Priority Queue",
+      "end_time": 1761.0
+    },
+    {
+      "start_time": 1761.0,
+      "title": "Dijkstra's Algorithm",
+      "end_time": 2389.0
+    },
+    {
+      "start_time": 2389.0,
+      "title": "Correctness of Dijkstra's Algorithm",
+      "end_time": 3057.0
+    },
+    {
+      "start_time": 3057.0,
+      "title": "Running Time of Dijkstra",
+      "end_time": 3174.0
+    },
+    {
+      "start_time": 3174.0,
+      "title": "Running Time Bound",
+      "end_time": 3310.0
+    },
+    {
+      "start_time": 3310.0,
+      "title": "The Fibonacci Heap",
+      "end_time": 3441
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/NSHizBK9JD8.en-j3PyPqV-e1s.srt"
+}

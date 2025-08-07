@@ -1,0 +1,67 @@
+{
+  "id": "iZPzBHGDsWI",
+  "title": "15. NP-Completeness",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Covered NP-completeness; SAT and 3SAT; and more.  Discussed a strategy for proving NP-completeness with a reduction from 3SAT by constructing gadgets that simulate variables and clauses. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 5153,
+  "view_count": 29951,
+  "tags": [
+    "NP-complete, polynomial-time reducible, conjunctive normal form"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=iZPzBHGDsWI",
+  "thumbnail": "https://i.ytimg.com/vi/iZPzBHGDsWI/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 122.0
+    },
+    {
+      "start_time": 122.0,
+      "title": "Review",
+      "end_time": 415.0
+    },
+    {
+      "start_time": 415.0,
+      "title": "Conjunctive Normal Form",
+      "end_time": 541.0
+    },
+    {
+      "start_time": 541.0,
+      "title": "Terminology",
+      "end_time": 1136.0
+    },
+    {
+      "start_time": 1136.0,
+      "title": "Reduction",
+      "end_time": 1383.0
+    },
+    {
+      "start_time": 1383.0,
+      "title": "Edges",
+      "end_time": 1706.0
+    },
+    {
+      "start_time": 1706.0,
+      "title": "Satisfying assignment",
+      "end_time": 2561.0
+    },
+    {
+      "start_time": 2561.0,
+      "title": "Questions",
+      "end_time": 2958.0
+    },
+    {
+      "start_time": 2958.0,
+      "title": "Definition",
+      "end_time": 3268.0
+    },
+    {
+      "start_time": 3268.0,
+      "title": "Chat Questions",
+      "end_time": 5153
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/iZPzBHGDsWI.en-j3PyPqV-e1s.srt"
+}

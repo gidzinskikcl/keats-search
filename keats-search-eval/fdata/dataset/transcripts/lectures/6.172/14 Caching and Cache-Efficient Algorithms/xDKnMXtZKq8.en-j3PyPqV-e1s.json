@@ -1,0 +1,111 @@
+{
+  "id": "xDKnMXtZKq8",
+  "title": "14. Caching and Cache-Efficient Algorithms",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Shun discusses associativity in caches, the ideal cache model, cache-aware algorithms like tiled matrix multiplication, and cache-oblivious algorithms like divide-and-conquere matrix multiplication.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4703,
+  "view_count": 23856,
+  "tags": [
+    "cache hardware",
+    "ideal cache model",
+    "matrix multiplication",
+    "cache tiling",
+    "cache-efficient algorithms"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=xDKnMXtZKq8",
+  "thumbnail": "https://i.ytimg.com/vi_webp/xDKnMXtZKq8/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 42.0
+    },
+    {
+      "start_time": 42.0,
+      "title": "Multicore Cache Hierarchy",
+      "end_time": 275.0
+    },
+    {
+      "start_time": 275.0,
+      "title": "Fully Associative Cache",
+      "end_time": 462.0
+    },
+    {
+      "start_time": 462.0,
+      "title": "Direct-Mapped Cache",
+      "end_time": 761.0
+    },
+    {
+      "start_time": 761.0,
+      "title": "Set-Associative Cache Cache size M - 32.",
+      "end_time": 888.0
+    },
+    {
+      "start_time": 888.0,
+      "title": "Taxonomy of Cache Misses",
+      "end_time": 1164.0
+    },
+    {
+      "start_time": 1164.0,
+      "title": "Conflict Misses for Submatrices",
+      "end_time": 1611.0
+    },
+    {
+      "start_time": 1611.0,
+      "title": "Ideal-Cache Model",
+      "end_time": 1776.0
+    },
+    {
+      "start_time": 1776.0,
+      "title": "How Reasonable Are Ideal Caches?",
+      "end_time": 2022.0
+    },
+    {
+      "start_time": 2022.0,
+      "title": "Cache-Miss Lemma",
+      "end_time": 2200.0
+    },
+    {
+      "start_time": 2200.0,
+      "title": "Tall Caches",
+      "end_time": 2282.0
+    },
+    {
+      "start_time": 2282.0,
+      "title": "What's Wrong with Short Caches?",
+      "end_time": 2395.0
+    },
+    {
+      "start_time": 2395.0,
+      "title": "Submatrix Caching Lemma",
+      "end_time": 2585.0
+    },
+    {
+      "start_time": 2585.0,
+      "title": "Multiply Square Matrices",
+      "end_time": 2650.0
+    },
+    {
+      "start_time": 2650.0,
+      "title": "Analysis of Cache Misses",
+      "end_time": 3129.0
+    },
+    {
+      "start_time": 3129.0,
+      "title": "Swapping Inner Loop Order",
+      "end_time": 3250.0
+    },
+    {
+      "start_time": 3250.0,
+      "title": "Tiled Matrix Multiplication",
+      "end_time": 3559.0
+    },
+    {
+      "start_time": 3559.0,
+      "title": "Two-Level Cache",
+      "end_time": 4703
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/xDKnMXtZKq8.en-j3PyPqV-e1s.srt"
+}

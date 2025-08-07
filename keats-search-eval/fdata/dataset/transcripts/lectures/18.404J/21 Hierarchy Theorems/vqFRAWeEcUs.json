@@ -1,0 +1,77 @@
+{
+  "id": "vqFRAWeEcUs",
+  "title": "21. Hierarchy Theorems",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Finished Immerman-Szelepcsenyi theorem: NL = coNL.  Introduced and proved the time and space hierarchy theorems.  Discussed using the hierarchy theorems to separate certain complexity classes.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4916,
+  "view_count": 10779,
+  "tags": [
+    "Immerman-Szelepcsenyi theorem, major complexity classes, time hierarchy theorem"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=vqFRAWeEcUs",
+  "thumbnail": "https://i.ytimg.com/vi/vqFRAWeEcUs/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 461.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 461.0,
+      "title": "Computing the Path Function",
+      "end_time": 1325.0
+    },
+    {
+      "start_time": 1325.0,
+      "title": "Difference between Know and Reject",
+      "end_time": 2272.0
+    },
+    {
+      "start_time": 2272.0,
+      "title": "The Hierarchy Theorems",
+      "end_time": 2444.0
+    },
+    {
+      "start_time": 2444.0,
+      "title": "Coffee Break",
+      "end_time": 2687.0
+    },
+    {
+      "start_time": 2687.0,
+      "title": "Shifting Gears the Space Hierarchy Theorem",
+      "end_time": 2705.0
+    },
+    {
+      "start_time": 2705.0,
+      "title": "Time and Space Hierarchy Theorems",
+      "end_time": 2726.0
+    },
+    {
+      "start_time": 2726.0,
+      "title": "Space Hierarchy Theorem",
+      "end_time": 3775.0
+    },
+    {
+      "start_time": 3775.0,
+      "title": "How To Compute F",
+      "end_time": 3914.0
+    },
+    {
+      "start_time": 3914.0,
+      "title": "Example of a Non-Space Constructable Function",
+      "end_time": 4147.0
+    },
+    {
+      "start_time": 4147.0,
+      "title": "Time Hierarchy Theorem",
+      "end_time": 4231.0
+    },
+    {
+      "start_time": 4231.0,
+      "title": "Proof Outline",
+      "end_time": 4916
+    }
+  ],
+  "transcript_file": null
+}

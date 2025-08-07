@@ -1,0 +1,72 @@
+{
+  "id": "gRkUhg9Wb-I",
+  "title": "14. Causal Inference, Part 1",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag discusses causal inference, examples of causal questions, and how these guide treatment decisions. He explains the Rubin-Neyman causal model as a potential outcome framework.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4723,
+  "view_count": 154579,
+  "tags": [
+    "causal inference",
+    "intervention",
+    "outcome",
+    "Rubin-Neyman causal model",
+    "assumptions",
+    "ignorability"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=gRkUhg9Wb-I",
+  "thumbnail": "https://i.ytimg.com/vi_webp/gRkUhg9Wb-I/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 114.0
+    },
+    {
+      "start_time": 114.0,
+      "title": "Does gastric bypass surgery prevent onset of diabetes?",
+      "end_time": 465.0
+    },
+    {
+      "start_time": 465.0,
+      "title": "Does smoking cause lung cancer?",
+      "end_time": 853.0
+    },
+    {
+      "start_time": 853.0,
+      "title": "What is the likelihood this patient, with breast cancer, will survive 5 years?",
+      "end_time": 1327.0
+    },
+    {
+      "start_time": 1327.0,
+      "title": "Potential Outcomes Framework (Rubin-Neyman Causal Model)",
+      "end_time": 1546.0
+    },
+    {
+      "start_time": 1546.0,
+      "title": "Example \u2013 Blood pressure and age",
+      "end_time": 2376.0
+    },
+    {
+      "start_time": 2376.0,
+      "title": "Typical assumption - no unmeasured confounders",
+      "end_time": 2758.0
+    },
+    {
+      "start_time": 2758.0,
+      "title": "Typical assumption - common support",
+      "end_time": 3098.0
+    },
+    {
+      "start_time": 3098.0,
+      "title": "Outline for lecture",
+      "end_time": 3590.0
+    },
+    {
+      "start_time": 3590.0,
+      "title": "Covariate adjustment",
+      "end_time": 4723
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/gRkUhg9Wb-I.en-j3PyPqV-e1s.srt"
+}

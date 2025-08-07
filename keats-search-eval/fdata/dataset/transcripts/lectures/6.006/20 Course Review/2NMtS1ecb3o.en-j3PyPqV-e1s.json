@@ -1,0 +1,97 @@
+{
+  "id": "2NMtS1ecb3o",
+  "title": "20. Course Review",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis lecture reviews the main concepts and learning goals for the course. Students should be able to solve hard computational problems, argue an algorithm is correct, argue an algorithm is good, and effectively communicate the above.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3334,
+  "view_count": 12585,
+  "tags": [
+    "introduction to algorithms, polynomial, pseudopolynomial, nondeterministic polynomial time"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=2NMtS1ecb3o",
+  "thumbnail": "https://i.ytimg.com/vi/2NMtS1ecb3o/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 93.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 93.0,
+      "title": "Hard Computational Problems",
+      "end_time": 234.0
+    },
+    {
+      "start_time": 234.0,
+      "title": "Efficiency",
+      "end_time": 1085.0
+    },
+    {
+      "start_time": 1085.0,
+      "title": "Intrinsic Operations",
+      "end_time": 1487.0
+    },
+    {
+      "start_time": 1487.0,
+      "title": "Dynamic Programming",
+      "end_time": 1883.0
+    },
+    {
+      "start_time": 1883.0,
+      "title": "Union Find Data Structure",
+      "end_time": 1951.0
+    },
+    {
+      "start_time": 1951.0,
+      "title": "Minimum Spanning Tree",
+      "end_time": 2051.0
+    },
+    {
+      "start_time": 2051.0,
+      "title": "Incremental Algorithms",
+      "end_time": 2247.0
+    },
+    {
+      "start_time": 2247.0,
+      "title": "Randomized Algorithms",
+      "end_time": 2685.0
+    },
+    {
+      "start_time": 2685.0,
+      "title": "Long Division",
+      "end_time": 2734.0
+    },
+    {
+      "start_time": 2734.0,
+      "title": "Approximation Algorithms",
+      "end_time": 2863.0
+    },
+    {
+      "start_time": 2863.0,
+      "title": "Change the Model of Computation",
+      "end_time": 2879.0
+    },
+    {
+      "start_time": 2879.0,
+      "title": "Change in the Model of Computation",
+      "end_time": 2956.0
+    },
+    {
+      "start_time": 2956.0,
+      "title": "Cache Model",
+      "end_time": 2961.0
+    },
+    {
+      "start_time": 2961.0,
+      "title": "Cache Model",
+      "end_time": 3212.0
+    },
+    {
+      "start_time": 3212.0,
+      "title": "Parallel Computing",
+      "end_time": 3334
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/2NMtS1ecb3o.en-j3PyPqV-e1s.srt"
+}

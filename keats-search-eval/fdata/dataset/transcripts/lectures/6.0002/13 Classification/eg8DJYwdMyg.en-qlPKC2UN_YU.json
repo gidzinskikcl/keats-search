@@ -1,0 +1,87 @@
+{
+  "id": "eg8DJYwdMyg",
+  "title": "13. Classification",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag introduces supervised learning with nearest neighbor classification using feature scaling and decision trees.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2993,
+  "view_count": 142587,
+  "tags": [
+    "supervised learning",
+    "classification",
+    "classifier",
+    "nearest neighbors",
+    "logistic regression",
+    "machine learning",
+    "list comprehension",
+    "feature scaling",
+    "decision trees",
+    "entropy",
+    "training data"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=eg8DJYwdMyg",
+  "thumbnail": "https://i.ytimg.com/vi/eg8DJYwdMyg/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 102.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 102.0,
+      "title": "Supervised Learning",
+      "end_time": 294.0
+    },
+    {
+      "start_time": 294.0,
+      "title": "Using Distance Matrix for Classification",
+      "end_time": 1092.0
+    },
+    {
+      "start_time": 1092.0,
+      "title": "Other Metrics",
+      "end_time": 1383.0
+    },
+    {
+      "start_time": 1383.0,
+      "title": "Repeated Random Subsampling",
+      "end_time": 2083.0
+    },
+    {
+      "start_time": 2083.0,
+      "title": "Class LogisticRegression",
+      "end_time": 2167.0
+    },
+    {
+      "start_time": 2167.0,
+      "title": "Building a Model",
+      "end_time": 2276.0
+    },
+    {
+      "start_time": 2276.0,
+      "title": "List Comprehension",
+      "end_time": 2461.0
+    },
+    {
+      "start_time": 2461.0,
+      "title": "Applying Model",
+      "end_time": 2589.0
+    },
+    {
+      "start_time": 2589.0,
+      "title": "Putting It Together",
+      "end_time": 2700.0
+    },
+    {
+      "start_time": 2700.0,
+      "title": "Compare to KNN Results",
+      "end_time": 2745.0
+    },
+    {
+      "start_time": 2745.0,
+      "title": "Looking at Feature Weights",
+      "end_time": 2993
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/eg8DJYwdMyg.en-qlPKC2UN_YU.srt"
+}

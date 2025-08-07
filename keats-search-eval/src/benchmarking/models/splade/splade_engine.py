@@ -17,7 +17,7 @@ class SpladeSearchEngine(search_model.SearchModel):
         doc_path: str,
         k: int,
         model_name: str = "naver/splade-cocondenser-ensembledistil",
-        index_dir: str = "keats-search-eval/src/benchmarking/models/splade/splade_index",
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/splade/splade_index",
         force_reindex: bool = False,
     ):
         self.doc_path = doc_path
@@ -34,8 +34,10 @@ class SpladeSearchEngine(search_model.SearchModel):
         print(f"Model loaded in {time.time() - start:.2f}s")
 
         if force_reindex or not self._check_index_exists():
+            print("SPLADE: Index does not exist or force reindexing is enabled.")
             self._index_documents()
         else:
+            print("SPLADE: index exists...")
             self._load_index()
 
     def _check_index_exists(self):

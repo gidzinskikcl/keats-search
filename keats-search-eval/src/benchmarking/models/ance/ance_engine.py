@@ -9,12 +9,13 @@ from benchmarking.models import search_model
 
 
 class AnceSearchEngine(search_model.SearchModel):
+
     def __init__(
         self,
         doc_path: str,
         k: int,
         model_name: str = "sentence-transformers/msmarco-roberta-base-ance-firstp",
-        index_dir: str = "keats-search-eval/src/benchmarking/models/ance/ance_index",
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/ance/ance_index",
         force_reindex: bool = False,
     ):
         self.doc_path = doc_path
@@ -29,8 +30,10 @@ class AnceSearchEngine(search_model.SearchModel):
         print(f"Model loaded in {time.time() - start:.2f}s")
 
         if force_reindex or not self._check_index_exists():
+            print("ANCE: Index does not exist or force reindexing is enabled.")
             self._index_documents()
         else:
+            print("ANCE: index exists...")
             self._load_index()
 
     def _check_index_exists(self):
@@ -60,7 +63,10 @@ class AnceSearchEngine(search_model.SearchModel):
 
     def _load_index(self):
         print("Loading index from disk...")
-        self.doc_vecs = torch.load(os.path.join(self.index_dir, "doc_vecs.pt"))
+        self.doc_vecs = torch.load(
+            os.path.join(self.index_dir, "doc_vecs.pt"),
+            map_location=torch.device("cpu"),
+        )
         with open(os.path.join(self.index_dir, "documents.json")) as f:
             self.documents = json.load(f)
         self.ids = [doc["id"] for doc in self.documents]

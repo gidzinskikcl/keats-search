@@ -1,0 +1,77 @@
+{
+  "id": "JbafQJx1CIA",
+  "title": "19. Complexity",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis lecture discusses computational complexity and introduces terminology: P, NP, EXP, R. These terms are applied to the concepts of hardness and completeness. The lecture ends with discussion on reductions. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3548,
+  "view_count": 33169,
+  "tags": [
+    "decision problem, decidability, nondeterministic polynomial time, NP hard, NP-complete"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=JbafQJx1CIA",
+  "thumbnail": "https://i.ytimg.com/vi/JbafQJx1CIA/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGHIgTyg1MA8=&rs=AOn4CLBkM0-7ukMKN-zBfBfKnNUY7T5qhg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 360.0
+    },
+    {
+      "start_time": 360.0,
+      "title": "Negative Weight Cycle Detection",
+      "end_time": 640.0
+    },
+    {
+      "start_time": 640.0,
+      "title": "Infinite Loop Detection",
+      "end_time": 700.0
+    },
+    {
+      "start_time": 700.0,
+      "title": "Decision Problems",
+      "end_time": 1135.0
+    },
+    {
+      "start_time": 1135.0,
+      "title": "Most",
+      "end_time": 1315.0
+    },
+    {
+      "start_time": 1315.0,
+      "title": "NP",
+      "end_time": 1700.0
+    },
+    {
+      "start_time": 1700.0,
+      "title": "Tetris",
+      "end_time": 2125.0
+    },
+    {
+      "start_time": 2125.0,
+      "title": "Verifier",
+      "end_time": 2410.0
+    },
+    {
+      "start_time": 2410.0,
+      "title": "NP Hardness",
+      "end_time": 2665.0
+    },
+    {
+      "start_time": 2665.0,
+      "title": "Reductions",
+      "end_time": 3167.0
+    },
+    {
+      "start_time": 3167.0,
+      "title": "Tetris Reduction",
+      "end_time": 3314.0
+    },
+    {
+      "start_time": 3314.0,
+      "title": "Other Examples",
+      "end_time": 3548
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/JbafQJx1CIA.en-j3PyPqV-e1s.srt"
+}

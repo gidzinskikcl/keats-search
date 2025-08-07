@@ -1,0 +1,114 @@
+{
+  "id": "DS97JV_o0Fs",
+  "title": "2. Overview of Clinical Care",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits gives an overview of clinical care from the past to the present. The main topics covered are the goals of medicine, the tasks of medicing, public health, and paying for health care.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4808,
+  "view_count": 20787,
+  "tags": [
+    "clinical care",
+    "health care",
+    "mortality",
+    "disability",
+    "morbidity",
+    "public health",
+    "diagnosis",
+    "treatment"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=DS97JV_o0Fs",
+  "thumbnail": "https://i.ytimg.com/vi_webp/DS97JV_o0Fs/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 49.0
+    },
+    {
+      "start_time": 49.0,
+      "title": "Outline",
+      "end_time": 142.0
+    },
+    {
+      "start_time": 142.0,
+      "title": "Goals of Medicine: (1) Cure the sick",
+      "end_time": 629.0
+    },
+    {
+      "start_time": 629.0,
+      "title": "Distribution of Death Rates by Age",
+      "end_time": 804.0
+    },
+    {
+      "start_time": 804.0,
+      "title": "Ethnic Differences",
+      "end_time": 890.0
+    },
+    {
+      "start_time": 890.0,
+      "title": "Causes of death (USA, 2014)",
+      "end_time": 1232.0
+    },
+    {
+      "start_time": 1232.0,
+      "title": "Activities of Daily Living",
+      "end_time": 1303.0
+    },
+    {
+      "start_time": 1303.0,
+      "title": "Goals of Occupational Therapy",
+      "end_time": 1366.0
+    },
+    {
+      "start_time": 1366.0,
+      "title": "Mortality, Disability, Morbidity",
+      "end_time": 1956.0
+    },
+    {
+      "start_time": 1956.0,
+      "title": "Traditional tasks of medicine",
+      "end_time": 2108.0
+    },
+    {
+      "start_time": 2108.0,
+      "title": "The Medical Cycle",
+      "end_time": 2440.0
+    },
+    {
+      "start_time": 2440.0,
+      "title": "Cognitive Theory of Diagnosis",
+      "end_time": 2537.0
+    },
+    {
+      "start_time": 2537.0,
+      "title": "Scientific Method",
+      "end_time": 2680.0
+    },
+    {
+      "start_time": 2680.0,
+      "title": "The \"Learning Health Care System\"",
+      "end_time": 2830.0
+    },
+    {
+      "start_time": 2830.0,
+      "title": "How Does the Health System Learn?",
+      "end_time": 3050.0
+    },
+    {
+      "start_time": 3050.0,
+      "title": "The Learning Health Care System",
+      "end_time": 3369.0
+    },
+    {
+      "start_time": 3369.0,
+      "title": "Tracking disease prevalence by systematic classification",
+      "end_time": 3561.0
+    },
+    {
+      "start_time": 3561.0,
+      "title": "Centers for Disease Control and Prevention (CDC)",
+      "end_time": 4808
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/DS97JV_o0Fs.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "IiD3YZkkCmE",
+  "title": "7. Natural Language Processing (NLP), Part 1",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nThis lecture and the next covers the role of Natural Language Processing in machine learning in healthcare. In this lecture, Prof. Szolovits covers methods which are not based on neural networks representations.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4538,
+  "view_count": 34021,
+  "tags": [
+    "MIMIC",
+    "term-spotting",
+    "hyper-simplified linguistics",
+    "Unified Medical Language System",
+    "UMLS"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=IiD3YZkkCmE",
+  "thumbnail": "https://i.ytimg.com/vi_webp/IiD3YZkkCmE/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 85.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 85.0,
+      "title": "Outline",
+      "end_time": 654.0
+    },
+    {
+      "start_time": 654.0,
+      "title": "Finding a Cohort of Rheumatoid Arthritis Cases",
+      "end_time": 1611.0
+    },
+    {
+      "start_time": 1611.0,
+      "title": "Two Types of Tasks",
+      "end_time": 2012.0
+    },
+    {
+      "start_time": 2012.0,
+      "title": "Formal language semantics",
+      "end_time": 2118.0
+    },
+    {
+      "start_time": 2118.0,
+      "title": "Term Spotting",
+      "end_time": 2202.0
+    },
+    {
+      "start_time": 2202.0,
+      "title": "Negation",
+      "end_time": 2378.0
+    },
+    {
+      "start_time": 2378.0,
+      "title": "Generalize Terms",
+      "end_time": 2425.0
+    },
+    {
+      "start_time": 2425.0,
+      "title": "Available Classification Thesauri Most Available through UMLS",
+      "end_time": 4538
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/IiD3YZkkCmE.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,81 @@
+{
+  "id": "zdotUAxiPGM",
+  "title": "17. Reinforcement Learning, Part 2",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag, Barbra Dickerman\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nIn the first half, Prof. Sontag discusses how to evaluate different policies in causal inference and how it is related to reinforcement learning. In the second half, Dr. Barbra Dickerman talks about evaluating dynamic treatment strategies.  \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 3312,
+  "view_count": 5290,
+  "tags": [
+    "causal inference",
+    "reinforcement learning",
+    "covariate adjustment",
+    "dynamic treatment",
+    "g-method"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=zdotUAxiPGM",
+  "thumbnail": "https://i.ytimg.com/vi_webp/zdotUAxiPGM/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 66.0
+    },
+    {
+      "start_time": 66.0,
+      "title": "Reinforcement Learning",
+      "end_time": 427.0
+    },
+    {
+      "start_time": 427.0,
+      "title": "causal inference",
+      "end_time": 569.0
+    },
+    {
+      "start_time": 569.0,
+      "title": "policy",
+      "end_time": 2168.0
+    },
+    {
+      "start_time": 2168.0,
+      "title": "goals",
+      "end_time": 2229.0
+    },
+    {
+      "start_time": 2229.0,
+      "title": "treatment strategies",
+      "end_time": 2355.0
+    },
+    {
+      "start_time": 2355.0,
+      "title": "treatment confounder feedback",
+      "end_time": 2478.0
+    },
+    {
+      "start_time": 2478.0,
+      "title": "causal methods",
+      "end_time": 2514.0
+    },
+    {
+      "start_time": 2514.0,
+      "title": "cancer research",
+      "end_time": 2718.0
+    },
+    {
+      "start_time": 2718.0,
+      "title": "G formula",
+      "end_time": 3012.0
+    },
+    {
+      "start_time": 3012.0,
+      "title": "Sensitivity analyses",
+      "end_time": 3232.0
+    },
+    {
+      "start_time": 3232.0,
+      "title": "Summary",
+      "end_time": 3312
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/zdotUAxiPGM.en-j3PyPqV-e1s.srt"
+}

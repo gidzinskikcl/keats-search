@@ -1,0 +1,67 @@
+{
+  "id": "VuKOW8d4KHw",
+  "title": "11. Differential Diagnosis",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits explains differential diagnosis, the distinguishing of a condition from others with similar features. He covers models of diagnostic reasoning: flow charts, card selection, naive Bayes, bipartite graphs, QMR DT, and reinforcement learning.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4816,
+  "view_count": 14567,
+  "tags": [
+    "diagnostic reasoning",
+    "differential diagnosis",
+    "na\u00efve bayes",
+    "decision tree",
+    "bipartite graph",
+    "QMR DT"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=VuKOW8d4KHw",
+  "thumbnail": "https://i.ytimg.com/vi_webp/VuKOW8d4KHw/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 15.0
+    },
+    {
+      "start_time": 15.0,
+      "title": "Differential Diagnosis",
+      "end_time": 60.0
+    },
+    {
+      "start_time": 60.0,
+      "title": "Circulatory Physiology",
+      "end_time": 1228.0
+    },
+    {
+      "start_time": 1228.0,
+      "title": "Rationality",
+      "end_time": 1358.0
+    },
+    {
+      "start_time": 1358.0,
+      "title": "Decision Trees",
+      "end_time": 2460.0
+    },
+    {
+      "start_time": 2460.0,
+      "title": "QMR",
+      "end_time": 2684.0
+    },
+    {
+      "start_time": 2684.0,
+      "title": "Scales",
+      "end_time": 3127.0
+    },
+    {
+      "start_time": 3127.0,
+      "title": "Results",
+      "end_time": 3255.0
+    },
+    {
+      "start_time": 3255.0,
+      "title": "Bottom Line",
+      "end_time": 4816
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/VuKOW8d4KHw.en-j3PyPqV-e1s.srt"
+}

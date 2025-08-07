@@ -1,0 +1,132 @@
+{
+  "id": "U1JYwHcFfso",
+  "title": "7. Binary Trees, Part 2: AVL",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the second lecture on binary trees. This covers subtree augmentation and sequence binary trees with subtree sizes. Rotations, erbalancing, and height augmentation are used to achieve height balance (AVL). \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3248,
+  "view_count": 83517,
+  "tags": [
+    "rotation, AVL trees, height-balance, subtree property, augment binary tree, tree height, subsequence"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=U1JYwHcFfso",
+  "thumbnail": "https://i.ytimg.com/vi/U1JYwHcFfso/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 173.0
+    },
+    {
+      "start_time": 173.0,
+      "title": "Binary Trees",
+      "end_time": 205.0
+    },
+    {
+      "start_time": 205.0,
+      "title": "Subtree Operations",
+      "end_time": 338.0
+    },
+    {
+      "start_time": 338.0,
+      "title": "Binary Search Trees",
+      "end_time": 443.0
+    },
+    {
+      "start_time": 443.0,
+      "title": "Increasing Key Order",
+      "end_time": 566.0
+    },
+    {
+      "start_time": 566.0,
+      "title": "Size Matters",
+      "end_time": 643.0
+    },
+    {
+      "start_time": 643.0,
+      "title": "Binary Search",
+      "end_time": 820.0
+    },
+    {
+      "start_time": 820.0,
+      "title": "Subtree Insert",
+      "end_time": 909.0
+    },
+    {
+      "start_time": 909.0,
+      "title": "Subtree Augmentation",
+      "end_time": 1007.0
+    },
+    {
+      "start_time": 1007.0,
+      "title": "Subtree Properties",
+      "end_time": 1139.0
+    },
+    {
+      "start_time": 1139.0,
+      "title": "Recursion",
+      "end_time": 1541.0
+    },
+    {
+      "start_time": 1541.0,
+      "title": "Index",
+      "end_time": 1654.0
+    },
+    {
+      "start_time": 1654.0,
+      "title": "Local vs Global",
+      "end_time": 1740.0
+    },
+    {
+      "start_time": 1740.0,
+      "title": "Size",
+      "end_time": 1794.0
+    },
+    {
+      "start_time": 1794.0,
+      "title": "Tree Manipulation",
+      "end_time": 1811.0
+    },
+    {
+      "start_time": 1811.0,
+      "title": "Tree Rotation",
+      "end_time": 1956.0
+    },
+    {
+      "start_time": 1956.0,
+      "title": "Traversal Order",
+      "end_time": 1999.0
+    },
+    {
+      "start_time": 1999.0,
+      "title": "Height Balance",
+      "end_time": 2111.0
+    },
+    {
+      "start_time": 2111.0,
+      "title": "Skew of Node",
+      "end_time": 2179.0
+    },
+    {
+      "start_time": 2179.0,
+      "title": "HeightBalance",
+      "end_time": 2648.0
+    },
+    {
+      "start_time": 2648.0,
+      "title": "Update Rule",
+      "end_time": 2768.0
+    },
+    {
+      "start_time": 2768.0,
+      "title": "Height",
+      "end_time": 2894.0
+    },
+    {
+      "start_time": 2894.0,
+      "title": "Rotate",
+      "end_time": 3248
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/U1JYwHcFfso.en-j3PyPqV-e1s.srt"
+}

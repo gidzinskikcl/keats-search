@@ -1,0 +1,67 @@
+{
+  "id": "q3xvno_KgRY",
+  "title": "20. L and NL, NL = coNL",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nReviewed log space: NL is a subset of SPACE(log^2n) and NL is a subset of P. Introduced log-space transducers and log-space reducibility. Defined NL-completeness. Proved that PATH is NL-complete. Also proved the Immerman-Szelepcs\u00e9nyi theorem: NL = coNL.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4806,
+  "view_count": 12554,
+  "tags": [
+    "log space, log-space transducer, log-space reduction, configuration graph, polynomial-time algorithm"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=q3xvno_KgRY",
+  "thumbnail": "https://i.ytimg.com/vi/q3xvno_KgRY/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 160.0
+    },
+    {
+      "start_time": 160.0,
+      "title": "Review",
+      "end_time": 440.0
+    },
+    {
+      "start_time": 440.0,
+      "title": "Class L",
+      "end_time": 660.0
+    },
+    {
+      "start_time": 660.0,
+      "title": "Savages Theorem",
+      "end_time": 790.0
+    },
+    {
+      "start_time": 790.0,
+      "title": "Configuration Graph",
+      "end_time": 1530.0
+    },
+    {
+      "start_time": 1530.0,
+      "title": "Transducer",
+      "end_time": 1685.0
+    },
+    {
+      "start_time": 1685.0,
+      "title": "Obstacles",
+      "end_time": 1860.0
+    },
+    {
+      "start_time": 1860.0,
+      "title": "Solution",
+      "end_time": 2620.0
+    },
+    {
+      "start_time": 2620.0,
+      "title": "Example",
+      "end_time": 3287.0
+    },
+    {
+      "start_time": 3287.0,
+      "title": "Questions",
+      "end_time": 4806
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/q3xvno_KgRY.en-j3PyPqV-e1s.srt"
+}

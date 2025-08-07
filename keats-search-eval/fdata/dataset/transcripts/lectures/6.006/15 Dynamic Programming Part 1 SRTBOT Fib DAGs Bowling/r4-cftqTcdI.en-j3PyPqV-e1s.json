@@ -1,0 +1,82 @@
+{
+  "id": "r4-cftqTcdI",
+  "title": "15. Dynamic Programming, Part 1: SRTBOT, Fib, DAGs, Bowling",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the first of four lectures on dynamic programing. This begins with how to solve a problem recursively and continues with three examples: Fibonacci, DAG shortest paths, and bowling.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3438,
+  "view_count": 117017,
+  "tags": [
+    "merge sort, fibonacci, dynamic programming, SRT BOT, DAG shortest paths"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=r4-cftqTcdI",
+  "thumbnail": "https://i.ytimg.com/vi/r4-cftqTcdI/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGHIgZig5MA8=&rs=AOn4CLAPtlCqxt89wrKK_BpAGjwVx8WTkQ",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 165.0
+    },
+    {
+      "start_time": 165.0,
+      "title": "SRTBOT",
+      "end_time": 360.0
+    },
+    {
+      "start_time": 360.0,
+      "title": "Merge Sort",
+      "end_time": 520.0
+    },
+    {
+      "start_time": 520.0,
+      "title": "Fib",
+      "end_time": 820.0
+    },
+    {
+      "start_time": 820.0,
+      "title": "Memoization",
+      "end_time": 985.0
+    },
+    {
+      "start_time": 985.0,
+      "title": "Data Structure",
+      "end_time": 1045.0
+    },
+    {
+      "start_time": 1045.0,
+      "title": "Recursive Function",
+      "end_time": 1251.0
+    },
+    {
+      "start_time": 1251.0,
+      "title": "Word Ram Model",
+      "end_time": 1456.0
+    },
+    {
+      "start_time": 1456.0,
+      "title": "Merging Sort",
+      "end_time": 2293.0
+    },
+    {
+      "start_time": 2293.0,
+      "title": "Bowling",
+      "end_time": 2492.0
+    },
+    {
+      "start_time": 2492.0,
+      "title": "Algorithmic Design",
+      "end_time": 2710.0
+    },
+    {
+      "start_time": 2710.0,
+      "title": "Subproblems",
+      "end_time": 3126.0
+    },
+    {
+      "start_time": 3126.0,
+      "title": "BottomUp DP",
+      "end_time": 3438
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/r4-cftqTcdI.en-j3PyPqV-e1s.srt"
+}

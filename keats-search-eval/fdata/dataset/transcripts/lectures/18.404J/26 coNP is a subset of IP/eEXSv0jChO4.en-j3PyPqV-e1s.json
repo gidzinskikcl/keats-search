@@ -1,0 +1,47 @@
+{
+  "id": "eEXSv0jChO4",
+  "title": "26. coNP is a subset of IP",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Discussed the arithmetization of Boolean formulas. Finished the theorem: #SAT is in IP and concluded that coNP is a subset of IP.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 5009,
+  "view_count": 5940,
+  "tags": [
+    "arithmetizing Boolean formula, standard simulation, prover, verifier"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=eEXSv0jChO4",
+  "thumbnail": "https://i.ytimg.com/vi/eEXSv0jChO4/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 118.0
+    },
+    {
+      "start_time": 118.0,
+      "title": "Interactive proofs",
+      "end_time": 325.0
+    },
+    {
+      "start_time": 325.0,
+      "title": "The surprising theorem",
+      "end_time": 513.0
+    },
+    {
+      "start_time": 513.0,
+      "title": "Presets",
+      "end_time": 908.0
+    },
+    {
+      "start_time": 908.0,
+      "title": "Number Sat",
+      "end_time": 1070.0
+    },
+    {
+      "start_time": 1070.0,
+      "title": "Proof",
+      "end_time": 5009
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/eEXSv0jChO4.en-j3PyPqV-e1s.srt"
+}

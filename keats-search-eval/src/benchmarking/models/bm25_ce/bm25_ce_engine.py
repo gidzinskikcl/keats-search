@@ -4,11 +4,12 @@ from datetime import timedelta
 from sentence_transformers import CrossEncoder
 import subprocess
 import json
+import os
 from transformers import AutoTokenizer
 
 
 class BM25CrossEncoderSearchEngine(search_model.SearchModel):
-    JAR_PATH = "keats-search-api/bin/bm25-search-api-jar-with-dependencies.jar"
+    JAR_PATH = "/app/keats-search-eval/src/benchmarking/models/lucene/bm25-search-api-jar-with-dependencies.jar"
 
     def __init__(
         self,
@@ -17,6 +18,7 @@ class BM25CrossEncoderSearchEngine(search_model.SearchModel):
         ce_model_name: str = "cross-encoder/ms-marco-MiniLM-L6-v2",
         max_tokens: int = 512,
         stride: int = 50,
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/lucene/index",
     ):
         self.k = k
         self.rerank_k = rerank_k
@@ -24,6 +26,7 @@ class BM25CrossEncoderSearchEngine(search_model.SearchModel):
         self.tokenizer = AutoTokenizer.from_pretrained(ce_model_name)
         self.max_tokens = max_tokens
         self.stride = stride
+        self.index_dir = index_dir
 
     def _parse_timestamp(self, ts: str | None) -> timedelta | None:
         if ts is None:
@@ -73,7 +76,7 @@ class BM25CrossEncoderSearchEngine(search_model.SearchModel):
                 self.JAR_PATH,
                 "--mode",
                 "search",
-                "keats-search-api/data/index",
+                self.index_dir,
                 query.question,
                 str(self.rerank_k),
                 filters_json,
