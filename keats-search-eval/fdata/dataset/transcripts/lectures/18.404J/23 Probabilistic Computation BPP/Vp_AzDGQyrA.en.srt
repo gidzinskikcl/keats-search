@@ -1,0 +1,9276 @@
+1
+00:00:24,800 --> 00:00:29,359
+okay hello everybody
+
+2
+00:00:27,279 --> 00:00:31,679
+we'll get started
+
+3
+00:00:29,359 --> 00:00:32,960
+um
+
+4
+00:00:31,679 --> 00:00:34,480
+so
+
+5
+00:00:32,960 --> 00:00:37,550
+um
+
+6
+00:00:34,480 --> 00:00:39,440
+just recapping what we did
+
+7
+00:00:37,550 --> 00:00:40,160
+[Music]
+
+8
+00:00:39,440 --> 00:00:42,640
+a
+
+9
+00:00:40,160 --> 00:00:44,879
+in the last lecture on tuesday
+
+10
+00:00:42,640 --> 00:00:46,640
+we um
+
+11
+00:00:44,879 --> 00:00:48,800
+had a
+
+12
+00:00:46,640 --> 00:00:52,160
+it was kind of a two is the second part
+
+13
+00:00:48,800 --> 00:00:54,079
+of a two lecture sequence on the
+
+14
+00:00:52,160 --> 00:00:56,079
+hierarchy theorem
+
+15
+00:00:54,079 --> 00:00:57,360
+higher hierarchy theorems for time and
+
+16
+00:00:56,079 --> 00:01:00,160
+space
+
+17
+00:00:57,360 --> 00:01:02,320
+and using the hierarchy theorems to show
+
+18
+00:01:00,160 --> 00:01:03,840
+that there are that there is a problem
+
+19
+00:01:02,320 --> 00:01:06,720
+which is
+
+20
+00:01:03,840 --> 00:01:08,640
+intractable that's provably outside of
+
+21
+00:01:06,720 --> 00:01:10,560
+polynomial time
+
+22
+00:01:08,640 --> 00:01:12,000
+and that was this equivalence problem
+
+23
+00:01:10,560 --> 00:01:13,760
+for regular expressions with
+
+24
+00:01:12,000 --> 00:01:16,640
+exponentiation
+
+25
+00:01:13,760 --> 00:01:18,159
+and then we had a short discussion
+
+26
+00:01:16,640 --> 00:01:20,720
+about oracles
+
+27
+00:01:18,159 --> 00:01:23,280
+and the possibility that similar methods
+
+28
+00:01:20,720 --> 00:01:25,840
+might you might be used to show that
+
+29
+00:01:23,280 --> 00:01:27,600
+satisfiability is outside of p which
+
+30
+00:01:25,840 --> 00:01:30,799
+would then of course solve the p versus
+
+31
+00:01:27,600 --> 00:01:32,400
+mp problem and argued that um
+
+32
+00:01:30,799 --> 00:01:34,799
+it seems unlikely
+
+33
+00:01:32,400 --> 00:01:36,240
+um this kind of a meta theorem not not a
+
+34
+00:01:34,799 --> 00:01:38,240
+well uh
+
+35
+00:01:36,240 --> 00:01:40,400
+well-defined notion
+
+36
+00:01:38,240 --> 00:01:43,520
+but seems unlikely that the methods that
+
+37
+00:01:40,400 --> 00:01:45,520
+were used for proving
+
+38
+00:01:43,520 --> 00:01:46,479
+the um
+
+39
+00:01:45,520 --> 00:01:49,200
+uh
+
+40
+00:01:46,479 --> 00:01:51,119
+the intractability of um
+
+41
+00:01:49,200 --> 00:01:53,680
+equivalence of regular expressions with
+
+42
+00:01:51,119 --> 00:01:56,399
+exponentiation could be used to solve p
+
+43
+00:01:53,680 --> 00:01:58,399
+versus np at least um the the
+
+44
+00:01:56,399 --> 00:02:01,280
+diagonalization method kind of in a pure
+
+45
+00:01:58,399 --> 00:02:04,560
+form whatever that means uh that's not
+
+46
+00:02:01,280 --> 00:02:07,040
+going to be um enough
+
+47
+00:02:04,560 --> 00:02:08,959
+so today we're going to
+
+48
+00:02:07,040 --> 00:02:11,440
+shift gears again begin a somewhat
+
+49
+00:02:08,959 --> 00:02:14,080
+different topic which is really kind of
+
+50
+00:02:11,440 --> 00:02:16,080
+um going to be our uh
+
+51
+00:02:14,080 --> 00:02:18,000
+again a
+
+52
+00:02:16,080 --> 00:02:20,400
+few lectures on probabilistic
+
+53
+00:02:18,000 --> 00:02:22,800
+computation which is going to wrap round
+
+54
+00:02:20,400 --> 00:02:24,640
+out the semester for us
+
+55
+00:02:22,800 --> 00:02:27,360
+um and we're going to start by talking
+
+56
+00:02:24,640 --> 00:02:29,760
+about a different model of computation
+
+57
+00:02:27,360 --> 00:02:31,760
+which allows for uh probabilis
+
+58
+00:02:29,760 --> 00:02:33,519
+probabilism in the
+
+59
+00:02:31,760 --> 00:02:35,040
+measuring the amount of probabilism or
+
+60
+00:02:33,519 --> 00:02:37,200
+measuring the probability allowing for
+
+61
+00:02:35,040 --> 00:02:39,519
+probabilism in the computation
+
+62
+00:02:37,200 --> 00:02:41,200
+define an associated complexity class uh
+
+63
+00:02:39,519 --> 00:02:43,200
+this class bpp
+
+64
+00:02:41,200 --> 00:02:45,599
+and then start to start the discussion
+
+65
+00:02:43,200 --> 00:02:46,800
+of an example um
+
+66
+00:02:45,599 --> 00:02:48,239
+about something called branching
+
+67
+00:02:46,800 --> 00:02:50,480
+programs
+
+68
+00:02:48,239 --> 00:02:54,800
+okay um
+
+69
+00:02:50,480 --> 00:02:56,640
+so uh with that in mind um
+
+70
+00:02:54,800 --> 00:02:58,159
+uh
+
+71
+00:02:56,640 --> 00:02:59,920
+um
+
+72
+00:02:58,159 --> 00:03:01,599
+a
+
+73
+00:02:59,920 --> 00:03:03,760
+uh
+
+74
+00:03:01,599 --> 00:03:06,400
+so we're gonna start off by defining
+
+75
+00:03:03,760 --> 00:03:09,360
+the notion of a probabilistic
+
+76
+00:03:06,400 --> 00:03:11,840
+turing machine or ptm
+
+77
+00:03:09,360 --> 00:03:12,959
+um a probabilistic turing machine is a
+
+78
+00:03:11,840 --> 00:03:14,239
+lot like
+
+79
+00:03:12,959 --> 00:03:16,640
+the way we have thought about
+
+80
+00:03:14,239 --> 00:03:19,440
+non-deterministic touring machines
+
+81
+00:03:16,640 --> 00:03:22,080
+in that it's a kind of a machine that
+
+82
+00:03:19,440 --> 00:03:23,120
+can have multiple choices multiple ways
+
+83
+00:03:22,080 --> 00:03:24,799
+to go
+
+84
+00:03:23,120 --> 00:03:27,280
+in its computation so there's not just
+
+85
+00:03:24,799 --> 00:03:28,159
+going to be a fixed uh deterministic
+
+86
+00:03:27,280 --> 00:03:29,920
+path
+
+87
+00:03:28,159 --> 00:03:33,360
+um of its computation but there's going
+
+88
+00:03:29,920 --> 00:03:35,360
+to be a tree of possibilities um and for
+
+89
+00:03:33,360 --> 00:03:39,120
+our purposes we're going to limit the
+
+90
+00:03:35,360 --> 00:03:41,200
+branching in that tree to be either
+
+91
+00:03:39,120 --> 00:03:42,720
+um a step of the computation where
+
+92
+00:03:41,200 --> 00:03:44,239
+there's no branching where it's a
+
+93
+00:03:42,720 --> 00:03:47,120
+deterministic step
+
+94
+00:03:44,239 --> 00:03:49,599
+uh as shown over here um so every step
+
+95
+00:03:47,120 --> 00:03:50,400
+of the way leads uniquely to the next
+
+96
+00:03:49,599 --> 00:03:52,080
+step
+
+97
+00:03:50,400 --> 00:03:54,799
+or there might be some steps which have
+
+98
+00:03:52,080 --> 00:03:57,040
+a choice and we're only going to allow
+
+99
+00:03:54,799 --> 00:03:58,000
+for these purposes uh to keep life
+
+100
+00:03:57,040 --> 00:04:01,439
+simple
+
+101
+00:03:58,000 --> 00:04:02,799
+um having only uh a choice among two
+
+102
+00:04:01,439 --> 00:04:03,680
+possibilities
+
+103
+00:04:02,799 --> 00:04:06,239
+um
+
+104
+00:04:03,680 --> 00:04:07,840
+and we'll associate to that
+
+105
+00:04:06,239 --> 00:04:09,040
+uh
+
+106
+00:04:07,840 --> 00:04:12,239
+um
+
+107
+00:04:09,040 --> 00:04:15,680
+the notion of a
+
+108
+00:04:12,239 --> 00:04:18,320
+probability that each choice will have a
+
+109
+00:04:15,680 --> 00:04:20,479
+50 50 chance of getting taken
+
+110
+00:04:18,320 --> 00:04:23,199
+and this kind of corresponds with the
+
+111
+00:04:20,479 --> 00:04:24,720
+way some of us or some of you think
+
+112
+00:04:23,199 --> 00:04:27,120
+about non-determinism which is not
+
+113
+00:04:24,720 --> 00:04:28,560
+exactly right up and up until this point
+
+114
+00:04:27,120 --> 00:04:30,639
+is that the machine is kind of taking a
+
+115
+00:04:28,560 --> 00:04:32,320
+random branch it really we don't think
+
+116
+00:04:30,639 --> 00:04:33,840
+about it randomly until now now we're
+
+117
+00:04:32,320 --> 00:04:35,120
+going to think about the machine as
+
+118
+00:04:33,840 --> 00:04:37,520
+actually taking
+
+119
+00:04:35,120 --> 00:04:39,040
+sort of picking a random choice among
+
+120
+00:04:37,520 --> 00:04:42,080
+all the different branches that it could
+
+121
+00:04:39,040 --> 00:04:44,320
+make um and picking the choice kind of
+
+122
+00:04:42,080 --> 00:04:46,639
+uniformly by flipping a coin every time
+
+123
+00:04:44,320 --> 00:04:47,600
+it has an option of which way to go
+
+124
+00:04:46,639 --> 00:04:48,720
+uh
+
+125
+00:04:47,600 --> 00:04:51,440
+now you could
+
+126
+00:04:48,720 --> 00:04:53,520
+define i'm getting a question here uh
+
+127
+00:04:51,440 --> 00:04:55,520
+the uh a machine that has several
+
+128
+00:04:53,520 --> 00:04:57,199
+different ways to more than two ways to
+
+129
+00:04:55,520 --> 00:04:59,520
+go and then you would need to have a
+
+130
+00:04:57,199 --> 00:05:00,960
+three-way coin a four-way coin and so on
+
+131
+00:04:59,520 --> 00:05:01,840
+and you could define it all of that that
+
+132
+00:05:00,960 --> 00:05:04,000
+way
+
+133
+00:05:01,840 --> 00:05:05,600
+as well but it doesn't end up giving you
+
+134
+00:05:04,000 --> 00:05:08,479
+anything different or anything uh
+
+135
+00:05:05,600 --> 00:05:09,919
+interesting or new for uh for the kinds
+
+136
+00:05:08,479 --> 00:05:11,360
+of things we're going to be discussing
+
+137
+00:05:09,919 --> 00:05:13,600
+so and it's just going to be simpler to
+
+138
+00:05:11,360 --> 00:05:15,120
+keep the discussion limited to the case
+
+139
+00:05:13,600 --> 00:05:17,520
+where the machine can only have two
+
+140
+00:05:15,120 --> 00:05:19,600
+possibilities um if it's going to be
+
+141
+00:05:17,520 --> 00:05:23,039
+having a choice at all or or just one
+
+142
+00:05:19,600 --> 00:05:25,680
+possibility when there's no choice
+
+143
+00:05:23,039 --> 00:05:28,240
+okay so um so now we're going to have to
+
+144
+00:05:25,680 --> 00:05:30,400
+talk about the probability of a
+
+145
+00:05:28,240 --> 00:05:32,720
+the machine taking a sum branch of its
+
+146
+00:05:30,400 --> 00:05:35,280
+computation so you imagine here here is
+
+147
+00:05:32,720 --> 00:05:37,440
+the same computation tree that we've
+
+148
+00:05:35,280 --> 00:05:39,840
+seen before in the case of ordinary
+
+149
+00:05:37,440 --> 00:05:41,759
+non-deterministic machines where you
+
+150
+00:05:39,840 --> 00:05:43,600
+have m on w there could be several
+
+151
+00:05:41,759 --> 00:05:45,759
+different ways to go and there might be
+
+152
+00:05:43,600 --> 00:05:47,600
+some particular branch but now we want
+
+153
+00:05:45,759 --> 00:05:50,560
+to talk about the probability that the
+
+154
+00:05:47,600 --> 00:05:52,320
+machine actually ends up picking that
+
+155
+00:05:50,560 --> 00:05:53,600
+branch
+
+156
+00:05:52,320 --> 00:05:54,479
+and it's going to be
+
+157
+00:05:53,600 --> 00:05:55,680
+um
+
+158
+00:05:54,479 --> 00:05:57,360
+uh
+
+159
+00:05:55,680 --> 00:05:58,400
+you know when we talk about
+
+160
+00:05:57,360 --> 00:06:00,319
+uh
+
+161
+00:05:58,400 --> 00:06:02,240
+the machine having a choice of ways to
+
+162
+00:06:00,319 --> 00:06:03,919
+go we're going to associate that with a
+
+163
+00:06:02,240 --> 00:06:05,840
+coin flip so we're going to call that a
+
+164
+00:06:03,919 --> 00:06:08,880
+coin flip step when the machine has a
+
+165
+00:06:05,840 --> 00:06:10,560
+possibility of ways to go and so on a
+
+166
+00:06:08,880 --> 00:06:12,479
+particular branch
+
+167
+00:06:10,560 --> 00:06:15,680
+the probability of that branch occurring
+
+168
+00:06:12,479 --> 00:06:18,240
+is going to be one over two to the
+
+169
+00:06:15,680 --> 00:06:21,919
+number of coin flips
+
+170
+00:06:18,240 --> 00:06:23,919
+coin flip states on that branch
+
+171
+00:06:21,919 --> 00:06:26,479
+and the reason for i mean this is kind
+
+172
+00:06:23,919 --> 00:06:29,360
+of the the
+
+173
+00:06:26,479 --> 00:06:31,520
+the definition that makes sense um in
+
+174
+00:06:29,360 --> 00:06:33,440
+that if you imagine looking at the
+
+175
+00:06:31,520 --> 00:06:36,000
+computation tree here and here is the
+
+176
+00:06:33,440 --> 00:06:37,840
+branch that we're focusing on um of
+
+177
+00:06:36,000 --> 00:06:40,080
+interest
+
+178
+00:06:37,840 --> 00:06:41,039
+every time there's a coin flip on that
+
+179
+00:06:40,080 --> 00:06:43,360
+branch
+
+180
+00:06:41,039 --> 00:06:45,440
+there's a 50 50 chance of taking a
+
+181
+00:06:43,360 --> 00:06:46,639
+different branch or staying on that
+
+182
+00:06:45,440 --> 00:06:49,039
+branch
+
+183
+00:06:46,639 --> 00:06:51,360
+so the more coin flips there are on some
+
+184
+00:06:49,039 --> 00:06:52,880
+particular branch the less likely that
+
+185
+00:06:51,360 --> 00:06:55,840
+branch would be the one that the machine
+
+186
+00:06:52,880 --> 00:06:57,440
+actually actually ends up taking taking
+
+187
+00:06:55,840 --> 00:06:59,360
+and so it's going to be one over two to
+
+188
+00:06:57,440 --> 00:07:02,560
+the number of coin flips
+
+189
+00:06:59,360 --> 00:07:05,039
+and that's the way we're defining it
+
+190
+00:07:02,560 --> 00:07:07,280
+now once we have that notion
+
+191
+00:07:05,039 --> 00:07:09,199
+we can also talk about the probability
+
+192
+00:07:07,280 --> 00:07:11,599
+that the machine ends up accepting
+
+193
+00:07:09,199 --> 00:07:13,440
+because each as before each of these
+
+194
+00:07:11,599 --> 00:07:15,919
+branches is going to end up
+
+195
+00:07:13,440 --> 00:07:17,599
+at an accept state or reject state i'm
+
+196
+00:07:15,919 --> 00:07:19,120
+thinking about this only in terms of
+
+197
+00:07:17,599 --> 00:07:20,800
+deciders
+
+198
+00:07:19,120 --> 00:07:23,280
+and
+
+199
+00:07:20,800 --> 00:07:25,599
+the probability of
+
+200
+00:07:23,280 --> 00:07:28,400
+the machine accepting here is just going
+
+201
+00:07:25,599 --> 00:07:32,000
+to be the sum over all probabilities of
+
+202
+00:07:28,400 --> 00:07:33,280
+the branches that end up accepting
+
+203
+00:07:32,000 --> 00:07:34,960
+so just add up all of those
+
+204
+00:07:33,280 --> 00:07:36,960
+probabilities of a branch leading to an
+
+205
+00:07:34,960 --> 00:07:38,800
+accept and we'll call that the
+
+206
+00:07:36,960 --> 00:07:41,000
+probability that the machine accepts its
+
+207
+00:07:38,800 --> 00:07:42,639
+input
+
+208
+00:07:41,000 --> 00:07:45,360
+[Music]
+
+209
+00:07:42,639 --> 00:07:47,199
+and the probability that the machine
+
+210
+00:07:45,360 --> 00:07:49,280
+rejects is going to be one minus the
+
+211
+00:07:47,199 --> 00:07:52,160
+probability that it accepts
+
+212
+00:07:49,280 --> 00:07:53,759
+because it's going to the machine um on
+
+213
+00:07:52,160 --> 00:07:56,240
+every branch is either either going to
+
+214
+00:07:53,759 --> 00:07:59,199
+do one or the other
+
+215
+00:07:56,240 --> 00:08:00,560
+okay um
+
+216
+00:07:59,199 --> 00:08:02,479
+now if you're thinking about a
+
+217
+00:08:00,560 --> 00:08:04,879
+particular language
+
+218
+00:08:02,479 --> 00:08:06,879
+that the machine is trying to decide
+
+219
+00:08:04,879 --> 00:08:08,400
+this probabilistic machine now is trying
+
+220
+00:08:06,879 --> 00:08:11,440
+to decide
+
+221
+00:08:08,400 --> 00:08:11,440
+um you know
+
+222
+00:08:11,599 --> 00:08:15,840
+on on each input
+
+223
+00:08:14,240 --> 00:08:17,840
+some of the branches of the machine may
+
+224
+00:08:15,840 --> 00:08:19,680
+not may give the correct answer they're
+
+225
+00:08:17,840 --> 00:08:21,440
+going to accept when the input is in the
+
+226
+00:08:19,680 --> 00:08:23,120
+language other branches may give the
+
+227
+00:08:21,440 --> 00:08:26,319
+wrong answer they may reject when the
+
+228
+00:08:23,120 --> 00:08:28,160
+input is in the language and vice versa
+
+229
+00:08:26,319 --> 00:08:29,759
+so there's going to be a possibility of
+
+230
+00:08:28,160 --> 00:08:31,599
+error now in the machine in any
+
+231
+00:08:29,759 --> 00:08:33,120
+particular branch it might actually give
+
+232
+00:08:31,599 --> 00:08:35,039
+the wrong answer
+
+233
+00:08:33,120 --> 00:08:36,320
+and what we're going to say is bound
+
+234
+00:08:35,039 --> 00:08:39,039
+that error
+
+235
+00:08:36,320 --> 00:08:42,080
+over all possible inputs
+
+236
+00:08:39,039 --> 00:08:43,760
+um and so and uh
+
+237
+00:08:42,080 --> 00:08:46,240
+we'll say that the machine for any
+
+238
+00:08:43,760 --> 00:08:48,399
+epsilon greater than or equal to zero
+
+239
+00:08:46,240 --> 00:08:50,640
+um we will say that the machine decides
+
+240
+00:08:48,399 --> 00:08:52,560
+the language with error probability
+
+241
+00:08:50,640 --> 00:08:54,800
+epsilon
+
+242
+00:08:52,560 --> 00:08:56,720
+if that's the worst that can possibly
+
+243
+00:08:54,800 --> 00:08:59,200
+happen you know if every
+
+244
+00:08:56,720 --> 00:09:01,200
+um for every input the machine gives the
+
+245
+00:08:59,200 --> 00:09:04,959
+wrong answer
+
+246
+00:09:01,200 --> 00:09:04,959
+with probability at most epsilon
+
+247
+00:09:05,040 --> 00:09:09,440
+um equivalently if you like to spell it
+
+248
+00:09:07,200 --> 00:09:11,760
+out a little bit more
+
+249
+00:09:09,440 --> 00:09:11,760
+you know
+
+250
+00:09:12,560 --> 00:09:15,680
+a little differently
+
+251
+00:09:14,720 --> 00:09:17,680
+for
+
+252
+00:09:15,680 --> 00:09:19,600
+strings that are in the language the
+
+253
+00:09:17,680 --> 00:09:21,440
+probability that the machine rejects
+
+254
+00:09:19,600 --> 00:09:23,360
+that input is going to be at most
+
+255
+00:09:21,440 --> 00:09:25,360
+epsilon and for strings in the language
+
+256
+00:09:23,360 --> 00:09:26,640
+the probability of for strings not in
+
+257
+00:09:25,360 --> 00:09:29,680
+the language the probability that
+
+258
+00:09:26,640 --> 00:09:31,600
+accepts is a most epsilon
+
+259
+00:09:29,680 --> 00:09:33,680
+so again this is
+
+260
+00:09:31,600 --> 00:09:36,000
+the machine doing the the thing that
+
+261
+00:09:33,680 --> 00:09:38,160
+it's not supposed to be doing for things
+
+262
+00:09:36,000 --> 00:09:40,240
+in the language it should be rejecting
+
+263
+00:09:38,160 --> 00:09:41,600
+very rarely for things not in the
+
+264
+00:09:40,240 --> 00:09:44,000
+language it should be accepting very
+
+265
+00:09:41,600 --> 00:09:45,680
+rarely and that's what this bound is
+
+266
+00:09:44,000 --> 00:09:46,480
+doing for you
+
+267
+00:09:45,680 --> 00:09:46,860
+okay
+
+268
+00:09:46,480 --> 00:09:48,320
+um
+
+269
+00:09:46,860 --> 00:09:51,040
+[Music]
+
+270
+00:09:48,320 --> 00:09:52,800
+so let's just see uh
+
+271
+00:09:51,040 --> 00:09:57,120
+so we'll talk about so i'm getting some
+
+272
+00:09:52,800 --> 00:09:57,120
+questions here about um
+
+273
+00:09:58,240 --> 00:10:01,440
+um
+
+274
+00:09:59,519 --> 00:10:03,680
+so let me just look at these one second
+
+275
+00:10:01,440 --> 00:10:05,839
+here
+
+276
+00:10:03,680 --> 00:10:05,839
+the
+
+277
+00:10:11,360 --> 00:10:15,120
+yeah so
+
+278
+00:10:12,480 --> 00:10:16,720
+probability zero so there's a
+
+279
+00:10:15,120 --> 00:10:20,079
+possibility that the machine have might
+
+280
+00:10:16,720 --> 00:10:21,839
+have a probability zero say of accepting
+
+281
+00:10:20,079 --> 00:10:23,760
+that means there are no branches that
+
+282
+00:10:21,839 --> 00:10:25,120
+end up accepting or probability zero of
+
+283
+00:10:23,760 --> 00:10:26,079
+rejecting there were no rejecting
+
+284
+00:10:25,120 --> 00:10:28,240
+branches
+
+285
+00:10:26,079 --> 00:10:30,000
+um but i think we're going to talk in a
+
+286
+00:10:28,240 --> 00:10:32,399
+minute about the connection between this
+
+287
+00:10:30,000 --> 00:10:36,320
+and and the standard notion of np
+
+288
+00:10:32,399 --> 00:10:38,240
+um so just hold off on that for a second
+
+289
+00:10:36,320 --> 00:10:40,160
+uh
+
+290
+00:10:38,240 --> 00:10:42,959
+also about what what about the you know
+
+291
+00:10:40,160 --> 00:10:44,959
+the um the possibility that the machine
+
+292
+00:10:42,959 --> 00:10:47,040
+is you know
+
+293
+00:10:44,959 --> 00:10:50,000
+being a decider or running in a certain
+
+294
+00:10:47,040 --> 00:10:51,760
+amount of time um so we will look at
+
+295
+00:10:50,000 --> 00:10:53,600
+time-bounded machines
+
+296
+00:10:51,760 --> 00:10:56,160
+in a second um
+
+297
+00:10:53,600 --> 00:10:57,839
+on the next slide or two um talking
+
+298
+00:10:56,160 --> 00:11:00,000
+about machines that run in polynomial
+
+299
+00:10:57,839 --> 00:11:02,320
+time so that means all branches have to
+
+300
+00:11:00,000 --> 00:11:05,600
+halt within some polynomial number of
+
+301
+00:11:02,320 --> 00:11:07,600
+steps um so that's where we're going
+
+302
+00:11:05,600 --> 00:11:09,360
+but for the time being we're only
+
+303
+00:11:07,600 --> 00:11:12,240
+looking at the siders where the machine
+
+304
+00:11:09,360 --> 00:11:14,240
+has to hold on every branch
+
+305
+00:11:12,240 --> 00:11:15,440
+but some branches might run for a long
+
+306
+00:11:14,240 --> 00:11:17,279
+time but
+
+307
+00:11:15,440 --> 00:11:19,600
+for now we're not going to be thinking
+
+308
+00:11:17,279 --> 00:11:22,399
+about machines that have branches that
+
+309
+00:11:19,600 --> 00:11:24,399
+run um forever where all of our machines
+
+310
+00:11:22,399 --> 00:11:26,399
+are deciders so they they hold on every
+
+311
+00:11:24,399 --> 00:11:28,720
+branch
+
+312
+00:11:26,399 --> 00:11:31,360
+see there's anything else here no so why
+
+313
+00:11:28,720 --> 00:11:33,440
+don't i move on so let's define now
+
+314
+00:11:31,360 --> 00:11:36,320
+the class bpp
+
+315
+00:11:33,440 --> 00:11:38,000
+using this notion of a probabilistic
+
+316
+00:11:36,320 --> 00:11:40,000
+turing machine which is now going to be
+
+317
+00:11:38,000 --> 00:11:41,519
+running in polynomial time
+
+318
+00:11:40,000 --> 00:11:43,200
+so bpp is going to be another one of
+
+319
+00:11:41,519 --> 00:11:46,079
+these complexity classes a collection of
+
+320
+00:11:43,200 --> 00:11:48,880
+languages like p and np and p space and
+
+321
+00:11:46,079 --> 00:11:50,800
+so on and um but it's going to be now
+
+322
+00:11:48,880 --> 00:11:52,639
+associated with the capabilities of
+
+323
+00:11:50,800 --> 00:11:55,600
+these probabilistic machines the kinds
+
+324
+00:11:52,639 --> 00:11:59,519
+of languages that they can do
+
+325
+00:11:55,600 --> 00:12:02,000
+so we'll say the class bpp
+
+326
+00:11:59,519 --> 00:12:03,839
+is the set of languages a
+
+327
+00:12:02,000 --> 00:12:06,160
+such that there's some probabilistic
+
+328
+00:12:03,839 --> 00:12:07,680
+polynomial time
+
+329
+00:12:06,160 --> 00:12:11,279
+during machines so all branches have to
+
+330
+00:12:07,680 --> 00:12:13,760
+halt within you know to the k for some k
+
+331
+00:12:11,279 --> 00:12:15,200
+so some polynomial time
+
+332
+00:12:13,760 --> 00:12:18,560
+polynomial time probabilistic turing
+
+333
+00:12:15,200 --> 00:12:21,600
+machine decides a with error possibility
+
+334
+00:12:18,560 --> 00:12:21,600
+at most one-third
+
+335
+00:12:22,240 --> 00:12:25,600
+so in other words
+
+336
+00:12:23,600 --> 00:12:28,240
+when it's accepting
+
+337
+00:12:25,600 --> 00:12:30,320
+for some for strings in the language the
+
+338
+00:12:28,240 --> 00:12:32,800
+machine has to reject with at most
+
+339
+00:12:30,320 --> 00:12:35,200
+one-third so saying it equivalently for
+
+340
+00:12:32,800 --> 00:12:37,279
+strings in the language it has to accept
+
+341
+00:12:35,200 --> 00:12:38,880
+with two-thirds probability and for
+
+342
+00:12:37,279 --> 00:12:40,480
+strings not in the language it has to
+
+343
+00:12:38,880 --> 00:12:41,680
+reject what two-thirds probability at
+
+344
+00:12:40,480 --> 00:12:44,399
+least
+
+345
+00:12:41,680 --> 00:12:44,399
+in both cases
+
+346
+00:12:44,560 --> 00:12:48,079
+um
+
+347
+00:12:45,760 --> 00:12:48,079
+okay
+
+348
+00:12:48,320 --> 00:12:52,240
+somehow ended up with
+
+349
+00:12:50,800 --> 00:12:55,200
+didn't check my animation here but okay
+
+350
+00:12:52,240 --> 00:12:56,959
+that's fine so there is a um
+
+351
+00:12:55,200 --> 00:12:59,120
+uh
+
+352
+00:12:56,959 --> 00:13:00,720
+now if you look at the one-third here in
+
+353
+00:12:59,120 --> 00:13:02,399
+the definition
+
+354
+00:13:00,720 --> 00:13:04,880
+uh
+
+355
+00:13:02,399 --> 00:13:06,880
+you know it seems strange to define a
+
+356
+00:13:04,880 --> 00:13:08,720
+complexity class in terms of some
+
+357
+00:13:06,880 --> 00:13:10,720
+arbitrary constant like one-third why
+
+358
+00:13:08,720 --> 00:13:13,360
+didn't we use one-quarter
+
+359
+00:13:10,720 --> 00:13:15,519
+you know or uh
+
+360
+00:13:13,360 --> 00:13:16,800
+you know one-tenth in the definition of
+
+361
+00:13:15,519 --> 00:13:19,200
+bpp
+
+362
+00:13:16,800 --> 00:13:20,800
+and say the machine has to get have an
+
+363
+00:13:19,200 --> 00:13:22,560
+error with at most one tenth or one
+
+364
+00:13:20,800 --> 00:13:24,079
+hundredth uh
+
+365
+00:13:22,560 --> 00:13:27,040
+well it doesn't matter
+
+366
+00:13:24,079 --> 00:13:29,200
+and that's the point of this uh
+
+367
+00:13:27,040 --> 00:13:31,120
+next statement called the amplification
+
+368
+00:13:29,200 --> 00:13:32,399
+lemma
+
+369
+00:13:31,120 --> 00:13:33,600
+which says that
+
+370
+00:13:32,399 --> 00:13:36,079
+um
+
+371
+00:13:33,600 --> 00:13:38,240
+you can always if you have a machine
+
+372
+00:13:36,079 --> 00:13:39,120
+that's running in a certain
+
+373
+00:13:38,240 --> 00:13:41,199
+uh
+
+374
+00:13:39,120 --> 00:13:43,760
+a polynomial time that's running within
+
+375
+00:13:41,199 --> 00:13:45,680
+this with a certain error which it is
+
+376
+00:13:43,760 --> 00:13:47,519
+most one-half if you have an error
+
+377
+00:13:45,680 --> 00:13:48,639
+one-half it's not interesting because
+
+378
+00:13:47,519 --> 00:13:50,959
+the machine
+
+379
+00:13:48,639 --> 00:13:53,760
+could just flip a coin for every uh
+
+380
+00:13:50,959 --> 00:13:55,760
+input and it could get uh the right
+
+381
+00:13:53,760 --> 00:13:57,279
+answer with it with probability one-half
+
+382
+00:13:55,760 --> 00:13:59,360
+so probability one-half is not
+
+383
+00:13:57,279 --> 00:14:01,199
+interesting you have to have probability
+
+384
+00:13:59,360 --> 00:14:03,600
+strictly less than one-half for the
+
+385
+00:14:01,199 --> 00:14:06,560
+machine to actually be doing something
+
+386
+00:14:03,600 --> 00:14:07,279
+that's meaningful about that language
+
+387
+00:14:06,560 --> 00:14:08,160
+so
+
+388
+00:14:07,279 --> 00:14:09,839
+um
+
+389
+00:14:08,160 --> 00:14:11,519
+if you have a
+
+390
+00:14:09,839 --> 00:14:13,279
+probabilistic turing machine that has
+
+391
+00:14:11,519 --> 00:14:15,040
+error
+
+392
+00:14:13,279 --> 00:14:19,519
+let's say epsilon one which is at most
+
+393
+00:14:15,040 --> 00:14:19,519
+one half which is less than one half
+
+394
+00:14:19,760 --> 00:14:24,639
+then you can convert that to any
+
+395
+00:14:22,720 --> 00:14:27,040
+error probability you want
+
+396
+00:14:24,639 --> 00:14:29,199
+for some other
+
+397
+00:14:27,040 --> 00:14:31,199
+polynomial time probabilistic turing
+
+398
+00:14:29,199 --> 00:14:33,519
+machine so you can make that error which
+
+399
+00:14:31,199 --> 00:14:35,519
+maybe starts out as one-third and you
+
+400
+00:14:33,519 --> 00:14:37,600
+can drive that error down to one out of
+
+401
+00:14:35,519 --> 00:14:38,880
+one over or google
+
+402
+00:14:37,600 --> 00:14:40,399
+um
+
+403
+00:14:38,880 --> 00:14:44,959
+and seriously you can really make the
+
+404
+00:14:40,399 --> 00:14:44,959
+error extremely extremely small
+
+405
+00:14:46,399 --> 00:14:51,360
+using a very simple procedure
+
+406
+00:14:48,800 --> 00:14:52,959
+and and that's simply this
+
+407
+00:14:51,360 --> 00:14:54,399
+so if you're starting out with a machine
+
+408
+00:14:52,959 --> 00:14:56,880
+that has an error possibility of
+
+409
+00:14:54,399 --> 00:14:58,160
+one-third say so that means
+
+410
+00:14:56,880 --> 00:15:00,079
+two-thirds of the time it's going to get
+
+411
+00:14:58,160 --> 00:15:01,839
+the right answer and at most one-third
+
+412
+00:15:00,079 --> 00:15:03,360
+of the time at least two-thirds of the
+
+413
+00:15:01,839 --> 00:15:04,880
+time the right answer most one-third of
+
+414
+00:15:03,360 --> 00:15:07,440
+the time the the incorrect answer
+
+415
+00:15:04,880 --> 00:15:09,199
+whether that's accepting or rejecting
+
+416
+00:15:07,440 --> 00:15:11,120
+um and now you want to get that answer
+
+417
+00:15:09,199 --> 00:15:13,040
+down to be something much that error
+
+418
+00:15:11,120 --> 00:15:13,839
+down to something much smaller
+
+419
+00:15:13,040 --> 00:15:16,800
+um
+
+420
+00:15:13,839 --> 00:15:19,279
+the the idea is you just you're going to
+
+421
+00:15:16,800 --> 00:15:20,800
+take that machine
+
+422
+00:15:19,279 --> 00:15:23,920
+and you're
+
+423
+00:15:20,800 --> 00:15:25,600
+going to run it multiple times
+
+424
+00:15:23,920 --> 00:15:27,120
+it's kind of with independent runs if
+
+425
+00:15:25,600 --> 00:15:28,800
+that me if you want to think about it
+
+426
+00:15:27,120 --> 00:15:30,160
+you sort of more formally speaking but
+
+427
+00:15:28,800 --> 00:15:31,839
+it's sort of intuitive you're just going
+
+428
+00:15:30,160 --> 00:15:33,920
+to run the machine
+
+429
+00:15:31,839 --> 00:15:34,959
+uh tossing your coins
+
+430
+00:15:33,920 --> 00:15:37,040
+um
+
+431
+00:15:34,959 --> 00:15:38,240
+uh instead of just running it once
+
+432
+00:15:37,040 --> 00:15:40,560
+you're going to run the machine 100
+
+433
+00:15:38,240 --> 00:15:42,880
+times or or a million times but you can
+
+434
+00:15:40,560 --> 00:15:44,800
+do that so it's a constant factor
+
+435
+00:15:42,880 --> 00:15:46,959
+and even a thousand times is going to be
+
+436
+00:15:44,800 --> 00:15:50,240
+enough to increase your confidence in
+
+437
+00:15:46,959 --> 00:15:53,600
+the result tremendously because
+
+438
+00:15:50,240 --> 00:15:56,160
+if you run the machine a thousand times
+
+439
+00:15:53,600 --> 00:15:58,560
+and 600 of those times the mach the
+
+440
+00:15:56,160 --> 00:16:00,320
+machine accepts and 400 of the time the
+
+441
+00:15:58,560 --> 00:16:01,600
+machine rejects
+
+442
+00:16:00,320 --> 00:16:02,560
+um
+
+443
+00:16:01,600 --> 00:16:05,120
+uh
+
+444
+00:16:02,560 --> 00:16:07,680
+it's very powerful evidence that this
+
+445
+00:16:05,120 --> 00:16:09,759
+machine is biased toward accepting that
+
+446
+00:16:07,680 --> 00:16:12,639
+it's accepting most of the time
+
+447
+00:16:09,759 --> 00:16:14,320
+um so it's um was
+
+448
+00:16:12,639 --> 00:16:15,680
+uh
+
+449
+00:16:14,320 --> 00:16:18,720
+if it had an error
+
+450
+00:16:15,680 --> 00:16:19,920
+probability of most one-third um
+
+451
+00:16:18,720 --> 00:16:23,120
+uh
+
+452
+00:16:19,920 --> 00:16:25,600
+the the probability that you're
+
+453
+00:16:23,120 --> 00:16:27,920
+seeing it except
+
+454
+00:16:25,600 --> 00:16:29,920
+600 times when really two-thirds of the
+
+455
+00:16:27,920 --> 00:16:31,759
+time it's rejecting overall
+
+456
+00:16:29,920 --> 00:16:34,720
+is extremely unlikely
+
+457
+00:16:31,759 --> 00:16:36,160
+um and you can calculate that uh which
+
+458
+00:16:34,720 --> 00:16:38,639
+we're not going to bother to do but it's
+
+459
+00:16:36,160 --> 00:16:41,040
+a routine probability calculation uh to
+
+460
+00:16:38,639 --> 00:16:43,040
+show that the the probability that if
+
+461
+00:16:41,040 --> 00:16:45,600
+you run it a whole bunch of times and
+
+462
+00:16:43,040 --> 00:16:48,880
+you see the majority coming up
+
+463
+00:16:45,600 --> 00:16:51,199
+um which is not the
+
+464
+00:16:48,880 --> 00:16:51,920
+not the right answer that's extremely
+
+465
+00:16:51,199 --> 00:16:53,920
+the
+
+466
+00:16:51,920 --> 00:16:54,800
+the probability of that is extremely
+
+467
+00:16:53,920 --> 00:16:56,160
+small
+
+468
+00:16:54,800 --> 00:16:58,560
+um
+
+469
+00:16:56,160 --> 00:17:00,000
+so i'm not saying that very clearly but
+
+470
+00:16:58,560 --> 00:17:01,759
+um
+
+471
+00:17:00,000 --> 00:17:04,559
+the the the
+
+472
+00:17:01,759 --> 00:17:06,720
+the method here is you're going to
+
+473
+00:17:04,559 --> 00:17:10,559
+take your original machine
+
+474
+00:17:06,720 --> 00:17:12,880
+which has error probability one-third
+
+475
+00:17:10,559 --> 00:17:14,559
+or whatever it whatever it is some you
+
+476
+00:17:12,880 --> 00:17:17,360
+know you know maybe
+
+477
+00:17:14,559 --> 00:17:20,000
+has error probability 49
+
+478
+00:17:17,360 --> 00:17:21,919
+and you run it uh for a large number of
+
+479
+00:17:20,000 --> 00:17:23,439
+times and then you take the majority
+
+480
+00:17:21,919 --> 00:17:24,240
+vote
+
+481
+00:17:23,439 --> 00:17:26,799
+and
+
+482
+00:17:24,240 --> 00:17:29,039
+it you're kind of sampling the the
+
+483
+00:17:26,799 --> 00:17:31,360
+outcomes of this machine and if you take
+
+484
+00:17:29,039 --> 00:17:33,760
+enough samples it's overwhelmingly
+
+485
+00:17:31,360 --> 00:17:36,000
+likely since you're just doing them
+
+486
+00:17:33,760 --> 00:17:37,919
+uniformly you're taking those samples
+
+487
+00:17:36,000 --> 00:17:40,480
+uniformly it's overwhelmingly likely
+
+488
+00:17:37,919 --> 00:17:43,840
+that you're going to be seeing the
+
+489
+00:17:40,480 --> 00:17:46,000
+predominant one come up more often um
+
+490
+00:17:43,840 --> 00:17:47,919
+and exactly what that right value is
+
+491
+00:17:46,000 --> 00:17:50,000
+we're not going to bother to calculate
+
+492
+00:17:47,919 --> 00:17:51,600
+but that's something that
+
+493
+00:17:50,000 --> 00:17:53,600
+you know if you i will i'll refer you to
+
+494
+00:17:51,600 --> 00:17:55,360
+the textbook or you know that's the kind
+
+495
+00:17:53,600 --> 00:17:56,720
+of thing that comes up in any elementary
+
+496
+00:17:55,360 --> 00:17:58,240
+probability book and it's sort of very
+
+497
+00:17:56,720 --> 00:17:59,760
+intuitive so i don't want to spend the
+
+498
+00:17:58,240 --> 00:18:01,840
+time and do that calculation which is
+
+499
+00:17:59,760 --> 00:18:04,160
+not all that interesting
+
+500
+00:18:01,840 --> 00:18:04,160
+um
+
+501
+00:18:04,559 --> 00:18:09,200
+uh okay so just one quick question here
+
+502
+00:18:07,919 --> 00:18:11,280
+that i'm getting
+
+503
+00:18:09,200 --> 00:18:13,120
+what happens if you bound if the error
+
+504
+00:18:11,280 --> 00:18:16,400
+is greater than a half i don't think
+
+505
+00:18:13,120 --> 00:18:18,000
+that because we're bounding the error so
+
+506
+00:18:16,400 --> 00:18:20,000
+we're not saying the error actually is
+
+507
+00:18:18,000 --> 00:18:21,440
+one you know like sixty percent on
+
+508
+00:18:20,000 --> 00:18:23,440
+everything because then if you knew the
+
+509
+00:18:21,440 --> 00:18:25,760
+error was sixty percent
+
+510
+00:18:23,440 --> 00:18:28,480
+guaranteed you can always just flip the
+
+511
+00:18:25,760 --> 00:18:30,080
+flip your answer around and get your um
+
+512
+00:18:28,480 --> 00:18:31,440
+error to be 40
+
+513
+00:18:30,080 --> 00:18:33,360
+but you know i'm saying the error is
+
+514
+00:18:31,440 --> 00:18:37,039
+that most
+
+515
+00:18:33,360 --> 00:18:38,480
+whatever epsilon is and so um if it's
+
+516
+00:18:37,039 --> 00:18:41,120
+you're saying the error is at most 60
+
+517
+00:18:38,480 --> 00:18:43,200
+percent it doesn't tell you anything
+
+518
+00:18:41,120 --> 00:18:44,110
+um
+
+519
+00:18:43,200 --> 00:18:47,230
+okay um
+
+520
+00:18:44,110 --> 00:18:47,230
+[Music]
+
+521
+00:18:50,160 --> 00:18:52,960
+uh
+
+522
+00:18:51,760 --> 00:18:55,520
+another question is does the
+
+523
+00:18:52,960 --> 00:18:57,760
+amplification lemma also justify that
+
+524
+00:18:55,520 --> 00:18:59,600
+the choice of model with binary
+
+525
+00:18:57,760 --> 00:19:00,640
+branching choices is equivalent to any
+
+526
+00:18:59,600 --> 00:19:03,200
+other
+
+527
+00:19:00,640 --> 00:19:05,280
+perhaps you could say that um
+
+528
+00:19:03,200 --> 00:19:07,280
+because you can change those
+
+529
+00:19:05,280 --> 00:19:09,679
+you know if you had through a three-way
+
+530
+00:19:07,280 --> 00:19:12,320
+branching um you can simulate that with
+
+531
+00:19:09,679 --> 00:19:14,240
+two-way branching to any accuracy that
+
+532
+00:19:12,320 --> 00:19:15,120
+you want um
+
+533
+00:19:14,240 --> 00:19:16,400
+you know
+
+534
+00:19:15,120 --> 00:19:18,000
+not going to get it down to zero but
+
+535
+00:19:16,400 --> 00:19:19,919
+you're going to get it very close
+
+536
+00:19:18,000 --> 00:19:21,440
+um so it's
+
+537
+00:19:19,919 --> 00:19:22,160
+maybe it's the amplification level maybe
+
+538
+00:19:21,440 --> 00:19:25,919
+it's
+
+539
+00:19:22,160 --> 00:19:28,799
+yeah sort of all related um
+
+540
+00:19:25,919 --> 00:19:31,039
+okay let's move on um
+
+541
+00:19:28,799 --> 00:19:31,039
+so
+
+542
+00:19:32,080 --> 00:19:38,720
+the way that it's helpful to think about
+
+543
+00:19:34,880 --> 00:19:40,640
+this class let's let's contrast it with
+
+544
+00:19:38,720 --> 00:19:41,840
+the other model of non-deterministic
+
+545
+00:19:40,640 --> 00:19:44,320
+computation that we have is
+
+546
+00:19:41,840 --> 00:19:46,640
+non-determinism is np
+
+547
+00:19:44,320 --> 00:19:48,320
+uh so non-deterministic then the model
+
+548
+00:19:46,640 --> 00:19:52,240
+of non-deterministic polynomial time
+
+549
+00:19:48,320 --> 00:19:54,799
+computation was np um the other class
+
+550
+00:19:52,240 --> 00:19:56,640
+and um
+
+551
+00:19:54,799 --> 00:19:59,039
+so the way
+
+552
+00:19:56,640 --> 00:20:01,919
+it's i think one way to look at to think
+
+553
+00:19:59,039 --> 00:20:02,960
+about non-determinism in the case of np
+
+554
+00:20:01,919 --> 00:20:06,000
+is
+
+555
+00:20:02,960 --> 00:20:08,159
+for strings in the language for your np
+
+556
+00:20:06,000 --> 00:20:10,240
+turing machine
+
+557
+00:20:08,159 --> 00:20:12,240
+there's at least one accepting branch
+
+558
+00:20:10,240 --> 00:20:14,480
+so i'm indicating the accepting ones in
+
+559
+00:20:12,240 --> 00:20:16,960
+green and the non-accepting one the
+
+560
+00:20:14,480 --> 00:20:18,960
+rejecting branches in red
+
+561
+00:20:16,960 --> 00:20:21,919
+so you could have
+
+562
+00:20:18,960 --> 00:20:23,840
+almost all of the branches be rejecting
+
+563
+00:20:21,919 --> 00:20:25,840
+branches um
+
+564
+00:20:23,840 --> 00:20:27,360
+for strings in the language as long as
+
+565
+00:20:25,840 --> 00:20:28,799
+there is at least one accepting branch
+
+566
+00:20:27,360 --> 00:20:31,440
+that's just the way non-determinism
+
+567
+00:20:28,799 --> 00:20:33,360
+works the accepting branch overrules all
+
+568
+00:20:31,440 --> 00:20:35,440
+the all of the others it's only when
+
+569
+00:20:33,360 --> 00:20:36,960
+you're not in the language that you that
+
+570
+00:20:35,440 --> 00:20:39,120
+all of the branches turn out to have to
+
+571
+00:20:36,960 --> 00:20:40,080
+be rejecting that's when the rejecting
+
+572
+00:20:39,120 --> 00:20:42,240
+sort of
+
+573
+00:20:40,080 --> 00:20:43,679
+you know it's it has no accepting branch
+
+574
+00:20:42,240 --> 00:20:46,080
+to overroll it
+
+575
+00:20:43,679 --> 00:20:48,960
+um but the situation for bpp is a little
+
+576
+00:20:46,080 --> 00:20:53,120
+different it is is different um there
+
+577
+00:20:48,960 --> 00:20:54,960
+it's kind of majority majority rules
+
+578
+00:20:53,120 --> 00:20:57,840
+so um
+
+579
+00:20:54,960 --> 00:20:59,760
+in the case for strings in the language
+
+580
+00:20:57,840 --> 00:21:02,480
+you you need to have
+
+581
+00:20:59,760 --> 00:21:05,200
+a large or you know the the overwhelming
+
+582
+00:21:02,480 --> 00:21:07,200
+majority of the
+
+583
+00:21:05,200 --> 00:21:08,640
+branches have to be accepting and for
+
+584
+00:21:07,200 --> 00:21:10,080
+strings not in the language the
+
+585
+00:21:08,640 --> 00:21:12,000
+overwhelming majority have to be
+
+586
+00:21:10,080 --> 00:21:13,360
+rejecting
+
+587
+00:21:12,000 --> 00:21:14,559
+what you're not going to allow in the
+
+588
+00:21:13,360 --> 00:21:17,200
+case of
+
+589
+00:21:14,559 --> 00:21:18,799
+bpp is kind of you know
+
+590
+00:21:17,200 --> 00:21:19,760
+an in-between
+
+591
+00:21:18,799 --> 00:21:22,880
+uh
+
+592
+00:21:19,760 --> 00:21:26,159
+state where it's sort of 50-50
+
+593
+00:21:22,880 --> 00:21:28,240
+um or very very close to 50-50 um those
+
+594
+00:21:26,159 --> 00:21:32,159
+kinds of machines are not
+
+595
+00:21:28,240 --> 00:21:32,159
+don't qualify as
+
+596
+00:21:32,960 --> 00:21:37,679
+uh deciding a language in bpp they
+
+597
+00:21:35,440 --> 00:21:41,120
+always have to kind of lean one way or
+
+598
+00:21:37,679 --> 00:21:42,400
+lean the other way for every input
+
+599
+00:21:41,120 --> 00:21:45,200
+otherwise you won't be able to do the
+
+600
+00:21:42,400 --> 00:21:47,919
+amplification so need to have some bias
+
+601
+00:21:45,200 --> 00:21:50,880
+um away from in half in
+
+602
+00:21:47,919 --> 00:21:51,919
+in accepting or rejecting
+
+603
+00:21:50,880 --> 00:21:52,880
+um
+
+604
+00:21:51,919 --> 00:21:55,440
+so
+
+605
+00:21:52,880 --> 00:21:57,679
+let me so i was going to ask a check-in
+
+606
+00:21:55,440 --> 00:22:00,240
+i think at this point yes let's
+
+607
+00:21:57,679 --> 00:22:02,559
+so just thinking about bpp i hope i was
+
+608
+00:22:00,240 --> 00:22:03,520
+clear so if there's questions about that
+
+609
+00:22:02,559 --> 00:22:06,159
+i think i've
+
+610
+00:22:03,520 --> 00:22:06,159
+somehow didn't
+
+611
+00:22:07,039 --> 00:22:11,039
+i'm not sure i described it totally well
+
+612
+00:22:08,640 --> 00:22:13,039
+here um so i'm going to ask a few
+
+613
+00:22:11,039 --> 00:22:14,880
+questions about ppp but if you have any
+
+614
+00:22:13,039 --> 00:22:17,360
+questions for me first
+
+615
+00:22:14,880 --> 00:22:17,360
+go ahead
+
+616
+00:22:19,120 --> 00:22:24,600
+um
+
+617
+00:22:20,559 --> 00:22:24,600
+okay why don't we just run the check-in
+
+618
+00:22:29,679 --> 00:22:33,200
+um
+
+619
+00:22:31,520 --> 00:22:36,240
+let me launch this and then i can answer
+
+620
+00:22:33,200 --> 00:22:39,039
+questions as you're asking
+
+621
+00:22:36,240 --> 00:22:42,559
+did i start that yeah
+
+622
+00:22:39,039 --> 00:22:43,919
+okay so you have to um
+
+623
+00:22:42,559 --> 00:22:46,159
+check all of these that you think are
+
+624
+00:22:43,919 --> 00:22:46,159
+true
+
+625
+00:22:47,360 --> 00:22:49,440
+um
+
+626
+00:22:48,159 --> 00:22:51,440
+can you think of non-deterministic
+
+627
+00:22:49,440 --> 00:22:52,880
+turing machines as try all branches at
+
+628
+00:22:51,440 --> 00:22:56,159
+once
+
+629
+00:22:52,880 --> 00:22:56,159
+and get the right answer
+
+630
+00:22:56,960 --> 00:23:01,840
+um
+
+631
+00:22:59,039 --> 00:23:06,000
+and bp is guess only one or uh i guess
+
+632
+00:23:01,840 --> 00:23:07,280
+only one branch i don't know um
+
+633
+00:23:06,000 --> 00:23:09,360
+you know i would say a little
+
+634
+00:23:07,280 --> 00:23:11,760
+differently i would say i i would think
+
+635
+00:23:09,360 --> 00:23:13,520
+of non-determinism as you can still just
+
+636
+00:23:11,760 --> 00:23:14,799
+try one branch but you always guess the
+
+637
+00:23:13,520 --> 00:23:16,159
+right one
+
+638
+00:23:14,799 --> 00:23:19,120
+um
+
+639
+00:23:16,159 --> 00:23:21,200
+so there's some sort of a you know
+
+640
+00:23:19,120 --> 00:23:22,480
+magical power that allows you always to
+
+641
+00:23:21,200 --> 00:23:24,880
+guess the right answer if there's a
+
+642
+00:23:22,480 --> 00:23:27,120
+right guess uh if you're in the language
+
+643
+00:23:24,880 --> 00:23:29,679
+uh in the case of bpp
+
+644
+00:23:27,120 --> 00:23:31,840
+you're going to be um picking a random
+
+645
+00:23:29,679 --> 00:23:34,080
+branch no matter what
+
+646
+00:23:31,840 --> 00:23:35,919
+and you know that the random branch is
+
+647
+00:23:34,080 --> 00:23:37,679
+likely to give the right answer but not
+
+648
+00:23:35,919 --> 00:23:39,760
+guaranteed
+
+649
+00:23:37,679 --> 00:23:42,000
+and the implication the amplification
+
+650
+00:23:39,760 --> 00:23:44,559
+limit tells you you can arrange things
+
+651
+00:23:42,000 --> 00:23:46,640
+so that it's extremely likely
+
+652
+00:23:44,559 --> 00:23:49,039
+that the random branch is going to give
+
+653
+00:23:46,640 --> 00:23:51,120
+you the right answer
+
+654
+00:23:49,039 --> 00:23:52,480
+okay let's see how we doing on our uh
+
+655
+00:23:51,120 --> 00:23:53,520
+check-in here
+
+656
+00:23:52,480 --> 00:23:55,679
+um
+
+657
+00:23:53,520 --> 00:23:58,159
+got a lot of vote we've got a lot of
+
+658
+00:23:55,679 --> 00:24:00,480
+support for all candidates
+
+659
+00:23:58,159 --> 00:24:00,480
+um
+
+660
+00:24:01,039 --> 00:24:04,440
+and um
+
+661
+00:24:04,799 --> 00:24:08,640
+i'll give you give you another uh
+
+662
+00:24:08,720 --> 00:24:11,840
+a little bit of time here because
+
+663
+00:24:10,400 --> 00:24:13,679
+there's a bunch of questions almost like
+
+664
+00:24:11,840 --> 00:24:14,720
+four check-ins at once
+
+665
+00:24:13,679 --> 00:24:16,000
+um
+
+666
+00:24:14,720 --> 00:24:17,360
+but we have two more check real
+
+667
+00:24:16,000 --> 00:24:20,320
+check-ins coming
+
+668
+00:24:17,360 --> 00:24:24,320
+later um
+
+669
+00:24:20,320 --> 00:24:26,080
+okay so why don't we uh come and
+
+670
+00:24:24,320 --> 00:24:28,880
+let's uh give another 10 seconds and
+
+671
+00:24:26,080 --> 00:24:28,880
+then i'm going to stop
+
+672
+00:24:31,039 --> 00:24:35,039
+closing down
+
+673
+00:24:32,960 --> 00:24:37,360
+one two three
+
+674
+00:24:35,039 --> 00:24:37,360
+close
+
+675
+00:24:38,320 --> 00:24:42,000
+okay
+
+676
+00:24:39,200 --> 00:24:43,120
+so uh we've got a lot of support here uh
+
+677
+00:24:42,000 --> 00:24:46,320
+and in fact
+
+678
+00:24:43,120 --> 00:24:47,200
+that's good because all of them are true
+
+679
+00:24:46,320 --> 00:24:48,640
+um
+
+680
+00:24:47,200 --> 00:24:49,919
+some of them are easier to see than
+
+681
+00:24:48,640 --> 00:24:52,960
+others
+
+682
+00:24:49,919 --> 00:24:54,799
+so first of all c is very easy to see um
+
+683
+00:24:52,960 --> 00:24:57,200
+because that that's a going to be a
+
+684
+00:24:54,799 --> 00:24:59,360
+machine that has the correct answer all
+
+685
+00:24:57,200 --> 00:25:00,880
+of it all of the time so that's error
+
+686
+00:24:59,360 --> 00:25:04,880
+probability zero
+
+687
+00:25:00,880 --> 00:25:06,480
+um on both accepting and rejecting
+
+688
+00:25:04,880 --> 00:25:08,000
+um
+
+689
+00:25:06,480 --> 00:25:10,480
+this is a little harder d is a little
+
+690
+00:25:08,000 --> 00:25:12,640
+bit harder to see that's in p space but
+
+691
+00:25:10,480 --> 00:25:14,640
+you know you could
+
+692
+00:25:12,640 --> 00:25:17,120
+calculate for every branch
+
+693
+00:25:14,640 --> 00:25:18,880
+um what its probability is and you can
+
+694
+00:25:17,120 --> 00:25:20,960
+just go through all the branches and add
+
+695
+00:25:18,880 --> 00:25:21,919
+up all those probabilities in a p-space
+
+696
+00:25:20,960 --> 00:25:24,240
+machine
+
+697
+00:25:21,919 --> 00:25:28,159
+so um you have to think about a little
+
+698
+00:25:24,240 --> 00:25:29,840
+bit but d is not too hard to see either
+
+699
+00:25:28,159 --> 00:25:31,679
+closure under complement
+
+700
+00:25:29,840 --> 00:25:34,720
+if you just take your
+
+701
+00:25:31,679 --> 00:25:36,720
+your bpp machine and you flip the answer
+
+702
+00:25:34,720 --> 00:25:39,120
+on every branch
+
+703
+00:25:36,720 --> 00:25:40,960
+um that's typically doesn't work in
+
+704
+00:25:39,120 --> 00:25:42,400
+non-determined ordinary non-determinism
+
+705
+00:25:40,960 --> 00:25:44,000
+but it does work here
+
+706
+00:25:42,400 --> 00:25:46,000
+because it's going to change a bias
+
+707
+00:25:44,000 --> 00:25:48,720
+toward accepting into a bias toward
+
+708
+00:25:46,000 --> 00:25:50,320
+rejecting and vice versa so bpp is
+
+709
+00:25:48,720 --> 00:25:52,640
+closed under compliment
+
+710
+00:25:50,320 --> 00:25:54,320
+uh and closure under union it kind of
+
+711
+00:25:52,640 --> 00:25:56,480
+follows from the amplification level as
+
+712
+00:25:54,320 --> 00:25:57,919
+long as you can make the probability
+
+713
+00:25:56,480 --> 00:25:59,520
+extremely small
+
+714
+00:25:57,919 --> 00:26:00,799
+then you can just run the two different
+
+715
+00:25:59,520 --> 00:26:01,600
+machines
+
+716
+00:26:00,799 --> 00:26:03,200
+and
+
+717
+00:26:01,600 --> 00:26:06,080
+even though the they each might make a
+
+718
+00:26:03,200 --> 00:26:08,320
+mistake cumulatively the total
+
+719
+00:26:06,080 --> 00:26:09,840
+the probability that each one of them
+
+720
+00:26:08,320 --> 00:26:11,520
+that either of them will make a mistake
+
+721
+00:26:09,840 --> 00:26:13,919
+is still small and so you can just run
+
+722
+00:26:11,520 --> 00:26:15,360
+to the two machines and take the or of
+
+723
+00:26:13,919 --> 00:26:16,640
+the responses that they get and it's
+
+724
+00:26:15,360 --> 00:26:18,720
+still very likely to give the right
+
+725
+00:26:16,640 --> 00:26:19,930
+answer for the union
+
+726
+00:26:18,720 --> 00:26:21,360
+okay um
+
+727
+00:26:19,930 --> 00:26:23,039
+[Music]
+
+728
+00:26:21,360 --> 00:26:26,080
+let's continue
+
+729
+00:26:23,039 --> 00:26:29,200
+uh so what i'm going to do now
+
+730
+00:26:26,080 --> 00:26:30,640
+for the rest of the lecture uh is and
+
+731
+00:26:29,200 --> 00:26:33,039
+it's actually going to spill over into
+
+732
+00:26:30,640 --> 00:26:34,400
+the lecture after thanksgiving because
+
+733
+00:26:33,039 --> 00:26:36,480
+this is going to introduce an important
+
+734
+00:26:34,400 --> 00:26:39,279
+method for us
+
+735
+00:26:36,480 --> 00:26:41,120
+is to look at an example of a problem
+
+736
+00:26:39,279 --> 00:26:43,760
+that's in bpp
+
+737
+00:26:41,120 --> 00:26:46,080
+um i love to teach things by using
+
+738
+00:26:43,760 --> 00:26:48,000
+examples um and so this is a very good
+
+739
+00:26:46,080 --> 00:26:49,840
+example because it has a lot of meat to
+
+740
+00:26:48,000 --> 00:26:52,720
+it
+
+741
+00:26:49,840 --> 00:26:55,679
+and it's a very interesting example in
+
+742
+00:26:52,720 --> 00:26:57,279
+general proving things in bpp which are
+
+743
+00:26:55,679 --> 00:26:59,840
+not trivially there because they're
+
+744
+00:26:57,279 --> 00:27:02,320
+already in p they tend to be uh somewhat
+
+745
+00:26:59,840 --> 00:27:04,080
+more involved than um
+
+746
+00:27:02,320 --> 00:27:07,039
+uh some of the other algorithms we've
+
+747
+00:27:04,080 --> 00:27:09,120
+seen so there are no simple examples of
+
+748
+00:27:07,039 --> 00:27:11,360
+problems in bpp
+
+749
+00:27:09,120 --> 00:27:12,559
+which are not already in p
+
+750
+00:27:11,360 --> 00:27:15,679
+um
+
+751
+00:27:12,559 --> 00:27:17,039
+so this is uh
+
+752
+00:27:15,679 --> 00:27:19,440
+one example that we're going to go
+
+753
+00:27:17,039 --> 00:27:20,960
+through of a problem in bpp that's not
+
+754
+00:27:19,440 --> 00:27:23,120
+known to bnp
+
+755
+00:27:20,960 --> 00:27:24,960
+of course things could collapse down um
+
+756
+00:27:23,120 --> 00:27:26,799
+but uh uh
+
+757
+00:27:24,960 --> 00:27:27,760
+as star as far as we know
+
+758
+00:27:26,799 --> 00:27:30,000
+this is
+
+759
+00:27:27,760 --> 00:27:31,600
+um not this language is not in p so
+
+760
+00:27:30,000 --> 00:27:32,720
+let's let's see what the language is
+
+761
+00:27:31,600 --> 00:27:35,840
+has to do with these things called
+
+762
+00:27:32,720 --> 00:27:37,760
+branching programs the branching program
+
+763
+00:27:35,840 --> 00:27:40,240
+is a structure that looks like this
+
+764
+00:27:37,760 --> 00:27:44,559
+so let's understand what the pieces are
+
+765
+00:27:40,240 --> 00:27:44,559
+first of all it's a graph directed graph
+
+766
+00:27:46,320 --> 00:27:51,120
+and uh we're not we're not going to
+
+767
+00:27:48,480 --> 00:27:53,919
+allow and there is are no cycles allowed
+
+768
+00:27:51,120 --> 00:27:55,200
+in this graph it's a directed acyclic
+
+769
+00:27:53,919 --> 00:27:56,399
+graph
+
+770
+00:27:55,200 --> 00:27:58,640
+um
+
+771
+00:27:56,399 --> 00:27:59,919
+so you can no loops allowed
+
+772
+00:27:58,640 --> 00:28:02,720
+and
+
+773
+00:27:59,919 --> 00:28:05,440
+the nodes are in two categories
+
+774
+00:28:02,720 --> 00:28:08,320
+there are query nodes which are labeled
+
+775
+00:28:05,440 --> 00:28:10,559
+with a variable letter
+
+776
+00:28:08,320 --> 00:28:13,760
+and output nodes which are labeled
+
+777
+00:28:10,559 --> 00:28:16,159
+either zero or one
+
+778
+00:28:13,760 --> 00:28:18,080
+and lastly there is a one of the query
+
+779
+00:28:16,159 --> 00:28:22,159
+nodes is going to be or one of the nodes
+
+780
+00:28:18,080 --> 00:28:22,159
+is going to be designated as a start
+
+781
+00:28:22,399 --> 00:28:24,799
+okay
+
+782
+00:28:23,279 --> 00:28:26,640
+and so what you do
+
+783
+00:28:24,799 --> 00:28:29,279
+is
+
+784
+00:28:26,640 --> 00:28:31,760
+the way um
+
+785
+00:28:29,279 --> 00:28:33,600
+this is a model of computation um and
+
+786
+00:28:31,760 --> 00:28:35,279
+the way we actually use
+
+787
+00:28:33,600 --> 00:28:38,240
+a branching program
+
+788
+00:28:35,279 --> 00:28:38,240
+is we
+
+789
+00:28:39,360 --> 00:28:43,360
+have some assignment to the variables
+
+790
+00:28:41,679 --> 00:28:45,120
+that's going to be the input
+
+791
+00:28:43,360 --> 00:28:46,880
+so you take all of the the variables
+
+792
+00:28:45,120 --> 00:28:49,840
+there are three variables in this case
+
+793
+00:28:46,880 --> 00:28:52,480
+um x1 x2 and x3 you assign you give them
+
+794
+00:28:49,840 --> 00:28:56,080
+some truth assignment um so x let's
+
+795
+00:28:52,480 --> 00:28:57,440
+let's say zeros and one so x1 is zero x1
+
+796
+00:28:56,080 --> 00:28:59,279
+is one or whatever
+
+797
+00:28:57,440 --> 00:29:00,799
+and
+
+798
+00:28:59,279 --> 00:29:01,760
+once you have the truth assignment you
+
+799
+00:29:00,799 --> 00:29:05,520
+start
+
+800
+00:29:01,760 --> 00:29:06,720
+at the start variable
+
+801
+00:29:05,520 --> 00:29:10,159
+and you
+
+802
+00:29:06,720 --> 00:29:10,159
+and you look at its label
+
+803
+00:29:10,799 --> 00:29:15,600
+and you see what value the input has
+
+804
+00:29:13,600 --> 00:29:17,679
+assigned to that variable
+
+805
+00:29:15,600 --> 00:29:19,279
+so if x1 assigned
+
+806
+00:29:17,679 --> 00:29:20,720
+a one you're going to follow down the
+
+807
+00:29:19,279 --> 00:29:23,039
+one branch but assigned to zero you
+
+808
+00:29:20,720 --> 00:29:25,840
+follow you go down the zero branch and
+
+809
+00:29:23,039 --> 00:29:27,440
+then when you get down to the
+
+810
+00:29:25,840 --> 00:29:28,640
+next node
+
+811
+00:29:27,440 --> 00:29:30,240
+that's another
+
+812
+00:29:28,640 --> 00:29:32,480
+variable that you're going to have to
+
+813
+00:29:30,240 --> 00:29:33,840
+query depending upon what the input
+
+814
+00:29:32,480 --> 00:29:35,360
+assignment is
+
+815
+00:29:33,840 --> 00:29:37,520
+and you're just going to
+
+816
+00:29:35,360 --> 00:29:39,440
+continue that process
+
+817
+00:29:37,520 --> 00:29:40,880
+because there are no cycles
+
+818
+00:29:39,440 --> 00:29:43,360
+you're going to end up at one of the
+
+819
+00:29:40,880 --> 00:29:45,600
+output nodes because all of the variable
+
+820
+00:29:43,360 --> 00:29:46,720
+nodes all the all the query nodes
+
+821
+00:29:45,600 --> 00:29:48,799
+have
+
+822
+00:29:46,720 --> 00:29:50,720
+two outgoing edges one labeled zero one
+
+823
+00:29:48,799 --> 00:29:52,320
+labeled one
+
+824
+00:29:50,720 --> 00:29:53,919
+so you're gonna eventually end up at an
+
+825
+00:29:52,320 --> 00:29:56,240
+output node and that's going to be the
+
+826
+00:29:53,919 --> 00:30:00,000
+output of the branching program
+
+827
+00:29:56,240 --> 00:30:04,320
+so we'll do let's do a quick example
+
+828
+00:30:00,000 --> 00:30:06,799
+so if x1 is 1 x2 is 0 and x3 is 1.
+
+829
+00:30:04,320 --> 00:30:09,039
+so we again we start at the start
+
+830
+00:30:06,799 --> 00:30:10,720
+variable the start node that has the
+
+831
+00:30:09,039 --> 00:30:12,399
+indicated with the
+
+832
+00:30:10,720 --> 00:30:14,240
+arrow coming in from nowhere so you're
+
+833
+00:30:12,399 --> 00:30:16,399
+going to start at x1
+
+834
+00:30:14,240 --> 00:30:16,399
+uh
+
+835
+00:30:18,159 --> 00:30:21,919
+the node labeled x1 so you have to look
+
+836
+00:30:19,840 --> 00:30:23,279
+and see what is x1 in the input it's a
+
+837
+00:30:21,919 --> 00:30:24,640
+1. so you're going to follow down the
+
+838
+00:30:23,279 --> 00:30:26,480
+one branch
+
+839
+00:30:24,640 --> 00:30:27,840
+now you see the next node oh that's an
+
+840
+00:30:26,480 --> 00:30:30,960
+x3
+
+841
+00:30:27,840 --> 00:30:33,440
+see what's x3 in the input x3 is a 1.
+
+842
+00:30:30,960 --> 00:30:35,919
+so you go down to one branch again
+
+843
+00:30:33,440 --> 00:30:38,000
+now you have an x2 node take a look at
+
+844
+00:30:35,919 --> 00:30:40,000
+the input x2 is a zero you follow the
+
+845
+00:30:38,000 --> 00:30:43,039
+zero branch now you're at an output
+
+846
+00:30:40,000 --> 00:30:45,279
+branch output node so that's a zero and
+
+847
+00:30:43,039 --> 00:30:47,360
+that's the output of the of the of this
+
+848
+00:30:45,279 --> 00:30:49,279
+computation so
+
+849
+00:30:47,360 --> 00:30:51,120
+um writing it this way and thinking
+
+850
+00:30:49,279 --> 00:30:53,520
+about it as a boolean function which
+
+851
+00:30:51,120 --> 00:30:56,480
+maps you know strings of zeros and ones
+
+852
+00:30:53,520 --> 00:30:58,559
+we have f of one zero one representing
+
+853
+00:30:56,480 --> 00:31:01,519
+those that assign that assignment that
+
+854
+00:30:58,559 --> 00:31:02,320
+equals zero that was the output and
+
+855
+00:31:01,519 --> 00:31:04,559
+uh
+
+856
+00:31:02,320 --> 00:31:05,440
+that's the output of this computation
+
+857
+00:31:04,559 --> 00:31:06,640
+okay
+
+858
+00:31:05,440 --> 00:31:08,240
+um
+
+859
+00:31:06,640 --> 00:31:10,240
+so important to underst we're going to
+
+860
+00:31:08,240 --> 00:31:11,600
+spend a lot of time
+
+861
+00:31:10,240 --> 00:31:13,600
+you know talking about branching
+
+862
+00:31:11,600 --> 00:31:15,440
+programs so it's critical to understand
+
+863
+00:31:13,600 --> 00:31:19,840
+this model i think it's fairly simple
+
+864
+00:31:15,440 --> 00:31:19,840
+but if you didn't get it please ask
+
+865
+00:31:20,159 --> 00:31:24,640
+we can easily correct up any
+
+866
+00:31:21,440 --> 00:31:24,640
+misunderstanding at this point
+
+867
+00:31:28,640 --> 00:31:33,600
+it's not exactly the same as a dfa
+
+868
+00:31:31,679 --> 00:31:35,039
+dfas for one thing can take inputs of
+
+869
+00:31:33,600 --> 00:31:36,000
+any length
+
+870
+00:31:35,039 --> 00:31:36,799
+um
+
+871
+00:31:36,000 --> 00:31:38,720
+this
+
+872
+00:31:36,799 --> 00:31:40,480
+this has inputs of some particular
+
+873
+00:31:38,720 --> 00:31:43,120
+length
+
+874
+00:31:40,480 --> 00:31:44,960
+where the branching program has some
+
+875
+00:31:43,120 --> 00:31:46,720
+fixed number of variables
+
+876
+00:31:44,960 --> 00:31:49,760
+this one has three so this only takes
+
+877
+00:31:46,720 --> 00:31:52,080
+inputs of length three um so there's
+
+878
+00:31:49,760 --> 00:31:53,840
+maybe some connection to thinking these
+
+879
+00:31:52,080 --> 00:31:56,000
+estates and so on but it's a different
+
+880
+00:31:53,840 --> 00:31:58,559
+model
+
+881
+00:31:56,000 --> 00:32:00,320
+so now we'll say that two branching
+
+882
+00:31:58,559 --> 00:32:02,080
+programs
+
+883
+00:32:00,320 --> 00:32:03,440
+um
+
+884
+00:32:02,080 --> 00:32:06,640
+okay let me just ask one more question
+
+885
+00:32:03,440 --> 00:32:08,960
+not all nodes need to be used right
+
+886
+00:32:06,640 --> 00:32:08,960
+um
+
+887
+00:32:09,519 --> 00:32:12,320
+yeah
+
+888
+00:32:10,559 --> 00:32:13,919
+there's no requirement that all nodes
+
+889
+00:32:12,320 --> 00:32:16,000
+need to be used and that even could be
+
+890
+00:32:13,919 --> 00:32:19,679
+inaccessible nodes i'm not preventing
+
+891
+00:32:16,000 --> 00:32:21,039
+that uh that could be okay um so on the
+
+892
+00:32:19,679 --> 00:32:22,880
+particular branch certainly you're not
+
+893
+00:32:21,039 --> 00:32:24,000
+gonna you know when you're executing
+
+894
+00:32:22,880 --> 00:32:26,320
+this
+
+895
+00:32:24,000 --> 00:32:28,799
+branching program on an input obvious
+
+896
+00:32:26,320 --> 00:32:31,600
+certainly you're to have a path that's
+
+897
+00:32:28,799 --> 00:32:32,559
+going to only use some part of the
+
+898
+00:32:31,600 --> 00:32:35,200
+tree
+
+899
+00:32:32,559 --> 00:32:36,320
+part of the graph
+
+900
+00:32:35,200 --> 00:32:37,760
+but
+
+901
+00:32:36,320 --> 00:32:39,200
+there might be some
+
+902
+00:32:37,760 --> 00:32:40,960
+paths that can
+
+903
+00:32:39,200 --> 00:32:42,799
+can never occur
+
+904
+00:32:40,960 --> 00:32:46,000
+you know so if you went down x equal to
+
+905
+00:32:42,799 --> 00:32:49,200
+one here and then x three was zero
+
+906
+00:32:46,000 --> 00:32:50,880
+now you're re-reading x one so you'd
+
+907
+00:32:49,200 --> 00:32:52,640
+never you could you wouldn't go down
+
+908
+00:32:50,880 --> 00:32:53,600
+this branch
+
+909
+00:32:52,640 --> 00:32:54,880
+unless you
+
+910
+00:32:53,600 --> 00:32:56,559
+i think all of the branches in this
+
+911
+00:32:54,880 --> 00:32:58,640
+particular branching program could get
+
+912
+00:32:56,559 --> 00:33:00,559
+used but i didn't check that so maybe
+
+913
+00:32:58,640 --> 00:33:03,039
+i'm wrong um
+
+914
+00:33:00,559 --> 00:33:05,679
+okay so let's continue two branching
+
+915
+00:33:03,039 --> 00:33:07,200
+programs may may or may not compute the
+
+916
+00:33:05,679 --> 00:33:09,039
+same function
+
+917
+00:33:07,200 --> 00:33:11,840
+um we'll say they're equivalent if they
+
+918
+00:33:09,039 --> 00:33:11,840
+do
+
+919
+00:33:13,440 --> 00:33:15,679
+now
+
+920
+00:33:15,760 --> 00:33:18,399
+two
+
+921
+00:33:16,799 --> 00:33:19,919
+branching programs can be equivalent
+
+922
+00:33:18,399 --> 00:33:22,320
+even though they superficially look
+
+923
+00:33:19,919 --> 00:33:23,679
+different from one another
+
+924
+00:33:22,320 --> 00:33:26,000
+and we're interested in the
+
+925
+00:33:23,679 --> 00:33:28,559
+computational problem of given two of
+
+926
+00:33:26,000 --> 00:33:30,080
+these branching programs do they compute
+
+927
+00:33:28,559 --> 00:33:32,320
+the same function do they in other words
+
+928
+00:33:30,080 --> 00:33:36,000
+do they always give the same answer
+
+929
+00:33:32,320 --> 00:33:38,720
+um on the setting of the input uh
+
+930
+00:33:36,000 --> 00:33:40,159
+so we'll define the associated language
+
+931
+00:33:38,720 --> 00:33:42,480
+equivalence problem for branching
+
+932
+00:33:40,159 --> 00:33:44,320
+programs says that you're given two of
+
+933
+00:33:42,480 --> 00:33:46,320
+these branching programs and they're
+
+934
+00:33:44,320 --> 00:33:48,480
+equivalent to be in the language we're
+
+935
+00:33:46,320 --> 00:33:50,399
+going to sometimes write equivalence
+
+936
+00:33:48,480 --> 00:33:53,120
+using the mathematical notation of the
+
+937
+00:33:50,399 --> 00:33:56,159
+three lined equals equal sign
+
+938
+00:33:53,120 --> 00:33:57,440
+the equivalence sign
+
+939
+00:33:56,159 --> 00:34:00,080
+okay that means they compute the same
+
+940
+00:33:57,440 --> 00:34:01,679
+they always give the same answer
+
+941
+00:34:00,080 --> 00:34:04,840
+now that problem
+
+942
+00:34:01,679 --> 00:34:06,880
+turns out to be cohen p
+
+943
+00:34:04,840 --> 00:34:09,119
+complete i've asked you to show on your
+
+944
+00:34:06,880 --> 00:34:10,240
+homework i believe
+
+945
+00:34:09,119 --> 00:34:12,639
+um
+
+946
+00:34:10,240 --> 00:34:15,040
+this is not a super hard reduction um
+
+947
+00:34:12,639 --> 00:34:17,280
+it's the in comp complete by the way is
+
+948
+00:34:15,040 --> 00:34:19,440
+the complement of an mp complete problem
+
+949
+00:34:17,280 --> 00:34:21,919
+or equivalently it's a problem to which
+
+950
+00:34:19,440 --> 00:34:24,840
+all co np problems are polynomial time
+
+951
+00:34:21,919 --> 00:34:26,720
+reducible and it's in coin
+
+952
+00:34:24,840 --> 00:34:27,520
+[Music]
+
+953
+00:34:26,720 --> 00:34:29,760
+so
+
+954
+00:34:27,520 --> 00:34:29,760
+uh
+
+955
+00:34:30,879 --> 00:34:36,079
+this is coin p complete
+
+956
+00:34:33,839 --> 00:34:36,079
+and
+
+957
+00:34:36,399 --> 00:34:40,480
+that's for you to show um
+
+958
+00:34:38,800 --> 00:34:42,560
+but that has an important
+
+959
+00:34:40,480 --> 00:34:45,679
+significance for us right now
+
+960
+00:34:42,560 --> 00:34:47,359
+um because if you if
+
+961
+00:34:45,679 --> 00:34:50,480
+you know looking at the question of
+
+962
+00:34:47,359 --> 00:34:52,240
+whether this problem is in bpp
+
+963
+00:34:50,480 --> 00:34:54,879
+the fact that it's coin
+
+964
+00:34:52,240 --> 00:34:56,159
+co np complete suggests that the answer
+
+965
+00:34:54,879 --> 00:34:57,680
+is no
+
+966
+00:34:56,159 --> 00:34:59,040
+because
+
+967
+00:34:57,680 --> 00:35:02,560
+if
+
+968
+00:34:59,040 --> 00:35:04,079
+a co np complete or np complete problem
+
+969
+00:35:02,560 --> 00:35:06,079
+more in bpp
+
+970
+00:35:04,079 --> 00:35:08,560
+because everything else in np or cmp is
+
+971
+00:35:06,079 --> 00:35:11,040
+reducible to that problem then all of
+
+972
+00:35:08,560 --> 00:35:13,520
+those np or co-np problems would be in
+
+973
+00:35:11,040 --> 00:35:15,119
+bpp for the exactly the same reason that
+
+974
+00:35:13,520 --> 00:35:17,280
+we've seen before
+
+975
+00:35:15,119 --> 00:35:20,079
+um and that's not known to be the case
+
+976
+00:35:17,280 --> 00:35:22,000
+and not believed to be the case um
+
+977
+00:35:20,079 --> 00:35:25,280
+so
+
+978
+00:35:22,000 --> 00:35:27,680
+uh we don't expect that a co-mp complete
+
+979
+00:35:25,280 --> 00:35:29,920
+problem is going to be in bpp um that
+
+980
+00:35:27,680 --> 00:35:31,920
+would be you know an amazing uh and
+
+981
+00:35:29,920 --> 00:35:35,200
+surprising uh
+
+982
+00:35:31,920 --> 00:35:37,200
+uh result so um
+
+983
+00:35:35,200 --> 00:35:39,839
+because i i hope i made it clear in my
+
+984
+00:35:37,200 --> 00:35:41,520
+previous um you know in previous
+
+985
+00:35:39,839 --> 00:35:43,359
+discussion that
+
+986
+00:35:41,520 --> 00:35:46,800
+you know the bpp from a practical
+
+987
+00:35:43,359 --> 00:35:48,480
+standpoint is very close to being like p
+
+988
+00:35:46,800 --> 00:35:50,480
+um because you can make the error
+
+989
+00:35:48,480 --> 00:35:51,359
+probability of the machine so incredibly
+
+990
+00:35:50,480 --> 00:35:52,320
+low
+
+991
+00:35:51,359 --> 00:35:53,359
+um
+
+992
+00:35:52,320 --> 00:35:55,680
+that
+
+993
+00:35:53,359 --> 00:35:57,359
+you know it's a comparable
+
+994
+00:35:55,680 --> 00:35:59,520
+uh
+
+995
+00:35:57,359 --> 00:36:01,119
+you know if you run the machine and the
+
+996
+00:35:59,520 --> 00:36:02,880
+error probability is like one over
+
+997
+00:36:01,119 --> 00:36:04,079
+google um
+
+998
+00:36:02,880 --> 00:36:05,920
+then it's sort of
+
+999
+00:36:04,079 --> 00:36:08,560
+even greater than the probability that
+
+1000
+00:36:05,920 --> 00:36:12,079
+some alpha particle came in and flipped
+
+1001
+00:36:08,560 --> 00:36:14,880
+the value of what some internal uh
+
+1002
+00:36:12,079 --> 00:36:16,320
+memory cell in your in your computation
+
+1003
+00:36:14,880 --> 00:36:17,680
+so if you have an extremely low error
+
+1004
+00:36:16,320 --> 00:36:21,040
+probability it's pretty good from a
+
+1005
+00:36:17,680 --> 00:36:21,040
+practical standpoint um
+
+1006
+00:36:21,359 --> 00:36:26,640
+so it would be amazing if np problems
+
+1007
+00:36:23,920 --> 00:36:27,440
+were solvable in bpp um
+
+1008
+00:36:26,640 --> 00:36:28,800
+so
+
+1009
+00:36:27,440 --> 00:36:30,160
+this is not the language we're going to
+
+1010
+00:36:28,800 --> 00:36:32,720
+use as our example we're going to look
+
+1011
+00:36:30,160 --> 00:36:34,800
+at a related restricted version of this
+
+1012
+00:36:32,720 --> 00:36:36,640
+problem about equivalence for branching
+
+1013
+00:36:34,800 --> 00:36:38,000
+programs and that i'm going to introduce
+
+1014
+00:36:36,640 --> 00:36:40,640
+right now
+
+1015
+00:36:38,000 --> 00:36:42,320
+okay any questions here
+
+1016
+00:36:40,640 --> 00:36:44,640
+don't see any questions
+
+1017
+00:36:42,320 --> 00:36:44,640
+um
+
+1018
+00:36:44,960 --> 00:36:49,359
+fading out
+
+1019
+00:36:46,960 --> 00:36:50,800
+uh okay
+
+1020
+00:36:49,359 --> 00:36:54,240
+um
+
+1021
+00:36:50,800 --> 00:36:56,320
+so let's move on
+
+1022
+00:36:54,240 --> 00:36:59,040
+so we're going to talk about branching
+
+1023
+00:36:56,320 --> 00:36:59,920
+programs that are what are called read
+
+1024
+00:36:59,040 --> 00:37:02,160
+once
+
+1025
+00:36:59,920 --> 00:37:05,119
+read once branching programs
+
+1026
+00:37:02,160 --> 00:37:08,560
+and those are simply branching programs
+
+1027
+00:37:05,119 --> 00:37:12,880
+that are not allowed to re-read
+
+1028
+00:37:08,560 --> 00:37:14,480
+an input that they've previously read
+
+1029
+00:37:12,880 --> 00:37:15,839
+so for example
+
+1030
+00:37:14,480 --> 00:37:17,839
+is this
+
+1031
+00:37:15,839 --> 00:37:19,359
+branching program a read once branching
+
+1032
+00:37:17,839 --> 00:37:20,400
+program
+
+1033
+00:37:19,359 --> 00:37:21,920
+no
+
+1034
+00:37:20,400 --> 00:37:24,240
+this branching program is not a read
+
+1035
+00:37:21,920 --> 00:37:25,440
+once branching program because
+
+1036
+00:37:24,240 --> 00:37:27,839
+um
+
+1037
+00:37:25,440 --> 00:37:31,200
+you can
+
+1038
+00:37:27,839 --> 00:37:33,280
+find a path that's going to cause you to
+
+1039
+00:37:31,200 --> 00:37:35,040
+read the same variable more than once so
+
+1040
+00:37:33,280 --> 00:37:37,680
+it's not going to be a read once
+
+1041
+00:37:35,040 --> 00:37:39,359
+um so over here let's not read once
+
+1042
+00:37:37,680 --> 00:37:43,200
+because there's two
+
+1043
+00:37:39,359 --> 00:37:44,800
+occurrences of an x1 on the same branch
+
+1044
+00:37:43,200 --> 00:37:46,320
+now you might ask why would anybody want
+
+1045
+00:37:44,800 --> 00:37:48,960
+to do that because you've already read
+
+1046
+00:37:46,320 --> 00:37:51,359
+the value of x1 well i mean in the case
+
+1047
+00:37:48,960 --> 00:37:52,960
+of this particular branching program
+
+1048
+00:37:51,359 --> 00:37:56,000
+there might be a value because you could
+
+1049
+00:37:52,960 --> 00:37:57,920
+have got to this x x1 branch by going
+
+1050
+00:37:56,000 --> 00:37:59,839
+this way or that way
+
+1051
+00:37:57,920 --> 00:38:02,320
+um
+
+1052
+00:37:59,839 --> 00:38:04,400
+but that's a separate question
+
+1053
+00:38:02,320 --> 00:38:07,040
+if we restrict our attention
+
+1054
+00:38:04,400 --> 00:38:09,680
+to read once branching programs then the
+
+1055
+00:38:07,040 --> 00:38:11,280
+problem of testing equivalence becomes
+
+1056
+00:38:09,680 --> 00:38:13,440
+uh
+
+1057
+00:38:11,280 --> 00:38:16,560
+very different in character
+
+1058
+00:38:13,440 --> 00:38:19,200
+and in fact we're going to give a
+
+1059
+00:38:16,560 --> 00:38:22,160
+probabilistic algorithm uh
+
+1060
+00:38:19,200 --> 00:38:24,720
+a bpp algorithm to solve that problem
+
+1061
+00:38:22,160 --> 00:38:26,880
+so the equivalence problem for read once
+
+1062
+00:38:24,720 --> 00:38:29,359
+branching programs which are not allowed
+
+1063
+00:38:26,880 --> 00:38:32,000
+to re-read variables on any path
+
+1064
+00:38:29,359 --> 00:38:34,640
+um that's interestingly going to be
+
+1065
+00:38:32,000 --> 00:38:37,119
+solvable with a probabilistic
+
+1066
+00:38:34,640 --> 00:38:39,359
+uh polynomial time algorithm you know
+
+1067
+00:38:37,119 --> 00:38:41,040
+with a small error probability
+
+1068
+00:38:39,359 --> 00:38:42,560
+um
+
+1069
+00:38:41,040 --> 00:38:43,920
+so i'm going to run a check in now but
+
+1070
+00:38:42,560 --> 00:38:46,320
+let's make sure we're all together on
+
+1071
+00:38:43,920 --> 00:38:49,359
+this so i got a good question here can
+
+1072
+00:38:46,320 --> 00:38:51,119
+every boolean function be described by a
+
+1073
+00:38:49,359 --> 00:38:54,320
+branching program yes
+
+1074
+00:38:51,119 --> 00:38:56,880
+that's an easy exercise but you can make
+
+1075
+00:38:54,320 --> 00:38:59,520
+branch branching programs are um they
+
+1076
+00:38:56,880 --> 00:39:01,839
+may be large
+
+1077
+00:38:59,520 --> 00:39:03,920
+uh you can describe any boolean function
+
+1078
+00:39:01,839 --> 00:39:06,240
+with some branching program
+
+1079
+00:39:03,920 --> 00:39:07,280
+that's not hard to show
+
+1080
+00:39:06,240 --> 00:39:08,960
+um
+
+1081
+00:39:07,280 --> 00:39:10,880
+other questions are we all together on
+
+1082
+00:39:08,960 --> 00:39:12,480
+understanding what read once means and
+
+1083
+00:39:10,880 --> 00:39:15,839
+branching programs and all that stuff
+
+1084
+00:39:12,480 --> 00:39:15,839
+this is a good time to ask if you're not
+
+1085
+00:39:15,920 --> 00:39:20,480
+um
+
+1086
+00:39:17,200 --> 00:39:20,480
+okay so let's do the check-in
+
+1087
+00:39:21,200 --> 00:39:25,680
+so
+
+1088
+00:39:22,960 --> 00:39:26,960
+as i pointed out we will show that the
+
+1089
+00:39:25,680 --> 00:39:29,599
+equivalence for read once branching
+
+1090
+00:39:26,960 --> 00:39:32,160
+programs is solvable in bpp
+
+1091
+00:39:29,599 --> 00:39:34,400
+can we use that to solve the general
+
+1092
+00:39:32,160 --> 00:39:36,320
+case for branching programs
+
+1093
+00:39:34,400 --> 00:39:38,560
+by converting branch general branching
+
+1094
+00:39:36,320 --> 00:39:41,599
+programs to read once branching programs
+
+1095
+00:39:38,560 --> 00:39:43,839
+and then run running the read once test
+
+1096
+00:39:41,599 --> 00:39:46,000
+so
+
+1097
+00:39:43,839 --> 00:39:48,960
+what do you think
+
+1098
+00:39:46,000 --> 00:39:51,599
+okay i'm seeing a lot of uh
+
+1099
+00:39:48,960 --> 00:39:53,760
+correct answers here um so let's let's
+
+1100
+00:39:51,599 --> 00:39:56,760
+wrap this one one up quickly
+
+1101
+00:39:53,760 --> 00:39:56,760
+um
+
+1102
+00:39:58,000 --> 00:40:01,200
+another 10 seconds please
+
+1103
+00:40:06,640 --> 00:40:09,599
+okay
+
+1104
+00:40:07,599 --> 00:40:13,119
+ready are we all ready
+
+1105
+00:40:09,599 --> 00:40:13,119
+one two three closing
+
+1106
+00:40:17,200 --> 00:40:21,280
+all right yes
+
+1107
+00:40:19,200 --> 00:40:22,400
+most of you have
+
+1108
+00:40:21,280 --> 00:40:24,400
+uh
+
+1109
+00:40:22,400 --> 00:40:26,640
+answered correctly um
+
+1110
+00:40:24,400 --> 00:40:28,079
+well answer a is not a very good answer
+
+1111
+00:40:26,640 --> 00:40:30,480
+because we already commented on the
+
+1112
+00:40:28,079 --> 00:40:31,680
+previous slide that we don't know how to
+
+1113
+00:40:30,480 --> 00:40:33,920
+do
+
+1114
+00:40:31,680 --> 00:40:35,920
+the general case in bpp so it would be
+
+1115
+00:40:33,920 --> 00:40:39,359
+kind of surprising if right here i'm
+
+1116
+00:40:35,920 --> 00:40:44,240
+saying yes we could do it
+
+1117
+00:40:39,359 --> 00:40:44,240
+by using the restricted case so
+
+1118
+00:40:45,839 --> 00:40:49,359
+you know i think a
+
+1119
+00:40:47,359 --> 00:40:51,200
+better answer would be to one of the
+
+1120
+00:40:49,359 --> 00:40:53,680
+no's but
+
+1121
+00:40:51,200 --> 00:40:55,520
+as i did comment you can always convert
+
+1122
+00:40:53,680 --> 00:40:59,119
+you can always do any uh boolean
+
+1123
+00:40:55,520 --> 00:40:59,119
+function uh with a
+
+1124
+00:40:59,520 --> 00:41:02,640
+well maybe i didn't say it for read once
+
+1125
+00:41:01,200 --> 00:41:04,240
+branching programs but you even read
+
+1126
+00:41:02,640 --> 00:41:06,960
+once branching programs can do any
+
+1127
+00:41:04,240 --> 00:41:09,280
+compute any boolean function um so the
+
+1128
+00:41:06,960 --> 00:41:11,200
+the conversion is possible but in
+
+1129
+00:41:09,280 --> 00:41:12,640
+general will not be polynomial time and
+
+1130
+00:41:11,200 --> 00:41:14,560
+you can if you imagine you've been
+
+1131
+00:41:12,640 --> 00:41:16,319
+trying to do the conversion over here
+
+1132
+00:41:14,560 --> 00:41:18,640
+you could convert this branching program
+
+1133
+00:41:16,319 --> 00:41:21,359
+to read once um but you'd have to
+
+1134
+00:41:18,640 --> 00:41:22,400
+basically separate the two
+
+1135
+00:41:21,359 --> 00:41:23,200
+uh
+
+1136
+00:41:22,400 --> 00:41:25,200
+um
+
+1137
+00:41:23,200 --> 00:41:27,920
+you know instead of re-reading the x1
+
+1138
+00:41:25,200 --> 00:41:29,440
+you could remember that x1 value but
+
+1139
+00:41:27,920 --> 00:41:31,200
+then you would not be you couldn't
+
+1140
+00:41:29,440 --> 00:41:33,200
+reconverge over here you'd have to keep
+
+1141
+00:41:31,200 --> 00:41:34,880
+those two those two
+
+1142
+00:41:33,200 --> 00:41:36,640
+threads of the those two branches of the
+
+1143
+00:41:34,880 --> 00:41:38,560
+computation apart
+
+1144
+00:41:36,640 --> 00:41:40,400
+those two paths apart from one another
+
+1145
+00:41:38,560 --> 00:41:42,720
+and already the branching program would
+
+1146
+00:41:40,400 --> 00:41:43,760
+start to increase in size by doing that
+
+1147
+00:41:42,720 --> 00:41:45,119
+um
+
+1148
+00:41:43,760 --> 00:41:47,280
+and um
+
+1149
+00:41:45,119 --> 00:41:49,680
+so in general
+
+1150
+00:41:47,280 --> 00:41:51,920
+conversion converting is possible but it
+
+1151
+00:41:49,680 --> 00:41:53,599
+requires a big expansion a big
+
+1152
+00:41:51,920 --> 00:41:55,040
+increase in the size
+
+1153
+00:41:53,599 --> 00:41:56,800
+and then we will
+
+1154
+00:41:55,040 --> 00:41:59,119
+not allow a polynomial time algorithm
+
+1155
+00:41:56,800 --> 00:42:01,040
+anymore even in probabilistic in the
+
+1156
+00:41:59,119 --> 00:42:02,480
+probabilistic case
+
+1157
+00:42:01,040 --> 00:42:04,160
+um
+
+1158
+00:42:02,480 --> 00:42:06,400
+okay um
+
+1159
+00:42:04,160 --> 00:42:08,880
+so now let's start to look at the
+
+1160
+00:42:06,400 --> 00:42:12,240
+possibility of showing that this
+
+1161
+00:42:08,880 --> 00:42:14,480
+equivalence problem is solvable in bpp
+
+1162
+00:42:12,240 --> 00:42:16,640
+and it's going to take us in kind of
+
+1163
+00:42:14,480 --> 00:42:18,640
+a strange direction but let's let's try
+
+1164
+00:42:16,640 --> 00:42:19,839
+to get our intuition going first by
+
+1165
+00:42:18,640 --> 00:42:21,280
+doing something
+
+1166
+00:42:19,839 --> 00:42:22,720
+which seems like the most obvious
+
+1167
+00:42:21,280 --> 00:42:23,920
+obvious approach
+
+1168
+00:42:22,720 --> 00:42:25,280
+um
+
+1169
+00:42:23,920 --> 00:42:27,040
+so here
+
+1170
+00:42:25,280 --> 00:42:28,240
+uh so we're gonna
+
+1171
+00:42:27,040 --> 00:42:31,599
+give a
+
+1172
+00:42:28,240 --> 00:42:34,160
+an algorithm now um
+
+1173
+00:42:31,599 --> 00:42:36,079
+uh which is going to be an attempt
+
+1174
+00:42:34,160 --> 00:42:38,160
+it's not going to work but nevertheless
+
+1175
+00:42:36,079 --> 00:42:40,160
+it's going to have the germ of the right
+
+1176
+00:42:38,160 --> 00:42:41,520
+idea or the or the
+
+1177
+00:42:40,160 --> 00:42:43,680
+not the germ but the beginning of the
+
+1178
+00:42:41,520 --> 00:42:45,359
+right way to think about it
+
+1179
+00:42:43,680 --> 00:42:48,960
+so here are the two branching read once
+
+1180
+00:42:45,359 --> 00:42:50,720
+branching programs are b1 and b2
+
+1181
+00:42:48,960 --> 00:42:54,000
+and i want to see
+
+1182
+00:42:50,720 --> 00:42:56,319
+do they compute the same function or not
+
+1183
+00:42:54,000 --> 00:42:58,880
+um so one thing you might try
+
+1184
+00:42:56,319 --> 00:43:01,280
+is just running them on a bunch of
+
+1185
+00:42:58,880 --> 00:43:04,160
+randomly selected
+
+1186
+00:43:01,280 --> 00:43:05,040
+assignments or inputs
+
+1187
+00:43:04,160 --> 00:43:06,800
+all right so you're going to you can
+
+1188
+00:43:05,040 --> 00:43:08,960
+just um
+
+1189
+00:43:06,800 --> 00:43:11,359
+take two randomness input assignments
+
+1190
+00:43:08,960 --> 00:43:14,240
+just take x1
+
+1191
+00:43:11,359 --> 00:43:16,800
+flip a coin to say it's one of zero x do
+
+1192
+00:43:14,240 --> 00:43:19,680
+the same for x two and so on
+
+1193
+00:43:16,800 --> 00:43:21,359
+um then you get some input assignment
+
+1194
+00:43:19,680 --> 00:43:22,640
+you run the two branching programs on
+
+1195
+00:43:21,359 --> 00:43:24,160
+that assignment
+
+1196
+00:43:22,640 --> 00:43:25,599
+and maybe that doesn't give you know
+
+1197
+00:43:24,160 --> 00:43:27,200
+even if they agree it doesn't give you a
+
+1198
+00:43:25,599 --> 00:43:28,560
+lot of confidence that you got the right
+
+1199
+00:43:27,200 --> 00:43:30,240
+answer uh
+
+1200
+00:43:28,560 --> 00:43:32,720
+that they're really equivalent so you do
+
+1201
+00:43:30,240 --> 00:43:34,640
+it a hundred times whatever some some
+
+1202
+00:43:32,720 --> 00:43:36,560
+number of times um
+
+1203
+00:43:34,640 --> 00:43:38,079
+and
+
+1204
+00:43:36,560 --> 00:43:39,040
+of course
+
+1205
+00:43:38,079 --> 00:43:41,599
+if
+
+1206
+00:43:39,040 --> 00:43:43,040
+they uh ever disagree
+
+1207
+00:43:41,599 --> 00:43:44,480
+on some assignment on one of those
+
+1208
+00:43:43,040 --> 00:43:45,920
+assignments then you know they're not
+
+1209
+00:43:44,480 --> 00:43:47,359
+equivalent and you can immediately
+
+1210
+00:43:45,920 --> 00:43:48,640
+reject
+
+1211
+00:43:47,359 --> 00:43:49,760
+um
+
+1212
+00:43:48,640 --> 00:43:52,839
+but
+
+1213
+00:43:49,760 --> 00:43:54,560
+uh what i'd like to say is if they
+
+1214
+00:43:52,839 --> 00:43:56,400
+agree
+
+1215
+00:43:54,560 --> 00:43:57,839
+on those
+
+1216
+00:43:56,400 --> 00:44:00,640
+you know hundred
+
+1217
+00:43:57,839 --> 00:44:01,520
+tries those hundred assignments there
+
+1218
+00:44:00,640 --> 00:44:05,280
+then
+
+1219
+00:44:01,520 --> 00:44:06,960
+there then they are um
+
+1220
+00:44:05,280 --> 00:44:09,839
+uh
+
+1221
+00:44:06,960 --> 00:44:12,720
+at least i'll i haven't found a place
+
+1222
+00:44:09,839 --> 00:44:15,359
+where they disagree so i'm gonna say
+
+1223
+00:44:12,720 --> 00:44:18,319
+that they're equivalent
+
+1224
+00:44:15,359 --> 00:44:19,680
+is that a reasonable thing uh to do
+
+1225
+00:44:18,319 --> 00:44:22,720
+well it might be
+
+1226
+00:44:19,680 --> 00:44:26,000
+uh it depends on k um
+
+1227
+00:44:22,720 --> 00:44:27,440
+so the critical thing is what value of k
+
+1228
+00:44:26,000 --> 00:44:29,440
+should you pick
+
+1229
+00:44:27,440 --> 00:44:31,599
+which is going to be big enough to allow
+
+1230
+00:44:29,440 --> 00:44:33,680
+us to draw the conclusion that if you
+
+1231
+00:44:31,599 --> 00:44:34,640
+run it for k times and you never see a
+
+1232
+00:44:33,680 --> 00:44:36,720
+difference
+
+1233
+00:44:34,640 --> 00:44:38,079
+then you can
+
+1234
+00:44:36,720 --> 00:44:40,079
+conclude
+
+1235
+00:44:38,079 --> 00:44:41,760
+with good confidence that the two
+
+1236
+00:44:40,079 --> 00:44:42,880
+branching programs are equivalent
+
+1237
+00:44:41,760 --> 00:44:44,480
+because
+
+1238
+00:44:42,880 --> 00:44:46,560
+you've tried to look for
+
+1239
+00:44:44,480 --> 00:44:49,359
+a difference and you never found one
+
+1240
+00:44:46,560 --> 00:44:50,640
+well the thing is is that
+
+1241
+00:44:49,359 --> 00:44:53,440
+um
+
+1242
+00:44:50,640 --> 00:44:55,520
+k is going to have to be pretty big
+
+1243
+00:44:53,440 --> 00:44:56,560
+uh
+
+1244
+00:44:55,520 --> 00:44:57,920
+so
+
+1245
+00:44:56,560 --> 00:45:01,920
+looking at it this way if the two
+
+1246
+00:44:57,920 --> 00:45:01,920
+branching programs were equivalent
+
+1247
+00:45:02,000 --> 00:45:06,560
+then certainly they're always going to
+
+1248
+00:45:04,400 --> 00:45:07,520
+give the same value
+
+1249
+00:45:06,560 --> 00:45:09,119
+um
+
+1250
+00:45:07,520 --> 00:45:11,040
+so the probability that the machine
+
+1251
+00:45:09,119 --> 00:45:12,319
+accepts is going to be one and that's
+
+1252
+00:45:11,040 --> 00:45:13,920
+good
+
+1253
+00:45:12,319 --> 00:45:15,200
+because we want for
+
+1254
+00:45:13,920 --> 00:45:16,800
+this is a case when we're in the
+
+1255
+00:45:15,200 --> 00:45:18,640
+language we want the probability of
+
+1256
+00:45:16,800 --> 00:45:20,240
+acceptance to be high and here the
+
+1257
+00:45:18,640 --> 00:45:21,599
+probability of acceptance is actually
+
+1258
+00:45:20,240 --> 00:45:23,040
+one
+
+1259
+00:45:21,599 --> 00:45:24,960
+so it's always going to accept when the
+
+1260
+00:45:23,040 --> 00:45:26,880
+two uh branching
+
+1261
+00:45:24,960 --> 00:45:27,920
+programs were equivalent
+
+1262
+00:45:26,880 --> 00:45:29,760
+but what happens when the branching
+
+1263
+00:45:27,920 --> 00:45:31,680
+programs are not equivalent
+
+1264
+00:45:29,760 --> 00:45:33,280
+now we want the probability of rejection
+
+1265
+00:45:31,680 --> 00:45:34,960
+to be high the probability of acceptance
+
+1266
+00:45:33,280 --> 00:45:36,880
+should be very low
+
+1267
+00:45:34,960 --> 00:45:39,599
+um
+
+1268
+00:45:36,880 --> 00:45:41,440
+right so if if they're not equivalent we
+
+1269
+00:45:39,599 --> 00:45:44,240
+want the probability that the machine
+
+1270
+00:45:41,440 --> 00:45:46,079
+rejects is going to be
+
+1271
+00:45:44,240 --> 00:45:48,400
+high if they're not equivalent because
+
+1272
+00:45:46,079 --> 00:45:50,000
+that that's what the correct answer is
+
+1273
+00:45:48,400 --> 00:45:52,079
+well the only way the machine is going
+
+1274
+00:45:50,000 --> 00:45:53,599
+to reject
+
+1275
+00:45:52,079 --> 00:45:55,359
+if it finds
+
+1276
+00:45:53,599 --> 00:45:56,960
+um a place
+
+1277
+00:45:55,359 --> 00:45:59,440
+where the two branching programs
+
+1278
+00:45:56,960 --> 00:46:00,960
+disagree
+
+1279
+00:45:59,440 --> 00:46:03,359
+but but
+
+1280
+00:46:00,960 --> 00:46:05,599
+those two branching programs even though
+
+1281
+00:46:03,359 --> 00:46:08,160
+not equivalent
+
+1282
+00:46:05,599 --> 00:46:10,160
+might disagree rarely
+
+1283
+00:46:08,160 --> 00:46:12,079
+they might only disagree on one input
+
+1284
+00:46:10,160 --> 00:46:14,720
+assignment out of the two to the end
+
+1285
+00:46:12,079 --> 00:46:16,480
+possibilities
+
+1286
+00:46:14,720 --> 00:46:18,960
+so these two inequivalent branching
+
+1287
+00:46:16,480 --> 00:46:20,880
+programs might agree almost everywhere
+
+1288
+00:46:18,960 --> 00:46:22,880
+just except at one place and then that's
+
+1289
+00:46:20,880 --> 00:46:24,640
+enough for them not to be equivalent but
+
+1290
+00:46:22,880 --> 00:46:26,880
+the problem is that if you're just going
+
+1291
+00:46:24,640 --> 00:46:30,720
+to do random sampling
+
+1292
+00:46:26,880 --> 00:46:32,880
+um the likelihood of finding that one
+
+1293
+00:46:30,720 --> 00:46:34,319
+exceptional place where the two disagree
+
+1294
+00:46:32,880 --> 00:46:36,240
+is very low you're going to have to do
+
+1295
+00:46:34,319 --> 00:46:39,520
+an enormous number of samples before
+
+1296
+00:46:36,240 --> 00:46:43,200
+you're likely to actually to to to find
+
+1297
+00:46:39,520 --> 00:46:44,640
+that uh that point of difference um and
+
+1298
+00:46:43,200 --> 00:46:46,880
+so
+
+1299
+00:46:44,640 --> 00:46:49,200
+um
+
+1300
+00:46:46,880 --> 00:46:50,880
+in order to be confident that you're
+
+1301
+00:46:49,200 --> 00:46:52,319
+going to find that difference if there
+
+1302
+00:46:50,880 --> 00:46:54,480
+is one you're going to have to do
+
+1303
+00:46:52,319 --> 00:46:56,480
+exponentially many samples and you don't
+
+1304
+00:46:54,480 --> 00:46:59,119
+have time to do that with a polynomial
+
+1305
+00:46:56,480 --> 00:46:59,119
+time algorithm
+
+1306
+00:46:59,599 --> 00:47:01,920
+um
+
+1307
+00:47:02,400 --> 00:47:05,119
+you're just going to have to flip too
+
+1308
+00:47:03,520 --> 00:47:07,440
+many coins you have to run too many
+
+1309
+00:47:05,119 --> 00:47:07,440
+different
+
+1310
+00:47:07,520 --> 00:47:11,040
+samples
+
+1311
+00:47:08,880 --> 00:47:12,079
+different assignments through these two
+
+1312
+00:47:11,040 --> 00:47:14,800
+machines
+
+1313
+00:47:12,079 --> 00:47:16,240
+and um because they're almost
+
+1314
+00:47:14,800 --> 00:47:17,280
+they're different but they're almost the
+
+1315
+00:47:16,240 --> 00:47:18,400
+same
+
+1316
+00:47:17,280 --> 00:47:19,760
+um
+
+1317
+00:47:18,400 --> 00:47:21,200
+so we're going to need to find a
+
+1318
+00:47:19,760 --> 00:47:22,839
+different method
+
+1319
+00:47:21,200 --> 00:47:26,160
+and
+
+1320
+00:47:22,839 --> 00:47:27,520
+um the the idea is we're going to run
+
+1321
+00:47:26,160 --> 00:47:30,319
+these two
+
+1322
+00:47:27,520 --> 00:47:32,000
+branching programs
+
+1323
+00:47:30,319 --> 00:47:33,359
+in some crazy way
+
+1324
+00:47:32,000 --> 00:47:34,800
+instead of running them on zeros and
+
+1325
+00:47:33,359 --> 00:47:37,359
+ones that we've been we've been doing it
+
+1326
+00:47:34,800 --> 00:47:39,200
+so far we're going to feed in
+
+1327
+00:47:37,359 --> 00:47:41,200
+values for the variables
+
+1328
+00:47:39,200 --> 00:47:43,760
+which are non-boolean
+
+1329
+00:47:41,200 --> 00:47:45,920
+they are going to be going to set x1 to
+
+1330
+00:47:43,760 --> 00:47:47,760
+2 x3 to 7
+
+1331
+00:47:45,920 --> 00:47:50,800
+x
+
+1332
+00:47:47,760 --> 00:47:52,960
+4 to 15.
+
+1333
+00:47:50,800 --> 00:47:54,880
+of course that doesn't seem to make any
+
+1334
+00:47:52,960 --> 00:47:56,559
+sense but it's nevertheless going to
+
+1335
+00:47:54,880 --> 00:47:57,599
+turn out to be useful a useful thing to
+
+1336
+00:47:56,559 --> 00:47:58,960
+do and it's going to give us some
+
+1337
+00:47:57,599 --> 00:48:00,480
+insight into
+
+1338
+00:47:58,960 --> 00:48:04,000
+the equivalence or equivalence of these
+
+1339
+00:48:00,480 --> 00:48:04,000
+branching programs um
+
+1340
+00:48:04,079 --> 00:48:07,839
+okay um
+
+1341
+00:48:05,599 --> 00:48:09,599
+so let's just i think are we at the end
+
+1342
+00:48:07,839 --> 00:48:11,200
+yeah we're at the break here so why
+
+1343
+00:48:09,599 --> 00:48:13,200
+don't i i'm getting some questions
+
+1344
+00:48:11,200 --> 00:48:15,119
+coming in which is great um i will
+
+1345
+00:48:13,200 --> 00:48:17,359
+answer those questions but why don't i
+
+1346
+00:48:15,119 --> 00:48:21,319
+start off our uh
+
+1347
+00:48:17,359 --> 00:48:21,319
+break and then um
+
+1348
+00:48:23,359 --> 00:48:25,680
+okay
+
+1349
+00:48:29,680 --> 00:48:32,160
+okay so
+
+1350
+00:48:32,319 --> 00:48:36,319
+there's a question about whether these
+
+1351
+00:48:34,079 --> 00:48:38,240
+this machine runs deterministically or
+
+1352
+00:48:36,319 --> 00:48:39,040
+not so which machine are we talking
+
+1353
+00:48:38,240 --> 00:48:41,359
+about
+
+1354
+00:48:39,040 --> 00:48:43,040
+so the branching programs themselves
+
+1355
+00:48:41,359 --> 00:48:45,760
+that they'd run deterministically you
+
+1356
+00:48:43,040 --> 00:48:47,200
+give them an assignment to the um to the
+
+1357
+00:48:45,760 --> 00:48:49,280
+input variables
+
+1358
+00:48:47,200 --> 00:48:51,440
+that's going to determine a path through
+
+1359
+00:48:49,280 --> 00:48:52,880
+each branching program
+
+1360
+00:48:51,440 --> 00:48:54,240
+which is eventually going to output a
+
+1361
+00:48:52,880 --> 00:48:55,839
+zero or a one
+
+1362
+00:48:54,240 --> 00:48:57,599
+and you want to know do those two
+
+1363
+00:48:55,839 --> 00:49:00,079
+branching programs always give the same
+
+1364
+00:48:57,599 --> 00:49:02,000
+value no matter what the input was
+
+1365
+00:49:00,079 --> 00:49:04,160
+but the branching programs themselves
+
+1366
+00:49:02,000 --> 00:49:07,760
+were deterministic
+
+1367
+00:49:04,160 --> 00:49:10,000
+um now the machine that's trying to
+
+1368
+00:49:07,760 --> 00:49:12,319
+make the determination of whether those
+
+1369
+00:49:10,000 --> 00:49:13,680
+two branching programs are equivalent
+
+1370
+00:49:12,319 --> 00:49:16,240
+that machine that we're going to be
+
+1371
+00:49:13,680 --> 00:49:17,280
+arguing is going to be a probabilistic
+
+1372
+00:49:16,240 --> 00:49:19,119
+machine so it's a kind of
+
+1373
+00:49:17,280 --> 00:49:21,200
+non-deterministic machine that's going
+
+1374
+00:49:19,119 --> 00:49:23,200
+to have different possible ways to go
+
+1375
+00:49:21,200 --> 00:49:25,200
+depending upon the outcome if it's of
+
+1376
+00:49:23,200 --> 00:49:26,079
+its coin tosses
+
+1377
+00:49:25,200 --> 00:49:27,760
+so it you can think of as
+
+1378
+00:49:26,079 --> 00:49:29,680
+non-determinist you know
+
+1379
+00:49:27,760 --> 00:49:31,599
+non-determinism in the ordinary sense
+
+1380
+00:49:29,680 --> 00:49:33,839
+about how like that it has a tree of
+
+1381
+00:49:31,599 --> 00:49:35,680
+possibilities
+
+1382
+00:49:33,839 --> 00:49:36,880
+but um now
+
+1383
+00:49:35,680 --> 00:49:39,119
+you know the way we're thinking about
+
+1384
+00:49:36,880 --> 00:49:41,440
+acceptance is different you know that
+
+1385
+00:49:39,119 --> 00:49:43,359
+instead of accepting if there's just one
+
+1386
+00:49:41,440 --> 00:49:46,079
+uh accept branch
+
+1387
+00:49:43,359 --> 00:49:48,000
+the machine for it to accept um has to
+
+1388
+00:49:46,079 --> 00:49:50,319
+have a majority of the branches be
+
+1389
+00:49:48,000 --> 00:49:52,240
+accepting um
+
+1390
+00:49:50,319 --> 00:49:53,280
+and uh
+
+1391
+00:49:52,240 --> 00:49:54,559
+you know
+
+1392
+00:49:53,280 --> 00:49:55,920
+so it's it's
+
+1393
+00:49:54,559 --> 00:49:57,839
+there's some similarities but some
+
+1394
+00:49:55,920 --> 00:49:59,440
+differences with the usual way we think
+
+1395
+00:49:57,839 --> 00:50:01,119
+of non-determinism
+
+1396
+00:49:59,440 --> 00:50:03,440
+so what's the motivation behind
+
+1397
+00:50:01,119 --> 00:50:06,880
+introducing this type of turing machine
+
+1398
+00:50:03,440 --> 00:50:06,880
+well i mean there's a lot
+
+1399
+00:50:07,359 --> 00:50:12,160
+i guess there are two motivations
+
+1400
+00:50:09,839 --> 00:50:13,760
+uh
+
+1401
+00:50:12,160 --> 00:50:16,640
+probabilistic algorithms sometimes
+
+1402
+00:50:13,760 --> 00:50:18,640
+called monte carlo algorithms um
+
+1403
+00:50:16,640 --> 00:50:20,160
+uh turn out to be useful in practice for
+
+1404
+00:50:18,640 --> 00:50:21,680
+a variety of things
+
+1405
+00:50:20,160 --> 00:50:23,760
+and um
+
+1406
+00:50:21,680 --> 00:50:24,960
+so that led to
+
+1407
+00:50:23,760 --> 00:50:26,559
+um
+
+1408
+00:50:24,960 --> 00:50:28,319
+people to think about them in the
+
+1409
+00:50:26,559 --> 00:50:30,319
+context of complexity
+
+1410
+00:50:28,319 --> 00:50:31,839
+um they're related in some ways to
+
+1411
+00:50:30,319 --> 00:50:33,599
+quantum computers which are also
+
+1412
+00:50:31,839 --> 00:50:38,319
+probabilistic in in a somewhat different
+
+1413
+00:50:33,599 --> 00:50:39,440
+way um but they also have a very nice um
+
+1414
+00:50:38,319 --> 00:50:41,760
+uh
+
+1415
+00:50:39,440 --> 00:50:43,359
+um
+
+1416
+00:50:41,760 --> 00:50:46,240
+uh
+
+1417
+00:50:43,359 --> 00:50:48,400
+formulation in complexity theory
+
+1418
+00:50:46,240 --> 00:50:50,800
+so complexity theorists like to think
+
+1419
+00:50:48,400 --> 00:50:52,160
+about probabilistic computation because
+
+1420
+00:50:50,800 --> 00:50:54,000
+i mean you can do interesting things
+
+1421
+00:50:52,160 --> 00:50:55,920
+with probabilistic machines and the
+
+1422
+00:50:54,000 --> 00:50:57,920
+complexity classes associated are also
+
+1423
+00:50:55,920 --> 00:50:59,920
+interesting so as you'll see
+
+1424
+00:50:57,920 --> 00:51:02,800
+it leads us in an interesting direction
+
+1425
+00:50:59,920 --> 00:51:05,040
+uh to consider how to solve this problem
+
+1426
+00:51:02,800 --> 00:51:06,720
+this read once branching program problem
+
+1427
+00:51:05,040 --> 00:51:08,400
+equivalence
+
+1428
+00:51:06,720 --> 00:51:10,800
+with a probabilistic machine it's just
+
+1429
+00:51:08,400 --> 00:51:13,440
+just an interesting um algorithm that
+
+1430
+00:51:10,800 --> 00:51:15,760
+we're going to come up with
+
+1431
+00:51:13,440 --> 00:51:15,760
+um
+
+1432
+00:51:18,640 --> 00:51:23,119
+so in our pro in our proof attempt where
+
+1433
+00:51:20,880 --> 00:51:25,280
+did we use the probabilistic nature for
+
+1434
+00:51:23,119 --> 00:51:29,200
+bpp because we're running the two
+
+1435
+00:51:25,280 --> 00:51:31,520
+branching programs on a random input
+
+1436
+00:51:29,200 --> 00:51:31,520
+um
+
+1437
+00:51:32,480 --> 00:51:35,119
+i mean
+
+1438
+00:51:33,520 --> 00:51:36,880
+so you know you have your two branching
+
+1439
+00:51:35,119 --> 00:51:38,880
+programs you pick a random
+
+1440
+00:51:36,880 --> 00:51:40,800
+input to run those two branching
+
+1441
+00:51:38,880 --> 00:51:41,760
+programs and you see what they do
+
+1442
+00:51:40,800 --> 00:51:43,040
+that's where that's why it's
+
+1443
+00:51:41,760 --> 00:51:44,480
+probabilistic
+
+1444
+00:51:43,040 --> 00:51:46,160
+when you're thinking about random
+
+1445
+00:51:44,480 --> 00:51:49,520
+behavior of the machine
+
+1446
+00:51:46,160 --> 00:51:53,359
+it's a um that's a probabilistic machine
+
+1447
+00:51:49,520 --> 00:51:55,440
+so each branch of the machine
+
+1448
+00:51:53,359 --> 00:51:57,040
+is going to be like the way we normally
+
+1449
+00:51:55,440 --> 00:51:58,960
+think about non-determinism somebody's
+
+1450
+00:51:57,040 --> 00:52:00,240
+asking whether
+
+1451
+00:51:58,960 --> 00:52:02,480
+we think of the complexity of the
+
+1452
+00:52:00,240 --> 00:52:03,680
+machine in terms of all of the branches
+
+1453
+00:52:02,480 --> 00:52:04,400
+of the machine
+
+1454
+00:52:03,680 --> 00:52:06,880
+or
+
+1455
+00:52:04,400 --> 00:52:08,319
+um each branch separately it's we always
+
+1456
+00:52:06,880 --> 00:52:11,040
+think about for non-deterministic
+
+1457
+00:52:08,319 --> 00:52:12,800
+machines each branch separately
+
+1458
+00:52:11,040 --> 00:52:15,040
+um i'm not totally sure i understand the
+
+1459
+00:52:12,800 --> 00:52:16,559
+question there so are all the inputs
+
+1460
+00:52:15,040 --> 00:52:19,359
+built in and we randomly choose one
+
+1461
+00:52:16,559 --> 00:52:20,559
+through coin flips
+
+1462
+00:52:19,359 --> 00:52:22,800
+not sure i understand that question
+
+1463
+00:52:20,559 --> 00:52:24,960
+either we're given as input the two
+
+1464
+00:52:22,800 --> 00:52:28,480
+branching programs
+
+1465
+00:52:24,960 --> 00:52:30,559
+and then we flip coins you know kind of
+
+1466
+00:52:28,480 --> 00:52:32,000
+using our non-determinism
+
+1467
+00:52:30,559 --> 00:52:34,559
+you can think about it equivalent in
+
+1468
+00:52:32,000 --> 00:52:36,640
+terms of coin flips to choose the values
+
+1469
+00:52:34,559 --> 00:52:37,920
+of the variables so now we have a set of
+
+1470
+00:52:36,640 --> 00:52:39,839
+variable
+
+1471
+00:52:37,920 --> 00:52:41,520
+inputs to the
+
+1472
+00:52:39,839 --> 00:52:43,680
+values of the variables
+
+1473
+00:52:41,520 --> 00:52:47,520
+and we use that to
+
+1474
+00:52:43,680 --> 00:52:49,520
+um as input to the branching programs to
+
+1475
+00:52:47,520 --> 00:52:51,280
+see what whether they
+
+1476
+00:52:49,520 --> 00:52:52,559
+to see what answers they give and we in
+
+1477
+00:52:51,280 --> 00:52:56,800
+particular whether they give the same
+
+1478
+00:52:52,559 --> 00:53:00,920
+answer on that randomly chosen uh input
+
+1479
+00:52:56,800 --> 00:53:00,920
+let's move on um
+
+1480
+00:53:01,280 --> 00:53:05,920
+all right
+
+1481
+00:53:02,319 --> 00:53:07,040
+so now sort of moving us toward
+
+1482
+00:53:05,920 --> 00:53:12,400
+um
+
+1483
+00:53:07,040 --> 00:53:14,160
+the actual bpp algorithm for uh
+
+1484
+00:53:12,400 --> 00:53:15,599
+um read once branching program
+
+1485
+00:53:14,160 --> 00:53:17,520
+equivalence
+
+1486
+00:53:15,599 --> 00:53:19,200
+testing um
+
+1487
+00:53:17,520 --> 00:53:20,880
+we have to think about
+
+1488
+00:53:19,200 --> 00:53:21,839
+a different way
+
+1489
+00:53:20,880 --> 00:53:24,240
+to
+
+1490
+00:53:21,839 --> 00:53:24,240
+um
+
+1491
+00:53:24,400 --> 00:53:27,040
+we need an alternate way of thinking
+
+1492
+00:53:25,920 --> 00:53:30,720
+about
+
+1493
+00:53:27,040 --> 00:53:33,040
+the computation of a branching program
+
+1494
+00:53:30,720 --> 00:53:34,640
+it's going to look very similar but it's
+
+1495
+00:53:33,040 --> 00:53:37,359
+going to lead us in a direction that's
+
+1496
+00:53:34,640 --> 00:53:40,240
+going to allow us to talk about this
+
+1497
+00:53:37,359 --> 00:53:42,800
+um these non-boolean inputs that i refer
+
+1498
+00:53:40,240 --> 00:53:44,480
+to um just kind of where we're going
+
+1499
+00:53:42,800 --> 00:53:46,400
+we're going to be simulating branching
+
+1500
+00:53:44,480 --> 00:53:48,559
+programs with polynomials
+
+1501
+00:53:46,400 --> 00:53:51,280
+if that helps you sort of as an
+
+1502
+00:53:48,559 --> 00:53:52,880
+overarching plan but we'll we'll get
+
+1503
+00:53:51,280 --> 00:53:55,680
+there a little slowly
+
+1504
+00:53:52,880 --> 00:53:58,400
+so okay here's a branching program
+
+1505
+00:53:55,680 --> 00:54:01,119
+read once branching program um we're not
+
+1506
+00:53:58,400 --> 00:54:03,680
+going to use the read once feature uh
+
+1507
+00:54:01,119 --> 00:54:05,920
+just yet but we'll that'll come later
+
+1508
+00:54:03,680 --> 00:54:08,240
+but anyway here's a branching program
+
+1509
+00:54:05,920 --> 00:54:08,240
+um
+
+1510
+00:54:09,280 --> 00:54:13,040
+and um
+
+1511
+00:54:11,839 --> 00:54:15,280
+uh
+
+1512
+00:54:13,040 --> 00:54:16,559
+oh here's my branch and i
+
+1513
+00:54:15,280 --> 00:54:17,839
+put crashed here
+
+1514
+00:54:16,559 --> 00:54:20,160
+start that again
+
+1515
+00:54:17,839 --> 00:54:20,160
+um
+
+1516
+00:54:22,480 --> 00:54:28,000
+okay so we take an input
+
+1517
+00:54:25,599 --> 00:54:29,119
+um whatever it is um
+
+1518
+00:54:28,000 --> 00:54:30,559
+and
+
+1519
+00:54:29,119 --> 00:54:31,760
+thinking about the computation of the
+
+1520
+00:54:30,559 --> 00:54:33,440
+branching process so we're not thinking
+
+1521
+00:54:31,760 --> 00:54:34,960
+about the algorithm right now we're just
+
+1522
+00:54:33,440 --> 00:54:36,480
+thinking about branching programs for
+
+1523
+00:54:34,960 --> 00:54:39,760
+the minute we're going to get back to
+
+1524
+00:54:36,480 --> 00:54:42,799
+the algorithm later
+
+1525
+00:54:39,760 --> 00:54:44,240
+so the branching program follows a path
+
+1526
+00:54:42,799 --> 00:54:47,119
+as i indicated when you have a
+
+1527
+00:54:44,240 --> 00:54:49,440
+particular input your x1 is 0
+
+1528
+00:54:47,119 --> 00:54:51,760
+x2 is 1
+
+1529
+00:54:49,440 --> 00:54:53,200
+x3 is 1 so the output is going to be 1
+
+1530
+00:54:51,760 --> 00:54:55,440
+in this case
+
+1531
+00:54:53,200 --> 00:54:55,440
+okay
+
+1532
+00:54:56,559 --> 00:55:00,000
+so
+
+1533
+00:54:58,240 --> 00:55:01,440
+the way i want to think about this a
+
+1534
+00:55:00,000 --> 00:55:04,400
+little differently
+
+1535
+00:55:01,440 --> 00:55:06,720
+is i want to label all of the nodes and
+
+1536
+00:55:04,400 --> 00:55:08,720
+all of the edges
+
+1537
+00:55:06,720 --> 00:55:11,680
+uh with a value
+
+1538
+00:55:08,720 --> 00:55:15,280
+that tells me whether or not this yellow
+
+1539
+00:55:11,680 --> 00:55:16,640
+path went through that node or edge
+
+1540
+00:55:15,280 --> 00:55:18,799
+it's going to be just a
+
+1541
+00:55:16,640 --> 00:55:20,720
+doing the same but
+
+1542
+00:55:18,799 --> 00:55:22,799
+you may think this is no difference at
+
+1543
+00:55:20,720 --> 00:55:24,960
+all but i want to label all the all of
+
+1544
+00:55:22,799 --> 00:55:27,200
+the things on the yellow path
+
+1545
+00:55:24,960 --> 00:55:28,640
+i'm going to label them or the one
+
+1546
+00:55:27,200 --> 00:55:29,920
+and all of the things that are not on
+
+1547
+00:55:28,640 --> 00:55:33,119
+the yellow path
+
+1548
+00:55:29,920 --> 00:55:34,720
+i'm going to label with a zero
+
+1549
+00:55:33,119 --> 00:55:36,720
+so i'm keeping those trying to keep
+
+1550
+00:55:34,720 --> 00:55:38,079
+those labels apart from the original
+
+1551
+00:55:36,720 --> 00:55:39,839
+branching program
+
+1552
+00:55:38,079 --> 00:55:41,760
+which are written in white these labels
+
+1553
+00:55:39,839 --> 00:55:43,280
+are written yellow
+
+1554
+00:55:41,760 --> 00:55:45,520
+but these labels have to do with the
+
+1555
+00:55:43,280 --> 00:55:47,839
+execution of the branching program on an
+
+1556
+00:55:45,520 --> 00:55:49,839
+input
+
+1557
+00:55:47,839 --> 00:55:52,160
+so once i have an input that's going to
+
+1558
+00:55:49,839 --> 00:55:53,119
+determine a one or a zero
+
+1559
+00:55:52,160 --> 00:55:56,720
+label
+
+1560
+00:55:53,119 --> 00:55:56,720
+for every node and edge
+
+1561
+00:56:00,000 --> 00:56:03,040
+now
+
+1562
+00:56:01,680 --> 00:56:04,480
+if we want to look at the output from
+
+1563
+00:56:03,040 --> 00:56:06,000
+this branching program after we have
+
+1564
+00:56:04,480 --> 00:56:09,520
+that labeling we only have to look at
+
+1565
+00:56:06,000 --> 00:56:12,000
+the label of the one output node because
+
+1566
+00:56:09,520 --> 00:56:13,599
+that's if that one has a one on it that
+
+1567
+00:56:12,000 --> 00:56:16,000
+means that the path went through that
+
+1568
+00:56:13,599 --> 00:56:19,520
+one and so therefore we should output
+
+1569
+00:56:16,000 --> 00:56:21,839
+output output uh the output is one
+
+1570
+00:56:19,520 --> 00:56:21,839
+um
+
+1571
+00:56:22,240 --> 00:56:24,240
+uh
+
+1572
+00:56:23,280 --> 00:56:25,680
+so
+
+1573
+00:56:24,240 --> 00:56:27,839
+i'm going to give you another way of
+
+1574
+00:56:25,680 --> 00:56:30,720
+assigning that instead of just coming
+
+1575
+00:56:27,839 --> 00:56:32,559
+finding the path first and then coming
+
+1576
+00:56:30,720 --> 00:56:34,160
+up with the labeling afterward i'm going
+
+1577
+00:56:32,559 --> 00:56:36,000
+to give you a different way of coming up
+
+1578
+00:56:34,160 --> 00:56:37,920
+with that labeling kind of building it
+
+1579
+00:56:36,000 --> 00:56:41,440
+up inductively starting at the start
+
+1580
+00:56:37,920 --> 00:56:42,799
+node and building up that labeling
+
+1581
+00:56:41,440 --> 00:56:45,119
+you'll see what i mean
+
+1582
+00:56:42,799 --> 00:56:48,720
+by my example
+
+1583
+00:56:45,119 --> 00:56:50,319
+so if i have a label on this node
+
+1584
+00:56:48,720 --> 00:56:52,480
+so i already know
+
+1585
+00:56:50,319 --> 00:56:54,480
+whether or not the path went through
+
+1586
+00:56:52,480 --> 00:56:56,079
+that node
+
+1587
+00:56:54,480 --> 00:56:58,240
+you know label 1 means the path went
+
+1588
+00:56:56,079 --> 00:57:00,710
+through it label 0 means the path
+
+1589
+00:56:58,240 --> 00:57:03,520
+doesn't it does not go through it
+
+1590
+00:57:00,710 --> 00:57:05,599
+[Music]
+
+1591
+00:57:03,520 --> 00:57:07,520
+that's going to tell me how to label the
+
+1592
+00:57:05,599 --> 00:57:09,119
+two outgoing edges
+
+1593
+00:57:07,520 --> 00:57:12,960
+so if i'm if i've already labeled this
+
+1594
+00:57:09,119 --> 00:57:13,839
+with a where a is a zero or one then
+
+1595
+00:57:12,960 --> 00:57:16,559
+uh
+
+1596
+00:57:13,839 --> 00:57:17,520
+what what expression should i use
+
+1597
+00:57:16,559 --> 00:57:19,440
+um
+
+1598
+00:57:17,520 --> 00:57:22,160
+to how do
+
+1599
+00:57:19,440 --> 00:57:23,920
+under what circumstances will i label
+
+1600
+00:57:22,160 --> 00:57:26,720
+what's what's the right label for this
+
+1601
+00:57:23,920 --> 00:57:29,599
+one outgoing edge here
+
+1602
+00:57:26,720 --> 00:57:31,440
+well if a is zero
+
+1603
+00:57:29,599 --> 00:57:33,839
+that means the pair we know the path did
+
+1604
+00:57:31,440 --> 00:57:36,160
+not go through this node so there's no
+
+1605
+00:57:33,839 --> 00:57:37,200
+way it could go through that edge
+
+1606
+00:57:36,160 --> 00:57:39,760
+similarly
+
+1607
+00:57:37,200 --> 00:57:41,359
+if x i
+
+1608
+00:57:39,760 --> 00:57:43,280
+is a zero
+
+1609
+00:57:41,359 --> 00:57:44,400
+that means even if we did go through
+
+1610
+00:57:43,280 --> 00:57:47,040
+that node
+
+1611
+00:57:44,400 --> 00:57:49,520
+the path would go through the other edge
+
+1612
+00:57:47,040 --> 00:57:52,480
+other outgoing edge and not to this one
+
+1613
+00:57:49,520 --> 00:57:55,760
+so that tells us that the boolean
+
+1614
+00:57:52,480 --> 00:57:59,040
+expression which describes the value the
+
+1615
+00:57:55,760 --> 00:58:01,040
+label of this uh node in the execution
+
+1616
+00:57:59,040 --> 00:58:02,240
+is going to be the and
+
+1617
+00:58:01,040 --> 00:58:05,119
+of the
+
+1618
+00:58:02,240 --> 00:58:08,000
+the value on the node and the um the
+
+1619
+00:58:05,119 --> 00:58:09,040
+query variable of that node
+
+1620
+00:58:08,000 --> 00:58:10,720
+now
+
+1621
+00:58:09,040 --> 00:58:12,799
+think about what's the right way to
+
+1622
+00:58:10,720 --> 00:58:15,200
+label the other edge
+
+1623
+00:58:12,799 --> 00:58:16,880
+the the execution value of the other
+
+1624
+00:58:15,200 --> 00:58:19,040
+edge
+
+1625
+00:58:16,880 --> 00:58:21,599
+again you have to have go through this
+
+1626
+00:58:19,040 --> 00:58:24,160
+node so a has to be one but now you want
+
+1627
+00:58:21,599 --> 00:58:26,480
+x i to be 0 in order to go through that
+
+1628
+00:58:24,160 --> 00:58:29,760
+edge so that means it's going to be a
+
+1629
+00:58:26,480 --> 00:58:29,760
+and the complement of x i
+
+1630
+00:58:30,319 --> 00:58:34,400
+okay so this is going to just tell me
+
+1631
+00:58:32,000 --> 00:58:38,079
+this i'm writing a formula for how we're
+
+1632
+00:58:34,400 --> 00:58:40,240
+labeling these uh these edges
+
+1633
+00:58:38,079 --> 00:58:41,520
+based on the label of the of the parent
+
+1634
+00:58:40,240 --> 00:58:44,799
+node
+
+1635
+00:58:41,520 --> 00:58:46,720
+similarly if i have a bunch of edges
+
+1636
+00:58:44,799 --> 00:58:50,559
+where i already know the values the
+
+1637
+00:58:46,720 --> 00:58:52,880
+labels uh the execution levels there
+
+1638
+00:58:50,559 --> 00:58:56,400
+let's say so i have a1 a2 and a3 what is
+
+1639
+00:58:52,880 --> 00:58:58,319
+the right label to put on this node
+
+1640
+00:58:56,400 --> 00:59:00,640
+um
+
+1641
+00:58:58,319 --> 00:59:02,960
+well if any one of those is a one
+
+1642
+00:59:00,640 --> 00:59:04,960
+that means the path went through that
+
+1643
+00:59:02,960 --> 00:59:06,240
+edge and so therefore it's going to go
+
+1644
+00:59:04,960 --> 00:59:08,799
+through that node
+
+1645
+00:59:06,240 --> 00:59:10,720
+so that tells us that the label to put
+
+1646
+00:59:08,799 --> 00:59:14,720
+on that node is the or
+
+1647
+00:59:10,720 --> 00:59:16,880
+of the labels on the incoming edges
+
+1648
+00:59:14,720 --> 00:59:19,839
+okay
+
+1649
+00:59:16,880 --> 00:59:19,839
+questions on this
+
+1650
+00:59:21,119 --> 00:59:26,319
+so now this is kind of setting the stage
+
+1651
+00:59:24,720 --> 00:59:28,400
+for
+
+1652
+00:59:26,319 --> 00:59:29,760
+starting to think about this
+
+1653
+00:59:28,400 --> 00:59:31,920
+um
+
+1654
+00:59:29,760 --> 00:59:35,920
+more toward polynomials instead instead
+
+1655
+00:59:31,920 --> 00:59:35,920
+of using a boolean algebra
+
+1656
+00:59:36,160 --> 00:59:39,839
+so um
+
+1657
+00:59:38,559 --> 00:59:42,160
+quite i'm getting question how do we
+
+1658
+00:59:39,839 --> 00:59:43,920
+know what the execution path is which
+
+1659
+00:59:42,160 --> 00:59:46,480
+nodes to label we're going to be
+
+1660
+00:59:43,920 --> 00:59:50,480
+labeling all of the nodes
+
+1661
+00:59:46,480 --> 00:59:52,640
+so we start off with labeling the uh
+
+1662
+00:59:50,480 --> 00:59:54,480
+did i say that here we should we start
+
+1663
+00:59:52,640 --> 00:59:56,960
+up i didn't say but i should have we
+
+1664
+00:59:54,480 --> 00:59:58,480
+label the the start node with one that
+
+1665
+00:59:56,960 --> 01:00:00,960
+because the path always goes through the
+
+1666
+00:59:58,480 --> 01:00:04,720
+start node so without even talking about
+
+1667
+01:00:00,960 --> 01:00:07,280
+a path we just label the start node 1.
+
+1668
+01:00:04,720 --> 01:00:09,040
+maybe we'll do an example of this also
+
+1669
+01:00:07,280 --> 01:00:11,520
+but
+
+1670
+01:00:09,040 --> 01:00:13,440
+now once we label this star this node 1
+
+1671
+01:00:11,520 --> 01:00:14,799
+we have an expression
+
+1672
+01:00:13,440 --> 01:00:18,319
+that tells us
+
+1673
+01:00:14,799 --> 01:00:21,040
+how to label the two outgoing um the two
+
+1674
+01:00:18,319 --> 01:00:21,839
+outgoing edges this edge and that edge
+
+1675
+01:00:21,040 --> 01:00:23,520
+um
+
+1676
+01:00:21,839 --> 01:00:25,680
+and i'm doing it without
+
+1677
+01:00:23,520 --> 01:00:27,040
+knowing the values of the variables i'm
+
+1678
+01:00:25,680 --> 01:00:29,200
+doing it kind of i'm just making an
+
+1679
+01:00:27,040 --> 01:00:30,799
+expression uh which is going to describe
+
+1680
+01:00:29,200 --> 01:00:32,400
+what those labels would be
+
+1681
+01:00:30,799 --> 01:00:35,040
+once you tell me what the input
+
+1682
+01:00:32,400 --> 01:00:35,040
+assignment is
+
+1683
+01:00:35,599 --> 01:00:40,480
+okay so i'm just sort of it's almost
+
+1684
+01:00:37,920 --> 01:00:42,400
+like a symbolic execution here i'm just
+
+1685
+01:00:40,480 --> 01:00:44,559
+writing down the different expressions
+
+1686
+01:00:42,400 --> 01:00:46,079
+for how to calculate what these things
+
+1687
+01:00:44,559 --> 01:00:47,839
+should be
+
+1688
+01:00:46,079 --> 01:00:49,200
+um
+
+1689
+01:00:47,839 --> 01:00:50,640
+let's
+
+1690
+01:00:49,200 --> 01:00:53,040
+let me um
+
+1691
+01:00:50,640 --> 01:00:55,440
+maybe this will become clearer as we
+
+1692
+01:00:53,040 --> 01:00:58,400
+continue
+
+1693
+01:00:55,440 --> 01:01:00,880
+so the poll now this is the big idea of
+
+1694
+01:00:58,400 --> 01:01:02,160
+this proof um
+
+1695
+01:01:00,880 --> 01:01:04,319
+we're going to use something called
+
+1696
+01:01:02,160 --> 01:01:06,160
+arithmetization
+
+1697
+01:01:04,319 --> 01:01:08,480
+we're going to convert from thinking
+
+1698
+01:01:06,160 --> 01:01:09,680
+about things in the boolean world to
+
+1699
+01:01:08,480 --> 01:01:11,520
+thinking about things in the
+
+1700
+01:01:09,680 --> 01:01:12,960
+arithmetical world where we you have
+
+1701
+01:01:11,520 --> 01:01:16,079
+arithmetic
+
+1702
+01:01:12,960 --> 01:01:17,680
+over integers let's say for now um
+
+1703
+01:01:16,079 --> 01:01:21,200
+so instead of ands and ors we're going
+
+1704
+01:01:17,680 --> 01:01:21,200
+to be talking about pluses and times
+
+1705
+01:01:21,599 --> 01:01:24,880
+um
+
+1706
+01:01:22,559 --> 01:01:26,400
+and uh
+
+1707
+01:01:24,880 --> 01:01:27,680
+we're going to the way we're going to
+
+1708
+01:01:26,400 --> 01:01:30,559
+make the bridge
+
+1709
+01:01:27,680 --> 01:01:32,480
+is bishop by showing how to simulate the
+
+1710
+01:01:30,559 --> 01:01:34,240
+ands and ors
+
+1711
+01:01:32,480 --> 01:01:35,760
+the hand and or operations with the plus
+
+1712
+01:01:34,240 --> 01:01:37,200
+and times operations
+
+1713
+01:01:35,760 --> 01:01:39,119
+um
+
+1714
+01:01:37,200 --> 01:01:40,480
+so um
+
+1715
+01:01:39,119 --> 01:01:44,799
+assuming
+
+1716
+01:01:40,480 --> 01:01:44,799
+one means true and zero means false
+
+1717
+01:01:45,359 --> 01:01:50,160
+if you have
+
+1718
+01:01:46,720 --> 01:01:52,480
+the expression a and b
+
+1719
+01:01:50,160 --> 01:01:55,760
+as a boolean expression
+
+1720
+01:01:52,480 --> 01:01:57,839
+we can represent that as a times b
+
+1721
+01:01:55,760 --> 01:02:00,400
+using arithmetic
+
+1722
+01:01:57,839 --> 01:02:00,400
+because
+
+1723
+01:02:00,480 --> 01:02:04,160
+um it has it computes exactly the same
+
+1724
+01:02:03,039 --> 01:02:06,960
+value
+
+1725
+01:02:04,160 --> 01:02:08,400
+when we have um
+
+1726
+01:02:06,960 --> 01:02:10,640
+the boolean
+
+1727
+01:02:08,400 --> 01:02:12,400
+representation of true and false uh
+
+1728
+01:02:10,640 --> 01:02:13,520
+being one and zero
+
+1729
+01:02:12,400 --> 01:02:15,200
+so you know
+
+1730
+01:02:13,520 --> 01:02:16,240
+one and one
+
+1731
+01:02:15,200 --> 01:02:18,640
+is one
+
+1732
+01:02:16,240 --> 01:02:21,599
+and one times one is one
+
+1733
+01:02:18,640 --> 01:02:24,160
+and anything else you know one and zero
+
+1734
+01:02:21,599 --> 01:02:26,000
+zero and one zero and zero
+
+1735
+01:02:24,160 --> 01:02:27,280
+if you if you applied the times operator
+
+1736
+01:02:26,000 --> 01:02:30,000
+you're going to get the same value so
+
+1737
+01:02:27,280 --> 01:02:31,760
+times is very much like and in this
+
+1738
+01:02:30,000 --> 01:02:33,599
+sense
+
+1739
+01:02:31,760 --> 01:02:36,960
+okay we're going to write it as just a b
+
+1740
+01:02:33,599 --> 01:02:36,960
+usually without the time symbol
+
+1741
+01:02:37,359 --> 01:02:42,160
+so if we have a complement
+
+1742
+01:02:40,000 --> 01:02:44,000
+how would we simulate that
+
+1743
+01:02:42,160 --> 01:02:44,799
+with arithmetic
+
+1744
+01:02:44,000 --> 01:02:45,839
+well
+
+1745
+01:02:44,799 --> 01:02:49,839
+again
+
+1746
+01:02:45,839 --> 01:02:49,839
+here we're just flipping one and zero
+
+1747
+01:02:50,079 --> 01:02:55,119
+in using the complement operation that's
+
+1748
+01:02:52,799 --> 01:02:57,680
+going to be the same as subtracting the
+
+1749
+01:02:55,119 --> 01:02:58,559
+value from one that also flips it from
+
+1750
+01:02:57,680 --> 01:03:01,200
+uh
+
+1751
+01:02:58,559 --> 01:03:05,200
+between one and zero
+
+1752
+01:03:01,200 --> 01:03:06,720
+um how about or if you have a or b
+
+1753
+01:03:05,200 --> 01:03:09,200
+well um
+
+1754
+01:03:06,720 --> 01:03:12,880
+it's slightly more complicated
+
+1755
+01:03:09,200 --> 01:03:13,760
+because you use a plus b
+
+1756
+01:03:12,880 --> 01:03:14,480
+um
+
+1757
+01:03:13,760 --> 01:03:17,039
+but
+
+1758
+01:03:14,480 --> 01:03:18,480
+you have to subtract off the product
+
+1759
+01:03:17,039 --> 01:03:21,680
+because
+
+1760
+01:03:18,480 --> 01:03:23,680
+what you want is this this
+
+1761
+01:03:21,680 --> 01:03:26,319
+simulation should be
+
+1762
+01:03:23,680 --> 01:03:29,280
+give you exactly the same value so what
+
+1763
+01:03:26,319 --> 01:03:31,680
+if you have one or one
+
+1764
+01:03:29,280 --> 01:03:33,440
+you want that to be a one a one answer
+
+1765
+01:03:31,680 --> 01:03:35,440
+you don't want it to be a two
+
+1766
+01:03:33,440 --> 01:03:37,680
+so you have to subtract off the product
+
+1767
+01:03:35,440 --> 01:03:37,680
+um
+
+1768
+01:03:38,079 --> 01:03:41,359
+uh
+
+1769
+01:03:39,119 --> 01:03:42,559
+and the goal is is to have a faithful
+
+1770
+01:03:41,359 --> 01:03:44,319
+simulation
+
+1771
+01:03:42,559 --> 01:03:46,319
+of the and and or by using plus and
+
+1772
+01:03:44,319 --> 01:03:47,599
+times so you get exactly the same
+
+1773
+01:03:46,319 --> 01:03:51,520
+answers out
+
+1774
+01:03:47,599 --> 01:03:51,520
+when you put in boolean values here
+
+1775
+01:03:51,760 --> 01:03:54,880
+okay so
+
+1776
+01:03:52,960 --> 01:03:56,880
+um
+
+1777
+01:03:54,880 --> 01:03:58,559
+just to say where we're going
+
+1778
+01:03:56,880 --> 01:04:00,480
+what this is going to
+
+1779
+01:03:58,559 --> 01:04:02,640
+um
+
+1780
+01:04:00,480 --> 01:04:04,640
+you know it sounds it's superficially we
+
+1781
+01:04:02,640 --> 01:04:05,680
+haven't really done anything
+
+1782
+01:04:04,640 --> 01:04:06,880
+um
+
+1783
+01:04:05,680 --> 01:04:08,799
+this is
+
+1784
+01:04:06,880 --> 01:04:11,280
+but um
+
+1785
+01:04:08,799 --> 01:04:15,039
+what this is going to enable us to do is
+
+1786
+01:04:11,280 --> 01:04:16,880
+plug in values which are not boolean
+
+1787
+01:04:15,039 --> 01:04:18,559
+because you know it doesn't make sense
+
+1788
+01:04:16,880 --> 01:04:21,280
+to talk about it makes sense to talk
+
+1789
+01:04:18,559 --> 01:04:24,240
+about one and zero but it doesn't make
+
+1790
+01:04:21,280 --> 01:04:25,599
+sense to talk about two and three
+
+1791
+01:04:24,240 --> 01:04:28,559
+but it does talk it makes sense to talk
+
+1792
+01:04:25,599 --> 01:04:30,319
+about two times three
+
+1793
+01:04:28,559 --> 01:04:32,720
+and that's going to be
+
+1794
+01:04:30,319 --> 01:04:35,200
+a useful
+
+1795
+01:04:32,720 --> 01:04:37,520
+um okay so let's just see
+
+1796
+01:04:35,200 --> 01:04:37,520
+um
+
+1797
+01:04:39,520 --> 01:04:42,079
+remember
+
+1798
+01:04:40,640 --> 01:04:43,839
+that that
+
+1799
+01:04:42,079 --> 01:04:46,160
+that um
+
+1800
+01:04:43,839 --> 01:04:47,680
+that inductive labeling procedure that i
+
+1801
+01:04:46,160 --> 01:04:51,280
+described before
+
+1802
+01:04:47,680 --> 01:04:53,440
+um where i labeled gave the execution
+
+1803
+01:04:51,280 --> 01:04:55,280
+labels on the edges
+
+1804
+01:04:53,440 --> 01:04:57,440
+depending upon the label of the parent
+
+1805
+01:04:55,280 --> 01:05:00,240
+node and which node which variable is
+
+1806
+01:04:57,440 --> 01:05:02,640
+being queried um so
+
+1807
+01:05:00,240 --> 01:05:03,920
+if i know that this value is an a but
+
+1808
+01:05:02,640 --> 01:05:06,160
+now the
+
+1809
+01:05:03,920 --> 01:05:07,119
+uh
+
+1810
+01:05:06,160 --> 01:05:08,400
+okay
+
+1811
+01:05:07,119 --> 01:05:11,119
+so i'm just going to write this down
+
+1812
+01:05:08,400 --> 01:05:12,880
+using uh arithmetic instead of using
+
+1813
+01:05:11,119 --> 01:05:14,079
+boolean uh
+
+1814
+01:05:12,880 --> 01:05:17,200
+operations
+
+1815
+01:05:14,079 --> 01:05:18,960
+uh so before we have this was a an a and
+
+1816
+01:05:17,200 --> 01:05:20,079
+x i if you remember from the previous
+
+1817
+01:05:18,960 --> 01:05:22,000
+slide
+
+1818
+01:05:20,079 --> 01:05:22,880
+um now what are we going to use instead
+
+1819
+01:05:22,000 --> 01:05:25,200
+because we're going to use this
+
+1820
+01:05:22,880 --> 01:05:27,760
+conversion here instead of and we're
+
+1821
+01:05:25,200 --> 01:05:30,400
+going to use multiplication
+
+1822
+01:05:27,760 --> 01:05:31,920
+that's just a times x i
+
+1823
+01:05:30,400 --> 01:05:33,200
+what about on this side
+
+1824
+01:05:31,920 --> 01:05:36,640
+here was
+
+1825
+01:05:33,200 --> 01:05:39,520
+a and the complement of x i
+
+1826
+01:05:36,640 --> 01:05:40,319
+now the complement of x i is one minus x
+
+1827
+01:05:39,520 --> 01:05:43,760
+i
+
+1828
+01:05:40,319 --> 01:05:47,599
+in the uh arithmetically so this becomes
+
+1829
+01:05:43,760 --> 01:05:49,280
+a times one minus x i
+
+1830
+01:05:47,599 --> 01:05:51,440
+okay um
+
+1831
+01:05:49,280 --> 01:05:52,559
+similarly
+
+1832
+01:05:51,440 --> 01:05:54,480
+here
+
+1833
+01:05:52,559 --> 01:05:56,880
+we did the or
+
+1834
+01:05:54,480 --> 01:05:59,440
+to get the label on the node from its
+
+1835
+01:05:56,880 --> 01:06:00,559
+the labels of its incoming edges
+
+1836
+01:05:59,440 --> 01:06:03,359
+now we're going to do something a little
+
+1837
+01:06:00,559 --> 01:06:04,559
+strange um because we have a formula
+
+1838
+01:06:03,359 --> 01:06:06,480
+here for or
+
+1839
+01:06:04,559 --> 01:06:07,520
+but for technical reasons that will come
+
+1840
+01:06:06,480 --> 01:06:10,000
+up later
+
+1841
+01:06:07,520 --> 01:06:11,039
+this is not a convenient representation
+
+1842
+01:06:10,000 --> 01:06:12,799
+for us
+
+1843
+01:06:11,039 --> 01:06:15,200
+what i'm going to use instead of this
+
+1844
+01:06:12,799 --> 01:06:18,240
+one i'm just going to simply say
+
+1845
+01:06:15,200 --> 01:06:21,280
+just take the sum
+
+1846
+01:06:18,240 --> 01:06:21,280
+why is that good enough
+
+1847
+01:06:22,079 --> 01:06:26,880
+in this case this is still going to be a
+
+1848
+01:06:24,480 --> 01:06:29,039
+faithful representation and give the
+
+1849
+01:06:26,880 --> 01:06:30,960
+right answer all of the time
+
+1850
+01:06:29,039 --> 01:06:32,559
+and that's because
+
+1851
+01:06:30,960 --> 01:06:35,200
+for our
+
+1852
+01:06:32,559 --> 01:06:37,359
+branching programs
+
+1853
+01:06:35,200 --> 01:06:40,000
+read once or otherwise read once is not
+
+1854
+01:06:37,359 --> 01:06:40,000
+coming in yet
+
+1855
+01:06:40,799 --> 01:06:45,280
+for our branching programs
+
+1856
+01:06:43,119 --> 01:06:48,559
+they're a cyclic
+
+1857
+01:06:45,280 --> 01:06:50,160
+so they can never enter a node on two
+
+1858
+01:06:48,559 --> 01:06:51,920
+different paths
+
+1859
+01:06:50,160 --> 01:06:55,280
+there's at most one way to come into a
+
+1860
+01:06:51,920 --> 01:06:56,799
+node uh um on a path through the on an
+
+1861
+01:06:55,280 --> 01:06:59,280
+execution path through the branching
+
+1862
+01:06:56,799 --> 01:07:01,280
+program if it comes in through uh
+
+1863
+01:06:59,280 --> 01:07:02,160
+through to this edge
+
+1864
+01:07:01,280 --> 01:07:04,000
+um
+
+1865
+01:07:02,160 --> 01:07:05,839
+there's no way for it to for this edge
+
+1866
+01:07:04,000 --> 01:07:08,000
+to also have a path because that means
+
+1867
+01:07:05,839 --> 01:07:10,720
+you have to go out and come back
+
+1868
+01:07:08,000 --> 01:07:10,720
+and and
+
+1869
+01:07:11,119 --> 01:07:14,480
+have a cycle
+
+1870
+01:07:12,960 --> 01:07:18,000
+in the branching program which is
+
+1871
+01:07:14,480 --> 01:07:20,160
+disallowed so at most one of these edges
+
+1872
+01:07:18,000 --> 01:07:22,240
+can have the path go through it
+
+1873
+01:07:20,160 --> 01:07:24,079
+so at most one of these a's
+
+1874
+01:07:22,240 --> 01:07:27,039
+can be a one the others are going to be
+
+1875
+01:07:24,079 --> 01:07:29,119
+zero and therefore just taking the sum
+
+1876
+01:07:27,039 --> 01:07:30,880
+is going to give us a value of either 0
+
+1877
+01:07:29,119 --> 01:07:32,799
+or 1 but it's never going to give a
+
+1878
+01:07:30,880 --> 01:07:35,760
+value higher and so you don't have to
+
+1879
+01:07:32,799 --> 01:07:37,280
+subtract off these product terms
+
+1880
+01:07:35,760 --> 01:07:38,799
+okay a little bit complicated here if
+
+1881
+01:07:37,280 --> 01:07:40,799
+you didn't totally get that
+
+1882
+01:07:38,799 --> 01:07:42,720
+um don't worry for now
+
+1883
+01:07:40,799 --> 01:07:44,640
+you know we're um
+
+1884
+01:07:42,720 --> 01:07:46,960
+you know more concerned that you get the
+
+1885
+01:07:44,640 --> 01:07:49,359
+the big picture of what's going on
+
+1886
+01:07:46,960 --> 01:07:49,359
+um
+
+1887
+01:07:49,680 --> 01:07:54,000
+okay so um
+
+1888
+01:07:51,440 --> 01:07:55,119
+i think we're almost
+
+1889
+01:07:54,000 --> 01:07:58,480
+um
+
+1890
+01:07:55,119 --> 01:07:59,200
+let me just see how far we are
+
+1891
+01:07:58,480 --> 01:08:00,640
+yeah
+
+1892
+01:07:59,200 --> 01:08:04,240
+so i'm just going to work through an
+
+1893
+01:08:00,640 --> 01:08:07,760
+example and i think that'll bring us uh
+
+1894
+01:08:04,240 --> 01:08:09,039
+let's just see any questions here
+
+1895
+01:08:07,760 --> 01:08:12,319
+not seeing any
+
+1896
+01:08:09,039 --> 01:08:14,079
+it means you're either all
+
+1897
+01:08:12,319 --> 01:08:16,560
+totally understanding or or you're
+
+1898
+01:08:14,079 --> 01:08:18,960
+totally lost i never can tell
+
+1899
+01:08:16,560 --> 01:08:21,520
+um so feel free to ask a question if
+
+1900
+01:08:18,960 --> 01:08:24,560
+you're even if you're confused um
+
+1901
+01:08:21,520 --> 01:08:28,640
+you know i'll do my best
+
+1902
+01:08:24,560 --> 01:08:29,679
+okay maybe this example might help
+
+1903
+01:08:28,640 --> 01:08:31,759
+um
+
+1904
+01:08:29,679 --> 01:08:34,000
+so now what we're going to do is using
+
+1905
+01:08:31,759 --> 01:08:35,600
+this sort of arithmetical
+
+1906
+01:08:34,000 --> 01:08:38,159
+view
+
+1907
+01:08:35,600 --> 01:08:41,279
+of the way i
+
+1908
+01:08:38,159 --> 01:08:42,560
+branching program's computation um you
+
+1909
+01:08:41,279 --> 01:08:44,719
+know
+
+1910
+01:08:42,560 --> 01:08:46,400
+is executed when when we're running it
+
+1911
+01:08:44,719 --> 01:08:49,279
+uh um
+
+1912
+01:08:46,400 --> 01:08:52,159
+you know an input through it um this is
+
+1913
+01:08:49,279 --> 01:08:54,159
+going to allow us now to give a meaning
+
+1914
+01:08:52,159 --> 01:08:56,319
+to running the branching program on
+
+1915
+01:08:54,159 --> 01:08:57,759
+non-boolean inputs so maybe this example
+
+1916
+01:08:56,319 --> 01:09:00,080
+will illustrate that
+
+1917
+01:08:57,759 --> 01:09:00,080
+um
+
+1918
+01:09:00,239 --> 01:09:04,480
+so let's just take this particular
+
+1919
+01:09:02,159 --> 01:09:06,640
+branching program here
+
+1920
+01:09:04,480 --> 01:09:08,400
+okay um
+
+1921
+01:09:06,640 --> 01:09:10,159
+this branching program it's just on two
+
+1922
+01:09:08,400 --> 01:09:12,159
+variables x1 and x2 and actually
+
+1923
+01:09:10,159 --> 01:09:14,239
+computes a familiar function
+
+1924
+01:09:12,159 --> 01:09:15,839
+this is the exclusive or function if you
+
+1925
+01:09:14,239 --> 01:09:17,440
+look at it for a minute you'll see that
+
+1926
+01:09:15,839 --> 01:09:20,400
+this is going to give you
+
+1927
+01:09:17,440 --> 01:09:21,759
+x1 exclusive or x2
+
+1928
+01:09:20,400 --> 01:09:25,279
+so it's going to be
+
+1929
+01:09:21,759 --> 01:09:26,400
+one if either of the x1 or x2 are one
+
+1930
+01:09:25,279 --> 01:09:28,319
+but it's going to be zero if they're
+
+1931
+01:09:26,400 --> 01:09:30,719
+both one that's what this branching
+
+1932
+01:09:28,319 --> 01:09:32,839
+program computes
+
+1933
+01:09:30,719 --> 01:09:35,359
+now but let's take a
+
+1934
+01:09:32,839 --> 01:09:37,279
+look um at running this branching
+
+1935
+01:09:35,359 --> 01:09:40,080
+program instead of on the
+
+1936
+01:09:37,279 --> 01:09:44,480
+usual boolean values let's run it on x1
+
+1937
+01:09:40,080 --> 01:09:44,480
+equal to 2 and x2 equal to 3.
+
+1938
+01:09:45,040 --> 01:09:47,520
+now
+
+1939
+01:09:45,839 --> 01:09:48,400
+uh
+
+1940
+01:09:47,520 --> 01:09:50,400
+um
+
+1941
+01:09:48,400 --> 01:09:52,880
+you know a common confusion
+
+1942
+01:09:50,400 --> 01:09:55,199
+might be that you're looking you know
+
+1943
+01:09:52,880 --> 01:09:56,239
+when you do the x1 query you're looking
+
+1944
+01:09:55,199 --> 01:09:57,840
+for
+
+1945
+01:09:56,239 --> 01:10:00,239
+another
+
+1946
+01:09:57,840 --> 01:10:02,640
+outgoing edge which is labeled two no
+
+1947
+01:10:00,239 --> 01:10:04,640
+that's not what i'm doing what i'm doing
+
+1948
+01:10:02,640 --> 01:10:06,800
+here is i'm somehow
+
+1949
+01:10:04,640 --> 01:10:09,280
+uh through this execution
+
+1950
+01:10:06,800 --> 01:10:11,920
+by assigning these other values i'm kind
+
+1951
+01:10:09,280 --> 01:10:13,600
+of blending together the computation of
+
+1952
+01:10:11,920 --> 01:10:16,400
+x x
+
+1953
+01:10:13,600 --> 01:10:18,239
+uh 1 equal to 0 and x1 equal to 1
+
+1954
+01:10:16,400 --> 01:10:20,159
+together
+
+1955
+01:10:18,239 --> 01:10:22,080
+i don't know if that makes any sense but
+
+1956
+01:10:20,159 --> 01:10:24,239
+let's look through the example
+
+1957
+01:10:22,080 --> 01:10:27,600
+um so first of all these are the
+
+1958
+01:10:24,239 --> 01:10:30,800
+labeling rules that i had from
+
+1959
+01:10:27,600 --> 01:10:33,920
+uh the previous slide when i
+
+1960
+01:10:30,800 --> 01:10:35,120
+used plus and times instead of and or
+
+1961
+01:10:33,920 --> 01:10:36,480
+okay
+
+1962
+01:10:35,120 --> 01:10:40,159
+now i'm going to show you how to use
+
+1963
+01:10:36,480 --> 01:10:44,000
+that to label the nodes and edges of
+
+1964
+01:10:40,159 --> 01:10:46,239
+this graph based on this input
+
+1965
+01:10:44,000 --> 01:10:48,320
+and that'll determine an output
+
+1966
+01:10:46,239 --> 01:10:50,400
+would be the value on the uh
+
+1967
+01:10:48,320 --> 01:10:52,560
+the one node
+
+1968
+01:10:50,400 --> 01:10:54,719
+okay so we always start out by labeling
+
+1969
+01:10:52,560 --> 01:10:56,880
+the start node with one
+
+1970
+01:10:54,719 --> 01:10:59,360
+that's just the rule
+
+1971
+01:10:56,880 --> 01:11:00,400
+um
+
+1972
+01:10:59,360 --> 01:11:01,920
+and
+
+1973
+01:11:00,400 --> 01:11:02,800
+uh okay
+
+1974
+01:11:01,920 --> 01:11:04,400
+sorry
+
+1975
+01:11:02,800 --> 01:11:06,560
+let's let's think about it together
+
+1976
+01:11:04,400 --> 01:11:09,199
+before i blurt out the answer
+
+1977
+01:11:06,560 --> 01:11:11,440
+what's going to be the label on
+
+1978
+01:11:09,199 --> 01:11:14,480
+this edge
+
+1979
+01:11:11,440 --> 01:11:16,719
+so this is one of the outgoing edges uh
+
+1980
+01:11:14,480 --> 01:11:19,600
+from a node that already has a label so
+
+1981
+01:11:16,719 --> 01:11:21,600
+that's going to be this case here
+
+1982
+01:11:19,600 --> 01:11:24,080
+and what we do is if we take we take the
+
+1983
+01:11:21,600 --> 01:11:25,920
+label of that node
+
+1984
+01:11:24,080 --> 01:11:27,360
+and since it's a one edge that's
+
+1985
+01:11:25,920 --> 01:11:29,679
+outgoing
+
+1986
+01:11:27,360 --> 01:11:32,560
+we multiply that label
+
+1987
+01:11:29,679 --> 01:11:34,960
+by um the value
+
+1988
+01:11:32,560 --> 01:11:36,640
+of uh that
+
+1989
+01:11:34,960 --> 01:11:38,880
+uh
+
+1990
+01:11:36,640 --> 01:11:41,760
+variable
+
+1991
+01:11:38,880 --> 01:11:44,320
+of the the assignment to that variable
+
+1992
+01:11:41,760 --> 01:11:46,880
+so x1 is two
+
+1993
+01:11:44,320 --> 01:11:48,320
+so we take the the it's good this the a
+
+1994
+01:11:46,880 --> 01:11:51,120
+here is one
+
+1995
+01:11:48,320 --> 01:11:53,520
+x1 is a assigned to two so it's going to
+
+1996
+01:11:51,120 --> 01:11:55,679
+be one times two
+
+1997
+01:11:53,520 --> 01:11:58,400
+is going to be the value
+
+1998
+01:11:55,679 --> 01:12:01,280
+the execution value we put on this edge
+
+1999
+01:11:58,400 --> 01:12:01,280
+so it's going to be 2.
+
+2000
+01:12:02,400 --> 01:12:06,000
+what's going to be the value we put on
+
+2001
+01:12:04,080 --> 01:12:08,800
+the other edge the other edge the 0
+
+2002
+01:12:06,000 --> 01:12:10,320
+outgoing edge from x1
+
+2003
+01:12:08,800 --> 01:12:12,640
+so once you think about that for a
+
+2004
+01:12:10,320 --> 01:12:12,640
+second
+
+2005
+01:12:15,600 --> 01:12:18,239
+so now we're going to use this
+
+2006
+01:12:17,120 --> 01:12:22,880
+expression
+
+2007
+01:12:18,239 --> 01:12:26,960
+it's a times 1 minus x i
+
+2008
+01:12:22,880 --> 01:12:29,120
+and so x i again is two so one minus x i
+
+2009
+01:12:26,960 --> 01:12:30,480
+is one minus two
+
+2010
+01:12:29,120 --> 01:12:32,080
+um
+
+2011
+01:12:30,480 --> 01:12:34,320
+does that mean that's how complementary
+
+2012
+01:12:32,080 --> 01:12:37,760
+but okay let's say that so it's one
+
+2013
+01:12:34,320 --> 01:12:38,800
+minus 2 so that's minus 1 times the
+
+2014
+01:12:37,760 --> 01:12:41,120
+label
+
+2015
+01:12:38,800 --> 01:12:43,679
+1 here so you get minus 1 as the label
+
+2016
+01:12:41,120 --> 01:12:43,679
+on this edge
+
+2017
+01:12:45,360 --> 01:12:47,600
+now
+
+2018
+01:12:47,679 --> 01:12:51,600
+keep in mind
+
+2019
+01:12:49,280 --> 01:12:53,440
+that if i had plugged in and this is
+
+2020
+01:12:51,600 --> 01:12:55,760
+very important if i had plugged in
+
+2021
+01:12:53,440 --> 01:12:57,679
+boolean values here
+
+2022
+01:12:55,760 --> 01:12:59,600
+i would be getting out the same boolean
+
+2023
+01:12:57,679 --> 01:13:01,679
+values that you would get just by
+
+2024
+01:12:59,600 --> 01:13:03,520
+following through the path
+
+2025
+01:13:01,679 --> 01:13:05,040
+you know the things on the path would be
+
+2026
+01:13:03,520 --> 01:13:06,159
+one the things off the path would be
+
+2027
+01:13:05,040 --> 01:13:08,320
+zero
+
+2028
+01:13:06,159 --> 01:13:10,560
+um
+
+2029
+01:13:08,320 --> 01:13:13,280
+but uh
+
+2030
+01:13:10,560 --> 01:13:15,760
+but with what's kind of uh what's
+
+2031
+01:13:13,280 --> 01:13:17,360
+happening here is that
+
+2032
+01:13:15,760 --> 01:13:19,679
+there's still a meaning
+
+2033
+01:13:17,360 --> 01:13:21,280
+when the inputs are not boolean
+
+2034
+01:13:19,679 --> 01:13:24,560
+so let's continue here how about what's
+
+2035
+01:13:21,280 --> 01:13:24,560
+going to be the value on this node
+
+2036
+01:13:25,679 --> 01:13:27,760
+so think with me i think it will help
+
+2037
+01:13:26,960 --> 01:13:28,560
+you
+
+2038
+01:13:27,760 --> 01:13:30,800
+so
+
+2039
+01:13:28,560 --> 01:13:32,960
+now we're using this rule here we add up
+
+2040
+01:13:30,800 --> 01:13:34,880
+all the values on the incoming edges
+
+2041
+01:13:32,960 --> 01:13:36,880
+there's only one incoming edge which is
+
+2042
+01:13:34,880 --> 01:13:38,800
+value two so that means this guy's going
+
+2043
+01:13:36,880 --> 01:13:41,600
+to get a two and similar on this one
+
+2044
+01:13:38,800 --> 01:13:43,920
+this guy's going to get a minus one
+
+2045
+01:13:41,600 --> 01:13:46,640
+now let's take a look at this edge
+
+2046
+01:13:43,920 --> 01:13:50,719
+so this is a the zero outgoing edge from
+
+2047
+01:13:46,640 --> 01:13:53,440
+a node label two with with label x2
+
+2048
+01:13:50,719 --> 01:13:55,520
+so this is the zero outgoing edge
+
+2049
+01:13:53,440 --> 01:13:57,440
+the node the label is two so it's going
+
+2050
+01:13:55,520 --> 01:14:01,199
+to be two times
+
+2051
+01:13:57,440 --> 01:14:03,199
+one minus the x2 value x2 is 3 so 1
+
+2052
+01:14:01,199 --> 01:14:05,920
+minus 3 is minus 2. it's going to be 2
+
+2053
+01:14:03,199 --> 01:14:07,520
+times -2
+
+2054
+01:14:05,920 --> 01:14:10,640
+which is minus 4.
+
+2055
+01:14:07,520 --> 01:14:12,960
+so similarly you can get the value here
+
+2056
+01:14:10,640 --> 01:14:15,760
+the value on the the
+
+2057
+01:14:12,960 --> 01:14:18,320
+one outgoing edge is going to be
+
+2058
+01:14:15,760 --> 01:14:20,480
+2 times
+
+2059
+01:14:18,320 --> 01:14:23,199
+x the x2 value which is 3 so that's
+
+2060
+01:14:20,480 --> 01:14:26,159
+going to be 6.
+
+2061
+01:14:23,199 --> 01:14:26,159
+and these two here
+
+2062
+01:14:26,840 --> 01:14:32,000
+uh um
+
+2063
+01:14:29,120 --> 01:14:34,080
+so you know now we have a minus one
+
+2064
+01:14:32,000 --> 01:14:35,840
+and the outgoing is a
+
+2065
+01:14:34,080 --> 01:14:37,120
+it's a it's a zero edge so it's one
+
+2066
+01:14:35,840 --> 01:14:39,440
+minus three
+
+2067
+01:14:37,120 --> 01:14:41,440
+and here it's going to be one times
+
+2068
+01:14:39,440 --> 01:14:42,560
+minus three
+
+2069
+01:14:41,440 --> 01:14:45,280
+no
+
+2070
+01:14:42,560 --> 01:14:46,880
+1 times 3 i'm sorry 1 times 3.
+
+2071
+01:14:45,280 --> 01:14:48,400
+um
+
+2072
+01:14:46,880 --> 01:14:52,000
+so you get the out the answer is minus
+
+2073
+01:14:48,400 --> 01:14:53,440
+3. so now what's the label on the zero
+
+2074
+01:14:52,000 --> 01:14:55,520
+output edge
+
+2075
+01:14:53,440 --> 01:14:58,719
+so you have to add in add up the two
+
+2076
+01:14:55,520 --> 01:15:00,239
+incoming edges here so we have
+
+2077
+01:14:58,719 --> 01:15:03,600
+uh this
+
+2078
+01:15:00,239 --> 01:15:03,600
+this edge here was a two
+
+2079
+01:15:04,000 --> 01:15:08,960
+this edge coming in here is a six so
+
+2080
+01:15:06,480 --> 01:15:11,520
+it's going to be two plus six
+
+2081
+01:15:08,960 --> 01:15:13,360
+it's eight and what about this edge this
+
+2082
+01:15:11,520 --> 01:15:15,840
+node here this is an important node
+
+2083
+01:15:13,360 --> 01:15:16,560
+because this is going to be the output
+
+2084
+01:15:15,840 --> 01:15:19,040
+so
+
+2085
+01:15:16,560 --> 01:15:19,040
+it has
+
+2086
+01:15:19,440 --> 01:15:22,400
+um
+
+2087
+01:15:20,880 --> 01:15:24,480
+uh
+
+2088
+01:15:22,400 --> 01:15:26,239
+you know minus three coming in
+
+2089
+01:15:24,480 --> 01:15:27,840
+and a minus four coming in so you add
+
+2090
+01:15:26,239 --> 01:15:30,239
+those together
+
+2091
+01:15:27,840 --> 01:15:31,920
+you get a minus seven
+
+2092
+01:15:30,239 --> 01:15:33,600
+i mean you may wonder
+
+2093
+01:15:31,920 --> 01:15:37,199
+what
+
+2094
+01:15:33,600 --> 01:15:39,520
+what the world is going on here um
+
+2095
+01:15:37,199 --> 01:15:41,360
+just a lot of mumbo jumbo uh
+
+2096
+01:15:39,520 --> 01:15:44,080
+but we're gonna make sense of all this
+
+2097
+01:15:41,360 --> 01:15:46,000
+not today uh we're gonna have to argue
+
+2098
+01:15:44,080 --> 01:15:47,199
+why this is
+
+2099
+01:15:46,000 --> 01:15:48,800
+what the meaning that we're gonna get
+
+2100
+01:15:47,199 --> 01:15:51,360
+out of this is gonna be
+
+2101
+01:15:48,800 --> 01:15:52,480
+um but the point point is
+
+2102
+01:15:51,360 --> 01:15:55,679
+that
+
+2103
+01:15:52,480 --> 01:15:58,000
+this is going to lead to a new algorithm
+
+2104
+01:15:55,679 --> 01:15:59,280
+for testing this is again getting back
+
+2105
+01:15:58,000 --> 01:16:00,320
+to what we were
+
+2106
+01:15:59,280 --> 01:16:01,360
+doing
+
+2107
+01:16:00,320 --> 01:16:02,960
+this is
+
+2108
+01:16:01,360 --> 01:16:05,120
+the equivalence problem for read once
+
+2109
+01:16:02,960 --> 01:16:06,320
+branching programs so now what the new
+
+2110
+01:16:05,120 --> 01:16:10,000
+algorithm is going to do is going to
+
+2111
+01:16:06,320 --> 01:16:12,080
+pick a random non-boolean assignment
+
+2112
+01:16:10,000 --> 01:16:14,960
+so it's going to randomly assign
+
+2113
+01:16:12,080 --> 01:16:17,120
+values to the x's
+
+2114
+01:16:14,960 --> 01:16:19,040
+and to some non-boolean values instead
+
+2115
+01:16:17,120 --> 01:16:20,480
+of zeros and ones we're going to plug in
+
+2116
+01:16:19,040 --> 01:16:22,239
+random
+
+2117
+01:16:20,480 --> 01:16:24,159
+integer values we'll make that clear
+
+2118
+01:16:22,239 --> 01:16:25,920
+next time what's what this what the
+
+2119
+01:16:24,159 --> 01:16:26,340
+domain is going to be
+
+2120
+01:16:25,920 --> 01:16:28,080
+um
+
+2121
+01:16:26,340 --> 01:16:30,400
+[Music]
+
+2122
+01:16:28,080 --> 01:16:32,400
+and then once we have that non-boolean
+
+2123
+01:16:30,400 --> 01:16:34,880
+assignment we're going to value b1 and
+
+2124
+01:16:32,400 --> 01:16:36,719
+b2
+
+2125
+01:16:34,880 --> 01:16:38,800
+and if they disagree
+
+2126
+01:16:36,719 --> 01:16:40,000
+out there in that extended
+
+2127
+01:16:38,800 --> 01:16:41,360
+domain
+
+2128
+01:16:40,000 --> 01:16:43,760
+then we have to show that they're not
+
+2129
+01:16:41,360 --> 01:16:45,600
+equivalent and will reject
+
+2130
+01:16:43,760 --> 01:16:47,360
+and we'll also show that
+
+2131
+01:16:45,600 --> 01:16:51,360
+if they were equivalent
+
+2132
+01:16:47,360 --> 01:16:51,360
+then even when we evaluate them
+
+2133
+01:16:52,880 --> 01:16:57,280
+then we have to show that if if they're
+
+2134
+01:16:54,800 --> 01:16:59,120
+not equivalent that they're very likely
+
+2135
+01:16:57,280 --> 01:17:03,120
+to to have a difference in the
+
+2136
+01:16:59,120 --> 01:17:05,199
+non-boolean uh domain and so um if they
+
+2137
+01:17:03,120 --> 01:17:07,840
+agree it it
+
+2138
+01:17:05,199 --> 01:17:09,920
+it gives you evidence that the two are
+
+2139
+01:17:07,840 --> 01:17:12,159
+really equivalent
+
+2140
+01:17:09,920 --> 01:17:15,199
+um so the completeness proof will come
+
+2141
+01:17:12,159 --> 01:17:19,520
+after thanksgiving so with that um i'm
+
+2142
+01:17:15,199 --> 01:17:21,280
+gonna wish you all a nice uh break um oh
+
+2143
+01:17:19,520 --> 01:17:23,120
+we have a check in here sorry
+
+2144
+01:17:21,280 --> 01:17:25,120
+oh yeah this is a good one
+
+2145
+01:17:23,120 --> 01:17:27,520
+i don't know how if you're following me
+
+2146
+01:17:25,120 --> 01:17:31,520
+uh but
+
+2147
+01:17:27,520 --> 01:17:34,640
+um if i plug in one for x1
+
+2148
+01:17:31,520 --> 01:17:36,560
+and y for x2
+
+2149
+01:17:34,640 --> 01:17:38,560
+does it do the inputs in the assignment
+
+2150
+01:17:36,560 --> 01:17:40,560
+need to be distinct no
+
+2151
+01:17:38,560 --> 01:17:41,679
+it could be the same value
+
+2152
+01:17:40,560 --> 01:17:43,920
+i could be
+
+2153
+01:17:41,679 --> 01:17:45,199
+uh two and two here that's perfectly
+
+2154
+01:17:43,920 --> 01:17:47,679
+valid
+
+2155
+01:17:45,199 --> 01:17:49,120
+but here i'm going to plug in 1 for x1
+
+2156
+01:17:47,679 --> 01:17:51,920
+i'm going to plug in a
+
+2157
+01:17:49,120 --> 01:17:52,880
+variable for x2 y
+
+2158
+01:17:51,920 --> 01:17:54,719
+and i'm going to do the whole
+
+2159
+01:17:52,880 --> 01:17:58,440
+calculation that i just did and now
+
+2160
+01:17:54,719 --> 01:17:58,440
+what's going to be the output
+
+2161
+01:17:59,040 --> 01:18:03,120
+and i mean this looks like a pain to
+
+2162
+01:18:01,120 --> 01:18:06,080
+figure out you could do it it looks like
+
+2163
+01:18:03,120 --> 01:18:08,239
+a pain but let me give you a big hint
+
+2164
+01:18:06,080 --> 01:18:10,719
+um
+
+2165
+01:18:08,239 --> 01:18:13,280
+remember that this thing
+
+2166
+01:18:10,719 --> 01:18:14,960
+is supposed to be calculating the
+
+2167
+01:18:13,280 --> 01:18:17,760
+original branching program calculates
+
+2168
+01:18:14,960 --> 01:18:20,400
+the exclusive or function
+
+2169
+01:18:17,760 --> 01:18:23,040
+and that means when i plug in
+
+2170
+01:18:20,400 --> 01:18:24,960
+um a boolean value
+
+2171
+01:18:23,040 --> 01:18:27,120
+i should get the exclusive or value
+
+2172
+01:18:24,960 --> 01:18:30,960
+coming out
+
+2173
+01:18:27,120 --> 01:18:33,199
+so if i already know that x1 is one
+
+2174
+01:18:30,960 --> 01:18:34,719
+which of these is consistent
+
+2175
+01:18:33,199 --> 01:18:36,239
+with getting
+
+2176
+01:18:34,719 --> 01:18:38,560
+a value
+
+2177
+01:18:36,239 --> 01:18:40,719
+uh that the exclusive or function would
+
+2178
+01:18:38,560 --> 01:18:44,719
+compute
+
+2179
+01:18:40,719 --> 01:18:44,719
+so let me launch the poll on that
+
+2180
+01:18:44,880 --> 01:18:47,840
+so we're at a time
+
+2181
+01:18:50,480 --> 01:18:55,360
+so let's just let this run for another
+
+2182
+01:18:53,360 --> 01:18:56,320
+10 seconds
+
+2183
+01:18:55,360 --> 01:18:58,560
+okay
+
+2184
+01:18:56,320 --> 01:19:00,000
+i'm going to close this
+
+2185
+01:18:58,560 --> 01:19:02,320
+ready
+
+2186
+01:19:00,000 --> 01:19:02,320
+um
+
+2187
+01:19:03,840 --> 01:19:07,040
+yes indeed
+
+2188
+01:19:05,199 --> 01:19:09,199
+a is the right answer because that's one
+
+2189
+01:19:07,040 --> 01:19:10,560
+if i know that one variable is one then
+
+2190
+01:19:09,199 --> 01:19:12,159
+the exclusive or
+
+2191
+01:19:10,560 --> 01:19:13,520
+is going to be the complement of the
+
+2192
+01:19:12,159 --> 01:19:15,760
+other variable
+
+2193
+01:19:13,520 --> 01:19:17,920
+which is one minus y so that's what you
+
+2194
+01:19:15,760 --> 01:19:19,760
+would get if you calculated this
+
+2195
+01:19:17,920 --> 01:19:21,840
+um
+
+2196
+01:19:19,760 --> 01:19:23,679
+because this is what we did today
+
+2197
+01:19:21,840 --> 01:19:25,520
+and um
+
+2198
+01:19:23,679 --> 01:19:26,880
+feel free to ask questions so let me
+
+2199
+01:19:25,520 --> 01:19:29,199
+just so we're going to spend a good
+
+2200
+01:19:26,880 --> 01:19:30,960
+chunk i'll review this
+
+2201
+01:19:29,199 --> 01:19:33,199
+what we've done so far but then we're
+
+2202
+01:19:30,960 --> 01:19:35,760
+going to carry it forward and spend a
+
+2203
+01:19:33,199 --> 01:19:36,480
+good chunk of tuesday's lecture after
+
+2204
+01:19:35,760 --> 01:19:39,440
+the
+
+2205
+01:19:36,480 --> 01:19:41,120
+thanksgiving break uh proving that this
+
+2206
+01:19:39,440 --> 01:19:44,239
+uh procedure that i just subscribed
+
+2207
+01:19:41,120 --> 01:19:46,719
+worked and works and it's um
+
+2208
+01:19:44,239 --> 01:19:49,040
+it's an interesting but somewhat
+
+2209
+01:19:46,719 --> 01:19:50,719
+you know it's not such an easy proof uh
+
+2210
+01:19:49,040 --> 01:19:54,000
+so we're going to spend the try to do it
+
+2211
+01:19:50,719 --> 01:19:56,159
+slowly and clearly and then um but this
+
+2212
+01:19:54,000 --> 01:19:57,920
+notion of arithmetization is going to be
+
+2213
+01:19:56,159 --> 01:19:59,440
+this is this was
+
+2214
+01:19:57,920 --> 01:20:01,520
+you know
+
+2215
+01:19:59,440 --> 01:20:04,560
+it's it's an important notion in
+
+2216
+01:20:01,520 --> 01:20:06,639
+complexity and so um we'll
+
+2217
+01:20:04,560 --> 01:20:08,080
+we'll see it again coming up in another
+
+2218
+01:20:06,639 --> 01:20:10,480
+proof afterwards
+
+2219
+01:20:08,080 --> 01:20:12,080
+in about interactive proof systems
+
+2220
+01:20:10,480 --> 01:20:14,400
+okay um
+
+2221
+01:20:12,080 --> 01:20:16,320
+so please ask questions
+
+2222
+01:20:14,400 --> 01:20:19,440
+so the output is the value of the one
+
+2223
+01:20:16,320 --> 01:20:22,320
+output one state yes
+
+2224
+01:20:19,440 --> 01:20:24,320
+that was a question i got
+
+2225
+01:20:22,320 --> 01:20:26,400
+other questions
+
+2226
+01:20:24,320 --> 01:20:29,600
+somebody's saying minus seven is not the
+
+2227
+01:20:26,400 --> 01:20:29,600
+xor of two and three
+
+2228
+01:20:30,639 --> 01:20:35,440
+what is the xor of two and three
+
+2229
+01:20:33,440 --> 01:20:37,360
+so by the way i i should say we kind of
+
+2230
+01:20:35,440 --> 01:20:38,560
+ran a little short on time i'm not
+
+2231
+01:20:37,360 --> 01:20:42,480
+saying that we discovered some
+
+2232
+01:20:38,560 --> 01:20:44,960
+fundamental new truth about xor here
+
+2233
+01:20:42,480 --> 01:20:46,800
+um because that would be bizarre
+
+2234
+01:20:44,960 --> 01:20:50,400
+it really depends on the arbitrary
+
+2235
+01:20:46,800 --> 01:20:52,159
+decision that we made to say true is one
+
+2236
+01:20:50,400 --> 01:20:53,600
+and false is zero
+
+2237
+01:20:52,159 --> 01:20:55,600
+we could have come up with a different
+
+2238
+01:20:53,600 --> 01:20:57,520
+representation for true and false and
+
+2239
+01:20:55,600 --> 01:20:59,600
+then you would get a different value
+
+2240
+01:20:57,520 --> 01:21:00,880
+for xor coming out of that you know from
+
+2241
+01:20:59,600 --> 01:21:03,120
+the arithmetization that i just
+
+2242
+01:21:00,880 --> 01:21:05,679
+described um
+
+2243
+01:21:03,120 --> 01:21:07,679
+but uh for this particular way of
+
+2244
+01:21:05,679 --> 01:21:09,440
+representing true and false that's how
+
+2245
+01:21:07,679 --> 01:21:11,679
+xor and this particular branching
+
+2246
+01:21:09,440 --> 01:21:13,840
+program that's how uh
+
+2247
+01:21:11,679 --> 01:21:15,600
+what how xor evaluates
+
+2248
+01:21:13,840 --> 01:21:17,520
+the the remainder of the proof so
+
+2249
+01:21:15,600 --> 01:21:19,600
+somebody's asking which is it which is
+
+2250
+01:21:17,520 --> 01:21:21,280
+true the fundamental theorem of algebra
+
+2251
+01:21:19,600 --> 01:21:23,199
+which talks about polynomials and the
+
+2252
+01:21:21,280 --> 01:21:25,360
+number of roots that you can have that's
+
+2253
+01:21:23,199 --> 01:21:26,639
+going to be that's going to be critical
+
+2254
+01:21:25,360 --> 01:21:28,719
+um
+
+2255
+01:21:26,639 --> 01:21:30,000
+uh so the that is the fundamental
+
+2256
+01:21:28,719 --> 01:21:32,239
+theorem of algebra that's where we're
+
+2257
+01:21:30,000 --> 01:21:33,920
+going good good question
+
+2258
+01:21:32,239 --> 01:21:35,360
+well you know so the
+
+2259
+01:21:33,920 --> 01:21:37,280
+somebody's complaining that you know
+
+2260
+01:21:35,360 --> 01:21:38,480
+we're not taking the
+
+2261
+01:21:37,280 --> 01:21:40,960
+digit
+
+2262
+01:21:38,480 --> 01:21:42,560
+binary representation of two and three
+
+2263
+01:21:40,960 --> 01:21:44,159
+and taking the
+
+2264
+01:21:42,560 --> 01:21:45,360
+bit by bit
+
+2265
+01:21:44,159 --> 01:21:47,440
+um
+
+2266
+01:21:45,360 --> 01:21:48,320
+xor well that's i'm not
+
+2267
+01:21:47,440 --> 01:21:50,080
+you know
+
+2268
+01:21:48,320 --> 01:21:50,800
+binary representation is not a part of
+
+2269
+01:21:50,080 --> 01:21:52,400
+this
+
+2270
+01:21:50,800 --> 01:21:54,159
+we're thinking of these as two elements
+
+2271
+01:21:52,400 --> 01:21:56,400
+of a field
+
+2272
+01:21:54,159 --> 01:21:58,400
+um of a finite field which we'll talk
+
+2273
+01:21:56,400 --> 01:22:00,159
+about later
+
+2274
+01:21:58,400 --> 01:22:00,960
+represent the binary representation is
+
+2275
+01:22:00,159 --> 01:22:02,800
+isn't
+
+2276
+01:22:00,960 --> 01:22:04,320
+is not is not entering into this
+
+2277
+01:22:02,800 --> 01:22:06,560
+discussion
+
+2278
+01:22:04,320 --> 01:22:09,760
+um
+
+2279
+01:22:06,560 --> 01:22:11,280
+so talk about why just doing the sum is
+
+2280
+01:22:09,760 --> 01:22:13,520
+enough
+
+2281
+01:22:11,280 --> 01:22:13,520
+um
+
+2282
+01:22:15,920 --> 01:22:19,920
+i think that was
+
+2283
+01:22:18,000 --> 01:22:23,360
+so why is it i mean here it is why is
+
+2284
+01:22:19,920 --> 01:22:25,440
+just doing the sum when i'm
+
+2285
+01:22:23,360 --> 01:22:26,159
+looking at the um
+
+2286
+01:22:25,440 --> 01:22:28,960
+the
+
+2287
+01:22:26,159 --> 01:22:30,480
+how to describe the value of this node
+
+2288
+01:22:28,960 --> 01:22:32,000
+based upon the values of all the
+
+2289
+01:22:30,480 --> 01:22:34,000
+incoming nodes
+
+2290
+01:22:32,000 --> 01:22:35,600
+and remember the point of the the
+
+2291
+01:22:34,000 --> 01:22:38,320
+starting point of this is that we have
+
+2292
+01:22:35,600 --> 01:22:41,920
+to faithfully represent the boolean
+
+2293
+01:22:38,320 --> 01:22:43,280
+logic with the arithmetic
+
+2294
+01:22:41,920 --> 01:22:45,840
+and then we're going to use that and
+
+2295
+01:22:43,280 --> 01:22:47,199
+extend it to non-boolean values but as a
+
+2296
+01:22:45,840 --> 01:22:49,199
+starting point we have to faithfully
+
+2297
+01:22:47,199 --> 01:22:51,679
+represent the boolean values
+
+2298
+01:22:49,199 --> 01:22:53,520
+now the boolean values
+
+2299
+01:22:51,679 --> 01:22:54,639
+on the incoming edges at most one of
+
+2300
+01:22:53,520 --> 01:22:56,159
+them can be
+
+2301
+01:22:54,639 --> 01:22:57,199
+can be a one
+
+2302
+01:22:56,159 --> 01:23:00,320
+because
+
+2303
+01:22:57,199 --> 01:23:01,920
+the ones correspond to the
+
+2304
+01:23:00,320 --> 01:23:04,159
+edges
+
+2305
+01:23:01,920 --> 01:23:06,719
+of the execution path
+
+2306
+01:23:04,159 --> 01:23:08,800
+and you can't make an execution path
+
+2307
+01:23:06,719 --> 01:23:10,480
+um that's going to have two
+
+2308
+01:23:08,800 --> 01:23:12,320
+branches
+
+2309
+01:23:10,480 --> 01:23:13,920
+that's going to go through a node twice
+
+2310
+01:23:12,320 --> 01:23:15,360
+because then you have a loop
+
+2311
+01:23:13,920 --> 01:23:17,360
+and we don't have there's no cycles
+
+2312
+01:23:15,360 --> 01:23:18,480
+allowed
+
+2313
+01:23:17,360 --> 01:23:20,560
+okay
+
+2314
+01:23:18,480 --> 01:23:22,000
+so i think where it's at four
+
+2315
+01:23:20,560 --> 01:23:23,679
+um
+
+2316
+01:23:22,000 --> 01:23:27,040
+i want to say farewell to all you all
+
+2317
+01:23:23,679 --> 01:23:30,440
+have a great uh week and i'll see you
+
+2318
+01:23:27,040 --> 01:23:30,440
+when you get back
+
+2319
+01:23:40,560 --> 01:23:42,639
+you
+

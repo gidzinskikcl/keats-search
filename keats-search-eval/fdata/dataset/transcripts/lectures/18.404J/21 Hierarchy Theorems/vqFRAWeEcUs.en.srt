@@ -1,0 +1,9044 @@
+1
+00:00:25,119 --> 00:00:29,199
+okay
+
+2
+00:00:25,920 --> 00:00:32,239
+welcome everybody so we are um
+
+3
+00:00:29,199 --> 00:00:34,480
+here today lecture number 21 uh coming
+
+4
+00:00:32,239 --> 00:00:36,719
+into the home stretch of the course
+
+5
+00:00:34,480 --> 00:00:39,680
+uh i'd say probably
+
+6
+00:00:36,719 --> 00:00:41,520
+um this last quarter of the class of the
+
+7
+00:00:39,680 --> 00:00:43,040
+course is a bit more technical uh
+
+8
+00:00:41,520 --> 00:00:44,079
+perhaps so a little bit more abstract
+
+9
+00:00:43,040 --> 00:00:46,399
+some of the theorems are going to be
+
+10
+00:00:44,079 --> 00:00:48,079
+more difficult um so
+
+11
+00:00:46,399 --> 00:00:51,360
+i'll i'll try to work through them
+
+12
+00:00:48,079 --> 00:00:52,320
+slowly and answer your questions but uh
+
+13
+00:00:51,360 --> 00:00:54,399
+um
+
+14
+00:00:52,320 --> 00:00:56,000
+you know it's i think you can expect
+
+15
+00:00:54,399 --> 00:00:59,520
+them to find the material a bit more
+
+16
+00:00:56,000 --> 00:00:59,950
+challenging as we started uh
+
+17
+00:00:59,520 --> 00:01:02,079
+um
+
+18
+00:00:59,950 --> 00:01:03,359
+[Music]
+
+19
+00:01:02,079 --> 00:01:05,920
+uh
+
+20
+00:01:03,359 --> 00:01:06,799
+as we started um
+
+21
+00:01:05,920 --> 00:01:08,799
+um
+
+22
+00:01:06,799 --> 00:01:11,680
+you know with uh
+
+23
+00:01:08,799 --> 00:01:13,360
+this theorem last time uh
+
+24
+00:01:11,680 --> 00:01:14,320
+uh
+
+25
+00:01:13,360 --> 00:01:16,400
+uh
+
+26
+00:01:14,320 --> 00:01:19,200
+non-deterministic log space being closed
+
+27
+00:01:16,400 --> 00:01:21,680
+under complement so nl equals colonel
+
+28
+00:01:19,200 --> 00:01:23,360
+we kind of only got about part
+
+29
+00:01:21,680 --> 00:01:25,840
+maybe a third of the way through that so
+
+30
+00:01:23,360 --> 00:01:26,799
+i'm going to start over with that and
+
+31
+00:01:25,840 --> 00:01:28,240
+spend
+
+32
+00:01:26,799 --> 00:01:30,240
+kind of the first half of the lecture
+
+33
+00:01:28,240 --> 00:01:32,159
+today talking about that and then we're
+
+34
+00:01:30,240 --> 00:01:33,680
+going to talk about the
+
+35
+00:01:32,159 --> 00:01:35,520
+hierarchy theorems which are very
+
+36
+00:01:33,680 --> 00:01:38,400
+important um
+
+37
+00:01:35,520 --> 00:01:40,880
+uh aspect of the complexity landscape
+
+38
+00:01:38,400 --> 00:01:43,439
+basically they tell you
+
+39
+00:01:40,880 --> 00:01:44,880
+that if you allow
+
+40
+00:01:43,439 --> 00:01:48,399
+you know your favorite model let's say
+
+41
+00:01:44,880 --> 00:01:50,240
+turing machines to have more resources
+
+42
+00:01:48,399 --> 00:01:52,960
+then they can do more things
+
+43
+00:01:50,240 --> 00:01:55,360
+um but we'll get to that in due course
+
+44
+00:01:52,960 --> 00:01:56,640
+okay so let us
+
+45
+00:01:55,360 --> 00:01:57,680
+uh
+
+46
+00:01:56,640 --> 00:02:01,040
+go back
+
+47
+00:01:57,680 --> 00:02:02,479
+to oops reminder to myself
+
+48
+00:02:01,040 --> 00:02:05,200
+um
+
+49
+00:02:02,479 --> 00:02:05,200
+go back to
+
+50
+00:02:05,520 --> 00:02:10,399
+the immerman celeb cheney
+
+51
+00:02:07,840 --> 00:02:11,920
+uh which is that nl is
+
+52
+00:02:10,399 --> 00:02:13,280
+equal to co nl
+
+53
+00:02:11,920 --> 00:02:14,080
+um
+
+54
+00:02:13,280 --> 00:02:15,680
+so
+
+55
+00:02:14,080 --> 00:02:18,319
+as i mentioned these are going to be the
+
+56
+00:02:15,680 --> 00:02:20,840
+same slides as last time uh and i'll
+
+57
+00:02:18,319 --> 00:02:24,160
+just try to walk through them slowly
+
+58
+00:02:20,840 --> 00:02:27,360
+um i hope hope i hope you i hope you uh
+
+59
+00:02:24,160 --> 00:02:29,440
+get it but if you don't you know uh
+
+60
+00:02:27,360 --> 00:02:31,519
+ask me at the ta's questions
+
+61
+00:02:29,440 --> 00:02:34,000
+so we're gonna first i mean
+
+62
+00:02:31,519 --> 00:02:36,560
+the the the the i
+
+63
+00:02:34,000 --> 00:02:38,400
+the thing we're gonna show is that the
+
+64
+00:02:36,560 --> 00:02:41,200
+complement of path
+
+65
+00:02:38,400 --> 00:02:44,160
+is solvable in non-deterministic log
+
+66
+00:02:41,200 --> 00:02:47,120
+space we already know that path
+
+67
+00:02:44,160 --> 00:02:48,640
+is solvable in nl that's easy to do you
+
+68
+00:02:47,120 --> 00:02:50,560
+basically just
+
+69
+00:02:48,640 --> 00:02:52,879
+start at the start node
+
+70
+00:02:50,560 --> 00:02:54,720
+and you guess the sequence of nodes
+
+71
+00:02:52,879 --> 00:02:56,800
+storing only the current node in your
+
+72
+00:02:54,720 --> 00:02:58,800
+log space working memory
+
+73
+00:02:56,800 --> 00:03:00,720
+on the on your in your logs based work
+
+74
+00:02:58,800 --> 00:03:02,640
+tape
+
+75
+00:03:00,720 --> 00:03:03,840
+you guess the sequence of nodes
+
+76
+00:03:02,640 --> 00:03:06,159
+on the different branches of the
+
+77
+00:03:03,840 --> 00:03:09,519
+non-determinism and if you ever get to
+
+78
+00:03:06,159 --> 00:03:12,000
+the target node t then you can accept um
+
+79
+00:03:09,519 --> 00:03:13,760
+but how can a non-deterministic log
+
+80
+00:03:12,000 --> 00:03:16,400
+space machine know
+
+81
+00:03:13,760 --> 00:03:18,000
+or accept the complement of path so it
+
+82
+00:03:16,400 --> 00:03:19,440
+would have to accept when there's no
+
+83
+00:03:18,000 --> 00:03:21,840
+path
+
+84
+00:03:19,440 --> 00:03:23,200
+um and that uh is
+
+85
+00:03:21,840 --> 00:03:25,920
+a lot harder
+
+86
+00:03:23,200 --> 00:03:28,080
+but it's a big surprise to the
+
+87
+00:03:25,920 --> 00:03:28,959
+complexity community that it is it is
+
+88
+00:03:28,080 --> 00:03:31,200
+true
+
+89
+00:03:28,959 --> 00:03:34,000
+um
+
+90
+00:03:31,200 --> 00:03:35,440
+so as we uh discussed last time we're
+
+91
+00:03:34,000 --> 00:03:37,519
+going to talk about
+
+92
+00:03:35,440 --> 00:03:39,840
+computing functions with a
+
+93
+00:03:37,519 --> 00:03:41,519
+non-deterministic machine and that turns
+
+94
+00:03:39,840 --> 00:03:43,760
+out to be a convenient way of looking at
+
+95
+00:03:41,519 --> 00:03:43,760
+this
+
+96
+00:03:44,159 --> 00:03:46,879
+so we're going to have non-deterministic
+
+97
+00:03:45,840 --> 00:03:48,319
+machines
+
+98
+00:03:46,879 --> 00:03:50,640
+that have different branches of their
+
+99
+00:03:48,319 --> 00:03:52,000
+non-determinism you know on some input
+
+100
+00:03:50,640 --> 00:03:53,439
+and they're supposed to compute some
+
+101
+00:03:52,000 --> 00:03:55,360
+function value
+
+102
+00:03:53,439 --> 00:03:57,040
+you know remaining on the tape
+
+103
+00:03:55,360 --> 00:03:59,200
+but because of the non-determinism you
+
+104
+00:03:57,040 --> 00:04:01,200
+can't imagine that different branches
+
+105
+00:03:59,200 --> 00:04:02,879
+might have different function outputs
+
+106
+00:04:01,200 --> 00:04:06,080
+well that's not allowed
+
+107
+00:04:02,879 --> 00:04:08,879
+all branches must either report the
+
+108
+00:04:06,080 --> 00:04:10,799
+value of the function
+
+109
+00:04:08,879 --> 00:04:12,720
+um that we're trying to compute
+
+110
+00:04:10,799 --> 00:04:15,200
+or they can punt
+
+111
+00:04:12,720 --> 00:04:17,840
+basically they can reject
+
+112
+00:04:15,200 --> 00:04:20,400
+and say well you know uh
+
+113
+00:04:17,840 --> 00:04:21,840
+i i you know it's a basically i i don't
+
+114
+00:04:20,400 --> 00:04:24,080
+know
+
+115
+00:04:21,840 --> 00:04:25,919
+so all branches can must either report
+
+116
+00:04:24,080 --> 00:04:28,800
+the correct answer or they can say i
+
+117
+00:04:25,919 --> 00:04:31,199
+don't know and some branch must at least
+
+118
+00:04:28,800 --> 00:04:33,280
+one branch must report an answer
+
+119
+00:04:31,199 --> 00:04:36,080
+must report the answer
+
+120
+00:04:33,280 --> 00:04:38,160
+um for and that's what it means to be
+
+121
+00:04:36,080 --> 00:04:40,720
+computing a function
+
+122
+00:04:38,160 --> 00:04:42,880
+with a non-deterministic machine
+
+123
+00:04:40,720 --> 00:04:44,400
+and we're going to show that certain
+
+124
+00:04:42,880 --> 00:04:47,520
+functions can be computed with
+
+125
+00:04:44,400 --> 00:04:49,680
+non-deterministic log space machines
+
+126
+00:04:47,520 --> 00:04:52,800
+um
+
+127
+00:04:49,680 --> 00:04:53,919
+in particular this path function
+
+128
+00:04:52,800 --> 00:04:55,520
+which sort of
+
+129
+00:04:53,919 --> 00:04:56,479
+incorporates both the positive and
+
+130
+00:04:55,520 --> 00:04:58,479
+negative
+
+131
+00:04:56,479 --> 00:05:00,800
+of the pair both when there is a path
+
+132
+00:04:58,479 --> 00:05:02,400
+and when there is an is not a path
+
+133
+00:05:00,800 --> 00:05:04,720
+into into the function because the
+
+134
+00:05:02,400 --> 00:05:07,840
+function has to answer yes when there is
+
+135
+00:05:04,720 --> 00:05:10,560
+a path from s to t and no when there is
+
+136
+00:05:07,840 --> 00:05:13,120
+no path from s to t
+
+137
+00:05:10,560 --> 00:05:16,560
+okay so
+
+138
+00:05:13,120 --> 00:05:16,560
+if you could do this you're done
+
+139
+00:05:16,800 --> 00:05:20,240
+because
+
+140
+00:05:18,000 --> 00:05:23,199
+um you can make a non-deterministic you
+
+141
+00:05:20,240 --> 00:05:24,800
+could make an nl machine
+
+142
+00:05:23,199 --> 00:05:27,039
+so if you could compute the path
+
+143
+00:05:24,800 --> 00:05:29,199
+function you could make an nl machine
+
+144
+00:05:27,039 --> 00:05:31,680
+which would accept whenever the function
+
+145
+00:05:29,199 --> 00:05:31,680
+says no
+
+146
+00:05:32,080 --> 00:05:35,840
+um
+
+147
+00:05:33,360 --> 00:05:37,280
+and the other cases you know
+
+148
+00:05:35,840 --> 00:05:39,840
+and if
+
+149
+00:05:37,280 --> 00:05:40,880
+the um machine that's computing the
+
+150
+00:05:39,840 --> 00:05:43,039
+function
+
+151
+00:05:40,880 --> 00:05:44,000
+uh rejects you can then you'll reject as
+
+152
+00:05:43,039 --> 00:05:46,320
+well
+
+153
+00:05:44,000 --> 00:05:47,600
+but you accept if the function says no
+
+154
+00:05:46,320 --> 00:05:50,000
+and so therefore you're going to be
+
+155
+00:05:47,600 --> 00:05:52,400
+making a an nl machine which does the
+
+156
+00:05:50,000 --> 00:05:53,280
+complement of the path problem so it's
+
+157
+00:05:52,400 --> 00:05:55,520
+uh
+
+158
+00:05:53,280 --> 00:05:55,520
+you know
+
+159
+00:05:55,759 --> 00:05:59,759
+if you can compute the path function
+
+160
+00:05:58,160 --> 00:06:01,360
+that would be great
+
+161
+00:05:59,759 --> 00:06:03,600
+so that's what we would like to be able
+
+162
+00:06:01,360 --> 00:06:03,600
+to do
+
+163
+00:06:04,560 --> 00:06:08,720
+so as i mentioned we're going to have
+
+164
+00:06:06,639 --> 00:06:10,960
+two other values that that are going to
+
+165
+00:06:08,720 --> 00:06:12,400
+be relevant to computing the path
+
+166
+00:06:10,960 --> 00:06:13,440
+function which is what we're ultimately
+
+167
+00:06:12,400 --> 00:06:15,199
+going to do
+
+168
+00:06:13,440 --> 00:06:18,240
+and that's going to be the number of
+
+169
+00:06:15,199 --> 00:06:20,080
+nodes that you can reach from the start
+
+170
+00:06:18,240 --> 00:06:22,240
+uh
+
+171
+00:06:20,080 --> 00:06:24,720
+from the the start node
+
+172
+00:06:22,240 --> 00:06:27,360
+in your graph and the and then
+
+173
+00:06:24,720 --> 00:06:31,039
+for r is is the collection of nodes and
+
+174
+00:06:27,360 --> 00:06:31,919
+c is the number of reachable nodes
+
+175
+00:06:31,039 --> 00:06:34,160
+um
+
+176
+00:06:31,919 --> 00:06:35,199
+so shown on this picture and here i'm if
+
+177
+00:06:34,160 --> 00:06:37,600
+it's
+
+178
+00:06:35,199 --> 00:06:38,400
+helpful to you to see it in a more form
+
+179
+00:06:37,600 --> 00:06:39,919
+is
+
+180
+00:06:38,400 --> 00:06:41,919
+you
+
+181
+00:06:39,919 --> 00:06:44,160
+can think of r as a function of the
+
+182
+00:06:41,919 --> 00:06:46,000
+graph and the start node of course but
+
+183
+00:06:44,160 --> 00:06:48,080
+sometimes we'll just call it r you know
+
+184
+00:06:46,000 --> 00:06:51,120
+when it's clear which graph and start
+
+185
+00:06:48,080 --> 00:06:51,120
+node we're talking about
+
+186
+00:06:52,560 --> 00:06:58,080
+r is the set of reachable nodes so it's
+
+187
+00:06:55,280 --> 00:06:59,599
+the collection u
+
+188
+00:06:58,080 --> 00:07:00,840
+such that
+
+189
+00:06:59,599 --> 00:07:02,800
+the answer is
+
+190
+00:07:00,840 --> 00:07:03,680
+yes and
+
+191
+00:07:02,800 --> 00:07:06,639
+c
+
+192
+00:07:03,680 --> 00:07:08,960
+is the size of r
+
+193
+00:07:06,639 --> 00:07:08,960
+okay
+
+194
+00:07:10,240 --> 00:07:13,840
+so
+
+195
+00:07:11,199 --> 00:07:15,840
+the way we're going to start
+
+196
+00:07:13,840 --> 00:07:16,800
+is kind of an easy
+
+197
+00:07:15,840 --> 00:07:18,319
+theorem
+
+198
+00:07:16,800 --> 00:07:21,759
+though this is still going to be
+
+199
+00:07:18,319 --> 00:07:24,880
+relevant kind of at the end um but for
+
+200
+00:07:21,759 --> 00:07:26,880
+now it's really more a practice with the
+
+201
+00:07:24,880 --> 00:07:28,880
+concept that we have come up you know
+
+202
+00:07:26,880 --> 00:07:32,240
+this function concept that we've just
+
+203
+00:07:28,880 --> 00:07:33,840
+introduced so i want to say that
+
+204
+00:07:32,240 --> 00:07:36,080
+the path function
+
+205
+00:07:33,840 --> 00:07:38,319
+with an nl machine
+
+206
+00:07:36,080 --> 00:07:39,120
+then i can compute the count
+
+207
+00:07:38,319 --> 00:07:41,120
+uh
+
+208
+00:07:39,120 --> 00:07:43,280
+with an nl machine
+
+209
+00:07:41,120 --> 00:07:45,199
+okay so understand what computing the
+
+210
+00:07:43,280 --> 00:07:47,440
+path function means
+
+211
+00:07:45,199 --> 00:07:48,639
+that you have your nl machine
+
+212
+00:07:47,440 --> 00:07:50,240
+and
+
+213
+00:07:48,639 --> 00:07:52,960
+um
+
+214
+00:07:50,240 --> 00:07:55,759
+every branch has to either say i don't
+
+215
+00:07:52,960 --> 00:07:58,720
+know which is reject or it has to have
+
+216
+00:07:55,759 --> 00:08:00,080
+the answer which in it's going to be yes
+
+217
+00:07:58,720 --> 00:08:02,560
+if there is a path and know if there is
+
+218
+00:08:00,080 --> 00:08:02,560
+no path
+
+219
+00:08:03,840 --> 00:08:09,599
+and if i can do
+
+220
+00:08:05,360 --> 00:08:11,360
+be able to count the number of nodes
+
+221
+00:08:09,599 --> 00:08:12,960
+that do have a path
+
+222
+00:08:11,360 --> 00:08:15,360
+the number of notes for which the answer
+
+223
+00:08:12,960 --> 00:08:15,360
+is yes
+
+224
+00:08:17,199 --> 00:08:19,840
+and this
+
+225
+00:08:18,479 --> 00:08:21,199
+i think if you're comfortable with the
+
+226
+00:08:19,840 --> 00:08:22,580
+definition
+
+227
+00:08:21,199 --> 00:08:23,759
+this is
+
+228
+00:08:22,580 --> 00:08:25,680
+[Music]
+
+229
+00:08:23,759 --> 00:08:26,560
+more or less obvious
+
+230
+00:08:25,680 --> 00:08:27,919
+because
+
+231
+00:08:26,560 --> 00:08:30,319
+what you would do
+
+232
+00:08:27,919 --> 00:08:31,759
+is you would go through the nodes of g
+
+233
+00:08:30,319 --> 00:08:33,680
+one by one
+
+234
+00:08:31,759 --> 00:08:37,120
+and test uh
+
+235
+00:08:33,680 --> 00:08:39,760
+using your path function
+
+236
+00:08:37,120 --> 00:08:41,279
+uh what the answer is
+
+237
+00:08:39,760 --> 00:08:43,599
+yes or no
+
+238
+00:08:41,279 --> 00:08:45,519
+and every time it's a yes you add one to
+
+239
+00:08:43,599 --> 00:08:47,200
+the count until you've gone through all
+
+240
+00:08:45,519 --> 00:08:48,959
+of the nodes
+
+241
+00:08:47,200 --> 00:08:50,959
+and then um
+
+242
+00:08:48,959 --> 00:08:53,440
+you have your answer which is nodes
+
+243
+00:08:50,959 --> 00:08:53,440
+that's c
+
+244
+00:08:53,680 --> 00:08:56,880
+now if the machine
+
+245
+00:08:55,760 --> 00:08:59,760
+that's
+
+246
+00:08:56,880 --> 00:09:02,000
+trying to compute the path function on
+
+247
+00:08:59,760 --> 00:09:03,440
+the non-determinism rejects that that's
+
+248
+00:09:02,000 --> 00:09:06,959
+okay you'll
+
+249
+00:09:03,440 --> 00:09:09,920
+computing c that branch will reject also
+
+250
+00:09:06,959 --> 00:09:13,200
+but when you're um some branch
+
+251
+00:09:09,920 --> 00:09:14,959
+has to get the right answer on the on uh
+
+252
+00:09:13,200 --> 00:09:16,160
+you know for it has to get the right
+
+253
+00:09:14,959 --> 00:09:19,440
+answer
+
+254
+00:09:16,160 --> 00:09:21,120
+um and so then you get the
+
+255
+00:09:19,440 --> 00:09:22,880
+you know
+
+256
+00:09:21,120 --> 00:09:25,760
+you know what's happening with that
+
+257
+00:09:22,880 --> 00:09:27,680
+node and so you then um
+
+258
+00:09:25,760 --> 00:09:30,160
+can either increment the count or you
+
+259
+00:09:27,680 --> 00:09:31,279
+move on to the next node i think i'm
+
+260
+00:09:30,160 --> 00:09:32,640
+uh
+
+261
+00:09:31,279 --> 00:09:34,160
+trying to say
+
+262
+00:09:32,640 --> 00:09:36,640
+i'm not sure if i'm making any clear by
+
+263
+00:09:34,160 --> 00:09:38,240
+kind of repeating myself but okay here
+
+264
+00:09:36,640 --> 00:09:39,360
+so you're going to start out with the
+
+265
+00:09:38,240 --> 00:09:41,920
+you're given the
+
+266
+00:09:39,360 --> 00:09:43,680
+the graph and the start node
+
+267
+00:09:41,920 --> 00:09:45,360
+we're trying to compute this value c
+
+268
+00:09:43,680 --> 00:09:46,800
+which is the number rechargeable from
+
+269
+00:09:45,360 --> 00:09:48,160
+the start node
+
+270
+00:09:46,800 --> 00:09:49,279
+you start out with you you have a
+
+271
+00:09:48,160 --> 00:09:51,279
+counter which you're going to set
+
+272
+00:09:49,279 --> 00:09:53,360
+initially to zero and you go through
+
+273
+00:09:51,279 --> 00:09:56,560
+every node of the graph
+
+274
+00:09:53,360 --> 00:09:59,680
+and if uh
+
+275
+00:09:56,560 --> 00:10:01,600
+the path function computation says yes
+
+276
+00:09:59,680 --> 00:10:03,600
+you can reach you then you add one to
+
+277
+00:10:01,600 --> 00:10:05,839
+the count it says no you cannot reach
+
+278
+00:10:03,600 --> 00:10:07,360
+you then you just continue
+
+279
+00:10:05,839 --> 00:10:08,880
+um
+
+280
+00:10:07,360 --> 00:10:10,640
+and uh
+
+281
+00:10:08,880 --> 00:10:12,000
+maybe i should add another line here if
+
+282
+00:10:10,640 --> 00:10:14,320
+if the
+
+283
+00:10:12,000 --> 00:10:15,760
+you know if the if the the thing that's
+
+284
+00:10:14,320 --> 00:10:19,200
+computing
+
+285
+00:10:15,760 --> 00:10:22,480
+uh rejects then you also reject um
+
+286
+00:10:19,200 --> 00:10:22,480
+and then at the end you output
+
+287
+00:10:23,360 --> 00:10:25,920
+um
+
+288
+00:10:24,240 --> 00:10:28,880
+so what we're going to prove is the
+
+289
+00:10:25,920 --> 00:10:30,560
+other direction if i give you the count
+
+290
+00:10:28,880 --> 00:10:33,120
+then i can answer
+
+291
+00:10:30,560 --> 00:10:35,600
+the question for each node whether it's
+
+292
+00:10:33,120 --> 00:10:37,519
+reachable or not and this is the thing
+
+293
+00:10:35,600 --> 00:10:40,640
+because what it's saying that is i can
+
+294
+00:10:37,519 --> 00:10:42,640
+give you the count i'm done
+
+295
+00:10:40,640 --> 00:10:45,800
+if we can get that count that's going to
+
+296
+00:10:42,640 --> 00:10:45,800
+be enough
+
+297
+00:10:46,000 --> 00:10:48,320
+um
+
+298
+00:10:47,120 --> 00:10:50,000
+okay so
+
+299
+00:10:48,320 --> 00:10:52,000
+maybe even before the check-in maybe we
+
+300
+00:10:50,000 --> 00:10:54,000
+should just answer any questions because
+
+301
+00:10:52,000 --> 00:10:56,800
+you know if if you're
+
+302
+00:10:54,000 --> 00:10:59,600
+stuck here then you then you're doomed
+
+303
+00:10:56,800 --> 00:11:01,279
+um so i think it's you it makes sense to
+
+304
+00:10:59,600 --> 00:11:03,200
+try to understand what's going on at
+
+305
+00:11:01,279 --> 00:11:05,760
+this at this
+
+306
+00:11:03,200 --> 00:11:08,000
+um because i think the real the real
+
+307
+00:11:05,760 --> 00:11:10,160
+guts of this proof is coming on the next
+
+308
+00:11:08,000 --> 00:11:12,720
+slide um they're
+
+309
+00:11:10,160 --> 00:11:13,839
+kind of the main idea so i'm happy to
+
+310
+00:11:12,720 --> 00:11:17,360
+take
+
+311
+00:11:13,839 --> 00:11:17,360
+if there's any questions about this
+
+312
+00:11:21,680 --> 00:11:26,000
+i'll just wait for a second to see if
+
+313
+00:11:23,120 --> 00:11:26,000
+you're typing away
+
+314
+00:11:26,839 --> 00:11:31,760
+there well why don't we go to the
+
+315
+00:11:28,959 --> 00:11:34,160
+check-in maybe that'll help um
+
+316
+00:11:31,760 --> 00:11:36,480
+not a very difficult check-in
+
+317
+00:11:34,160 --> 00:11:36,480
+um
+
+318
+00:11:38,240 --> 00:11:43,360
+it'll come up
+
+319
+00:11:40,839 --> 00:11:44,399
+okay just a little practice with the
+
+320
+00:11:43,360 --> 00:11:45,839
+concept
+
+321
+00:11:44,399 --> 00:11:47,519
+so
+
+322
+00:11:45,839 --> 00:11:49,200
+i'm getting going to give you some graph
+
+323
+00:11:47,519 --> 00:11:51,600
+it has nine nodes
+
+324
+00:11:49,200 --> 00:11:52,560
+um and i want to know the value of the
+
+325
+00:11:51,600 --> 00:11:54,320
+count
+
+326
+00:11:52,560 --> 00:11:57,200
+um
+
+327
+00:11:54,320 --> 00:11:59,120
+so we'll we'll assume that s
+
+328
+00:11:57,200 --> 00:12:00,480
+the start node here is reachable from
+
+329
+00:11:59,120 --> 00:12:03,680
+itself
+
+330
+00:12:00,480 --> 00:12:03,680
+and now what's the value of c
+
+331
+00:12:06,079 --> 00:12:08,839
+okay
+
+332
+00:12:07,600 --> 00:12:11,200
+are we
+
+333
+00:12:08,839 --> 00:12:13,360
+good gonna shut this down give you
+
+334
+00:12:11,200 --> 00:12:15,360
+another two seconds please get your
+
+335
+00:12:13,360 --> 00:12:16,399
+answer in
+
+336
+00:12:15,360 --> 00:12:20,160
+okay
+
+337
+00:12:16,399 --> 00:12:20,160
+uh ready set end
+
+338
+00:12:22,399 --> 00:12:27,040
+yeah the right answer is in fact
+
+339
+00:12:24,399 --> 00:12:29,519
+uh e which is six there are six
+
+340
+00:12:27,040 --> 00:12:31,360
+reachable nodes in this graph and that's
+
+341
+00:12:29,519 --> 00:12:34,079
+what the value c is supposed to tell you
+
+342
+00:12:31,360 --> 00:12:36,720
+is how many nodes can i get to from s
+
+343
+00:12:34,079 --> 00:12:39,440
+okay and what i'm saying is that if i
+
+344
+00:12:36,720 --> 00:12:40,959
+can calculate that
+
+345
+00:12:39,440 --> 00:12:42,880
+in this sort of non-deterministic
+
+346
+00:12:40,959 --> 00:12:45,600
+function sense so if it's so some
+
+347
+00:12:42,880 --> 00:12:47,600
+branches can get that answer
+
+348
+00:12:45,600 --> 00:12:50,720
+um
+
+349
+00:12:47,600 --> 00:12:52,800
+then i can use that to
+
+350
+00:12:50,720 --> 00:12:54,399
+test for each node
+
+351
+00:12:52,800 --> 00:12:56,320
+whether it's reachable or not which is
+
+352
+00:12:54,399 --> 00:12:58,000
+kind of a little bit of a miracle
+
+353
+00:12:56,320 --> 00:12:59,600
+right that's kind of surprising just
+
+354
+00:12:58,000 --> 00:13:01,519
+knowing how many nodes are reachable
+
+355
+00:12:59,600 --> 00:13:03,760
+will allow me to test whether each
+
+356
+00:13:01,519 --> 00:13:06,240
+individual node is reachable
+
+357
+00:13:03,760 --> 00:13:08,079
+um because that's there's no obvious
+
+358
+00:13:06,240 --> 00:13:10,240
+reason why that would be
+
+359
+00:13:08,079 --> 00:13:11,440
+so there's uh going to be a procedure
+
+360
+00:13:10,240 --> 00:13:13,360
+for doing that which is on the next
+
+361
+00:13:11,440 --> 00:13:15,760
+slide and here it is
+
+362
+00:13:13,360 --> 00:13:15,760
+um
+
+363
+00:13:15,920 --> 00:13:18,839
+okay so this is the key idea that we're
+
+364
+00:13:17,519 --> 00:13:20,639
+going to repeat
+
+365
+00:13:18,839 --> 00:13:21,920
+um uh
+
+366
+00:13:20,639 --> 00:13:23,120
+later but
+
+367
+00:13:21,920 --> 00:13:25,519
+so
+
+368
+00:13:23,120 --> 00:13:27,040
+it's good to understand um
+
+369
+00:13:25,519 --> 00:13:28,399
+this is this is the slide you really
+
+370
+00:13:27,040 --> 00:13:30,560
+need to understand
+
+371
+00:13:28,399 --> 00:13:32,399
+uh
+
+372
+00:13:30,560 --> 00:13:34,800
+okay so i'm given the graph let's assume
+
+373
+00:13:32,399 --> 00:13:36,480
+the graph has m nodes
+
+374
+00:13:34,800 --> 00:13:38,560
+um
+
+375
+00:13:36,480 --> 00:13:40,000
+now as i said
+
+376
+00:13:38,560 --> 00:13:41,120
+okay so let's just say what what are we
+
+377
+00:13:40,000 --> 00:13:45,680
+doing here
+
+378
+00:13:41,120 --> 00:13:48,240
+given that count we can compute path
+
+379
+00:13:45,680 --> 00:13:49,360
+so we'll get the answer for every node
+
+380
+00:13:48,240 --> 00:13:50,800
+in the graph
+
+381
+00:13:49,360 --> 00:13:53,040
+if i just know
+
+382
+00:13:50,800 --> 00:13:54,480
+how many you know so i'll know i can get
+
+383
+00:13:53,040 --> 00:13:56,639
+the answer for which
+
+384
+00:13:54,480 --> 00:13:58,880
+whether a node is reachable or not
+
+385
+00:13:56,639 --> 00:14:01,199
+if i just have if i just know how many
+
+386
+00:13:58,880 --> 00:14:04,160
+reachable nodes there are
+
+387
+00:14:01,199 --> 00:14:07,600
+um so what i'm going to do is get get
+
+388
+00:14:04,160 --> 00:14:09,120
+that count of how many are reachable
+
+389
+00:14:07,600 --> 00:14:10,240
+now i'm going to go through
+
+390
+00:14:09,120 --> 00:14:12,240
+um
+
+391
+00:14:10,240 --> 00:14:14,480
+i'm going to because let's see what's
+
+392
+00:14:12,240 --> 00:14:17,440
+the idea here uh before we even jump
+
+393
+00:14:14,480 --> 00:14:20,399
+into the algorithm
+
+394
+00:14:17,440 --> 00:14:20,399
+the idea is
+
+395
+00:14:21,680 --> 00:14:26,240
+let's say i know how many nodes are
+
+396
+00:14:23,120 --> 00:14:28,240
+reachable like 100 nodes are reachable
+
+397
+00:14:26,240 --> 00:14:30,959
+now what i'm going to do what the
+
+398
+00:14:28,240 --> 00:14:32,880
+algorithm is going to do is find all
+
+399
+00:14:30,959 --> 00:14:34,720
+hundred reachable nodes
+
+400
+00:14:32,880 --> 00:14:36,000
+it's got one by one but it doesn't
+
+401
+00:14:34,720 --> 00:14:38,240
+matter sort of conceptually it's going
+
+402
+00:14:36,000 --> 00:14:40,480
+to find all reachable all reachable
+
+403
+00:14:38,240 --> 00:14:42,639
+nodes
+
+404
+00:14:40,480 --> 00:14:44,079
+and non-deterministically guessing them
+
+405
+00:14:42,639 --> 00:14:45,760
+so it's not sure in advance which ones
+
+406
+00:14:44,079 --> 00:14:47,760
+they are but it's going to guess
+
+407
+00:14:45,760 --> 00:14:49,279
+basically a hundred no it's going to
+
+408
+00:14:47,760 --> 00:14:50,320
+guess some of the nodes as being
+
+409
+00:14:49,279 --> 00:14:51,920
+reachable
+
+410
+00:14:50,320 --> 00:14:54,079
+confirm that the ones that guest are
+
+411
+00:14:51,920 --> 00:14:57,519
+reachable are reachable and then check
+
+412
+00:14:54,079 --> 00:15:00,000
+to see that that number equals 100.
+
+413
+00:14:57,519 --> 00:15:02,240
+on some branch of the non-determinism
+
+414
+00:15:00,000 --> 00:15:05,279
+you will guess right and you'll end up
+
+415
+00:15:02,240 --> 00:15:08,000
+with exactly the right set of 100
+
+416
+00:15:05,279 --> 00:15:09,040
+reachable nodes and then you'll see
+
+417
+00:15:08,000 --> 00:15:11,680
+is t
+
+418
+00:15:09,040 --> 00:15:15,199
+one of those reachable ones um in which
+
+419
+00:15:11,680 --> 00:15:17,440
+case you say yes or is t not one what is
+
+420
+00:15:15,199 --> 00:15:20,560
+not one of those hundred nodes
+
+421
+00:15:17,440 --> 00:15:22,320
+and then um you know the answer is no
+
+422
+00:15:20,560 --> 00:15:24,959
+because if you've guessed a hundred
+
+423
+00:15:22,320 --> 00:15:26,480
+nodes and you know they're all reachable
+
+424
+00:15:24,959 --> 00:15:28,560
+and you know there are exactly 100
+
+425
+00:15:26,480 --> 00:15:31,199
+reachable nodes then every other node is
+
+426
+00:15:28,560 --> 00:15:31,199
+not reachable
+
+427
+00:15:32,240 --> 00:15:35,920
+so that's kind of that's the spirit of
+
+428
+00:15:34,399 --> 00:15:40,320
+this and that's i'm just going to write
+
+429
+00:15:35,920 --> 00:15:42,639
+that down here on in the algorithm
+
+430
+00:15:40,320 --> 00:15:44,480
+can you guys hear me still
+
+431
+00:15:42,639 --> 00:15:45,440
+somebody said my audio is like blipping
+
+432
+00:15:44,480 --> 00:15:48,320
+out
+
+433
+00:15:45,440 --> 00:15:51,519
+i am getting a sign or two of unstable
+
+434
+00:15:48,320 --> 00:15:53,279
+internet so you know uh if if you need
+
+435
+00:15:51,519 --> 00:15:56,560
+me to repeat anything just just send me
+
+436
+00:15:53,279 --> 00:15:59,440
+a note good thank you
+
+437
+00:15:56,560 --> 00:15:59,440
+okay um
+
+438
+00:16:00,959 --> 00:16:06,000
+all right so well uh oh maybe i should
+
+439
+00:16:04,000 --> 00:16:07,839
+speak slowly if it's
+
+440
+00:16:06,000 --> 00:16:08,800
+not coming through too well
+
+441
+00:16:07,839 --> 00:16:10,320
+okay
+
+442
+00:16:08,800 --> 00:16:12,480
+um
+
+443
+00:16:10,320 --> 00:16:12,480
+so
+
+444
+00:16:13,680 --> 00:16:18,320
+so what we're going to do is go through
+
+445
+00:16:15,839 --> 00:16:20,639
+eat all the nodes of the graph one by
+
+446
+00:16:18,320 --> 00:16:20,639
+one
+
+447
+00:16:20,880 --> 00:16:25,519
+and guess whether it's a reachable node
+
+448
+00:16:23,120 --> 00:16:27,600
+or not a reachable node
+
+449
+00:16:25,519 --> 00:16:30,639
+if we guess it is reachable
+
+450
+00:16:27,600 --> 00:16:33,680
+i'm going to also guess the path which
+
+451
+00:16:30,639 --> 00:16:33,680
+shows that it's reachable
+
+452
+00:16:34,320 --> 00:16:37,279
+and then
+
+453
+00:16:35,440 --> 00:16:41,120
+i'm gonna and i'm gonna keep a count of
+
+454
+00:16:37,279 --> 00:16:41,120
+how many reachable nodes i found
+
+455
+00:16:41,920 --> 00:16:48,160
+if that count agrees with the value c
+
+456
+00:16:45,759 --> 00:16:51,759
+um i started with
+
+457
+00:16:48,160 --> 00:16:54,320
+then i know i found them all
+
+458
+00:16:51,759 --> 00:16:57,519
+and if t is not one of them
+
+459
+00:16:54,320 --> 00:16:59,759
+then i know t is not reachable
+
+460
+00:16:57,519 --> 00:17:01,519
+that's the idea
+
+461
+00:16:59,759 --> 00:17:03,759
+okay so
+
+462
+00:17:01,519 --> 00:17:06,240
+here's my this is going to be a count of
+
+463
+00:17:03,759 --> 00:17:08,079
+the number of nodes that i have found
+
+464
+00:17:06,240 --> 00:17:10,240
+which are reachable
+
+465
+00:17:08,079 --> 00:17:12,120
+um that's k
+
+466
+00:17:10,240 --> 00:17:14,000
+now here i'm going i'm going to
+
+467
+00:17:12,120 --> 00:17:16,079
+non-deterministically choose is it a
+
+468
+00:17:14,000 --> 00:17:17,439
+reachable node or not
+
+469
+00:17:16,079 --> 00:17:19,439
+i've just called it
+
+470
+00:17:17,439 --> 00:17:21,520
+two branches of the algorithm the p
+
+471
+00:17:19,439 --> 00:17:22,559
+branch or the n branch p means there's a
+
+472
+00:17:21,520 --> 00:17:26,319
+path
+
+473
+00:17:22,559 --> 00:17:26,319
+and n means there's no path
+
+474
+00:17:26,559 --> 00:17:31,440
+so if i guessed p at this point for this
+
+475
+00:17:29,600 --> 00:17:33,360
+node u so i'm going through each of the
+
+476
+00:17:31,440 --> 00:17:34,640
+nodes one by one each and u is the
+
+477
+00:17:33,360 --> 00:17:36,799
+current node
+
+478
+00:17:34,640 --> 00:17:39,679
+if i've guessed that
+
+479
+00:17:36,799 --> 00:17:41,039
+it's it is it does have a path from s
+
+480
+00:17:39,679 --> 00:17:44,160
+then i'm going to
+
+481
+00:17:41,039 --> 00:17:46,720
+uh guess that path to make sure that it
+
+482
+00:17:44,160 --> 00:17:49,120
+really is a reachable note
+
+483
+00:17:46,720 --> 00:17:49,120
+um
+
+484
+00:17:52,160 --> 00:17:56,320
+if i fail to find a path then this is
+
+485
+00:17:55,120 --> 00:17:57,919
+one of the branches of the
+
+486
+00:17:56,320 --> 00:18:01,200
+non-determinism
+
+487
+00:17:57,919 --> 00:18:02,559
+that is going to fail it's going to punt
+
+488
+00:18:01,200 --> 00:18:04,559
+it's going to say i don't know under
+
+489
+00:18:02,559 --> 00:18:06,559
+this branch um
+
+490
+00:18:04,559 --> 00:18:09,039
+because either
+
+491
+00:18:06,559 --> 00:18:10,240
+you guessed wrong and this node was not
+
+492
+00:18:09,039 --> 00:18:12,960
+reachable
+
+493
+00:18:10,240 --> 00:18:15,600
+or if it was reachable you guessed you
+
+494
+00:18:12,960 --> 00:18:17,600
+you failed to find a path which shows
+
+495
+00:18:15,600 --> 00:18:20,160
+you that it's reachable there was some
+
+496
+00:18:17,600 --> 00:18:23,039
+path but you didn't guess the right one
+
+497
+00:18:20,160 --> 00:18:26,640
+um either way you made a bad choice
+
+498
+00:18:23,039 --> 00:18:26,640
+you're gonna you're just gonna punt
+
+499
+00:18:27,760 --> 00:18:32,799
+now
+
+500
+00:18:28,559 --> 00:18:34,559
+if you have determined that t is uh um
+
+501
+00:18:32,799 --> 00:18:36,720
+that node that you've just shown is
+
+502
+00:18:34,559 --> 00:18:39,840
+reachable because at this stage you did
+
+503
+00:18:36,720 --> 00:18:41,760
+not fail so you succeeded in showing a
+
+504
+00:18:39,840 --> 00:18:44,000
+path to
+
+505
+00:18:41,760 --> 00:18:44,000
+um
+
+506
+00:18:44,400 --> 00:18:47,600
+then um
+
+507
+00:18:46,720 --> 00:18:50,000
+uh
+
+508
+00:18:47,600 --> 00:18:52,400
+and u equals t then you know t is
+
+509
+00:18:50,000 --> 00:18:55,679
+reachable that so there is a path from s
+
+510
+00:18:52,400 --> 00:18:56,880
+to t and you're finished
+
+511
+00:18:55,679 --> 00:18:58,799
+that you know you've got the answer
+
+512
+00:18:56,880 --> 00:19:00,640
+you're looking for and so now you can
+
+513
+00:18:58,799 --> 00:19:02,640
+say yes
+
+514
+00:19:00,640 --> 00:19:05,039
+otherwise if t is some if you is some
+
+515
+00:19:02,640 --> 00:19:06,559
+other node then you can just increase
+
+516
+00:19:05,039 --> 00:19:10,080
+your count of the number of reachable
+
+517
+00:19:06,559 --> 00:19:12,400
+nodes that you found
+
+518
+00:19:10,080 --> 00:19:14,559
+okay so you've found a reachable node
+
+519
+00:19:12,400 --> 00:19:16,559
+if it's t you're great you're done if
+
+520
+00:19:14,559 --> 00:19:19,120
+it's not you just include that as your
+
+521
+00:19:16,559 --> 00:19:20,720
+in your account of reachable nodes um
+
+522
+00:19:19,120 --> 00:19:23,520
+now if you've guessed that the node is
+
+523
+00:19:20,720 --> 00:19:25,039
+not reachable okay then you just proceed
+
+524
+00:19:23,520 --> 00:19:26,320
+you know you
+
+525
+00:19:25,039 --> 00:19:27,600
+you're not gonna
+
+526
+00:19:26,320 --> 00:19:30,000
+you're just gonna move on to the next
+
+527
+00:19:27,600 --> 00:19:32,799
+note because you're looking for a
+
+528
+00:19:30,000 --> 00:19:35,120
+collection of reachable notes
+
+529
+00:19:32,799 --> 00:19:35,120
+um
+
+530
+00:19:37,360 --> 00:19:41,679
+okay uh i'm getting some questions here
+
+531
+00:19:39,520 --> 00:19:44,160
+but let me let me wait till the end here
+
+532
+00:19:41,679 --> 00:19:45,919
+um now
+
+533
+00:19:44,160 --> 00:19:47,039
+after i finished going through all of
+
+534
+00:19:45,919 --> 00:19:50,480
+the nodes
+
+535
+00:19:47,039 --> 00:19:52,799
+so i'm finished with this uh um this
+
+536
+00:19:50,480 --> 00:19:53,760
+loop here of going through all the nodes
+
+537
+00:19:52,799 --> 00:19:57,600
+um
+
+538
+00:19:53,760 --> 00:19:57,600
+now i see did i find
+
+539
+00:19:57,919 --> 00:20:02,880
+c reachable nodes because k is the count
+
+540
+00:20:00,640 --> 00:20:04,400
+of the nodes that i've found to be
+
+541
+00:20:02,880 --> 00:20:06,960
+reachable if that
+
+542
+00:20:04,400 --> 00:20:08,960
+agrees with c then i know i found them
+
+543
+00:20:06,960 --> 00:20:10,720
+all if it differs from c
+
+544
+00:20:08,960 --> 00:20:12,640
+then something has gone wrong
+
+545
+00:20:10,720 --> 00:20:14,799
+because i am told there are c reachable
+
+546
+00:20:12,640 --> 00:20:15,840
+nodes and i did not find c reachable
+
+547
+00:20:14,799 --> 00:20:17,919
+nodes
+
+548
+00:20:15,840 --> 00:20:19,360
+so i made some bad guess along the way i
+
+549
+00:20:17,919 --> 00:20:20,480
+guess some node which really is
+
+550
+00:20:19,360 --> 00:20:22,159
+reachable
+
+551
+00:20:20,480 --> 00:20:23,280
+i guess it was not reachable so i didn't
+
+552
+00:20:22,159 --> 00:20:24,640
+find them all
+
+553
+00:20:23,280 --> 00:20:28,159
+i'm gonna punt
+
+554
+00:20:24,640 --> 00:20:30,799
+um but if i found them all
+
+555
+00:20:28,159 --> 00:20:33,039
+and so and and i didn't end up accepting
+
+556
+00:20:30,799 --> 00:20:34,320
+it it didn't say yes at this stage so t
+
+557
+00:20:33,039 --> 00:20:36,559
+was not one of the ones i found a
+
+558
+00:20:34,320 --> 00:20:39,120
+reachable then i then i
+
+559
+00:20:36,559 --> 00:20:40,960
+uh i'm convinced that t is not one of
+
+560
+00:20:39,120 --> 00:20:42,480
+those that are reachable that was not
+
+561
+00:20:40,960 --> 00:20:45,679
+one of those c nodes that i found which
+
+562
+00:20:42,480 --> 00:20:48,960
+are reachable and now i can say no
+
+563
+00:20:45,679 --> 00:20:51,760
+okay so let me let me take
+
+564
+00:20:48,960 --> 00:20:53,440
+questions here uh because i think we're
+
+565
+00:20:51,760 --> 00:20:55,760
+yeah that's the end of this slide this
+
+566
+00:20:53,440 --> 00:20:57,679
+is this is the kind of
+
+567
+00:20:55,760 --> 00:20:58,480
+an important
+
+568
+00:20:57,679 --> 00:21:00,159
+uh
+
+569
+00:20:58,480 --> 00:21:01,600
+piece to understand
+
+570
+00:21:00,159 --> 00:21:03,679
+we can spend a couple of minutes trying
+
+571
+00:21:01,600 --> 00:21:05,919
+to work through this
+
+572
+00:21:03,679 --> 00:21:05,919
+uh
+
+573
+00:21:06,559 --> 00:21:10,159
+so somebody's asking how does
+
+574
+00:21:07,760 --> 00:21:12,320
+non-deterministically pick a path fail
+
+575
+00:21:10,159 --> 00:21:13,280
+it if you fail
+
+576
+00:21:12,320 --> 00:21:16,480
+um
+
+577
+00:21:13,280 --> 00:21:18,960
+what i mean is pick a path from s to u
+
+578
+00:21:16,480 --> 00:21:21,440
+so you have to go from s to whatever
+
+579
+00:21:18,960 --> 00:21:23,360
+your current node u is
+
+580
+00:21:21,440 --> 00:21:24,559
+so you're going to pick some path
+
+581
+00:21:23,360 --> 00:21:26,559
+to u
+
+582
+00:21:24,559 --> 00:21:28,320
+you guessed u is reachable now you have
+
+583
+00:21:26,559 --> 00:21:30,559
+to demonstrate it's reachable by picking
+
+584
+00:21:28,320 --> 00:21:32,000
+a path from s to you if you don't end up
+
+585
+00:21:30,559 --> 00:21:32,960
+at u
+
+586
+00:21:32,000 --> 00:21:34,880
+um
+
+587
+00:21:32,960 --> 00:21:36,640
+and the pair you don't want to go
+
+588
+00:21:34,880 --> 00:21:39,120
+forever on any branch so you're going to
+
+589
+00:21:36,640 --> 00:21:41,280
+limit it to m steps your path has to be
+
+590
+00:21:39,120 --> 00:21:43,039
+of length m at most
+
+591
+00:21:41,280 --> 00:21:45,919
+so after m
+
+592
+00:21:43,039 --> 00:21:48,880
+steps if you have not reached you by
+
+593
+00:21:45,919 --> 00:21:51,760
+that point you've picked a bad path
+
+594
+00:21:48,880 --> 00:21:51,760
+and you're going to reject
+
+595
+00:21:53,039 --> 00:21:55,280
+um
+
+596
+00:21:56,000 --> 00:21:59,559
+okay uh
+
+597
+00:22:05,280 --> 00:22:10,080
+okay so what's the difference between
+
+598
+00:22:07,200 --> 00:22:12,159
+know and reject that's a good question
+
+599
+00:22:10,080 --> 00:22:15,600
+um
+
+600
+00:22:12,159 --> 00:22:16,960
+reject in this case is an i don't know
+
+601
+00:22:15,600 --> 00:22:19,440
+the algorithm
+
+602
+00:22:16,960 --> 00:22:22,480
+uh could not make a determination based
+
+603
+00:22:19,440 --> 00:22:24,240
+on the guesses that it's made
+
+604
+00:22:22,480 --> 00:22:26,880
+in this non-deterministic branch of the
+
+605
+00:22:24,240 --> 00:22:29,360
+algorithm it made bad choices which
+
+606
+00:22:26,880 --> 00:22:32,400
+doesn't allow it to reach a conclusion
+
+607
+00:22:29,360 --> 00:22:32,400
+one way or the other
+
+608
+00:22:32,640 --> 00:22:35,120
+okay
+
+609
+00:22:33,520 --> 00:22:37,440
+remember this algorithm here is
+
+610
+00:22:35,120 --> 00:22:39,280
+computing a function now
+
+611
+00:22:37,440 --> 00:22:41,280
+it's not a now it cannot deterministic
+
+612
+00:22:39,280 --> 00:22:44,159
+algorithm in the language recognition
+
+613
+00:22:41,280 --> 00:22:46,080
+sense this is a function computer and so
+
+614
+00:22:44,159 --> 00:22:49,679
+it has to get the answer to the path
+
+615
+00:22:46,080 --> 00:22:51,440
+function which is a yes or no or i don't
+
+616
+00:22:49,679 --> 00:22:53,600
+know on some branches or some branches
+
+617
+00:22:51,440 --> 00:22:57,120
+that's allowed to do that too
+
+618
+00:22:53,600 --> 00:22:59,440
+so no and reject are totally different
+
+619
+00:22:57,120 --> 00:22:59,440
+um
+
+620
+00:23:00,480 --> 00:23:02,720
+okay
+
+621
+00:23:03,360 --> 00:23:06,400
+okay this is the same thing we talked
+
+622
+00:23:04,720 --> 00:23:09,039
+about last time why do we need two
+
+623
+00:23:06,400 --> 00:23:11,280
+branches for p and n um
+
+624
+00:23:09,039 --> 00:23:13,600
+if we're only going to have
+
+625
+00:23:11,280 --> 00:23:17,120
+proposal just to have the p branch
+
+626
+00:23:13,600 --> 00:23:18,799
+well but some nodes are not reachable
+
+627
+00:23:17,120 --> 00:23:20,320
+if you're gonna look for
+
+628
+00:23:18,799 --> 00:23:23,360
+if you're gonna you know
+
+629
+00:23:20,320 --> 00:23:25,039
+if you have a an unreachable node
+
+630
+00:23:23,360 --> 00:23:27,520
+so it's not an r
+
+631
+00:23:25,039 --> 00:23:29,600
+you can't get to that node from s
+
+632
+00:23:27,520 --> 00:23:31,360
+you have to skip over that note
+
+633
+00:23:29,600 --> 00:23:33,600
+because you're trying to find a subset
+
+634
+00:23:31,360 --> 00:23:35,039
+of the reachable nodes
+
+635
+00:23:33,600 --> 00:23:39,840
+so you're trying to pick that subset
+
+636
+00:23:35,039 --> 00:23:39,840
+here um one note at a time
+
+637
+00:23:40,320 --> 00:23:43,360
+so if you're only going to allow things
+
+638
+00:23:42,080 --> 00:23:44,880
+you're going to require everything in
+
+639
+00:23:43,360 --> 00:23:46,720
+this subset there are going to be some
+
+640
+00:23:44,880 --> 00:23:47,840
+nodes which are not reachable and you're
+
+641
+00:23:46,720 --> 00:23:49,039
+not going to find a path because they're
+
+642
+00:23:47,840 --> 00:23:51,039
+not reachable and you're going to end up
+
+643
+00:23:49,039 --> 00:23:52,480
+projecting all the time
+
+644
+00:23:51,039 --> 00:23:54,960
+you know on that node so you're going to
+
+645
+00:23:52,480 --> 00:23:56,640
+be this the algorithm will will it will
+
+646
+00:23:54,960 --> 00:23:58,799
+not will not work
+
+647
+00:23:56,640 --> 00:24:00,880
+um
+
+648
+00:23:58,799 --> 00:24:02,880
+okay so i'm not sure i understand this
+
+649
+00:24:00,880 --> 00:24:05,760
+question here but somebody says if t is
+
+650
+00:24:02,880 --> 00:24:08,320
+reachable we output yes on that branch
+
+651
+00:24:05,760 --> 00:24:11,360
+but don't we also output no
+
+652
+00:24:08,320 --> 00:24:11,360
+on some other branch
+
+653
+00:24:11,440 --> 00:24:14,559
+let's that's that's a good cool let's
+
+654
+00:24:13,200 --> 00:24:15,840
+see what happens
+
+655
+00:24:14,559 --> 00:24:19,440
+if it's
+
+656
+00:24:15,840 --> 00:24:20,240
+if t is actually reachable
+
+657
+00:24:19,440 --> 00:24:22,240
+um
+
+658
+00:24:20,240 --> 00:24:24,080
+how can we up so if t is reachable
+
+659
+00:24:22,240 --> 00:24:26,240
+there's some branch that's going to
+
+660
+00:24:24,080 --> 00:24:29,600
+output yes we all agree with that
+
+661
+00:24:26,240 --> 00:24:30,320
+at least if you're following we agree
+
+662
+00:24:29,600 --> 00:24:33,760
+but
+
+663
+00:24:30,320 --> 00:24:37,279
+how could some other branch output no
+
+664
+00:24:33,760 --> 00:24:37,279
+if t actually is reachable
+
+665
+00:24:37,919 --> 00:24:44,840
+because that's a great question
+
+666
+00:24:40,480 --> 00:24:46,640
+um and no that's not going to happen
+
+667
+00:24:44,840 --> 00:24:48,720
+uh
+
+668
+00:24:46,640 --> 00:24:50,640
+if t is actually reachable how could a
+
+669
+00:24:48,720 --> 00:24:51,010
+branch output no
+
+670
+00:24:50,640 --> 00:24:52,480
+um
+
+671
+00:24:51,010 --> 00:24:54,159
+[Music]
+
+672
+00:24:52,480 --> 00:24:56,240
+that must mean
+
+673
+00:24:54,159 --> 00:24:58,640
+that it does not guess
+
+674
+00:24:56,240 --> 00:25:00,960
+t as one of the reachable nodes because
+
+675
+00:24:58,640 --> 00:25:04,000
+it's going through all of the nodes here
+
+676
+00:25:00,960 --> 00:25:05,679
+um you know it's going to all the nodes
+
+677
+00:25:04,000 --> 00:25:07,919
+and it's picking them as reachable or
+
+678
+00:25:05,679 --> 00:25:07,919
+not
+
+679
+00:25:08,080 --> 00:25:12,320
+if it pick t is one of the reachable
+
+680
+00:25:09,760 --> 00:25:14,000
+ones then it's going to output yes
+
+681
+00:25:12,320 --> 00:25:16,480
+because it will find you know it'll
+
+682
+00:25:14,000 --> 00:25:18,799
+either output yes or if it doesn't find
+
+683
+00:25:16,480 --> 00:25:21,200
+the right doesn't guess the right path
+
+684
+00:25:18,799 --> 00:25:23,520
+it'll end up rejecting on that uh on
+
+685
+00:25:21,200 --> 00:25:25,919
+that path but some path will will end up
+
+686
+00:25:23,520 --> 00:25:26,960
+saying yes so if t is reachable
+
+687
+00:25:25,919 --> 00:25:29,279
+and
+
+688
+00:25:26,960 --> 00:25:31,440
+uh if you guess if you know t is
+
+689
+00:25:29,279 --> 00:25:33,840
+reachable and you guess t
+
+690
+00:25:31,440 --> 00:25:35,760
+you know you guess u is reachable one at
+
+691
+00:25:33,840 --> 00:25:37,679
+the point when u equals t you will end
+
+692
+00:25:35,760 --> 00:25:39,520
+up outputting s
+
+693
+00:25:37,679 --> 00:25:40,559
+the only way you could not
+
+694
+00:25:39,520 --> 00:25:43,919
+not
+
+695
+00:25:40,559 --> 00:25:46,559
+output yes is if you guess that node is
+
+696
+00:25:43,919 --> 00:25:46,559
+unreachable
+
+697
+00:25:47,840 --> 00:25:51,600
+but then your count is not going to add
+
+698
+00:25:49,440 --> 00:25:53,440
+up right
+
+699
+00:25:51,600 --> 00:25:56,720
+because you you wouldn't you did not
+
+700
+00:25:53,440 --> 00:25:58,240
+find all the reachable nodes if t is one
+
+701
+00:25:56,720 --> 00:26:00,400
+of the reachable nodes and you know
+
+702
+00:25:58,240 --> 00:26:02,480
+there are 100 reachable nodes
+
+703
+00:26:00,400 --> 00:26:04,880
+and you skipped over t as one of the
+
+704
+00:26:02,480 --> 00:26:07,200
+ones that you say is unreachable you at
+
+705
+00:26:04,880 --> 00:26:10,240
+best can only find 99 reachable nodes
+
+706
+00:26:07,200 --> 00:26:11,360
+and and you're not going to end up
+
+707
+00:26:10,240 --> 00:26:13,919
+saying no you're going to end up
+
+708
+00:26:11,360 --> 00:26:13,919
+projecting
+
+709
+00:26:14,400 --> 00:26:17,039
+so it's a very good question but you
+
+710
+00:26:16,080 --> 00:26:18,720
+have to think through what's going to
+
+711
+00:26:17,039 --> 00:26:21,840
+happen here that's
+
+712
+00:26:18,720 --> 00:26:25,360
+this c here is kind of a check
+
+713
+00:26:21,840 --> 00:26:26,799
+it's almost like you know um
+
+714
+00:26:25,360 --> 00:26:28,640
+uh
+
+715
+00:26:26,799 --> 00:26:30,080
+well in
+
+716
+00:26:28,640 --> 00:26:32,320
+it's like a checksum if you know what it
+
+717
+00:26:30,080 --> 00:26:34,640
+is it's so it makes sure that everything
+
+718
+00:26:32,320 --> 00:26:36,159
+that you if you got to see
+
+719
+00:26:34,640 --> 00:26:38,400
+if you got the if
+
+720
+00:26:36,159 --> 00:26:40,080
+if k equals c at this point that means
+
+721
+00:26:38,400 --> 00:26:42,960
+you actually found all the reachable
+
+722
+00:26:40,080 --> 00:26:45,840
+nodes so c is kind of a check
+
+723
+00:26:42,960 --> 00:26:48,159
+that you found all the reachable nodes
+
+724
+00:26:45,840 --> 00:26:48,159
+um
+
+725
+00:26:49,200 --> 00:26:52,799
+right so
+
+726
+00:26:50,480 --> 00:26:56,640
+if k equals c at this point you have
+
+727
+00:26:52,799 --> 00:26:56,640
+found every reachable node
+
+728
+00:26:56,720 --> 00:27:01,200
+and if t was one of the ones that are
+
+729
+00:26:58,159 --> 00:27:01,200
+reachable you found t
+
+730
+00:27:02,720 --> 00:27:06,640
+uh
+
+731
+00:27:04,480 --> 00:27:08,880
+okay let's see
+
+732
+00:27:06,640 --> 00:27:10,480
+um
+
+733
+00:27:08,880 --> 00:27:11,919
+is the reason we do this with c
+
+734
+00:27:10,480 --> 00:27:14,240
+essentially so that we know and we can
+
+735
+00:27:11,919 --> 00:27:16,000
+stop guessing and correctly identify if
+
+736
+00:27:14,240 --> 00:27:18,159
+it's impossible to reach t
+
+737
+00:27:16,000 --> 00:27:20,559
+well it's not a matter of it it's not a
+
+738
+00:27:18,159 --> 00:27:21,440
+matter of stopping guessing it's it's
+
+739
+00:27:20,559 --> 00:27:24,000
+it's a
+
+740
+00:27:21,440 --> 00:27:26,159
+it's a check that we found everything
+
+741
+00:27:24,000 --> 00:27:28,880
+because we're going to go through
+
+742
+00:27:26,159 --> 00:27:30,960
+and do all the guessing for every node
+
+743
+00:27:28,880 --> 00:27:32,880
+no matter what
+
+744
+00:27:30,960 --> 00:27:35,279
+so we're not going to stop anything
+
+745
+00:27:32,880 --> 00:27:38,159
+early unless we find that t is reachable
+
+746
+00:27:35,279 --> 00:27:40,159
+then then we can stop early but if to
+
+747
+00:27:38,159 --> 00:27:42,240
+show that t is not reachable we have to
+
+748
+00:27:40,159 --> 00:27:44,559
+go through the whole process
+
+749
+00:27:42,240 --> 00:27:44,559
+um
+
+750
+00:27:46,559 --> 00:27:49,919
+how can we intuitively see that we don't
+
+751
+00:27:48,320 --> 00:27:51,840
+have contradictory branches that's sort
+
+752
+00:27:49,919 --> 00:27:54,720
+of i was trying to say that just now i
+
+753
+00:27:51,840 --> 00:27:56,960
+don't know i i hope that got through
+
+754
+00:27:54,720 --> 00:27:59,440
+you can't have contradictory branches
+
+755
+00:27:56,960 --> 00:28:01,679
+because if you got to this stage here
+
+756
+00:27:59,440 --> 00:28:04,080
+you have found all the reachable
+
+757
+00:28:01,679 --> 00:28:05,120
+nodes so you've at this stage if you got
+
+758
+00:28:04,080 --> 00:28:09,440
+to six
+
+759
+00:28:05,120 --> 00:28:09,440
+you have made all correct guesses
+
+760
+00:28:10,000 --> 00:28:13,600
+you have found all the reachable nodes
+
+761
+00:28:11,919 --> 00:28:17,200
+you have convinced yourself that they're
+
+762
+00:28:13,600 --> 00:28:19,919
+all reachable um by
+
+763
+00:28:17,200 --> 00:28:21,440
+guessing the pairs to them and you've
+
+764
+00:28:19,919 --> 00:28:24,320
+checked that you have the right number
+
+765
+00:28:21,440 --> 00:28:27,520
+of reachable nodes because it equals c
+
+766
+00:28:24,320 --> 00:28:27,520
+so you must have found them all
+
+767
+00:28:27,600 --> 00:28:30,320
+so you cannot have a contradictory
+
+768
+00:28:28,960 --> 00:28:31,520
+answer because either t was one of the
+
+769
+00:28:30,320 --> 00:28:33,039
+ones you found in which case you would
+
+770
+00:28:31,520 --> 00:28:36,159
+have already said yes
+
+771
+00:28:33,039 --> 00:28:37,600
+or otherwise you found them all and t
+
+772
+00:28:36,159 --> 00:28:39,600
+was not one of them and so you're going
+
+773
+00:28:37,600 --> 00:28:44,080
+to say no you can't have both both
+
+774
+00:28:39,600 --> 00:28:45,600
+things cannot happen okay let's move on
+
+775
+00:28:44,080 --> 00:28:48,320
+so the next thing we're going to do is
+
+776
+00:28:45,600 --> 00:28:50,320
+the next slide is exactly the same as
+
+777
+00:28:48,320 --> 00:28:52,559
+this slide
+
+778
+00:28:50,320 --> 00:28:54,240
+except instead of saying
+
+779
+00:28:52,559 --> 00:28:56,720
+is um
+
+780
+00:28:54,240 --> 00:29:02,080
+is t reachable i want to know is it
+
+781
+00:28:56,720 --> 00:29:02,080
+reachable within d but within distance d
+
+782
+00:29:04,880 --> 00:29:08,960
+okay so um
+
+783
+00:29:07,440 --> 00:29:10,640
+which is going to mean exactly the same
+
+784
+00:29:08,960 --> 00:29:11,600
+procedure can i get
+
+785
+00:29:10,640 --> 00:29:13,679
+uh
+
+786
+00:29:11,600 --> 00:29:16,000
+instead of asking can i get
+
+787
+00:29:13,679 --> 00:29:18,320
+um
+
+788
+00:29:16,000 --> 00:29:18,320
+um
+
+789
+00:29:18,399 --> 00:29:20,960
+uh
+
+790
+00:29:19,440 --> 00:29:22,640
+from s to t
+
+791
+00:29:20,960 --> 00:29:24,559
+with a path of any length of course it's
+
+792
+00:29:22,640 --> 00:29:26,480
+going to be most length m now i want to
+
+793
+00:29:24,559 --> 00:29:29,279
+know can i get to it from s to t by a
+
+794
+00:29:26,480 --> 00:29:30,720
+path of most length d
+
+795
+00:29:29,279 --> 00:29:31,520
+these are number of edges in the path
+
+796
+00:29:30,720 --> 00:29:32,960
+say
+
+797
+00:29:31,520 --> 00:29:35,520
+um
+
+798
+00:29:32,960 --> 00:29:37,600
+and uh
+
+799
+00:29:35,520 --> 00:29:39,279
+that's the same procedure because
+
+800
+00:29:37,600 --> 00:29:40,640
+instead of i'm just going to cut things
+
+801
+00:29:39,279 --> 00:29:41,679
+off at
+
+802
+00:29:40,640 --> 00:29:44,080
+a d
+
+803
+00:29:41,679 --> 00:29:47,200
+but if i if i if i know in advance how
+
+804
+00:29:44,080 --> 00:29:48,320
+many nodes are reachable within d
+
+805
+00:29:47,200 --> 00:29:49,679
+um
+
+806
+00:29:48,320 --> 00:29:52,559
+i'm going to find all the nodes that are
+
+807
+00:29:49,679 --> 00:29:54,960
+reachable within d and c was t one of
+
+808
+00:29:52,559 --> 00:29:57,039
+the ones reachable within d
+
+809
+00:29:54,960 --> 00:29:59,200
+it's the same exact idea so here here is
+
+810
+00:29:57,039 --> 00:30:02,320
+the next slide which kind of shows that
+
+811
+00:29:59,200 --> 00:30:05,200
+uh so here here's the definitions
+
+812
+00:30:02,320 --> 00:30:09,480
+path sub d means reachable
+
+813
+00:30:05,200 --> 00:30:09,480
+by a path of length of most d
+
+814
+00:30:10,159 --> 00:30:15,520
+okay so um
+
+815
+00:30:12,559 --> 00:30:16,559
+r sub d is all of the ones that are
+
+816
+00:30:15,520 --> 00:30:19,360
+reachable
+
+817
+00:30:16,559 --> 00:30:21,679
+by a path of that length
+
+818
+00:30:19,360 --> 00:30:25,840
+and c sub d is the count it's a number
+
+819
+00:30:21,679 --> 00:30:28,159
+that are reachable uh within d
+
+820
+00:30:25,840 --> 00:30:30,559
+um so if you understood the last slide
+
+821
+00:30:28,159 --> 00:30:32,960
+hopefully this slide will seem kind of
+
+822
+00:30:30,559 --> 00:30:34,960
+obvious to you i'm gonna just highlight
+
+823
+00:30:32,960 --> 00:30:38,880
+all the changes
+
+824
+00:30:34,960 --> 00:30:38,880
+so if i can now calculate
+
+825
+00:30:38,960 --> 00:30:44,480
+c sub d which is the number reachable by
+
+826
+00:30:41,279 --> 00:30:47,200
+a path at most of length d
+
+827
+00:30:44,480 --> 00:30:50,320
+then i can test whether or not nodes are
+
+828
+00:30:47,200 --> 00:30:52,960
+reachable by a path without length
+
+829
+00:30:50,320 --> 00:30:55,039
+first i calculate c sub d
+
+830
+00:30:52,960 --> 00:30:57,279
+i go i pick every node as being
+
+831
+00:30:55,039 --> 00:30:59,600
+reachable within d or not
+
+832
+00:30:57,279 --> 00:31:02,320
+now i just have to check that my path
+
+833
+00:30:59,600 --> 00:31:03,760
+that i'm guessing has a length of most d
+
+834
+00:31:02,320 --> 00:31:06,480
+instead of length at most m which is
+
+835
+00:31:03,760 --> 00:31:06,480
+what i had before
+
+836
+00:31:06,880 --> 00:31:10,640
+keep a count of the ones that i found if
+
+837
+00:31:09,200 --> 00:31:12,640
+that count
+
+838
+00:31:10,640 --> 00:31:14,880
+equals c sub d then i know i found them
+
+839
+00:31:12,640 --> 00:31:17,519
+all if it's not equal to c sub d
+
+840
+00:31:14,880 --> 00:31:19,120
+then uh i've made some bad choice along
+
+841
+00:31:17,519 --> 00:31:20,240
+the way and i can just punt and say i
+
+842
+00:31:19,120 --> 00:31:21,200
+don't know
+
+843
+00:31:20,240 --> 00:31:23,279
+um
+
+844
+00:31:21,200 --> 00:31:25,600
+and if t was not one of the ones that
+
+845
+00:31:23,279 --> 00:31:28,240
+i've shown to be reachable within d
+
+846
+00:31:25,600 --> 00:31:30,960
+then i know it's not reachable within d
+
+847
+00:31:28,240 --> 00:31:34,159
+and so um
+
+848
+00:31:30,960 --> 00:31:34,159
+uh i can say no
+
+849
+00:31:35,600 --> 00:31:40,159
+okay so i don't know if this merits any
+
+850
+00:31:37,919 --> 00:31:42,000
+additional questions um but this is
+
+851
+00:31:40,159 --> 00:31:43,919
+really the same
+
+852
+00:31:42,000 --> 00:31:45,600
+it's just a repeat of the previous slide
+
+853
+00:31:43,919 --> 00:31:46,799
+what's kind of amazing
+
+854
+00:31:45,600 --> 00:31:48,240
+is now
+
+855
+00:31:46,799 --> 00:31:48,960
+the last slide
+
+856
+00:31:48,240 --> 00:31:50,720
+is
+
+857
+00:31:48,960 --> 00:31:52,960
+going to be again a repeat
+
+858
+00:31:50,720 --> 00:31:54,720
+uh let me just let me just force out of
+
+859
+00:31:52,960 --> 00:31:56,399
+where we're going but feel free to ask a
+
+860
+00:31:54,720 --> 00:31:58,000
+question on this or on the first slide
+
+861
+00:31:56,399 --> 00:32:00,159
+if you didn't on the previous slide if
+
+862
+00:31:58,000 --> 00:32:01,600
+you didn't get that um also we can try
+
+863
+00:32:00,159 --> 00:32:03,840
+to help you out with that
+
+864
+00:32:01,600 --> 00:32:03,840
+um
+
+865
+00:32:04,159 --> 00:32:08,480
+the next slide what i'm going to do
+
+866
+00:32:06,960 --> 00:32:10,320
+is show
+
+867
+00:32:08,480 --> 00:32:12,720
+how to compute
+
+868
+00:32:10,320 --> 00:32:15,360
+all these c values
+
+869
+00:32:12,720 --> 00:32:17,440
+and i should mention um
+
+870
+00:32:15,360 --> 00:32:19,039
+the value c which is the total number
+
+871
+00:32:17,440 --> 00:32:20,000
+reachable is going to be the same as c
+
+872
+00:32:19,039 --> 00:32:21,760
+sub m
+
+873
+00:32:20,000 --> 00:32:23,919
+reachable with an m the number of nodes
+
+874
+00:32:21,760 --> 00:32:26,320
+of the graph so if i can get up to c sub
+
+875
+00:32:23,919 --> 00:32:27,279
+m i'm done
+
+876
+00:32:26,320 --> 00:32:30,880
+um
+
+877
+00:32:27,279 --> 00:32:30,880
+and what i'm gonna show you is that
+
+878
+00:32:31,120 --> 00:32:35,760
+uh
+
+879
+00:32:33,120 --> 00:32:38,159
+knowing c sub i i can compute c sub i
+
+880
+00:32:35,760 --> 00:32:40,080
+plus one or c sub d i can compute c sub
+
+881
+00:32:38,159 --> 00:32:41,679
+d plus one
+
+882
+00:32:40,080 --> 00:32:43,919
+since i'm using d as my index here
+
+883
+00:32:41,679 --> 00:32:47,440
+basically
+
+884
+00:32:43,919 --> 00:32:49,039
+so c sub zero we know is just s well r
+
+885
+00:32:47,440 --> 00:32:50,240
+you know it's just one because you can
+
+886
+00:32:49,039 --> 00:32:51,440
+read just
+
+887
+00:32:50,240 --> 00:32:53,360
+start with s that's the only thing
+
+888
+00:32:51,440 --> 00:32:56,960
+reachable with zero
+
+889
+00:32:53,360 --> 00:32:59,679
+and then once i
+
+890
+00:32:56,960 --> 00:33:02,480
+know that i can fi figure out c sub 1 c
+
+891
+00:32:59,679 --> 00:33:04,559
+sub 2 c sub 3 and so on and then i get
+
+892
+00:33:02,480 --> 00:33:06,240
+the c sub n and then i have the count of
+
+893
+00:33:04,559 --> 00:33:10,360
+the total number reachable and then i
+
+894
+00:33:06,240 --> 00:33:10,360
+can test the path function
+
+895
+00:33:10,559 --> 00:33:12,960
+um
+
+896
+00:33:13,279 --> 00:33:17,919
+okay so the trick now is being able to
+
+897
+00:33:15,760 --> 00:33:18,720
+count
+
+898
+00:33:17,919 --> 00:33:21,039
+uh
+
+899
+00:33:18,720 --> 00:33:25,240
+given c sub d i would like to figure out
+
+900
+00:33:21,039 --> 00:33:25,240
+what is c sub d plus one
+
+901
+00:33:26,000 --> 00:33:28,399
+now how am i going to do that what i'm
+
+902
+00:33:27,279 --> 00:33:30,000
+going to do
+
+903
+00:33:28,399 --> 00:33:30,640
+is that's my goal what i'm going to do
+
+904
+00:33:30,000 --> 00:33:32,640
+is
+
+905
+00:33:30,640 --> 00:33:34,960
+something in between
+
+906
+00:33:32,640 --> 00:33:36,399
+i'm going to do a theorem just like this
+
+907
+00:33:34,960 --> 00:33:39,120
+but instead of
+
+908
+00:33:36,399 --> 00:33:41,120
+given c sub d instead of computing paths
+
+909
+00:33:39,120 --> 00:33:42,799
+of d i'm going to compute paths of d
+
+910
+00:33:41,120 --> 00:33:43,679
+plus 1.
+
+911
+00:33:42,799 --> 00:33:45,360
+so
+
+912
+00:33:43,679 --> 00:33:47,679
+knowing
+
+913
+00:33:45,360 --> 00:33:49,679
+how many are reachable from d
+
+914
+00:33:47,679 --> 00:33:52,799
+i'm going to give a test for whether
+
+915
+00:33:49,679 --> 00:33:55,200
+things are reachable within d plus one
+
+916
+00:33:52,799 --> 00:33:57,200
+and the fact is that's easy
+
+917
+00:33:55,200 --> 00:33:59,279
+because this thing already tells me how
+
+918
+00:33:57,200 --> 00:34:00,799
+to compute whether i'm reachable within
+
+919
+00:33:59,279 --> 00:34:02,720
+d
+
+920
+00:34:00,799 --> 00:34:05,279
+and being able to be reachable from
+
+921
+00:34:02,720 --> 00:34:08,639
+within d plus one means i have an edge
+
+922
+00:34:05,279 --> 00:34:09,919
+from something that's reachable within d
+
+923
+00:34:08,639 --> 00:34:11,599
+so if i can figure out which are
+
+924
+00:34:09,919 --> 00:34:13,200
+reachable within d
+
+925
+00:34:11,599 --> 00:34:14,000
+well and i just want to say do i have an
+
+926
+00:34:13,200 --> 00:34:15,119
+edge
+
+927
+00:34:14,000 --> 00:34:16,960
+you know
+
+928
+00:34:15,119 --> 00:34:18,879
+uh
+
+929
+00:34:16,960 --> 00:34:21,359
+do i have an edge from from one of the
+
+930
+00:34:18,879 --> 00:34:24,800
+nodes that are reachable within d then
+
+931
+00:34:21,359 --> 00:34:24,800
+i'm reachable within d plus one
+
+932
+00:34:25,440 --> 00:34:29,760
+then if i can test whether individual
+
+933
+00:34:27,599 --> 00:34:30,960
+nodes are reachable within d plus one i
+
+934
+00:34:29,760 --> 00:34:32,639
+can count
+
+935
+00:34:30,960 --> 00:34:34,399
+how many nodes are reachable within d
+
+936
+00:34:32,639 --> 00:34:36,240
+plus one that was that very first easy
+
+937
+00:34:34,399 --> 00:34:38,159
+theorem that i showed
+
+938
+00:34:36,240 --> 00:34:40,079
+so i know there's a lot of pieces here
+
+939
+00:34:38,159 --> 00:34:42,240
+that you have to put together but in the
+
+940
+00:34:40,079 --> 00:34:43,200
+end each p each individual piece is not
+
+941
+00:34:42,240 --> 00:34:45,520
+that bad
+
+942
+00:34:43,200 --> 00:34:45,520
+um
+
+943
+00:34:45,760 --> 00:34:49,119
+okay i don't know how many of you have
+
+944
+00:34:47,200 --> 00:34:51,040
+followed me oh no this is not supposed
+
+945
+00:34:49,119 --> 00:34:53,359
+to be here uh
+
+946
+00:34:51,040 --> 00:34:55,200
+there we go
+
+947
+00:34:53,359 --> 00:34:56,399
+so here is the last part
+
+948
+00:34:55,200 --> 00:34:58,079
+which again is just a simple
+
+949
+00:34:56,399 --> 00:34:59,839
+modification of what what the previous
+
+950
+00:34:58,079 --> 00:35:00,560
+slide had
+
+951
+00:34:59,839 --> 00:35:02,960
+so
+
+952
+00:35:00,560 --> 00:35:06,320
+i'm going to show how to compute
+
+953
+00:35:02,960 --> 00:35:09,200
+the path d plus 1 function so testing if
+
+954
+00:35:06,320 --> 00:35:11,440
+there's a path of length d plus 1 from s
+
+955
+00:35:09,200 --> 00:35:13,200
+to some node t
+
+956
+00:35:11,440 --> 00:35:16,920
+but only knowing how many nodes are
+
+957
+00:35:13,200 --> 00:35:16,920
+reachable within d
+
+958
+00:35:17,680 --> 00:35:22,240
+so i'm going to find all nodes that are
+
+959
+00:35:19,680 --> 00:35:24,560
+reachable within d
+
+960
+00:35:22,240 --> 00:35:27,599
+just like i did before but see if any
+
+961
+00:35:24,560 --> 00:35:28,800
+one of those nodes has an edge
+
+962
+00:35:27,599 --> 00:35:31,040
+to t
+
+963
+00:35:28,800 --> 00:35:33,040
+not necessarily that one is equal to t
+
+964
+00:35:31,040 --> 00:35:35,440
+because that says that t is reachable
+
+965
+00:35:33,040 --> 00:35:37,839
+within d but i want to know does it have
+
+966
+00:35:35,440 --> 00:35:40,000
+an edge to t that means t is reachable
+
+967
+00:35:37,839 --> 00:35:41,440
+within d plus one
+
+968
+00:35:40,000 --> 00:35:43,599
+so if i find all the nodes that are
+
+969
+00:35:41,440 --> 00:35:46,160
+reachable within d
+
+970
+00:35:43,599 --> 00:35:48,720
+and t turns out to be reachable from one
+
+971
+00:35:46,160 --> 00:35:51,040
+of those with it by an edge
+
+972
+00:35:48,720 --> 00:35:52,960
+then t is reachable within d uh d plus
+
+973
+00:35:51,040 --> 00:35:54,960
+one
+
+974
+00:35:52,960 --> 00:35:56,400
+and if d is not reachable from any of
+
+975
+00:35:54,960 --> 00:35:58,720
+those nodes with an edge then t is not
+
+976
+00:35:56,400 --> 00:36:00,400
+reachable when d plus one
+
+977
+00:35:58,720 --> 00:36:03,040
+i hope you're following me i'm not sure
+
+978
+00:36:00,400 --> 00:36:04,480
+you are uh
+
+979
+00:36:03,040 --> 00:36:06,320
+so anyway that's the that's the
+
+980
+00:36:04,480 --> 00:36:07,200
+algorithm here and
+
+981
+00:36:06,320 --> 00:36:09,599
+uh
+
+982
+00:36:07,200 --> 00:36:12,000
+uh the corollary is that you can compute
+
+983
+00:36:09,599 --> 00:36:14,000
+c sub d plus one from c sub d because if
+
+984
+00:36:12,000 --> 00:36:16,079
+you can count the path you if you can
+
+985
+00:36:14,000 --> 00:36:17,440
+test for each node if it's reachable as
+
+986
+00:36:16,079 --> 00:36:19,359
+i mentioned before you go through all
+
+987
+00:36:17,440 --> 00:36:20,320
+the nodes see whether the reachable and
+
+988
+00:36:19,359 --> 00:36:22,480
+d plus
+
+989
+00:36:20,320 --> 00:36:23,599
+d plus one and then
+
+990
+00:36:22,480 --> 00:36:25,440
+count them up
+
+991
+00:36:23,599 --> 00:36:26,640
+now i have c sub d plus one and now i'm
+
+992
+00:36:25,440 --> 00:36:27,920
+done
+
+993
+00:36:26,640 --> 00:36:30,160
+because
+
+994
+00:36:27,920 --> 00:36:30,160
+uh
+
+995
+00:36:30,400 --> 00:36:33,280
+uh
+
+996
+00:36:32,160 --> 00:36:37,280
+i'm gonna
+
+997
+00:36:33,280 --> 00:36:39,520
+compute each d plus one from the from
+
+998
+00:36:37,280 --> 00:36:43,440
+the value d that i previously computed
+
+999
+00:36:39,520 --> 00:36:43,440
+i'm going to do that from for all these
+
+1000
+00:36:44,000 --> 00:36:48,320
+should say zero here actually um
+
+1001
+00:36:46,880 --> 00:36:50,960
+and except
+
+1002
+00:36:48,320 --> 00:36:53,359
+uh if the path says if this if the path
+
+1003
+00:36:50,960 --> 00:36:54,400
+function now says there's no that the
+
+1004
+00:36:53,359 --> 00:36:55,920
+answer is no
+
+1005
+00:36:54,400 --> 00:36:58,000
+because i'm trying to do
+
+1006
+00:36:55,920 --> 00:36:59,359
+you know the complement of the path
+
+1007
+00:36:58,000 --> 00:37:02,560
+language
+
+1008
+00:36:59,359 --> 00:37:04,160
+and reject of the path uh thing for m
+
+1009
+00:37:02,560 --> 00:37:05,599
+says yes
+
+1010
+00:37:04,160 --> 00:37:07,760
+and that's my non-deterministic
+
+1011
+00:37:05,599 --> 00:37:08,880
+algorithm for the path
+
+1012
+00:37:07,760 --> 00:37:11,520
+complement
+
+1013
+00:37:08,880 --> 00:37:13,280
+uh problem
+
+1014
+00:37:11,520 --> 00:37:14,560
+anyway
+
+1015
+00:37:13,280 --> 00:37:16,320
+maybe you need to look at a little bit
+
+1016
+00:37:14,560 --> 00:37:17,839
+offline um
+
+1017
+00:37:16,320 --> 00:37:19,839
+it's presented in a little bit different
+
+1018
+00:37:17,839 --> 00:37:22,320
+way in the book uh i don't know if that
+
+1019
+00:37:19,839 --> 00:37:23,920
+will be more or less clear to you but i
+
+1020
+00:37:22,320 --> 00:37:26,400
+kind of i think this has been a little
+
+1021
+00:37:23,920 --> 00:37:28,240
+bit more unpacked for the purposes of
+
+1022
+00:37:26,400 --> 00:37:29,760
+the lecture
+
+1023
+00:37:28,240 --> 00:37:31,760
+um
+
+1024
+00:37:29,760 --> 00:37:34,000
+so let's just see do we i'm not getting
+
+1025
+00:37:31,760 --> 00:37:35,119
+any questions which probably means
+
+1026
+00:37:34,000 --> 00:37:39,119
+uh
+
+1027
+00:37:35,119 --> 00:37:40,720
+uh i've lost a huge chunk of you um but
+
+1028
+00:37:39,119 --> 00:37:42,560
+uh the good news is we're gonna move on
+
+1029
+00:37:40,720 --> 00:37:43,520
+to a different topic
+
+1030
+00:37:42,560 --> 00:37:45,839
+so
+
+1031
+00:37:43,520 --> 00:37:45,839
+um
+
+1032
+00:37:46,480 --> 00:37:49,280
+but feel free to ask a question on this
+
+1033
+00:37:48,079 --> 00:37:51,440
+if you want
+
+1034
+00:37:49,280 --> 00:37:53,760
+or we're going to shift gears now to
+
+1035
+00:37:51,440 --> 00:37:55,119
+talking about the hierarchy theorems
+
+1036
+00:37:53,760 --> 00:37:56,400
+which is going to be the second half of
+
+1037
+00:37:55,119 --> 00:37:59,440
+the lecture
+
+1038
+00:37:56,400 --> 00:38:01,440
+also not so easy i have to say
+
+1039
+00:37:59,440 --> 00:38:03,040
+probably a little less technical than
+
+1040
+00:38:01,440 --> 00:38:04,800
+this one is but
+
+1041
+00:38:03,040 --> 00:38:07,760
+it's also this are going to be
+
+1042
+00:38:04,800 --> 00:38:09,040
+um spending time on just mainly just one
+
+1043
+00:38:07,760 --> 00:38:11,200
+theorem
+
+1044
+00:38:09,040 --> 00:38:12,320
+but anyway so looking ahead to what
+
+1045
+00:38:11,200 --> 00:38:14,560
+where we're going and then we'll have a
+
+1046
+00:38:12,320 --> 00:38:14,560
+break
+
+1047
+00:38:14,960 --> 00:38:18,640
+um
+
+1048
+00:38:16,480 --> 00:38:21,119
+we uh
+
+1049
+00:38:18,640 --> 00:38:23,040
+well what we've shown so far
+
+1050
+00:38:21,119 --> 00:38:25,119
+these are the major complexity classes
+
+1051
+00:38:23,040 --> 00:38:27,599
+i'm not not including let's say the the
+
+1052
+00:38:25,119 --> 00:38:29,440
+complementary classes the co-np uh type
+
+1053
+00:38:27,599 --> 00:38:30,960
+classes um
+
+1054
+00:38:29,440 --> 00:38:32,400
+these are the major complex classes
+
+1055
+00:38:30,960 --> 00:38:36,480
+we've seen so far
+
+1056
+00:38:32,400 --> 00:38:39,280
+and as we've seen they form a hierarchy
+
+1057
+00:38:36,480 --> 00:38:39,280
+of containments
+
+1058
+00:38:40,640 --> 00:38:45,599
+some of those containments trivial and
+
+1059
+00:38:42,800 --> 00:38:47,680
+some slightly less trivial
+
+1060
+00:38:45,599 --> 00:38:49,680
+but we have not shown whether any of
+
+1061
+00:38:47,680 --> 00:38:51,119
+these classes are different
+
+1062
+00:38:49,680 --> 00:38:53,520
+you know we've pointed out that there
+
+1063
+00:38:51,119 --> 00:38:55,200
+are some unsolved problems here but do
+
+1064
+00:38:53,520 --> 00:38:56,160
+we know any of these classes differ from
+
+1065
+00:38:55,200 --> 00:38:59,200
+each other
+
+1066
+00:38:56,160 --> 00:39:01,119
+or could it all collapse down to l
+
+1067
+00:38:59,200 --> 00:39:04,240
+and the answer to that is
+
+1068
+00:39:01,119 --> 00:39:06,160
+we do know that p space and l are
+
+1069
+00:39:04,240 --> 00:39:08,880
+actually different
+
+1070
+00:39:06,160 --> 00:39:08,880
+that we can prove
+
+1071
+00:39:09,440 --> 00:39:14,400
+and it's a um
+
+1072
+00:39:11,760 --> 00:39:16,880
+it relies on the theorem
+
+1073
+00:39:14,400 --> 00:39:20,640
+that says if you give a
+
+1074
+00:39:16,880 --> 00:39:22,400
+turing machine more space
+
+1075
+00:39:20,640 --> 00:39:24,240
+then you can do more things
+
+1076
+00:39:22,400 --> 00:39:28,079
+so because p space
+
+1077
+00:39:24,240 --> 00:39:30,160
+is much is a bigger bound than log space
+
+1078
+00:39:28,079 --> 00:39:32,480
+we know we can do more things
+
+1079
+00:39:30,160 --> 00:39:33,440
+in fact
+
+1080
+00:39:32,480 --> 00:39:36,000
+because
+
+1081
+00:39:33,440 --> 00:39:38,640
+n l is contained within
+
+1082
+00:39:36,000 --> 00:39:40,640
+log squared space deterministically and
+
+1083
+00:39:38,640 --> 00:39:43,119
+p space is bigger than that we actually
+
+1084
+00:39:40,640 --> 00:39:44,880
+can separate p space and nm
+
+1085
+00:39:43,119 --> 00:39:46,960
+so we're going to prove that today
+
+1086
+00:39:44,880 --> 00:39:49,599
+um so the basically the idea of the
+
+1087
+00:39:46,960 --> 00:39:50,560
+theorem says that if you give a turing
+
+1088
+00:39:49,599 --> 00:39:52,400
+machine
+
+1089
+00:39:50,560 --> 00:39:53,920
+a bit more time or a bit more space then
+
+1090
+00:39:52,400 --> 00:39:55,040
+it can do more
+
+1091
+00:39:53,920 --> 00:39:56,560
+though you have there are some
+
+1092
+00:39:55,040 --> 00:39:59,200
+conditions on that that we have to uh
+
+1093
+00:39:56,560 --> 00:39:59,200
+we'll get into
+
+1094
+00:39:59,359 --> 00:40:02,960
+one of the conclusions that we'll show
+
+1095
+00:40:01,920 --> 00:40:04,160
+is that
+
+1096
+00:40:02,960 --> 00:40:06,400
+um
+
+1097
+00:40:04,160 --> 00:40:08,480
+time n squared if you compare with time
+
+1098
+00:40:06,400 --> 00:40:10,960
+it's you know the time com the things
+
+1099
+00:40:08,480 --> 00:40:12,800
+you can do in n squared time uh versus
+
+1100
+00:40:10,960 --> 00:40:14,640
+the things you can do in cube time there
+
+1101
+00:40:12,800 --> 00:40:16,240
+are more things you can do in n-cube
+
+1102
+00:40:14,640 --> 00:40:17,680
+time then you can what you can do with
+
+1103
+00:40:16,240 --> 00:40:19,839
+n-square time i mean that's what you
+
+1104
+00:40:17,680 --> 00:40:20,880
+would expect
+
+1105
+00:40:19,839 --> 00:40:22,400
+um but
+
+1106
+00:40:20,880 --> 00:40:25,599
+it's not the case that everything we
+
+1107
+00:40:22,400 --> 00:40:27,280
+expect in uh complexity theory we can
+
+1108
+00:40:25,599 --> 00:40:28,079
+prove this is one of the things we can
+
+1109
+00:40:27,280 --> 00:40:30,560
+prove
+
+1110
+00:40:28,079 --> 00:40:32,400
+so as you add more time you can do more
+
+1111
+00:40:30,560 --> 00:40:34,560
+things so this is a proper subset here
+
+1112
+00:40:32,400 --> 00:40:36,560
+so there's there are some things in time
+
+1113
+00:40:34,560 --> 00:40:38,640
+n cubed that are not in time n squared
+
+1114
+00:40:36,560 --> 00:40:40,319
+and ditto for space
+
+1115
+00:40:38,640 --> 00:40:42,480
+okay um
+
+1116
+00:40:40,319 --> 00:40:44,560
+so that's going to be
+
+1117
+00:40:42,480 --> 00:40:45,760
+that brings us to our
+
+1118
+00:40:44,560 --> 00:40:47,839
+coffee break
+
+1119
+00:40:45,760 --> 00:40:51,119
+and so feel free to shoot me any
+
+1120
+00:40:47,839 --> 00:40:51,119
+questions about
+
+1121
+00:40:51,599 --> 00:40:54,880
+what we've done so far or anything else
+
+1122
+00:40:53,359 --> 00:40:57,440
+and otherwise
+
+1123
+00:40:54,880 --> 00:40:59,200
+we will um
+
+1124
+00:40:57,440 --> 00:41:00,560
+launch our timer and i'll see you in
+
+1125
+00:40:59,200 --> 00:41:02,400
+five minutes
+
+1126
+00:41:00,560 --> 00:41:04,319
+okay so i get getting some good
+
+1127
+00:41:02,400 --> 00:41:07,680
+questions here could we also make a
+
+1128
+00:41:04,319 --> 00:41:08,800
+solution this is getting back to that um
+
+1129
+00:41:07,680 --> 00:41:10,160
+um
+
+1130
+00:41:08,800 --> 00:41:11,520
+uh
+
+1131
+00:41:10,160 --> 00:41:13,920
+um
+
+1132
+00:41:11,520 --> 00:41:15,760
+the logs the nl equals coin l somebody's
+
+1133
+00:41:13,920 --> 00:41:18,040
+saying could we just
+
+1134
+00:41:15,760 --> 00:41:19,760
+um make another selection just by
+
+1135
+00:41:18,040 --> 00:41:21,920
+non-deterministically choosing c
+
+1136
+00:41:19,760 --> 00:41:23,119
+vertices
+
+1137
+00:41:21,920 --> 00:41:25,760
+and then not and then checking that
+
+1138
+00:41:23,119 --> 00:41:28,319
+they're all reachable
+
+1139
+00:41:25,760 --> 00:41:30,560
+that's effectively what we're doing
+
+1140
+00:41:28,319 --> 00:41:30,560
+but
+
+1141
+00:41:31,200 --> 00:41:35,200
+be careful that we because we cannot
+
+1142
+00:41:33,119 --> 00:41:36,640
+store c vertices
+
+1143
+00:41:35,200 --> 00:41:37,440
+so that's why we're doing them one at a
+
+1144
+00:41:36,640 --> 00:41:40,480
+time
+
+1145
+00:41:37,440 --> 00:41:42,319
+we can't guess all c vertices up front
+
+1146
+00:41:40,480 --> 00:41:45,200
+because where you're going to store all
+
+1147
+00:41:42,319 --> 00:41:48,160
+that we only have log space
+
+1148
+00:41:45,200 --> 00:41:49,680
+okay another so maybe somebody's asking
+
+1149
+00:41:48,160 --> 00:41:51,119
+how much working space do we need for
+
+1150
+00:41:49,680 --> 00:41:53,040
+storing the intermediate steps i'm not
+
+1151
+00:41:51,119 --> 00:41:55,520
+sure what intermediate steps you mean
+
+1152
+00:41:53,040 --> 00:41:56,720
+but if it's all the ci values
+
+1153
+00:41:55,520 --> 00:42:00,079
+you know see
+
+1154
+00:41:56,720 --> 00:42:01,280
+going from c0 to c1 to c2 to c3 we don't
+
+1155
+00:42:00,079 --> 00:42:05,119
+store those
+
+1156
+00:42:01,280 --> 00:42:07,280
+we all you need you need c sub d
+
+1157
+00:42:05,119 --> 00:42:09,359
+to calculate c sub d plus one and then
+
+1158
+00:42:07,280 --> 00:42:11,040
+you forget c sub d you couldn't store
+
+1159
+00:42:09,359 --> 00:42:12,560
+all the c values but you don't need them
+
+1160
+00:42:11,040 --> 00:42:14,400
+all you only need the most recent one to
+
+1161
+00:42:12,560 --> 00:42:16,640
+go to the next one okay somebody's
+
+1162
+00:42:14,400 --> 00:42:18,640
+asking can i go over why the complement
+
+1163
+00:42:16,640 --> 00:42:20,960
+of path in nl
+
+1164
+00:42:18,640 --> 00:42:23,040
+implies nl equal coin l
+
+1165
+00:42:20,960 --> 00:42:24,160
+because the complement of path
+
+1166
+00:42:23,040 --> 00:42:26,960
+is
+
+1167
+00:42:24,160 --> 00:42:29,280
+uh essentially it's co n l complete i
+
+1168
+00:42:26,960 --> 00:42:30,640
+mean l it is um
+
+1169
+00:42:29,280 --> 00:42:34,000
+so
+
+1170
+00:42:30,640 --> 00:42:35,280
+everything in nl is reducible to path
+
+1171
+00:42:34,000 --> 00:42:37,200
+the
+
+1172
+00:42:35,280 --> 00:42:39,920
+everything in cohen l
+
+1173
+00:42:37,200 --> 00:42:41,760
+is reducible to the complement of path
+
+1174
+00:42:39,920 --> 00:42:44,160
+by the same reduction
+
+1175
+00:42:41,760 --> 00:42:47,280
+um and so if you can do the complement
+
+1176
+00:42:44,160 --> 00:42:49,280
+of path in any uh class you can do all
+
+1177
+00:42:47,280 --> 00:42:50,880
+of the complements of nl languages in
+
+1178
+00:42:49,280 --> 00:42:53,359
+any class and so you can do the
+
+1179
+00:42:50,880 --> 00:42:54,480
+complement of path in nl you can do all
+
+1180
+00:42:53,359 --> 00:42:57,359
+the
+
+1181
+00:42:54,480 --> 00:43:00,480
+connell problems in out in
+
+1182
+00:42:57,359 --> 00:43:01,599
+nl and so then nl equals comma now
+
+1183
+00:43:00,480 --> 00:43:03,440
+you have to you have to just think
+
+1184
+00:43:01,599 --> 00:43:05,760
+through the logic of it this is not that
+
+1185
+00:43:03,440 --> 00:43:08,560
+that part is not hard um
+
+1186
+00:43:05,760 --> 00:43:10,640
+why it's enough to solve the path
+
+1187
+00:43:08,560 --> 00:43:12,240
+complement problem in nl that does
+
+1188
+00:43:10,640 --> 00:43:14,000
+everything else because it's a good so
+
+1189
+00:43:12,240 --> 00:43:15,760
+the same completeness phenomenon that
+
+1190
+00:43:14,000 --> 00:43:18,079
+we've been seeing
+
+1191
+00:43:15,760 --> 00:43:20,400
+okay somebody's asking about the the two
+
+1192
+00:43:18,079 --> 00:43:23,359
+sat problem that we talked about last
+
+1193
+00:43:20,400 --> 00:43:25,599
+time um and is it um
+
+1194
+00:43:23,359 --> 00:43:26,400
+and you know i i pointed out that that's
+
+1195
+00:43:25,599 --> 00:43:28,960
+in
+
+1196
+00:43:26,400 --> 00:43:30,480
+nl the you know the the two side problem
+
+1197
+00:43:28,960 --> 00:43:31,440
+well the complement of the two set
+
+1198
+00:43:30,480 --> 00:43:33,359
+problem
+
+1199
+00:43:31,440 --> 00:43:35,359
+uh
+
+1200
+00:43:33,359 --> 00:43:38,079
+you know the unsatisfiable two set
+
+1201
+00:43:35,359 --> 00:43:40,319
+formulas that that's an nl language
+
+1202
+00:43:38,079 --> 00:43:42,800
+because you can basically look for a
+
+1203
+00:43:40,319 --> 00:43:44,160
+contradiction uh non-deterministically
+
+1204
+00:43:42,800 --> 00:43:45,359
+in log space
+
+1205
+00:43:44,160 --> 00:43:46,720
+um
+
+1206
+00:43:45,359 --> 00:43:48,160
+that's
+
+1207
+00:43:46,720 --> 00:43:50,319
+i think i probably won't be able to
+
+1208
+00:43:48,160 --> 00:43:52,079
+explain that in a minute but maybe we'll
+
+1209
+00:43:50,319 --> 00:43:54,240
+have our recitation instructors cover
+
+1210
+00:43:52,079 --> 00:43:56,560
+that in recitation
+
+1211
+00:43:54,240 --> 00:43:59,040
+um it's a nice proof not very hard but
+
+1212
+00:43:56,560 --> 00:44:00,640
+it's it's an it's a nice proof
+
+1213
+00:43:59,040 --> 00:44:01,760
+it's it's it's it's it's you know it's
+
+1214
+00:44:00,640 --> 00:44:03,119
+not
+
+1215
+00:44:01,760 --> 00:44:05,280
+it's something you have to do you have
+
+1216
+00:44:03,119 --> 00:44:08,079
+to think about you you have to argue but
+
+1217
+00:44:05,280 --> 00:44:10,400
+it's still it's not super hard um
+
+1218
+00:44:08,079 --> 00:44:12,400
+understanding the two sad problem and
+
+1219
+00:44:10,400 --> 00:44:14,319
+you know the complement of two set we
+
+1220
+00:44:12,400 --> 00:44:16,720
+showed is in nl
+
+1221
+00:44:14,319 --> 00:44:18,480
+and because nl equals coin l also the
+
+1222
+00:44:16,720 --> 00:44:21,520
+two sat problem itself without
+
+1223
+00:44:18,480 --> 00:44:23,760
+complementation is in nl
+
+1224
+00:44:21,520 --> 00:44:24,720
+and in fact is nl complete
+
+1225
+00:44:23,760 --> 00:44:25,760
+okay
+
+1226
+00:44:24,720 --> 00:44:29,119
+um
+
+1227
+00:44:25,760 --> 00:44:29,119
+i think we're going to have to move on
+
+1228
+00:44:29,680 --> 00:44:33,920
+uh i'll stick around after lecture in
+
+1229
+00:44:31,520 --> 00:44:35,839
+cases any questions that i can answer
+
+1230
+00:44:33,920 --> 00:44:37,839
+quickly at that point
+
+1231
+00:44:35,839 --> 00:44:40,000
+sorry if i couldn't get to your question
+
+1232
+00:44:37,839 --> 00:44:42,400
+just now
+
+1233
+00:44:40,000 --> 00:44:42,400
+all right
+
+1234
+00:44:42,560 --> 00:44:46,160
+continuing on here
+
+1235
+00:44:46,800 --> 00:44:50,480
+okay
+
+1236
+00:44:48,160 --> 00:44:52,880
+shifting gears the space hierarchy
+
+1237
+00:44:50,480 --> 00:44:55,119
+theorem
+
+1238
+00:44:52,880 --> 00:44:55,119
+so
+
+1239
+00:44:55,440 --> 00:45:00,319
+um
+
+1240
+00:44:57,280 --> 00:45:03,119
+so as i mentioned i think um
+
+1241
+00:45:00,319 --> 00:45:05,680
+uh maybe it's good to just go back
+
+1242
+00:45:03,119 --> 00:45:07,119
+to this slide here um
+
+1243
+00:45:05,680 --> 00:45:08,640
+we're going to do the time and space
+
+1244
+00:45:07,119 --> 00:45:09,839
+hierarchy theorems which show that if
+
+1245
+00:45:08,640 --> 00:45:11,520
+you can do a little bit more if you give
+
+1246
+00:45:09,839 --> 00:45:14,240
+a little bit more time or a little bit
+
+1247
+00:45:11,520 --> 00:45:15,839
+more space you can do more things
+
+1248
+00:45:14,240 --> 00:45:16,800
+we're going to do the space
+
+1249
+00:45:15,839 --> 00:45:18,800
+case
+
+1250
+00:45:16,800 --> 00:45:20,240
+first because that actually tends to be
+
+1251
+00:45:18,800 --> 00:45:22,160
+slightly
+
+1252
+00:45:20,240 --> 00:45:24,240
+for certain technical reasons slightly
+
+1253
+00:45:22,160 --> 00:45:25,280
+easier
+
+1254
+00:45:24,240 --> 00:45:26,880
+so
+
+1255
+00:45:25,280 --> 00:45:29,760
+uh
+
+1256
+00:45:26,880 --> 00:45:34,079
+space hierarchy theorem so here is
+
+1257
+00:45:29,760 --> 00:45:34,079
+the statement of the theorem and
+
+1258
+00:45:37,040 --> 00:45:42,240
+it says for any bound
+
+1259
+00:45:40,000 --> 00:45:43,440
+think of s is going to be some
+
+1260
+00:45:42,240 --> 00:45:45,520
+you know
+
+1261
+00:45:43,440 --> 00:45:47,200
+space bound
+
+1262
+00:45:45,520 --> 00:45:49,119
+and again
+
+1263
+00:45:47,200 --> 00:45:51,040
+f has to satisfy some technical
+
+1264
+00:45:49,119 --> 00:45:52,240
+condition in yellow remember that it's
+
+1265
+00:45:51,040 --> 00:45:53,599
+yellow because that's going to be
+
+1266
+00:45:52,240 --> 00:45:54,880
+relevant later
+
+1267
+00:45:53,599 --> 00:45:57,040
+um
+
+1268
+00:45:54,880 --> 00:45:58,079
+uh so there's going to be some technical
+
+1269
+00:45:57,040 --> 00:45:59,119
+condition
+
+1270
+00:45:58,079 --> 00:46:02,560
+um
+
+1271
+00:45:59,119 --> 00:46:04,560
+for no matter what function you you have
+
+1272
+00:46:02,560 --> 00:46:06,160
+whatever space bound you have as long as
+
+1273
+00:46:04,560 --> 00:46:08,560
+it satisfies this condition which is a
+
+1274
+00:46:06,160 --> 00:46:11,520
+mild condition but you need it uh
+
+1275
+00:46:08,560 --> 00:46:14,560
+whatever space bound you have um you can
+
+1276
+00:46:11,520 --> 00:46:18,880
+find a language a
+
+1277
+00:46:14,560 --> 00:46:18,880
+which requires exactly that much space
+
+1278
+00:46:18,960 --> 00:46:23,440
+so if f is like n cubed we're going to
+
+1279
+00:46:21,599 --> 00:46:25,839
+find a language a that requires n cubed
+
+1280
+00:46:23,440 --> 00:46:27,359
+space if it's n to the hundredth we can
+
+1281
+00:46:25,839 --> 00:46:28,800
+find the language that requires into the
+
+1282
+00:46:27,359 --> 00:46:32,160
+100th space
+
+1283
+00:46:28,800 --> 00:46:33,839
+and cannot be done within 1999 space
+
+1284
+00:46:32,160 --> 00:46:36,400
+whatever it is
+
+1285
+00:46:33,839 --> 00:46:38,640
+you can find a language that requires
+
+1286
+00:46:36,400 --> 00:46:40,640
+exactly that much space and if you like
+
+1287
+00:46:38,640 --> 00:46:42,400
+it a little bit more formally so that
+
+1288
+00:46:40,640 --> 00:46:43,760
+means that it can be decided in that
+
+1289
+00:46:42,400 --> 00:46:47,520
+much space
+
+1290
+00:46:43,760 --> 00:46:47,520
+but it cannot be decided in less space
+
+1291
+00:46:48,079 --> 00:46:51,359
+okay
+
+1292
+00:46:49,920 --> 00:46:53,280
+framing it in a slightly different way
+
+1293
+00:46:51,359 --> 00:46:56,560
+in terms of our space classes
+
+1294
+00:46:53,280 --> 00:46:58,480
+um i'm going to define a notion which is
+
+1295
+00:46:56,560 --> 00:46:59,280
+you know kind of it's not
+
+1296
+00:46:58,480 --> 00:47:01,119
+it's
+
+1297
+00:46:59,280 --> 00:47:03,599
+not said this way in the book but maybe
+
+1298
+00:47:01,119 --> 00:47:06,400
+it's a helpful way to write it down
+
+1299
+00:47:03,599 --> 00:47:07,920
+it's space little o of f of n
+
+1300
+00:47:06,400 --> 00:47:09,920
+so those are all the things that you can
+
+1301
+00:47:07,920 --> 00:47:10,720
+do by a function that's little o of f of
+
+1302
+00:47:09,920 --> 00:47:12,880
+n
+
+1303
+00:47:10,720 --> 00:47:15,680
+in space
+
+1304
+00:47:12,880 --> 00:47:18,880
+so space little o of f n is properly
+
+1305
+00:47:15,680 --> 00:47:20,480
+contained within space f of n
+
+1306
+00:47:18,880 --> 00:47:23,359
+in other words there's something here
+
+1307
+00:47:20,480 --> 00:47:23,359
+which is not in there
+
+1308
+00:47:23,599 --> 00:47:28,559
+okay picture pictorially
+
+1309
+00:47:25,920 --> 00:47:30,720
+i'm going to exhibit some language some
+
+1310
+00:47:28,559 --> 00:47:32,559
+explicit language a
+
+1311
+00:47:30,720 --> 00:47:34,880
+which i can do in this much space but
+
+1312
+00:47:32,559 --> 00:47:36,079
+not in any less
+
+1313
+00:47:34,880 --> 00:47:37,920
+now you know you can sort of think of
+
+1314
+00:47:36,079 --> 00:47:40,160
+this as a little bit like the situation
+
+1315
+00:47:37,920 --> 00:47:41,760
+for context-free languages and regular
+
+1316
+00:47:40,160 --> 00:47:44,160
+languages where we exhibited a
+
+1317
+00:47:41,760 --> 00:47:46,640
+particular language that differentiated
+
+1318
+00:47:44,160 --> 00:47:48,240
+that was it context-free but not regular
+
+1319
+00:47:46,640 --> 00:47:49,920
+and we're going to kind of do the same
+
+1320
+00:47:48,240 --> 00:47:52,319
+thing now
+
+1321
+00:47:49,920 --> 00:47:54,240
+but the one key difference is that in
+
+1322
+00:47:52,319 --> 00:47:56,079
+the case of separating the context free
+
+1323
+00:47:54,240 --> 00:47:59,599
+and the regular we could give a nice
+
+1324
+00:47:56,079 --> 00:48:01,119
+language like 0 to the k1 to the k
+
+1325
+00:47:59,599 --> 00:48:02,960
+here the language is not going to be so
+
+1326
+00:48:01,119 --> 00:48:04,880
+nice to describe
+
+1327
+00:48:02,960 --> 00:48:06,640
+it's going to be the language that some
+
+1328
+00:48:04,880 --> 00:48:07,920
+turing machine we're going to give
+
+1329
+00:48:06,640 --> 00:48:09,200
+decides
+
+1330
+00:48:07,920 --> 00:48:11,440
+but you're not going to be able to get a
+
+1331
+00:48:09,200 --> 00:48:12,880
+nice simple understanding of a it's
+
+1332
+00:48:11,440 --> 00:48:14,800
+going to be whatever that turing machine
+
+1333
+00:48:12,880 --> 00:48:18,319
+does and so in that sense it's not a
+
+1334
+00:48:14,800 --> 00:48:20,880
+very natural language um that's easy to
+
+1335
+00:48:18,319 --> 00:48:24,559
+sort of get your mind around um
+
+1336
+00:48:20,880 --> 00:48:26,079
+so the i outline and really you don't
+
+1337
+00:48:24,559 --> 00:48:28,800
+have to
+
+1338
+00:48:26,079 --> 00:48:29,920
+worry about this but maybe it helps it's
+
+1339
+00:48:28,800 --> 00:48:32,079
+really going to be a kind of a
+
+1340
+00:48:29,920 --> 00:48:33,680
+diagonalization proof
+
+1341
+00:48:32,079 --> 00:48:35,760
+um
+
+1342
+00:48:33,680 --> 00:48:38,079
+the way this machine d
+
+1343
+00:48:35,760 --> 00:48:40,240
+um is going to operate so d is going to
+
+1344
+00:48:38,079 --> 00:48:42,079
+give you my language a
+
+1345
+00:48:40,240 --> 00:48:44,079
+um
+
+1346
+00:48:42,079 --> 00:48:46,319
+so d is going to be designed and i'm
+
+1347
+00:48:44,079 --> 00:48:49,040
+going to show you d on the next slide
+
+1348
+00:48:46,319 --> 00:48:51,440
+uh d is going to run within my target
+
+1349
+00:48:49,040 --> 00:48:54,480
+space bound f of n
+
+1350
+00:48:51,440 --> 00:48:57,040
+and here's the key here's the kicker
+
+1351
+00:48:54,480 --> 00:48:59,839
+d is going to be designed to make sure
+
+1352
+00:48:57,040 --> 00:49:02,480
+that its language cannot be done in less
+
+1353
+00:48:59,839 --> 00:49:04,000
+space
+
+1354
+00:49:02,480 --> 00:49:06,640
+and the way it does that
+
+1355
+00:49:04,000 --> 00:49:09,359
+is it makes sure that its language is
+
+1356
+00:49:06,640 --> 00:49:12,319
+different from any language that
+
+1357
+00:49:09,359 --> 00:49:15,280
+that is um
+
+1358
+00:49:12,319 --> 00:49:17,440
+decidable by a turing machine in in less
+
+1359
+00:49:15,280 --> 00:49:20,400
+space and it's going to be different in
+
+1360
+00:49:17,440 --> 00:49:20,400
+at least one place
+
+1361
+00:49:21,760 --> 00:49:24,800
+so any
+
+1362
+00:49:23,200 --> 00:49:27,839
+d is going to guarantee that its
+
+1363
+00:49:24,800 --> 00:49:29,760
+language cannot be done in little o of f
+
+1364
+00:49:27,839 --> 00:49:31,680
+of n space because it's going to be
+
+1365
+00:49:29,760 --> 00:49:34,240
+different from every language that's
+
+1366
+00:49:31,680 --> 00:49:36,559
+doable in little o of f of n space
+
+1367
+00:49:34,240 --> 00:49:38,480
+somewhere
+
+1368
+00:49:36,559 --> 00:49:40,480
+okay that's the point and then the
+
+1369
+00:49:38,480 --> 00:49:42,079
+language a is going to be
+
+1370
+00:49:40,480 --> 00:49:45,839
+the language of this
+
+1371
+00:49:42,079 --> 00:49:45,839
+uh turing machine d
+
+1372
+00:49:46,960 --> 00:49:51,760
+okay so it looks like a tall order the d
+
+1373
+00:49:49,440 --> 00:49:54,559
+has to make sure that each
+
+1374
+00:49:51,760 --> 00:49:56,319
+you know that that for every machine
+
+1375
+00:49:54,559 --> 00:49:58,559
+its language differs
+
+1376
+00:49:56,319 --> 00:50:00,240
+uh from that machine's language if that
+
+1377
+00:49:58,559 --> 00:50:01,280
+machine is running in little of f event
+
+1378
+00:50:00,240 --> 00:50:02,480
+space
+
+1379
+00:50:01,280 --> 00:50:04,160
+but it's basically going to be a
+
+1380
+00:50:02,480 --> 00:50:04,880
+diagonalization
+
+1381
+00:50:04,160 --> 00:50:07,040
+so
+
+1382
+00:50:04,880 --> 00:50:07,920
+for all of the different possible inputs
+
+1383
+00:50:07,040 --> 00:50:10,640
+to d
+
+1384
+00:50:07,920 --> 00:50:12,400
+that input is going to actually code up
+
+1385
+00:50:10,640 --> 00:50:14,559
+a machine
+
+1386
+00:50:12,400 --> 00:50:15,680
+uh on which
+
+1387
+00:50:14,559 --> 00:50:17,359
+we're going to make sure that we're
+
+1388
+00:50:15,680 --> 00:50:18,880
+different from that machine if it's a
+
+1389
+00:50:17,359 --> 00:50:19,760
+small space machine
+
+1390
+00:50:18,880 --> 00:50:20,960
+okay
+
+1391
+00:50:19,760 --> 00:50:23,440
+let's see
+
+1392
+00:50:20,960 --> 00:50:25,280
+so i can take a couple of questions here
+
+1393
+00:50:23,440 --> 00:50:27,520
+does f have to be computable so that's
+
+1394
+00:50:25,280 --> 00:50:29,119
+going to be one of the conditions um
+
+1395
+00:50:27,520 --> 00:50:30,480
+that we're going to have to guarantee
+
+1396
+00:50:29,119 --> 00:50:31,839
+where f satisfies the technical
+
+1397
+00:50:30,480 --> 00:50:33,520
+condition yeah it's going to end up
+
+1398
+00:50:31,839 --> 00:50:36,319
+being half it's going to be computable
+
+1399
+00:50:33,520 --> 00:50:36,319
+but that's not enough
+
+1400
+00:50:36,640 --> 00:50:41,760
+um
+
+1401
+00:50:38,880 --> 00:50:43,760
+good question though
+
+1402
+00:50:41,760 --> 00:50:45,680
+uh
+
+1403
+00:50:43,760 --> 00:50:49,280
+okay so let's let's
+
+1404
+00:50:45,680 --> 00:50:52,079
+let's move on from there okay now
+
+1405
+00:50:49,280 --> 00:50:54,400
+so here is now what's what my job is to
+
+1406
+00:50:52,079 --> 00:50:55,520
+give you this turing machine d
+
+1407
+00:50:54,400 --> 00:50:57,280
+so d
+
+1408
+00:50:55,520 --> 00:51:00,240
+these language is going to be my my
+
+1409
+00:50:57,280 --> 00:51:04,240
+language a which i can which requires f
+
+1410
+00:51:00,240 --> 00:51:04,240
+of n space cannot be done unless
+
+1411
+00:51:04,640 --> 00:51:08,800
+okay oops i need to
+
+1412
+00:51:07,280 --> 00:51:10,559
+i need the full slide here so i have to
+
+1413
+00:51:08,800 --> 00:51:11,050
+take myself out
+
+1414
+00:51:10,559 --> 00:51:14,109
+um
+
+1415
+00:51:11,050 --> 00:51:14,109
+[Music]
+
+1416
+00:51:15,839 --> 00:51:20,559
+all right uh now
+
+1417
+00:51:18,079 --> 00:51:22,720
+this is my goal i want to exhibit this
+
+1418
+00:51:20,559 --> 00:51:26,480
+language a which i can do in this much
+
+1419
+00:51:22,720 --> 00:51:26,480
+space but not in any less
+
+1420
+00:51:29,200 --> 00:51:32,880
+and
+
+1421
+00:51:30,960 --> 00:51:35,760
+so i'm going to give this machine d as i
+
+1422
+00:51:32,880 --> 00:51:37,839
+mentioned where a is d's language
+
+1423
+00:51:35,760 --> 00:51:40,400
+d runs in order f event space and that
+
+1424
+00:51:37,839 --> 00:51:44,079
+sort of that achieves this part
+
+1425
+00:51:40,400 --> 00:51:46,480
+and d it makes sure that its language
+
+1426
+00:51:44,079 --> 00:51:48,640
+cannot be done
+
+1427
+00:51:46,480 --> 00:51:50,640
+in any less space
+
+1428
+00:51:48,640 --> 00:51:52,400
+so that achieves this part
+
+1429
+00:51:50,640 --> 00:51:54,720
+so it's different from the language of
+
+1430
+00:51:52,400 --> 00:51:57,440
+any machine that runs in little o event
+
+1431
+00:51:54,720 --> 00:51:57,440
+f of n space
+
+1432
+00:51:57,599 --> 00:52:01,769
+okay um
+
+1433
+00:51:58,630 --> 00:52:01,769
+[Music]
+
+1434
+00:52:01,960 --> 00:52:08,079
+so uh
+
+1435
+00:52:05,520 --> 00:52:09,359
+this is how d is gonna work
+
+1436
+00:52:08,079 --> 00:52:12,079
+okay i'm gonna try to give you a little
+
+1437
+00:52:09,359 --> 00:52:14,400
+picture uh to help help see the to
+
+1438
+00:52:12,079 --> 00:52:16,000
+accompany the description
+
+1439
+00:52:14,400 --> 00:52:20,319
+uh so d
+
+1440
+00:52:16,000 --> 00:52:22,559
+gets its input w which is of length n
+
+1441
+00:52:20,319 --> 00:52:24,400
+the very first thing d does
+
+1442
+00:52:22,559 --> 00:52:27,359
+is it marks off
+
+1443
+00:52:24,400 --> 00:52:29,440
+f of n's space
+
+1444
+00:52:27,359 --> 00:52:32,079
+because it's only allowed to use
+
+1445
+00:52:29,440 --> 00:52:34,000
+we're only going to allow d to use f of
+
+1446
+00:52:32,079 --> 00:52:35,680
+n space because otherwise we're in
+
+1447
+00:52:34,000 --> 00:52:36,720
+danger of
+
+1448
+00:52:35,680 --> 00:52:37,440
+d
+
+1449
+00:52:36,720 --> 00:52:40,240
+not
+
+1450
+00:52:37,440 --> 00:52:42,079
+of a not being in in space f of n so d
+
+1451
+00:52:40,240 --> 00:52:43,200
+is going to guarantee that by making
+
+1452
+00:52:42,079 --> 00:52:46,720
+sure
+
+1453
+00:52:43,200 --> 00:52:48,480
+it's going to mark off f of n space
+
+1454
+00:52:46,720 --> 00:52:51,520
+and if it ever tries to use more than
+
+1455
+00:52:48,480 --> 00:52:53,040
+that it just rejects
+
+1456
+00:52:51,520 --> 00:52:55,520
+and but
+
+1457
+00:52:53,040 --> 00:52:57,920
+by virtue of that we're sure that these
+
+1458
+00:52:55,520 --> 00:53:00,160
+language is in space f of n because d is
+
+1459
+00:52:57,920 --> 00:53:02,720
+an f of n space turing machine and it's
+
+1460
+00:53:00,160 --> 00:53:04,400
+going to be the side
+
+1461
+00:53:02,720 --> 00:53:05,839
+okay so
+
+1462
+00:53:04,400 --> 00:53:09,040
+this part
+
+1463
+00:53:05,839 --> 00:53:10,160
+so far is not too hard
+
+1464
+00:53:09,040 --> 00:53:11,839
+okay now we're going to start getting
+
+1465
+00:53:10,160 --> 00:53:14,400
+into the meat here
+
+1466
+00:53:11,839 --> 00:53:16,480
+so
+
+1467
+00:53:14,400 --> 00:53:18,400
+if w
+
+1468
+00:53:16,480 --> 00:53:21,440
+um
+
+1469
+00:53:18,400 --> 00:53:23,440
+now what we want to think of w as a
+
+1470
+00:53:21,440 --> 00:53:26,079
+description of a machine that we're
+
+1471
+00:53:23,440 --> 00:53:29,760
+going to feed that's that's going to run
+
+1472
+00:53:26,079 --> 00:53:30,800
+on w so this is going to a little bit
+
+1473
+00:53:29,760 --> 00:53:32,960
+you know
+
+1474
+00:53:30,800 --> 00:53:34,880
+back to an earlier when we talked about
+
+1475
+00:53:32,960 --> 00:53:37,280
+diagonalization so don't get
+
+1476
+00:53:34,880 --> 00:53:38,640
+thrown off by this um
+
+1477
+00:53:37,280 --> 00:53:40,640
+we if
+
+1478
+00:53:38,640 --> 00:53:43,680
+we're going to think of w not only as
+
+1479
+00:53:40,640 --> 00:53:46,240
+the input to d but it's also going to be
+
+1480
+00:53:43,680 --> 00:53:48,000
+the description of a machine
+
+1481
+00:53:46,240 --> 00:53:50,160
+and if it turns out that w is doesn't
+
+1482
+00:53:48,000 --> 00:53:52,000
+describe anything it's just a jump w
+
+1483
+00:53:50,160 --> 00:53:54,880
+then we're not not interested we're
+
+1484
+00:53:52,000 --> 00:53:57,280
+gonna we're just gonna reject on that w
+
+1485
+00:53:54,880 --> 00:54:00,960
+we're only interested in the w's that do
+
+1486
+00:53:57,280 --> 00:54:00,960
+describe some machine m
+
+1487
+00:54:01,200 --> 00:54:04,640
+okay
+
+1488
+00:54:03,200 --> 00:54:05,839
+so if m
+
+1489
+00:54:04,640 --> 00:54:08,160
+if w
+
+1490
+00:54:05,839 --> 00:54:12,240
+uh describes some machine m
+
+1491
+00:54:08,160 --> 00:54:12,240
+then we're gonna run m on w
+
+1492
+00:54:12,880 --> 00:54:17,520
+and we're going to do the do the
+
+1493
+00:54:14,400 --> 00:54:19,359
+opposite of what uh what m does
+
+1494
+00:54:17,520 --> 00:54:22,400
+that's the whole idea
+
+1495
+00:54:19,359 --> 00:54:24,240
+we're just going to uh make sure that
+
+1496
+00:54:22,400 --> 00:54:26,720
+what we're doing is not the same as what
+
+1497
+00:54:24,240 --> 00:54:26,720
+emma's doing
+
+1498
+00:54:28,240 --> 00:54:33,599
+so at a high level
+
+1499
+00:54:30,960 --> 00:54:36,319
+the the basic idea for this
+
+1500
+00:54:33,599 --> 00:54:40,240
+is is not hard um
+
+1501
+00:54:36,319 --> 00:54:43,359
+so we're going to simulate m on w
+
+1502
+00:54:40,240 --> 00:54:44,880
+if m x rejects then we'll accept and if
+
+1503
+00:54:43,359 --> 00:54:47,680
+m accepts then we'll reject we're just
+
+1504
+00:54:44,880 --> 00:54:47,680
+going to do the opposite
+
+1505
+00:54:50,559 --> 00:54:55,359
+um
+
+1506
+00:54:53,280 --> 00:54:56,799
+and i think that is
+
+1507
+00:54:55,359 --> 00:54:58,400
+so we have to be careful when we do the
+
+1508
+00:54:56,799 --> 00:55:00,480
+simulation this is a little bit of a
+
+1509
+00:54:58,400 --> 00:55:01,920
+detail but you know
+
+1510
+00:55:00,480 --> 00:55:03,839
+this is a proof where you need to pay
+
+1511
+00:55:01,920 --> 00:55:05,599
+attention to some details
+
+1512
+00:55:03,839 --> 00:55:07,920
+um
+
+1513
+00:55:05,599 --> 00:55:09,200
+the cost of simulating
+
+1514
+00:55:07,920 --> 00:55:10,319
+m
+
+1515
+00:55:09,200 --> 00:55:12,640
+on d
+
+1516
+00:55:10,319 --> 00:55:15,520
+is only a constant factor
+
+1517
+00:55:12,640 --> 00:55:17,040
+um because if m uses a certain amount of
+
+1518
+00:55:15,520 --> 00:55:20,799
+space
+
+1519
+00:55:17,040 --> 00:55:23,520
+when d is simulating m you know m may
+
+1520
+00:55:20,799 --> 00:55:27,599
+have a larger tape alphabet than d does
+
+1521
+00:55:23,520 --> 00:55:30,000
+but these can then encode um m's tape by
+
+1522
+00:55:27,599 --> 00:55:31,599
+using several cells for each of m's
+
+1523
+00:55:30,000 --> 00:55:33,440
+cells but it's only going to be a
+
+1524
+00:55:31,599 --> 00:55:35,359
+constant factor and that's important
+
+1525
+00:55:33,440 --> 00:55:38,640
+here because
+
+1526
+00:55:35,359 --> 00:55:41,839
+um we have to make sure that
+
+1527
+00:55:38,640 --> 00:55:43,760
+you know if this was a big blow up um d
+
+1528
+00:55:41,839 --> 00:55:45,680
+would not be able to run m
+
+1529
+00:55:43,760 --> 00:55:47,280
+um
+
+1530
+00:55:45,680 --> 00:55:48,640
+i i think i'm sort of arguing the
+
+1531
+00:55:47,280 --> 00:55:53,040
+details without making sure we
+
+1532
+00:55:48,640 --> 00:55:55,760
+understand the fundamental concept um so
+
+1533
+00:55:53,040 --> 00:55:55,760
+let me back up
+
+1534
+00:55:56,720 --> 00:56:00,839
+the point is that d is doing something
+
+1535
+00:55:59,359 --> 00:56:02,880
+the opposite of
+
+1536
+00:56:00,839 --> 00:56:05,520
+m now
+
+1537
+00:56:02,880 --> 00:56:07,440
+uh d can't be different from every m
+
+1538
+00:56:05,520 --> 00:56:09,760
+because d itself is a turing machine of
+
+1539
+00:56:07,440 --> 00:56:12,559
+course but but the thing is is that
+
+1540
+00:56:09,760 --> 00:56:14,720
+d is only running within f of n tape
+
+1541
+00:56:12,559 --> 00:56:16,880
+cells so it has to be able to do that
+
+1542
+00:56:14,720 --> 00:56:19,200
+simulation of m within that amount of
+
+1543
+00:56:16,880 --> 00:56:20,319
+tape if m is using a lot of tape then d
+
+1544
+00:56:19,200 --> 00:56:23,040
+is going to use a lot of tape and it's
+
+1545
+00:56:20,319 --> 00:56:23,040
+just going to reject
+
+1546
+00:56:23,839 --> 00:56:27,200
+so this is only going to really come
+
+1547
+00:56:25,680 --> 00:56:29,920
+into play
+
+1548
+00:56:27,200 --> 00:56:32,000
+getting being able to simulate m if m is
+
+1549
+00:56:29,920 --> 00:56:34,079
+using a small amount of using a small
+
+1550
+00:56:32,000 --> 00:56:35,359
+amount of space so that d can do the
+
+1551
+00:56:34,079 --> 00:56:37,520
+simulation
+
+1552
+00:56:35,359 --> 00:56:38,480
+okay so let's just see maybe
+
+1553
+00:56:37,520 --> 00:56:39,599
+uh
+
+1554
+00:56:38,480 --> 00:56:41,119
+so they're going to be some issues here
+
+1555
+00:56:39,599 --> 00:56:43,280
+but before i get to that let's just see
+
+1556
+00:56:41,119 --> 00:56:45,520
+what uh what your questions are
+
+1557
+00:56:43,280 --> 00:56:48,000
+how can a turing machine know if w is
+
+1558
+00:56:45,520 --> 00:56:49,359
+encoding some other turing machine
+
+1559
+00:56:48,000 --> 00:56:51,280
+no that's simple
+
+1560
+00:56:49,359 --> 00:56:53,119
+you know what what is a coding of a
+
+1561
+00:56:51,280 --> 00:56:56,160
+turing machine it's just you know the
+
+1562
+00:56:53,119 --> 00:56:58,000
+standard we have a standard coding um
+
+1563
+00:56:56,160 --> 00:57:00,240
+it's just you know coding the rules of
+
+1564
+00:56:58,000 --> 00:57:02,960
+the machine so it has to have states
+
+1565
+00:57:00,240 --> 00:57:04,319
+transition function blah blah blah so it
+
+1566
+00:57:02,960 --> 00:57:06,720
+just has to be some you know whatever
+
+1567
+00:57:04,319 --> 00:57:10,319
+our encoding for the turing machine is
+
+1568
+00:57:06,720 --> 00:57:11,920
+we can always test whether
+
+1569
+00:57:10,319 --> 00:57:14,160
+a string is a legitimate encoding of a
+
+1570
+00:57:11,920 --> 00:57:15,760
+turing machine so that that shouldn't be
+
+1571
+00:57:14,160 --> 00:57:17,599
+bad um
+
+1572
+00:57:15,760 --> 00:57:20,400
+somebody says why do we reject if we use
+
+1573
+00:57:17,599 --> 00:57:22,480
+more than f n cells isn't it okay to use
+
+1574
+00:57:20,400 --> 00:57:23,920
+order f of n
+
+1575
+00:57:22,480 --> 00:57:25,680
+yes it could be but
+
+1576
+00:57:23,920 --> 00:57:26,480
+we have to cut it off somewhere
+
+1577
+00:57:25,680 --> 00:57:28,240
+you know
+
+1578
+00:57:26,480 --> 00:57:30,640
+it might be it's okay we could use two f
+
+1579
+00:57:28,240 --> 00:57:33,520
+of n we could use 10 f of n but we have
+
+1580
+00:57:30,640 --> 00:57:35,280
+to have some constant for d
+
+1581
+00:57:33,520 --> 00:57:38,799
+and let's just kind of simply constant
+
+1582
+00:57:35,280 --> 00:57:40,319
+one so d has to run within f of n cells
+
+1583
+00:57:38,799 --> 00:57:41,760
+um and that's going to guaran that's
+
+1584
+00:57:40,319 --> 00:57:43,599
+going to be good enough for us
+
+1585
+00:57:41,760 --> 00:57:46,160
+okay do we have to make sure that m runs
+
+1586
+00:57:43,599 --> 00:57:47,040
+a little of f of n so we can't really
+
+1587
+00:57:46,160 --> 00:57:48,799
+tell
+
+1588
+00:57:47,040 --> 00:57:50,000
+whether m is running in little o of f of
+
+1589
+00:57:48,799 --> 00:57:51,599
+n
+
+1590
+00:57:50,000 --> 00:57:53,440
+or we can tell us whether we can finish
+
+1591
+00:57:51,599 --> 00:57:55,119
+the simulation
+
+1592
+00:57:53,440 --> 00:57:56,640
+so that's actually going to be
+
+1593
+00:57:55,119 --> 00:57:58,799
+maybe you can just hold off on that
+
+1594
+00:57:56,640 --> 00:58:01,599
+question because there is a point that
+
+1595
+00:57:58,799 --> 00:58:02,799
+we have to follow up on in that which is
+
+1596
+00:58:01,599 --> 00:58:04,960
+um
+
+1597
+00:58:02,799 --> 00:58:06,799
+uh just because
+
+1598
+00:58:04,960 --> 00:58:08,799
+you know we may or may not be able to
+
+1599
+00:58:06,799 --> 00:58:10,079
+finish simulating m
+
+1600
+00:58:08,799 --> 00:58:11,520
+on this w
+
+1601
+00:58:10,079 --> 00:58:13,280
+doesn't necessarily tell us what the
+
+1602
+00:58:11,520 --> 00:58:15,680
+asymptotic behavior of m is but we'll
+
+1603
+00:58:13,280 --> 00:58:16,880
+have to look at that in a bit okay so
+
+1604
+00:58:15,680 --> 00:58:18,400
+somebody's saying what happens if m
+
+1605
+00:58:16,880 --> 00:58:19,920
+loops on w that's going to be one of our
+
+1606
+00:58:18,400 --> 00:58:22,960
+issues we have to deal with that's a
+
+1607
+00:58:19,920 --> 00:58:24,880
+good question there step two alone can
+
+1608
+00:58:22,960 --> 00:58:26,559
+use them more than f of n cells
+
+1609
+00:58:24,880 --> 00:58:28,880
+yeah step two alone can use more than f
+
+1610
+00:58:26,559 --> 00:58:30,319
+of n cells if it does we're just going
+
+1611
+00:58:28,880 --> 00:58:31,599
+to end up projecting
+
+1612
+00:58:30,319 --> 00:58:32,640
+okay so we're getting good questions
+
+1613
+00:58:31,599 --> 00:58:34,400
+here some of them we're going to which
+
+1614
+00:58:32,640 --> 00:58:37,839
+i'm going to address anyway so why don't
+
+1615
+00:58:34,400 --> 00:58:37,839
+we just move on um
+
+1616
+00:58:38,240 --> 00:58:40,559
+okay
+
+1617
+00:58:40,720 --> 00:58:45,680
+so here is sort of a question i think
+
+1618
+00:58:42,319 --> 00:58:46,880
+this is one of the questions that that
+
+1619
+00:58:45,680 --> 00:58:48,559
+related to one of the ones that got
+
+1620
+00:58:46,880 --> 00:58:51,920
+asked what happens if it runs in little
+
+1621
+00:58:48,559 --> 00:58:54,160
+of f of n space so we we remember what
+
+1622
+00:58:51,920 --> 00:58:56,559
+we're trying to do is be different from
+
+1623
+00:58:54,160 --> 00:58:58,640
+every small space you know little o of f
+
+1624
+00:58:56,559 --> 00:59:01,119
+of n space machine
+
+1625
+00:58:58,640 --> 00:59:04,400
+so what if m runs a little o of f of n
+
+1626
+00:59:01,119 --> 00:59:07,520
+space but has a big constant so what i
+
+1627
+00:59:04,400 --> 00:59:10,240
+mean by that concretely is suppose d is
+
+1628
+00:59:07,520 --> 00:59:11,040
+an n cubed space so suppose we're trying
+
+1629
+00:59:10,240 --> 00:59:12,240
+to
+
+1630
+00:59:11,040 --> 00:59:13,920
+get a
+
+1631
+00:59:12,240 --> 00:59:18,079
+in in cubed space
+
+1632
+00:59:13,920 --> 00:59:20,960
+but show what's not in n squared space
+
+1633
+00:59:18,079 --> 00:59:23,520
+d is going to run an n cubed
+
+1634
+00:59:20,960 --> 00:59:25,280
+and what and we have to make sure that
+
+1635
+00:59:23,520 --> 00:59:28,079
+any machine that's running in n squared
+
+1636
+00:59:25,280 --> 00:59:29,520
+space cannot do the same language
+
+1637
+00:59:28,079 --> 00:59:34,559
+um so we're going to be different from
+
+1638
+00:59:29,520 --> 00:59:36,400
+that but the problem is that uh in
+
+1639
+00:59:34,559 --> 00:59:39,280
+uh
+
+1640
+00:59:36,400 --> 00:59:41,119
+the machine m
+
+1641
+00:59:39,280 --> 00:59:43,280
+might be running in
+
+1642
+00:59:41,119 --> 00:59:45,280
+n squared space but with a huge constant
+
+1643
+00:59:43,280 --> 00:59:47,599
+so it might be running in a million n
+
+1644
+00:59:45,280 --> 00:59:48,799
+squared so that's still a machine that's
+
+1645
+00:59:47,599 --> 00:59:50,240
+running in
+
+1646
+00:59:48,799 --> 00:59:52,079
+a little o
+
+1647
+00:59:50,240 --> 00:59:54,480
+of n cubed and we have to be different
+
+1648
+00:59:52,079 --> 00:59:56,319
+from it but for the particular w we're
+
+1649
+00:59:54,480 --> 00:59:58,880
+working on we might not have enough
+
+1650
+00:59:56,319 --> 01:00:01,040
+space to run m because of the huge
+
+1651
+00:59:58,880 --> 01:00:02,799
+constant it that con
+
+1652
+01:00:01,040 --> 01:00:05,440
+the asymptotic behavior is only going to
+
+1653
+01:00:02,799 --> 01:00:07,040
+be relevant well for large w for smaller
+
+1654
+01:00:05,440 --> 01:00:09,680
+b we may not see that we may not have
+
+1655
+01:00:07,040 --> 01:00:10,640
+enough space to run m so
+
+1656
+01:00:09,680 --> 01:00:12,480
+um
+
+1657
+01:00:10,640 --> 01:00:14,640
+what are we going to do to fix that
+
+1658
+01:00:12,480 --> 01:00:16,640
+we're going to run that m on infinitely
+
+1659
+01:00:14,640 --> 01:00:18,799
+many different w so it's going to be
+
+1660
+01:00:16,640 --> 01:00:22,160
+infinitely many different w's
+
+1661
+01:00:18,799 --> 01:00:23,839
+that are all going to encode the same m
+
+1662
+01:00:22,160 --> 01:00:25,119
+and the way i'm going to do that
+
+1663
+01:00:23,839 --> 01:00:26,319
+is by
+
+1664
+01:00:25,119 --> 01:00:30,799
+uh
+
+1665
+01:00:26,319 --> 01:00:32,240
+thinking of w as representing m
+
+1666
+01:00:30,799 --> 01:00:35,680
+but having
+
+1667
+01:00:32,240 --> 01:00:36,960
+an unbounded number of trailing zeros
+
+1668
+01:00:35,680 --> 01:00:39,200
+after that
+
+1669
+01:00:36,960 --> 01:00:40,559
+so i'm going to strip off the very first
+
+1670
+01:00:39,200 --> 01:00:43,040
+thing i'm going to do with w is i'm
+
+1671
+01:00:40,559 --> 01:00:44,720
+going to strip off the trailing zeros up
+
+1672
+01:00:43,040 --> 01:00:45,680
+into the final one i'm going to remove
+
+1673
+01:00:44,720 --> 01:00:47,440
+those
+
+1674
+01:00:45,680 --> 01:00:50,160
+and then take the rest
+
+1675
+01:00:47,440 --> 01:00:52,799
+and as the description of the machine
+
+1676
+01:00:50,160 --> 01:00:54,640
+so now i'm going to have potentially
+
+1677
+01:00:52,799 --> 01:00:57,599
+w's that have an enormous number of
+
+1678
+01:00:54,640 --> 01:00:59,040
+zeros at the end
+
+1679
+01:00:57,599 --> 01:01:01,359
+big enough so that i can see the
+
+1680
+01:00:59,040 --> 01:01:03,440
+asymptotic behavior of m
+
+1681
+01:01:01,359 --> 01:01:05,440
+and that if m is really running in
+
+1682
+01:01:03,440 --> 01:01:08,960
+little o of f of n space i'll have
+
+1683
+01:01:05,440 --> 01:01:10,480
+enough space to run m to completion on w
+
+1684
+01:01:08,960 --> 01:01:11,760
+and so then i'll be able to be different
+
+1685
+01:01:10,480 --> 01:01:12,559
+from it
+
+1686
+01:01:11,760 --> 01:01:13,839
+okay
+
+1687
+01:01:12,559 --> 01:01:16,160
+um
+
+1688
+01:01:13,839 --> 01:01:19,040
+so i'm kind of showing that over here so
+
+1689
+01:01:16,160 --> 01:01:20,720
+here's a very large w
+
+1690
+01:01:19,040 --> 01:01:22,079
+i'm going to strip off the trailing
+
+1691
+01:01:20,720 --> 01:01:23,839
+zeros
+
+1692
+01:01:22,079 --> 01:01:27,920
+the rest of it is just going to be m and
+
+1693
+01:01:23,839 --> 01:01:29,760
+i'm going to run this m on the whole w
+
+1694
+01:01:27,920 --> 01:01:32,079
+the entire w without the zero stripped
+
+1695
+01:01:29,760 --> 01:01:34,000
+off so now m is going to be running on a
+
+1696
+01:01:32,079 --> 01:01:35,920
+very large input
+
+1697
+01:01:34,000 --> 01:01:39,040
+um
+
+1698
+01:01:35,920 --> 01:01:42,240
+big enough so that d uh d which has
+
+1699
+01:01:39,040 --> 01:01:44,079
+asymptotically more space than m does
+
+1700
+01:01:42,240 --> 01:01:45,520
+will have enough space to run empty
+
+1701
+01:01:44,079 --> 01:01:46,480
+completion
+
+1702
+01:01:45,520 --> 01:01:48,160
+um
+
+1703
+01:01:46,480 --> 01:01:49,760
+now another question that got asked what
+
+1704
+01:01:48,160 --> 01:01:51,119
+happens if m loops
+
+1705
+01:01:49,760 --> 01:01:52,799
+that's going to be a problem because d
+
+1706
+01:01:51,119 --> 01:01:55,599
+always has to hold
+
+1707
+01:01:52,799 --> 01:01:58,160
+and if it just blindly simulates m
+
+1708
+01:01:55,599 --> 01:01:59,760
+then d might be looping on m
+
+1709
+01:01:58,160 --> 01:02:00,799
+none of m is going to use a lot of space
+
+1710
+01:01:59,760 --> 01:02:03,039
+by the way
+
+1711
+01:02:00,799 --> 01:02:06,400
+because then d is going to catch it in
+
+1712
+01:02:03,039 --> 01:02:08,640
+step one but if m uses
+
+1713
+01:02:06,400 --> 01:02:12,000
+his loops on a small amount of space
+
+1714
+01:02:08,640 --> 01:02:12,000
+then uh d
+
+1715
+01:02:12,079 --> 01:02:16,000
+might end up looping as
+
+1716
+01:02:13,839 --> 01:02:16,880
+presently constructed so what i'm going
+
+1717
+01:02:16,000 --> 01:02:18,960
+to do
+
+1718
+01:02:16,880 --> 01:02:22,160
+is i'm going to put a counter which
+
+1719
+01:02:18,960 --> 01:02:24,799
+makes it stop if it runs for
+
+1720
+01:02:22,160 --> 01:02:27,280
+2 to the f of n space so basically
+
+1721
+01:02:24,799 --> 01:02:30,720
+because that's how long d could possibly
+
+1722
+01:02:27,280 --> 01:02:32,079
+run without looping anyway
+
+1723
+01:02:30,720 --> 01:02:34,720
+m could be running without looping
+
+1724
+01:02:32,079 --> 01:02:35,839
+anyway and so we're going to run it for
+
+1725
+01:02:34,720 --> 01:02:38,240
+this amount of
+
+1726
+01:02:35,839 --> 01:02:40,400
+this number of steps and
+
+1727
+01:02:38,240 --> 01:02:43,760
+uh i'm going to reject if it hasn't yet
+
+1728
+01:02:40,400 --> 01:02:46,319
+halted as well as uh that because it has
+
+1729
+01:02:43,760 --> 01:02:48,400
+to be looping at that point anyway um
+
+1730
+01:02:46,319 --> 01:02:49,760
+and so it's not interesting for us
+
+1731
+01:02:48,400 --> 01:02:52,319
+it doesn't matter what we're going to do
+
+1732
+01:02:49,760 --> 01:02:55,039
+if it hasn't halted because
+
+1733
+01:02:52,319 --> 01:02:57,440
+m is not a decider
+
+1734
+01:02:55,039 --> 01:02:59,039
+and the last thing is how to compute f
+
+1735
+01:02:57,440 --> 01:03:00,799
+um
+
+1736
+01:02:59,039 --> 01:03:03,200
+so i'll try to address some questions
+
+1737
+01:03:00,799 --> 01:03:05,760
+here in in our remaining time
+
+1738
+01:03:03,200 --> 01:03:08,400
+uh how to compute f
+
+1739
+01:03:05,760 --> 01:03:10,319
+so to mark off f of n cells we also have
+
+1740
+01:03:08,400 --> 01:03:11,760
+to compute f i didn't think anybody any
+
+1741
+01:03:10,319 --> 01:03:14,240
+of you guys asked that question except
+
+1742
+01:03:11,760 --> 01:03:16,880
+maybe sort of the very beginning about f
+
+1743
+01:03:14,240 --> 01:03:18,160
+being a computable function
+
+1744
+01:03:16,880 --> 01:03:20,079
+certainly f is going to have to be
+
+1745
+01:03:18,160 --> 01:03:22,000
+computable but not only does it have to
+
+1746
+01:03:20,079 --> 01:03:24,079
+be computable it has to be computable
+
+1747
+01:03:22,000 --> 01:03:25,440
+within the space bound
+
+1748
+01:03:24,079 --> 01:03:27,599
+and that's just going to be a condition
+
+1749
+01:03:25,440 --> 01:03:29,760
+we're going to impose on f it's so
+
+1750
+01:03:27,599 --> 01:03:31,680
+called space constructable namely that
+
+1751
+01:03:29,760 --> 01:03:33,920
+you can compute it within its own space
+
+1752
+01:03:31,680 --> 01:03:36,240
+bound
+
+1753
+01:03:33,920 --> 01:03:37,760
+and all nice functions that we care
+
+1754
+01:03:36,240 --> 01:03:39,440
+about are going to be space
+
+1755
+01:03:37,760 --> 01:03:41,440
+constructable
+
+1756
+01:03:39,440 --> 01:03:43,760
+so
+
+1757
+01:03:41,440 --> 01:03:45,839
+it's not doesn't turn out to be
+
+1758
+01:03:43,760 --> 01:03:47,839
+an obstacle to applying
+
+1759
+01:03:45,839 --> 01:03:49,839
+uh the hierarchy theorem but it is a
+
+1760
+01:03:47,839 --> 01:03:52,319
+condition that we need it actually is
+
+1761
+01:03:49,839 --> 01:03:53,839
+not true without that condition
+
+1762
+01:03:52,319 --> 01:03:56,079
+um
+
+1763
+01:03:53,839 --> 01:03:57,599
+okay let's let's just oh this i have a
+
+1764
+01:03:56,079 --> 01:04:00,720
+check in here maybe we can take a couple
+
+1765
+01:03:57,599 --> 01:04:00,720
+of questions first
+
+1766
+01:04:02,960 --> 01:04:09,039
+some of you are anticipating my check-in
+
+1767
+01:04:05,520 --> 01:04:11,440
+actually which is good um
+
+1768
+01:04:09,039 --> 01:04:14,240
+so let me hold off on those
+
+1769
+01:04:11,440 --> 01:04:17,039
+sorry a bit confused about what is m
+
+1770
+01:04:14,240 --> 01:04:18,960
+can we say d as input m and simulate m
+
+1771
+01:04:17,039 --> 01:04:20,720
+on yeah so
+
+1772
+01:04:18,960 --> 01:04:23,760
+uh somebody's saying
+
+1773
+01:04:20,720 --> 01:04:26,480
+can we say that d has input m
+
+1774
+01:04:23,760 --> 01:04:28,480
+and simulates m on itself yes that's
+
+1775
+01:04:26,480 --> 01:04:30,799
+exactly what's happening the reason why
+
+1776
+01:04:28,480 --> 01:04:33,359
+we're doing that is because we have to
+
+1777
+01:04:30,799 --> 01:04:36,960
+cover all possible m's
+
+1778
+01:04:33,359 --> 01:04:38,880
+so as we get all possible inputs w
+
+1779
+01:04:36,960 --> 01:04:41,839
+they're going to range over all possible
+
+1780
+01:04:38,880 --> 01:04:45,760
+ends and so every possible m is going to
+
+1781
+01:04:41,839 --> 01:04:47,920
+get addressed to see if we can run it um
+
+1782
+01:04:45,760 --> 01:04:49,839
+within the space bound and be different
+
+1783
+01:04:47,920 --> 01:04:51,599
+from it
+
+1784
+01:04:49,839 --> 01:04:52,960
+d's job is to be different from each of
+
+1785
+01:04:51,599 --> 01:04:54,559
+those ends
+
+1786
+01:04:52,960 --> 01:04:56,720
+but it's not you know again there were
+
+1787
+01:04:54,559 --> 01:04:59,200
+some details here that got raised in
+
+1788
+01:04:56,720 --> 01:05:02,160
+these issues um
+
+1789
+01:04:59,200 --> 01:05:04,079
+but in a sense this is just kind of
+
+1790
+01:05:02,160 --> 01:05:05,760
+more technical
+
+1791
+01:05:04,079 --> 01:05:07,440
+i would focus on understanding what i
+
+1792
+01:05:05,760 --> 01:05:09,520
+originally wrote down because that's the
+
+1793
+01:05:07,440 --> 01:05:12,640
+main idea the rest of it is just kind of
+
+1794
+01:05:09,520 --> 01:05:14,240
+implementation details
+
+1795
+01:05:12,640 --> 01:05:15,920
+okay so why don't i
+
+1796
+01:05:14,240 --> 01:05:17,599
+can i give an example of a non-space
+
+1797
+01:05:15,920 --> 01:05:19,359
+constructable function
+
+1798
+01:05:17,599 --> 01:05:23,039
+yes
+
+1799
+01:05:19,359 --> 01:05:26,160
+log log log n space you cannot compute
+
+1800
+01:05:23,039 --> 01:05:27,119
+log log log n space within log log log n
+
+1801
+01:05:26,160 --> 01:05:28,640
+space
+
+1802
+01:05:27,119 --> 01:05:29,520
+and in fact it's known
+
+1803
+01:05:28,640 --> 01:05:30,960
+that
+
+1804
+01:05:29,520 --> 01:05:33,440
+there's nothing new
+
+1805
+01:05:30,960 --> 01:05:36,559
+between constant space which is just
+
+1806
+01:05:33,440 --> 01:05:38,799
+regular and log log log n space anything
+
+1807
+01:05:36,559 --> 01:05:40,400
+you can do in log log log n space is a
+
+1808
+01:05:38,799 --> 01:05:42,960
+regular language
+
+1809
+01:05:40,400 --> 01:05:46,079
+so the the hierarchy theorem doesn't
+
+1810
+01:05:42,960 --> 01:05:48,880
+doesn't won't apply there because well
+
+1811
+01:05:46,079 --> 01:05:50,799
+it applies but that's not a it doesn't
+
+1812
+01:05:48,880 --> 01:05:52,480
+well you know it's not it's not space
+
+1813
+01:05:50,799 --> 01:05:53,599
+constructible
+
+1814
+01:05:52,480 --> 01:05:56,960
+to find
+
+1815
+01:05:53,599 --> 01:05:58,000
+higher level um you know large
+
+1816
+01:05:56,960 --> 01:06:00,000
+um
+
+1817
+01:05:58,000 --> 01:06:01,599
+non-space constructable functions you
+
+1818
+01:06:00,000 --> 01:06:04,319
+can do it but they're
+
+1819
+01:06:01,599 --> 01:06:06,400
+you know you you
+
+1820
+01:06:04,319 --> 01:06:08,480
+they're not easy to describe
+
+1821
+01:06:06,400 --> 01:06:10,400
+okay let's do our check in here
+
+1822
+01:06:08,480 --> 01:06:11,839
+what happens when we run dion itself i
+
+1823
+01:06:10,400 --> 01:06:13,680
+got a couple of people asking me about
+
+1824
+01:06:11,839 --> 01:06:16,319
+that so that's a this is just a good
+
+1825
+01:06:13,680 --> 01:06:17,440
+lead into our check-in and this a little
+
+1826
+01:06:16,319 --> 01:06:19,200
+you really have to understand what's
+
+1827
+01:06:17,440 --> 01:06:21,039
+going on
+
+1828
+01:06:19,200 --> 01:06:24,000
+to see what does d do
+
+1829
+01:06:21,039 --> 01:06:26,480
+when if you feed in itself maybe with
+
+1830
+01:06:24,000 --> 01:06:28,319
+some trailing zeros because remember the
+
+1831
+01:06:26,480 --> 01:06:31,119
+algorithm strips off trailing zero so
+
+1832
+01:06:28,319 --> 01:06:32,559
+what is what does it do in that case um
+
+1833
+01:06:31,119 --> 01:06:34,559
+so here are my
+
+1834
+01:06:32,559 --> 01:06:36,880
+options there you can get to pick which
+
+1835
+01:06:34,559 --> 01:06:39,520
+ones which one
+
+1836
+01:06:36,880 --> 01:06:40,880
+you uh you think is the answer so i'll
+
+1837
+01:06:39,520 --> 01:06:42,400
+give you another 30 seconds on this
+
+1838
+01:06:40,880 --> 01:06:43,359
+because this requires a little bit of
+
+1839
+01:06:42,400 --> 01:06:47,839
+thinking
+
+1840
+01:06:43,359 --> 01:06:47,839
+if you want to invest in it all right
+
+1841
+01:06:50,160 --> 01:06:53,599
+i'm wrapping this up guys
+
+1842
+01:06:54,960 --> 01:06:58,680
+five seconds to go
+
+1843
+01:07:00,799 --> 01:07:07,920
+okay i'm gonna end it so get your
+
+1844
+01:07:05,079 --> 01:07:09,920
+participation points in
+
+1845
+01:07:07,920 --> 01:07:11,200
+a bunch of you have not uh said anything
+
+1846
+01:07:09,920 --> 01:07:13,520
+come on
+
+1847
+01:07:11,200 --> 01:07:14,880
+um i can see the count here and it's
+
+1848
+01:07:13,520 --> 01:07:16,880
+there's a
+
+1849
+01:07:14,880 --> 01:07:18,880
+three or four of you are not not
+
+1850
+01:07:16,880 --> 01:07:19,920
+answered well you're going to lose out
+
+1851
+01:07:18,880 --> 01:07:22,240
+closing
+
+1852
+01:07:19,920 --> 01:07:24,960
+all right so the right answer is in fact
+
+1853
+01:07:22,240 --> 01:07:26,640
+c it does reject let's just understand
+
+1854
+01:07:24,960 --> 01:07:28,480
+what happened is definitely we don't get
+
+1855
+01:07:26,640 --> 01:07:29,920
+a contradiction i mean this is an
+
+1856
+01:07:28,480 --> 01:07:31,280
+algorithm i just described it's going to
+
+1857
+01:07:29,920 --> 01:07:32,880
+do something
+
+1858
+01:07:31,280 --> 01:07:34,480
+um
+
+1859
+01:07:32,880 --> 01:07:38,400
+uh
+
+1860
+01:07:34,480 --> 01:07:40,240
+i'm assuming the people who picked e are
+
+1861
+01:07:38,400 --> 01:07:44,640
+having fun as i did when i came up with
+
+1862
+01:07:40,240 --> 01:07:44,640
+the check-in but um
+
+1863
+01:07:45,119 --> 01:07:49,359
+uh not a question answer a doesn't is
+
+1864
+01:07:48,000 --> 01:07:51,440
+not going to be good either because d
+
+1865
+01:07:49,359 --> 01:07:53,359
+has to be a decider so it can't loop on
+
+1866
+01:07:51,440 --> 01:07:56,720
+anything so the only sort of reasonable
+
+1867
+01:07:53,359 --> 01:07:59,359
+answers are accept or reject
+
+1868
+01:07:56,720 --> 01:08:01,359
+when you run d on itself
+
+1869
+01:07:59,359 --> 01:08:03,280
+uh
+
+1870
+01:08:01,359 --> 01:08:04,960
+what's it going to try to do
+
+1871
+01:08:03,280 --> 01:08:07,440
+it's going to the very first thing it's
+
+1872
+01:08:04,960 --> 01:08:08,319
+going to you know mark off f of n tape
+
+1873
+01:08:07,440 --> 01:08:09,839
+cells
+
+1874
+01:08:08,319 --> 01:08:11,520
+and then it's going to get its input
+
+1875
+01:08:09,839 --> 01:08:13,440
+which is itself
+
+1876
+01:08:11,520 --> 01:08:14,400
+tries to simulate itself on the same
+
+1877
+01:08:13,440 --> 01:08:17,359
+input
+
+1878
+01:08:14,400 --> 01:08:19,600
+that uh simulated d is also going to try
+
+1879
+01:08:17,359 --> 01:08:22,560
+to mark off f of n tape cells
+
+1880
+01:08:19,600 --> 01:08:24,080
+but um due to some simulation you know
+
+1881
+01:08:22,560 --> 01:08:26,719
+there's going to be some cost to doing
+
+1882
+01:08:24,080 --> 01:08:28,560
+the stimulation when the simulated d is
+
+1883
+01:08:26,719 --> 01:08:31,199
+going to try to mark off f of n tape
+
+1884
+01:08:28,560 --> 01:08:32,400
+cells it's going to blow
+
+1885
+01:08:31,199 --> 01:08:35,759
+the original d
+
+1886
+01:08:32,400 --> 01:08:38,239
+space bound and exceed the bound and so
+
+1887
+01:08:35,759 --> 01:08:39,759
+d is going to reject up right in step
+
+1888
+01:08:38,239 --> 01:08:41,920
+one
+
+1889
+01:08:39,759 --> 01:08:43,279
+when it tries to get an input of its of
+
+1890
+01:08:41,920 --> 01:08:45,920
+itself
+
+1891
+01:08:43,279 --> 01:08:47,359
+so that's um
+
+1892
+01:08:45,920 --> 01:08:49,359
+it's very clear what's gonna happen in
+
+1893
+01:08:47,359 --> 01:08:51,279
+this it's just gonna reject
+
+1894
+01:08:49,359 --> 01:08:53,040
+because of the for this reject this
+
+1895
+01:08:51,279 --> 01:08:56,880
+reject in particular
+
+1896
+01:08:53,040 --> 01:08:56,880
+and notice this would you know yeah
+
+1897
+01:08:56,960 --> 01:09:00,640
+you know
+
+1898
+01:08:57,920 --> 01:09:02,960
+okay let me not try to confuse it um
+
+1899
+01:09:00,640 --> 01:09:06,000
+okay so that's that's that's all i want
+
+1900
+01:09:02,960 --> 01:09:10,080
+to say about this um let's now move in
+
+1901
+01:09:06,000 --> 01:09:12,400
+our remaining seven minutes to the time
+
+1902
+01:09:10,080 --> 01:09:14,799
+hierarchy theorem which is very has the
+
+1903
+01:09:12,400 --> 01:09:18,080
+same proof um but some of the technical
+
+1904
+01:09:14,799 --> 01:09:18,080
+details are slightly different
+
+1905
+01:09:19,279 --> 01:09:24,400
+okay um
+
+1906
+01:09:21,520 --> 01:09:25,920
+so now if i give you a time bound again
+
+1907
+01:09:24,400 --> 01:09:27,520
+we you have gonna have a face with the
+
+1908
+01:09:25,920 --> 01:09:31,040
+same notion that you have to be able to
+
+1909
+01:09:27,520 --> 01:09:32,719
+compute f within f's amount of time
+
+1910
+01:09:31,040 --> 01:09:36,000
+so it has to be a time constructable i'm
+
+1911
+01:09:32,719 --> 01:09:38,000
+not gonna define that um
+
+1912
+01:09:36,000 --> 01:09:39,920
+so there's a language a which requires
+
+1913
+01:09:38,000 --> 01:09:42,000
+that much time
+
+1914
+01:09:39,920 --> 01:09:43,199
+um so it has to be decidable within that
+
+1915
+01:09:42,000 --> 01:09:44,799
+much time but there's a slight
+
+1916
+01:09:43,199 --> 01:09:47,120
+difference here and there's and this is
+
+1917
+01:09:44,799 --> 01:09:49,279
+an artifact of the proof of the theorem
+
+1918
+01:09:47,120 --> 01:09:50,799
+not because it's an absolute truth as
+
+1919
+01:09:49,279 --> 01:09:52,799
+far as we know
+
+1920
+01:09:50,799 --> 01:09:55,520
+uh it's not that it's not decidable
+
+1921
+01:09:52,799 --> 01:09:57,760
+little o of f n you actually you can
+
+1922
+01:09:55,520 --> 01:09:59,520
+only prove something slightly weaker
+
+1923
+01:09:57,760 --> 01:10:02,960
+when you have one tape turing machines
+
+1924
+01:09:59,520 --> 01:10:05,600
+that it's little decidable little o over
+
+1925
+01:10:02,960 --> 01:10:07,840
+there's there's a slight um
+
+1926
+01:10:05,600 --> 01:10:07,840
+uh
+
+1927
+01:10:07,920 --> 01:10:12,560
+gap in what you can prove so it's not
+
+1928
+01:10:10,800 --> 01:10:15,840
+only that you can't prove you it
+
+1929
+01:10:12,560 --> 01:10:18,560
+requires little o but little o of
+
+1930
+01:10:15,840 --> 01:10:21,280
+little of f of n over log f of n
+
+1931
+01:10:18,560 --> 01:10:23,440
+is uh what you can prove that the you
+
+1932
+01:10:21,280 --> 01:10:25,199
+get from this uh time hierarchy theorem
+
+1933
+01:10:23,440 --> 01:10:27,199
+but let's not get caught up on that for
+
+1934
+01:10:25,199 --> 01:10:29,440
+now um
+
+1935
+01:10:27,199 --> 01:10:31,199
+uh
+
+1936
+01:10:29,440 --> 01:10:33,199
+okay
+
+1937
+01:10:31,199 --> 01:10:35,679
+so the proof outline is the same outline
+
+1938
+01:10:33,199 --> 01:10:36,480
+as we had before um
+
+1939
+01:10:35,679 --> 01:10:38,239
+uh
+
+1940
+01:10:36,480 --> 01:10:40,080
+we're going to give a d that runs in
+
+1941
+01:10:38,239 --> 01:10:42,560
+order f of n time
+
+1942
+01:10:40,080 --> 01:10:42,560
+so it's
+
+1943
+01:10:42,719 --> 01:10:48,000
+ensures that the language is in that uh
+
+1944
+01:10:45,360 --> 01:10:49,360
+time complexity class time f of n
+
+1945
+01:10:48,000 --> 01:10:52,480
+and it makes sure it's different from
+
+1946
+01:10:49,360 --> 01:10:55,040
+every machine that runs faster
+
+1947
+01:10:52,480 --> 01:10:58,040
+by some significant love by a log factor
+
+1948
+01:10:55,040 --> 01:10:58,040
+faster
+
+1949
+01:10:58,960 --> 01:11:03,440
+okay and so um why don't i
+
+1950
+01:11:02,159 --> 01:11:05,280
+uh
+
+1951
+01:11:03,440 --> 01:11:06,320
+show how that goes
+
+1952
+01:11:05,280 --> 01:11:08,880
+um
+
+1953
+01:11:06,320 --> 01:11:10,800
+the proof is in some ways
+
+1954
+01:11:08,880 --> 01:11:12,800
+almost exactly the same
+
+1955
+01:11:10,800 --> 01:11:14,480
+um
+
+1956
+01:11:12,800 --> 01:11:16,400
+i'm going to give a d
+
+1957
+01:11:14,480 --> 01:11:19,120
+which runs this much time
+
+1958
+01:11:16,400 --> 01:11:22,000
+and it shows it's different from every
+
+1959
+01:11:19,120 --> 01:11:22,000
+m that runs in
+
+1960
+01:11:22,800 --> 01:11:27,760
+a lot less time
+
+1961
+01:11:24,719 --> 01:11:29,600
+here is the algorithm for d
+
+1962
+01:11:27,760 --> 01:11:31,199
+now it computes f n but it does
+
+1963
+01:11:29,600 --> 01:11:33,440
+something a little different with f of n
+
+1964
+01:11:31,199 --> 01:11:34,880
+remember in the space
+
+1965
+01:11:33,440 --> 01:11:38,800
+hierarchy theorem
+
+1966
+01:11:34,880 --> 01:11:38,800
+we marked off f of n space
+
+1967
+01:11:38,880 --> 01:11:42,800
+now this f event is going to be used for
+
+1968
+01:11:40,800 --> 01:11:44,239
+a different purpose it's going to be a
+
+1969
+01:11:42,800 --> 01:11:46,880
+clock
+
+1970
+01:11:44,239 --> 01:11:49,840
+and you have to shut m down
+
+1971
+01:11:46,880 --> 01:11:54,440
+if it runs for more than f of n steps
+
+1972
+01:11:49,840 --> 01:11:54,440
+not if it uses more than f of n space
+
+1973
+01:11:54,560 --> 01:11:57,360
+because we're only interested in m's
+
+1974
+01:11:56,239 --> 01:11:59,120
+that use
+
+1975
+01:11:57,360 --> 01:12:00,960
+significantly less
+
+1976
+01:11:59,120 --> 01:12:03,840
+than f of n time
+
+1977
+01:12:00,960 --> 01:12:06,320
+so we're going to run an m you know for
+
+1978
+01:12:03,840 --> 01:12:08,000
+f for some number of steps
+
+1979
+01:12:06,320 --> 01:12:10,320
+whatever m says we're going to do the
+
+1980
+01:12:08,000 --> 01:12:12,480
+opposite and only if we can actually
+
+1981
+01:12:10,320 --> 01:12:13,600
+finish that simulation we'll be be able
+
+1982
+01:12:12,480 --> 01:12:15,920
+to be sure that we're different from
+
+1983
+01:12:13,600 --> 01:12:18,080
+what m is doing
+
+1984
+01:12:15,920 --> 01:12:19,440
+um so this is the whole algorithm here
+
+1985
+01:12:18,080 --> 01:12:21,199
+we don't have to do any further
+
+1986
+01:12:19,440 --> 01:12:22,800
+modifications
+
+1987
+01:12:21,199 --> 01:12:24,880
+and where's that login factor coming
+
+1988
+01:12:22,800 --> 01:12:27,920
+from
+
+1989
+01:12:24,880 --> 01:12:30,000
+it's actually coming from a funny place
+
+1990
+01:12:27,920 --> 01:12:31,440
+um
+
+1991
+01:12:30,000 --> 01:12:34,159
+and and you know you have to get into
+
+1992
+01:12:31,440 --> 01:12:37,840
+the little bit of the guts of this
+
+1993
+01:12:34,159 --> 01:12:40,239
+when you're simulating m on w
+
+1994
+01:12:37,840 --> 01:12:41,920
+remember that m itself was described by
+
+1995
+01:12:40,239 --> 01:12:43,280
+w
+
+1996
+01:12:41,920 --> 01:12:45,280
+so you're going to have to write down a
+
+1997
+01:12:43,280 --> 01:12:47,520
+copy of m
+
+1998
+01:12:45,280 --> 01:12:49,360
+which is you know just
+
+1999
+01:12:47,520 --> 01:12:51,520
+as described by w
+
+2000
+01:12:49,360 --> 01:12:54,080
+and then so you're gonna and then you're
+
+2001
+01:12:51,520 --> 01:12:55,199
+gonna have the tape that am is working
+
+2002
+01:12:54,080 --> 01:12:59,040
+on
+
+2003
+01:12:55,199 --> 01:13:00,159
+which is starting out with w on it
+
+2004
+01:12:59,040 --> 01:13:01,440
+um
+
+2005
+01:13:00,159 --> 01:13:03,120
+and uh
+
+2006
+01:13:01,440 --> 01:13:04,880
+you have to be now you have to be a
+
+2007
+01:13:03,120 --> 01:13:08,000
+little careful how you manage that
+
+2008
+01:13:04,880 --> 01:13:11,280
+because if your description of m is just
+
+2009
+01:13:08,000 --> 01:13:13,520
+sitting at the beginning of the tape
+
+2010
+01:13:11,280 --> 01:13:15,760
+as you're simulating m
+
+2011
+01:13:13,520 --> 01:13:16,880
+every time you do one step and modifying
+
+2012
+01:13:15,760 --> 01:13:19,679
+the tape
+
+2013
+01:13:16,880 --> 01:13:21,520
+you don't want to have to go back
+
+2014
+01:13:19,679 --> 01:13:23,760
+to the beginning of the tape to look up
+
+2015
+01:13:21,520 --> 01:13:26,000
+the next step of m
+
+2016
+01:13:23,760 --> 01:13:27,360
+so you actually have to carry m along
+
+2017
+01:13:26,000 --> 01:13:29,679
+with you
+
+2018
+01:13:27,360 --> 01:13:31,760
+as you're doing the simulation
+
+2019
+01:13:29,679 --> 01:13:34,000
+and you can do that by expanding the
+
+2020
+01:13:31,760 --> 01:13:36,320
+tape alphabet of the tape
+
+2021
+01:13:34,000 --> 01:13:37,280
+so that you can effectively have two
+
+2022
+01:13:36,320 --> 01:13:38,159
+symbols
+
+2023
+01:13:37,280 --> 01:13:40,320
+on
+
+2024
+01:13:38,159 --> 01:13:42,000
+one cell one is going to be
+
+2025
+01:13:40,320 --> 01:13:44,880
+for describing m and the other one is
+
+2026
+01:13:42,000 --> 01:13:46,719
+going to be for just the for m's
+
+2027
+01:13:44,880 --> 01:13:49,040
+for the simulation tape
+
+2028
+01:13:46,719 --> 01:13:50,880
+and you'll be carrying m along with you
+
+2029
+01:13:49,040 --> 01:13:52,880
+uh wherever your head is
+
+2030
+01:13:50,880 --> 01:13:54,400
+so you don't have to go very far to look
+
+2031
+01:13:52,880 --> 01:13:55,679
+up m
+
+2032
+01:13:54,400 --> 01:13:57,679
+and
+
+2033
+01:13:55,679 --> 01:13:59,199
+so that's all possible because that's
+
+2034
+01:13:57,679 --> 01:14:01,440
+going to add only a constant factor
+
+2035
+01:13:59,199 --> 01:14:03,920
+because m is fixed in size doesn't
+
+2036
+01:14:01,440 --> 01:14:05,920
+depend on
+
+2037
+01:14:03,920 --> 01:14:07,440
+you know
+
+2038
+01:14:05,920 --> 01:14:10,239
+you know
+
+2039
+01:14:07,440 --> 01:14:12,320
+for large inputs to m m is fixed
+
+2040
+01:14:10,239 --> 01:14:14,560
+but the tricky thing here is
+
+2041
+01:14:12,320 --> 01:14:16,080
+the counter to make sure we're not using
+
+2042
+01:14:14,560 --> 01:14:16,470
+too much time
+
+2043
+01:14:16,080 --> 01:14:18,159
+um
+
+2044
+01:14:16,470 --> 01:14:20,560
+[Music]
+
+2045
+01:14:18,159 --> 01:14:22,560
+the counter has size log f of n because
+
+2046
+01:14:20,560 --> 01:14:25,040
+that's how big it has to count up to so
+
+2047
+01:14:22,560 --> 01:14:27,440
+you should you can shut it down if it's
+
+2048
+01:14:25,040 --> 01:14:28,640
+going to exceed the f of n steps
+
+2049
+01:14:27,440 --> 01:14:29,679
+um
+
+2050
+01:14:28,640 --> 01:14:31,679
+and
+
+2051
+01:14:29,679 --> 01:14:33,920
+because you know you have to
+
+2052
+01:14:31,679 --> 01:14:34,800
+run for a certain amount of time
+
+2053
+01:14:33,920 --> 01:14:37,600
+and
+
+2054
+01:14:34,800 --> 01:14:40,560
+carrying the keeping the counter nearby
+
+2055
+01:14:37,600 --> 01:14:42,640
+has the counter now could be pretty big
+
+2056
+01:14:40,560 --> 01:14:44,880
+and so that's going to cost you a log
+
+2057
+01:14:42,640 --> 01:14:46,560
+factor of um
+
+2058
+01:14:44,880 --> 01:14:47,679
+of simulation cost
+
+2059
+01:14:46,560 --> 01:14:50,239
+to
+
+2060
+01:14:47,679 --> 01:14:51,520
+move that counter around all the time
+
+2061
+01:14:50,239 --> 01:14:54,000
+and so
+
+2062
+01:14:51,520 --> 01:14:56,960
+that's why you have to
+
+2063
+01:14:54,000 --> 01:14:59,360
+run for only a log factor less
+
+2064
+01:14:56,960 --> 01:15:01,520
+so that you can actually finish within f
+
+2065
+01:14:59,360 --> 01:15:02,400
+of n time as you're as you're required
+
+2066
+01:15:01,520 --> 01:15:04,159
+to do
+
+2067
+01:15:02,400 --> 01:15:05,520
+okay i realize that that's a mouthful
+
+2068
+01:15:04,159 --> 01:15:06,640
+there and you may not have all
+
+2069
+01:15:05,520 --> 01:15:08,560
+understood that
+
+2070
+01:15:06,640 --> 01:15:10,159
+it doesn't matter it's not that critical
+
+2071
+01:15:08,560 --> 01:15:12,800
+i think what i'm really more concerned
+
+2072
+01:15:10,159 --> 01:15:15,600
+is you understand the the main idea of
+
+2073
+01:15:12,800 --> 01:15:17,760
+the um the hierarchy theorem some of
+
+2074
+01:15:15,600 --> 01:15:19,360
+these implementation details
+
+2075
+01:15:17,760 --> 01:15:21,280
+you know you
+
+2076
+01:15:19,360 --> 01:15:23,520
+if you don't get them
+
+2077
+01:15:21,280 --> 01:15:24,880
+i wouldn't worry about it i i feel i
+
+2078
+01:15:23,520 --> 01:15:26,320
+have to include them for completeness
+
+2079
+01:15:24,880 --> 01:15:27,920
+sake and to be honest with you about the
+
+2080
+01:15:26,320 --> 01:15:29,920
+proof but if you didn't follow
+
+2081
+01:15:27,920 --> 01:15:33,040
+everything that's okay i do want to
+
+2082
+01:15:29,920 --> 01:15:34,480
+understand the main idea though of the
+
+2083
+01:15:33,040 --> 01:15:36,480
+algorithm
+
+2084
+01:15:34,480 --> 01:15:38,880
+making sure that what it's doing is
+
+2085
+01:15:36,480 --> 01:15:40,880
+different from what every machine is
+
+2086
+01:15:38,880 --> 01:15:43,760
+doing if that machine runs in little o
+
+2087
+01:15:40,880 --> 01:15:46,400
+of f of n space or or a small amount of
+
+2088
+01:15:43,760 --> 01:15:47,679
+time you know little o of f n over log f
+
+2089
+01:15:46,400 --> 01:15:51,120
+of n time
+
+2090
+01:15:47,679 --> 01:15:53,040
+okay so and i think we're gonna uh
+
+2091
+01:15:51,120 --> 01:15:55,199
+we're gonna end here so come pretty much
+
+2092
+01:15:53,040 --> 01:15:57,280
+out of time uh i'm gonna stick around
+
+2093
+01:15:55,199 --> 01:15:58,239
+for a little bit
+
+2094
+01:15:57,280 --> 01:16:00,400
+um
+
+2095
+01:15:58,239 --> 01:16:02,320
+in case there's any questions here oh
+
+2096
+01:16:00,400 --> 01:16:03,199
+wait there's one let's check in though
+
+2097
+01:16:02,320 --> 01:16:04,640
+um
+
+2098
+01:16:03,199 --> 01:16:07,120
+let's let's look at this this is kind of
+
+2099
+01:16:04,640 --> 01:16:09,840
+an interesting sort of follow-on to the
+
+2100
+01:16:07,120 --> 01:16:12,800
+hierarchy theorem um if you look at the
+
+2101
+01:16:09,840 --> 01:16:15,199
+two questions does l equal p and does p
+
+2102
+01:16:12,800 --> 01:16:18,320
+equal p space
+
+2103
+01:16:15,199 --> 01:16:20,159
+these are both unsolved problems
+
+2104
+01:16:18,320 --> 01:16:21,760
+does the what if anything does the
+
+2105
+01:16:20,159 --> 01:16:24,159
+hierarchy theorem tell us about those
+
+2106
+01:16:21,760 --> 01:16:25,840
+questions
+
+2107
+01:16:24,159 --> 01:16:27,760
+and it's kind of interesting that there
+
+2108
+01:16:25,840 --> 01:16:29,199
+actually does well i'll leave it to you
+
+2109
+01:16:27,760 --> 01:16:30,320
+to
+
+2110
+01:16:29,199 --> 01:16:32,400
+uh
+
+2111
+01:16:30,320 --> 01:16:35,360
+tell me if you can see what what it
+
+2112
+01:16:32,400 --> 01:16:38,320
+might actually be telling you closing
+
+2113
+01:16:35,360 --> 01:16:38,320
+get your answer in
+
+2114
+01:16:39,600 --> 01:16:44,480
+okay one two three
+
+2115
+01:16:42,719 --> 01:16:45,840
+i feel like i'm running an auction house
+
+2116
+01:16:44,480 --> 01:16:49,480
+here
+
+2117
+01:16:45,840 --> 01:16:49,480
+i should have a gavel
+
+2118
+01:16:52,480 --> 01:16:56,400
+okay
+
+2119
+01:16:53,679 --> 01:16:58,800
+yes in fact we know that you know these
+
+2120
+01:16:56,400 --> 01:17:00,800
+are separated so it's not even though we
+
+2121
+01:16:58,800 --> 01:17:03,280
+don't know if l equals p or p equals p
+
+2122
+01:17:00,800 --> 01:17:06,320
+space they can't both be equal
+
+2123
+01:17:03,280 --> 01:17:07,840
+because then um l would equal p space
+
+2124
+01:17:06,320 --> 01:17:08,880
+and we know that's false
+
+2125
+01:17:07,840 --> 01:17:10,400
+um
+
+2126
+01:17:08,880 --> 01:17:11,440
+so at least one of these has the answer
+
+2127
+01:17:10,400 --> 01:17:13,520
+no
+
+2128
+01:17:11,440 --> 01:17:15,440
+okay so with that let's wrap up today's
+
+2129
+01:17:13,520 --> 01:17:16,719
+lecture
+
+2130
+01:17:15,440 --> 01:17:20,000
+you know we prove these hierarchy
+
+2131
+01:17:16,719 --> 01:17:21,040
+theorems and why don't we just uh
+
+2132
+01:17:20,000 --> 01:17:23,120
+um
+
+2133
+01:17:21,040 --> 01:17:24,239
+i'm going to
+
+2134
+01:17:23,120 --> 01:17:28,320
+uh
+
+2135
+01:17:24,239 --> 01:17:30,960
+shut us down here but but before well
+
+2136
+01:17:28,320 --> 01:17:32,480
+we're over so you can feel free to go um
+
+2137
+01:17:30,960 --> 01:17:34,320
+but i'll stick around in case anybody's
+
+2138
+01:17:32,480 --> 01:17:36,239
+any questions for a few minutes anyway
+
+2139
+01:17:34,320 --> 01:17:38,239
+um and then uh
+
+2140
+01:17:36,239 --> 01:17:40,080
+we'll call it a day
+
+2141
+01:17:38,239 --> 01:17:41,920
+since we just showed space and is a
+
+2142
+01:17:40,080 --> 01:17:44,480
+proper subset of space n to the k for
+
+2143
+01:17:41,920 --> 01:17:46,320
+any k why can't we also say
+
+2144
+01:17:44,480 --> 01:17:48,960
+space n is a proper subset of p space
+
+2145
+01:17:46,320 --> 01:17:50,000
+yes space n is a proper subset of p
+
+2146
+01:17:48,960 --> 01:17:52,560
+space
+
+2147
+01:17:50,000 --> 01:17:55,440
+yeah so somebody just asked we just
+
+2148
+01:17:52,560 --> 01:17:56,840
+showed that space n is a proper subset
+
+2149
+01:17:55,440 --> 01:17:59,600
+of space n to the
+
+2150
+01:17:56,840 --> 01:18:03,120
+k does that also say that space n is a
+
+2151
+01:17:59,600 --> 01:18:04,159
+proper subset of p space definitely
+
+2152
+01:18:03,120 --> 01:18:06,239
+any
+
+2153
+01:18:04,159 --> 01:18:09,360
+um
+
+2154
+01:18:06,239 --> 01:18:11,440
+space n to the k is a proper subset of
+
+2155
+01:18:09,360 --> 01:18:14,400
+space n to the k plus one
+
+2156
+01:18:11,440 --> 01:18:16,800
+which is a subset of p space so any
+
+2157
+01:18:14,400 --> 01:18:18,719
+fixed polynomial is going to be a subset
+
+2158
+01:18:16,800 --> 01:18:20,000
+of p space because p space includes all
+
+2159
+01:18:18,719 --> 01:18:22,719
+the polynomials
+
+2160
+01:18:20,000 --> 01:18:24,480
+which of the two unsolved problems
+
+2161
+01:18:22,719 --> 01:18:26,880
+uh whoops
+
+2162
+01:18:24,480 --> 01:18:28,320
+do i think is more likely likely to be
+
+2163
+01:18:26,880 --> 01:18:30,560
+true
+
+2164
+01:18:28,320 --> 01:18:30,560
+well
+
+2165
+01:18:30,719 --> 01:18:34,400
+i think most
+
+2166
+01:18:32,719 --> 01:18:36,480
+i mean i would bet that both of these
+
+2167
+01:18:34,400 --> 01:18:38,000
+are not equal so both of these have
+
+2168
+01:18:36,480 --> 01:18:39,520
+answered no
+
+2169
+01:18:38,000 --> 01:18:42,560
+um
+
+2170
+01:18:39,520 --> 01:18:44,719
+uh it would be weird you know
+
+2171
+01:18:42,560 --> 01:18:46,239
+i mean you think l equals p
+
+2172
+01:18:44,719 --> 01:18:48,000
+that anything you can do in polynomial
+
+2173
+01:18:46,239 --> 01:18:49,679
+time you end with log space log space is
+
+2174
+01:18:48,000 --> 01:18:52,080
+incredibly weak
+
+2175
+01:18:49,679 --> 01:18:53,040
+and and p space is incredibly strong
+
+2176
+01:18:52,080 --> 01:18:54,480
+um
+
+2177
+01:18:53,040 --> 01:18:55,920
+i would be shocked if either of these
+
+2178
+01:18:54,480 --> 01:18:57,520
+were equal
+
+2179
+01:18:55,920 --> 01:18:58,880
+so we just
+
+2180
+01:18:57,520 --> 01:18:59,920
+the problem is that we don't have a
+
+2181
+01:18:58,880 --> 01:19:01,199
+method
+
+2182
+01:18:59,920 --> 01:19:02,159
+for proving
+
+2183
+01:19:01,199 --> 01:19:03,440
+um
+
+2184
+01:19:02,159 --> 01:19:05,679
+problems
+
+2185
+01:19:03,440 --> 01:19:08,159
+are are actually
+
+2186
+01:19:05,679 --> 01:19:09,520
+have high complexity of of any sort we
+
+2187
+01:19:08,159 --> 01:19:11,920
+don't know how to show things outside of
+
+2188
+01:19:09,520 --> 01:19:13,440
+l don't know how to show things
+
+2189
+01:19:11,920 --> 01:19:15,360
+outside of p
+
+2190
+01:19:13,440 --> 01:19:17,679
+except by using the hierarchy theorem
+
+2191
+01:19:15,360 --> 01:19:19,520
+diagonalization is the only method that
+
+2192
+01:19:17,679 --> 01:19:20,560
+we have for showing things or outside of
+
+2193
+01:19:19,520 --> 01:19:22,320
+classes
+
+2194
+01:19:20,560 --> 01:19:24,239
+and there's reason to believe that as
+
+2195
+01:19:22,320 --> 01:19:25,520
+we'll this will get to i think next
+
+2196
+01:19:24,239 --> 01:19:28,080
+lecture in fact
+
+2197
+01:19:25,520 --> 01:19:30,239
+there's kind of reasons to believe that
+
+2198
+01:19:28,080 --> 01:19:34,000
+the hierarchy theorem type argument
+
+2199
+01:19:30,239 --> 01:19:37,040
+which is diagonalization is not going to
+
+2200
+01:19:34,000 --> 01:19:38,719
+answer those kinds of questions um so we
+
+2201
+01:19:37,040 --> 01:19:42,159
+need a different method and
+
+2202
+01:19:38,719 --> 01:19:42,159
+diagonalization is all we got
+
+2203
+01:19:43,199 --> 01:19:46,080
+good question though
+
+2204
+01:19:44,640 --> 01:19:47,679
+if i didn't get to answer your question
+
+2205
+01:19:46,080 --> 01:19:51,040
+you have a question for me ask it again
+
+2206
+01:19:47,679 --> 01:19:51,040
+because it's got buried
+
+2207
+01:19:51,280 --> 01:19:57,520
+so it means we are very far from
+
+2208
+01:19:53,040 --> 01:19:57,520
+disproving p versus np is that right
+
+2209
+01:19:57,920 --> 01:20:01,040
+it could happen tomorrow
+
+2210
+01:20:01,679 --> 01:20:05,920
+you know how do you how do you how can
+
+2211
+01:20:03,040 --> 01:20:06,880
+you tell it doesn't you know it it seems
+
+2212
+01:20:05,920 --> 01:20:09,280
+clear
+
+2213
+01:20:06,880 --> 01:20:10,719
+that the present state of mathematics as
+
+2214
+01:20:09,280 --> 01:20:11,840
+of right now
+
+2215
+01:20:10,719 --> 01:20:13,600
+is
+
+2216
+01:20:11,840 --> 01:20:15,760
+you know we don't have a clue
+
+2217
+01:20:13,600 --> 01:20:17,360
+how to answer those kinds of questions
+
+2218
+01:20:15,760 --> 01:20:18,800
+and it's not obvious that we've even
+
+2219
+01:20:17,360 --> 01:20:21,199
+made any progress
+
+2220
+01:20:18,800 --> 01:20:22,960
+um but
+
+2221
+01:20:21,199 --> 01:20:24,320
+you know
+
+2222
+01:20:22,960 --> 01:20:25,679
+that's the nature of the game that's the
+
+2223
+01:20:24,320 --> 01:20:27,199
+nature of the beast
+
+2224
+01:20:25,679 --> 01:20:29,040
+you know somebody gets a good idea and
+
+2225
+01:20:27,199 --> 01:20:29,840
+all of a sudden lots of things uh can
+
+2226
+01:20:29,040 --> 01:20:31,360
+change
+
+2227
+01:20:29,840 --> 01:20:33,840
+and that can happen and then in any
+
+2228
+01:20:31,360 --> 01:20:35,920
+point maybe one of you guys
+
+2229
+01:20:33,840 --> 01:20:39,199
+when were these results first
+
+2230
+01:20:35,920 --> 01:20:40,639
+this is the the stuff okay the hierarchy
+
+2231
+01:20:39,199 --> 01:20:43,440
+theorem is old
+
+2232
+01:20:40,639 --> 01:20:46,400
+that goes back to the very when time
+
+2233
+01:20:43,440 --> 01:20:48,480
+when time classes were first defined i
+
+2234
+01:20:46,400 --> 01:20:50,719
+think is one of the first results to
+
+2235
+01:20:48,480 --> 01:20:52,719
+show the hierarchy
+
+2236
+01:20:50,719 --> 01:20:54,000
+and
+
+2237
+01:20:52,719 --> 01:20:56,719
+that's
+
+2238
+01:20:54,000 --> 01:20:56,719
+late 60s
+
+2239
+01:20:58,480 --> 01:21:01,840
+the
+
+2240
+01:20:59,280 --> 01:21:03,679
+nl equal coen l i think i mentioned was
+
+2241
+01:21:01,840 --> 01:21:05,520
+like mid 1980s
+
+2242
+01:21:03,679 --> 01:21:07,040
+much later
+
+2243
+01:21:05,520 --> 01:21:10,239
+i mean from your points of view it was a
+
+2244
+01:21:07,040 --> 01:21:11,440
+bit it was back in the
+
+2245
+01:21:10,239 --> 01:21:15,360
+cave
+
+2246
+01:21:11,440 --> 01:21:17,280
+cave age uh either way but uh yeah but
+
+2247
+01:21:15,360 --> 01:21:19,840
+but the the hierarchy team that that's
+
+2248
+01:21:17,280 --> 01:21:22,480
+actually pre predates uh
+
+2249
+01:21:19,840 --> 01:21:24,080
+my coming into the field but but the but
+
+2250
+01:21:22,480 --> 01:21:25,679
+the nl equal conel that was something
+
+2251
+01:21:24,080 --> 01:21:27,440
+that i was
+
+2252
+01:21:25,679 --> 01:21:29,840
+i personally experienced how surprised
+
+2253
+01:21:27,440 --> 01:21:29,840
+people were
+
+2254
+01:21:30,480 --> 01:21:35,440
+okay i think i'm gonna
+
+2255
+01:21:32,880 --> 01:21:37,199
+send you off all off on your way good
+
+2256
+01:21:35,440 --> 01:21:38,880
+good having you here and i have a good
+
+2257
+01:21:37,199 --> 01:21:41,360
+weekend everybody
+
+2258
+01:21:38,880 --> 01:21:43,199
+and um
+
+2259
+01:21:41,360 --> 01:21:46,199
+i will see you on tuesday
+
+2260
+01:21:43,199 --> 01:21:46,199
+bye
+
+2261
+01:21:56,239 --> 01:21:58,320
+you
+

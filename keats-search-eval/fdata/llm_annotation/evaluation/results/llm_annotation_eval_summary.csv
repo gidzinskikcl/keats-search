@@ -1,0 +1,5 @@
+Prompt,Accuracy,F1 Score,Average Tokens Used
+Minimum,0.917,0.909,1478.1
+Basic,0.967,0.966,1508.3
+F2,0.95,0.947,1651.1
+F4,0.95,0.947,1696.2

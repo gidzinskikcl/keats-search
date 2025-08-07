@@ -1,0 +1,127 @@
+{
+  "id": "oS9aPzUNG-s",
+  "title": "3. Sets and Sorting",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Justin Solomon\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nStored sets sorted by key allows for faster searching. This lecture covers how to construct a sorted array efficiently and the types of sorts.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3176,
+  "view_count": 192208,
+  "tags": [
+    "permutation sort, recurrance tree, selection sort, insertion sort, merge sort, substitution"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=oS9aPzUNG-s",
+  "thumbnail": "https://i.ytimg.com/vi/oS9aPzUNG-s/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 60.0
+    },
+    {
+      "start_time": 60.0,
+      "title": "Vocabulary",
+      "end_time": 120.0
+    },
+    {
+      "start_time": 120.0,
+      "title": "Data Structures",
+      "end_time": 192.0
+    },
+    {
+      "start_time": 192.0,
+      "title": "Sets",
+      "end_time": 263.0
+    },
+    {
+      "start_time": 263.0,
+      "title": "Set Interface",
+      "end_time": 380.0
+    },
+    {
+      "start_time": 380.0,
+      "title": "Set Data Structure",
+      "end_time": 438.0
+    },
+    {
+      "start_time": 438.0,
+      "title": "Goals",
+      "end_time": 470.0
+    },
+    {
+      "start_time": 470.0,
+      "title": "Insert Operation",
+      "end_time": 530.0
+    },
+    {
+      "start_time": 530.0,
+      "title": "How to Implement",
+      "end_time": 728.0
+    },
+    {
+      "start_time": 728.0,
+      "title": "Linear Time",
+      "end_time": 909.0
+    },
+    {
+      "start_time": 909.0,
+      "title": "Sorting Arrays",
+      "end_time": 1044.0
+    },
+    {
+      "start_time": 1044.0,
+      "title": "Sorting Numbers",
+      "end_time": 1190.0
+    },
+    {
+      "start_time": 1190.0,
+      "title": "Vocabulary Words",
+      "end_time": 1287.0
+    },
+    {
+      "start_time": 1287.0,
+      "title": "Permutation Sort",
+      "end_time": 1538.0
+    },
+    {
+      "start_time": 1538.0,
+      "title": "Binary Search",
+      "end_time": 1563.0
+    },
+    {
+      "start_time": 1563.0,
+      "title": "Selection Sort",
+      "end_time": 1981.0
+    },
+    {
+      "start_time": 1981.0,
+      "title": "Induction",
+      "end_time": 2080.0
+    },
+    {
+      "start_time": 2080.0,
+      "title": "Runtime",
+      "end_time": 2234.0
+    },
+    {
+      "start_time": 2234.0,
+      "title": "Implementation",
+      "end_time": 2484.0
+    },
+    {
+      "start_time": 2484.0,
+      "title": "Merge Sort",
+      "end_time": 2775.0
+    },
+    {
+      "start_time": 2775.0,
+      "title": "Recursive",
+      "end_time": 2929.0
+    },
+    {
+      "start_time": 2929.0,
+      "title": "merge",
+      "end_time": 3176
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/oS9aPzUNG-s.en-j3PyPqV-e1s.srt"
+}

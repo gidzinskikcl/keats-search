@@ -1,0 +1,117 @@
+{
+  "id": "vof7x8r_ZUA",
+  "title": "1. What Makes Healthcare Unique?",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag gives an overview of the problem of healthcare in the US. He gives an overview of the history of artificial intelligence in healthcare, reasons why to apply machine learning to healthcare today, and some examples of applied machine learning.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4242,
+  "view_count": 109102,
+  "tags": [
+    "machine learning",
+    "healthcare",
+    "artificial intelligence",
+    "datasets",
+    "standardization",
+    "breakthroughs"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=vof7x8r_ZUA",
+  "thumbnail": "https://i.ytimg.com/vi_webp/vof7x8r_ZUA/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 35.0
+    },
+    {
+      "start_time": 35.0,
+      "title": "The Problem",
+      "end_time": 258.0
+    },
+    {
+      "start_time": 258.0,
+      "title": "Todays Lecture",
+      "end_time": 326.0
+    },
+    {
+      "start_time": 326.0,
+      "title": "AI in Medicine",
+      "end_time": 1027.0
+    },
+    {
+      "start_time": 1027.0,
+      "title": "Opportunity is Data",
+      "end_time": 1150.0
+    },
+    {
+      "start_time": 1150.0,
+      "title": "Mimic Database",
+      "end_time": 1243.0
+    },
+    {
+      "start_time": 1243.0,
+      "title": "Truven MarketScan",
+      "end_time": 1371.0
+    },
+    {
+      "start_time": 1371.0,
+      "title": "All of Us Initiative",
+      "end_time": 1450.0
+    },
+    {
+      "start_time": 1450.0,
+      "title": "Data",
+      "end_time": 1753.0
+    },
+    {
+      "start_time": 1753.0,
+      "title": "OhmOP",
+      "end_time": 1802.0
+    },
+    {
+      "start_time": 1802.0,
+      "title": "Machine Learning",
+      "end_time": 1892.0
+    },
+    {
+      "start_time": 1892.0,
+      "title": "Algorithmic Advances",
+      "end_time": 1969.0
+    },
+    {
+      "start_time": 1969.0,
+      "title": "Industry Interest",
+      "end_time": 2083.0
+    },
+    {
+      "start_time": 2083.0,
+      "title": "Machine Learning in Healthcare",
+      "end_time": 2918.0
+    },
+    {
+      "start_time": 2918.0,
+      "title": "Chronic Disease",
+      "end_time": 3206.0
+    },
+    {
+      "start_time": 3206.0,
+      "title": "Early Diagnosis",
+      "end_time": 3233.0
+    },
+    {
+      "start_time": 3233.0,
+      "title": "Tracking Chronic Disease",
+      "end_time": 3395.0
+    },
+    {
+      "start_time": 3395.0,
+      "title": "Discovery",
+      "end_time": 3485.0
+    },
+    {
+      "start_time": 3485.0,
+      "title": "Whats Unique",
+      "end_time": 4242
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/vof7x8r_ZUA.en-j3PyPqV-e1s.srt"
+}

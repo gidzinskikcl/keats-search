@@ -1,0 +1,117 @@
+{
+  "id": "IBfWDYSffUU",
+  "title": "10. Depth-First Search",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Justin Solomon\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis class builds on the previous lecture of breadth-first search (BFS) by introducing depth-first search (DFS) and full-BFS and full-DFS. The lecture continues with topological sorts and cycle detection.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3143,
+  "view_count": 41843,
+  "tags": [
+    "depth-first search, correctness, graph connectivity, topological sort, cycle detection"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=IBfWDYSffUU",
+  "thumbnail": "https://i.ytimg.com/vi/IBfWDYSffUU/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGUgZShlMA8=&rs=AOn4CLD2Z35S7KYL74TiZ8rdfyIwknVpjA",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 21.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 21.0,
+      "title": "Review",
+      "end_time": 53.0
+    },
+    {
+      "start_time": 53.0,
+      "title": "Draw a Graph",
+      "end_time": 84.0
+    },
+    {
+      "start_time": 84.0,
+      "title": "Definition of a Graph",
+      "end_time": 166.0
+    },
+    {
+      "start_time": 166.0,
+      "title": "Outgoing Neighbors",
+      "end_time": 249.0
+    },
+    {
+      "start_time": 249.0,
+      "title": "Paths",
+      "end_time": 360.0
+    },
+    {
+      "start_time": 360.0,
+      "title": "Breath First Search",
+      "end_time": 400.0
+    },
+    {
+      "start_time": 400.0,
+      "title": "Depth First Search",
+      "end_time": 689.0
+    },
+    {
+      "start_time": 689.0,
+      "title": "Death First Search",
+      "end_time": 859.0
+    },
+    {
+      "start_time": 859.0,
+      "title": "Correctness Proof",
+      "end_time": 1301.0
+    },
+    {
+      "start_time": 1301.0,
+      "title": "Does Dfs Ever Visit a Vertex That Is Not Reachable from the Source",
+      "end_time": 1516.0
+    },
+    {
+      "start_time": 1516.0,
+      "title": "Connectivity",
+      "end_time": 1702.0
+    },
+    {
+      "start_time": 1702.0,
+      "title": "Full Dfs",
+      "end_time": 1766.0
+    },
+    {
+      "start_time": 1766.0,
+      "title": "Full Dfs Algorithm",
+      "end_time": 1830.0
+    },
+    {
+      "start_time": 1830.0,
+      "title": "Runtime",
+      "end_time": 2009.0
+    },
+    {
+      "start_time": 2009.0,
+      "title": "Example of a Dag",
+      "end_time": 2054.0
+    },
+    {
+      "start_time": 2054.0,
+      "title": "Topological Order",
+      "end_time": 2062.0
+    },
+    {
+      "start_time": 2062.0,
+      "title": "Topological Ordering",
+      "end_time": 2172.0
+    },
+    {
+      "start_time": 2172.0,
+      "title": "Finishing Order",
+      "end_time": 2667.0
+    },
+    {
+      "start_time": 2667.0,
+      "title": "Cycle Detection",
+      "end_time": 3143
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/IBfWDYSffUU.en-j3PyPqV-e1s.srt"
+}

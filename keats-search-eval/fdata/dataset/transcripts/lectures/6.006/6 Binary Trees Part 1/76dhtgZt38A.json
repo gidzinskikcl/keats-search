@@ -1,0 +1,82 @@
+{
+  "id": "76dhtgZt38A",
+  "title": "6. Binary Trees, Part 1",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis is the first of two lectures on binary trees. This lecture discusses binary tree terminology, tree navigation, and dynamic operations. These are explored in two applications: sets and sequences.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3058,
+  "view_count": 183846,
+  "tags": [
+    "navigation, traversal, dynamic operations, set binary tree, binary search tree, sequence binary tree"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=76dhtgZt38A",
+  "thumbnail": "https://i.ytimg.com/vi_webp/76dhtgZt38A/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 22.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 22.0,
+      "title": "Binary Trees",
+      "end_time": 241.0
+    },
+    {
+      "start_time": 241.0,
+      "title": "What Is a Binary Tree",
+      "end_time": 276.0
+    },
+    {
+      "start_time": 276.0,
+      "title": "Example of a Binary Tree",
+      "end_time": 383.0
+    },
+    {
+      "start_time": 383.0,
+      "title": "Left Pointers",
+      "end_time": 558.0
+    },
+    {
+      "start_time": 558.0,
+      "title": "Subtree and Height of a Node",
+      "end_time": 1474.0
+    },
+    {
+      "start_time": 1474.0,
+      "title": "Successor Node",
+      "end_time": 2004.0
+    },
+    {
+      "start_time": 2004.0,
+      "title": "Changing the Traversal Sequence",
+      "end_time": 2017.0
+    },
+    {
+      "start_time": 2017.0,
+      "title": "Inserting or Deleting in the Middle of a Subtree",
+      "end_time": 2450.0
+    },
+    {
+      "start_time": 2450.0,
+      "title": "Deletion",
+      "end_time": 2486.0
+    },
+    {
+      "start_time": 2486.0,
+      "title": "Deletions",
+      "end_time": 2532.0
+    },
+    {
+      "start_time": 2532.0,
+      "title": "Delete the Root of the Tree",
+      "end_time": 2966.0
+    },
+    {
+      "start_time": 2966.0,
+      "title": "Binary Search Trees",
+      "end_time": 3058
+    }
+  ],
+  "transcript_file": null
+}

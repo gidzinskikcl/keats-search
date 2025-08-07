@@ -1,0 +1,107 @@
+{
+  "id": "4MgN6uxd4i4",
+  "title": "7. Decision Problems for Automata and Grammars",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Showed the decidability of various problems about automata and grammars. Also showed that acceptance problem for TMs is T-recognizable.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4611,
+  "view_count": 45884,
+  "tags": [
+    "decidability, Turing machine, automata, grammar, T-recognizable"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=4MgN6uxd4i4",
+  "thumbnail": "https://i.ytimg.com/vi/4MgN6uxd4i4/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 217.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 217.0,
+      "title": "Review",
+      "end_time": 385.0
+    },
+    {
+      "start_time": 385.0,
+      "title": "Tell if the Machine Is Looping",
+      "end_time": 415.0
+    },
+    {
+      "start_time": 415.0,
+      "title": "How Can We Tell if an English Description Is Possible for a Turing Machine",
+      "end_time": 487.0
+    },
+    {
+      "start_time": 487.0,
+      "title": "The Acceptance Problem for Dfas",
+      "end_time": 1037.0
+    },
+    {
+      "start_time": 1037.0,
+      "title": "Acceptance Problems for Anaphase",
+      "end_time": 1365.0
+    },
+    {
+      "start_time": 1365.0,
+      "title": "Limits on the Simulation Power of a Turing Machine",
+      "end_time": 1460.0
+    },
+    {
+      "start_time": 1460.0,
+      "title": "Emptiness Problem for Dfas",
+      "end_time": 1716.0
+    },
+    {
+      "start_time": 1716.0,
+      "title": "Breadth First Search",
+      "end_time": 1845.0
+    },
+    {
+      "start_time": 1845.0,
+      "title": "Equivalence Problem for Dfas",
+      "end_time": 2161.0
+    },
+    {
+      "start_time": 2161.0,
+      "title": "Equivalence of Regular Expressions",
+      "end_time": 3178.0
+    },
+    {
+      "start_time": 3178.0,
+      "title": "Acceptance Problem",
+      "end_time": 3226.0
+    },
+    {
+      "start_time": 3226.0,
+      "title": "Emptiness Problem for Cfgs",
+      "end_time": 3233.0
+    },
+    {
+      "start_time": 3233.0,
+      "title": "Emptiness Problem for Context-Free Grammars",
+      "end_time": 3886.0
+    },
+    {
+      "start_time": 3886.0,
+      "title": "Turing Machines",
+      "end_time": 3898.0
+    },
+    {
+      "start_time": 3898.0,
+      "title": "Acceptance Problem for Turing Machines",
+      "end_time": 4246.0
+    },
+    {
+      "start_time": 4246.0,
+      "title": "Universal Turing Machine",
+      "end_time": 4289.0
+    },
+    {
+      "start_time": 4289.0,
+      "title": "Von Neumann Architecture",
+      "end_time": 4611
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/4MgN6uxd4i4.en-j3PyPqV-e1s.srt"
+}

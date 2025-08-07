@@ -1,0 +1,101 @@
+{
+  "id": "lLhfDSOwWtU",
+  "title": "6. Physiological Time-Series",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag gives a recap of risk stratification and then explains physiological time-series. Two scenarios are examined: monitoring babies in neonatal ICUs and detecting atrial fibrillation.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4860,
+  "view_count": 9033,
+  "tags": [
+    "risk stratification",
+    "time-series",
+    "switching linear dynamic system",
+    "physiological state",
+    "convolution"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=lLhfDSOwWtU",
+  "thumbnail": "https://i.ytimg.com/vi_webp/lLhfDSOwWtU/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 19.0
+    },
+    {
+      "start_time": 19.0,
+      "title": "Outline of today's lecture",
+      "end_time": 68.0
+    },
+    {
+      "start_time": 68.0,
+      "title": "Survival modeling with right-censored data",
+      "end_time": 134.0
+    },
+    {
+      "start_time": 134.0,
+      "title": "Notation and formalization",
+      "end_time": 353.0
+    },
+    {
+      "start_time": 353.0,
+      "title": "Maximum likelihood estimation",
+      "end_time": 800.0
+    },
+    {
+      "start_time": 800.0,
+      "title": "Evaluation for survival modeling",
+      "end_time": 1112.0
+    },
+    {
+      "start_time": 1112.0,
+      "title": "Final thoughts on survival modeling",
+      "end_time": 1349.0
+    },
+    {
+      "start_time": 1349.0,
+      "title": "Dealing with non-stationarity",
+      "end_time": 1608.0
+    },
+    {
+      "start_time": 1608.0,
+      "title": "Recap of risk stratification",
+      "end_time": 1954.0
+    },
+    {
+      "start_time": 1954.0,
+      "title": "Physiological time-series",
+      "end_time": 2070.0
+    },
+    {
+      "start_time": 2070.0,
+      "title": "Two very different trajectories",
+      "end_time": 2105.0
+    },
+    {
+      "start_time": 2105.0,
+      "title": "Problem: measurements confounded by interventions & measurement errors",
+      "end_time": 2165.0
+    },
+    {
+      "start_time": 2165.0,
+      "title": "Can we identify the artifactual processes?",
+      "end_time": 2300.0
+    },
+    {
+      "start_time": 2300.0,
+      "title": "(Switching) linear dynamical systems",
+      "end_time": 2996.0
+    },
+    {
+      "start_time": 2996.0,
+      "title": "Learning SLDS models",
+      "end_time": 3320.0
+    },
+    {
+      "start_time": 3320.0,
+      "title": "Parameterizing model",
+      "end_time": 4860
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/lLhfDSOwWtU.en-j3PyPqV-e1s.srt"
+}

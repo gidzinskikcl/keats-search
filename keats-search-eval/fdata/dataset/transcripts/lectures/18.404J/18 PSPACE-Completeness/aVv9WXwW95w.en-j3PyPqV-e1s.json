@@ -1,0 +1,52 @@
+{
+  "id": "aVv9WXwW95w",
+  "title": "18. PSPACE-Completeness",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Proved Savitch\u2019s Theorem: NSPACE(f(n)) is a subset of SPACE(f^2(n)). Also proved PSPACE-completeness and TQBF is PSPACE-complete.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4655,
+  "view_count": 11756,
+  "tags": [
+    "Savitch\u2019s Theorem, PSPACE-complete, polynomial-time reduction"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=aVv9WXwW95w",
+  "thumbnail": "https://i.ytimg.com/vi/aVv9WXwW95w/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 434.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 434.0,
+      "title": "Bounded Ladder Problem",
+      "end_time": 1300.0
+    },
+    {
+      "start_time": 1300.0,
+      "title": "Breadth First Search and Depth First Search",
+      "end_time": 1556.0
+    },
+    {
+      "start_time": 1556.0,
+      "title": "Ladder Problem",
+      "end_time": 2053.0
+    },
+    {
+      "start_time": 2053.0,
+      "title": "Can There Be Multiple Accepting Configurations",
+      "end_time": 2352.0
+    },
+    {
+      "start_time": 2352.0,
+      "title": "Np Complete Problems",
+      "end_time": 3533.0
+    },
+    {
+      "start_time": 3533.0,
+      "title": "Recursive Construction",
+      "end_time": 4655
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/aVv9WXwW95w.en-j3PyPqV-e1s.srt"
+}

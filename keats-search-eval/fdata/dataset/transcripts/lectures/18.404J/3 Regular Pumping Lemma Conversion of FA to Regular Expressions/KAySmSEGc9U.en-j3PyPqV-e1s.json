@@ -1,0 +1,82 @@
+{
+  "id": "KAySmSEGc9U",
+  "title": "3. Regular Pumping Lemma, Conversion of FA to Regular Expressions",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Showed conversion of DFAs to regular expressions. Gave a method for proving languages not regular by using the pumping lemma and closure properties. Introduced context free grammars (CFGs).\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4202,
+  "view_count": 95427,
+  "tags": [
+    "regular expressions, pumping lemma, non-regularity, closure properties, context free grammars"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=KAySmSEGc9U",
+  "thumbnail": "https://i.ytimg.com/vi/KAySmSEGc9U/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 268.0
+    },
+    {
+      "start_time": 268.0,
+      "title": "Recap",
+      "end_time": 407.0
+    },
+    {
+      "start_time": 407.0,
+      "title": "Generalized Nondeterministic FA",
+      "end_time": 867.0
+    },
+    {
+      "start_time": 867.0,
+      "title": "The Conversion",
+      "end_time": 1182.0
+    },
+    {
+      "start_time": 1182.0,
+      "title": "The Guts",
+      "end_time": 1807.0
+    },
+    {
+      "start_time": 1807.0,
+      "title": "NonRegularity",
+      "end_time": 1957.0
+    },
+    {
+      "start_time": 1957.0,
+      "title": "NonRegularity Examples",
+      "end_time": 2327.0
+    },
+    {
+      "start_time": 2327.0,
+      "title": "NonRegularity Proof",
+      "end_time": 2362.0
+    },
+    {
+      "start_time": 2362.0,
+      "title": "Pumping Lemma",
+      "end_time": 2617.0
+    },
+    {
+      "start_time": 2617.0,
+      "title": "Conditions",
+      "end_time": 2737.0
+    },
+    {
+      "start_time": 2737.0,
+      "title": "Repetition",
+      "end_time": 2972.0
+    },
+    {
+      "start_time": 2972.0,
+      "title": "Poll",
+      "end_time": 3037.0
+    },
+    {
+      "start_time": 3037.0,
+      "title": "Proof",
+      "end_time": 4202
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/KAySmSEGc9U.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "N-_XmLanPYg",
+  "title": "11. Recursion Theorem and Logic",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Discussed self-reference and the recursion theorem. Gave various applications. Sketched Godel\u2019s first incompleteness theorem in mathematical logic.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4652,
+  "view_count": 22092,
+  "tags": [
+    "self-reference, recursion theorem, Godel\u2019s first incompleteness theorem, mathematical logic"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=N-_XmLanPYg",
+  "thumbnail": "https://i.ytimg.com/vi/N-_XmLanPYg/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 256.0
+    },
+    {
+      "start_time": 256.0,
+      "title": "The selfreproduction paradox",
+      "end_time": 585.0
+    },
+    {
+      "start_time": 585.0,
+      "title": "Example",
+      "end_time": 786.0
+    },
+    {
+      "start_time": 786.0,
+      "title": "Schematic",
+      "end_time": 1284.0
+    },
+    {
+      "start_time": 1284.0,
+      "title": "English Instructions",
+      "end_time": 1575.0
+    },
+    {
+      "start_time": 1575.0,
+      "title": "Template and Action",
+      "end_time": 1885.0
+    },
+    {
+      "start_time": 1885.0,
+      "title": "Recursion Theorem",
+      "end_time": 2506.0
+    },
+    {
+      "start_time": 2506.0,
+      "title": "Coffee Break",
+      "end_time": 4652
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/N-_XmLanPYg.en-j3PyPqV-e1s.srt"
+}

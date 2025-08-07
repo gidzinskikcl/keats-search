@@ -1,0 +1,7 @@
+{
+  "total": 90,
+  "correct": 77,
+  "accuracy": 0.8556,
+  "cohen_kappa": 0.7068,
+  "mae": 0.1444
+}

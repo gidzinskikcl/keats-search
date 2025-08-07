@@ -1,0 +1,105 @@
+{
+  "id": "esmzYhuFnds",
+  "title": "12. Clustering",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag discusses clustering.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3039,
+  "view_count": 323770,
+  "tags": [
+    "optimization",
+    "variability",
+    "hiearchical clustering",
+    "clustering",
+    "cluster analysis",
+    "unsupervised learning",
+    "objective function",
+    "k-means",
+    "dendogram"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=esmzYhuFnds",
+  "thumbnail": "https://i.ytimg.com/vi/esmzYhuFnds/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 463.0
+    },
+    {
+      "start_time": 463.0,
+      "title": "hierarchical clustering",
+      "end_time": 589.0
+    },
+    {
+      "start_time": 589.0,
+      "title": "linkage metrics",
+      "end_time": 701.0
+    },
+    {
+      "start_time": 701.0,
+      "title": "Example",
+      "end_time": 1021.0
+    },
+    {
+      "start_time": 1021.0,
+      "title": "Algorithm",
+      "end_time": 1193.0
+    },
+    {
+      "start_time": 1193.0,
+      "title": "Examples",
+      "end_time": 1737.0
+    },
+    {
+      "start_time": 1737.0,
+      "title": "Real Example",
+      "end_time": 1882.0
+    },
+    {
+      "start_time": 1882.0,
+      "title": "Binary Outcomes",
+      "end_time": 1918.0
+    },
+    {
+      "start_time": 1918.0,
+      "title": "Cluster",
+      "end_time": 2128.0
+    },
+    {
+      "start_time": 2128.0,
+      "title": "Yield",
+      "end_time": 2197.0
+    },
+    {
+      "start_time": 2197.0,
+      "title": "Patient",
+      "end_time": 2340.0
+    },
+    {
+      "start_time": 2340.0,
+      "title": "Scaling",
+      "end_time": 2451.0
+    },
+    {
+      "start_time": 2451.0,
+      "title": "Empty Clusters",
+      "end_time": 2535.0
+    },
+    {
+      "start_time": 2535.0,
+      "title": "Test Clustering",
+      "end_time": 2599.0
+    },
+    {
+      "start_time": 2599.0,
+      "title": "Results",
+      "end_time": 2712.0
+    },
+    {
+      "start_time": 2712.0,
+      "title": "Scale Data",
+      "end_time": 3039
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/esmzYhuFnds.en-qlPKC2UN_YU.srt"
+}

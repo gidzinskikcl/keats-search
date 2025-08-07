@@ -1,0 +1,72 @@
+{
+  "id": "f9cVS_URPc0",
+  "title": "12. Bellman-Ford",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\n*NOTE: Problem Session 6 is unavailable.*\n\nThis lecture introduces a single source shortest path algorithm that works for general graphs. The process, correctness, and running time of the Bellman-Ford algorithm is discussed.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3460,
+  "view_count": 30271,
+  "tags": [
+    "directed graphs, simple shortest paths, negative cycle witness, Bellman-Ford, graph duplication"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=f9cVS_URPc0",
+  "thumbnail": "https://i.ytimg.com/vi/f9cVS_URPc0/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGUgZShlMA8=&rs=AOn4CLCxMBPiIabi86C6FYUbme875_BbzQ",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 110.0
+    },
+    {
+      "start_time": 110.0,
+      "title": "Recap",
+      "end_time": 150.0
+    },
+    {
+      "start_time": 150.0,
+      "title": "Negative Weight Cycles",
+      "end_time": 285.0
+    },
+    {
+      "start_time": 285.0,
+      "title": "Negative Weight Edges",
+      "end_time": 882.0
+    },
+    {
+      "start_time": 882.0,
+      "title": "Shortest Paths",
+      "end_time": 1077.0
+    },
+    {
+      "start_time": 1077.0,
+      "title": "Shortest Path",
+      "end_time": 1817.0
+    },
+    {
+      "start_time": 1817.0,
+      "title": "Graph Duplication",
+      "end_time": 2097.0
+    },
+    {
+      "start_time": 2097.0,
+      "title": "Graph Transformation",
+      "end_time": 2557.0
+    },
+    {
+      "start_time": 2557.0,
+      "title": "Graph Construction",
+      "end_time": 2939.0
+    },
+    {
+      "start_time": 2939.0,
+      "title": "Induct",
+      "end_time": 3227.0
+    },
+    {
+      "start_time": 3227.0,
+      "title": "Running Time",
+      "end_time": 3460
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/f9cVS_URPc0.en-j3PyPqV-e1s.srt"
+}

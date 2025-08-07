@@ -1,0 +1,85 @@
+{
+  "id": "5sZo3SrLrGA",
+  "title": "17. Synchronization Without Locks",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Charles Leiserson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Leiserson discusses non-lock synchronization using memory models, Peterson's algorithm, instruction reordering, and hardware reordering. He discusses the compare-and-swap operation; lock-free stacks, pushes, and pops; and the ABA problem. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4810,
+  "view_count": 35596,
+  "tags": [
+    "sequential consistency",
+    "mutual exclusion",
+    "relaxed memory consistency",
+    "lock-free algorithms"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=5sZo3SrLrGA",
+  "thumbnail": "https://i.ytimg.com/vi_webp/5sZo3SrLrGA/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 492.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 492.0,
+      "title": "Example",
+      "end_time": 621.0
+    },
+    {
+      "start_time": 621.0,
+      "title": "Reasoning about Sequential Consistency",
+      "end_time": 779.0
+    },
+    {
+      "start_time": 779.0,
+      "title": "Mutual-Exclusion Problem",
+      "end_time": 928.0
+    },
+    {
+      "start_time": 928.0,
+      "title": "Peterson's Algorithm",
+      "end_time": 1450.0
+    },
+    {
+      "start_time": 1450.0,
+      "title": "Proof of Mutual Exclusion",
+      "end_time": 1906.0
+    },
+    {
+      "start_time": 1906.0,
+      "title": "Starvation Freedom",
+      "end_time": 2081.0
+    },
+    {
+      "start_time": 2081.0,
+      "title": "Memory Models Today",
+      "end_time": 2367.0
+    },
+    {
+      "start_time": 2367.0,
+      "title": "Instruction Reordering",
+      "end_time": 2592.0
+    },
+    {
+      "start_time": 2592.0,
+      "title": "Hardware Reordering",
+      "end_time": 3163.0
+    },
+    {
+      "start_time": 3163.0,
+      "title": "x86-64 Total Store Order House rules",
+      "end_time": 3280.0
+    },
+    {
+      "start_time": 3280.0,
+      "title": "Further Impact of Reordering",
+      "end_time": 3438.0
+    },
+    {
+      "start_time": 3438.0,
+      "title": "Memory Fences",
+      "end_time": 4810
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/5sZo3SrLrGA.en-j3PyPqV-e1s.srt"
+}

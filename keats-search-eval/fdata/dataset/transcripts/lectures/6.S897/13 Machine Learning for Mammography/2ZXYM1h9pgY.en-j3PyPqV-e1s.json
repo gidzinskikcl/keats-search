@@ -1,0 +1,113 @@
+{
+  "id": "2ZXYM1h9pgY",
+  "title": "13. Machine Learning for Mammography",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Adam Yala\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nDr. Yala discusses deep learning models for mammogram interpretation and triaging. While many aspects of cancer detection based on mammograms are similar to those of natural image classification (ImageNet), there are some key differences.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 2474,
+  "view_count": 8724,
+  "tags": [
+    "ImageNet",
+    "mammogram",
+    "risk assessment",
+    "deep learning",
+    "mammography",
+    "radiology",
+    "medical imaging"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=2ZXYM1h9pgY",
+  "thumbnail": "https://i.ytimg.com/vi_webp/2ZXYM1h9pgY/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 36.0
+    },
+    {
+      "start_time": 36.0,
+      "title": "Triaging Mammograms",
+      "end_time": 127.0
+    },
+    {
+      "start_time": 127.0,
+      "title": "Dataset Collection . Consecutive Screening Mammograms",
+      "end_time": 204.0
+    },
+    {
+      "start_time": 204.0,
+      "title": "Modeling: Is this just like ImageNet?",
+      "end_time": 318.0
+    },
+    {
+      "start_time": 318.0,
+      "title": "Modeling: Challenges \u2022 Size of Object / Size of Image",
+      "end_time": 381.0
+    },
+    {
+      "start_time": 381.0,
+      "title": "Modeling: Key Choices \u2022 How do we make the model actually learn? \u2022 Initialization",
+      "end_time": 449.0
+    },
+    {
+      "start_time": 449.0,
+      "title": "Modeling: Initialization",
+      "end_time": 587.0
+    },
+    {
+      "start_time": 587.0,
+      "title": "Modeling: Common Approaches",
+      "end_time": 638.0
+    },
+    {
+      "start_time": 638.0,
+      "title": "Modeling: Base Architecture",
+      "end_time": 805.0
+    },
+    {
+      "start_time": 805.0,
+      "title": "Modeling: Building Batches",
+      "end_time": 1259.0
+    },
+    {
+      "start_time": 1259.0,
+      "title": "Modeling: How to actually Triage?",
+      "end_time": 1280.0
+    },
+    {
+      "start_time": 1280.0,
+      "title": "Modeling: How to calibrate?",
+      "end_time": 1318.0
+    },
+    {
+      "start_time": 1318.0,
+      "title": "Analysis: Objectives",
+      "end_time": 1351.0
+    },
+    {
+      "start_time": 1351.0,
+      "title": "Analysis: Model AUC",
+      "end_time": 1409.0
+    },
+    {
+      "start_time": 1409.0,
+      "title": "Analysis: Comparison to radioligis",
+      "end_time": 1520.0
+    },
+    {
+      "start_time": 1520.0,
+      "title": "Analysis: Simulating Impact",
+      "end_time": 2250.0
+    },
+    {
+      "start_time": 2250.0,
+      "title": "How to Mess Up: Analysis",
+      "end_time": 2334.0
+    },
+    {
+      "start_time": 2334.0,
+      "title": "How to Deploy?",
+      "end_time": 2474
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/2ZXYM1h9pgY.en-j3PyPqV-e1s.srt"
+}

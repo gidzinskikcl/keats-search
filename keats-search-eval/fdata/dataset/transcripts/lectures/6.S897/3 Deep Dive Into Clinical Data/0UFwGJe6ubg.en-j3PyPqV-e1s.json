@@ -1,0 +1,130 @@
+{
+  "id": "0UFwGJe6ubg",
+  "title": "3. Deep Dive Into Clinical Data",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits gives a deep dive into clinical data, the types of data, and how the data can be standardized. MIMIC-III data is used to illustrate these points. He discusses the difficulties of medicine harmonization and interoperability.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 5006,
+  "view_count": 19513,
+  "tags": [
+    "clinical data",
+    "MIMI-III",
+    "careview",
+    "metavision",
+    "standards",
+    "lab results",
+    "nursing notes",
+    "ICU",
+    "bias"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=0UFwGJe6ubg",
+  "thumbnail": "https://i.ytimg.com/vi_webp/0UFwGJe6ubg/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 100.0
+    },
+    {
+      "start_time": 100.0,
+      "title": "Old data",
+      "end_time": 140.0
+    },
+    {
+      "start_time": 140.0,
+      "title": "Heart rates",
+      "end_time": 222.0
+    },
+    {
+      "start_time": 222.0,
+      "title": "Adults",
+      "end_time": 534.0
+    },
+    {
+      "start_time": 534.0,
+      "title": "Types of Data",
+      "end_time": 1032.0
+    },
+    {
+      "start_time": 1032.0,
+      "title": "Imaging Data",
+      "end_time": 1065.0
+    },
+    {
+      "start_time": 1065.0,
+      "title": "quantified selfmovement",
+      "end_time": 1185.0
+    },
+    {
+      "start_time": 1185.0,
+      "title": "patient analysis",
+      "end_time": 2011.0
+    },
+    {
+      "start_time": 2011.0,
+      "title": "standards",
+      "end_time": 2196.0
+    },
+    {
+      "start_time": 2196.0,
+      "title": "prescriptions",
+      "end_time": 2402.0
+    },
+    {
+      "start_time": 2402.0,
+      "title": "coding systems",
+      "end_time": 2514.0
+    },
+    {
+      "start_time": 2514.0,
+      "title": "CPT",
+      "end_time": 2579.0
+    },
+    {
+      "start_time": 2579.0,
+      "title": "Procedures",
+      "end_time": 2618.0
+    },
+    {
+      "start_time": 2618.0,
+      "title": "ICD9 Codes",
+      "end_time": 2698.0
+    },
+    {
+      "start_time": 2698.0,
+      "title": "CPT Codes",
+      "end_time": 2782.0
+    },
+    {
+      "start_time": 2782.0,
+      "title": "Lab Measurements",
+      "end_time": 3013.0
+    },
+    {
+      "start_time": 3013.0,
+      "title": "Log Transform",
+      "end_time": 3067.0
+    },
+    {
+      "start_time": 3067.0,
+      "title": "Chart Events",
+      "end_time": 3161.0
+    },
+    {
+      "start_time": 3161.0,
+      "title": "Chart Entries",
+      "end_time": 3182.0
+    },
+    {
+      "start_time": 3182.0,
+      "title": "Outputs",
+      "end_time": 3246.0
+    },
+    {
+      "start_time": 3246.0,
+      "title": "Inputs",
+      "end_time": 5006
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/0UFwGJe6ubg.en-j3PyPqV-e1s.srt"
+}

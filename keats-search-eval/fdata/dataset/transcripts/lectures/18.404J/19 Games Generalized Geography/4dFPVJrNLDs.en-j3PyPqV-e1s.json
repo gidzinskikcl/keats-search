@@ -1,0 +1,77 @@
+{
+  "id": "4dFPVJrNLDs",
+  "title": "19. Games, Generalized Geography",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Discussed a connection between games and quantifiers. Described the formula game and showed that generalized geography is PSPACE-complete.  Introduced log space:  L and NL. Defined the configuration graph to prove NL is a subset of P.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4777,
+  "view_count": 10583,
+  "tags": [
+    "game, formula game, quantifier, PSPACE-complete, log space, configuration graph"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=4dFPVJrNLDs",
+  "thumbnail": "https://i.ytimg.com/vi/4dFPVJrNLDs/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 399.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 399.0,
+      "title": "Generalized Geography",
+      "end_time": 511.0
+    },
+    {
+      "start_time": 511.0,
+      "title": "Winning Strategy",
+      "end_time": 1179.0
+    },
+    {
+      "start_time": 1179.0,
+      "title": "Order of Play",
+      "end_time": 1572.0
+    },
+    {
+      "start_time": 1572.0,
+      "title": "The Alternation of the Quantifiers",
+      "end_time": 1745.0
+    },
+    {
+      "start_time": 1745.0,
+      "title": "How Do We Know How Many Variables To Use",
+      "end_time": 3301.0
+    },
+    {
+      "start_time": 3301.0,
+      "title": "Moment of Truth",
+      "end_time": 3561.0
+    },
+    {
+      "start_time": 3561.0,
+      "title": "Space Complexity",
+      "end_time": 3676.0
+    },
+    {
+      "start_time": 3676.0,
+      "title": "The Path Problem",
+      "end_time": 4235.0
+    },
+    {
+      "start_time": 4235.0,
+      "title": "Configuration Graph",
+      "end_time": 4378.0
+    },
+    {
+      "start_time": 4378.0,
+      "title": "Polynomial Time Algorithm",
+      "end_time": 4547.0
+    },
+    {
+      "start_time": 4547.0,
+      "title": "Why Does Savage's Theorem Work",
+      "end_time": 4777
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/4dFPVJrNLDs.en-j3PyPqV-e1s.srt"
+}

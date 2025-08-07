@@ -1,0 +1,4780 @@
+1
+00:00:12,880 --> 00:00:17,199
+all right let's get started
+
+2
+00:00:15,360 --> 00:00:18,560
+welcome back to double06 today we are
+
+3
+00:00:17,199 --> 00:00:20,160
+doing some of the coolest data
+
+4
+00:00:18,560 --> 00:00:21,520
+structures we will see in this class
+
+5
+00:00:20,160 --> 00:00:24,400
+maybe some of the coolest data
+
+6
+00:00:21,520 --> 00:00:27,039
+structures ever binary trees
+
+7
+00:00:24,400 --> 00:00:27,680
+uh you've certainly seen trees in many
+
+8
+00:00:27,039 --> 00:00:30,480
+forms
+
+9
+00:00:27,680 --> 00:00:32,239
+uh in the past including in this class
+
+10
+00:00:30,480 --> 00:00:32,960
+we've talked to use trees as a lower
+
+11
+00:00:32,239 --> 00:00:36,320
+bound tool
+
+12
+00:00:32,960 --> 00:00:38,399
+for uh in the decision tree model
+
+13
+00:00:36,320 --> 00:00:40,079
+but this lecture and the next lecture
+
+14
+00:00:38,399 --> 00:00:42,719
+we're going to build
+
+15
+00:00:40,079 --> 00:00:44,000
+one data structure that is almost
+
+16
+00:00:42,719 --> 00:00:46,640
+superior to all data
+
+17
+00:00:44,000 --> 00:00:48,000
+structures we have seen and can do
+
+18
+00:00:46,640 --> 00:00:51,440
+almost anything
+
+19
+00:00:48,000 --> 00:00:53,120
+really fast first recall all the data
+
+20
+00:00:51,440 --> 00:00:54,000
+structures we've seen so far arrays
+
+21
+00:00:53,120 --> 00:00:57,360
+linked lists
+
+22
+00:00:54,000 --> 00:01:00,079
+dynamic arrays sorted arrays hash tables
+
+23
+00:00:57,360 --> 00:01:01,280
+and the two sets of operations we're
+
+24
+00:01:00,079 --> 00:01:03,359
+interested in supporting
+
+25
+00:01:01,280 --> 00:01:04,799
+the two interfaces one was sequences
+
+26
+00:01:03,359 --> 00:01:06,400
+where we're maintaining items in a
+
+27
+00:01:04,799 --> 00:01:06,960
+specified order we want to be able to
+
+28
+00:01:06,400 --> 00:01:08,720
+insert
+
+29
+00:01:06,960 --> 00:01:10,400
+an item right after another item or
+
+30
+00:01:08,720 --> 00:01:12,000
+delete an item in the middle of the list
+
+31
+00:01:10,400 --> 00:01:13,760
+and always be able to access the ith
+
+32
+00:01:12,000 --> 00:01:15,280
+item we haven't seen
+
+33
+00:01:13,760 --> 00:01:17,600
+any good data structures for that
+
+34
+00:01:15,280 --> 00:01:18,799
+problem we we're really good at
+
+35
+00:01:17,600 --> 00:01:20,159
+inserting and deleting
+
+36
+00:01:18,799 --> 00:01:22,640
+at the beginning or the end of the
+
+37
+00:01:20,159 --> 00:01:24,479
+sequence but we haven't seen anything
+
+38
+00:01:22,640 --> 00:01:26,320
+that's efficient at ins
+
+39
+00:01:24,479 --> 00:01:27,520
+inserting in the middle of the list or
+
+40
+00:01:26,320 --> 00:01:28,240
+deleting in the middle of the list
+
+41
+00:01:27,520 --> 00:01:30,320
+linked list
+
+42
+00:01:28,240 --> 00:01:31,520
+you can't even get to the middle in less
+
+43
+00:01:30,320 --> 00:01:33,360
+than linear time
+
+44
+00:01:31,520 --> 00:01:34,960
+uh array you can get to the middle but
+
+45
+00:01:33,360 --> 00:01:37,040
+if you make any changes you have to do
+
+46
+00:01:34,960 --> 00:01:40,240
+this shift which is very expensive
+
+47
+00:01:37,040 --> 00:01:42,159
+so today or sorry next lecture for the
+
+48
+00:01:40,240 --> 00:01:46,320
+first time we will see
+
+49
+00:01:42,159 --> 00:01:46,320
+all of those operations efficient
+
+50
+00:01:46,640 --> 00:01:51,680
+i'll mention our goal where efficient
+
+51
+00:01:50,399 --> 00:01:55,680
+means
+
+52
+00:01:51,680 --> 00:01:57,759
+logarithmic so we're not quite as good
+
+53
+00:01:55,680 --> 00:01:58,799
+as linked lists and dynamic arrays at
+
+54
+00:01:57,759 --> 00:02:00,880
+inserting and
+
+55
+00:01:58,799 --> 00:02:02,960
+deleting at the ends those there that we
+
+56
+00:02:00,880 --> 00:02:03,680
+achieve constant or constant amortized
+
+57
+00:02:02,960 --> 00:02:05,840
+time
+
+58
+00:02:03,680 --> 00:02:07,600
+but up to this log factor we're going to
+
+59
+00:02:05,840 --> 00:02:08,000
+get the best of all worlds where we can
+
+60
+00:02:07,600 --> 00:02:10,879
+solve
+
+61
+00:02:08,000 --> 00:02:11,520
+all the things all the operations that
+
+62
+00:02:10,879 --> 00:02:12,879
+don't
+
+63
+00:02:11,520 --> 00:02:14,480
+build or iterate through the entire
+
+64
+00:02:12,879 --> 00:02:15,360
+structure that of course takes linear
+
+65
+00:02:14,480 --> 00:02:16,480
+time
+
+66
+00:02:15,360 --> 00:02:18,959
+but we can do all the others in
+
+67
+00:02:16,480 --> 00:02:20,800
+logarithmic time for sets
+
+68
+00:02:18,959 --> 00:02:22,000
+sets were maintained maintaining a bunch
+
+69
+00:02:20,800 --> 00:02:25,120
+of items which have
+
+70
+00:02:22,000 --> 00:02:28,319
+intrinsic keys and we want to
+
+71
+00:02:25,120 --> 00:02:30,720
+search by key so hash tables are great
+
+72
+00:02:28,319 --> 00:02:32,160
+if you're only doing exact searches if
+
+73
+00:02:30,720 --> 00:02:33,760
+you want to find a key
+
+74
+00:02:32,160 --> 00:02:36,160
+and get yes or no is it in there and if
+
+75
+00:02:33,760 --> 00:02:39,120
+it's in there give me the item
+
+76
+00:02:36,160 --> 00:02:39,440
+that's what python dictionaries do and
+
+77
+00:02:39,120 --> 00:02:41,440
+they're
+
+78
+00:02:39,440 --> 00:02:42,959
+great at inserting and deleting but
+
+79
+00:02:41,440 --> 00:02:46,319
+they're really bad
+
+80
+00:02:42,959 --> 00:02:48,480
+at find previous and find next this is a
+
+81
+00:02:46,319 --> 00:02:50,800
+the unsuccessful case if i search for a
+
+82
+00:02:48,480 --> 00:02:52,640
+key and it's not in my structure
+
+83
+00:02:50,800 --> 00:02:55,040
+i would like to know more than just the
+
+84
+00:02:52,640 --> 00:02:57,040
+answer no i'd like to know what the
+
+85
+00:02:55,040 --> 00:02:58,480
+previous and next items that are
+
+86
+00:02:57,040 --> 00:03:00,720
+actually in the structure
+
+87
+00:02:58,480 --> 00:03:03,120
+so what are my nearest matches when i
+
+88
+00:03:00,720 --> 00:03:05,200
+search by key that's a natural query
+
+89
+00:03:03,120 --> 00:03:07,360
+and the only data structure we have
+
+90
+00:03:05,200 --> 00:03:09,680
+that's good at it is a sorted array
+
+91
+00:03:07,360 --> 00:03:11,599
+because binary search gives this to us
+
+92
+00:03:09,680 --> 00:03:13,040
+if we search for a key by binary search
+
+93
+00:03:11,599 --> 00:03:15,040
+and we don't find it
+
+94
+00:03:13,040 --> 00:03:17,680
+the position that we end up at is right
+
+95
+00:03:15,040 --> 00:03:19,360
+between the previous and next one
+
+96
+00:03:17,680 --> 00:03:20,720
+but of course sorted arrays are terrible
+
+97
+00:03:19,360 --> 00:03:23,760
+for dynamic
+
+98
+00:03:20,720 --> 00:03:25,519
+operations we don't know how to maintain
+
+99
+00:03:23,760 --> 00:03:26,799
+we can't maintain a sorted array without
+
+100
+00:03:25,519 --> 00:03:27,920
+any gaps
+
+101
+00:03:26,799 --> 00:03:30,000
+when we're doing insertions and
+
+102
+00:03:27,920 --> 00:03:32,159
+deletions in some sense today
+
+103
+00:03:30,000 --> 00:03:33,280
+and next class binary trees let us
+
+104
+00:03:32,159 --> 00:03:35,519
+represent
+
+105
+00:03:33,280 --> 00:03:36,560
+a sorted order or in general an order of
+
+106
+00:03:35,519 --> 00:03:39,680
+items
+
+107
+00:03:36,560 --> 00:03:42,319
+dynamically and still allow us to do
+
+108
+00:03:39,680 --> 00:03:43,920
+very fast things like get out of i and
+
+109
+00:03:42,319 --> 00:03:45,840
+find previous of the key
+
+110
+00:03:43,920 --> 00:03:47,680
+so that's our goal we're not going to
+
+111
+00:03:45,840 --> 00:03:52,000
+quite get to this goal today
+
+112
+00:03:47,680 --> 00:03:54,159
+we're going to get an incomparable thing
+
+113
+00:03:52,000 --> 00:03:55,920
+called the height of the tree and then
+
+114
+00:03:54,159 --> 00:03:57,680
+on thursday we'll be able to finish and
+
+115
+00:03:55,920 --> 00:04:01,840
+achieve this goal today is just
+
+116
+00:03:57,680 --> 00:04:01,840
+in service to that goal
+
+117
+00:04:02,239 --> 00:04:09,439
+so what is a binary tree
+
+118
+00:04:05,680 --> 00:04:12,400
+let me draw an example
+
+119
+00:04:09,439 --> 00:04:14,239
+and then define it more precisely
+
+120
+00:04:12,400 --> 00:04:15,200
+mathematicians will call this a rooted
+
+121
+00:04:14,239 --> 00:04:17,199
+binary tree
+
+122
+00:04:15,200 --> 00:04:19,440
+because in case you've seen that in o42
+
+123
+00:04:17,199 --> 00:04:19,440
+say
+
+124
+00:04:19,840 --> 00:04:29,840
+here is a picture
+
+125
+00:04:36,320 --> 00:04:40,400
+so this is an example of a binary tree
+
+126
+00:04:39,040 --> 00:04:41,680
+it has a bunch of nodes which we're
+
+127
+00:04:40,400 --> 00:04:43,680
+drawing in circles it has
+
+128
+00:04:41,680 --> 00:04:45,440
+items in the nodes which were i'm
+
+129
+00:04:43,680 --> 00:04:48,320
+writing as letters here
+
+130
+00:04:45,440 --> 00:04:49,040
+so this is item a item b item c and it
+
+131
+00:04:48,320 --> 00:04:50,720
+has these
+
+132
+00:04:49,040 --> 00:04:52,479
+links between them this is like linked
+
+133
+00:04:50,720 --> 00:04:56,000
+lists
+
+134
+00:04:52,479 --> 00:05:01,040
+but in general a node
+
+135
+00:04:56,000 --> 00:05:01,040
+x is going to have a parent pointer
+
+136
+00:05:01,520 --> 00:05:07,759
+a left child
+
+137
+00:05:04,560 --> 00:05:11,520
+left pointer and a right child
+
+138
+00:05:07,759 --> 00:05:14,479
+right pointer and it also has
+
+139
+00:05:11,520 --> 00:05:16,000
+an item inside of it so i'm going to
+
+140
+00:05:14,479 --> 00:05:19,360
+talk about node.left
+
+141
+00:05:16,000 --> 00:05:21,520
+is a pointer to the left
+
+142
+00:05:19,360 --> 00:05:23,440
+the node down here node.right
+
+143
+00:05:21,520 --> 00:05:26,720
+node.parent node.item
+
+144
+00:05:23,440 --> 00:05:29,840
+gives me so if i
+
+145
+00:05:26,720 --> 00:05:35,360
+look at the node a its item is
+
+146
+00:05:29,840 --> 00:05:35,360
+a so let me draw for you
+
+147
+00:05:37,120 --> 00:05:56,880
+some examples
+
+148
+00:05:53,759 --> 00:05:57,440
+okay the parent of a is nothing so we
+
+149
+00:05:56,880 --> 00:05:58,720
+call a
+
+150
+00:05:57,440 --> 00:06:01,360
+the root node there's going to be a
+
+151
+00:05:58,720 --> 00:06:04,400
+unique node that has no parent
+
+152
+00:06:01,360 --> 00:06:05,360
+it's uh sad to have no parents but there
+
+153
+00:06:04,400 --> 00:06:07,600
+you go
+
+154
+00:06:05,360 --> 00:06:08,639
+then we have node b which whose parent
+
+155
+00:06:07,600 --> 00:06:11,120
+is a
+
+156
+00:06:08,639 --> 00:06:12,800
+node c is parent its apparent is a node
+
+157
+00:06:11,120 --> 00:06:15,600
+d its parent is b
+
+158
+00:06:12,800 --> 00:06:18,160
+node e its parent is b and node f its
+
+159
+00:06:15,600 --> 00:06:19,840
+parent is d
+
+160
+00:06:18,160 --> 00:06:22,639
+alphabetical order here happens to be
+
+161
+00:06:19,840 --> 00:06:22,639
+ordered by parent
+
+162
+00:06:23,039 --> 00:06:26,720
+then we have left pointers i'll just do
+
+163
+00:06:24,720 --> 00:06:30,639
+a few of them so left pointer of
+
+164
+00:06:26,720 --> 00:06:33,280
+a is b right pointer of a
+
+165
+00:06:30,639 --> 00:06:35,600
+sorry b the node uh these should all be
+
+166
+00:06:33,280 --> 00:06:35,600
+notes
+
+167
+00:06:36,880 --> 00:06:40,080
+i'm circling for nodes and just writing
+
+168
+00:06:38,639 --> 00:06:41,280
+the letter for the item
+
+169
+00:06:40,080 --> 00:06:43,840
+make it clear that those are different
+
+170
+00:06:41,280 --> 00:06:47,199
+things uh the right pointer for a
+
+171
+00:06:43,840 --> 00:06:51,039
+is c left pointer for b is d
+
+172
+00:06:47,199 --> 00:06:52,560
+right pointer for b is e and so on
+
+173
+00:06:51,039 --> 00:06:55,039
+okay so in other words each of these
+
+174
+00:06:52,560 --> 00:06:56,720
+lines is a bi-directional pointer
+
+175
+00:06:55,039 --> 00:06:58,639
+uh in this direction it's the parent
+
+176
+00:06:56,720 --> 00:07:00,080
+direction in this direction it's left in
+
+177
+00:06:58,639 --> 00:07:01,599
+this case
+
+178
+00:07:00,080 --> 00:07:04,319
+because it's bidirectional we don't draw
+
+179
+00:07:01,599 --> 00:07:07,759
+the arrows we just draw
+
+180
+00:07:04,319 --> 00:07:09,280
+undirected lines okay
+
+181
+00:07:07,759 --> 00:07:11,280
+this is in general what a binary tree
+
+182
+00:07:09,280 --> 00:07:14,080
+looks like
+
+183
+00:07:11,280 --> 00:07:15,039
+a key invariant is that if you take a
+
+184
+00:07:14,080 --> 00:07:18,080
+node
+
+185
+00:07:15,039 --> 00:07:22,400
+and say go to its left pointer left
+
+186
+00:07:18,080 --> 00:07:25,440
+child and then go to that node's parent
+
+187
+00:07:22,400 --> 00:07:26,800
+this should be the same as node right so
+
+188
+00:07:25,440 --> 00:07:29,120
+that's just saying these
+
+189
+00:07:26,800 --> 00:07:30,479
+are in parent is always the inverse of a
+
+190
+00:07:29,120 --> 00:07:33,840
+left or right operation
+
+191
+00:07:30,479 --> 00:07:33,840
+this is also true for write
+
+192
+00:07:34,479 --> 00:07:38,560
+okay and that's a binary tree now the
+
+193
+00:07:36,639 --> 00:07:40,880
+intuition of what's going on here
+
+194
+00:07:38,560 --> 00:07:41,680
+is you could you could say it's we're
+
+195
+00:07:40,880 --> 00:07:44,639
+inspired by
+
+196
+00:07:41,680 --> 00:07:47,440
+a linked list linked list had a very
+
+197
+00:07:44,639 --> 00:07:50,400
+similar structure
+
+198
+00:07:47,440 --> 00:07:51,919
+maybe an item or there's a node it had
+
+199
+00:07:50,400 --> 00:07:54,319
+an item in it
+
+200
+00:07:51,919 --> 00:07:56,560
+and it had a next pointer and it had a
+
+201
+00:07:54,319 --> 00:07:58,240
+previous pointer
+
+202
+00:07:56,560 --> 00:07:59,680
+so in some sense what we're if it's
+
+203
+00:07:58,240 --> 00:08:01,280
+doubly linked we had a previous pointer
+
+204
+00:07:59,680 --> 00:08:02,400
+it was singly linked we only had a next
+
+205
+00:08:01,280 --> 00:08:05,520
+pointer
+
+206
+00:08:02,400 --> 00:08:07,120
+and if you think about the limits of
+
+207
+00:08:05,520 --> 00:08:07,759
+linked lists especially singly linked
+
+208
+00:08:07,120 --> 00:08:10,080
+lists
+
+209
+00:08:07,759 --> 00:08:12,160
+if you just have one pointer per node
+
+210
+00:08:10,080 --> 00:08:16,080
+you can only build a list
+
+211
+00:08:12,160 --> 00:08:16,080
+and so the result is uh
+
+212
+00:08:17,120 --> 00:08:23,599
+you know this this node is going to have
+
+213
+00:08:20,319 --> 00:08:25,840
+depth linear depth means how many
+
+214
+00:08:23,599 --> 00:08:27,840
+pointers do i have to follow to get here
+
+215
+00:08:25,840 --> 00:08:29,199
+from the root of the structure which for
+
+216
+00:08:27,840 --> 00:08:31,039
+linked lists was the head
+
+217
+00:08:29,199 --> 00:08:32,640
+it was doubly linked okay i can have a
+
+218
+00:08:31,039 --> 00:08:33,839
+head and a tail and i can put
+
+219
+00:08:32,640 --> 00:08:35,599
+bi-directions
+
+220
+00:08:33,839 --> 00:08:37,599
+on here but then still the middle item
+
+221
+00:08:35,599 --> 00:08:38,479
+has depth linear so there's no way to
+
+222
+00:08:37,599 --> 00:08:40,320
+get there
+
+223
+00:08:38,479 --> 00:08:42,080
+in less than linear time with binary
+
+224
+00:08:40,320 --> 00:08:44,399
+trees because we use
+
+225
+00:08:42,080 --> 00:08:45,440
+two types of next pointers left and
+
+226
+00:08:44,399 --> 00:08:47,440
+right
+
+227
+00:08:45,440 --> 00:08:49,040
+we can build a tree and we know trees in
+
+228
+00:08:47,440 --> 00:08:52,080
+general have logarithmic
+
+229
+00:08:49,040 --> 00:08:55,279
+can have logarithmic height
+
+230
+00:08:52,080 --> 00:08:57,760
+and so it's possible in a tree to get to
+
+231
+00:08:55,279 --> 00:08:59,760
+any node starting from the root in only
+
+232
+00:08:57,760 --> 00:09:01,040
+log n traversals so that's the intuition
+
+233
+00:08:59,760 --> 00:09:03,680
+of what's going on
+
+234
+00:09:01,040 --> 00:09:03,680
+now today
+
+235
+00:09:04,800 --> 00:09:08,080
+we're going to talk about the height of
+
+236
+00:09:06,800 --> 00:09:11,120
+a tree
+
+237
+00:09:08,080 --> 00:09:11,120
+so let me define
+
+238
+00:09:12,560 --> 00:09:16,240
+i'm going to need a couple definitions
+
+239
+00:09:14,080 --> 00:09:16,240
+here
+
+240
+00:09:18,560 --> 00:09:27,040
+subtree and height
+
+241
+00:09:23,839 --> 00:09:30,480
+of a node uh
+
+242
+00:09:27,040 --> 00:09:33,440
+so a tree decomposes into sub trees
+
+243
+00:09:30,480 --> 00:09:35,040
+so for example the subtree rooted at b
+
+244
+00:09:33,440 --> 00:09:40,000
+or the subtree of b
+
+245
+00:09:35,040 --> 00:09:40,000
+is this portion of the tree
+
+246
+00:09:40,320 --> 00:09:44,640
+so it's that node and all of the
+
+247
+00:09:42,640 --> 00:09:46,080
+descendants of this node so because we
+
+248
+00:09:44,640 --> 00:09:48,959
+have parents and children
+
+249
+00:09:46,080 --> 00:09:49,600
+we can generalize in the familial tree
+
+250
+00:09:48,959 --> 00:09:52,000
+sense
+
+251
+00:09:49,600 --> 00:09:53,200
+we can talk about ancestors of a node so
+
+252
+00:09:52,000 --> 00:09:55,519
+the ancestors of f
+
+253
+00:09:53,200 --> 00:09:57,279
+are its parent its grandparents its
+
+254
+00:09:55,519 --> 00:09:59,839
+great grandparents and so on
+
+255
+00:09:57,279 --> 00:10:01,200
+together all of these are called
+
+256
+00:09:59,839 --> 00:10:02,800
+ancestors
+
+257
+00:10:01,200 --> 00:10:04,959
+it's a it doesn't quite correspond to
+
+258
+00:10:02,800 --> 00:10:05,839
+familiar trees because familial trees
+
+259
+00:10:04,959 --> 00:10:07,680
+you have
+
+260
+00:10:05,839 --> 00:10:10,000
+two parents here you only have a unique
+
+261
+00:10:07,680 --> 00:10:13,200
+parent
+
+262
+00:10:10,000 --> 00:10:15,839
+or the poor root has no parent
+
+263
+00:10:13,200 --> 00:10:16,480
+we also talk about it's like mixed
+
+264
+00:10:15,839 --> 00:10:19,519
+metaphors
+
+265
+00:10:16,480 --> 00:10:22,079
+leaves of the tree
+
+266
+00:10:19,519 --> 00:10:22,079
+these are
+
+267
+00:10:23,519 --> 00:10:27,680
+people with no children parents will
+
+268
+00:10:26,720 --> 00:10:31,920
+complain about this
+
+269
+00:10:27,680 --> 00:10:33,360
+but many like many of us in this room we
+
+270
+00:10:31,920 --> 00:10:34,480
+have no children yet so we were called
+
+271
+00:10:33,360 --> 00:10:36,000
+leaves
+
+272
+00:10:34,480 --> 00:10:39,440
+you can tell your parents hey i'm just a
+
+273
+00:10:36,000 --> 00:10:42,320
+leaf you know blowing in the wind
+
+274
+00:10:39,440 --> 00:10:43,440
+so uh you know like this it's so many
+
+275
+00:10:42,320 --> 00:10:46,640
+mixed metaphors but we
+
+276
+00:10:43,440 --> 00:10:48,720
+always draw trees downwards like the
+
+277
+00:10:46,640 --> 00:10:51,600
+root structure of a tree
+
+278
+00:10:48,720 --> 00:10:52,640
+yet we call the ends of the roots leaves
+
+279
+00:10:51,600 --> 00:10:55,920
+which is upside down
+
+280
+00:10:52,640 --> 00:10:57,440
+anyway that's trees for you lots of
+
+281
+00:10:55,920 --> 00:10:59,440
+entertaining analogies okay but
+
+282
+00:10:57,440 --> 00:11:00,000
+ancestors are useful descendants are
+
+283
+00:10:59,440 --> 00:11:02,079
+also useful
+
+284
+00:11:00,000 --> 00:11:03,839
+so the descendants of b are all of its
+
+285
+00:11:02,079 --> 00:11:04,800
+children and all of its grandchildren
+
+286
+00:11:03,839 --> 00:11:07,760
+and all the way down
+
+287
+00:11:04,800 --> 00:11:08,480
+but just within the subtree so subtree
+
+288
+00:11:07,760 --> 00:11:15,839
+of x
+
+289
+00:11:08,480 --> 00:11:15,839
+consists of x and its descendants
+
+290
+00:11:16,880 --> 00:11:22,240
+and we think of x being the root
+
+291
+00:11:20,560 --> 00:11:24,240
+of that subtree so we're kind of
+
+292
+00:11:22,240 --> 00:11:25,120
+forgetting about everything outside of
+
+293
+00:11:24,240 --> 00:11:28,399
+the sub tree
+
+294
+00:11:25,120 --> 00:11:29,440
+when we talk about sub tree of x let's
+
+295
+00:11:28,399 --> 00:11:32,240
+talk about the
+
+296
+00:11:29,440 --> 00:11:32,240
+depth of a node
+
+297
+00:11:33,279 --> 00:11:36,399
+depth of the node is
+
+298
+00:11:36,880 --> 00:11:47,120
+i guess the number of its ancestors
+
+299
+00:11:43,440 --> 00:11:47,360
+right um but way i usually think of it
+
+300
+00:11:47,120 --> 00:11:52,320
+is
+
+301
+00:11:47,360 --> 00:11:52,320
+the number of number of edges
+
+302
+00:11:52,880 --> 00:12:01,760
+and in the path from
+
+303
+00:11:57,279 --> 00:12:01,760
+x up to the root
+
+304
+00:12:02,480 --> 00:12:06,160
+so every node has a unique path that
+
+305
+00:12:04,880 --> 00:12:08,880
+goes upwards
+
+306
+00:12:06,160 --> 00:12:09,680
+until it can't go up anymore so the
+
+307
+00:12:08,880 --> 00:12:12,800
+depth of e
+
+308
+00:12:09,680 --> 00:12:16,399
+is two because there are two edges uh
+
+309
+00:12:12,800 --> 00:12:18,959
+one two in the path from the root a to e
+
+310
+00:12:16,399 --> 00:12:20,320
+so maybe i'll write some depths uh depth
+
+311
+00:12:18,959 --> 00:12:22,560
+of e is two
+
+312
+00:12:20,320 --> 00:12:24,399
+depth of these guys is one depth of the
+
+313
+00:12:22,560 --> 00:12:28,399
+root is zero
+
+314
+00:12:24,399 --> 00:12:33,040
+two three so those are
+
+315
+00:12:28,399 --> 00:12:38,880
+depth i'm going to
+
+316
+00:12:33,040 --> 00:12:41,279
+clean this up a little bit
+
+317
+00:12:38,880 --> 00:12:43,040
+so we can focus on the image all right
+
+318
+00:12:41,279 --> 00:12:44,800
+height so depth is measuring
+
+319
+00:12:43,040 --> 00:12:46,639
+downwards because we you know if you
+
+320
+00:12:44,800 --> 00:12:49,360
+imagine depth within water
+
+321
+00:12:46,639 --> 00:12:51,200
+this is uh the surface of the water and
+
+322
+00:12:49,360 --> 00:12:52,160
+then we measure how deep you are from
+
+323
+00:12:51,200 --> 00:12:54,160
+the surface
+
+324
+00:12:52,160 --> 00:12:56,000
+height is in the reverse direction we're
+
+325
+00:12:54,160 --> 00:12:58,079
+going to measure from the leaf level
+
+326
+00:12:56,000 --> 00:12:59,600
+up because leaves are the bottom of the
+
+327
+00:12:58,079 --> 00:13:03,440
+tree so height
+
+328
+00:12:59,600 --> 00:13:07,200
+of a node is going to be
+
+329
+00:13:03,440 --> 00:13:11,519
+the number of edges
+
+330
+00:13:07,200 --> 00:13:11,519
+in the longest downward path
+
+331
+00:13:19,519 --> 00:13:26,000
+okay which is the same thing as the
+
+332
+00:13:22,800 --> 00:13:29,200
+maximum depth of a node
+
+333
+00:13:26,000 --> 00:13:29,200
+in x's subtree
+
+334
+00:13:32,800 --> 00:13:39,120
+let's do height in red
+
+335
+00:13:37,040 --> 00:13:41,040
+so uh how long is the longest path from
+
+336
+00:13:39,120 --> 00:13:42,160
+f to a leaf well f is a leaf so all
+
+337
+00:13:41,040 --> 00:13:45,920
+leaves have
+
+338
+00:13:42,160 --> 00:13:49,279
+depth zero sorry height zero
+
+339
+00:13:45,920 --> 00:13:52,399
+get it backwards um
+
+340
+00:13:49,279 --> 00:13:54,399
+d here it's so there are two
+
+341
+00:13:52,399 --> 00:13:56,480
+ways to go down this doesn't go to a
+
+342
+00:13:54,399 --> 00:13:59,600
+leaf uh this one goes to a leaf
+
+343
+00:13:56,480 --> 00:14:02,800
+and its height is zero so this height is
+
+344
+00:13:59,600 --> 00:14:05,199
+one there's one edge to a leaf here b
+
+345
+00:14:02,800 --> 00:14:08,320
+has two leaves it can get to we take the
+
+346
+00:14:05,199 --> 00:14:16,240
+longest one so that's length two
+
+347
+00:14:08,320 --> 00:14:19,680
+a similarly has height three
+
+348
+00:14:16,240 --> 00:14:20,480
+okay so height we measure upward depth
+
+349
+00:14:19,680 --> 00:14:23,360
+we measure
+
+350
+00:14:20,480 --> 00:14:24,320
+downward well one thing we care about uh
+
+351
+00:14:23,360 --> 00:14:27,360
+is just the height
+
+352
+00:14:24,320 --> 00:14:31,839
+of the overall tree uh which
+
+353
+00:14:27,360 --> 00:14:31,839
+is the height of the root
+
+354
+00:14:32,720 --> 00:14:36,880
+and i'm going to call that h because
+
+355
+00:14:33,920 --> 00:14:36,880
+we're going to use it a lot
+
+356
+00:14:39,440 --> 00:14:43,199
+and what we're going to achieve today is
+
+357
+00:14:41,519 --> 00:14:44,240
+all of these running times instead of
+
+358
+00:14:43,199 --> 00:14:47,760
+being log n
+
+359
+00:14:44,240 --> 00:14:47,760
+they're going to be order h
+
+360
+00:14:48,720 --> 00:14:53,040
+so today our goal is to get all the
+
+361
+00:14:51,600 --> 00:14:56,320
+operations we care about
+
+362
+00:14:53,040 --> 00:14:56,320
+in order h type
+
+363
+00:14:57,040 --> 00:15:01,600
+and then next lecture we're going to
+
+364
+00:14:59,519 --> 00:15:04,000
+guarantee that h is always log n
+
+365
+00:15:01,600 --> 00:15:05,600
+and then we'll get log n time so we need
+
+366
+00:15:04,000 --> 00:15:07,120
+to do a bunch of work to achieve log n
+
+367
+00:15:05,600 --> 00:15:08,480
+today we'll do the work that's all the
+
+368
+00:15:07,120 --> 00:15:10,480
+tree manipulation
+
+369
+00:15:08,480 --> 00:15:12,880
+and as long as your tree is nice and
+
+370
+00:15:10,480 --> 00:15:14,320
+shallow it doesn't have high height
+
+371
+00:15:12,880 --> 00:15:16,480
+if it has logarithmic height everything
+
+372
+00:15:14,320 --> 00:15:18,079
+will be log n of course there are trees
+
+373
+00:15:16,480 --> 00:15:21,199
+that are really bad
+
+374
+00:15:18,079 --> 00:15:21,199
+right we can have a tree
+
+375
+00:15:24,800 --> 00:15:29,199
+a tree like this which is basically a
+
+376
+00:15:27,760 --> 00:15:31,120
+linked list
+
+377
+00:15:29,199 --> 00:15:32,639
+where we only use right pointers and all
+
+378
+00:15:31,120 --> 00:15:34,800
+the left pointers are none
+
+379
+00:15:32,639 --> 00:15:35,759
+so there are height there are trees that
+
+380
+00:15:34,800 --> 00:15:38,639
+are very high
+
+381
+00:15:35,759 --> 00:15:40,079
+have high height um we want to avoid
+
+382
+00:15:38,639 --> 00:15:42,959
+these but we won't worry about that till
+
+383
+00:15:40,079 --> 00:15:42,959
+next lecture question
+
+384
+00:15:45,440 --> 00:15:48,800
+what is the height of node c height of
+
+385
+00:15:47,199 --> 00:15:50,399
+node c is zero
+
+386
+00:15:48,800 --> 00:15:52,000
+because the length of the longest path
+
+387
+00:15:50,399 --> 00:15:54,720
+the number of edges in the longest
+
+388
+00:15:52,000 --> 00:15:58,079
+downward path is zero yeah we're
+
+389
+00:15:54,720 --> 00:15:58,079
+counting edges not vertices
+
+390
+00:15:58,399 --> 00:16:03,600
+uh yeah so the height of the tree is of
+
+391
+00:16:02,399 --> 00:16:05,440
+course just the depth
+
+392
+00:16:03,600 --> 00:16:07,440
+the maximum depth i think that's right
+
+393
+00:16:05,440 --> 00:16:09,600
+so the height here is
+
+394
+00:16:07,440 --> 00:16:11,199
+three and the maximum depth is this
+
+395
+00:16:09,600 --> 00:16:12,880
+terribly drawn three
+
+396
+00:16:11,199 --> 00:16:14,320
+so these happen to correspond in the
+
+397
+00:16:12,880 --> 00:16:17,279
+maximum case
+
+398
+00:16:14,320 --> 00:16:18,720
+but we use height to always mean maximum
+
+399
+00:16:17,279 --> 00:16:20,639
+and so that's why
+
+400
+00:16:18,720 --> 00:16:22,079
+we talk about the height of the tree
+
+401
+00:16:20,639 --> 00:16:25,920
+depth of the tree is not defined
+
+402
+00:16:22,079 --> 00:16:29,040
+just depths of notes okay
+
+403
+00:16:25,920 --> 00:16:29,680
+um how do we use these trees to
+
+404
+00:16:29,040 --> 00:16:33,279
+represent
+
+405
+00:16:29,680 --> 00:16:36,639
+either a sequence or a set uh
+
+406
+00:16:33,279 --> 00:16:40,639
+i claim that there is a natural order
+
+407
+00:16:36,639 --> 00:16:40,639
+in trees called the traversal order
+
+408
+00:16:47,839 --> 00:16:54,399
+of nodes or items
+
+409
+00:16:51,600 --> 00:16:55,920
+and the tree so i'm going to define a
+
+410
+00:16:54,399 --> 00:16:59,680
+particular order
+
+411
+00:16:55,920 --> 00:17:04,240
+uh say in this example
+
+412
+00:16:59,680 --> 00:17:07,199
+let's do the example first the
+
+413
+00:17:04,240 --> 00:17:07,199
+traversal order
+
+414
+00:17:09,839 --> 00:17:16,799
+is going to be f
+
+415
+00:17:12,959 --> 00:17:16,799
+d b
+
+416
+00:17:16,839 --> 00:17:23,360
+e a
+
+417
+00:17:20,319 --> 00:17:25,439
+c i feel like i'm in music class this is
+
+418
+00:17:23,360 --> 00:17:26,880
+my guitar or something but it's not i
+
+419
+00:17:25,439 --> 00:17:30,640
+hope um
+
+420
+00:17:26,880 --> 00:17:32,960
+if it is a coincidence so
+
+421
+00:17:30,640 --> 00:17:34,480
+what is this order what i'd like to do
+
+422
+00:17:32,960 --> 00:17:37,440
+is um
+
+423
+00:17:34,480 --> 00:17:38,720
+recursively define an order where the
+
+424
+00:17:37,440 --> 00:17:39,520
+root of the tree is somewhere in the
+
+425
+00:17:38,720 --> 00:17:42,400
+middle
+
+426
+00:17:39,520 --> 00:17:42,960
+and everything in the left subtree is
+
+427
+00:17:42,400 --> 00:17:44,880
+left
+
+428
+00:17:42,960 --> 00:17:47,120
+earlier in the order than the root and
+
+429
+00:17:44,880 --> 00:17:50,160
+everything in the right subtree is later
+
+430
+00:17:47,120 --> 00:17:51,760
+so you can see here c comes after a and
+
+431
+00:17:50,160 --> 00:17:55,919
+then all the other nodes come before
+
+432
+00:17:51,760 --> 00:17:58,960
+a and recursively if i look at a node b
+
+433
+00:17:55,919 --> 00:18:00,240
+this node b which appears over here e is
+
+434
+00:17:58,960 --> 00:18:03,120
+to the right of it
+
+435
+00:18:00,240 --> 00:18:03,440
+but it's this is all to the left of a so
+
+436
+00:18:03,120 --> 00:18:06,960
+e
+
+437
+00:18:03,440 --> 00:18:08,960
+is between b and a would be on the left
+
+438
+00:18:06,960 --> 00:18:10,720
+and then f and d are to the left of that
+
+439
+00:18:08,960 --> 00:18:14,640
+and again f comes before d
+
+440
+00:18:10,720 --> 00:18:17,679
+because f is in the left subtree of d
+
+441
+00:18:14,640 --> 00:18:17,679
+okay so we say
+
+442
+00:18:18,000 --> 00:18:21,840
+for every node
+
+443
+00:18:24,400 --> 00:18:33,520
+the nodes
+
+444
+00:18:27,600 --> 00:18:33,520
+in x dot left are before x
+
+445
+00:18:34,480 --> 00:18:43,120
+and the nodes in x dot right are come
+
+446
+00:18:37,919 --> 00:18:44,720
+after x
+
+447
+00:18:43,120 --> 00:18:46,320
+and this uniquely defines an order
+
+448
+00:18:44,720 --> 00:18:48,000
+called a traversal order
+
+449
+00:18:46,320 --> 00:18:50,480
+it's also called the in-order traversal
+
+450
+00:18:48,000 --> 00:18:52,320
+order it's called in order because it's
+
+451
+00:18:50,480 --> 00:18:54,080
+in the traversal order so it's very
+
+452
+00:18:52,320 --> 00:18:55,760
+circular but
+
+453
+00:18:54,080 --> 00:18:57,200
+you may have seen inorder traversal this
+
+454
+00:18:55,760 --> 00:18:58,640
+is the same thing
+
+455
+00:18:57,200 --> 00:19:00,720
+there's a very simple algorithm for
+
+456
+00:18:58,640 --> 00:19:04,080
+computing this
+
+457
+00:19:00,720 --> 00:19:07,360
+if i want to iterate
+
+458
+00:19:04,080 --> 00:19:08,320
+uh let's call this yeah if i want to
+
+459
+00:19:07,360 --> 00:19:11,600
+iterate
+
+460
+00:19:08,320 --> 00:19:13,120
+all the nodes within a subtree x rooted
+
+461
+00:19:11,600 --> 00:19:16,559
+by x
+
+462
+00:19:13,120 --> 00:19:19,919
+i just iterate on all of the
+
+463
+00:19:16,559 --> 00:19:22,640
+nodes in the left subtree then i output
+
+464
+00:19:19,919 --> 00:19:22,640
+x itself
+
+465
+00:19:22,799 --> 00:19:27,840
+then i iterate on all the nodes in the
+
+466
+00:19:25,200 --> 00:19:27,840
+right subtree
+
+467
+00:19:30,720 --> 00:19:34,320
+okay you may have seen that algorithm
+
+468
+00:19:32,559 --> 00:19:35,679
+before this is just another way to
+
+469
+00:19:34,320 --> 00:19:37,520
+codify the same thing
+
+470
+00:19:35,679 --> 00:19:39,600
+the result is all the nodes within a
+
+471
+00:19:37,520 --> 00:19:40,799
+subtree appear continuously with no
+
+472
+00:19:39,600 --> 00:19:43,360
+interruptions
+
+473
+00:19:40,799 --> 00:19:44,799
+and then the parent parent's going to
+
+474
+00:19:43,360 --> 00:19:48,080
+come before after depending on whether
+
+475
+00:19:44,799 --> 00:19:48,080
+it's the left or right child
+
+476
+00:19:48,400 --> 00:19:52,720
+okay so and now it's just a matter of
+
+477
+00:19:51,360 --> 00:19:54,640
+connecting the dots because we're
+
+478
+00:19:52,720 --> 00:19:56,720
+representing an order
+
+479
+00:19:54,640 --> 00:19:58,320
+and for sequence that is going to be the
+
+480
+00:19:56,720 --> 00:20:00,160
+sequence order if we want to store n
+
+481
+00:19:58,320 --> 00:20:02,799
+items x0 through x1
+
+482
+00:20:00,160 --> 00:20:04,159
+we're going to build some kind of tree
+
+483
+00:20:02,799 --> 00:20:07,520
+we're going to put x0 here
+
+484
+00:20:04,159 --> 00:20:09,520
+x1 here x2 here x3 here x4 here x5
+
+485
+00:20:07,520 --> 00:20:10,960
+here you can see i'm very used to
+
+486
+00:20:09,520 --> 00:20:11,760
+dealing with traversal orders it takes a
+
+487
+00:20:10,960 --> 00:20:12,960
+little while
+
+488
+00:20:11,760 --> 00:20:15,520
+uh you could also see it here we're
+
+489
+00:20:12,960 --> 00:20:18,320
+going to put x1 on this node x2
+
+490
+00:20:15,520 --> 00:20:21,760
+sorry x0 here x1 here x2 here and so on
+
+491
+00:20:18,320 --> 00:20:23,600
+that's the same order that i gave
+
+492
+00:20:21,760 --> 00:20:25,120
+okay that's for sequences for sets that
+
+493
+00:20:23,600 --> 00:20:25,760
+order is just going to be the sorted
+
+494
+00:20:25,120 --> 00:20:27,200
+order
+
+495
+00:20:25,760 --> 00:20:29,360
+and we're going to be effectively
+
+496
+00:20:27,200 --> 00:20:33,280
+representing the sorted order of keys
+
+497
+00:20:29,360 --> 00:20:36,480
+say increasing but before we get to that
+
+498
+00:20:33,280 --> 00:20:38,880
+let's talk about different operations we
+
+499
+00:20:36,480 --> 00:20:38,880
+can do
+
+500
+00:20:39,520 --> 00:20:43,600
+just playing around with traversal order
+
+501
+00:20:43,840 --> 00:20:47,600
+and then we're going to use these to
+
+502
+00:20:45,120 --> 00:20:49,520
+build the sequence and set operations
+
+503
+00:20:47,600 --> 00:20:52,720
+that we care about
+
+504
+00:20:49,520 --> 00:20:55,440
+so first operation i'll call
+
+505
+00:20:52,720 --> 00:20:58,159
+subtree first seems appropriate that
+
+506
+00:20:55,440 --> 00:20:58,159
+it's called first
+
+507
+00:20:58,480 --> 00:21:06,080
+it's the first one so given a node
+
+508
+00:21:02,640 --> 00:21:08,880
+which i'll call node uh this defines
+
+509
+00:21:06,080 --> 00:21:08,880
+a subtree
+
+510
+00:21:10,080 --> 00:21:16,240
+which usually we draw subtrees as
+
+511
+00:21:12,480 --> 00:21:19,360
+triangles hanging off of the node
+
+512
+00:21:16,240 --> 00:21:21,200
+so here i would write x
+
+513
+00:21:19,360 --> 00:21:23,120
+and then there's some subtree of all the
+
+514
+00:21:21,200 --> 00:21:25,440
+descendants of x
+
+515
+00:21:23,120 --> 00:21:26,400
+so with subtree first i would like to
+
+516
+00:21:25,440 --> 00:21:31,840
+say among
+
+517
+00:21:26,400 --> 00:21:31,840
+all the nodes in this subtree
+
+518
+00:21:34,240 --> 00:21:38,799
+which comes first in traversal order
+
+519
+00:21:43,120 --> 00:21:46,640
+so just restricting to
+
+520
+00:21:46,960 --> 00:21:51,280
+that subtree so tree of that
+
+521
+00:21:55,039 --> 00:21:59,840
+so where is it in this tree
+
+522
+00:22:03,840 --> 00:22:07,200
+uh note is actually part of many sub
+
+523
+00:22:05,520 --> 00:22:10,000
+trees good question uh
+
+524
+00:22:07,200 --> 00:22:10,400
+f f is in its own in the sub tree of f
+
+525
+00:22:10,000 --> 00:22:12,480
+uh
+
+526
+00:22:10,400 --> 00:22:14,080
+f is also in the subtree of d f is in
+
+527
+00:22:12,480 --> 00:22:15,840
+the sub tree of b like i drew
+
+528
+00:22:14,080 --> 00:22:19,840
+f is in the subtree of a it's in the
+
+529
+00:22:15,840 --> 00:22:19,840
+subtree of exactly its ancestors
+
+530
+00:22:20,559 --> 00:22:24,000
+but in this operation when we define
+
+531
+00:22:23,120 --> 00:22:26,320
+node
+
+532
+00:22:24,000 --> 00:22:28,080
+our node only defines one sub-tree it is
+
+533
+00:22:26,320 --> 00:22:29,360
+the root of only one sub-tree
+
+534
+00:22:28,080 --> 00:22:32,240
+and that's the sub-tree we're talking
+
+535
+00:22:29,360 --> 00:22:34,559
+about and then i want to know among all
+
+536
+00:22:32,240 --> 00:22:37,200
+those nodes which includes node itself
+
+537
+00:22:34,559 --> 00:22:37,679
+and other things uh which one comes
+
+538
+00:22:37,200 --> 00:22:39,280
+first
+
+539
+00:22:37,679 --> 00:22:42,400
+in this traversal order this is like
+
+540
+00:22:39,280 --> 00:22:45,760
+practice with traversal orders
+
+541
+00:22:42,400 --> 00:22:45,760
+so where should i look for this node
+
+542
+00:22:49,200 --> 00:22:54,960
+yeah the leftmost leaf
+
+543
+00:22:52,799 --> 00:22:57,120
+in the picture it's here but pictures
+
+544
+00:22:54,960 --> 00:23:00,240
+can be deceiving
+
+545
+00:22:57,120 --> 00:23:02,480
+we just want to go left
+
+546
+00:23:00,240 --> 00:23:06,480
+as much as possible when i say go left i
+
+547
+00:23:02,480 --> 00:23:06,480
+mean this iteration node equals
+
+548
+00:23:06,840 --> 00:23:10,400
+node.left you just look at our
+
+549
+00:23:08,799 --> 00:23:13,280
+definition
+
+550
+00:23:10,400 --> 00:23:14,880
+all the nodes on the left come before x
+
+551
+00:23:13,280 --> 00:23:16,320
+and all the nodes in the right so
+
+552
+00:23:14,880 --> 00:23:18,559
+it's got to be in the left subtree if
+
+553
+00:23:16,320 --> 00:23:21,600
+there is one uh
+
+554
+00:23:18,559 --> 00:23:26,640
+of course we can't do this forever so
+
+555
+00:23:21,600 --> 00:23:26,640
+say until we would fall off the tree
+
+556
+00:23:28,159 --> 00:23:33,840
+which means uh node is none
+
+557
+00:23:34,720 --> 00:23:39,679
+okay but we stopped uh before that would
+
+558
+00:23:38,559 --> 00:23:41,600
+happen
+
+559
+00:23:39,679 --> 00:23:43,360
+so this is like uh the directions like
+
+560
+00:23:41,600 --> 00:23:43,919
+oh you keep driving until you see the
+
+561
+00:23:43,360 --> 00:23:45,679
+store
+
+562
+00:23:43,919 --> 00:23:47,679
+and it's the block right before that
+
+563
+00:23:45,679 --> 00:23:49,520
+it's like well that's not very helpful
+
+564
+00:23:47,679 --> 00:23:50,960
+so uh you keep iterating node equals no
+
+565
+00:23:49,520 --> 00:23:53,840
+dot left until node becomes
+
+566
+00:23:50,960 --> 00:23:55,200
+none and then you undo one step okay you
+
+567
+00:23:53,840 --> 00:23:55,919
+all know how to program that it's not
+
+568
+00:23:55,200 --> 00:23:58,960
+hard
+
+569
+00:23:55,919 --> 00:24:00,880
+um so that last non-none
+
+570
+00:23:58,960 --> 00:24:02,400
+node which might actually be the root it
+
+571
+00:24:00,880 --> 00:24:04,880
+might be node
+
+572
+00:24:02,400 --> 00:24:06,960
+maybe it has no left children but in
+
+573
+00:24:04,880 --> 00:24:08,880
+that case i claim node is the very first
+
+574
+00:24:06,960 --> 00:24:09,679
+in its in its subtree traversal order
+
+575
+00:24:08,880 --> 00:24:11,919
+because
+
+576
+00:24:09,679 --> 00:24:15,120
+if there are no nodes in the left that
+
+577
+00:24:11,919 --> 00:24:18,400
+come before x then x is actually first
+
+578
+00:24:15,120 --> 00:24:20,720
+okay and that so that's it uh return
+
+579
+00:24:18,400 --> 00:24:20,720
+node
+
+580
+00:24:22,400 --> 00:24:26,480
+so i'm modifying node in place here and
+
+581
+00:24:24,640 --> 00:24:27,440
+the very last one before i hit none
+
+582
+00:24:26,480 --> 00:24:29,679
+that's the minimum
+
+583
+00:24:27,440 --> 00:24:31,679
+that's the first item in the traversal
+
+584
+00:24:29,679 --> 00:24:32,799
+order similarly you can define subtree
+
+585
+00:24:31,679 --> 00:24:35,360
+last
+
+586
+00:24:32,799 --> 00:24:38,000
+okay let's do a more interesting one
+
+587
+00:24:35,360 --> 00:24:38,000
+successor
+
+588
+00:24:41,360 --> 00:24:45,440
+node so in this case i want to know what
+
+589
+00:24:45,039 --> 00:24:48,159
+is
+
+590
+00:24:45,440 --> 00:24:48,159
+the next
+
+591
+00:24:50,000 --> 00:24:56,960
+after node in the
+
+592
+00:24:53,600 --> 00:24:58,840
+overall tree's traversal order okay here
+
+593
+00:24:56,960 --> 00:25:01,919
+i was restricting to
+
+594
+00:24:58,840 --> 00:25:03,520
+uh a single sub tree now i'm thinking
+
+595
+00:25:01,919 --> 00:25:04,480
+about the entire tree in the entire
+
+596
+00:25:03,520 --> 00:25:06,400
+traversal order
+
+597
+00:25:04,480 --> 00:25:08,080
+and given a node i want to know which
+
+598
+00:25:06,400 --> 00:25:11,360
+one comes next
+
+599
+00:25:08,080 --> 00:25:11,760
+call this the successor i feel like i
+
+600
+00:25:11,360 --> 00:25:14,880
+should
+
+601
+00:25:11,760 --> 00:25:15,360
+make some kind of royal family joke now
+
+602
+00:25:14,880 --> 00:25:18,640
+but
+
+603
+00:25:15,360 --> 00:25:20,640
+i don't know how um so
+
+604
+00:25:18,640 --> 00:25:22,640
+every node has a unique successor let's
+
+605
+00:25:20,640 --> 00:25:26,080
+do let's do some examples
+
+606
+00:25:22,640 --> 00:25:28,000
+so we can start with f the successor of
+
+607
+00:25:26,080 --> 00:25:31,120
+f if we just index into this
+
+608
+00:25:28,000 --> 00:25:34,000
+list the successor is d okay
+
+609
+00:25:31,120 --> 00:25:35,760
+successor of d is b successor b is ease
+
+610
+00:25:34,000 --> 00:25:36,159
+okay it's very easy to read successors
+
+611
+00:25:35,760 --> 00:25:37,600
+off
+
+612
+00:25:36,159 --> 00:25:39,440
+when i have the traversal order written
+
+613
+00:25:37,600 --> 00:25:41,440
+down but let's think about how to do it
+
+614
+00:25:39,440 --> 00:25:44,880
+in the tree
+
+615
+00:25:41,440 --> 00:25:44,880
+okay uh
+
+616
+00:25:45,039 --> 00:25:48,480
+let's see there are going to be two
+
+617
+00:25:46,559 --> 00:25:52,159
+cases
+
+618
+00:25:48,480 --> 00:25:53,840
+if i look at the successor of a it has a
+
+619
+00:25:52,159 --> 00:25:56,159
+right child
+
+620
+00:25:53,840 --> 00:25:57,919
+and in this case the right child of a is
+
+621
+00:25:56,159 --> 00:25:58,640
+the successor but that's not always the
+
+622
+00:25:57,919 --> 00:26:01,760
+case
+
+623
+00:25:58,640 --> 00:26:04,080
+i don't have a good example but if i had
+
+624
+00:26:01,760 --> 00:26:08,080
+another node here let's call it
+
+625
+00:26:04,080 --> 00:26:11,360
+g uh the successor of a
+
+626
+00:26:08,080 --> 00:26:14,159
+is actually g right because
+
+627
+00:26:11,360 --> 00:26:14,880
+all of these items come after a in the
+
+628
+00:26:14,159 --> 00:26:17,200
+order
+
+629
+00:26:14,880 --> 00:26:18,559
+but which one comes first the leftmost
+
+630
+00:26:17,200 --> 00:26:20,720
+leaf
+
+631
+00:26:18,559 --> 00:26:22,640
+okay that's the problem we just solved
+
+632
+00:26:20,720 --> 00:26:24,720
+so if a has a right child
+
+633
+00:26:22,640 --> 00:26:25,679
+what we want is the leftmost leaf the
+
+634
+00:26:24,720 --> 00:26:29,919
+first
+
+635
+00:26:25,679 --> 00:26:29,919
+thing in that subtree
+
+636
+00:26:30,000 --> 00:26:33,919
+the right subtree right child sub tree
+
+637
+00:26:32,480 --> 00:26:37,760
+so this is case one
+
+638
+00:26:33,919 --> 00:26:40,799
+if uh node.right
+
+639
+00:26:37,760 --> 00:26:44,559
+so if we have a right child then
+
+640
+00:26:40,799 --> 00:26:44,559
+what we want is
+
+641
+00:26:44,640 --> 00:26:47,520
+subtree first
+
+642
+00:26:48,720 --> 00:26:53,840
+of the right child
+
+643
+00:26:54,799 --> 00:26:58,720
+great we can reduce to this other
+
+644
+00:26:56,799 --> 00:27:01,679
+operation
+
+645
+00:26:58,720 --> 00:27:02,720
+but what if the node doesn't have a
+
+646
+00:27:01,679 --> 00:27:05,520
+right child
+
+647
+00:27:02,720 --> 00:27:06,000
+so for example it could be a leaf say
+
+648
+00:27:05,520 --> 00:27:08,400
+we're taking
+
+649
+00:27:06,000 --> 00:27:09,919
+the successor of i mean it doesn't have
+
+650
+00:27:08,400 --> 00:27:11,600
+to be a leaf could be f which has no
+
+651
+00:27:09,919 --> 00:27:14,080
+children it could be d which has one
+
+652
+00:27:11,600 --> 00:27:17,120
+child but no right child
+
+653
+00:27:14,080 --> 00:27:19,840
+so what's the successor of f well it's d
+
+654
+00:27:17,120 --> 00:27:21,520
+which in this case is the parent but
+
+655
+00:27:19,840 --> 00:27:22,399
+it's not always for example if we do
+
+656
+00:27:21,520 --> 00:27:24,480
+successor of e
+
+657
+00:27:22,399 --> 00:27:26,480
+its parent is actually earlier in the
+
+658
+00:27:24,480 --> 00:27:29,200
+order because e was a right child
+
+659
+00:27:26,480 --> 00:27:30,399
+here f was a left child and so its
+
+660
+00:27:29,200 --> 00:27:33,120
+parent
+
+661
+00:27:30,399 --> 00:27:33,120
+was after
+
+662
+00:27:33,760 --> 00:27:39,440
+successor of d happens to be b because
+
+663
+00:27:36,880 --> 00:27:40,159
+uh it's per it was the left child of its
+
+664
+00:27:39,440 --> 00:27:41,760
+parent
+
+665
+00:27:40,159 --> 00:27:43,200
+okay so that seems like the easy case if
+
+666
+00:27:41,760 --> 00:27:47,039
+we're the left child of our parent
+
+667
+00:27:43,200 --> 00:27:49,039
+then our successor is our parent okay
+
+668
+00:27:47,039 --> 00:27:50,240
+basing on this small example but we can
+
+669
+00:27:49,039 --> 00:27:52,799
+argue it generally in a moment
+
+670
+00:27:50,240 --> 00:27:55,120
+what's the successor of e uh well it's
+
+671
+00:27:52,799 --> 00:27:57,039
+not b because that comes earlier in fact
+
+672
+00:27:55,120 --> 00:27:59,520
+all the things in this in b sub tree
+
+673
+00:27:57,039 --> 00:28:03,760
+come earlier or equal to
+
+674
+00:27:59,520 --> 00:28:05,600
+e um so we have to keep going up
+
+675
+00:28:03,760 --> 00:28:07,760
+and then it turns out the successor of e
+
+676
+00:28:05,600 --> 00:28:10,720
+is a because this subtree
+
+677
+00:28:07,760 --> 00:28:12,399
+was the left child of a because b was a
+
+678
+00:28:10,720 --> 00:28:15,039
+left child with a
+
+679
+00:28:12,399 --> 00:28:17,520
+so the general strategy is walk up the
+
+680
+00:28:15,039 --> 00:28:20,799
+tree
+
+681
+00:28:17,520 --> 00:28:23,039
+until we are we we go
+
+682
+00:28:20,799 --> 00:28:24,559
+up a traversal whose reverse direction
+
+683
+00:28:23,039 --> 00:28:27,919
+would be left
+
+684
+00:28:24,559 --> 00:28:30,799
+okay so um walk
+
+685
+00:28:27,919 --> 00:28:32,399
+up the tree when i say walk up i mean
+
+686
+00:28:30,799 --> 00:28:34,960
+node equals node.parent
+
+687
+00:28:32,399 --> 00:28:34,960
+iteration
+
+688
+00:28:40,320 --> 00:28:42,799
+until
+
+689
+00:28:43,360 --> 00:28:49,200
+we go up a left
+
+690
+00:28:46,799 --> 00:28:49,200
+branch
+
+691
+00:28:50,480 --> 00:28:54,640
+so this would mean that node before we
+
+692
+00:28:53,679 --> 00:29:00,240
+do the change
+
+693
+00:28:54,640 --> 00:29:00,240
+node equals node.parent node.parent.left
+
+694
+00:29:02,960 --> 00:29:07,279
+okay so we can check that and then after
+
+695
+00:29:04,960 --> 00:29:13,520
+we do that traversal that parent
+
+696
+00:29:07,279 --> 00:29:15,520
+is exactly the node we're looking for
+
+697
+00:29:13,520 --> 00:29:17,679
+okay why is this true in general let me
+
+698
+00:29:15,520 --> 00:29:21,279
+draw a more generic picture
+
+699
+00:29:17,679 --> 00:29:21,279
+so we're starting at some node
+
+700
+00:29:21,760 --> 00:29:27,440
+and let's say its parent is to the right
+
+701
+00:29:25,360 --> 00:29:30,480
+so it comes later in the order
+
+702
+00:29:27,440 --> 00:29:33,360
+for a while sorry get this backwards
+
+703
+00:29:30,480 --> 00:29:33,360
+we're doing successor
+
+704
+00:29:34,480 --> 00:29:39,919
+so it goes to left for a while
+
+705
+00:29:38,320 --> 00:29:41,279
+so these are all these nodes will come
+
+706
+00:29:39,919 --> 00:29:42,480
+earlier in the order because by the
+
+707
+00:29:41,279 --> 00:29:43,919
+definition everything in the right
+
+708
+00:29:42,480 --> 00:29:45,440
+subtree comes after
+
+709
+00:29:43,919 --> 00:29:47,200
+and at some point we have a parent
+
+710
+00:29:45,440 --> 00:29:48,320
+that's to the right meaning this node
+
+711
+00:29:47,200 --> 00:29:50,960
+was the left
+
+712
+00:29:48,320 --> 00:29:52,159
+child of this parent and that node by
+
+713
+00:29:50,960 --> 00:29:55,279
+definition will come
+
+714
+00:29:52,159 --> 00:29:57,200
+after all of the nodes in here
+
+715
+00:29:55,279 --> 00:29:58,799
+and could there be anything in between
+
+716
+00:29:57,200 --> 00:30:03,200
+node and this
+
+717
+00:29:58,799 --> 00:30:04,640
+uh this parent grandparent ancestor
+
+718
+00:30:03,200 --> 00:30:06,960
+only if there was something in this
+
+719
+00:30:04,640 --> 00:30:08,799
+subtree and we're in the case here
+
+720
+00:30:06,960 --> 00:30:10,240
+where there is no right subtree of our
+
+721
+00:30:08,799 --> 00:30:12,080
+original node
+
+722
+00:30:10,240 --> 00:30:13,760
+so this this is where all the nodes in
+
+723
+00:30:12,080 --> 00:30:15,600
+between node and here would be
+
+724
+00:30:13,760 --> 00:30:17,679
+but there aren't any and therefore this
+
+725
+00:30:15,600 --> 00:30:20,240
+is the successor
+
+726
+00:30:17,679 --> 00:30:21,360
+so that's sort of the general argument
+
+727
+00:30:20,240 --> 00:30:37,039
+why this
+
+728
+00:30:21,360 --> 00:30:38,559
+works i see a question yeah
+
+729
+00:30:37,039 --> 00:30:40,320
+placed into the traverse order so the
+
+730
+00:30:38,559 --> 00:30:41,679
+traversal order is never explicitly
+
+731
+00:30:40,320 --> 00:30:44,080
+computed
+
+732
+00:30:41,679 --> 00:30:45,840
+what we're taught it's always implicit
+
+733
+00:30:44,080 --> 00:30:49,200
+we can't afford to maintain
+
+734
+00:30:45,840 --> 00:30:53,760
+this as say an array this is just
+
+735
+00:30:49,200 --> 00:30:57,519
+in our heads maybe i will draw it with a
+
+736
+00:30:53,760 --> 00:31:00,240
+cloud around it we're just thinking this
+
+737
+00:30:57,519 --> 00:31:03,120
+okay it's not in the computer explicitly
+
+738
+00:31:00,240 --> 00:31:05,120
+in the computer all we store is this
+
+739
+00:31:03,120 --> 00:31:06,880
+and the reason is this is expensive we
+
+740
+00:31:05,120 --> 00:31:08,320
+don't we can't maintain an array of
+
+741
+00:31:06,880 --> 00:31:08,799
+things and be able to insert in the
+
+742
+00:31:08,320 --> 00:31:10,960
+middle
+
+743
+00:31:08,799 --> 00:31:12,559
+whereas this is cheap i can afford to
+
+744
+00:31:10,960 --> 00:31:14,159
+maintain this structure
+
+745
+00:31:12,559 --> 00:31:15,279
+and do all these things and so the
+
+746
+00:31:14,159 --> 00:31:16,640
+reason we're talking about these
+
+747
+00:31:15,279 --> 00:31:18,960
+operations is they're letting us
+
+748
+00:31:16,640 --> 00:31:19,840
+manipulate the order or in this case
+
+749
+00:31:18,960 --> 00:31:21,919
+letting us
+
+750
+00:31:19,840 --> 00:31:23,120
+iterate through the order so this was an
+
+751
+00:31:21,919 --> 00:31:24,159
+algorithm for iterating through the
+
+752
+00:31:23,120 --> 00:31:27,200
+entire order
+
+753
+00:31:24,159 --> 00:31:29,200
+but that takes linear time this was
+
+754
+00:31:27,200 --> 00:31:30,559
+getting started in the order find me the
+
+755
+00:31:29,200 --> 00:31:32,240
+first
+
+756
+00:31:30,559 --> 00:31:34,960
+first thing the order and this was given
+
+757
+00:31:32,240 --> 00:31:47,840
+one node find me the next one
+
+758
+00:31:34,960 --> 00:31:47,840
+how long do these operations take
+
+759
+00:31:56,480 --> 00:32:00,159
+right at most the height of the entire
+
+760
+00:31:58,399 --> 00:32:02,480
+tree in fact it's going to be
+
+761
+00:32:00,159 --> 00:32:03,919
+the depth of that first node but in the
+
+762
+00:32:02,480 --> 00:32:04,880
+worst case that's the height of the
+
+763
+00:32:03,919 --> 00:32:06,559
+entire tree
+
+764
+00:32:04,880 --> 00:32:08,720
+in general all of these operations are
+
+765
+00:32:06,559 --> 00:32:11,200
+going to be order h
+
+766
+00:32:08,720 --> 00:32:13,679
+we need to think about it in each case
+
+767
+00:32:11,200 --> 00:32:16,240
+except for this one which is order n
+
+768
+00:32:13,679 --> 00:32:17,840
+so iterating through the whole thing um
+
+769
+00:32:16,240 --> 00:32:18,960
+this in this case we're just calling
+
+770
+00:32:17,840 --> 00:32:20,880
+subtree first so
+
+771
+00:32:18,960 --> 00:32:22,480
+that takes order h time here we're
+
+772
+00:32:20,880 --> 00:32:23,279
+walking up the tree instead of down but
+
+773
+00:32:22,480 --> 00:32:25,679
+that's going to cost
+
+774
+00:32:23,279 --> 00:32:28,320
+exactly the height of the node we happen
+
+775
+00:32:25,679 --> 00:32:30,640
+to stop early but worst case order h
+
+776
+00:32:28,320 --> 00:32:31,919
+for all this all the operations we
+
+777
+00:32:30,640 --> 00:32:32,880
+consider today we just want to get an
+
+778
+00:32:31,919 --> 00:32:35,840
+order h bound
+
+779
+00:32:32,880 --> 00:32:36,640
+and later we will bound h so the point
+
+780
+00:32:35,840 --> 00:32:39,919
+is these are
+
+781
+00:32:36,640 --> 00:32:41,760
+fast if h is small like log n these are
+
+782
+00:32:39,919 --> 00:32:44,320
+almost instantaneous
+
+783
+00:32:41,760 --> 00:32:45,360
+whereas if i had to update the explicit
+
+784
+00:32:44,320 --> 00:32:47,120
+traversal order
+
+785
+00:32:45,360 --> 00:32:49,679
+say as an array i would have to spend
+
+786
+00:32:47,120 --> 00:32:52,480
+linear time every time i make a change
+
+787
+00:32:49,679 --> 00:32:54,480
+and yes it would be fast to do successor
+
+788
+00:32:52,480 --> 00:32:56,320
+if i had this stored explicitly
+
+789
+00:32:54,480 --> 00:32:57,600
+but maintaining it would be impossible
+
+790
+00:32:56,320 --> 00:32:58,159
+maintaining it efficiently would be
+
+791
+00:32:57,600 --> 00:33:01,519
+impossible
+
+792
+00:32:58,159 --> 00:33:01,519
+question questions
+
+793
+00:33:04,960 --> 00:33:11,840
+yes okay
+
+794
+00:33:13,840 --> 00:33:21,200
+cool um so these were queries
+
+795
+00:33:17,679 --> 00:33:23,440
+where i want to follow
+
+796
+00:33:21,200 --> 00:33:25,279
+see what's what's next in the traversal
+
+797
+00:33:23,440 --> 00:33:26,960
+sequence now let's talk about actually
+
+798
+00:33:25,279 --> 00:33:28,799
+changing the traversal sequence so these
+
+799
+00:33:26,960 --> 00:33:31,519
+are insert and delete operations
+
+800
+00:33:28,799 --> 00:33:33,200
+these will correspond roughly to insert
+
+801
+00:33:31,519 --> 00:33:35,440
+at or delete at
+
+802
+00:33:33,200 --> 00:33:36,640
+but they're not quite we're not quite in
+
+803
+00:33:35,440 --> 00:33:38,320
+sequence world yet
+
+804
+00:33:36,640 --> 00:33:40,399
+instead we're going to focus on
+
+805
+00:33:38,320 --> 00:33:43,279
+inserting or deleting in the middle
+
+806
+00:33:40,399 --> 00:33:43,279
+of a subtree
+
+807
+00:33:47,440 --> 00:33:53,840
+so i'm going to have two nodes
+
+808
+00:33:56,240 --> 00:33:59,039
+so the
+
+809
+00:34:00,640 --> 00:34:06,720
+in the traversal order
+
+810
+00:34:03,679 --> 00:34:08,639
+so node already exists in the tree new
+
+811
+00:34:06,720 --> 00:34:10,159
+is a new node that does not yet exist in
+
+812
+00:34:08,639 --> 00:34:13,919
+the tree hence i call it new
+
+813
+00:34:10,159 --> 00:34:16,960
+and what i'd like to do is insert new
+
+814
+00:34:13,919 --> 00:34:18,639
+right after node and there's a symmetric
+
+815
+00:34:16,960 --> 00:34:19,919
+operation which is insert before
+
+816
+00:34:18,639 --> 00:34:24,639
+it will be implemented almost
+
+817
+00:34:19,919 --> 00:34:26,399
+identically so we'll just focus on after
+
+818
+00:34:24,639 --> 00:34:27,839
+so i want to insert this new node in the
+
+819
+00:34:26,399 --> 00:34:28,800
+traversal order which again is in our
+
+820
+00:34:27,839 --> 00:34:32,320
+heads this is all
+
+821
+00:34:28,800 --> 00:34:32,320
+in in our thought bubble
+
+822
+00:34:33,280 --> 00:34:37,520
+that's what we want to achieve and we
+
+823
+00:34:35,359 --> 00:34:39,760
+have to do it by manipulating
+
+824
+00:34:37,520 --> 00:34:42,879
+this tree and however we change the tree
+
+825
+00:34:39,760 --> 00:34:49,839
+it defines a new traversal order
+
+826
+00:34:42,879 --> 00:34:49,839
+so maybe let's do an example first
+
+827
+00:35:01,680 --> 00:35:06,240
+actually i probably want this universal
+
+828
+00:35:04,640 --> 00:35:09,520
+order
+
+829
+00:35:06,240 --> 00:35:13,359
+keep track of that so uh
+
+830
+00:35:09,520 --> 00:35:18,560
+let's say the first thing we want to do
+
+831
+00:35:13,359 --> 00:35:18,560
+uh is insert
+
+832
+00:35:19,280 --> 00:35:24,880
+g before e
+
+833
+00:35:22,880 --> 00:35:27,440
+i want to illustrate both of the
+
+834
+00:35:24,880 --> 00:35:30,720
+operations
+
+835
+00:35:27,440 --> 00:35:34,079
+insert h
+
+836
+00:35:30,720 --> 00:35:36,240
+after e
+
+837
+00:35:34,079 --> 00:35:36,240
+a
+
+838
+00:35:37,920 --> 00:35:41,119
+okay um
+
+839
+00:35:41,280 --> 00:35:46,480
+so insert g before e so conceptually
+
+840
+00:35:44,560 --> 00:35:50,320
+what we want to do is insert g
+
+841
+00:35:46,480 --> 00:35:51,119
+here and the way so we're given the node
+
+842
+00:35:50,320 --> 00:35:53,440
+e
+
+843
+00:35:51,119 --> 00:35:54,960
+and we're given a sort of empty node i
+
+844
+00:35:53,440 --> 00:35:56,640
+mean a node that just contains g it
+
+845
+00:35:54,960 --> 00:35:59,520
+doesn't have any pointers yet
+
+846
+00:35:56,640 --> 00:36:02,000
+and we would like to put it before e
+
+847
+00:35:59,520 --> 00:36:05,680
+where should i put it
+
+848
+00:36:02,000 --> 00:36:07,440
+left child all right so that's
+
+849
+00:36:05,680 --> 00:36:09,760
+this is an easy case if i'm trying to
+
+850
+00:36:07,440 --> 00:36:11,440
+insert before and there's no left child
+
+851
+00:36:09,760 --> 00:36:13,200
+stick it there if i'm trying to insert
+
+852
+00:36:11,440 --> 00:36:15,760
+after and there's no right child
+
+853
+00:36:13,200 --> 00:36:18,320
+stick it there easy so let me write down
+
+854
+00:36:15,760 --> 00:36:18,320
+case one
+
+855
+00:36:20,560 --> 00:36:24,839
+so here we're inserting after so if
+
+856
+00:36:23,200 --> 00:36:28,800
+there's no
+
+857
+00:36:24,839 --> 00:36:28,800
+uh right child
+
+858
+00:36:31,359 --> 00:36:38,000
+put new
+
+859
+00:36:34,480 --> 00:36:38,960
+there okay i'm using informal language
+
+860
+00:36:38,000 --> 00:36:42,720
+here putting
+
+861
+00:36:38,960 --> 00:36:44,480
+this new node there
+
+862
+00:36:42,720 --> 00:36:47,599
+b instead of writing for example
+
+863
+00:36:44,480 --> 00:36:49,359
+node.write equals new
+
+864
+00:36:47,599 --> 00:36:51,119
+because that's only one operation you
+
+865
+00:36:49,359 --> 00:36:53,200
+need to do one thing you would do is set
+
+866
+00:36:51,119 --> 00:36:54,720
+node.write equals to new but you also
+
+867
+00:36:53,200 --> 00:36:56,000
+have to set new's parent to be
+
+868
+00:36:54,720 --> 00:36:58,240
+node.write
+
+869
+00:36:56,000 --> 00:36:59,599
+so instead of worrying about those two
+
+870
+00:36:58,240 --> 00:37:01,040
+pointer changes because we always do
+
+871
+00:36:59,599 --> 00:37:02,160
+bi-directional pointer changes i'm just
+
+872
+00:37:01,040 --> 00:37:03,680
+going to use
+
+873
+00:37:02,160 --> 00:37:05,359
+pseudocode and then in recitation you'll
+
+874
+00:37:03,680 --> 00:37:07,440
+see actual python code that does all
+
+875
+00:37:05,359 --> 00:37:12,240
+this
+
+876
+00:37:07,440 --> 00:37:12,240
+uh so then there's the other case
+
+877
+00:37:12,400 --> 00:37:16,000
+so that should be the second example
+
+878
+00:37:14,640 --> 00:37:20,400
+insert h
+
+879
+00:37:16,000 --> 00:37:22,800
+after a right
+
+880
+00:37:20,400 --> 00:37:23,760
+insert h after a so we already have a
+
+881
+00:37:22,800 --> 00:37:28,640
+node after a
+
+882
+00:37:23,760 --> 00:37:28,640
+in the right child in this right subtree
+
+883
+00:37:29,119 --> 00:37:35,680
+so where do i want to put
+
+884
+00:37:32,240 --> 00:37:38,880
+h relative to a
+
+885
+00:37:35,680 --> 00:37:40,400
+well it should be to the right of a but
+
+886
+00:37:38,880 --> 00:37:43,280
+it should be
+
+887
+00:37:40,400 --> 00:37:45,119
+before c it should be to the left of c
+
+888
+00:37:43,280 --> 00:37:48,000
+so that would mean we want to put it
+
+889
+00:37:45,119 --> 00:37:50,240
+here okay in this case it was pretty
+
+890
+00:37:48,000 --> 00:37:52,000
+easy because this tree was small
+
+891
+00:37:50,240 --> 00:37:54,880
+where do i want to put it in general
+
+892
+00:37:52,000 --> 00:37:54,880
+well wherever
+
+893
+00:37:55,359 --> 00:37:59,839
+subtree first tells me to put it right
+
+894
+00:37:57,920 --> 00:38:01,680
+subtree first is going to give me
+
+895
+00:37:59,839 --> 00:38:05,040
+the successor these are all kind of
+
+896
+00:38:01,680 --> 00:38:07,119
+parallel um
+
+897
+00:38:05,040 --> 00:38:08,800
+we're in the case now where our node has
+
+898
+00:38:07,119 --> 00:38:10,720
+a right child
+
+899
+00:38:08,800 --> 00:38:13,040
+and then successor tells us where the
+
+900
+00:38:10,720 --> 00:38:16,160
+successor is it is the first
+
+901
+00:38:13,040 --> 00:38:16,560
+node which is the leftmost descendant in
+
+902
+00:38:16,160 --> 00:38:19,680
+the
+
+903
+00:38:16,560 --> 00:38:22,560
+right subtree of the node okay a lot of
+
+904
+00:38:19,680 --> 00:38:22,960
+pointers to follow in that sentence but
+
+905
+00:38:22,560 --> 00:38:26,079
+it's
+
+906
+00:38:22,960 --> 00:38:28,400
+clear in the picture so this
+
+907
+00:38:26,079 --> 00:38:30,800
+in this case we had node and there was
+
+908
+00:38:28,400 --> 00:38:34,160
+no right child so we just added
+
+909
+00:38:30,800 --> 00:38:35,920
+new to be its right child okay in the
+
+910
+00:38:34,160 --> 00:38:41,040
+other case
+
+911
+00:38:35,920 --> 00:38:43,599
+we had a right child so here is node
+
+912
+00:38:41,040 --> 00:38:44,800
+there's uh there's this node here
+
+913
+00:38:43,599 --> 00:38:48,400
+node.right
+
+914
+00:38:44,800 --> 00:38:48,400
+which now we're supposing exists
+
+915
+00:38:49,040 --> 00:38:52,960
+and it defines a whole subtree there's
+
+916
+00:38:51,040 --> 00:38:56,720
+this one
+
+917
+00:38:52,960 --> 00:38:58,320
+which is the first node in the traversal
+
+918
+00:38:56,720 --> 00:39:00,000
+order of the subtree also known as the
+
+919
+00:38:58,320 --> 00:39:03,599
+successor of node
+
+920
+00:39:00,000 --> 00:39:03,599
+so i'll call this successor
+
+921
+00:39:04,240 --> 00:39:08,079
+of node in the current traversal order
+
+922
+00:39:06,640 --> 00:39:10,960
+but of course we'd like to make
+
+923
+00:39:08,079 --> 00:39:13,440
+new the new successor of the node so
+
+924
+00:39:10,960 --> 00:39:15,839
+where does it go
+
+925
+00:39:13,440 --> 00:39:15,839
+here
+
+926
+00:39:16,880 --> 00:39:23,359
+we want to add it as a left child
+
+927
+00:39:20,079 --> 00:39:23,359
+to the old successor
+
+928
+00:39:23,599 --> 00:39:31,520
+okay so put uh
+
+929
+00:39:28,560 --> 00:39:31,520
+node as
+
+930
+00:39:40,320 --> 00:39:43,680
+so take the successor and if you look at
+
+931
+00:39:42,160 --> 00:39:45,520
+the code for successor we're in this
+
+932
+00:39:43,680 --> 00:39:48,960
+case so we know it will just call
+
+933
+00:39:45,520 --> 00:39:50,000
+subtree first of node.right and remember
+
+934
+00:39:48,960 --> 00:39:52,720
+subtree first
+
+935
+00:39:50,000 --> 00:39:54,400
+went left as much as it possibly could
+
+936
+00:39:52,720 --> 00:39:56,000
+so what that means is this successor
+
+937
+00:39:54,400 --> 00:39:58,720
+node is guaranteed to not
+
+938
+00:39:56,000 --> 00:40:00,320
+have a left child right because it was
+
+939
+00:39:58,720 --> 00:40:02,400
+defined by going right once and then
+
+940
+00:40:00,320 --> 00:40:04,240
+going left as much as you could
+
+941
+00:40:02,400 --> 00:40:05,760
+so there's no more left which means we
+
+942
+00:40:04,240 --> 00:40:09,200
+can make one more left
+
+943
+00:40:05,760 --> 00:40:11,040
+just add new there and we're done
+
+944
+00:40:09,200 --> 00:40:12,720
+now if you look at the traversal order
+
+945
+00:40:11,040 --> 00:40:14,400
+it will be node then new
+
+946
+00:40:12,720 --> 00:40:16,160
+then the old successor and then the rest
+
+947
+00:40:14,400 --> 00:40:19,359
+of that subtree
+
+948
+00:40:16,160 --> 00:40:22,640
+okay it's kind of cool in all cases
+
+949
+00:40:19,359 --> 00:40:24,240
+uh i mean this was constant time
+
+950
+00:40:22,640 --> 00:40:26,880
+here we spent constant time after we
+
+951
+00:40:24,240 --> 00:40:27,440
+called successor successor costs order h
+
+952
+00:40:26,880 --> 00:40:30,480
+time
+
+953
+00:40:27,440 --> 00:40:30,480
+so this is order h
+
+954
+00:40:34,240 --> 00:40:41,359
+new new okay
+
+955
+00:40:38,560 --> 00:40:41,359
+put new there
+
+956
+00:40:44,640 --> 00:40:53,839
+clear okay that was insertion
+
+957
+00:40:47,680 --> 00:40:53,839
+let's do deletion
+
+958
+00:40:54,400 --> 00:41:07,839
+get the spec right and the example
+
+959
+00:41:10,319 --> 00:41:15,359
+all of these are going to have two cases
+
+960
+00:41:12,640 --> 00:41:19,200
+uh so let me
+
+961
+00:41:15,359 --> 00:41:20,480
+oh i didn't update so now h is after a
+
+962
+00:41:19,200 --> 00:41:22,000
+so it should be like this
+
+963
+00:41:20,480 --> 00:41:25,280
+you can check the new traverse order of
+
+964
+00:41:22,000 --> 00:41:25,280
+this tree is exactly that
+
+965
+00:41:26,160 --> 00:41:29,200
+next i'm going to do a couple of
+
+966
+00:41:27,440 --> 00:41:32,079
+deletions
+
+967
+00:41:29,200 --> 00:41:32,079
+let's delete
+
+968
+00:41:33,119 --> 00:41:41,520
+f first and then we're going to
+
+969
+00:41:38,720 --> 00:41:41,520
+well this is
+
+970
+00:41:42,000 --> 00:41:44,640
+confusing
+
+971
+00:41:47,599 --> 00:41:53,040
+and then we're going to delete a so
+
+972
+00:41:51,359 --> 00:41:55,040
+where's f we're supposing we're given a
+
+973
+00:41:53,040 --> 00:41:57,040
+pointer to f this node
+
+974
+00:41:55,040 --> 00:41:59,520
+well it's a leaf so if i want to delete
+
+975
+00:41:57,040 --> 00:42:02,800
+it i just erase it
+
+976
+00:41:59,520 --> 00:42:05,200
+easy leaves are easy to delete there's
+
+977
+00:42:02,800 --> 00:42:06,560
+no work to do so what that means is i'm
+
+978
+00:42:05,200 --> 00:42:10,800
+removing the pointer from d
+
+979
+00:42:06,560 --> 00:42:12,480
+to f okay we just erase that guy
+
+980
+00:42:10,800 --> 00:42:14,079
+uh okay now here's a trickier one
+
+981
+00:42:12,480 --> 00:42:15,040
+suppose i want to delete the root of the
+
+982
+00:42:14,079 --> 00:42:17,599
+tree this is kind of
+
+983
+00:42:15,040 --> 00:42:20,240
+the hardest case but in general it would
+
+984
+00:42:17,599 --> 00:42:22,720
+be somewhere in between leaf and root
+
+985
+00:42:20,240 --> 00:42:24,319
+so if i want to delete a if i just
+
+986
+00:42:22,720 --> 00:42:25,599
+erased it then suddenly there are these
+
+987
+00:42:24,319 --> 00:42:27,440
+pointers to nowhere
+
+988
+00:42:25,599 --> 00:42:28,640
+and i disconnect the tree into two parts
+
+989
+00:42:27,440 --> 00:42:30,400
+i don't want to do that i need to keep
+
+990
+00:42:28,640 --> 00:42:34,079
+my tree connected
+
+991
+00:42:30,400 --> 00:42:36,880
+so i'm going to play this trick
+
+992
+00:42:34,079 --> 00:42:38,640
+which is i forget if i use successor or
+
+993
+00:42:36,880 --> 00:42:41,440
+predecessor
+
+994
+00:42:38,640 --> 00:42:41,440
+predecessor
+
+995
+00:42:43,520 --> 00:42:49,119
+so i'm going to uh look at a we already
+
+996
+00:42:47,520 --> 00:42:51,520
+have defined successor and
+
+997
+00:42:49,119 --> 00:42:53,760
+there by predecessor so i'm going to
+
+998
+00:42:51,520 --> 00:42:57,359
+look at the predecessor of a
+
+999
+00:42:53,760 --> 00:42:58,000
+which is e you can check that here the
+
+1000
+00:42:57,359 --> 00:43:01,200
+one before
+
+1001
+00:42:58,000 --> 00:43:03,440
+a is e this is in the left subtree
+
+1002
+00:43:01,200 --> 00:43:05,680
+uh find me the rightmost item keep going
+
+1003
+00:43:03,440 --> 00:43:07,200
+right until i can't that's e
+
+1004
+00:43:05,680 --> 00:43:09,040
+so now these guys are adjacent in the
+
+1005
+00:43:07,200 --> 00:43:09,760
+order and i'm about to remove a from the
+
+1006
+00:43:09,040 --> 00:43:12,640
+order
+
+1007
+00:43:09,760 --> 00:43:13,839
+so i can momentarily cheat and swap
+
+1008
+00:43:12,640 --> 00:43:16,480
+their labels
+
+1009
+00:43:13,839 --> 00:43:17,839
+i'm going to erase a and e here and put
+
+1010
+00:43:16,480 --> 00:43:21,440
+e
+
+1011
+00:43:17,839 --> 00:43:23,520
+after a why because it moves a
+
+1012
+00:43:21,440 --> 00:43:24,640
+down in the tree and if i get to the
+
+1013
+00:43:23,520 --> 00:43:25,920
+leaf i'm done
+
+1014
+00:43:24,640 --> 00:43:27,760
+so i'm not quite done because this is
+
+1015
+00:43:25,920 --> 00:43:28,800
+not a leaf so again i look at a's
+
+1016
+00:43:27,760 --> 00:43:31,839
+predecessor it's now
+
+1017
+00:43:28,800 --> 00:43:34,960
+g predecessor
+
+1018
+00:43:31,839 --> 00:43:38,000
+we hope is always in the uh
+
+1019
+00:43:34,960 --> 00:43:41,839
+farther down in the tree and then i swap
+
+1020
+00:43:38,000 --> 00:43:41,839
+a with g
+
+1021
+00:43:42,240 --> 00:43:45,760
+okay i have preserved the traversal
+
+1022
+00:43:44,560 --> 00:43:48,400
+order except where a
+
+1023
+00:43:45,760 --> 00:43:49,280
+falls just by moving a earlier in the
+
+1024
+00:43:48,400 --> 00:43:54,240
+order here
+
+1025
+00:43:49,280 --> 00:43:56,160
+and now a is a leaf and i can erase it
+
+1026
+00:43:54,240 --> 00:43:58,160
+okay so that's what we're going to
+
+1027
+00:43:56,160 --> 00:43:59,359
+follow now in actuality it's a little
+
+1028
+00:43:58,160 --> 00:44:01,440
+tricky sometimes we need to use
+
+1029
+00:43:59,359 --> 00:44:05,599
+predecessors sometimes we need to use
+
+1030
+00:44:01,440 --> 00:44:08,880
+successor okay so the cases are
+
+1031
+00:44:05,599 --> 00:44:13,839
+if the node is a leaf just
+
+1032
+00:44:08,880 --> 00:44:13,839
+detach it from the parent easy
+
+1033
+00:44:13,920 --> 00:44:18,880
+that's sort of our base case in the
+
+1034
+00:44:15,280 --> 00:44:18,880
+recursion otherwise
+
+1035
+00:44:18,960 --> 00:44:24,640
+there are two cases if
+
+1036
+00:44:22,000 --> 00:44:25,200
+so if we're not a leaf that means we
+
+1037
+00:44:24,640 --> 00:44:27,839
+have
+
+1038
+00:44:25,200 --> 00:44:29,440
+a left child or a right child or both
+
+1039
+00:44:27,839 --> 00:44:31,839
+both is going to be the easy case
+
+1040
+00:44:29,440 --> 00:44:33,359
+but in general i have either there's a
+
+1041
+00:44:31,839 --> 00:44:36,400
+left child
+
+1042
+00:44:33,359 --> 00:44:38,079
+or there's a right child in either case
+
+1043
+00:44:36,400 --> 00:44:40,800
+i'm going to be happy so i don't need a
+
+1044
+00:44:38,079 --> 00:44:44,079
+both case
+
+1045
+00:44:40,800 --> 00:44:45,119
+uh okay so what do i do in if i have a
+
+1046
+00:44:44,079 --> 00:44:47,920
+left child
+
+1047
+00:44:45,119 --> 00:44:48,640
+that guarantees to me that if the node's
+
+1048
+00:44:47,920 --> 00:44:50,640
+predecessor
+
+1049
+00:44:48,640 --> 00:44:52,640
+is inside that left sub-tree which means
+
+1050
+00:44:50,640 --> 00:44:54,079
+it's lower in the tree
+
+1051
+00:44:52,640 --> 00:44:55,839
+if i didn't have a left child the
+
+1052
+00:44:54,079 --> 00:44:57,760
+predecessor would actually be higher in
+
+1053
+00:44:55,839 --> 00:44:59,839
+the tree and i don't want to go higher
+
+1054
+00:44:57,760 --> 00:45:01,440
+okay so if i have a left child i know
+
+1055
+00:44:59,839 --> 00:45:04,880
+the predecessor is lower
+
+1056
+00:45:01,440 --> 00:45:08,800
+and so i'm going to swap
+
+1057
+00:45:04,880 --> 00:45:18,960
+my item the contents of my node
+
+1058
+00:45:08,800 --> 00:45:22,720
+with my predecessor's item
+
+1059
+00:45:18,960 --> 00:45:32,720
+and then i'm going to recursively delete
+
+1060
+00:45:22,720 --> 00:45:34,240
+the predecessor okay that's the case
+
+1061
+00:45:32,720 --> 00:45:35,920
+that we looked at in this code
+
+1062
+00:45:34,240 --> 00:45:37,839
+in this example because we always had a
+
+1063
+00:45:35,920 --> 00:45:39,599
+left child if we have a right child but
+
+1064
+00:45:37,839 --> 00:45:41,280
+no left child we just do the reverse we
+
+1065
+00:45:39,599 --> 00:45:43,760
+swap with our successors
+
+1066
+00:45:41,280 --> 00:45:45,359
+item and then delete the successor in
+
+1067
+00:45:43,760 --> 00:45:47,119
+either case we're going down
+
+1068
+00:45:45,359 --> 00:45:50,240
+and so if we start at some node like the
+
+1069
+00:45:47,119 --> 00:45:52,800
+route every time we do this operation
+
+1070
+00:45:50,240 --> 00:45:53,680
+we're walking down and then we're
+
+1071
+00:45:52,800 --> 00:45:55,359
+walking down
+
+1072
+00:45:53,680 --> 00:45:57,359
+and in general we'll keep walking down
+
+1073
+00:45:55,359 --> 00:45:59,200
+resuming where we left off which means
+
+1074
+00:45:57,359 --> 00:46:00,560
+total amount of time we spend is
+
+1075
+00:45:59,200 --> 00:46:04,880
+proportional to
+
+1076
+00:46:00,560 --> 00:46:04,880
+the height of the tree in the worst case
+
+1077
+00:46:12,839 --> 00:46:17,280
+question
+
+1078
+00:46:15,520 --> 00:46:18,880
+right so e didn't used to have a right
+
+1079
+00:46:17,280 --> 00:46:20,079
+child so we're changing identities of
+
+1080
+00:46:18,880 --> 00:46:22,640
+nodes when we do this
+
+1081
+00:46:20,079 --> 00:46:23,599
+because we uh this that we didn't
+
+1082
+00:46:22,640 --> 00:46:25,280
+actually move this
+
+1083
+00:46:23,599 --> 00:46:26,720
+circle the circle stayed in place and
+
+1084
+00:46:25,280 --> 00:46:28,480
+what we changed was the item that was
+
+1085
+00:46:26,720 --> 00:46:32,000
+stored in that circle
+
+1086
+00:46:28,480 --> 00:46:34,000
+so whether you call this node e or a
+
+1087
+00:46:32,000 --> 00:46:35,280
+it doesn't really matter it is just the
+
+1088
+00:46:34,000 --> 00:46:37,040
+root note
+
+1089
+00:46:35,280 --> 00:46:38,800
+okay so we're gonna play a lot of these
+
+1090
+00:46:37,040 --> 00:46:39,839
+tricks of moving the items around so far
+
+1091
+00:46:38,800 --> 00:46:40,800
+we hadn't been doing that we've just
+
+1092
+00:46:39,839 --> 00:46:44,000
+been creating
+
+1093
+00:46:40,800 --> 00:46:44,560
+nodes and placing them somewhere but now
+
+1094
+00:46:44,000 --> 00:46:45,920
+we're
+
+1095
+00:46:44,560 --> 00:46:48,000
+in this delete operation is the first
+
+1096
+00:46:45,920 --> 00:46:49,119
+time where we're changing what's stored
+
+1097
+00:46:48,000 --> 00:46:50,720
+in the nodes
+
+1098
+00:46:49,119 --> 00:46:52,079
+but we still can define the traversal
+
+1099
+00:46:50,720 --> 00:46:55,359
+order right the traverse order of this
+
+1100
+00:46:52,079 --> 00:46:56,960
+tree is dbgehc
+
+1101
+00:46:55,359 --> 00:46:59,359
+which should be what we get here if i
+
+1102
+00:46:56,960 --> 00:47:01,520
+delete f and
+
+1103
+00:46:59,359 --> 00:47:01,520
+a
+
+1104
+00:47:02,800 --> 00:47:13,359
+and sorry can f
+
+1105
+00:47:11,760 --> 00:47:15,520
+trees will not preserve connections
+
+1106
+00:47:13,359 --> 00:47:17,040
+that's just the name of the game we are
+
+1107
+00:47:15,520 --> 00:47:18,560
+we have to allow this otherwise we can't
+
+1108
+00:47:17,040 --> 00:47:22,160
+do anything that's the short
+
+1109
+00:47:18,560 --> 00:47:24,240
+version okay okay in the last few
+
+1110
+00:47:22,160 --> 00:47:27,280
+minutes let me talk about how we take
+
+1111
+00:47:24,240 --> 00:47:30,079
+these trees and implement a set
+
+1112
+00:47:27,280 --> 00:47:32,319
+or sequence okay i've already alluded to
+
+1113
+00:47:30,079 --> 00:47:32,319
+this
+
+1114
+00:47:34,800 --> 00:47:39,839
+so for a sequence
+
+1115
+00:47:40,160 --> 00:47:44,240
+we just make the traversal order
+
+1116
+00:47:44,559 --> 00:47:49,119
+equal to the the order that we're trying
+
+1117
+00:47:48,240 --> 00:47:53,440
+to represent
+
+1118
+00:47:49,119 --> 00:47:55,359
+the sequence order
+
+1119
+00:47:53,440 --> 00:47:57,119
+and if we're trying to source set items
+
+1120
+00:47:55,359 --> 00:48:00,000
+with keys we're going to make the
+
+1121
+00:47:57,119 --> 00:48:00,000
+traversal order
+
+1122
+00:48:00,800 --> 00:48:08,319
+equal to ordered by increasing key
+
+1123
+00:48:04,839 --> 00:48:10,559
+increasing item
+
+1124
+00:48:08,319 --> 00:48:10,559
+key
+
+1125
+00:48:13,040 --> 00:48:17,119
+some sense that's it but then we need to
+
+1126
+00:48:15,280 --> 00:48:20,160
+think about how do we implement
+
+1127
+00:48:17,119 --> 00:48:23,440
+all of these operations so maybe most
+
+1128
+00:48:20,160 --> 00:48:27,520
+enlightening is for starters is
+
+1129
+00:48:23,440 --> 00:48:29,599
+finding a key in a tree
+
+1130
+00:48:27,520 --> 00:48:31,520
+so this is going to correspond to binary
+
+1131
+00:48:29,599 --> 00:48:34,880
+search
+
+1132
+00:48:31,520 --> 00:48:36,000
+if i'm searching for a key let's say i'm
+
+1133
+00:48:34,880 --> 00:48:39,119
+searching for
+
+1134
+00:48:36,000 --> 00:48:41,200
+g's key and i know this
+
+1135
+00:48:39,119 --> 00:48:43,680
+may be hard in this example maybe i'll
+
+1136
+00:48:41,200 --> 00:48:48,559
+replace these all with numbers
+
+1137
+00:48:43,680 --> 00:48:51,680
+so i can think about key values
+
+1138
+00:48:48,559 --> 00:48:54,960
+okay so let's say 1 7
+
+1139
+00:48:51,680 --> 00:48:58,319
+12 17
+
+1140
+00:48:54,960 --> 00:49:01,119
+19 and 23.
+
+1141
+00:48:58,319 --> 00:49:02,240
+this is now in key order if you think of
+
+1142
+00:49:01,119 --> 00:49:04,880
+the traversal order
+
+1143
+00:49:02,240 --> 00:49:06,400
+the property is that all the keys in the
+
+1144
+00:49:04,880 --> 00:49:08,079
+left subtree of the root
+
+1145
+00:49:06,400 --> 00:49:09,440
+are less than the root and the root is
+
+1146
+00:49:08,079 --> 00:49:11,520
+less than all the keys in the right
+
+1147
+00:49:09,440 --> 00:49:14,960
+subtree and recursively all the way down
+
+1148
+00:49:11,520 --> 00:49:18,640
+this is something called the
+
+1149
+00:49:14,960 --> 00:49:21,760
+binary search tree property bst property
+
+1150
+00:49:18,640 --> 00:49:22,800
+these here we're calling them binary
+
+1151
+00:49:21,760 --> 00:49:25,599
+tree
+
+1152
+00:49:22,800 --> 00:49:27,280
+sets or set binary trees but they're
+
+1153
+00:49:25,599 --> 00:49:28,640
+also known in the literature as binary
+
+1154
+00:49:27,280 --> 00:49:29,280
+search trees term you may have heard
+
+1155
+00:49:28,640 --> 00:49:30,800
+before
+
+1156
+00:49:29,280 --> 00:49:32,480
+so this is a special case of what we're
+
+1157
+00:49:30,800 --> 00:49:33,359
+doing where we're storing the keys in
+
+1158
+00:49:32,480 --> 00:49:34,960
+order
+
+1159
+00:49:33,359 --> 00:49:37,760
+and then if i want to search for a key
+
+1160
+00:49:34,960 --> 00:49:40,000
+like uh 13
+
+1161
+00:49:37,760 --> 00:49:40,960
+i compare that key with the root i see
+
+1162
+00:49:40,000 --> 00:49:43,520
+oh it's not
+
+1163
+00:49:40,960 --> 00:49:44,000
+equal and it's to the left because it's
+
+1164
+00:49:43,520 --> 00:49:47,760
+less than
+
+1165
+00:49:44,000 --> 00:49:48,480
+17. so 13 is left of here 13 is right of
+
+1166
+00:49:47,760 --> 00:49:51,599
+7
+
+1167
+00:49:48,480 --> 00:49:54,319
+13 is right of 12 and so i know that
+
+1168
+00:49:51,599 --> 00:49:55,760
+this is where 13 would belong
+
+1169
+00:49:54,319 --> 00:49:58,559
+but there's no right child there and so
+
+1170
+00:49:55,760 --> 00:50:01,359
+i know in find i just returned nothing
+
+1171
+00:49:58,559 --> 00:50:03,440
+if i was doing find previous i would
+
+1172
+00:50:01,359 --> 00:50:05,760
+return this note
+
+1173
+00:50:03,440 --> 00:50:08,160
+because i have tried to go to the right
+
+1174
+00:50:05,760 --> 00:50:09,599
+the last time before i fell off the tree
+
+1175
+00:50:08,160 --> 00:50:12,000
+i was trying to go to the right and
+
+1176
+00:50:09,599 --> 00:50:13,760
+therefore that last note i had was the
+
+1177
+00:50:12,000 --> 00:50:15,680
+previous item if i was trying to define
+
+1178
+00:50:13,760 --> 00:50:18,160
+next what would i do i would just take
+
+1179
+00:50:15,680 --> 00:50:20,000
+this node and compute its successor
+
+1180
+00:50:18,160 --> 00:50:21,680
+which we already know how to do and that
+
+1181
+00:50:20,000 --> 00:50:24,000
+happens to be the root
+
+1182
+00:50:21,680 --> 00:50:25,520
+okay so now i can do these inexact
+
+1183
+00:50:24,000 --> 00:50:26,720
+searches when i do find previous and
+
+1184
+00:50:25,520 --> 00:50:28,480
+find next
+
+1185
+00:50:26,720 --> 00:50:29,839
+when i fall off the tree i find either
+
+1186
+00:50:28,480 --> 00:50:31,520
+the previous or the next
+
+1187
+00:50:29,839 --> 00:50:32,960
+and then with predecessor or successor i
+
+1188
+00:50:31,520 --> 00:50:36,079
+can find the other one
+
+1189
+00:50:32,960 --> 00:50:38,000
+okay so that's how we can do find and
+
+1190
+00:50:36,079 --> 00:50:42,800
+find previous
+
+1191
+00:50:38,000 --> 00:50:46,160
+and find next to do
+
+1192
+00:50:42,800 --> 00:50:47,119
+uh sequences we need a little bit more
+
+1193
+00:50:46,160 --> 00:50:55,839
+work
+
+1194
+00:50:47,119 --> 00:50:55,839
+we'll do that next time
+
+1195
+00:50:57,760 --> 00:50:59,839
+you
+

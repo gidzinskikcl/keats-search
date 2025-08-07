@@ -1,0 +1,247 @@
+{
+  "id": "euO8bqSW_Ow",
+  "title": "19. Leiserchess Codewalk",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Helen Xu\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nThis lecture is an introduction to Leiserchess and Project 4 of the course. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4362,
+  "view_count": 4914,
+  "tags": [
+    "leiserchess",
+    "elo ratings",
+    "game tree search",
+    "min-max search",
+    "alpha beta pruning",
+    "search optimizations"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=euO8bqSW_Ow",
+  "thumbnail": "https://i.ytimg.com/vi_webp/euO8bqSW_Ow/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 100.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 100.0,
+      "title": "Leiserchess Board Game",
+      "end_time": 135.0
+    },
+    {
+      "start_time": 135.0,
+      "title": "General Gameplay",
+      "end_time": 167.0
+    },
+    {
+      "start_time": 167.0,
+      "title": "How to Move",
+      "end_time": 180.0
+    },
+    {
+      "start_time": 180.0,
+      "title": "Basic Moves",
+      "end_time": 213.0
+    },
+    {
+      "start_time": 213.0,
+      "title": "Swap Moves",
+      "end_time": 239.0
+    },
+    {
+      "start_time": 239.0,
+      "title": "Ko Rule",
+      "end_time": 281.0
+    },
+    {
+      "start_time": 281.0,
+      "title": "Draws",
+      "end_time": 296.0
+    },
+    {
+      "start_time": 296.0,
+      "title": "Time Control",
+      "end_time": 412.0
+    },
+    {
+      "start_time": 412.0,
+      "title": "Leiserchess Tactics",
+      "end_time": 719.0
+    },
+    {
+      "start_time": 719.0,
+      "title": "Algebraic Notation for Games",
+      "end_time": 823.0
+    },
+    {
+      "start_time": 823.0,
+      "title": "Leiserchess Scrimmage Server",
+      "end_time": 934.0
+    },
+    {
+      "start_time": 934.0,
+      "title": "Cloud Autotester",
+      "end_time": 1077.0
+    },
+    {
+      "start_time": 1077.0,
+      "title": "README",
+      "end_time": 1153.0
+    },
+    {
+      "start_time": 1153.0,
+      "title": "Java Autotester Configuration",
+      "end_time": 1191.0
+    },
+    {
+      "start_time": 1191.0,
+      "title": "Universal Chess Interface (UCI)",
+      "end_time": 1221.0
+    },
+    {
+      "start_time": 1221.0,
+      "title": "Elo Ratings",
+      "end_time": 1285.0
+    },
+    {
+      "start_time": 1285.0,
+      "title": "Webgui",
+      "end_time": 1318.0
+    },
+    {
+      "start_time": 1318.0,
+      "title": "Board Representation",
+      "end_time": 1395.0
+    },
+    {
+      "start_time": 1395.0,
+      "title": "Move Representation",
+      "end_time": 1442.0
+    },
+    {
+      "start_time": 1442.0,
+      "title": "Move Generation",
+      "end_time": 1466.0
+    },
+    {
+      "start_time": 1466.0,
+      "title": "Perft",
+      "end_time": 1507.0
+    },
+    {
+      "start_time": 1507.0,
+      "title": "Static Evaluation",
+      "end_time": 1538.0
+    },
+    {
+      "start_time": 1538.0,
+      "title": "King Heuristics",
+      "end_time": 1561.0
+    },
+    {
+      "start_time": 1561.0,
+      "title": "Pawn Heuristics",
+      "end_time": 1579.0
+    },
+    {
+      "start_time": 1579.0,
+      "title": "Distance Heuristics",
+      "end_time": 1618.0
+    },
+    {
+      "start_time": 1618.0,
+      "title": "Game Search Trees",
+      "end_time": 1688.0
+    },
+    {
+      "start_time": 1688.0,
+      "title": "Quiescence Search",
+      "end_time": 1731.0
+    },
+    {
+      "start_time": 1731.0,
+      "title": "Higher Depth Search = Better Al",
+      "end_time": 1753.0
+    },
+    {
+      "start_time": 1753.0,
+      "title": "Min-Max Search",
+      "end_time": 1798.0
+    },
+    {
+      "start_time": 1798.0,
+      "title": "Alpha-Beta Strategy",
+      "end_time": 1955.0
+    },
+    {
+      "start_time": 1955.0,
+      "title": "Alpha-Beta Analysis",
+      "end_time": 2002.0
+    },
+    {
+      "start_time": 2002.0,
+      "title": "Code for Alpha-Beta Pruning",
+      "end_time": 2545.0
+    },
+    {
+      "start_time": 2545.0,
+      "title": "Principal Variation Search Pruning",
+      "end_time": 2720.0
+    },
+    {
+      "start_time": 2720.0,
+      "title": "Move Ordering in Search",
+      "end_time": 2769.0
+    },
+    {
+      "start_time": 2769.0,
+      "title": "Transposition Table",
+      "end_time": 2794.0
+    },
+    {
+      "start_time": 2794.0,
+      "title": "Zobrist Hashing",
+      "end_time": 2837.0
+    },
+    {
+      "start_time": 2837.0,
+      "title": "Killer-Move Table",
+      "end_time": 2873.0
+    },
+    {
+      "start_time": 2873.0,
+      "title": "Best-Move Table",
+      "end_time": 2925.0
+    },
+    {
+      "start_time": 2925.0,
+      "title": "Futility Pruning",
+      "end_time": 2951.0
+    },
+    {
+      "start_time": 2951.0,
+      "title": "Late-Move Reduction",
+      "end_time": 2970.0
+    },
+    {
+      "start_time": 2970.0,
+      "title": "Opening Book",
+      "end_time": 3014.0
+    },
+    {
+      "start_time": 3014.0,
+      "title": "Endgame Database",
+      "end_time": 3049.0
+    },
+    {
+      "start_time": 3049.0,
+      "title": "Chess Programming",
+      "end_time": 3063.0
+    },
+    {
+      "start_time": 3063.0,
+      "title": "General Guidelines",
+      "end_time": 4362
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/euO8bqSW_Ow.en-j3PyPqV-e1s.srt"
+}

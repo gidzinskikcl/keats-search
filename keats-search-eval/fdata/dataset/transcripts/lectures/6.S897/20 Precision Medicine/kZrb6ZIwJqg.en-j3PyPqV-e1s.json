@@ -1,0 +1,43 @@
+{
+  "id": "kZrb6ZIwJqg",
+  "title": "20. Precision Medicine",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits gives an introduction to disease subtyping and discusses collecting genome data, precision medicine modality space (PMMS), genotypes and phenotypes, and the history of genetics and genome sequencing. He also discusses the Framingham study.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 5090,
+  "view_count": 17285,
+  "tags": [
+    "disease subtyping",
+    "genome",
+    "pmms",
+    "precision medicine modality space",
+    "central dogma",
+    "GWAS",
+    "PheWAS"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=kZrb6ZIwJqg",
+  "thumbnail": "https://i.ytimg.com/vi_webp/kZrb6ZIwJqg/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 632.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 632.0,
+      "title": "Precision Medicine Modality Space (PMMS)",
+      "end_time": 2251.0
+    },
+    {
+      "start_time": 2251.0,
+      "title": "Early Efforts to Characterize Disease Subtypes using Gene Expression Microarrays",
+      "end_time": 2424.0
+    },
+    {
+      "start_time": 2424.0,
+      "title": "Typical Expression Microarray Experiment",
+      "end_time": 5090
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/kZrb6ZIwJqg.en-j3PyPqV-e1s.srt"
+}

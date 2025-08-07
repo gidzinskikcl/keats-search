@@ -1,0 +1,47 @@
+{
+  "id": "EmSmaW-ud6A",
+  "title": "14. APSP and Johnson",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis lecture focuses on solving any all-pairs shortest paths (APSP) in weighted graphs. Johnson's algorithm is introduced.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3413,
+  "view_count": 18519,
+  "tags": [
+    "all-pairs shortest paths, apsp, non-weighted weights, Johnson's algorithm, signed APSP"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=EmSmaW-ud6A",
+  "thumbnail": "https://i.ytimg.com/vi/EmSmaW-ud6A/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGUgZShlMA8=&rs=AOn4CLAGktirLcebXdHbKfR6xucjSHZ1DQ",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 95.0
+    },
+    {
+      "start_time": 95.0,
+      "title": "Weighted Graph",
+      "end_time": 165.0
+    },
+    {
+      "start_time": 165.0,
+      "title": "Negative Weight",
+      "end_time": 835.0
+    },
+    {
+      "start_time": 835.0,
+      "title": "Reweight Edges",
+      "end_time": 1667.0
+    },
+    {
+      "start_time": 1667.0,
+      "title": "Proof",
+      "end_time": 2827.0
+    },
+    {
+      "start_time": 2827.0,
+      "title": "Johnson Algorithm",
+      "end_time": 3413
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/EmSmaW-ud6A.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "ZA-tUyM_y7s",
+  "title": "1. Algorithms and Computation",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThe goal of this introductions to algorithms class is to teach you to solve computation problems and communication that your solutions are correct and efficient. Models of computation, data structures, and algorithms are introduced.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 2738,
+  "view_count": 1682710,
+  "tags": [
+    "algorithm, introduction to algorithms, correctness, induction, computation, data structures"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=ZA-tUyM_y7s",
+  "thumbnail": "https://i.ytimg.com/vi/ZA-tUyM_y7s/sddefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 55.0
+    },
+    {
+      "start_time": 55.0,
+      "title": "Course Content",
+      "end_time": 207.0
+    },
+    {
+      "start_time": 207.0,
+      "title": "What is a Problem",
+      "end_time": 515.0
+    },
+    {
+      "start_time": 515.0,
+      "title": "What is an Algorithm",
+      "end_time": 851.0
+    },
+    {
+      "start_time": 851.0,
+      "title": "Definition of Function",
+      "end_time": 1036.0
+    },
+    {
+      "start_time": 1036.0,
+      "title": "Inductive Proof",
+      "end_time": 1527.0
+    },
+    {
+      "start_time": 1527.0,
+      "title": "Efficiency",
+      "end_time": 2337.0
+    },
+    {
+      "start_time": 2337.0,
+      "title": "Memory Addresses",
+      "end_time": 2460.0
+    },
+    {
+      "start_time": 2460.0,
+      "title": "Limitations",
+      "end_time": 2497.0
+    },
+    {
+      "start_time": 2497.0,
+      "title": "Operations",
+      "end_time": 2548.0
+    },
+    {
+      "start_time": 2548.0,
+      "title": "Data Structures",
+      "end_time": 2738
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/ZA-tUyM_y7s.en-j3PyPqV-e1s.srt"
+}

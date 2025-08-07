@@ -1,0 +1,115 @@
+{
+  "id": "6wUD_gp5WeE",
+  "title": "5. Random Walks",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag discusses how to build simulations and plot graphs in Python.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2960,
+  "view_count": 186903,
+  "tags": [
+    "building simulations",
+    "drunk walk",
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pylab",
+    "python",
+    "plotting",
+    "graphing styles"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=6wUD_gp5WeE",
+  "thumbnail": "https://i.ytimg.com/vi/6wUD_gp5WeE/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 143.0
+    },
+    {
+      "start_time": 143.0,
+      "title": "Why Random Walks?",
+      "end_time": 189.0
+    },
+    {
+      "start_time": 189.0,
+      "title": "Drunkard's Walk",
+      "end_time": 315.0
+    },
+    {
+      "start_time": 315.0,
+      "title": "Possible Distances After Two Steps",
+      "end_time": 447.0
+    },
+    {
+      "start_time": 447.0,
+      "title": "Class Location, part 1",
+      "end_time": 558.0
+    },
+    {
+      "start_time": 558.0,
+      "title": "Class Drunk",
+      "end_time": 599.0
+    },
+    {
+      "start_time": 599.0,
+      "title": "Two Subclasses of Drunk",
+      "end_time": 656.0
+    },
+    {
+      "start_time": 656.0,
+      "title": "Two kinds of Drunks",
+      "end_time": 775.0
+    },
+    {
+      "start_time": 775.0,
+      "title": "Class Field, part 1",
+      "end_time": 828.0
+    },
+    {
+      "start_time": 828.0,
+      "title": "Class Field, continued",
+      "end_time": 936.0
+    },
+    {
+      "start_time": 936.0,
+      "title": "Simulating a Single Walk",
+      "end_time": 1006.0
+    },
+    {
+      "start_time": 1006.0,
+      "title": "Simulating Multiple Walks",
+      "end_time": 1320.0
+    },
+    {
+      "start_time": 1320.0,
+      "title": "Sanity Check",
+      "end_time": 1526.0
+    },
+    {
+      "start_time": 1526.0,
+      "title": "And the Masochistic Drunk?",
+      "end_time": 1930.0
+    },
+    {
+      "start_time": 1930.0,
+      "title": "Distance Trends",
+      "end_time": 2088.0
+    },
+    {
+      "start_time": 2088.0,
+      "title": "Ending Locations",
+      "end_time": 2338.0
+    },
+    {
+      "start_time": 2338.0,
+      "title": "A Subclass of Field, part 1",
+      "end_time": 2440.0
+    },
+    {
+      "start_time": 2440.0,
+      "title": "A Subclass of Field, part 2",
+      "end_time": 2960
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/6wUD_gp5WeE.en-qlPKC2UN_YU.srt"
+}

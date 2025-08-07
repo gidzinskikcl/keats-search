@@ -1,0 +1,81 @@
+{
+  "id": "YZ5pOgY5hEE",
+  "title": "16. Reinforcement Learning, Part 1",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Fredrik D. Johansson\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nDr. Johansson covers an overview of treatment policies and potential outcomes, an introduction to reinforcement learning, decision proccesses, reinforcement learning paradigms, and learning from off-policy data.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4627,
+  "view_count": 14066,
+  "tags": [
+    "causal effects",
+    "reinforcement learning",
+    "markov decision process",
+    "dynamic programming",
+    "q-learning"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=YZ5pOgY5hEE",
+  "thumbnail": "https://i.ytimg.com/vi_webp/YZ5pOgY5hEE/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 156.0
+    },
+    {
+      "start_time": 156.0,
+      "title": "Policies",
+      "end_time": 250.0
+    },
+    {
+      "start_time": 250.0,
+      "title": "Sepsis",
+      "end_time": 368.0
+    },
+    {
+      "start_time": 368.0,
+      "title": "Sequential Decision Making",
+      "end_time": 493.0
+    },
+    {
+      "start_time": 493.0,
+      "title": "Decision Space",
+      "end_time": 587.0
+    },
+    {
+      "start_time": 587.0,
+      "title": "Good Outcome",
+      "end_time": 712.0
+    },
+    {
+      "start_time": 712.0,
+      "title": "State of the Game",
+      "end_time": 887.0
+    },
+    {
+      "start_time": 887.0,
+      "title": "Decision Process",
+      "end_time": 2190.0
+    },
+    {
+      "start_time": 2190.0,
+      "title": "ModelBased RL",
+      "end_time": 2324.0
+    },
+    {
+      "start_time": 2324.0,
+      "title": "QLearning",
+      "end_time": 2346.0
+    },
+    {
+      "start_time": 2346.0,
+      "title": "Dynamic Programming",
+      "end_time": 2587.0
+    },
+    {
+      "start_time": 2587.0,
+      "title": "Q Learning",
+      "end_time": 4627
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/YZ5pOgY5hEE.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,632 @@
+[
+  {
+    "query_id": "63",
+    "doc_id": "1VhnDdQsELo.en-j3PyPqV-e1s_7_srt",
+    "prompt_tokens": 598,
+    "completion_tokens": 407,
+    "total_tokens": 1005
+  },
+  {
+    "query_id": "63",
+    "doc_id": "1VhnDdQsELo.en-j3PyPqV-e1s_7_srt",
+    "prompt_tokens": 598,
+    "completion_tokens": 407,
+    "total_tokens": 1005
+  },
+  {
+    "query_id": "63",
+    "doc_id": "fQvg-hh9dUw.en-qlPKC2UN_YU_14_srt",
+    "prompt_tokens": 919,
+    "completion_tokens": 732,
+    "total_tokens": 1651
+  },
+  {
+    "query_id": "289",
+    "doc_id": "b9d60f4ecb325e4648f9cf0379419338_MIT6_0002F16_lec14_21_pdf",
+    "prompt_tokens": 336,
+    "completion_tokens": 124,
+    "total_tokens": 460
+  },
+  {
+    "query_id": "289",
+    "doc_id": "b9d60f4ecb325e4648f9cf0379419338_MIT6_0002F16_lec14_21_pdf",
+    "prompt_tokens": 336,
+    "completion_tokens": 147,
+    "total_tokens": 483
+  },
+  {
+    "query_id": "289",
+    "doc_id": "45e2fd621349cfd7c9faf93a6ba134a3_MIT18_404f20_lec14_8_pdf",
+    "prompt_tokens": 464,
+    "completion_tokens": 254,
+    "total_tokens": 718
+  },
+  {
+    "query_id": "93",
+    "doc_id": "vqFRAWeEcUs.en_8_srt",
+    "prompt_tokens": 3149,
+    "completion_tokens": 2961,
+    "total_tokens": 6110
+  },
+  {
+    "query_id": "93",
+    "doc_id": "vqFRAWeEcUs.en_9_srt",
+    "prompt_tokens": 597,
+    "completion_tokens": 410,
+    "total_tokens": 1007
+  },
+  {
+    "query_id": "93",
+    "doc_id": "5af20311b02eaab959fcdb7ffb5694d3_MIT6_0002F16_lec6_3_pdf",
+    "prompt_tokens": 351,
+    "completion_tokens": 143,
+    "total_tokens": 494
+  },
+  {
+    "query_id": "196",
+    "doc_id": "i9OAOk0CUQE.en_6_srt",
+    "prompt_tokens": 655,
+    "completion_tokens": 459,
+    "total_tokens": 1114
+  },
+  {
+    "query_id": "196",
+    "doc_id": "i9OAOk0CUQE.en_6_srt",
+    "prompt_tokens": 655,
+    "completion_tokens": 459,
+    "total_tokens": 1114
+  },
+  {
+    "query_id": "196",
+    "doc_id": "19a63b4aaa3fd9c75cd1b8e940654f53_MIT6_0002F16_lec13_4_pdf",
+    "prompt_tokens": 412,
+    "completion_tokens": 195,
+    "total_tokens": 607
+  },
+  {
+    "query_id": "291",
+    "doc_id": "V_TulH374hw.en-qlPKC2UN_YU_2_srt",
+    "prompt_tokens": 1214,
+    "completion_tokens": 1026,
+    "total_tokens": 2240
+  },
+  {
+    "query_id": "291",
+    "doc_id": "V_TulH374hw.en-qlPKC2UN_YU_2_srt",
+    "prompt_tokens": 1214,
+    "completion_tokens": 1026,
+    "total_tokens": 2240
+  },
+  {
+    "query_id": "291",
+    "doc_id": "88f789664d3236a64481714fc911d119_MIT18_404f20_lec18_1_pdf",
+    "prompt_tokens": 327,
+    "completion_tokens": 139,
+    "total_tokens": 466
+  },
+  {
+    "query_id": "151",
+    "doc_id": "r4-cftqTcdI.en-j3PyPqV-e1s_8_srt",
+    "prompt_tokens": 771,
+    "completion_tokens": 579,
+    "total_tokens": 1350
+  },
+  {
+    "query_id": "151",
+    "doc_id": "r4-cftqTcdI.en-j3PyPqV-e1s_4_srt",
+    "prompt_tokens": 999,
+    "completion_tokens": 807,
+    "total_tokens": 1806
+  },
+  {
+    "query_id": "151",
+    "doc_id": "367ebcbfde99ec18e14e87b69f564035_MIT6_0002F16_lec12_6_pdf",
+    "prompt_tokens": 343,
+    "completion_tokens": 147,
+    "total_tokens": 490
+  },
+  {
+    "query_id": "75",
+    "doc_id": "18c8cd00b14d48dc5865f3bdc41abd76_MIT18_404f20_lec5_4_pdf",
+    "prompt_tokens": 417,
+    "completion_tokens": 246,
+    "total_tokens": 663
+  },
+  {
+    "query_id": "75",
+    "doc_id": "IycOPFmEQk8.en-j3PyPqV-e1s_7_srt",
+    "prompt_tokens": 1599,
+    "completion_tokens": 1408,
+    "total_tokens": 3007
+  },
+  {
+    "query_id": "75",
+    "doc_id": "4nXw-f6NJ9s.en-j3PyPqV-e1s_8_srt",
+    "prompt_tokens": 1689,
+    "completion_tokens": 1451,
+    "total_tokens": 3140
+  },
+  {
+    "query_id": "16",
+    "doc_id": "1VhnDdQsELo.en-j3PyPqV-e1s_1_srt",
+    "prompt_tokens": 733,
+    "completion_tokens": 542,
+    "total_tokens": 1275
+  },
+  {
+    "query_id": "16",
+    "doc_id": "cT_qwkTigv4.en_1_srt",
+    "prompt_tokens": 1177,
+    "completion_tokens": 986,
+    "total_tokens": 2163
+  },
+  {
+    "query_id": "16",
+    "doc_id": "IycOPFmEQk8.en-j3PyPqV-e1s_15_srt",
+    "prompt_tokens": 1802,
+    "completion_tokens": 1612,
+    "total_tokens": 3414
+  },
+  {
+    "query_id": "37",
+    "doc_id": "7405f6112c8ca7242e1edd9a021c1e63_MIT18_404f20_lec6_10_pdf",
+    "prompt_tokens": 359,
+    "completion_tokens": 173,
+    "total_tokens": 532
+  },
+  {
+    "query_id": "37",
+    "doc_id": "7405f6112c8ca7242e1edd9a021c1e63_MIT18_404f20_lec6_10_pdf",
+    "prompt_tokens": 359,
+    "completion_tokens": 174,
+    "total_tokens": 533
+  },
+  {
+    "query_id": "37",
+    "doc_id": "IycOPFmEQk8.en-j3PyPqV-e1s_11_srt",
+    "prompt_tokens": 1424,
+    "completion_tokens": 1234,
+    "total_tokens": 2658
+  },
+  {
+    "query_id": "188",
+    "doc_id": "IBfWDYSffUU.en-j3PyPqV-e1s_8_srt",
+    "prompt_tokens": 1301,
+    "completion_tokens": 1115,
+    "total_tokens": 2416
+  },
+  {
+    "query_id": "188",
+    "doc_id": "oFVYVzlvk9c.en-j3PyPqV-e1s_10_srt",
+    "prompt_tokens": 875,
+    "completion_tokens": 690,
+    "total_tokens": 1565
+  },
+  {
+    "query_id": "188",
+    "doc_id": "aa05d858752700adcf734b7cdb7a699f_MIT6_0002F16_lec10_51_pdf",
+    "prompt_tokens": 281,
+    "completion_tokens": 84,
+    "total_tokens": 365
+  },
+  {
+    "query_id": "146",
+    "doc_id": "665523227a175e9e9ce26ea8d3e5b51c_MIT6_006S20_lec17_6_pdf",
+    "prompt_tokens": 473,
+    "completion_tokens": 268,
+    "total_tokens": 741
+  },
+  {
+    "query_id": "146",
+    "doc_id": "TDo3r5M1LNo.en-j3PyPqV-e1s_14_srt",
+    "prompt_tokens": 295,
+    "completion_tokens": 103,
+    "total_tokens": 398
+  },
+  {
+    "query_id": "146",
+    "doc_id": "TSI3LR5WZmo.en_2_srt",
+    "prompt_tokens": 2691,
+    "completion_tokens": 2505,
+    "total_tokens": 5196
+  },
+  {
+    "query_id": "85",
+    "doc_id": "7ac944716e076209c3964e073929f42e_MIT18_404f20_lec26_9_pdf",
+    "prompt_tokens": 365,
+    "completion_tokens": 152,
+    "total_tokens": 517
+  },
+  {
+    "query_id": "85",
+    "doc_id": "7ac944716e076209c3964e073929f42e_MIT18_404f20_lec26_9_pdf",
+    "prompt_tokens": 365,
+    "completion_tokens": 161,
+    "total_tokens": 526
+  },
+  {
+    "query_id": "85",
+    "doc_id": "1VhnDdQsELo.en-j3PyPqV-e1s_8_srt",
+    "prompt_tokens": 677,
+    "completion_tokens": 487,
+    "total_tokens": 1164
+  },
+  {
+    "query_id": "77",
+    "doc_id": "a77711ed3d212bf472f3485883a121e0_MIT18_404f20_lec3_5_pdf",
+    "prompt_tokens": 450,
+    "completion_tokens": 268,
+    "total_tokens": 718
+  },
+  {
+    "query_id": "77",
+    "doc_id": "KAySmSEGc9U.en-j3PyPqV-e1s_4_srt",
+    "prompt_tokens": 1245,
+    "completion_tokens": 1051,
+    "total_tokens": 2296
+  },
+  {
+    "query_id": "77",
+    "doc_id": "a77711ed3d212bf472f3485883a121e0_MIT18_404f20_lec3_7_pdf",
+    "prompt_tokens": 535,
+    "completion_tokens": 419,
+    "total_tokens": 954
+  },
+  {
+    "query_id": "321",
+    "doc_id": "5af20311b02eaab959fcdb7ffb5694d3_MIT6_0002F16_lec6_13_pdf",
+    "prompt_tokens": 378,
+    "completion_tokens": 195,
+    "total_tokens": 573
+  },
+  {
+    "query_id": "321",
+    "doc_id": "5af20311b02eaab959fcdb7ffb5694d3_MIT6_0002F16_lec6_13_pdf",
+    "prompt_tokens": 378,
+    "completion_tokens": 194,
+    "total_tokens": 572
+  },
+  {
+    "query_id": "321",
+    "doc_id": "C1lhuz6pZC0.en-qlPKC2UN_YU_5_srt",
+    "prompt_tokens": 1619,
+    "completion_tokens": 1423,
+    "total_tokens": 3042
+  },
+  {
+    "query_id": "179",
+    "doc_id": "NSHizBK9JD8.en-j3PyPqV-e1s_5_srt",
+    "prompt_tokens": 1476,
+    "completion_tokens": 1293,
+    "total_tokens": 2769
+  },
+  {
+    "query_id": "179",
+    "doc_id": "NSHizBK9JD8.en-j3PyPqV-e1s_5_srt",
+    "prompt_tokens": 1476,
+    "completion_tokens": 1293,
+    "total_tokens": 2769
+  },
+  {
+    "query_id": "179",
+    "doc_id": "6wUD_gp5WeE.en-qlPKC2UN_YU_1_srt",
+    "prompt_tokens": 580,
+    "completion_tokens": 395,
+    "total_tokens": 975
+  },
+  {
+    "query_id": "118",
+    "doc_id": "79a07dc1cb47d76dae2ffedc701e3d2b_MIT6_006S20_lec2_3_pdf",
+    "prompt_tokens": 624,
+    "completion_tokens": 189,
+    "total_tokens": 813
+  },
+  {
+    "query_id": "118",
+    "doc_id": "79a07dc1cb47d76dae2ffedc701e3d2b_MIT6_006S20_lec2_3_pdf",
+    "prompt_tokens": 624,
+    "completion_tokens": 171,
+    "total_tokens": 795
+  },
+  {
+    "query_id": "118",
+    "doc_id": "367ebcbfde99ec18e14e87b69f564035_MIT6_0002F16_lec12_15_pdf",
+    "prompt_tokens": 237,
+    "completion_tokens": 42,
+    "total_tokens": 279
+  },
+  {
+    "query_id": "136",
+    "doc_id": "U1JYwHcFfso.en-j3PyPqV-e1s_11_srt",
+    "prompt_tokens": 1378,
+    "completion_tokens": 1190,
+    "total_tokens": 2568
+  },
+  {
+    "query_id": "136",
+    "doc_id": "U1JYwHcFfso.en-j3PyPqV-e1s_12_srt",
+    "prompt_tokens": 504,
+    "completion_tokens": 318,
+    "total_tokens": 822
+  },
+  {
+    "query_id": "136",
+    "doc_id": "9syvZr-9xwk.en-j3PyPqV-e1s_8_srt",
+    "prompt_tokens": 918,
+    "completion_tokens": 729,
+    "total_tokens": 1647
+  },
+  {
+    "query_id": "175",
+    "doc_id": "4nXw-f6NJ9s.en-j3PyPqV-e1s_7_srt",
+    "prompt_tokens": 1113,
+    "completion_tokens": 928,
+    "total_tokens": 2041
+  },
+  {
+    "query_id": "175",
+    "doc_id": "4nXw-f6NJ9s.en-j3PyPqV-e1s_7_srt",
+    "prompt_tokens": 1113,
+    "completion_tokens": 928,
+    "total_tokens": 2041
+  },
+  {
+    "query_id": "175",
+    "doc_id": "02f2ed5e44be5415b2cba8175c924092_MIT6_0002F16_lec8_18_pdf",
+    "prompt_tokens": 242,
+    "completion_tokens": 45,
+    "total_tokens": 287
+  },
+  {
+    "query_id": "244",
+    "doc_id": "69b5b28067ecf1769a6143453d77eba1_MIT6_0002F16_lec3_9_pdf",
+    "prompt_tokens": 710,
+    "completion_tokens": 978,
+    "total_tokens": 1688
+  },
+  {
+    "query_id": "244",
+    "doc_id": "77d2977095e184f22da9bb75faf39535_MIT6_0002F16_lec15_18_pdf",
+    "prompt_tokens": 344,
+    "completion_tokens": 125,
+    "total_tokens": 469
+  },
+  {
+    "query_id": "244",
+    "doc_id": "iZPzBHGDsWI.en-j3PyPqV-e1s_5_srt",
+    "prompt_tokens": 935,
+    "completion_tokens": 749,
+    "total_tokens": 1684
+  },
+  {
+    "query_id": "104",
+    "doc_id": "N32bnUliSzo.en-j3PyPqV-e1s_6_srt",
+    "prompt_tokens": 1294,
+    "completion_tokens": 1103,
+    "total_tokens": 2397
+  },
+  {
+    "query_id": "104",
+    "doc_id": "50cb369d1be3c7fbe0886e318aea13c2_MIT18_404f20_lec22_5_pdf",
+    "prompt_tokens": 547,
+    "completion_tokens": 310,
+    "total_tokens": 857
+  },
+  {
+    "query_id": "104",
+    "doc_id": "7J1HD9rqEB4.en-j3PyPqV-e1s_3_srt",
+    "prompt_tokens": 1259,
+    "completion_tokens": 1071,
+    "total_tokens": 2330
+  },
+  {
+    "query_id": "12",
+    "doc_id": "6Az1gtDRaAU.en-j3PyPqV-e1s_1_srt",
+    "prompt_tokens": 644,
+    "completion_tokens": 456,
+    "total_tokens": 1100
+  },
+  {
+    "query_id": "12",
+    "doc_id": "6Az1gtDRaAU.en-j3PyPqV-e1s_1_srt",
+    "prompt_tokens": 644,
+    "completion_tokens": 456,
+    "total_tokens": 1100
+  },
+  {
+    "query_id": "12",
+    "doc_id": "28461a74f81101874a13d9679a40584d_MIT6_006S20_lec16_3_pdf",
+    "prompt_tokens": 448,
+    "completion_tokens": 231,
+    "total_tokens": 679
+  },
+  {
+    "query_id": "335",
+    "doc_id": "508a9076aebfc7d597dde836255182c7_MIT6_0002F16_lec5_3_pdf",
+    "prompt_tokens": 315,
+    "completion_tokens": 92,
+    "total_tokens": 407
+  },
+  {
+    "query_id": "335",
+    "doc_id": "K2SC-WPdT6k.en-qlPKC2UN_YU_4_srt",
+    "prompt_tokens": 935,
+    "completion_tokens": 748,
+    "total_tokens": 1683
+  },
+  {
+    "query_id": "335",
+    "doc_id": "0a353b26f1c6bd161b28b3f249aa05d1_MIT6_0002F16_lec1_20_pdf",
+    "prompt_tokens": 426,
+    "completion_tokens": 504,
+    "total_tokens": 930
+  },
+  {
+    "query_id": "135",
+    "doc_id": "oS9aPzUNG-s.en-j3PyPqV-e1s_22_srt",
+    "prompt_tokens": 927,
+    "completion_tokens": 742,
+    "total_tokens": 1669
+  },
+  {
+    "query_id": "135",
+    "doc_id": "oS9aPzUNG-s.en-j3PyPqV-e1s_22_srt",
+    "prompt_tokens": 927,
+    "completion_tokens": 742,
+    "total_tokens": 1669
+  },
+  {
+    "query_id": "135",
+    "doc_id": "a22fce6f6824c53dbb79a0da786966a6_MIT18_404f20_lec4_1_pdf",
+    "prompt_tokens": 321,
+    "completion_tokens": 128,
+    "total_tokens": 449
+  },
+  {
+    "query_id": "56",
+    "doc_id": "4MgN6uxd4i4.en-j3PyPqV-e1s_3_srt",
+    "prompt_tokens": 302,
+    "completion_tokens": 112,
+    "total_tokens": 414
+  },
+  {
+    "query_id": "56",
+    "doc_id": "4MgN6uxd4i4.en-j3PyPqV-e1s_3_srt",
+    "prompt_tokens": 302,
+    "completion_tokens": 112,
+    "total_tokens": 414
+  },
+  {
+    "query_id": "56",
+    "doc_id": "Nu8YGneFCWE.en-j3PyPqV-e1s_4_srt",
+    "prompt_tokens": 1389,
+    "completion_tokens": 1206,
+    "total_tokens": 2595
+  },
+  {
+    "query_id": "191",
+    "doc_id": "78a3c3444de1ff837f81e52991c24a86_MIT6_006S20_lec5_2_pdf",
+    "prompt_tokens": 784,
+    "completion_tokens": 635,
+    "total_tokens": 1419
+  },
+  {
+    "query_id": "191",
+    "doc_id": "78a3c3444de1ff837f81e52991c24a86_MIT6_006S20_lec5_2_pdf",
+    "prompt_tokens": 784,
+    "completion_tokens": 635,
+    "total_tokens": 1419
+  },
+  {
+    "query_id": "191",
+    "doc_id": "50cb369d1be3c7fbe0886e318aea13c2_MIT18_404f20_lec22_9_pdf",
+    "prompt_tokens": 531,
+    "completion_tokens": 357,
+    "total_tokens": 888
+  },
+  {
+    "query_id": "210",
+    "doc_id": "aa57a9785adf925bc85c1920f53755a0_MIT6_006S20_lec11_2_pdf",
+    "prompt_tokens": 760,
+    "completion_tokens": 521,
+    "total_tokens": 1281
+  },
+  {
+    "query_id": "210",
+    "doc_id": "f9cVS_URPc0.en-j3PyPqV-e1s_6_srt",
+    "prompt_tokens": 1708,
+    "completion_tokens": 1523,
+    "total_tokens": 3231
+  },
+  {
+    "query_id": "210",
+    "doc_id": "IycOPFmEQk8.en-j3PyPqV-e1s_5_srt",
+    "prompt_tokens": 1346,
+    "completion_tokens": 1156,
+    "total_tokens": 2502
+  },
+  {
+    "query_id": "60",
+    "doc_id": "a77711ed3d212bf472f3485883a121e0_MIT18_404f20_lec3_3_pdf",
+    "prompt_tokens": 403,
+    "completion_tokens": 204,
+    "total_tokens": 607
+  },
+  {
+    "query_id": "60",
+    "doc_id": "a77711ed3d212bf472f3485883a121e0_MIT18_404f20_lec3_3_pdf",
+    "prompt_tokens": 403,
+    "completion_tokens": 90,
+    "total_tokens": 493
+  },
+  {
+    "query_id": "60",
+    "doc_id": "4dFPVJrNLDs.en-j3PyPqV-e1s_11_srt",
+    "prompt_tokens": 648,
+    "completion_tokens": 462,
+    "total_tokens": 1110
+  },
+  {
+    "query_id": "184",
+    "doc_id": "Xnpo1atN-Iw.en-j3PyPqV-e1s_9_srt",
+    "prompt_tokens": 1188,
+    "completion_tokens": 1004,
+    "total_tokens": 2192
+  },
+  {
+    "query_id": "184",
+    "doc_id": "Xnpo1atN-Iw.en-j3PyPqV-e1s_9_srt",
+    "prompt_tokens": 1188,
+    "completion_tokens": 1004,
+    "total_tokens": 2192
+  },
+  {
+    "query_id": "184",
+    "doc_id": "f9cVS_URPc0.en-j3PyPqV-e1s_9_srt",
+    "prompt_tokens": 937,
+    "completion_tokens": 752,
+    "total_tokens": 1689
+  },
+  {
+    "query_id": "200",
+    "doc_id": "CHhwJjR0mZA.en-j3PyPqV-e1s_2_srt",
+    "prompt_tokens": 1444,
+    "completion_tokens": 1258,
+    "total_tokens": 2702
+  },
+  {
+    "query_id": "200",
+    "doc_id": "CHhwJjR0mZA.en-j3PyPqV-e1s_2_srt",
+    "prompt_tokens": 1444,
+    "completion_tokens": 1258,
+    "total_tokens": 2702
+  },
+  {
+    "query_id": "200",
+    "doc_id": "0a353b26f1c6bd161b28b3f249aa05d1_MIT6_0002F16_lec1_10_pdf",
+    "prompt_tokens": 296,
+    "completion_tokens": 151,
+    "total_tokens": 447
+  },
+  {
+    "query_id": "249",
+    "doc_id": "OgO1gpXSUzU.en-j3PyPqV-e1s_11_srt",
+    "prompt_tokens": 612,
+    "completion_tokens": 425,
+    "total_tokens": 1037
+  },
+  {
+    "query_id": "249",
+    "doc_id": "OgO1gpXSUzU.en-j3PyPqV-e1s_11_srt",
+    "prompt_tokens": 612,
+    "completion_tokens": 425,
+    "total_tokens": 1037
+  },
+  {
+    "query_id": "249",
+    "doc_id": "oS9aPzUNG-s.en-j3PyPqV-e1s_5_srt",
+    "prompt_tokens": 600,
+    "completion_tokens": 416,
+    "total_tokens": 1016
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "id": "Td01vFP3uJo",
+  "title": "21. Automating Clinical Work Flows",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits discusses ways of improving medical care and narrowing performance distribution through decision support from local data and change-point detection to monitor rule firings. The Clinical Pathways COWpath study is used as an example.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4827,
+  "view_count": 3487,
+  "tags": [
+    "iterative treatment suggestions",
+    "dynamic linear model",
+    "seasonality",
+    "alerting",
+    "communication"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=Td01vFP3uJo",
+  "thumbnail": "https://i.ytimg.com/vi_webp/Td01vFP3uJo/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 48.0
+    },
+    {
+      "start_time": 48.0,
+      "title": "How to Improve Medical Care, Overall",
+      "end_time": 230.0
+    },
+    {
+      "start_time": 230.0,
+      "title": "Hypothetical Clinician Performance",
+      "end_time": 316.0
+    },
+    {
+      "start_time": 316.0,
+      "title": "Hypothetical Cost Function",
+      "end_time": 923.0
+    },
+    {
+      "start_time": 923.0,
+      "title": "Very High-Risk for Future ASCVD Events",
+      "end_time": 1128.0
+    },
+    {
+      "start_time": 1128.0,
+      "title": "Top-Down vs. Bottom-Up",
+      "end_time": 1473.0
+    },
+    {
+      "start_time": 1473.0,
+      "title": "Typical Care Plans",
+      "end_time": 1642.0
+    },
+    {
+      "start_time": 1642.0,
+      "title": "Mining Clinical Pathways: Representation",
+      "end_time": 1815.0
+    },
+    {
+      "start_time": 1815.0,
+      "title": "Mining Clinical Pathways: Clustering",
+      "end_time": 3214.0
+    },
+    {
+      "start_time": 3214.0,
+      "title": "Lead Screening",
+      "end_time": 3303.0
+    },
+    {
+      "start_time": 3303.0,
+      "title": "Chlamydia Screen",
+      "end_time": 3342.0
+    },
+    {
+      "start_time": 3342.0,
+      "title": "Change-Point Detection to Monitor Rule Firings",
+      "end_time": 3448.0
+    },
+    {
+      "start_time": 3448.0,
+      "title": "Multi-Process Dynamic Linear Model",
+      "end_time": 4827
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/Td01vFP3uJo.en-j3PyPqV-e1s.srt"
+}

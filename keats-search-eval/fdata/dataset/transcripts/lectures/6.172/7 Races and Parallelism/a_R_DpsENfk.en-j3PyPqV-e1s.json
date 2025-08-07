@@ -1,0 +1,162 @@
+{
+  "id": "a_R_DpsENfk",
+  "title": "7. Races and Parallelism",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProfessor Shun discusses races and parallelism, how cilkscale can analyze computation and detect determinancy races, and types of schedulers.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4479,
+  "view_count": 26351,
+  "tags": [
+    "determinancy races",
+    "parallelism",
+    "cilkscale",
+    "scalability",
+    "scheduling theory",
+    "cilk runtime system"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=a_R_DpsENfk",
+  "thumbnail": "https://i.ytimg.com/vi_webp/a_R_DpsENfk/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 61.0
+    },
+    {
+      "start_time": 61.0,
+      "title": "Recall: Basics of Cilk",
+      "end_time": 141.0
+    },
+    {
+      "start_time": 141.0,
+      "title": "Loop Parallelism in Cilk",
+      "end_time": 252.0
+    },
+    {
+      "start_time": 252.0,
+      "title": "Race Conditions",
+      "end_time": 320.0
+    },
+    {
+      "start_time": 320.0,
+      "title": "Determinacy Races",
+      "end_time": 422.0
+    },
+    {
+      "start_time": 422.0,
+      "title": "A Closer Look",
+      "end_time": 469.0
+    },
+    {
+      "start_time": 469.0,
+      "title": "Race Bugs",
+      "end_time": 627.0
+    },
+    {
+      "start_time": 627.0,
+      "title": "Types of Races",
+      "end_time": 770.0
+    },
+    {
+      "start_time": 770.0,
+      "title": "Avoiding Races \u2022 Iterations of a cilk_for should be independent. \u2022 Between a cilk spawn and the corresponding cilk_sync, the code of the spawned child should be independent of the code of the parent, including code executed by additional spawned or called children.",
+      "end_time": 942.0
+    },
+    {
+      "start_time": 942.0,
+      "title": "Cilksan Race Detector",
+      "end_time": 1117.0
+    },
+    {
+      "start_time": 1117.0,
+      "title": "Execution Model",
+      "end_time": 1456.0
+    },
+    {
+      "start_time": 1456.0,
+      "title": "Computation Dag",
+      "end_time": 1595.0
+    },
+    {
+      "start_time": 1595.0,
+      "title": "How Much Parallelism?",
+      "end_time": 1671.0
+    },
+    {
+      "start_time": 1671.0,
+      "title": "Amdahl's \"Law\"",
+      "end_time": 1760.0
+    },
+    {
+      "start_time": 1760.0,
+      "title": "Quantifying Parallelism What is the parallelism of this computation?",
+      "end_time": 1910.0
+    },
+    {
+      "start_time": 1910.0,
+      "title": "Performance Measures",
+      "end_time": 2111.0
+    },
+    {
+      "start_time": 2111.0,
+      "title": "Series Composition",
+      "end_time": 2196.0
+    },
+    {
+      "start_time": 2196.0,
+      "title": "Parallel Composition",
+      "end_time": 2284.0
+    },
+    {
+      "start_time": 2284.0,
+      "title": "Speedup",
+      "end_time": 2448.0
+    },
+    {
+      "start_time": 2448.0,
+      "title": "Example: fib(4)",
+      "end_time": 2574.0
+    },
+    {
+      "start_time": 2574.0,
+      "title": "Cilkscale Scalability Analyzer",
+      "end_time": 2602.0
+    },
+    {
+      "start_time": 2602.0,
+      "title": "Quicksort Analysis",
+      "end_time": 2753.0
+    },
+    {
+      "start_time": 2753.0,
+      "title": "Cilkscale Output",
+      "end_time": 2876.0
+    },
+    {
+      "start_time": 2876.0,
+      "title": "Theoretical Analysis",
+      "end_time": 3120.0
+    },
+    {
+      "start_time": 3120.0,
+      "title": "Interesting Practical* Algorithms",
+      "end_time": 3285.0
+    },
+    {
+      "start_time": 3285.0,
+      "title": "Greedy Scheduling",
+      "end_time": 3417.0
+    },
+    {
+      "start_time": 3417.0,
+      "title": "Analysis of Greedy",
+      "end_time": 3572.0
+    },
+    {
+      "start_time": 3572.0,
+      "title": "Optimality of Greedy",
+      "end_time": 4479
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/a_R_DpsENfk.en-j3PyPqV-e1s.srt"
+}

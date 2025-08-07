@@ -1,0 +1,57 @@
+{
+  "id": "3PzuSPQPEU4",
+  "title": "8. Undecidability",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Showed that natural numbers and real numbers are not the same size to introduce the diagonalization method and used it to prove acceptance problem for TMs is undecidable. Introduced the reducibility method to show that HALT for TMs is undecidable.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4622,
+  "view_count": 50096,
+  "tags": [
+    "diagonalization method, T-recognizable, reducibility method, queue automaton"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=3PzuSPQPEU4",
+  "thumbnail": "https://i.ytimg.com/vi/3PzuSPQPEU4/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 25.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 25.0,
+      "title": "18.404/6.840 Lecture 8",
+      "end_time": 125.0
+    },
+    {
+      "start_time": 125.0,
+      "title": "Recall: Acceptance Problem for TMs",
+      "end_time": 180.0
+    },
+    {
+      "start_time": 180.0,
+      "title": "The Size of Infinity",
+      "end_time": 494.0
+    },
+    {
+      "start_time": 494.0,
+      "title": "Countable Sets",
+      "end_time": 1159.0
+    },
+    {
+      "start_time": 1159.0,
+      "title": "R is Uncountable - Diagonalization",
+      "end_time": 1873.0
+    },
+    {
+      "start_time": 1873.0,
+      "title": "R is Uncountable - Corollaries",
+      "end_time": 2443.0
+    },
+    {
+      "start_time": 2443.0,
+      "title": "ATM is undecidable",
+      "end_time": 4622
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/3PzuSPQPEU4.en-j3PyPqV-e1s.srt"
+}

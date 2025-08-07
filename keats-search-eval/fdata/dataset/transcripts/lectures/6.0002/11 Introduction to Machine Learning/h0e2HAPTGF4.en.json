@@ -1,0 +1,120 @@
+{
+  "id": "h0e2HAPTGF4",
+  "title": "11. Introduction to Machine Learning",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: Eric Grimson\n\nIn this lecture, Prof. Grimson introduces machine learning and shows examples of supervised learning using feature vectors.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3090,
+  "view_count": 1731431,
+  "tags": [
+    "machine learning",
+    "classification method",
+    "Minkowski metric",
+    "supervised learning",
+    "computer modelling",
+    "signal-to-noise",
+    "feature vectors",
+    "classification model",
+    "regression model"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=h0e2HAPTGF4",
+  "thumbnail": "https://i.ytimg.com/vi/h0e2HAPTGF4/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 316.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 316.0,
+      "title": "Machine Learning is Everywhere?",
+      "end_time": 441.0
+    },
+    {
+      "start_time": 441.0,
+      "title": "What Is Machine Learning?",
+      "end_time": 845.0
+    },
+    {
+      "start_time": 845.0,
+      "title": "Basic Paradigm",
+      "end_time": 1064.0
+    },
+    {
+      "start_time": 1064.0,
+      "title": "Similarity Based on Weight",
+      "end_time": 1081.0
+    },
+    {
+      "start_time": 1081.0,
+      "title": "Similarity Based on Height",
+      "end_time": 1306.0
+    },
+    {
+      "start_time": 1306.0,
+      "title": "Clustering using Unlabeled Data",
+      "end_time": 1532.0
+    },
+    {
+      "start_time": 1532.0,
+      "title": "Feature Representation",
+      "end_time": 1793.0
+    },
+    {
+      "start_time": 1793.0,
+      "title": "An Example",
+      "end_time": 2049.0
+    },
+    {
+      "start_time": 2049.0,
+      "title": "Measuring Distance Between Animals",
+      "end_time": 2060.0
+    },
+    {
+      "start_time": 2060.0,
+      "title": "Minkowski Metric",
+      "end_time": 2198.0
+    },
+    {
+      "start_time": 2198.0,
+      "title": "Euclidean Distance Between Animals",
+      "end_time": 2223.0
+    },
+    {
+      "start_time": 2223.0,
+      "title": "Add an Alligator",
+      "end_time": 2336.0
+    },
+    {
+      "start_time": 2336.0,
+      "title": "Using Binary Features",
+      "end_time": 2547.0
+    },
+    {
+      "start_time": 2547.0,
+      "title": "Fitting Three Clusters Unsupervised",
+      "end_time": 2652.0
+    },
+    {
+      "start_time": 2652.0,
+      "title": "Classification approaches",
+      "end_time": 2825.0
+    },
+    {
+      "start_time": 2825.0,
+      "title": "Confusion Matrices (Training Error)",
+      "end_time": 2887.0
+    },
+    {
+      "start_time": 2887.0,
+      "title": "Training Accuracy of Models",
+      "end_time": 2950.0
+    },
+    {
+      "start_time": 2950.0,
+      "title": "Applying Model to Test Data",
+      "end_time": 3090
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/h0e2HAPTGF4.en.srt"
+}

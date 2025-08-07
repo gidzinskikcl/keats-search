@@ -1,0 +1,97 @@
+{
+  "id": "IycOPFmEQk8",
+  "title": "5. CF Pumping Lemma, Turing Machines",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Proved the CFL pumping lemma as a tool for showing that languages are not context free. Defined Turing machines (TMs). Defined TM deciders (halt on all inputs).\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4439,
+  "view_count": 73601,
+  "tags": [
+    "pumping lemma, Turing machine, TM recognizers, TM deciders, T-recognizable, T-decidable"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=IycOPFmEQk8",
+  "thumbnail": "https://i.ytimg.com/vi/IycOPFmEQk8/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 38.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 38.0,
+      "title": "Context-Free Languages",
+      "end_time": 216.0
+    },
+    {
+      "start_time": 216.0,
+      "title": "Proving a Language Is Not Context-Free",
+      "end_time": 273.0
+    },
+    {
+      "start_time": 273.0,
+      "title": "Ambiguous Grammars",
+      "end_time": 309.0
+    },
+    {
+      "start_time": 309.0,
+      "title": "Natural Ambiguity",
+      "end_time": 676.0
+    },
+    {
+      "start_time": 676.0,
+      "title": "Proof Sketch",
+      "end_time": 680.0
+    },
+    {
+      "start_time": 680.0,
+      "title": "Intersection of Context Free and Regular",
+      "end_time": 1119.0
+    },
+    {
+      "start_time": 1119.0,
+      "title": "Proof by Picture",
+      "end_time": 1147.0
+    },
+    {
+      "start_time": 1147.0,
+      "title": "Proof",
+      "end_time": 1521.0
+    },
+    {
+      "start_time": 1521.0,
+      "title": "Cutting and Pasting Argument",
+      "end_time": 2488.0
+    },
+    {
+      "start_time": 2488.0,
+      "title": "Challenge in Applying the Pumping Lemma",
+      "end_time": 2873.0
+    },
+    {
+      "start_time": 2873.0,
+      "title": "Limited Computational Models",
+      "end_time": 2904.0
+    },
+    {
+      "start_time": 2904.0,
+      "title": "The Turing Machine",
+      "end_time": 2931.0
+    },
+    {
+      "start_time": 2931.0,
+      "title": "The Turing Machine Model",
+      "end_time": 3707.0
+    },
+    {
+      "start_time": 3707.0,
+      "title": "Transition Function",
+      "end_time": 4260.0
+    },
+    {
+      "start_time": 4260.0,
+      "title": "Review",
+      "end_time": 4439
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/IycOPFmEQk8.en-j3PyPqV-e1s.srt"
+}

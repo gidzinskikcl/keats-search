@@ -1,0 +1,76 @@
+{
+  "id": "g5v-NvNoJQQ",
+  "title": "15. Causal Inference, Part 2",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nThis is the 2020 version of the lecture delivered via Zoom, due to technical difficulties in the original lecture 15 video. Prof. Sontag discusses a causal inference setting from a causal graphs perspective.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 3736,
+  "view_count": 34163,
+  "tags": [
+    "causal inference",
+    "covariate adjustment",
+    "matching",
+    "propensity score",
+    "inverse propensity weighting"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=g5v-NvNoJQQ",
+  "thumbnail": "https://i.ytimg.com/vi/g5v-NvNoJQQ/sddefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 106.0
+    },
+    {
+      "start_time": 106.0,
+      "title": "Potential Outcomes",
+      "end_time": 205.0
+    },
+    {
+      "start_time": 205.0,
+      "title": "Causal Inference",
+      "end_time": 363.0
+    },
+    {
+      "start_time": 363.0,
+      "title": "Case fatality rates",
+      "end_time": 654.0
+    },
+    {
+      "start_time": 654.0,
+      "title": "Covariate adjustment",
+      "end_time": 822.0
+    },
+    {
+      "start_time": 822.0,
+      "title": "Potential outcome model",
+      "end_time": 1625.0
+    },
+    {
+      "start_time": 1625.0,
+      "title": "Matching",
+      "end_time": 2263.0
+    },
+    {
+      "start_time": 2263.0,
+      "title": "Interpretability",
+      "end_time": 2798.0
+    },
+    {
+      "start_time": 2798.0,
+      "title": "Propensity Score",
+      "end_time": 2893.0
+    },
+    {
+      "start_time": 2893.0,
+      "title": "Estimating Preventive Score",
+      "end_time": 3116.0
+    },
+    {
+      "start_time": 3116.0,
+      "title": "Question",
+      "end_time": 3736
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/g5v-NvNoJQQ.en-j3PyPqV-e1s.srt"
+}

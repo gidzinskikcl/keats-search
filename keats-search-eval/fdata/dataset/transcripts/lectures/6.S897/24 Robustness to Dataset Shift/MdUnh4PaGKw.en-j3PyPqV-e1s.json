@@ -1,0 +1,77 @@
+{
+  "id": "MdUnh4PaGKw",
+  "title": "24. Robustness to Dataset Shift",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nThis lecture is primarily a discussion on things that can go wrong when deploying a machine learning model, even one that may have trained and tested well prior to deployment.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210709",
+  "duration": 4515,
+  "view_count": 15622,
+  "tags": [
+    "adversarial perturbation, transfer learning, linear model, deep model"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=MdUnh4PaGKw",
+  "thumbnail": "https://i.ytimg.com/vi/MdUnh4PaGKw/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGUgXChUMA8=&rs=AOn4CLCMH8iB2sGmDZDDs_063MUC1OFFbA",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 128.0
+    },
+    {
+      "start_time": 128.0,
+      "title": "Data Distribution",
+      "end_time": 330.0
+    },
+    {
+      "start_time": 330.0,
+      "title": "An adversarial perturbation",
+      "end_time": 743.0
+    },
+    {
+      "start_time": 743.0,
+      "title": "An unnatural perturbation",
+      "end_time": 842.0
+    },
+    {
+      "start_time": 842.0,
+      "title": "What do we do",
+      "end_time": 1163.0
+    },
+    {
+      "start_time": 1163.0,
+      "title": "What is Table 1",
+      "end_time": 1473.0
+    },
+    {
+      "start_time": 1473.0,
+      "title": "Data Sheets for Data Sets",
+      "end_time": 1808.0
+    },
+    {
+      "start_time": 1808.0,
+      "title": "Multitask Learning",
+      "end_time": 2168.0
+    },
+    {
+      "start_time": 2168.0,
+      "title": "Electronic Health Record 1",
+      "end_time": 2483.0
+    },
+    {
+      "start_time": 2483.0,
+      "title": "Electronic Health Record 2",
+      "end_time": 2853.0
+    },
+    {
+      "start_time": 2853.0,
+      "title": "Representation Learning",
+      "end_time": 3060.0
+    },
+    {
+      "start_time": 3060.0,
+      "title": "Recurrent Neural Networks",
+      "end_time": 4515
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/MdUnh4PaGKw.en-j3PyPqV-e1s.srt"
+}

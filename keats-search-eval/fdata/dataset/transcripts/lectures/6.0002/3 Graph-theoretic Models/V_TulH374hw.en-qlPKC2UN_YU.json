@@ -1,0 +1,71 @@
+{
+  "id": "V_TulH374hw",
+  "title": "3. Graph-theoretic Models",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: Eric Grimson\n\nProf. Grimson discusses graph models and depth-first and breadth-first search algorithms.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3011,
+  "view_count": 131792,
+  "tags": [
+    "graphs",
+    "trees",
+    "Euler's Model",
+    "digraphs",
+    "adjacency",
+    "shortest path problems",
+    "depth first search",
+    "DFS",
+    "breadth first search",
+    "BFS"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=V_TulH374hw",
+  "thumbnail": "https://i.ytimg.com/vi_webp/V_TulH374hw/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 1156.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 1156.0,
+      "title": "Class Edge",
+      "end_time": 1438.0
+    },
+    {
+      "start_time": 1438.0,
+      "title": "Class Digraph, part 1",
+      "end_time": 1488.0
+    },
+    {
+      "start_time": 1488.0,
+      "title": "Class Digraph, part 2",
+      "end_time": 1687.0
+    },
+    {
+      "start_time": 1687.0,
+      "title": "Class Graph",
+      "end_time": 1911.0
+    },
+    {
+      "start_time": 1911.0,
+      "title": "An Example",
+      "end_time": 2259.0
+    },
+    {
+      "start_time": 2259.0,
+      "title": "Depth First Search (DFS)",
+      "end_time": 2466.0
+    },
+    {
+      "start_time": 2466.0,
+      "title": "Output (Chicago to Boston)",
+      "end_time": 2651.0
+    },
+    {
+      "start_time": 2651.0,
+      "title": "Breadth First Search",
+      "end_time": 3011
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/V_TulH374hw.en-qlPKC2UN_YU.srt"
+}

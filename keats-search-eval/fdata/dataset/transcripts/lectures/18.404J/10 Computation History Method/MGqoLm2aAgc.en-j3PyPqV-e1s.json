@@ -1,0 +1,57 @@
+{
+  "id": "MGqoLm2aAgc",
+  "title": "10. Computation History Method",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Defined configurations and computation histories. Gave the computation history method to prove undecidability. Showed that acceptance problem for LBA is decidable; emptiness problem for LBA, PCP, and ALL for CFG are undecidable.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4901,
+  "view_count": 22050,
+  "tags": [
+    "computation history method, undecidability, decidable, undecidable"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=MGqoLm2aAgc",
+  "thumbnail": "https://i.ytimg.com/vi/MGqoLm2aAgc/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 120.0
+    },
+    {
+      "start_time": 120.0,
+      "title": "Proof of undecidable problems",
+      "end_time": 189.0
+    },
+    {
+      "start_time": 189.0,
+      "title": "lberts 10th problem",
+      "end_time": 887.0
+    },
+    {
+      "start_time": 887.0,
+      "title": "Checkin",
+      "end_time": 1052.0
+    },
+    {
+      "start_time": 1052.0,
+      "title": "Configuration",
+      "end_time": 1362.0
+    },
+    {
+      "start_time": 1362.0,
+      "title": "Computation History",
+      "end_time": 1701.0
+    },
+    {
+      "start_time": 1701.0,
+      "title": "Linearly Bounded Automata",
+      "end_time": 2090.0
+    },
+    {
+      "start_time": 2090.0,
+      "title": "Computation History Method",
+      "end_time": 4901
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/MGqoLm2aAgc.en-j3PyPqV-e1s.srt"
+}

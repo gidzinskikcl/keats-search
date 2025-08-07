@@ -1,0 +1,57 @@
+{
+  "id": "yYWyLZrdRRI",
+  "title": "18. Disease Progression Modeling and Subtyping, Part 1",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: David Sontag\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Sontag discusses aspects of disease progression modeling, including staging, subtyping, and multi-task and unsupervised learning. The goals are to determine the patient\u2019s place in the disease trajectory and how treatment may affect progression.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4870,
+  "view_count": 5675,
+  "tags": [
+    "disease progress",
+    "subtype",
+    "multi-task learning",
+    "prognosis",
+    "unsupervised learning",
+    "k-means clustering"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=yYWyLZrdRRI",
+  "thumbnail": "https://i.ytimg.com/vi_webp/yYWyLZrdRRI/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 1020.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 1020.0,
+      "title": "Predicting disease progression in Alzheimer's disease",
+      "end_time": 1664.0
+    },
+    {
+      "start_time": 1664.0,
+      "title": "Multi-task learning",
+      "end_time": 2954.0
+    },
+    {
+      "start_time": 2954.0,
+      "title": "Features",
+      "end_time": 2997.0
+    },
+    {
+      "start_time": 2997.0,
+      "title": "Results (averaged over 5 time points)",
+      "end_time": 3147.0
+    },
+    {
+      "start_time": 3147.0,
+      "title": "Feature importance varies by time",
+      "end_time": 3567.0
+    },
+    {
+      "start_time": 3567.0,
+      "title": "Can we use an unsupervised approach?",
+      "end_time": 4870
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/yYWyLZrdRRI.en-j3PyPqV-e1s.srt"
+}

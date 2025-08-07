@@ -1,0 +1,67 @@
+{
+  "id": "5cF5Bgv59Sc",
+  "title": "11. Weighted Shortest Paths",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Jason Ku\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nThis lecture discusses weighted graphs and weighted paths. This prepares for the next four lectures, which are on algorithms to find shortest-path weights in weighted graphs. \n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3452,
+  "view_count": 33409,
+  "tags": [
+    "weighted graph, shortest-paths tree, DAG, topological sort, connected components"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=5cF5Bgv59Sc",
+  "thumbnail": "https://i.ytimg.com/vi/5cF5Bgv59Sc/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 125.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 125.0,
+      "title": "Connected Components",
+      "end_time": 236.0
+    },
+    {
+      "start_time": 236.0,
+      "title": "Example of a Weighted Graph",
+      "end_time": 339.0
+    },
+    {
+      "start_time": 339.0,
+      "title": "Why Do We Care about Adding Weights to Our Graph",
+      "end_time": 1299.0
+    },
+    {
+      "start_time": 1299.0,
+      "title": "Solving Shortest Paths Using Bfs",
+      "end_time": 1374.0
+    },
+    {
+      "start_time": 1374.0,
+      "title": "Linear Time Algorithm for Weighted Single Source Shortest Paths",
+      "end_time": 1648.0
+    },
+    {
+      "start_time": 1648.0,
+      "title": "Dijkstra",
+      "end_time": 2152.0
+    },
+    {
+      "start_time": 2152.0,
+      "title": "Compute Shortest Single Source Shortest Paths in a Dag in Linear Time",
+      "end_time": 2361.0
+    },
+    {
+      "start_time": 2361.0,
+      "title": "Triangle Inequality",
+      "end_time": 2468.0
+    },
+    {
+      "start_time": 2468.0,
+      "title": "The Triangle Inequality",
+      "end_time": 3452
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/5cF5Bgv59Sc.en-j3PyPqV-e1s.srt"
+}

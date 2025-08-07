@@ -1,0 +1,206 @@
+{
+  "id": "L1ung0wil9Y",
+  "title": "4. Assembly Language & Computer Architecture",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Charles Leiserson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Leiserson walks through the stages of code from source code to compilation to machine code to hardware interpretation and, finally, to execution.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4654,
+  "view_count": 773539,
+  "tags": [
+    "assembly",
+    "floating point",
+    "vector hardware",
+    "computer architecture",
+    "instruction set architecture"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=L1ung0wil9Y",
+  "thumbnail": "https://i.ytimg.com/vi_webp/L1ung0wil9Y/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 67.0
+    },
+    {
+      "start_time": 67.0,
+      "title": "Source Code to Execution",
+      "end_time": 122.0
+    },
+    {
+      "start_time": 122.0,
+      "title": "The Four Stages of Compilation",
+      "end_time": 227.0
+    },
+    {
+      "start_time": 227.0,
+      "title": "Source Code to Assembly Code",
+      "end_time": 278.0
+    },
+    {
+      "start_time": 278.0,
+      "title": "Assembly Code to Executable",
+      "end_time": 372.0
+    },
+    {
+      "start_time": 372.0,
+      "title": "Disassembling",
+      "end_time": 426.0
+    },
+    {
+      "start_time": 426.0,
+      "title": "Why Assembly?",
+      "end_time": 627.0
+    },
+    {
+      "start_time": 627.0,
+      "title": "Expectations of Students",
+      "end_time": 728.0
+    },
+    {
+      "start_time": 728.0,
+      "title": "Outline",
+      "end_time": 810.0
+    },
+    {
+      "start_time": 810.0,
+      "title": "The Instruction Set Architecture",
+      "end_time": 1226.0
+    },
+    {
+      "start_time": 1226.0,
+      "title": "x86-64 Instruction Format",
+      "end_time": 1289.0
+    },
+    {
+      "start_time": 1289.0,
+      "title": "AT&T versus Intel Syntax",
+      "end_time": 1381.0
+    },
+    {
+      "start_time": 1381.0,
+      "title": "Common x86-64 Opcodes",
+      "end_time": 1696.0
+    },
+    {
+      "start_time": 1696.0,
+      "title": "x86-64 Data Types",
+      "end_time": 1915.0
+    },
+    {
+      "start_time": 1915.0,
+      "title": "Conditional Operations",
+      "end_time": 2032.0
+    },
+    {
+      "start_time": 2032.0,
+      "title": "Condition Codes",
+      "end_time": 2158.0
+    },
+    {
+      "start_time": 2158.0,
+      "title": "x86-64 Direct Addressing Modes",
+      "end_time": 2383.0
+    },
+    {
+      "start_time": 2383.0,
+      "title": "x86-64 Indirect Addressing Modes",
+      "end_time": 2530.0
+    },
+    {
+      "start_time": 2530.0,
+      "title": "Jump Instructions",
+      "end_time": 2594.0
+    },
+    {
+      "start_time": 2594.0,
+      "title": "Assembly Idiom 1",
+      "end_time": 2646.0
+    },
+    {
+      "start_time": 2646.0,
+      "title": "Assembly Idiom 2",
+      "end_time": 2766.0
+    },
+    {
+      "start_time": 2766.0,
+      "title": "Assembly Idiom 3",
+      "end_time": 2909.0
+    },
+    {
+      "start_time": 2909.0,
+      "title": "Floating-Point Instruction Sets",
+      "end_time": 2985.0
+    },
+    {
+      "start_time": 2985.0,
+      "title": "SSE for Scalar Floating-Point",
+      "end_time": 3019.0
+    },
+    {
+      "start_time": 3019.0,
+      "title": "SSE Opcode Suffixes",
+      "end_time": 3054.0
+    },
+    {
+      "start_time": 3054.0,
+      "title": "Vector Hardware",
+      "end_time": 3081.0
+    },
+    {
+      "start_time": 3081.0,
+      "title": "Vector Unit",
+      "end_time": 3153.0
+    },
+    {
+      "start_time": 3153.0,
+      "title": "Vector Instructions",
+      "end_time": 3241.0
+    },
+    {
+      "start_time": 3241.0,
+      "title": "Vector-Instruction Sets",
+      "end_time": 3260.0
+    },
+    {
+      "start_time": 3260.0,
+      "title": "SSE Versus AVX and AVX2",
+      "end_time": 3296.0
+    },
+    {
+      "start_time": 3296.0,
+      "title": "SSE and AVX Vector Opcodes",
+      "end_time": 3358.0
+    },
+    {
+      "start_time": 3358.0,
+      "title": "Vector-Register Aliasing",
+      "end_time": 3434.0
+    },
+    {
+      "start_time": 3434.0,
+      "title": "A Simple 5-Stage Processor",
+      "end_time": 3467.0
+    },
+    {
+      "start_time": 3467.0,
+      "title": "Block Diagram of 5-Stage Processor",
+      "end_time": 3515.0
+    },
+    {
+      "start_time": 3515.0,
+      "title": "Intel Haswell Microarchitecture",
+      "end_time": 3548.0
+    },
+    {
+      "start_time": 3548.0,
+      "title": "Bridging the Gap",
+      "end_time": 3578.0
+    },
+    {
+      "start_time": 3578.0,
+      "title": "Architectural Improvements",
+      "end_time": 4654
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/L1ung0wil9Y.en-j3PyPqV-e1s.srt"
+}

@@ -19,7 +19,7 @@ class PrecisionAtK:
         if not top_k_docs:
             return 0.0
 
-        query_relevance = relevant[int(query_id)]
+        query_relevance = relevant[query_id]
 
         y_true = [
             1 if query_relevance.get(doc.doc_id, 0) > 0 else 0 for doc in top_k_docs
@@ -45,7 +45,7 @@ class MRRAtK:
     ) -> float:
         top_k_docs = retrieved_docs[: self.k]
 
-        query_relevance = relevant[int(query_id)]
+        query_relevance = relevant[query_id]
 
         for rank, doc in enumerate(top_k_docs, start=1):
             if query_relevance.get(doc.doc_id, 0) > 0:
@@ -70,7 +70,7 @@ class NDCGAtK:
         if not top_k_docs:
             return 0.0
 
-        query_relevance = relevant[int(query_id)]
+        query_relevance = relevant[query_id]
 
         y_true = [query_relevance.get(doc.doc_id, 0) for doc in top_k_docs]
         y_score = [1.0] * len(y_true)

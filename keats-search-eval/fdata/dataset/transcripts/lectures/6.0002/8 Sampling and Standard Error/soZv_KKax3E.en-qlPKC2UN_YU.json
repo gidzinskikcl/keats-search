@@ -1,0 +1,98 @@
+{
+  "id": "soZv_KKax3E",
+  "title": "8. Sampling and Standard Error",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag discusses sampling and how to approach and analyze real data.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2805,
+  "view_count": 83786,
+  "tags": [
+    "empirical rule",
+    "simulations",
+    "real sampling",
+    "polls",
+    "inferential statistics",
+    "confidence interval",
+    "probability sampling",
+    "simple random sampling",
+    "stratified sampling",
+    "standard deviation",
+    "error bar",
+    "population"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=soZv_KKax3E",
+  "thumbnail": "https://i.ytimg.com/vi_webp/soZv_KKax3E/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 179.0
+    },
+    {
+      "start_time": 179.0,
+      "title": "Probability Sampling",
+      "end_time": 236.0
+    },
+    {
+      "start_time": 236.0,
+      "title": "Stratified Sampling",
+      "end_time": 372.0
+    },
+    {
+      "start_time": 372.0,
+      "title": "Using Sampling to Estimate Temperatures",
+      "end_time": 608.0
+    },
+    {
+      "start_time": 608.0,
+      "title": "Histogram of Random Sample of Size 100",
+      "end_time": 1072.0
+    },
+    {
+      "start_time": 1072.0,
+      "title": "Error Bars, a Digression",
+      "end_time": 1204.0
+    },
+    {
+      "start_time": 1204.0,
+      "title": "Let's Look at Error Bars for Temperatures",
+      "end_time": 1280.0
+    },
+    {
+      "start_time": 1280.0,
+      "title": "Sample Size and Standard Deviation",
+      "end_time": 1507.0
+    },
+    {
+      "start_time": 1507.0,
+      "title": "Recall Central Limit Theorem",
+      "end_time": 1614.0
+    },
+    {
+      "start_time": 1614.0,
+      "title": "Testing the SEM",
+      "end_time": 1689.0
+    },
+    {
+      "start_time": 1689.0,
+      "title": "Standard Error of the Mean",
+      "end_time": 1954.0
+    },
+    {
+      "start_time": 1954.0,
+      "title": "Sample SD vs. Population SD",
+      "end_time": 2177.0
+    },
+    {
+      "start_time": 2177.0,
+      "title": "Three Different Distributions",
+      "end_time": 2230.0
+    },
+    {
+      "start_time": 2230.0,
+      "title": "Does Distribution Matter?",
+      "end_time": 2805
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/soZv_KKax3E.en-qlPKC2UN_YU.srt"
+}

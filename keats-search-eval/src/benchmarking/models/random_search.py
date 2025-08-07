@@ -16,18 +16,12 @@ class RandomSearchEngine(search_model.SearchModel):
 
         return [
             schemas.DocumentSchema(
-                doc_id=doc["documentId"],
+                id=doc["id"],
+                doc_id=doc["doc_id"],
                 content=doc["content"],
-                title=doc.get("title", ""),
-                timestamp=schemas.Timestamp(
-                    start=_parse_time(doc.get("start", "00:00:00")),
-                    end=_parse_time(doc.get("end", "00:01:00")),
-                ),
-                pageNumber=doc.get("slideNumber", 0),
-                keywords=doc.get("keywords", []),
-                doc_type=self._get_type(doc["type"]),
-                speaker=doc.get("speaker", ""),
-                course_name=doc.get("courseName", ""),
+                course_id=doc["course_id"],
+                lecture_id=doc["lecture_id"],
+                doc_type=self._get_type(doc["doc_type"]),
             )
             for doc in raw_docs
         ]
@@ -44,9 +38,9 @@ class RandomSearchEngine(search_model.SearchModel):
         ]
 
     def _get_type(self, value: str) -> str:
-        if value == "SLIDE":
+        if value == "pdf":
             return schemas.MaterialType.SLIDES
-        elif value == "VIDEO_TRANSCRIPT":
+        elif value == "mp4":
             return schemas.MaterialType.TRANSCRIPT
         else:
             raise ValueError(f"Unknown document type: {value}")

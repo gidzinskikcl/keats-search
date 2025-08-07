@@ -1,0 +1,82 @@
+{
+  "id": "-1BnXEwHUok",
+  "title": "4. Stochastic Thinking",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag introduces stochastic processes and basic probability theory.\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 2989,
+  "view_count": 196488,
+  "tags": [
+    "stochastic",
+    "random",
+    "probability",
+    "independent variables",
+    "dependent variables",
+    "simulations"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=-1BnXEwHUok",
+  "thumbnail": "https://i.ytimg.com/vi/-1BnXEwHUok/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 210.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 210.0,
+      "title": "Newtonian Mechanics",
+      "end_time": 484.0
+    },
+    {
+      "start_time": 484.0,
+      "title": "Stochastic Processes",
+      "end_time": 570.0
+    },
+    {
+      "start_time": 570.0,
+      "title": "Implementing a Random Process",
+      "end_time": 956.0
+    },
+    {
+      "start_time": 956.0,
+      "title": "Three Basic Facts About Probability",
+      "end_time": 1000.0
+    },
+    {
+      "start_time": 1000.0,
+      "title": "Independence",
+      "end_time": 1215.0
+    },
+    {
+      "start_time": 1215.0,
+      "title": "A Simulation of Die Rolling",
+      "end_time": 1499.0
+    },
+    {
+      "start_time": 1499.0,
+      "title": "Output of Simulation",
+      "end_time": 1863.0
+    },
+    {
+      "start_time": 1863.0,
+      "title": "The Birthday Problem",
+      "end_time": 2084.0
+    },
+    {
+      "start_time": 2084.0,
+      "title": "Approximating Using a Simulation",
+      "end_time": 2692.0
+    },
+    {
+      "start_time": 2692.0,
+      "title": "Another Win for Simulation",
+      "end_time": 2810.0
+    },
+    {
+      "start_time": 2810.0,
+      "title": "Simulation Models",
+      "end_time": 2989
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/-1BnXEwHUok.en-qlPKC2UN_YU.srt"
+}

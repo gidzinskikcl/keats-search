@@ -1,19 +1,24 @@
 from datetime import timedelta
 import subprocess
 import json
+import os
 
 from schemas import schemas
 from benchmarking.models import search_model
 
 
 class BM25SearchEngine(search_model.SearchModel):
-    JAR_PATH = (
-        "search_engines/lucene-search/target/bm25-search-jar-with-dependencies.jar"
-    )
+    JAR_PATH = "/app/keats-search-eval/src/benchmarking/models/lucene/bm25-search-api-jar-with-dependencies.jar"
 
-    def __init__(self, doc_path: str, k: int):
+    def __init__(
+        self,
+        doc_path: str,
+        k: int,
+        index_dir: str = "/app/keats-search-eval/src/benchmarking/models/lucene/index",
+    ):
         self.doc_path = doc_path
         self.k = k
+        self.index_dir = index_dir
 
     def _parse_timestamp(self, ts: str | None) -> timedelta | None:
         if ts is None:
@@ -22,14 +27,18 @@ class BM25SearchEngine(search_model.SearchModel):
         return timedelta(hours=h, minutes=m, seconds=s)
 
     def search(self, query: schemas.Query) -> list[schemas.SearchResult]:
+        filters_json = "{}"
         proc = subprocess.run(
             [
                 "java",
                 "-jar",
                 self.JAR_PATH,
-                self.doc_path,
+                "--mode",
+                "search",
+                self.index_dir,
                 query.question,
                 str(self.k),
+                filters_json,
             ],
             capture_output=True,
             text=True,
@@ -43,9 +52,6 @@ class BM25SearchEngine(search_model.SearchModel):
         results = []
 
         for d in ranked:
-            start = self._parse_timestamp(d.get("start"))
-            end = self._parse_timestamp(d.get("end"))
-            timestamp = schemas.Timestamp(start=start, end=end)
 
             if d["type"] == "SLIDE":
                 doc_type = schemas.MaterialType.SLIDES
@@ -55,15 +61,12 @@ class BM25SearchEngine(search_model.SearchModel):
                 raise ValueError(f"Unknown document type: {d['type']}")
 
             doc = schemas.DocumentSchema(
+                id=d["iD"],
                 doc_id=d["documentId"],
                 content=d["content"],
-                course_name=d["courseName"],
-                title=d["title"],
-                timestamp=timestamp,
-                pageNumber=d["slideNumber"],
-                keywords=d["keywords"],
+                course_id=d["courseId"],
+                lecture_id=d["lectureId"],
                 doc_type=doc_type,
-                speaker=d["speaker"],
             )
             results.append(schemas.SearchResult(document=doc, score=d.get("score")))
         return results

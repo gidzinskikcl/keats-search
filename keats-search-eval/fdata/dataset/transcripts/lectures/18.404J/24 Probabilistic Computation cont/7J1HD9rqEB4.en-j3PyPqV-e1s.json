@@ -1,0 +1,57 @@
+{
+  "id": "7J1HD9rqEB4",
+  "title": "24. Probabilistic Computation (cont.)",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nQuickly reviewed last lecture. Simulated read-once branching programs by polynomials. Gave a probabilistic polynomial equality testing method. Concluded proving that EQ for ROBP is in BPP.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4996,
+  "view_count": 7231,
+  "tags": [
+    "execution path, branching program, Polynomial Lemma, arithmetization method"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=7J1HD9rqEB4",
+  "thumbnail": "https://i.ytimg.com/vi/7J1HD9rqEB4/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 747.0
+    },
+    {
+      "start_time": 747.0,
+      "title": "Branching Programs",
+      "end_time": 1352.0
+    },
+    {
+      "start_time": 1352.0,
+      "title": "Arithmetization",
+      "end_time": 1697.0
+    },
+    {
+      "start_time": 1697.0,
+      "title": "Nonboolean labeling",
+      "end_time": 2407.0
+    },
+    {
+      "start_time": 2407.0,
+      "title": "corollary",
+      "end_time": 2472.0
+    },
+    {
+      "start_time": 2472.0,
+      "title": "field",
+      "end_time": 2640.0
+    },
+    {
+      "start_time": 2640.0,
+      "title": "schwarz zipline",
+      "end_time": 2862.0
+    },
+    {
+      "start_time": 2862.0,
+      "title": "mod q",
+      "end_time": 4996
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/7J1HD9rqEB4.en-j3PyPqV-e1s.srt"
+}

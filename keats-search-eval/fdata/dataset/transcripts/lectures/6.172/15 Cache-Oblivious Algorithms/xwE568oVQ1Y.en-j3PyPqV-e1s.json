@@ -1,0 +1,125 @@
+{
+  "id": "xwE568oVQ1Y",
+  "title": "15. Cache-Oblivious Algorithms",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Shun discusses cache-oblivious algorithms through a simulation of heat diffusion and a 3-point stencil simulation. Caching and parallelism is discussed in Cillk.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4907,
+  "view_count": 10900,
+  "tags": [
+    "cache-oblivious stencil computations",
+    "caching",
+    "parallelism",
+    "cache-oblivious sorting"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=xwE568oVQ1Y",
+  "thumbnail": "https://i.ytimg.com/vi_webp/xwE568oVQ1Y/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 90.0
+    },
+    {
+      "start_time": 90.0,
+      "title": "Heat Diffusion",
+      "end_time": 189.0
+    },
+    {
+      "start_time": 189.0,
+      "title": "2D Heat-Diffusion Simulation",
+      "end_time": 246.0
+    },
+    {
+      "start_time": 246.0,
+      "title": "1D Heat Equation",
+      "end_time": 291.0
+    },
+    {
+      "start_time": 291.0,
+      "title": "Finite-Difference Approximation",
+      "end_time": 942.0
+    },
+    {
+      "start_time": 942.0,
+      "title": "Recall: Ideal-Cache Model",
+      "end_time": 1174.0
+    },
+    {
+      "start_time": 1174.0,
+      "title": "Cache Behavior of Looping",
+      "end_time": 1402.0
+    },
+    {
+      "start_time": 1402.0,
+      "title": "Cache-Oblivious 3-Point Stencil",
+      "end_time": 1518.0
+    },
+    {
+      "start_time": 1518.0,
+      "title": "Base Case",
+      "end_time": 1661.0
+    },
+    {
+      "start_time": 1661.0,
+      "title": "Time Cut",
+      "end_time": 1701.0
+    },
+    {
+      "start_time": 1701.0,
+      "title": "C Implementation",
+      "end_time": 1876.0
+    },
+    {
+      "start_time": 1876.0,
+      "title": "Cache Analysis",
+      "end_time": 2134.0
+    },
+    {
+      "start_time": 2134.0,
+      "title": "Simulation: 3-Point Stencil",
+      "end_time": 2388.0
+    },
+    {
+      "start_time": 2388.0,
+      "title": "Looping v. Trapezoid on Heat",
+      "end_time": 2673.0
+    },
+    {
+      "start_time": 2673.0,
+      "title": "Impact on Performance",
+      "end_time": 2897.0
+    },
+    {
+      "start_time": 2897.0,
+      "title": "Does this work in parallel?",
+      "end_time": 2931.0
+    },
+    {
+      "start_time": 2931.0,
+      "title": "Parallel Space Cuts upright trapezoid",
+      "end_time": 3024.0
+    },
+    {
+      "start_time": 3024.0,
+      "title": "Parallel Looping v. Parallel Trap.",
+      "end_time": 3151.0
+    },
+    {
+      "start_time": 3151.0,
+      "title": "Performance Comparison",
+      "end_time": 3278.0
+    },
+    {
+      "start_time": 3278.0,
+      "title": "Memory Bandwidth",
+      "end_time": 3539.0
+    },
+    {
+      "start_time": 3539.0,
+      "title": "Impediments to Speedup",
+      "end_time": 4907
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/xwE568oVQ1Y.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,77 @@
+{
+  "id": "1VhnDdQsELo",
+  "title": "14. P and NP, SAT, Poly-Time Reducibility",
+  "description": "MIT 18.404J Theory of Computation, Fall 2020\nInstructor: Michael Sipser\nView the complete course: https://ocw.mit.edu/18-404JF20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY\n\nNOTE: There is no video for Lecture 13 as that was the day for the Midterm Exam.\n\nQuickly reviewed last lecture. Defined NTIME(t(n)) complexity classes and the class NP.  Showed that COMPOSITES is in NP. Discussed the P versus NP question. Proved that acceptance problem for CFG is in P. Introduced the satisfiability problem SAT and polynomial-time reducibility.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 4762,
+  "view_count": 33707,
+  "tags": [
+    "nondeterministic complexity, dynamic programming, decidable, polynomial-time reducible"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=1VhnDdQsELo",
+  "thumbnail": "https://i.ytimg.com/vi/1VhnDdQsELo/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 200.0
+    },
+    {
+      "start_time": 200.0,
+      "title": "Time Complexity",
+      "end_time": 255.0
+    },
+    {
+      "start_time": 255.0,
+      "title": "Hamiltonian Path",
+      "end_time": 450.0
+    },
+    {
+      "start_time": 450.0,
+      "title": "Nondeterministic Complexity",
+      "end_time": 525.0
+    },
+    {
+      "start_time": 525.0,
+      "title": "Nondeterministic Time",
+      "end_time": 840.0
+    },
+    {
+      "start_time": 840.0,
+      "title": "Hamiltonian Path Problem",
+      "end_time": 1760.0
+    },
+    {
+      "start_time": 1760.0,
+      "title": "NP easy verifiability",
+      "end_time": 1923.0
+    },
+    {
+      "start_time": 1923.0,
+      "title": "P vs NP",
+      "end_time": 2090.0
+    },
+    {
+      "start_time": 2090.0,
+      "title": "Complementary problem",
+      "end_time": 2320.0
+    },
+    {
+      "start_time": 2320.0,
+      "title": "Questions",
+      "end_time": 2618.0
+    },
+    {
+      "start_time": 2618.0,
+      "title": "P and NP",
+      "end_time": 3547.0
+    },
+    {
+      "start_time": 3547.0,
+      "title": "Checkin",
+      "end_time": 4762
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/18.404J/1VhnDdQsELo.en-j3PyPqV-e1s.srt"
+}

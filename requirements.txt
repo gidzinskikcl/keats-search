@@ -1,4 +1,5 @@
 black
+faiss-cpu
 fastapi
 matplotlib
 mongomock
@@ -17,9 +18,14 @@ python-pptx
 requests
 scikit-learn
 seaborn
+sentence-transformers
 tabulate
-torch
+tensorflow_hub
+tensorflow_text
 transformers
+torch
+tqdm
 uvicorn[standard]
 yt_dlp
 wandb
+

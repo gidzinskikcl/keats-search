@@ -1,0 +1,118 @@
+{
+  "id": "OgO1gpXSUzU",
+  "title": "6. Monte Carlo Simulation",
+  "description": "MIT 6.0002 Introduction to Computational Thinking and Data Science, Fall 2016\nView the complete course: http://ocw.mit.edu/6-0002F16\nInstructor: John Guttag\n\nProf. Guttag discusses the Monte Carlo simulation, Roulette\n\nLicense: Creative Commons BY-NC-SA\nMore information at http://ocw.mit.edu/terms\nMore courses at http://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20170519",
+  "duration": 3004,
+  "view_count": 2150531,
+  "tags": [
+    "Ulaf",
+    "stochastic",
+    "random",
+    "probability",
+    "independent variables",
+    "dependent variables",
+    "inferential statistics",
+    "random sample",
+    "population",
+    "variance",
+    "standard deviation",
+    "empirical rule"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=OgO1gpXSUzU",
+  "thumbnail": "https://i.ytimg.com/vi/OgO1gpXSUzU/maxresdefault.jpg",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 371.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 371.0,
+      "title": "An Example",
+      "end_time": 463.0
+    },
+    {
+      "start_time": 463.0,
+      "title": "Consider 100 Flips",
+      "end_time": 492.0
+    },
+    {
+      "start_time": 492.0,
+      "title": "100 Flips with a Different Outcome",
+      "end_time": 607.0
+    },
+    {
+      "start_time": 607.0,
+      "title": "Why the Difference in Confidence?",
+      "end_time": 862.0
+    },
+    {
+      "start_time": 862.0,
+      "title": "Monte Carlo Simulation",
+      "end_time": 1134.0
+    },
+    {
+      "start_time": 1134.0,
+      "title": "Law of Large Numbers",
+      "end_time": 1297.0
+    },
+    {
+      "start_time": 1297.0,
+      "title": "Gambler's Fallacy",
+      "end_time": 1390.0
+    },
+    {
+      "start_time": 1390.0,
+      "title": "Regression to the Mean",
+      "end_time": 1735.0
+    },
+    {
+      "start_time": 1735.0,
+      "title": "Two Subclasses of Roulette",
+      "end_time": 1753.0
+    },
+    {
+      "start_time": 1753.0,
+      "title": "Comparing the Games",
+      "end_time": 1929.0
+    },
+    {
+      "start_time": 1929.0,
+      "title": "Quantifying Variation in Data",
+      "end_time": 2247.0
+    },
+    {
+      "start_time": 2247.0,
+      "title": "Confidence Levels and Intervals",
+      "end_time": 2452.0
+    },
+    {
+      "start_time": 2452.0,
+      "title": "Applying Empirical Rule",
+      "end_time": 2510.0
+    },
+    {
+      "start_time": 2510.0,
+      "title": "Results",
+      "end_time": 2673.0
+    },
+    {
+      "start_time": 2673.0,
+      "title": "Assumptions Underlying Empirical Rule",
+      "end_time": 2710.0
+    },
+    {
+      "start_time": 2710.0,
+      "title": "Defining Distributions",
+      "end_time": 2823.0
+    },
+    {
+      "start_time": 2823.0,
+      "title": "Normal Distributions",
+      "end_time": 3004
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.0002/OgO1gpXSUzU.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "MoEaRpLNo9A",
+  "title": "10. Application of Machine Learning to Cardiac Imaging",
+  "description": "00:00MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Rahul Deo\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nGuest lecturer Rahul Deo, the lead investigator of the One Brave Idea project at Brigham and Women's Hospital, talks about how machine learning techniques are being used and can be used further to augment cardiac imaging.\n\nChapters\n00:00 Info about cardiology and heart diseases\n15:22 How medical imaging data are stored\n19:15 Machine learning in cardiac disease\n30:33 Image registration\n35:19 Failure and Disease progression using\n39:04 Machine learning in cardiac disease - what should be focusing on?\n50:09 Are clinicians really a gold standard?\n53:35 Automated Disease Detection - What's the point?\n1:01:20 What's Next  - Clinical Deployment!!!\n1:09:57 Questions and challenges\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 4882,
+  "view_count": 18063,
+  "tags": [
+    "cardiac imaging",
+    "image classification",
+    "semantic segmentation",
+    "image registration",
+    "echocardiogram"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=MoEaRpLNo9A",
+  "thumbnail": "https://i.ytimg.com/vi_webp/MoEaRpLNo9A/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Info about cardiology and heart diseases",
+      "end_time": 922.0
+    },
+    {
+      "start_time": 922.0,
+      "title": "How medical imaging data are stored",
+      "end_time": 1155.0
+    },
+    {
+      "start_time": 1155.0,
+      "title": "Machine learning in cardiac disease",
+      "end_time": 1833.0
+    },
+    {
+      "start_time": 1833.0,
+      "title": "Image registration",
+      "end_time": 2119.0
+    },
+    {
+      "start_time": 2119.0,
+      "title": "Failure and Disease progression using",
+      "end_time": 2344.0
+    },
+    {
+      "start_time": 2344.0,
+      "title": "Machine learning in cardiac disease - what should be focusing on?",
+      "end_time": 3009.0
+    },
+    {
+      "start_time": 3009.0,
+      "title": "Are clinicians really a gold standard?",
+      "end_time": 3215.0
+    },
+    {
+      "start_time": 3215.0,
+      "title": "Automated Disease Detection - What's the point?",
+      "end_time": 3680.0
+    },
+    {
+      "start_time": 3680.0,
+      "title": "What's Next - Clinical Deployment!!!",
+      "end_time": 4197.0
+    },
+    {
+      "start_time": 4197.0,
+      "title": "Questions and challenges",
+      "end_time": 4882
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/MoEaRpLNo9A.en-j3PyPqV-e1s.srt"
+}

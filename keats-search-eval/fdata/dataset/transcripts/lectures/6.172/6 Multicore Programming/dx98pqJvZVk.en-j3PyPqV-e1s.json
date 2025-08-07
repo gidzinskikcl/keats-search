@@ -1,0 +1,127 @@
+{
+  "id": "dx98pqJvZVk",
+  "title": "6. Multicore Programming",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nThis lecture covers modern multi-core processors, the need to utilize parallel programming for high performance, and how Cilk abstracts processor cores, handles synchronization and communication protocols, and performs provably efficient load balancing.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4606,
+  "view_count": 145684,
+  "tags": [
+    "shared-memory hardware",
+    "concurrency platforms",
+    "pthreads",
+    "threading building blocks",
+    "openMP",
+    "cilk"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=dx98pqJvZVk",
+  "thumbnail": "https://i.ytimg.com/vi_webp/dx98pqJvZVk/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 74.0
+    },
+    {
+      "start_time": 74.0,
+      "title": "Multicore Processors",
+      "end_time": 314.0
+    },
+    {
+      "start_time": 314.0,
+      "title": "Power Density",
+      "end_time": 400.0
+    },
+    {
+      "start_time": 400.0,
+      "title": "Technology Scaling",
+      "end_time": 465.0
+    },
+    {
+      "start_time": 465.0,
+      "title": "Abstract Multicore Architecture",
+      "end_time": 527.0
+    },
+    {
+      "start_time": 527.0,
+      "title": "OUTLINE",
+      "end_time": 609.0
+    },
+    {
+      "start_time": 609.0,
+      "title": "Cache Coherence",
+      "end_time": 858.0
+    },
+    {
+      "start_time": 858.0,
+      "title": "MSI Protocol",
+      "end_time": 1175.0
+    },
+    {
+      "start_time": 1175.0,
+      "title": "Concurrency Platforms",
+      "end_time": 1286.0
+    },
+    {
+      "start_time": 1286.0,
+      "title": "Fibonacci Program",
+      "end_time": 1411.0
+    },
+    {
+      "start_time": 1411.0,
+      "title": "Fibonacci Execution fib(4)",
+      "end_time": 1612.0
+    },
+    {
+      "start_time": 1612.0,
+      "title": "Key Pthread Functions",
+      "end_time": 1742.0
+    },
+    {
+      "start_time": 1742.0,
+      "title": "Pthread Implementation",
+      "end_time": 2105.0
+    },
+    {
+      "start_time": 2105.0,
+      "title": "Issues with Pthreads",
+      "end_time": 2396.0
+    },
+    {
+      "start_time": 2396.0,
+      "title": "Threading Building Blocks",
+      "end_time": 2445.0
+    },
+    {
+      "start_time": 2445.0,
+      "title": "Fibonacci in TBB",
+      "end_time": 2644.0
+    },
+    {
+      "start_time": 2644.0,
+      "title": "Other TBB Features",
+      "end_time": 2805.0
+    },
+    {
+      "start_time": 2805.0,
+      "title": "Fibonacci in OpenMP",
+      "end_time": 3063.0
+    },
+    {
+      "start_time": 3063.0,
+      "title": "Intel Cilk Plus",
+      "end_time": 3322.0
+    },
+    {
+      "start_time": 3322.0,
+      "title": "Nested Parallelism in Cilk",
+      "end_time": 3430.0
+    },
+    {
+      "start_time": 3430.0,
+      "title": "Loop Parallelism in Cilk",
+      "end_time": 4606
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/dx98pqJvZVk.en-j3PyPqV-e1s.srt"
+}

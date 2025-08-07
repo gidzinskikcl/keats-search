@@ -1,0 +1,111 @@
+{
+  "id": "d5e_YJGXXFU",
+  "title": "12. Parallel Storage Allocation",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Julian Shun\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProf. Shun discusses the differences between malloc() and mmap(); how cactus stacks work; parallel allocation strategies, including global heaps, local heaps, and local ownership; and incremental, parallel, and concurrent garbage collection.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20190923",
+  "duration": 4641,
+  "view_count": 12312,
+  "tags": [
+    "memory-allocation primitive",
+    "storage allocator",
+    "false sharing",
+    "parallel heap",
+    "garbage collection"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=d5e_YJGXXFU",
+  "thumbnail": "https://i.ytimg.com/vi_webp/d5e_YJGXXFU/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Intro",
+      "end_time": 51.0
+    },
+    {
+      "start_time": 51.0,
+      "title": "Heap Storage in C",
+      "end_time": 279.0
+    },
+    {
+      "start_time": 279.0,
+      "title": "Allocating Virtual Memory",
+      "end_time": 409.0
+    },
+    {
+      "start_time": 409.0,
+      "title": "Properties of mmap",
+      "end_time": 502.0
+    },
+    {
+      "start_time": 502.0,
+      "title": "What's the Difference...",
+      "end_time": 679.0
+    },
+    {
+      "start_time": 679.0,
+      "title": "Address Translation",
+      "end_time": 941.0
+    },
+    {
+      "start_time": 941.0,
+      "title": "Traditional Linear Stack",
+      "end_time": 1565.0
+    },
+    {
+      "start_time": 1565.0,
+      "title": "Heap-Based Cactus Stack",
+      "end_time": 1663.0
+    },
+    {
+      "start_time": 1663.0,
+      "title": "Space Bound",
+      "end_time": 1809.0
+    },
+    {
+      "start_time": 1809.0,
+      "title": "D&C Matrix Multiplication",
+      "end_time": 2057.0
+    },
+    {
+      "start_time": 2057.0,
+      "title": "Analysis of D&C Matrix Mult.",
+      "end_time": 2188.0
+    },
+    {
+      "start_time": 2188.0,
+      "title": "Worst-Case Recursion Tree",
+      "end_time": 2375.0
+    },
+    {
+      "start_time": 2375.0,
+      "title": "Interoperability",
+      "end_time": 2495.0
+    },
+    {
+      "start_time": 2495.0,
+      "title": "Allocator Speed",
+      "end_time": 2963.0
+    },
+    {
+      "start_time": 2963.0,
+      "title": "Fragmentation Glossary",
+      "end_time": 3034.0
+    },
+    {
+      "start_time": 3034.0,
+      "title": "Strategy 1: Global Heap",
+      "end_time": 3186.0
+    },
+    {
+      "start_time": 3186.0,
+      "title": "Scalability",
+      "end_time": 3330.0
+    },
+    {
+      "start_time": 3330.0,
+      "title": "Strategy 2: Local Heaps",
+      "end_time": 4641
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/d5e_YJGXXFU.en-j3PyPqV-e1s.srt"
+}

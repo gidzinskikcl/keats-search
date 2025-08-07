@@ -1,0 +1,41 @@
+{
+  "id": "o7h_sYMk_oc",
+  "title": "1. Introduction and Matrix Multiplication",
+  "description": "MIT 6.172 Performance Engineering of Software Systems, Fall 2018\nInstructor: Charles Leiserson\nView the complete course: https://ocw.mit.edu/6-172F18\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63VIBQVWguXxZZi0566y7Wf\n\nProfessor Leiserson introduces 6.172 Performance Engineering of Software Systems. The class examines an example of code optimization using matrix multiplication and discusses the differences between programming languages Python, Java, and C.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20211006",
+  "duration": 3620,
+  "view_count": 225981,
+  "tags": [
+    "performance engineering",
+    "software",
+    "technology scaling",
+    "matrix multiplication",
+    "vectorization"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=o7h_sYMk_oc",
+  "thumbnail": "https://i.ytimg.com/vi_webp/o7h_sYMk_oc/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 100.0
+    },
+    {
+      "start_time": 100.0,
+      "title": "Perspective",
+      "end_time": 184.0
+    },
+    {
+      "start_time": 184.0,
+      "title": "Performance is Currency",
+      "end_time": 308.0
+    },
+    {
+      "start_time": 308.0,
+      "title": "Performance Engineering",
+      "end_time": 3620
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.172/o7h_sYMk_oc.en-j3PyPqV-e1s.srt"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "CHhwJjR0mZA",
+  "title": "2. Data Structures and Dynamic Arrays",
+  "description": "MIT 6.006 Introduction to Algorithms, Spring 2020\nInstructor: Erik Demaine\nView the complete course: https://ocw.mit.edu/6-006S20\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY\n\nData structures are ways to store data with algorithms that support opperations on the data. These collection of osrted operations are interfaces. This class goes over two main interfaces: sequence and set.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu\nSupport OCW at http://ow.ly/a1If50zVRlQ\n\nWe encourage constructive comments and discussion on OCW\u2019s YouTube and other social media channels. Personal attacks, hate speech, trolling, and inappropriate comments are not allowed and may be removed. More details at https://ocw.mit.edu/comments.",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20210913",
+  "duration": 3018,
+  "view_count": 599296,
+  "tags": [
+    "data structure, specification,, operations, representation, sequence, linked list, dynamic array"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=CHhwJjR0mZA",
+  "thumbnail": "https://i.ytimg.com/vi/CHhwJjR0mZA/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-DoACuAiKAgwIABABGGUgXyhaMA8=&rs=AOn4CLBOoc0ay_taPi6ZLOjHjztlTPBCqg",
+  "chapters": [
+    {
+      "start_time": 0.0,
+      "title": "Introduction",
+      "end_time": 40.0
+    },
+    {
+      "start_time": 40.0,
+      "title": "Data Structures",
+      "end_time": 480.0
+    },
+    {
+      "start_time": 480.0,
+      "title": "Static Arrays",
+      "end_time": 870.0
+    },
+    {
+      "start_time": 870.0,
+      "title": "Word Size",
+      "end_time": 1290.0
+    },
+    {
+      "start_time": 1290.0,
+      "title": "Linked Lists",
+      "end_time": 1505.0
+    },
+    {
+      "start_time": 1505.0,
+      "title": "Dynamic Sequence Operations",
+      "end_time": 2360.0
+    },
+    {
+      "start_time": 2360.0,
+      "title": "Array Size",
+      "end_time": 2510.0
+    },
+    {
+      "start_time": 2510.0,
+      "title": "Array Resizing",
+      "end_time": 2790.0
+    },
+    {
+      "start_time": 2790.0,
+      "title": "Constant Amortized Time",
+      "end_time": 3018
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.006/CHhwJjR0mZA.en-j3PyPqV-e1s.srt"
+}

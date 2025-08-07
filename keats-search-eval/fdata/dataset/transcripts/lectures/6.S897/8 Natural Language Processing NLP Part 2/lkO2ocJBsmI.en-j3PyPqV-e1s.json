@@ -1,0 +1,106 @@
+{
+  "id": "lkO2ocJBsmI",
+  "title": "8. Natural Language Processing (NLP), Part 2",
+  "description": "MIT 6.S897 Machine Learning for Healthcare, Spring 2019\nInstructor: Peter Szolovits\nView the complete course: https://ocw.mit.edu/6-S897S19\nYouTube Playlist: https://www.youtube.com/playlist?list=PLUl4u3cNGP60B0PQXVQyGNdCyCTDU1Q5j\n\nProf. Szolovits covers Natural Language Processing methods including those which are not based on neural networks representations and those techniques which employ neural network architectures.\n\nLicense: Creative Commons BY-NC-SA\nMore information at https://ocw.mit.edu/terms\nMore courses at https://ocw.mit.edu",
+  "uploader": "MIT OpenCourseWare",
+  "upload_date": "20201022",
+  "duration": 5004,
+  "view_count": 11274,
+  "tags": [
+    "natural language processing",
+    "linguistics",
+    "language models",
+    "neural methods",
+    "term spotting"
+  ],
+  "webpage_url": "https://www.youtube.com/watch?v=lkO2ocJBsmI",
+  "thumbnail": "https://i.ytimg.com/vi_webp/lkO2ocJBsmI/maxresdefault.webp",
+  "chapters": [
+    {
+      "start_time": 0,
+      "end_time": 91.0,
+      "title": "<Untitled Chapter 1>"
+    },
+    {
+      "start_time": 91.0,
+      "title": "Electronic medical record phenotyping using the anchor and learn framework, using ED data",
+      "end_time": 419.0
+    },
+    {
+      "start_time": 419.0,
+      "title": "The Importance of Context",
+      "end_time": 490.0
+    },
+    {
+      "start_time": 490.0,
+      "title": "Building Models",
+      "end_time": 727.0
+    },
+    {
+      "start_time": 727.0,
+      "title": "Learning Models",
+      "end_time": 1223.0
+    },
+    {
+      "start_time": 1223.0,
+      "title": "Prediction of Suicide and Accidental Death After Discharge",
+      "end_time": 1512.0
+    },
+    {
+      "start_time": 1512.0,
+      "title": "Non-Negative Tensor Factorization",
+      "end_time": 1602.0
+    },
+    {
+      "start_time": 1602.0,
+      "title": "Representation of Narrative Sentences",
+      "end_time": 1838.0
+    },
+    {
+      "start_time": 1838.0,
+      "title": "Unsupervised Learning - Clustering Results",
+      "end_time": 2009.0
+    },
+    {
+      "start_time": 2009.0,
+      "title": "Language Modeling",
+      "end_time": 2163.0
+    },
+    {
+      "start_time": 2163.0,
+      "title": "Statistical Models of Language Zipf's law",
+      "end_time": 2401.0
+    },
+    {
+      "start_time": 2401.0,
+      "title": "Generating Sequences",
+      "end_time": 2462.0
+    },
+    {
+      "start_time": 2462.0,
+      "title": "Generating Shakespeare",
+      "end_time": 2557.0
+    },
+    {
+      "start_time": 2557.0,
+      "title": "Generating the Wall Street Journal",
+      "end_time": 2607.0
+    },
+    {
+      "start_time": 2607.0,
+      "title": "Distributional Semantics",
+      "end_time": 2901.0
+    },
+    {
+      "start_time": 2901.0,
+      "title": "Feature extraction for phenotyping from semantic and knowledge resources SEDFE",
+      "end_time": 3243.0
+    },
+    {
+      "start_time": 3243.0,
+      "title": "ANN model for de-identification",
+      "end_time": 5004
+    }
+  ],
+  "transcript_file": "/Users/piotrgidzinski/KeatsSearch_workspace/keats-search/data/transcripts/6.S897/lkO2ocJBsmI.en-j3PyPqV-e1s.srt"
+}
